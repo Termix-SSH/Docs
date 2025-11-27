@@ -2,13 +2,23 @@
 
 ## Installation Methods
 
-### Apple App Store
+### Apple App Store (Recommended)
 
-Coming soon.
+Using your Apple device, visit [this link](https://apps.apple.com/us/app/termix-ssh-companion/id6752672071) or search `Termix - SSH Companion` on the Apple App Store. You can install and open it like you would any other app via the App Store.
+
+Once installed and opened, follow the on-screen guide to connect to your existing Termix instance. If you enjoy the app, consider leaving an honest review so the app shows up higher in the search results.
 
 ### Homebrew
 
-Coming soon.
+Run the following commands to install via [homebrew](https://brew.sh/): \
+`brew tap Termix-SSH/Termix https://github.com/Termix-SSH/Termix.git`
+`brew install --cask termix`
+
+Update: `brew update` then `brew upgrade --cask termix`
+
+Uninstall: `brew uninstall --cask termix`
+
+Termix is not available on the official homebrew repository. It may be available in the future.
 
 ### GitHub Releases
 
