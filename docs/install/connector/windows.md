@@ -1,17 +1,28 @@
-# Linux Installation
+# Windows Installation
 
 ## Installation Methods
 
 ### Chocolatey (Recommended)
 
-Run the following command to install via [chocolatey](https://community.chocolatey.org/packages/termix-ssh/): \
-`choco install termix-ssh --version 1.9.0` (while the package is being reviewed by chocolatey, you need to specify the version)
+Install via [chocolatey](https://community.chocolatey.org/packages/termix-ssh/):
 
-Update: `choco upgrade termix-ssh`
+```powershell
+choco install termix-ssh --version 1.9.0
+```
 
-Uninstall: `choco uninstall termix-ssh`
+> While the package is being reviewed by chocolatey, you need to specify the version.
 
-All above commands will ask you for permission to run the installation script which will download the `.msi` and install it.
+**Update:**
+```powershell
+choco upgrade termix-ssh
+```
+
+**Uninstall:**
+```powershell
+choco uninstall termix-ssh
+```
+
+All commands will prompt for permission to run the installation script which downloads and installs the `.msi` file.
 
 ### GitHub Releases
 

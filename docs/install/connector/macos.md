@@ -10,15 +10,25 @@ Once installed and opened, follow the on-screen guide to connect to your existin
 
 ### Homebrew
 
-Run the following commands to install via [homebrew](https://brew.sh/): \
-`brew tap Termix-SSH/Termix https://github.com/Termix-SSH/Termix.git` \
-`brew install --cask termix`
+Install via [homebrew](https://brew.sh/):
 
-Update: `brew update` then `brew upgrade --cask termix`
+```bash
+brew tap Termix-SSH/Termix https://github.com/Termix-SSH/Termix.git
+brew install --cask termix
+```
 
-Uninstall: `brew uninstall --cask termix`
+**Update:**
+```bash
+brew update
+brew upgrade --cask termix
+```
 
-Termix is not available on the official homebrew repository. It may be available in the future.
+**Uninstall:**
+```bash
+brew uninstall --cask termix
+```
+
+> Termix is not available on the official homebrew repository. It may be available in the future.
 
 ### GitHub Releases
 

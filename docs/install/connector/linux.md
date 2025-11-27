@@ -4,17 +4,29 @@
 
 ### Flatpak (Recommended)
 
-Run the following commands to install via [flatpak](https://flatpak.org/): \
-`wget https://github.com/Termix-SSH/Termix/releases/latest/download/termix_linux_flatpak.flatpak` \
-`flatpak install --user termix_linux_flatpak.flatpak` (you will be prompted with confirmations to install)
+Install via [flatpak](https://flatpak.org/):
 
-Start: `flatpak run com.karmaa.termix`
+```bash
+wget https://github.com/Termix-SSH/Termix/releases/latest/download/termix_linux_flatpak.flatpak
+flatpak install --user termix_linux_flatpak.flatpak
+```
 
-Update: `flatpak update com.karmaa.termix`
+**Start:**
+```bash
+flatpak run com.karmaa.termix
+```
 
-Uninstall: `flatpak uninstall com.karmaa.termix`
+**Update:**
+```bash
+flatpak update com.karmaa.termix
+```
 
-Termix is not available on the official flatpak repository. It may be available in the future.
+**Uninstall:**
+```bash
+flatpak uninstall com.karmaa.termix
+```
+
+> Termix is not available on the official flatpak repository. It may be available in the future.
 
 ### GitHub Releases
 
