@@ -13,11 +13,13 @@ choco install termix-ssh --version 1.9.0
 > While the package is being reviewed by chocolatey, you need to specify the version.
 
 **Update:**
+
 ```powershell
 choco upgrade termix-ssh
 ```
 
 **Uninstall:**
+
 ```powershell
 choco uninstall termix-ssh
 ```

@@ -1,11 +1,11 @@
 import { defineConfig } from "vitepress";
 import { useSidebar } from "vitepress-openapi";
-import spec from '../public/openapi.json' with { type: 'json' }
+import spec from "../public/openapi.json" with { type: "json" };
 
 const sidebar = useSidebar({
-    spec,
-    linkPrefix: '/operations/',
-})
+  spec,
+  linkPrefix: "/operations/",
+});
 
 export default defineConfig({
   title: "Termix",
@@ -88,9 +88,7 @@ export default defineConfig({
             text: "API Reference",
             collapsed: true,
             link: "/api-reference",
-            items: [
-                ...sidebar.generateSidebarGroups(),
-            ],
+            items: [...sidebar.generateSidebarGroups()],
           },
         ],
       },

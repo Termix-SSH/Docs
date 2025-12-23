@@ -18,12 +18,14 @@ brew install --cask termix
 ```
 
 **Update:**
+
 ```bash
 brew update
 brew upgrade --cask termix
 ```
 
 **Uninstall:**
+
 ```bash
 brew uninstall --cask termix
 ```

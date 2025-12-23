@@ -12,16 +12,19 @@ flatpak install --user termix_linux_flatpak.flatpak
 ```
 
 **Start:**
+
 ```bash
 flatpak run com.karmaa.termix
 ```
 
 **Update:**
+
 ```bash
 flatpak update com.karmaa.termix
 ```
 
 **Uninstall:**
+
 ```bash
 flatpak uninstall com.karmaa.termix
 ```
