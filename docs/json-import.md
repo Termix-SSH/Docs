@@ -25,6 +25,7 @@ Use this guide to create JSON files for bulk importing SSH hosts. All examples a
 
 - **`credentialId`** - ID of existing credential (number) - Required if `authType` is `"credential"`
   - Note: Credentials must be created in Termix before importing hosts that reference them. Find the ID in the `ID:` text inside the credentials viewer.
+- **`overrideCredentialUsername`** - Override username from credential (boolean, default: false) - Only applies when using credential authentication. When enabled, uses the username specified in the host instead of the credential's username.
 
 ### None Authentication
 
@@ -36,6 +37,7 @@ Use this guide to create JSON files for bulk importing SSH hosts. All examples a
 - **`folder`** - Organization folder (string, default: "Default")
 - **`tags`** - Array of tag strings (array, default: [])
 - **`pin`** - Pin to top of host list (boolean, default: false)
+- **`notes`** - Optional notes about the host (string, optional)
 
 ## Feature Toggles
 
@@ -44,7 +46,6 @@ Use this guide to create JSON files for bulk importing SSH hosts. All examples a
 - **`enableFileManager`** - Enable file manager access (boolean, default: true)
 - **`enableDocker`** - Enable Docker integration (boolean, default: false)
 - **`defaultPath`** - Default directory path for file manager (string, default: "/")
-- **`notes`** - Optional notes about the host (string, optional)
 
 ## Tunnel Configuration
 
@@ -118,8 +119,8 @@ Customize terminal appearance and behavior:
   - **`fontFamily`** - Font family name (string, default: "monospace")
   - **`letterSpacing`** - Letter spacing in pixels (number, -2 to 10, default: 0)
   - **`lineHeight`** - Line height multiplier (number, 1.0-2.0, default: 1.0)
-  - **`theme`** - Color theme name (string, default: "default")
-  - **`scrollback`** - Scrollback buffer size in lines (number, 1000-50000, default: 1000)
+  - **`theme`** - Color theme name (string, default: "termixDark")
+  - **`scrollback`** - Scrollback buffer size in lines (number, 1000-100000, default: 10000)
   - **`bellStyle`** - Bell notification style: `"none"`, `"sound"`, `"visual"`, or `"both"` (string, default: "none")
   - **`rightClickSelectsWord`** - Right-click selects word (boolean, default: false)
   - **`fastScrollModifier`** - Fast scroll modifier key: `"alt"`, `"ctrl"`, or `"shift"` (string, default: "alt")
@@ -139,7 +140,6 @@ Customize terminal appearance and behavior:
 ### Advanced SSH Settings
 
 - **`forceKeyboardInteractive`** - Force keyboard-interactive authentication (boolean, default: false)
-- **`overrideCredentialUsername`** - Override username from credential (boolean, default: false) - Only applies when using credential authentication
 
 ## Example JSON Structure
 
@@ -160,9 +160,11 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "folder": "Production",
       "tags": ["web", "production", "nginx"],
       "pin": true,
+      "notes": "Main production web server running Nginx. Contact ops@company.com for access.",
       "enableTerminal": true,
       "enableTunnel": false,
       "enableFileManager": true,
+      "enableDocker": false,
       "defaultPath": "/var/www"
     },
     {
@@ -177,9 +179,11 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "folder": "Production",
       "tags": ["database", "production", "postgresql"],
       "pin": false,
+      "notes": "PostgreSQL production database. Requires VPN access.",
       "enableTerminal": true,
       "enableTunnel": true,
       "enableFileManager": false,
+      "enableDocker": false,
       "tunnelConnections": [
         {
           "sourcePort": 5432,
@@ -205,12 +209,15 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "username": "developer",
       "authType": "credential",
       "credentialId": 1,
+      "overrideCredentialUsername": false,
       "folder": "Development",
       "tags": ["dev", "testing"],
       "pin": false,
+      "notes": "Development environment for testing new features.",
       "enableTerminal": true,
       "enableTunnel": false,
       "enableFileManager": true,
+      "enableDocker": true,
       "defaultPath": "/home/developer"
     },
     {
@@ -222,6 +229,10 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "password": "secure_password",
       "folder": "Infrastructure",
       "tags": ["bastion", "jump-host"],
+      "notes": "Jump host for accessing internal network servers.",
+      "enableTerminal": true,
+      "enableTunnel": true,
+      "enableFileManager": true,
       "jumpHosts": [
         {
           "hostId": 1
@@ -246,9 +257,11 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "authType": "none",
       "folder": "Secure Hosts",
       "tags": ["cert-auth", "secure"],
+      "notes": "Uses certificate-based authentication. Cert must be installed in SSH agent.",
       "enableTerminal": true,
       "enableTunnel": false,
-      "enableFileManager": false
+      "enableFileManager": false,
+      "forceKeyboardInteractive": false
     },
     {
       "name": "Server Behind Single Proxy",
@@ -259,6 +272,7 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "password": "secure_password",
       "folder": "Proxied Hosts",
       "tags": ["proxy", "socks5"],
+      "notes": "Accessible through corporate SOCKS5 proxy.",
       "useSocks5": true,
       "socks5Host": "proxy.example.com",
       "socks5Port": 1080,
@@ -274,6 +288,7 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "key": "-----BEGIN OPENSSH PRIVATE KEY-----\nYour SSH private key content here\n-----END OPENSSH PRIVATE KEY-----",
       "folder": "Proxied Hosts",
       "tags": ["proxy-chain", "multi-hop"],
+      "notes": "Requires multi-hop proxy chain to access.",
       "useSocks5": true,
       "socks5ProxyChain": [
         {
@@ -296,6 +311,50 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
           "type": 4
         }
       ]
+    },
+    {
+      "name": "Customized Terminal Server",
+      "ip": "192.168.1.150",
+      "port": 22,
+      "username": "devops",
+      "authType": "password",
+      "password": "terminal_password",
+      "folder": "Development",
+      "tags": ["custom", "terminal"],
+      "notes": "Server with custom terminal configuration and startup scripts.",
+      "enableTerminal": true,
+      "terminalConfig": {
+        "cursorBlink": true,
+        "cursorStyle": "bar",
+        "fontSize": 16,
+        "fontFamily": "jetbrainsMono",
+        "letterSpacing": 0.5,
+        "lineHeight": 1.2,
+        "theme": "monokai",
+        "scrollback": 50000,
+        "bellStyle": "visual",
+        "rightClickSelectsWord": true,
+        "fastScrollModifier": "ctrl",
+        "fastScrollSensitivity": 7,
+        "minimumContrastRatio": 4,
+        "backspaceMode": "normal",
+        "agentForwarding": true,
+        "environmentVariables": [
+          {
+            "key": "NODE_ENV",
+            "value": "development"
+          },
+          {
+            "key": "API_URL",
+            "value": "https://api.dev.example.com"
+          }
+        ],
+        "startupSnippetId": 3,
+        "autoMosh": true,
+        "moshCommand": "mosh --server=/usr/local/bin/mosh-server",
+        "sudoPasswordAutoFill": true,
+        "sudoPassword": "sudo_password_here"
+      }
     }
   ]
 }
@@ -328,7 +387,7 @@ The bulk import endpoint validates each host entry with the following rules:
 
 - **Credentials**: Must be created in Termix before importing hosts that reference them via `credentialId`
 - **Jump Hosts**: The `hostId` in `jumpHosts` array must reference existing hosts in your Termix instance
-- **Snippets**: The `snippetId` in `quickActions` must reference existing snippets in your Termix instance
+- **Snippets**: The `snippetId` in `quickActions` and `terminalConfig.startupSnippetId` must reference existing snippets in your Termix instance
 - **Tunnel Endpoints**: The `endpointHost` in `tunnelConnections` must match an existing host's name or `username@ip` format
 
 ### Using the Export Feature
