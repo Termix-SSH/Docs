@@ -14,7 +14,7 @@ sudo usermod -aG docker $USER
 
 Your user will now be inside the Docker group and should now also connect properly!
 
-## Trouble Shooting
+## Troubleshooting
 
 - Make sure the user can run `docker --version` without error or without being prompted for any form of password
 - Confirm that your credentials are correct by trying a terminal or file manager session
