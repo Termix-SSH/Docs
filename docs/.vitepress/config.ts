@@ -69,6 +69,7 @@ export default defineConfig({
             items: [
               { text: "OIDC", link: "/oidc" },
               { text: "TOTP", link: "/totp" },
+              { text: "RBAC", link: "/rbac" },
               { text: "Security", link: "/security" },
             ],
           },
@@ -76,8 +77,9 @@ export default defineConfig({
             text: "Networking",
             items: [
               { text: "Tunnels", link: "/tunnels" },
-              { text: "SSL", link: "/ssl" },
               { text: "Server Stats", link: "/server-stats" },
+              { text: "Docker", link: "/docker" },
+              { text: "SSL", link: "/ssl" },
             ],
           },
           {

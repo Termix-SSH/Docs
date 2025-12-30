@@ -18,6 +18,14 @@ Add SSH hosts and credentials within the `Host Manager` button in the top left a
 
 Create a credential in the `Host Manager` in the `Add Credential` tab with an SSH key as the selected auth type. Then, go back to the `Credential Viewer` tab and click on the green arrow icon on the desired credential and follow the on-screen steps.
 
+## SOCKS5
+
+Create a host in `Host Manager` with SOCKS5 configured at the bottom of the Terminal tab.
+
+## RBAC
+
+See [RBAC](https://docs.termix.site/rbac) for an outlined list of the steps.
+
 ## Split Screen
 
 Click on the `<|>` icon on a tab in the top bar (next to the close button). This will open the `SSH Tool Sidebar` in the split-screen tab. Follow the on-screen steps.
@@ -34,7 +42,7 @@ Configure a host with Server Stats enabled in `Host Manager` then visit the `Ser
 
 Visit the `Admin Settings` and go to the `Database` tab.
 
-## SSH Tunnel
+## SSH Terminal
 
 Configure a host with Terminal enabled in `Host Manager` then click the `>_` icon from the `Left Sidebar`.
 
@@ -45,6 +53,10 @@ Configure a host with a tunnel configured in `Host Manager` then visit the `Serv
 ## SSH File Manager
 
 Configure a host with File Manager enabled in `Host Manager` then visit the `File Manager` option on a host when connecting to it from the `Left Sidebar`. The file manager only works on common Linux based hosts.
+
+## Docker Management
+
+Configure a host with Docker enabled in `Host Manager` then visit the `Docker` option on a host when connecting to it from the `Left Sidebar`.
 
 ## Command Palette
 
