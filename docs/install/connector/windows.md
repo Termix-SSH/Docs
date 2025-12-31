@@ -26,6 +26,8 @@ choco uninstall termix-ssh
 
 All commands will prompt for permission to run the installation script which downloads and installs the `.msi` file.
 
+Since Chocolatey has to manually review the app on their app store, it may take a few days after a Termix update before it's available to download. The `Update Required` screen will appear whether or not the update is acutally available to download.
+
 ### GitHub Releases
 
 Click on the download link below for your specific device architecture and desired installation type.
