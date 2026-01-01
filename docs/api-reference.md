@@ -1,4 +1,4 @@
-# API Reference
+# API Reference (OUT OF DATE)
 
 Welcome to the API Reference section. Here you can find detailed information about the API endpoints, their parameters,
 and responses.
@@ -11,6 +11,8 @@ Servers:
 - `http://localhost:8083` - SSH tunnel management server
 - `http://localhost:8084` - SSH file manager server
 - `http://localhost:8085` - Server statistics and monitoring server
+
+In the coming weeks, Termix docs will be migrated to another docs site. At that point, the Termix API reference will become more through. During this time, the detailed API docs are disabled (and have been for a few months).
 
 ## Support
 

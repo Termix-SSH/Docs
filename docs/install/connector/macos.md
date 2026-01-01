@@ -8,6 +8,8 @@ Using your Apple device, visit [this link](https://apps.apple.com/us/app/termix-
 
 Once installed and opened, follow the on-screen guide to connect to your existing Termix instance. If you enjoy the app, consider leaving an honest review so the app shows up higher in the search results.
 
+Since Apple has to manually review the app on their app store, it may take a few days after a Termix update before its available on the App Store. The `Update Required` screen will appear whether or not the update is acutally available to download.
+
 ### Homebrew
 
 Install via [homebrew](https://brew.sh/):
@@ -18,12 +20,14 @@ brew install --cask termix
 ```
 
 **Update:**
+
 ```bash
 brew update
 brew upgrade --cask termix
 ```
 
 **Uninstall:**
+
 ```bash
 brew uninstall --cask termix
 ```

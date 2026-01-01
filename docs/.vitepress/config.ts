@@ -1,5 +1,11 @@
 import { defineConfig } from "vitepress";
 import { useSidebar } from "vitepress-openapi";
+import spec from "../public/openapi.json" with { type: "json" };
+
+const sidebar = useSidebar({
+  spec,
+  linkPrefix: "/operations/",
+});
 
 export default defineConfig({
   title: "Termix",
@@ -63,6 +69,7 @@ export default defineConfig({
             items: [
               { text: "OIDC", link: "/oidc" },
               { text: "TOTP", link: "/totp" },
+              { text: "RBAC", link: "/rbac" },
               { text: "Security", link: "/security" },
             ],
           },
@@ -70,8 +77,9 @@ export default defineConfig({
             text: "Networking",
             items: [
               { text: "Tunnels", link: "/tunnels" },
-              { text: "SSL", link: "/ssl" },
               { text: "Server Stats", link: "/server-stats" },
+              { text: "Docker", link: "/docker" },
+              { text: "SSL", link: "/ssl" },
             ],
           },
           {
@@ -82,7 +90,7 @@ export default defineConfig({
             text: "API Reference",
             collapsed: true,
             link: "/api-reference",
-            items: [],
+            items: [...sidebar.generateSidebarGroups()],
           },
         ],
       },
