@@ -1,0 +1,111 @@
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const config: Config = {
+  title: 'Termix',
+  tagline: 'SSH server manager',
+  favicon: 'img/favicon.ico',
+
+  future: {
+    v4: true,
+  },
+
+  url: 'https://docs.termix.site',
+  baseUrl: '/',
+
+  onBrokenLinks: 'throw',
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+          routeBasePath: '/',
+          editUrl: 'https://github.com/Termix-SSH/Docs/tree/main',
+        },
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themeConfig: {
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: 'Termix',
+      logo: {
+        alt: 'Termix Logo',
+        src: 'img/logo.svg',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'GitHub',
+          items: [
+            {
+              label: 'Termix',
+              href: 'https://github.com/Termix-SSH/Termix',
+            },
+            {
+              label: 'Mobile',
+              href: 'https://github.com/Termix-SSH/Mobile',
+            },
+            {
+              label: 'Docs',
+              href: 'https://github.com/Termix-SSH/Docs',
+            },
+            {
+              label: 'Support',
+              href: 'https://github.com/Termix-SSH/Support',
+            },
+          ],
+        },
+        {
+          title: 'Support',
+          items: [
+            {
+              label: 'Request Feature',
+              href: 'https://github.com/Termix-SSH/Support/issues/new?template=feature_request.yml',
+            },
+            {
+              label: 'Report Bug',
+              href: 'https://github.com/Termix-SSH/Support/issues/new?template=bug_report.yml',
+            },
+            {
+              label: 'eMail',
+              href: 'mailto:mail@termix.site',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Luke Gustafson. Termix is licensed under the Apache License, Version 2.0.`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;

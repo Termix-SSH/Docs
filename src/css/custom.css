@@ -1,0 +1,80 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --ifm-color-primary: #27272a;
+  --ifm-color-primary-dark: #18181b;
+  --ifm-color-primary-darker: #09090b;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #3f3f46;
+  --ifm-color-primary-lighter: #52525b;
+  --ifm-color-primary-lightest: #71717a;
+
+  --ifm-background-color: #fcfcfc;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-hero-background-color: #fafafa;
+  --ifm-card-background-color: #ffffff;
+  --ifm-footer-background-color: #f3f4f6;
+  --ifm-navbar-background-color: #fafafa;
+
+  --radius: 0.625rem;
+  --bg-base: #fcfcfc;
+  --bg-elevated: #ffffff;
+  --bg-surface: #f3f4f6;
+  --bg-surface-hover: #e5e7eb;
+  --border-base: #e5e7eb;
+  --border-medium: #d1d5db;
+  --foreground: #18181b;
+  --foreground-secondary: #334155;
+  --foreground-subtle: #94a3b8;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #e4e4e7;
+  --ifm-color-primary-dark: #d4d4d8;
+  --ifm-color-primary-darker: #a1a1aa;
+  --ifm-color-primary-darkest: #71717a;
+  --ifm-color-primary-light: #f4f4f5;
+  --ifm-color-primary-lighter: #fafafa;
+  --ifm-color-primary-lightest: #ffffff;
+
+  --ifm-background-color: #18181b;
+  --ifm-background-surface-color: #0e0e10;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  --ifm-hero-background-color: #131316;
+  --ifm-card-background-color: #1b1b1e;
+  --ifm-footer-background-color: #0e0e10;
+  --ifm-navbar-background-color: #131316;
+
+  --bg-base: #18181b;
+  --bg-elevated: #0e0e10;
+  --bg-surface: #1b1b1e;
+  --bg-surface-hover: #232327;
+  --border-base: #303032;
+  --border-medium: #373739;
+  --foreground: #fafafa;
+  --foreground-secondary: #d1d5db;
+  --foreground-subtle: #6b7280;
+}
+
+/* Footer overrides */
+.footer {
+  background-color: #0e0e10 !important;
+}
+
+[data-theme='dark'] .footer {
+  background-color: #0e0e10 !important;
+}
+
+/* Link overrides - only in markdown content */
+article a:not(.pagination-nav__link):not(.breadcrumbs__link) {
+  color: #3b82f6 !important;
+  text-decoration: underline !important;
+}
+
+article a:not(.pagination-nav__link):not(.breadcrumbs__link):hover {
+  color: #2563eb !important;
+}
