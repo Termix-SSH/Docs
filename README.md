@@ -12,6 +12,7 @@ If you would like, you can support the project here!\
 This is the public documentation website for the project, [Termix](https://github.com/Termix-SSH/Termix).
 
 Thank you to [Digital Ocean](https://www.digitalocean.com/) for sponsoring Termix and covering our documentation server costs!
+
 <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="Powered by DigitalOcean" width="300" height="200">
 
 # Planned Features
