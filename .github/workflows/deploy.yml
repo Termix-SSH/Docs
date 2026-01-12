@@ -1,0 +1,36 @@
+name: Deploy Docusaurus
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy via rsync
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avz --delete
+          path: build/
+          remote_path: ${{ secrets.DEPLOY_PATH }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
