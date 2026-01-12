@@ -29,11 +29,11 @@ services:
     container_name: termix
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - '8080:8080'
     volumes:
       - termix-data:/app/data
     environment:
-      PORT: "8080"
+      PORT: '8080'
 
 volumes:
   termix-data:
@@ -69,11 +69,11 @@ services:
     container_name: termix
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - '8080:8080'
     volumes:
       - termix-data:/app/data
     environment:
-      PORT: "8080"
+      PORT: '8080'
 
 volumes:
   termix-data:

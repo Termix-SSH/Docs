@@ -13,10 +13,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Server',
-          items: [
-            'install/server/docker',
-            'install/server/manual',
-          ],
+          items: ['install/server/docker', 'install/server/manual'],
         },
         {
           type: 'category',
@@ -33,6 +30,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Setup',
+      items: ['reverse-proxy']
+    },
+    {
+      type: 'category',
       label: 'Features',
       link: {
         type: 'doc',
@@ -42,29 +44,17 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Authentication',
-          items: [
-            'oidc',
-            'totp',
-            'rbac',
-            'security',
-          ],
+          items: ['oidc', 'totp', 'rbac', 'security'],
         },
         {
           type: 'category',
           label: 'Networking',
-          items: [
-            'tunnels',
-            'server-stats',
-            'docker',
-            'ssl',
-          ],
+          items: ['tunnels', 'server-stats', 'docker', 'ssl'],
         },
         {
           type: 'category',
           label: 'Data',
-          items: [
-            'json-import',
-          ],
+          items: ['json-import'],
         },
       ],
     },

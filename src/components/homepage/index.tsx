@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
     title: 'SSH Terminal Access',
     description: (
       <>
-        Full-featured terminal with split-screen support (up to 4 panels) and tab system.
-        Customize with themes, fonts, and configurations.
+        Full-featured terminal with split-screen support (up to 4 panels) and tab system. Customize
+        with themes, fonts, and configurations.
       </>
     ),
   },
@@ -23,8 +23,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Remote File Manager',
     description: (
       <>
-        Manage files on remote servers with support for code, images, audio, and video.
-        Upload, download, rename, delete, and move files seamlessly.
+        Manage files on remote servers with support for code, images, audio, and video. Upload,
+        download, rename, delete, and move files seamlessly.
       </>
     ),
   },
@@ -32,8 +32,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Docker Management',
     description: (
       <>
-        Control containers with start, stop, pause, and remove. View stats and access
-        docker exec terminals for container management.
+        Control containers with start, stop, pause, and remove. View stats and access docker exec
+        terminals for container management.
       </>
     ),
   },
@@ -41,8 +41,8 @@ const FeatureList: FeatureItem[] = [
     title: 'SSH Tunnel Management',
     description: (
       <>
-        Create and manage SSH tunnels with automatic reconnection and health monitoring
-        for secure access to remote services.
+        Create and manage SSH tunnels with automatic reconnection and health monitoring for secure
+        access to remote services.
       </>
     ),
   },
@@ -50,8 +50,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Host & Credentials Manager',
     description: (
       <>
-        Save and organize SSH connections with tags, folders, and reusable credentials.
-        Automate SSH key deployment across servers.
+        Save and organize SSH connections with tags, folders, and reusable credentials. Automate SSH
+        key deployment across servers.
       </>
     ),
   },
@@ -59,8 +59,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Server Monitoring',
     description: (
       <>
-        Monitor CPU, memory, disk usage, network activity, uptime, and system information
-        on connected servers.
+        Monitor CPU, memory, disk usage, network activity, uptime, and system information on
+        connected servers.
       </>
     ),
   },
@@ -68,8 +68,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Role-Based Access Control',
     description: (
       <>
-        Create roles and share hosts across users. Manage permissions with OIDC, 2FA support,
-        and a user session system.
+        Create roles and share hosts across users. Manage permissions with OIDC, 2FA support, and a
+        user session system.
       </>
     ),
   },
@@ -77,8 +77,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Multi-Platform Support',
     description: (
       <>
-        Available as a web app, desktop application (Windows, macOS, Linux), and mobile app
-        with a modern interface.
+        Available as a web app, desktop application (Windows, macOS, Linux), and mobile app with a
+        modern interface.
       </>
     ),
   },
@@ -87,7 +87,9 @@ const FeatureList: FeatureItem[] = [
 function Feature({ title, description }: FeatureItem) {
   return (
     <div className={styles.featureCard}>
-      <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+      <Heading as="h3" className={styles.featureTitle}>
+        {title}
+      </Heading>
       <p className={styles.featureDescription}>{description}</p>
     </div>
   );

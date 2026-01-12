@@ -162,7 +162,7 @@ identity_providers:
   oidc:
     claims_policies:
       legacy:
-        id_token: ["email", "email_verified", "preferred_username", "name"]
+        id_token: ['email', 'email_verified', 'preferred_username', 'name']
 
     authorization_policies:
       termix:
