@@ -1,0 +1,51 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #18181b;
+  color: #fafafa;
+}
+
+[data-theme='dark'] .heroBanner {
+  background-color: #0e0e10;
+  color: #fafafa;
+}
+
+.heroBanner :global(.hero__title),
+.heroBanner :global(.hero__subtitle) {
+  color: #fafafa;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons :global(.button) {
+  background-color: #fafafa;
+  color: #18181b;
+  border: none;
+}
+
+.buttons :global(.button):hover {
+  background-color: #e5e7eb;
+  color: #18181b;
+}
+
+[data-theme='dark'] .buttons :global(.button) {
+  background-color: #fafafa;
+  color: #18181b;
+}
+
+[data-theme='dark'] .buttons :global(.button):hover {
+  background-color: #d1d5db;
+  color: #18181b;
+}

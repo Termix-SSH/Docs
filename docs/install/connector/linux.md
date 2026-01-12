@@ -1,4 +1,4 @@
-# Linux Installation
+# Linux
 
 ## Installation Methods
 

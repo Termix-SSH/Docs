@@ -1,4 +1,4 @@
-# Windows Installation
+# Windows
 
 ## Installation Methods
 
@@ -9,8 +9,6 @@ Install via [chocolatey](https://community.chocolatey.org/packages/termix-ssh/):
 ```powershell
 choco install termix-ssh --version 1.9.0
 ```
-
-> While the package is being reviewed by chocolatey, you need to specify the version.
 
 **Update:**
 

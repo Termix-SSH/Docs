@@ -1,4 +1,4 @@
-# Server Stats Service Documentation
+# Server Stats
 
 The metrics collection scripts are designed **exclusively for Linux-based operating systems**.
 

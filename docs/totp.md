@@ -1,4 +1,4 @@
-# Two-Factor Authentication (TOTP) Setup Guide
+# TOTP (Two-Factor Authentication)
 
 ## Overview
 

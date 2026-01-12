@@ -1,4 +1,4 @@
-# iOS Installation
+# iOS
 
 [GitHub Repo](https://github.com/Termix-SSH/Mobile)
 

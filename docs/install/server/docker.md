@@ -1,4 +1,4 @@
-# Server Installation via Docker
+# Docker
 
 The simplest way to get Termix server up and running is with Docker.
 

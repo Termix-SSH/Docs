@@ -6,8 +6,8 @@ Choose the installation method that works best for your platform and use case.
 
 For running the required Termix backend and web-app front end:
 
-- **[Docker Installation](./install/server/docker)** - The simplest way to get Termix server up and running with Docker.
-- **[Manual Compilation](./install/server/manual-compile)** - Build and compile Termix from source code for custom deployments.
+- **[Docker](./install/server/docker)** - The simplest way to get Termix server up and running with Docker.
+- **[Manual](./install/server/manual)** - Build and compile Termix from source code for custom deployments.
 
 ## Connector
 
@@ -15,9 +15,9 @@ For running Termix as a client/connector application that connects to the server
 
 - **[Windows](./install/connector/windows)** - Download Windows portable executable or installer.
 - **[Linux](./install/connector/linux)** - Download Linux portable executable or installer.
-- **[macOS](./install/connector/macos)** - Download macOS portable executable or via the App Store
-- **[iOS](./install/connector/ios)** - Download iOS mobile app from the Apple App Store or via `.ipa`
-- **[Android](./install/connector/android)** - Download Android mobile app from the Google Play Store or via `.apk`
+- **[macOS](./install/connector/macos)** - Download macOS portable executable or via the App Store.
+- **[iOS](./install/connector/ios)** - Download iOS mobile app from the Apple App Store or via `.ipa`.
+- **[Android](./install/connector/android)** - Download Android mobile app from the Google Play Store or via `.apk`.
 
 ## Support
 

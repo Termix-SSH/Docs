@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-::: warning
+:::warning
 Using self-signed certificates as shown below will result in a browser security warning. Use at your own risk.
 :::
 

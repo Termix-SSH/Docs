@@ -1,0 +1,75 @@
+.features {
+  padding: 4rem 0;
+  background-color: var(--bg-base);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.featureCard {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featureCard:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--foreground-secondary);
+  margin: 0;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 2rem 0;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .featureCard {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media screen and (min-width: 997px) and (max-width: 1200px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .featuresGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,4 +1,4 @@
-# SSH JSON Import Format Guide
+# JSON Import Format
 
 Use this guide to create JSON files for bulk importing SSH hosts. All examples are copyable.
 

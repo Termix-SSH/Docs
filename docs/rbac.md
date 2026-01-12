@@ -1,4 +1,4 @@
-# RBAC
+# RBAC (Role Based Access Control)
 
 RBAC stands for Role Based Access Control. Termix implements it using this "workflow":
 
@@ -8,7 +8,7 @@ RBAC stands for Role Based Access Control. Termix implements it using this "work
 4. User assigns sharing permission level (for now, view only is the only option)
 5. User sets expiration date for the sharing (in hours)
 
-::: warning
+:::warning
 In order for a host to be shared, it MUST use credentials as its form of auth (not password, none, ssh key, etc.). That's because your SSH host data is encrypted with your users password so sharing that host would reduce the security. Instead, using a credential makes it simpler to develop and overall more secure for the user.
 :::
 

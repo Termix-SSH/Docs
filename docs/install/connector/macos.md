@@ -1,4 +1,4 @@
-# macOS Installation
+# macOS
 
 ## Installation Methods
 

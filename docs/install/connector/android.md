@@ -1,4 +1,4 @@
-# Android Installation
+# Android
 
 [GitHub Repo](https://github.com/Termix-SSH/Mobile)
 

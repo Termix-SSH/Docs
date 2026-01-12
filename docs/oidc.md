@@ -1,4 +1,4 @@
-# OIDC (OpenID Connect) Setup Guide
+# OIDC (OpenID Connect)
 
 This guide explains how to configure OpenID Connect (OIDC) authentication in Termix's admin settings to enable external identity provider authentication.
 

@@ -1,4 +1,4 @@
-# Manual Compilation
+# Manual
 
 If you prefer to manually compile Termix from source, follow these steps.
 
@@ -33,7 +33,7 @@ npm run build
 npm run preview
 ```
 
-::: tip
+:::tip
 For production environments, we recommend running the website via Nginx. See the Nginx configuration in the Docker directory of the repository.
 :::
 

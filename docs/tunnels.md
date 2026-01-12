@@ -1,4 +1,4 @@
-# SSH Tunnels Guide
+# SSH Tunnels
 
 ## Understanding SSH Tunnels
 
