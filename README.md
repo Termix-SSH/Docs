@@ -17,17 +17,13 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 
 # Sponsors
 
-# Sponsors
-
-# Sponsors
-
-<div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: nowrap;">
+<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
   <img
     src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg"
     alt="Powered by DigitalOcean"
-    style="height: 40px; flex-shrink: 0;"
+    style="height: 40px; vertical-align: middle; flex-shrink: 0;"
   />
-  <span style="line-height: 1.2;">
+  <span style="display: inline-block; vertical-align: middle; line-height: 40px;">
     - <a href="https://www.digitalocean.com/">DigitalOcean</a> covered documentation server costs
   </span>
 </div>
