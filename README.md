@@ -27,6 +27,17 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
   </span>
 </div>
 
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: nowrap;">
+  <img
+    src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg"
+    alt="Powered by Crowdin"
+    style="height: 40px; flex-shrink: 0;"
+  />
+  <span style="line-height: 1.2;">
+    - Covered all translation costs
+  </span>
+</div>
+
 # Support
 
 If you need help or want to report an issue with the Termix documentation, visit the [Support](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
