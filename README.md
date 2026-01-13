@@ -19,16 +19,16 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 
 # Sponsors
 
-<table align="center">
-  <tr>
-    <td style="border: none;">
-      <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="Powered by DigitalOcean" height="40">
-    </td>
-    <td style="border: none; vertical-align: middle;">
-      — <a href="https://www.digitalocean.com/">DigitalOcean</a> covered documentation server costs
-    </td>
-  </tr>
-</table>
+# Sponsors
+
+<p align="center">
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="Powered by DigitalOcean" height="40" style="vertical-align: middle;">
+  </a>
+  <span style="vertical-align: middle; margin-left: 10px;">
+    — <a href="https://www.digitalocean.com/">DigitalOcean</a> covered documentation server costs
+  </span>
+</p>
 
 # Support
 
