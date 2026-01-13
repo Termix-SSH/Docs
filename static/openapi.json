@@ -113,9 +113,7 @@
       "get": {
         "summary": "Get active alerts",
         "description": "Fetches active alerts for the authenticated user, excluding those that have been dismissed.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "responses": {
           "200": {
             "description": "A list of active alerts."
@@ -130,9 +128,7 @@
       "post": {
         "summary": "Dismiss an alert",
         "description": "Marks an alert as dismissed for the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "requestBody": {
           "required": true,
           "content": {
@@ -166,9 +162,7 @@
       "delete": {
         "summary": "Undismiss an alert",
         "description": "Removes an alert from the dismissed list for the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "requestBody": {
           "required": true,
           "content": {
@@ -204,9 +198,7 @@
       "get": {
         "summary": "Get dismissed alerts",
         "description": "Fetches a list of alerts that have been dismissed by the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "responses": {
           "200": {
             "description": "A list of dismissed alerts."
@@ -221,9 +213,7 @@
       "post": {
         "summary": "Create a new credential",
         "description": "Creates a new SSH credential for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -248,10 +238,7 @@
                   },
                   "authType": {
                     "type": "string",
-                    "enum": [
-                      "password",
-                      "key"
-                    ]
+                    "enum": ["password", "key"]
                   },
                   "username": {
                     "type": "string"
@@ -288,9 +275,7 @@
       "get": {
         "summary": "Get all credentials",
         "description": "Retrieves all SSH credentials for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "responses": {
           "200": {
             "description": "A list of credentials."
@@ -308,9 +293,7 @@
       "get": {
         "summary": "Get credential folders",
         "description": "Retrieves all unique credential folders for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "responses": {
           "200": {
             "description": "A list of folder names."
@@ -328,9 +311,7 @@
       "get": {
         "summary": "Get a specific credential",
         "description": "Retrieves a specific credential by its ID, including secrets.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -359,9 +340,7 @@
       "put": {
         "summary": "Update a credential",
         "description": "Updates a specific credential by its ID.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -408,9 +387,7 @@
       "delete": {
         "summary": "Delete a credential",
         "description": "Deletes a specific credential by its ID.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -441,9 +418,7 @@
       "post": {
         "summary": "Apply a credential to a host",
         "description": "Applies a credential to an SSH host for quick application.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -482,9 +457,7 @@
       "get": {
         "summary": "Get hosts using a credential",
         "description": "Retrieves a list of hosts that are using a specific credential.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -512,9 +485,7 @@
       "put": {
         "summary": "Rename a credential folder",
         "description": "Renames a credential folder for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -550,9 +521,7 @@
       "post": {
         "summary": "Detect SSH key type",
         "description": "Detects the type of an SSH private key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -588,9 +557,7 @@
       "post": {
         "summary": "Detect SSH public key type",
         "description": "Detects the type of an SSH public key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -623,9 +590,7 @@
       "post": {
         "summary": "Validate SSH key pair",
         "description": "Validates if a given SSH private key and public key match.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -664,9 +629,7 @@
       "post": {
         "summary": "Generate new SSH key pair",
         "description": "Generates a new SSH key pair.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -701,9 +664,7 @@
       "post": {
         "summary": "Generate public key from private key",
         "description": "Generates a public key from a given private key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -739,9 +700,7 @@
       "post": {
         "summary": "Deploy SSH key to a host",
         "description": "Deploys an SSH public key to a target host's authorized_keys file.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -790,9 +749,7 @@
       "get": {
         "summary": "Get network topology",
         "description": "Retrieves the network topology for the authenticated user.",
-        "tags": [
-          "Network Topology"
-        ],
+        "tags": ["Network Topology"],
         "responses": {
           "200": {
             "description": "The network topology."
@@ -808,9 +765,7 @@
       "post": {
         "summary": "Save network topology",
         "description": "Saves the network topology for the authenticated user.",
-        "tags": [
-          "Network Topology"
-        ],
+        "tags": ["Network Topology"],
         "requestBody": {
           "required": true,
           "content": {
@@ -846,9 +801,7 @@
       "post": {
         "summary": "Share a host",
         "description": "Shares a host with a user or a role.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -868,10 +821,7 @@
                 "properties": {
                   "targetType": {
                     "type": "string",
-                    "enum": [
-                      "user",
-                      "role"
-                    ]
+                    "enum": ["user", "role"]
                   },
                   "targetUserId": {
                     "type": "string"
@@ -884,9 +834,7 @@
                   },
                   "permissionLevel": {
                     "type": "string",
-                    "enum": [
-                      "view"
-                    ]
+                    "enum": ["view"]
                   }
                 }
               }
@@ -916,9 +864,7 @@
       "delete": {
         "summary": "Revoke host access",
         "description": "Revokes a user's or role's access to a host.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -957,9 +903,7 @@
       "get": {
         "summary": "Get host access list",
         "description": "Retrieves the list of users and roles that have access to a host.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -990,9 +934,7 @@
       "get": {
         "summary": "Get shared hosts",
         "description": "Retrieves the list of hosts that have been shared with the authenticated user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "responses": {
           "200": {
             "description": "A list of shared hosts."
@@ -1007,9 +949,7 @@
       "get": {
         "summary": "Get all roles",
         "description": "Retrieves a list of all roles.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "responses": {
           "200": {
             "description": "A list of roles."
@@ -1022,9 +962,7 @@
       "post": {
         "summary": "Create a new role",
         "description": "Creates a new role.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1066,9 +1004,7 @@
       "put": {
         "summary": "Update a role",
         "description": "Updates a role by its ID.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -1115,9 +1051,7 @@
       "delete": {
         "summary": "Delete a role",
         "description": "Deletes a role by its ID.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -1151,9 +1085,7 @@
       "post": {
         "summary": "Assign a role to a user",
         "description": "Assigns a role to a user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -1203,9 +1135,7 @@
       "get": {
         "summary": "Get user's roles",
         "description": "Retrieves a list of roles for a specific user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -1233,9 +1163,7 @@
       "delete": {
         "summary": "Remove a role from a user",
         "description": "Removes a role from a user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -1277,9 +1205,7 @@
       "get": {
         "summary": "Get all snippet folders",
         "description": "Retrieves all snippet folders for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "responses": {
           "200": {
             "description": "A list of snippet folders."
@@ -1295,9 +1221,7 @@
       "post": {
         "summary": "Create a new snippet folder",
         "description": "Creates a new snippet folder for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1339,9 +1263,7 @@
       "put": {
         "summary": "Update snippet folder metadata",
         "description": "Updates the metadata (color, icon) of a snippet folder.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -1390,9 +1312,7 @@
       "put": {
         "summary": "Rename a snippet folder",
         "description": "Renames a snippet folder for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1434,9 +1354,7 @@
       "delete": {
         "summary": "Delete a snippet folder",
         "description": "Deletes a snippet folder and moves its snippets to the root.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -1464,9 +1382,7 @@
       "put": {
         "summary": "Reorder snippets",
         "description": "Bulk updates the order and folder of snippets.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1513,9 +1429,7 @@
       "post": {
         "summary": "Execute a snippet on a host",
         "description": "Executes a snippet on a specified host.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1554,9 +1468,7 @@
       "get": {
         "summary": "Get all snippets",
         "description": "Retrieves all snippets for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "responses": {
           "200": {
             "description": "A list of snippets."
@@ -1572,9 +1484,7 @@
       "post": {
         "summary": "Create a new snippet",
         "description": "Creates a new snippet for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1619,9 +1529,7 @@
       "get": {
         "summary": "Get a specific snippet",
         "description": "Retrieves a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -1650,9 +1558,7 @@
       "put": {
         "summary": "Update a snippet",
         "description": "Updates a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -1708,9 +1614,7 @@
       "delete": {
         "summary": "Delete a snippet",
         "description": "Deletes a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -1741,9 +1645,7 @@
       "get": {
         "summary": "Get internal SSH host data",
         "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of autostart hosts."
@@ -1761,9 +1663,7 @@
       "get": {
         "summary": "Get all internal SSH host data",
         "description": "Returns all internal SSH host data. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of all hosts."
@@ -1781,9 +1681,7 @@
       "post": {
         "summary": "Create SSH host",
         "description": "Creates a new SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "Host created successfully."
@@ -1799,9 +1697,7 @@
       "get": {
         "summary": "Get all SSH hosts",
         "description": "Retrieves all SSH hosts for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of SSH hosts."
@@ -1819,9 +1715,7 @@
       "put": {
         "summary": "Update SSH host",
         "description": "Updates an existing SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -1853,9 +1747,7 @@
       "get": {
         "summary": "Get SSH host by ID",
         "description": "Retrieves a specific SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -1884,9 +1776,7 @@
       "delete": {
         "summary": "Delete SSH host",
         "description": "Deletes an SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -1917,9 +1807,7 @@
       "get": {
         "summary": "Export SSH host",
         "description": "Exports a specific SSH host with decrypted credentials.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -1950,9 +1838,7 @@
       "get": {
         "summary": "Get recent files",
         "description": "Retrieves a list of recent files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -1978,9 +1864,7 @@
       "post": {
         "summary": "Add recent file",
         "description": "Adds a file to the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2017,9 +1901,7 @@
       "delete": {
         "summary": "Remove recent file",
         "description": "Removes a file from the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2055,9 +1937,7 @@
       "get": {
         "summary": "Get pinned files",
         "description": "Retrieves a list of pinned files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -2083,9 +1963,7 @@
       "post": {
         "summary": "Add pinned file",
         "description": "Adds a file to the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2125,9 +2003,7 @@
       "delete": {
         "summary": "Remove pinned file",
         "description": "Removes a file from the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2163,9 +2039,7 @@
       "get": {
         "summary": "Get shortcuts",
         "description": "Retrieves a list of shortcuts for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -2191,9 +2065,7 @@
       "post": {
         "summary": "Add shortcut",
         "description": "Adds a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2233,9 +2105,7 @@
       "delete": {
         "summary": "Remove shortcut",
         "description": "Removes a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2271,9 +2141,7 @@
       "get": {
         "summary": "Get command history",
         "description": "Retrieves the command history for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -2301,9 +2169,7 @@
       "delete": {
         "summary": "Delete command from history",
         "description": "Deletes a specific command from the history of a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2339,9 +2205,7 @@
       "put": {
         "summary": "Rename folder",
         "description": "Renames a folder for SSH hosts and credentials.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2377,9 +2241,7 @@
       "get": {
         "summary": "Get all folders",
         "description": "Retrieves all folders for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of folders."
@@ -2397,9 +2259,7 @@
       "put": {
         "summary": "Update folder metadata",
         "description": "Updates the metadata (color, icon) of a folder.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2438,9 +2298,7 @@
       "delete": {
         "summary": "Delete all hosts in folder",
         "description": "Deletes all SSH hosts within a specific folder.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -2468,9 +2326,7 @@
       "post": {
         "summary": "Bulk import SSH hosts",
         "description": "Bulk imports multiple SSH hosts.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2503,9 +2359,7 @@
       "post": {
         "summary": "Enable autostart for SSH configuration",
         "description": "Enables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2541,9 +2395,7 @@
       "delete": {
         "summary": "Disable autostart for SSH configuration",
         "description": "Disables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2576,9 +2428,7 @@
       "get": {
         "summary": "Get autostart status",
         "description": "Retrieves the autostart status for the user's SSH configurations.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of autostart configurations."
@@ -2593,9 +2443,7 @@
       "post": {
         "summary": "Save command to history",
         "description": "Saves a command to the command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2631,9 +2479,7 @@
       "get": {
         "summary": "Get command history",
         "description": "Retrieves the command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "parameters": [
           {
             "in": "path",
@@ -2659,9 +2505,7 @@
       "delete": {
         "summary": "Clear command history",
         "description": "Clears the entire command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "parameters": [
           {
             "in": "path",
@@ -2689,9 +2533,7 @@
       "post": {
         "summary": "Delete a specific command from history",
         "description": "Deletes a specific command from the history of a host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2727,9 +2569,7 @@
       "post": {
         "summary": "Create a new user",
         "description": "Creates a new user with a username and password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2771,9 +2611,7 @@
       "post": {
         "summary": "Configure OIDC provider",
         "description": "Creates or updates the OIDC provider configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "OIDC configuration updated."
@@ -2789,9 +2627,7 @@
       "delete": {
         "summary": "Disable OIDC configuration",
         "description": "Disables the OIDC provider configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "OIDC configuration disabled."
@@ -2807,9 +2643,7 @@
       "get": {
         "summary": "Get OIDC configuration",
         "description": "Returns the public OIDC configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Public OIDC configuration."
@@ -2824,9 +2658,7 @@
       "get": {
         "summary": "Get OIDC configuration for admin",
         "description": "Returns the full OIDC configuration for an admin.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Full OIDC configuration."
@@ -2841,9 +2673,7 @@
       "get": {
         "summary": "Get OIDC authorization URL",
         "description": "Returns the OIDC authorization URL.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "OIDC authorization URL."
@@ -2861,9 +2691,7 @@
       "get": {
         "summary": "OIDC callback",
         "description": "Handles the OIDC callback, exchanges the code for a token, and creates or logs in the user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "302": {
             "description": "Redirects to the frontend with a success or error message."
@@ -2878,9 +2706,7 @@
       "post": {
         "summary": "User login",
         "description": "Authenticates a user and returns a JWT.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2925,9 +2751,7 @@
       "post": {
         "summary": "User logout",
         "description": "Logs out the user and clears the JWT cookie.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Logged out successfully."
@@ -2942,9 +2766,7 @@
       "get": {
         "summary": "Get current user's info",
         "description": "Retrieves information about the currently authenticated user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "User information."
@@ -2962,9 +2784,7 @@
       "get": {
         "summary": "Check if setup is required",
         "description": "Checks if the system requires initial setup (i.e., no users exist).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Setup status."
@@ -2979,9 +2799,7 @@
       "get": {
         "summary": "Count users",
         "description": "Returns the total number of users in the system.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "User count."
@@ -2999,9 +2817,7 @@
       "get": {
         "summary": "Database health check",
         "description": "Checks if the database is accessible.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Database is accessible."
@@ -3016,9 +2832,7 @@
       "get": {
         "summary": "Get registration status",
         "description": "Checks if user registration is currently allowed.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Registration status."
@@ -3031,9 +2845,7 @@
       "patch": {
         "summary": "Set registration status",
         "description": "Enables or disables user registration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3069,9 +2881,7 @@
       "get": {
         "summary": "Get password login status",
         "description": "Checks if password-based login is currently allowed.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Password login status."
@@ -3084,9 +2894,7 @@
       "patch": {
         "summary": "Set password login status",
         "description": "Enables or disables password-based login.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3122,9 +2930,7 @@
       "delete": {
         "summary": "Delete user account",
         "description": "Deletes the authenticated user's account.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3166,9 +2972,7 @@
       "post": {
         "summary": "Initiate password reset",
         "description": "Initiates the password reset process for a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3207,9 +3011,7 @@
       "post": {
         "summary": "Verify reset code",
         "description": "Verifies the password reset code.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3245,9 +3047,7 @@
       "post": {
         "summary": "Complete password reset",
         "description": "Completes the password reset process with a new password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3289,9 +3089,7 @@
       "post": {
         "summary": "Change user password",
         "description": "Changes the authenticated user's password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3330,9 +3128,7 @@
       "get": {
         "summary": "List all users",
         "description": "Retrieves a list of all users in the system.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "A list of users."
@@ -3350,9 +3146,7 @@
       "post": {
         "summary": "Make user admin",
         "description": "Grants admin privileges to a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3391,9 +3185,7 @@
       "post": {
         "summary": "Remove admin status",
         "description": "Revokes admin privileges from a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3432,9 +3224,7 @@
       "post": {
         "summary": "Verify TOTP during login",
         "description": "Verifies the TOTP code during login.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3476,9 +3266,7 @@
       "get": {
         "summary": "Get server uptime",
         "description": "Returns the uptime of the server in various formats.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "responses": {
           "200": {
             "description": "Server uptime information.",
@@ -3511,9 +3299,7 @@
       "get": {
         "summary": "Get recent activity",
         "description": "Fetches the most recent activities for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "parameters": [
           {
             "in": "query",
@@ -3541,9 +3327,7 @@
       "post": {
         "summary": "Log a new activity",
         "description": "Logs a new user activity, such as accessing a terminal or file manager. This endpoint is rate-limited.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3553,13 +3337,7 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "terminal",
-                      "file_manager",
-                      "server_stats",
-                      "tunnel",
-                      "docker"
-                    ]
+                    "enum": ["terminal", "file_manager", "server_stats", "tunnel", "docker"]
                   },
                   "hostId": {
                     "type": "integer"
@@ -3595,9 +3373,7 @@
       "delete": {
         "summary": "Reset recent activity",
         "description": "Clears all recent activity for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "responses": {
           "200": {
             "description": "Recent activity cleared."
@@ -3615,9 +3391,7 @@
       "post": {
         "summary": "Establish SSH session for Docker",
         "description": "Establishes an SSH session to a host for Docker operations.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3654,9 +3428,7 @@
       "post": {
         "summary": "Disconnect SSH session",
         "description": "Closes an active SSH session for Docker operations.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3686,9 +3458,7 @@
       "post": {
         "summary": "Verify TOTP and complete connection",
         "description": "Verifies the TOTP code and completes the SSH connection.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3727,9 +3497,7 @@
       "post": {
         "summary": "Keep SSH session alive",
         "description": "Keeps an active SSH session alive.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3759,9 +3527,7 @@
       "get": {
         "summary": "Check SSH session status",
         "description": "Checks the status of an active SSH session.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "query",
@@ -3786,9 +3552,7 @@
       "get": {
         "summary": "Validate Docker availability",
         "description": "Validates if Docker is available on the host.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -3816,9 +3580,7 @@
       "get": {
         "summary": "List all containers",
         "description": "Lists all Docker containers on the host.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -3853,9 +3615,7 @@
       "get": {
         "summary": "Get container details",
         "description": "Retrieves detailed information about a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -3894,9 +3654,7 @@
       "post": {
         "summary": "Start container",
         "description": "Starts a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -3935,9 +3693,7 @@
       "post": {
         "summary": "Stop container",
         "description": "Stops a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -3976,9 +3732,7 @@
       "post": {
         "summary": "Restart container",
         "description": "Restarts a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4017,9 +3771,7 @@
       "post": {
         "summary": "Pause container",
         "description": "Pauses a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4058,9 +3810,7 @@
       "post": {
         "summary": "Unpause container",
         "description": "Unpauses a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4099,9 +3849,7 @@
       "delete": {
         "summary": "Remove container",
         "description": "Removes a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4147,9 +3895,7 @@
       "get": {
         "summary": "Get container logs",
         "description": "Retrieves logs for a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4216,9 +3962,7 @@
       "get": {
         "summary": "Get container stats",
         "description": "Retrieves stats for a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -4257,9 +4001,7 @@
       "post": {
         "summary": "Connect to SSH for file manager",
         "description": "Establishes an SSH connection for file manager operations.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "responses": {
           "200": {
             "description": "SSH connection established."
@@ -4280,9 +4022,7 @@
       "post": {
         "summary": "Verify TOTP and complete connection",
         "description": "Verifies the TOTP code and completes the SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "responses": {
           "200": {
             "description": "TOTP verified, SSH connection established."
@@ -4306,9 +4046,7 @@
       "post": {
         "summary": "Disconnect from SSH",
         "description": "Closes an active SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "responses": {
           "200": {
             "description": "SSH connection disconnected."
@@ -4320,9 +4058,7 @@
       "get": {
         "summary": "Get SSH connection status",
         "description": "Checks the status of an SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -4344,9 +4080,7 @@
       "post": {
         "summary": "Keep SSH session alive",
         "description": "Keeps an active SSH session for file manager alive.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4376,9 +4110,7 @@
       "get": {
         "summary": "List files in a directory",
         "description": "Lists the files and directories in a given path on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -4414,9 +4146,7 @@
       "get": {
         "summary": "Identify symbolic link",
         "description": "Identifies the target of a symbolic link.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -4452,9 +4182,7 @@
       "get": {
         "summary": "Read a file",
         "description": "Reads the content of a file from the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -4493,9 +4221,7 @@
       "post": {
         "summary": "Write to a file",
         "description": "Writes content to a file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4534,9 +4260,7 @@
       "post": {
         "summary": "Upload a file",
         "description": "Uploads a file to the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4578,9 +4302,7 @@
       "post": {
         "summary": "Create a file",
         "description": "Creates an empty file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4622,9 +4344,7 @@
       "post": {
         "summary": "Create a folder",
         "description": "Creates a new folder on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4666,9 +4386,7 @@
       "delete": {
         "summary": "Delete a file or directory",
         "description": "Deletes a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4710,9 +4428,7 @@
       "put": {
         "summary": "Rename a file or directory",
         "description": "Renames a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4754,9 +4470,7 @@
       "put": {
         "summary": "Move a file or directory",
         "description": "Moves a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4801,9 +4515,7 @@
       "post": {
         "summary": "Download a file",
         "description": "Downloads a file from the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4845,9 +4557,7 @@
       "post": {
         "summary": "Copy a file or directory",
         "description": "Copies a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4892,9 +4602,7 @@
       "post": {
         "summary": "Execute a file",
         "description": "Executes a file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4930,9 +4638,7 @@
       "post": {
         "summary": "Change file permissions",
         "description": "Changes the permissions of a file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4974,9 +4680,7 @@
       "post": {
         "summary": "Compress files",
         "description": "Compresses files and/or directories on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5021,9 +4725,7 @@
       "get": {
         "summary": "Get all host statuses",
         "description": "Retrieves the status of all hosts for the authenticated user.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "responses": {
           "200": {
             "description": "A map of host IDs to their status entries."
@@ -5038,9 +4740,7 @@
       "get": {
         "summary": "Get host status by ID",
         "description": "Retrieves the status of a specific host by its ID.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "parameters": [
           {
             "in": "path",
@@ -5068,9 +4768,7 @@
       "post": {
         "summary": "Clear all SSH connections",
         "description": "Clears all SSH connections from the connection pool.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "responses": {
           "200": {
             "description": "All SSH connections cleared."
@@ -5085,9 +4783,7 @@
       "post": {
         "summary": "Refresh polling",
         "description": "Clears all SSH connections and refreshes host polling.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "responses": {
           "200": {
             "description": "Polling refreshed."
@@ -5102,9 +4798,7 @@
       "post": {
         "summary": "Start polling for updated host",
         "description": "Starts polling for a specific host after it has been updated.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5143,9 +4837,7 @@
       "post": {
         "summary": "Stop polling for deleted host",
         "description": "Stops polling for a specific host after it has been deleted.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5181,9 +4873,7 @@
       "get": {
         "summary": "Get host metrics",
         "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "parameters": [
           {
             "in": "path",
@@ -5211,9 +4901,7 @@
       "post": {
         "summary": "Start metrics collection",
         "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "parameters": [
           {
             "in": "path",
@@ -5244,9 +4932,7 @@
       "post": {
         "summary": "Stop metrics collection",
         "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "parameters": [
           {
             "in": "path",
@@ -5289,9 +4975,7 @@
       "post": {
         "summary": "Complete TOTP verification for metrics",
         "description": "Verifies the TOTP code and completes the metrics SSH connection.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5333,9 +5017,7 @@
       "post": {
         "summary": "Update viewer heartbeat",
         "description": "Updates the heartbeat timestamp for a metrics viewer session to keep it alive.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5374,9 +5056,7 @@
       "post": {
         "summary": "Register metrics viewer",
         "description": "Registers a new viewer session for a host to track who is viewing metrics.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5412,9 +5092,7 @@
       "post": {
         "summary": "Unregister metrics viewer",
         "description": "Unregisters a viewer session when they stop viewing metrics for a host.",
-        "tags": [
-          "Server Stats"
-        ],
+        "tags": ["Server Stats"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5453,9 +5131,7 @@
       "get": {
         "summary": "Get all tunnel statuses",
         "description": "Retrieves the status of all SSH tunnels.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "responses": {
           "200": {
             "description": "A list of all tunnel statuses."
@@ -5467,9 +5143,7 @@
       "get": {
         "summary": "Get tunnel status by name",
         "description": "Retrieves the status of a specific SSH tunnel by its name.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "parameters": [
           {
             "in": "path",
@@ -5494,9 +5168,7 @@
       "post": {
         "summary": "Connect SSH tunnel",
         "description": "Establishes an SSH tunnel connection with the specified configuration.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5541,9 +5213,7 @@
       "post": {
         "summary": "Disconnect SSH tunnel",
         "description": "Disconnects an active SSH tunnel.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5582,9 +5252,7 @@
       "post": {
         "summary": "Cancel tunnel retry",
         "description": "Cancels the retry mechanism for a failed SSH tunnel connection.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
