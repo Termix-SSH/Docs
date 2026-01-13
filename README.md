@@ -17,16 +17,13 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 
 # Sponsors
 
-<div align="center">
-<div style="display: flex; flex-direction: column; align-items: center; gap: 5px; margin-bottom: 20px;">
-<img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="Powered by DigitalOcean" height="40">
-<span>— Covered documentation server costs</span>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
-<img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" alt="Powered by Crowdin" height="40">
-<span>— Covered all translation costs</span>
-</div>
+<div align="center" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px;">
+<a href="https://www.digitalocean.com/">
+<img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="50" alt="DigitalOcean">
+</a>
+<a href="https://crowdin.com/">
+<img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" height="50" alt="Crowdin">
+</a>
 </div>
 
 # Support
