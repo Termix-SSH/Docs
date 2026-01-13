@@ -14,28 +14,32 @@ This is the public documentation website for the project, [Termix](https://githu
 # Planned Features
 
 See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned features. If you are looking to contribute, see [Contributing](https://github.com/Termix-SSH/Docs/blob/main/CONTRIBUTING.md).
+
 # Sponsors
 
-<div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: nowrap;">
-  <img
-    src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg"
-    alt="Powered by DigitalOcean"
-    style="height: 40px; flex-shrink: 0;"
-  />
-  <span style="line-height: 1.2;">
-    - Covered documentation server costs
-  </span>
-</div>
-
-<div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: nowrap;">
-  <img
-    src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg"
-    alt="Powered by Crowdin"
-    style="height: 40px; flex-shrink: 0;"
-  />
-  <span style="line-height: 1.2;">
-    - Covered all translation costs
-  </span>
+<div align="center">
+  <table style="border: none; background: transparent;">
+    <tr>
+      <td align="right" style="border: none; padding: 10px;">
+        <a href="https://www.digitalocean.com/">
+          <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="40" alt="DigitalOcean">
+        </a>
+      </td>
+      <td align="left" style="border: none; padding: 10px; vertical-align: middle;">
+         - Covered documentation server costs
+      </td>
+    </tr>
+    <tr>
+      <td align="right" style="border: none; padding: 10px;">
+        <a href="https://crowdin.com/">
+          <img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" height="40" alt="Crowdin">
+        </a>
+      </td>
+      <td align="left" style="border: none; padding: 10px; vertical-align: middle;">
+         - Covered all translation costs
+      </td>
+    </tr>
+  </table>
 </div>
 
 # Support
