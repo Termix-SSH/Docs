@@ -1,4 +1,5 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+import apiSidebarContent from './docs/api/sidebar';
 
 const sidebars: SidebarsConfig = {
   apiSidebar: [
@@ -6,7 +7,7 @@ const sidebars: SidebarsConfig = {
       type: 'doc',
       id: 'api/termix-api',
     },
-    ...require('./docs/api/sidebar.js').apisidebar.slice(1),
+    ...apiSidebarContent.slice(1),
   ],
   docsSidebar: [
     {
