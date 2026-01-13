@@ -17,7 +17,7 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 
 # Sponsors
 
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 50px;">
   <a href="https://www.digitalocean.com/">
     <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="50" alt="DigitalOcean">
   </a>
