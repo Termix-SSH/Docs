@@ -14,21 +14,18 @@ This is the public documentation website for the project, [Termix](https://githu
 # Planned Features
 
 See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned features. If you are looking to contribute, see [Contributing](https://github.com/Termix-SSH/Docs/blob/main/CONTRIBUTING.md).
-
 # Sponsors
 
-# Sponsors
-
-# Sponsors
-
-<p align="center">
-  <a href="https://www.digitalocean.com/">
-    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="Powered by DigitalOcean" height="40" style="vertical-align: middle;">
-  </a>
-  <span style="vertical-align: middle; margin-left: 10px;">
-    — <a href="https://www.digitalocean.com/">DigitalOcean</a> covered documentation server costs
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: nowrap;">
+  <img
+    src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg"
+    alt="Powered by DigitalOcean"
+    style="height: 40px; flex-shrink: 0;"
+  />
+  <span style="line-height: 1.2;">
+    - Covered documentation server costs
   </span>
-</p>
+</div>
 
 # Support
 
