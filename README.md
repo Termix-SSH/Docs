@@ -18,28 +18,23 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 # Sponsors
 
 <div align="center">
-  <table style="border: none; background: transparent;">
-    <tr>
-      <td align="right" style="border: none; padding: 10px;">
-        <a href="https://www.digitalocean.com/">
-          <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="40" alt="DigitalOcean">
-        </a>
-      </td>
-      <td align="left" style="border: none; padding: 10px; vertical-align: middle;">
-         - Covered documentation server costs
-      </td>
-    </tr>
-    <tr>
-      <td align="right" style="border: none; padding: 10px;">
-        <a href="https://crowdin.com/">
-          <img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" height="40" alt="Crowdin">
-        </a>
-      </td>
-      <td align="left" style="border: none; padding: 10px; vertical-align: middle;">
-         - Covered all translation costs
-      </td>
-    </tr>
-  </table>
+  <div style="display: inline-block; text-align: left;">
+    
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+      <a href="https://www.digitalocean.com/">
+        <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="170" alt="DigitalOcean">
+      </a>
+      <span>— Covered documentation server costs</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="https://crowdin.com/">
+        <img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" width="170" alt="Crowdin">
+      </a>
+      <span>— Covered all translation costs</span>
+    </div>
+
+  </div>
 </div>
 
 # Support
