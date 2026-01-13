@@ -18,19 +18,26 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 # Sponsors
 
 <table>
-  <tr>
-    <td>
-      <a href="https://www.digitalocean.com/">
-        <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="50" alt="DigitalOcean">
-      </a>
-    </td>
-    <td width="20"></td>
-    <td>
-      <a href="https://crowdin.com/">
-        <img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" height="50" alt="Crowdin">
-      </a>
-    </td>
-  </tr>
+<tr>
+<td valign="middle">
+<a href="https://www.digitalocean.com/">
+<img
+  src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg"
+  height="50"
+  hspace="20"
+  alt="DigitalOcean">
+</a>
+</td>
+
+<td valign="middle">
+<a href="https://crowdin.com/">
+<img
+  src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg"
+  height="50"
+  alt="Crowdin">
+</a>
+</td>
+</tr>
 </table>
 
 # Support
