@@ -17,15 +17,15 @@ See [Projects](https://github.com/orgs/Termix-SSH/projects/2) for all planned fe
 
 # Sponsors
 
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;">
+<p align="left">
   <a href="https://www.digitalocean.com/">
     <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" height="50" alt="DigitalOcean">
   </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://crowdin.com/">
     <img src="https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg" height="50" alt="Crowdin">
   </a>
-</div>
-
+</p>
 
 # Support
 
