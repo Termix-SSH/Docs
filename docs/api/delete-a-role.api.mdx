@@ -1,0 +1,71 @@
+---
+id: delete-a-role
+title: "Delete a role"
+description: "Deletes a role by its ID."
+sidebar_label: "Delete a role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVMFu2zAM/RWBpw0QEm9tN8C3tmmxDhswpB12CHJgLCYWKkuuRBczDP/7QNsduibtcrItPT4/UnqvA0OpiLZmGzzksCBHTEmhisGR2rTKclI3ixloYNwlyFewvDi/hLWGGiNWxBRltQMr9TVyCRo8VgQ5WAMaIj00NpKBnGNDGlJRUoWQd8BtPaA8044i9P1a0KkOPlESwMcsk8e/EpcizAw6jUpNUVBK28a5dga9htNDJTf+EZ01Y0/SzAA82QdeoveBJ3aV2sRUDVVpqjl9RY9UbUPjzYA7OyTiGq0jozg80QvvDPpeQ0VcBgM5jDugxznmMI8bLOaDgHlnTQ8aEsXHp5E30UEOJXOdz+cuFOjKkDg/ybLsA+gX//+O1iuDjBtMpNAbhQ2X5NkWKBA1MkOv3yQ+2SO+vf2iuPGenKrQ444q8nwk2+lBtq11NHHFI4nO9omGOpUY2Sa2RRp6roK3HKL1uyOJP+0RLzCVm4DRHMnweZ8hFPcUD01rLQdcNNFyO5zwhjBSPG/kNqzWz7dvxUajTZ6D/rpKpMDkNvkeQaCnl+sQK2TI4euvu+EOWr8NQ7llJ/g7ipX9rc5/3IAGuXGj9GyWzbK9hibwBRb35I0UqSVtKZIvSAxRh8QVeuGfomEMmilnXvJ1UATP5Pl/iTS2yvSb57VD6+Vfw0l0k4NWIA6SFBIPgYbcGskuORzZ7Tpxw8/o+l6WHxqKMvi1hkeMFjcyilUHxiZ5N5Bv0SV6Q+675RR379VrAqdF9K1MFl0jX6DhntoxM/v180xYXH27uruCvv8Dggrosw==
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/roles/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a role by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Role deleted successfully."},"400":{"description":"Invalid role ID."},"403":{"description":"Cannot delete system roles."},"404":{"description":"Role not found."},"500":{"description":"Failed to delete role."}}}
+>
+  
+</StatusCodes>
+
+
+      

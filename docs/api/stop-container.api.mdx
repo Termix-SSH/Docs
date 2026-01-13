@@ -1,0 +1,71 @@
+---
+id: stop-container
+title: "Stop container"
+description: "Stops a specific container."
+sidebar_label: "Stop container"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9lMFu2zAMhl9F4GkDhNhb2w3wrVtRrAOGFU2HHYIcGIluhNqSK9FFA8PvPtBxs6TJuuyyky2J/CTyJ9mBpWSia9gFDwVMOTRJoUoNGVc6o0zwjM5TnIAGxrsExQwugrmnCHMNDUasiSnKfgdOGA3yEjR4rAkKSJSSC/7KgoZID62LZKHg2JKGZJZUIxQd8KoZjDk6fwd9rw+yNo/5R9pcjFMTfKIk5+/zXD67oX9+hqvEoWnIqtQaQymVbVWtJtBrOD3kN51+UWOQygdWZWi9VSEOCxO8J8NkR//T1+7deA/GZ4cuu0RXkVUchkduq9P3GmriZbCStpAY9Dp7BWR20CvbWKes28jSZ91WWvtMuKAhUXx8VrWNFRSwZG6KLKuCwWoZEhcneZ6/A/3ihd/QeWWRcYGJFHqrsOUleXYGxUStySASvwI+2QNLnrn1nipVo8c7qsnzkbTTg7TSVTSy4pGgs33Q4KcSI7vEzqQh5jp4x0HK70jwhz3wBablImC0RxI+7hMG2Q9lay4CmzY6Xg0KLwgjxfNWymU23z6eSlOtu2bbaNNj8hQYe0/WayPQ489liDUyFPD15+1Qos6XYXB3XIn9LcXaPanz6yvQIBW3fno+ySf5XkCj8Sc09+StOKkbKimSNyQtI2Vfoxf+ODGmO13yEtgNE4U8/33yraNleuKsqdB5uW4Qoxu7bAbrLgP9e0wl0FBsD8Bid4INvTbXIBoKoeukaX7Equ9l+6GlKPrMNTxidLiQjM06sC7Jv4WixCrRK0G9uRln5Fv1pyDGTfQrEQCrVlag4Z5WO9Nbqu8/XrydqH6+Pduuv0+llH4Bh/ZNIw==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop container"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/docker/containers/{sessionId}/{containerId}/stop"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops a specific container.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Container stopped successfully."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to stop container."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: delete-a-snippet
+title: "Delete a snippet"
+description: "Deletes a specific snippet by its ID."
+sidebar_label: "Delete a snippet"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVlE1r20AQhv/KMqcWFlttkhZ0S3FCU1oocUoPxoexdmQtWe0qu6MQI/Tfy0hySWMnuCdLmncfvztfHRhKRbQN2+AhhwU5YkoKVWqosKUtVPK2aYjVZqcsJ3WzmIEGxm2CfAXLMZhgraHBiDUxRYl0YIXXIFegwWNNkIM1oCHSQ2sjGcg5tqQhFRXVCHkHvGsGlWfaUoS+X4s6NcEnSiL4mGXy86/lyYIyg3WjUlsUlFLZOrebQa/h/NipG/+IzholbijxJDx/He8DqzK03gzSi2PMa7SOjOIwedmnbgZ9r6EmroKBHMYg6DE5OcwnWZp31vSgIVF83GexjQ5yqJibfD53oUBXhcT5WZZlH0C/MPADrVcGGTeYSKE3CluuyLMtUCRqJEOv3wSfHYCXy6+KW+/JqRo9bqkmzyfSzo/SSutoYsUTQReHoOGcSoxsE9siDXeug7ccovXbE8GfDsALTNUmYDQnEj4fEkJxT/FYttZS4KKNlndDhTeEkeJlK72wWj8PL2Uyxs5/Lvo7KGIFpgGS91EEenq4DrFGhhy+/b4bOtD6MgzHLTvR31Gs7ZO6/HkDGqTjRuvZLJtlBxeaxF+wuCdv5JC6pZIi+YJkIpqQuEYv/Gnax10iq2Ts75fIDorgmTz/z94Zb870xPPGofXy10NhummcVrAfJ9CQWyObSeokka6TwfgVXd/L54eWotRgreERo8WNZGXVgbFJng3kJbpEb9h+dzsts/fqNXPTR/Q7STK6Vt5Awz3txo3Yr58vh8XV96u7K+j7P1/p51M=
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a snippet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/snippets/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a specific snippet by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Snippet deleted successfully."},"400":{"description":"Invalid request."},"404":{"description":"Snippet not found."},"500":{"description":"Failed to delete snippet."}}}
+>
+  
+</StatusCodes>
+
+
+      

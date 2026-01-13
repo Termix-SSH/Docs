@@ -1,0 +1,71 @@
+---
+id: get-host-access-list
+title: "Get host access list"
+description: "Retrieves the list of users and roles that have access to a host."
+sidebar_label: "Get host access list"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v2zAM/SsCTxsgxN7aboBu7bp2HbBhSFvsEPjA2Ews1JZcic4aGP7vA22vyJqsyGEnS9TjM78eOygo5sE2bL0DA3PiYGlDUXFJqrKRlV+pNlKICl2hgq+GN2RV4oYU5jnFqNgrVKWPPAMNjOsIZgHzi/NPkGloMGBNTEGsHVj5T4NcggaHNYEBW4CGQI+tDVSA4dCShpiXVCOYDnjbDCjHtKYAfZ8JOjbeRYoCeJ+m8vk7lbvyObwhj5UPQ1JjmL2G00NeN26DlS0GlLq5nIAn+8DvnkeQ/+UoDLizQ4RXaCsqpEJr4t2AZtD3Gmri0hdgYE0MeqyLgSQsMU+EPuls0SejG2iIFDZ/CtmGCgyUzI1JksrnWImDOUnT9B3oF2F8Q+tUgYxLjDS0ElsuybHNUSBqZIZev0p8skd8e/tFcescVapGh2uqyfGRbKcH2Va2ookrHEl0tk80+KnIyDayzcfxrb2z7IN16yOJP+wRX2Islx5DcSTDx30Gnz9QOFStTBqct8HydujwkjBQOG9lJhbZ7vOtiGMc/l3Qs1YkFJg0JPcRBHo6XPlQI4OBrz/vhjG0buUHd8uV4O8o1PZJnf+4AQ0ycWPo6SydpXsJTeALzB/IFeKk5rSiQC4n0UXjI9fohH8S/DVN4tnRw0vaDnLvmBz/r7U0VobpiZOmQusktKFx3SS7BYjsQIO4gAYz7KVJe9lkNgvoOhHRfaj6XsyPLQXpV6Zhg8HiUiq46KCwUc4FmBVWkV5J78182n1v1b8CnYzottIQrFq5gYYH2o4LtM92t8n1Z+nrbwjY/Ks=
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get host access list"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rbac/host/{id}/access"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves the list of users and roles that have access to a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The access list for the host."},"400":{"description":"Invalid host ID."},"403":{"description":"Not host owner."},"500":{"description":"Failed to get access list."}}}
+>
+  
+</StatusCodes>
+
+
+      

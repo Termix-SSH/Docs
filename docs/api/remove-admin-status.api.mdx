@@ -1,0 +1,71 @@
+---
+id: remove-admin-status
+title: "Remove admin status"
+description: "Revokes admin privileges from a user."
+sidebar_label: "Remove admin status"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1v2zAM/SsCz2rjre0G+NZuK7YB24okxQ5BDozNxGpsyZXotJnh/z5Q9vrlYIgvcSzyPT5Sjy3kFDJvajbOQgpT2rktBYV5ZayqvdmZkjYU1Nq7SqFqAvlT0MC4CZAu4DaQD7DU4Om+ocBXLt9D2sa/xlMOKfuGNGTOMlmWI6zr0mQohJO7IKwthKygCuWN9zVBCm51RxmDhtq7mjwbCnIq9BYrehEZ2Bu7gS4+UkeonQ19+PskkZ/XEi+jtMDITVCeKrejvJfXi+s0nB/Kux24lZG0Xp5yXmVoreMBSe1d45V7sEMHe5oB9GwM+tOxwoYL580fyoe488PkSmjWrrF93MWhIq/RlJQrdv/qeVNGp6EiLlwOKdQuxA4jF5DCRNSHSZ92EtNAQyC/kwmnixYaX0IKBXOdTialy7AsXOD0LEmSd6DfFPIDjVU5Mq4wkEKbR5lkeRi96pGh0/8FPhsBz2ZfFTfWUqkqtLihiiwfiXZ+EG1tShqw/JFAF2OgmBcbbQKbLETNlbOGnVzQI4E/jIA/YyhWDn1+JMLHMYLLtuQPdWspA84ab3gfJ7wi9OQvG7kQi+XL45kYtDfVy6AnF0opcl1iGKRDEOjh5dr5ChlS+P57Hi+hGH/6vDK+PGJVl/Ta4k/W1mDs2kU2wxIFc/KVeVSXN99Ag1zQXmlympwmI/1D8BVmW7K5JKkprcmTzUjAxQcVxj00EE/H3nmL2j6vtOOXZt8rpkee1CUaK+xxlO3gwkWUL2SvfLjUIPOV87YVQ936suvk831DXma31LBDb3Al7VksOw0FYU4+jnVLe0jhU1/vyVyqkPCykWpG61jG/rQjbn7N5jLFYa1XLpccjw9SIj5ACqDBxZ7EyxG/tVCi3TS4kdgeU56/MLY29A==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove admin status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/remove-admin"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes admin privileges from a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Admin status removed from user."},"400":{"description":"Username is required or cannot remove your own admin status."},"403":{"description":"Not authorized."},"404":{"description":"User not found."},"500":{"description":"Failed to remove admin status."}}}
+>
+  
+</StatusCodes>
+
+
+      

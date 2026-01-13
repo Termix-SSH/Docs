@@ -1,0 +1,71 @@
+---
+id: update-a-snippet
+title: "Update a snippet"
+description: "Updates a specific snippet by its ID."
+sidebar_label: "Update a snippet"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVU1v2zAM/SsCTxvgNd7abYBv7bpiHTBgaFPsEOTAWEys1pZUie4aGP7vA22nSeqsiC+2ReqJH+9RDWiKeTCejbOQwZ3XyBQVqugpN0uTq2iN98RqsVaGo7q+PIEEGFcRshnc9sYI8wQ8BqyIKYilASN4HrmABCxWBBkYDQkEeqxNIA0Zh5oSiHlBFULWAK9952WZVhSgbee9N0W+cHotLq83584yWRYTel+aHCWRyX2UbJoxtlvcU86QgA/OU2BDUax9fC9ekYOxK2j38Ee2vcodsC9dqSkcNLmwb9mmLI9kHb2zsQ/uU5rKa79R04JU3TVLbzp0Ishnh5yv7ROWRquhmIPj2dhxaKeyjtXS1VZ3rp8PYV6hKUkrdkMYO1G0CVTEhdNCgLqrttAgg8ngEyeN0S0kECk8bfhShxIyKJh9NpmULseycJGz0zRNP8KrasMvNFZpZFxgJIVWK6y5IMsDA1SPDG3yJvDpCPj29ofi2loqVYUWV1SR5SPRzg6iLU1JA1Y4EujzGKjbpyIjm8gmj13OlbOGnZDqSOAvI+BLjMXCYdBHInwdI7j8gcKhas2lwXkdDK+7Di8IA4XzWrgwm++ab0WnPdt3nV70IaHAMCrkv3eCZPi4cqFChgx+/pl29BP932wnx/dnrHxJW6VvpLgj8O3Sfnovyxs5b1cGFadtAsYuXRevYTkHphQq86zOf19DAkLxHiw9SU/S0RGD8wXmD2S1bFI3tKRANifRn3eRK7Q74fdjWqZ0L6jXkM1OXkeP9L7UTM888SUaK0d3TGgG/c5go19IIDNahr4QQyxNI0q8C2XbyvJjTUGaPk/gCYPBhVRl1oA2Ub41ZEssI70R9rubYdS/V/8LblhEu5YiY1nLHyTwQOv+smnnbQIFYdemWTMYvvVnfJjK9u3G0f0hBH2ZY7/vpkK34RqqnJYtAf/KhYZ/+3Ndl0bH4m6tgRLtqsaV+PaQ8vwDS7eLhw==
+sidebar_class_name: "put api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a snippet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/snippets/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates a specific snippet by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"content":{"type":"string"},"description":{"type":"string"},"folder":{"type":"string"},"order":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The updated snippet."},"400":{"description":"Invalid request."},"404":{"description":"Snippet not found."},"500":{"description":"Failed to update snippet."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: connect-ssh-tunnel
+title: "Connect SSH tunnel"
+description: "Establishes an SSH tunnel connection with the specified configuration."
+sidebar_label: "Connect SSH tunnel"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVcFO20AQ/ZXVnN3EFGgl36AFkUpVEaTqIcphsp7EC/au2R2HRFb+vZq1IYZEFYf6kDjeN88zb95MWsgpaG9qNs5CBleBcVGaUFBQaNX9/Y3ixloqlXbWkhaYejZcKC5IhZq0WRrK5XRpVo1HAYwgAcZVgGwGwjCNDAHmCXh6aijwpcu3kLXxp/GUQ8a+oQS0s0yW5QjrujQ68o0fgiTXQtAFVSh3vK0JMnCLB9IMCdTe1eTZUJBTixUNUIG9sSvYJRBc4zXduMCTfAAwlmlFXhBdtROb0+YYIF5SRqidDd3bPqepfL0V8tterr5m5UmTWVM+kvecHQua2DWWJh9IPhQ1Rp0cRl00XJDlXiz1omkfcHokQGsKQeVkpXXsFBcmqMIFjjHnx1K7RlN24N4IfZIjED0q4sLlkEHtQmwHcgEZjEMoxh1u3IdBAoH8mry4o4XGl5BBwVxn43HpNJaSRnaapukJJO9y+InGqhwZFxhIoc0Vvi29Y4Zd8k/i0wPigc0rtLiiiix/kO3sKNvSlNRz+Q8SnR8SxTgVGNkENjrEmitnDTtx9AeJvxwQf8dQLBz6/IMMXw8ZnH4kf0ytuTRYN97wNnZ4QejJi0chm82Hx/cyzd0IDUGvQyepiF0iDLIeBEl/c+18hQwZ/PgzjSaULXG33y9XG6zqkvb74GUPvF8D6bupT3cJGLt0MRXDQgFT8pXZqIvbCSQg7u1kSEfpKD0Qpwdfon4km0uQuqMlebKaZMBkSCq0g8z6bTHYt+9J2/1u/I9LuhOaacPjukRjJbvog7Yf4RmEUMCLQBA3dBzjeQJiD0G0rczjb1/udvL4qSEvrZ8nsEZvcCECzua7BArCnHx0xSNtu7KlpE9TyUPgZSP5HKx+cc3rirn9dT8VE/R/IZXLJcbjMyTxMwNIwEXZorfisxZKtKsGV4LtOOX6C7RXapY=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Connect SSH tunnel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/tunnel/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Establishes an SSH tunnel connection with the specified configuration.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"sourceHostId":{"type":"integer"},"tunnelIndex":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Connection request received."},"400":{"description":"Invalid tunnel configuration."},"401":{"description":"Authentication required."},"403":{"description":"Access denied to this host."},"500":{"description":"Failed to connect tunnel."}}}
+>
+  
+</StatusCodes>
+
+
+      

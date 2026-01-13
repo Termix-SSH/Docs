@@ -1,0 +1,71 @@
+---
+id: export-ssh-host
+title: "Export SSH host"
+description: "Exports a specific SSH host with decrypted credentials."
+sidebar_label: "Export SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVFFr2zAQ/ivinjYQsbe2G/itY+2awWAsHXsIebhIl1jUllzp3DUY//dxtlfSJiuBPVk6f/fx3Z2+68BSMtE17IKHAq4emxA5KVSpIeM2zqjF4kaVIbH67bhUlkzcNUxWmUiWPDus0gw0MG4TFEtYLG5gpaHBiDUxRQl24IS8QS5Bg8eaoABnQUOk+9ZFslBwbElDMiXVCEUHvGsGlGfaUoS+Xwk6NcEnSgJ4n+fyea7/tiRFQw1kn5TPoNdwfgw+9w9YOavaRHFuVYgDfm6njPPDjKdu+MBqE1o/Yi+OsV+jq8gqDpOkfUG9hpq4DBYK2BKDHrtTQJZSmdl1Jrisc7bPxmTQkCg+/G1oGysooGRuiiyrgsFKEoqzPM/fgX4h5Bs6rywyrjGRQm8VtlzK8AwKRI3M0OtXic8OiKUgbr2nStXocUs1eT6R7fwo28ZVNHHFE4kuDomGPJUY2SV2Jg0118E7DtH57YnEHw6IP2Mq1wGjPZHh4yFDMHcUj3VrJQM2bXS8Gya8JowUL1t5FcvV/u+FmGQ0wT7oyTMiBSYvyX0EgZ4O1yHWyFDA11+3w0N0fhOGdMeV4G8p1u5RXX6fgwZ5caP0fJbP8oOCJvAnNHfkrSSpH7ShSN6QOKMJiWv0wj8Z/+q5GV4ydmCCZ/L8f+tobAXTI2dNhc6LlmFS3eS0JaQk68iuQcMkpBiW0mS41RQultB14pyfsep7Cd+3FGVIKw0PGB2upW3LDqxLcrZQbLBK9Ephb35Mi++t+pfYKYh+J1PAqpUbaLij3bg9+9X+EvlyJcP8A0Ln+Bo=
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/db/host/{id}/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Exports a specific SSH host with decrypted credentials.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The exported SSH host."},"400":{"description":"Invalid userId or hostId."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to export SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

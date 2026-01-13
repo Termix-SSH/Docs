@@ -1,0 +1,71 @@
+---
+id: save-command-to-history
+title: "Save command to history"
+description: "Saves a command to the command history for a specific host."
+sidebar_label: "Save command to history"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVF1v2zAM/CsCn7XEXdsN8Fu7rVgHDCuWDnsIgoGRmVitLLkSnTUw8t8HKm6aLsUQYH7wl6jT8chjDxUlE23LNngoYYIrSgqVCU2DvlIcFNe0+6xt4hDXahGiQpVaMnZhjapD4hFoYFwmKKdwS7GxHh3MNER66CjxZajWUPb500aqoOTYkQYTPJNnWcK2ddagMBnfJaHTQzI1NShvvG4JSgjzOzIMGtoYWopsKcmqMLiu9uKsZ1pShI0ckcnvLSaO1i9hky+hmNrg0xbpbXEij5eyfBjyT7iiSqXOGEpp0Tm3HskJZ0VxuOerTcn6pXrKWLUYsSGmmPKm89c2XaF1lGWXo550H4HQbIjrUEEJbUhZAeQaShjzoPZ4iP41VAk0JIorilKTHrrooISauS3HYxcMOhGtPC2K4gT03+TRelUh4xwTKUkdO67J81AgtUWGjf4n8OkB8GTyWXHnPTnVoMclNeT5SLSzV9EW1tGAFY8EOj8EyvtUYmSb2JqUc26CtxykV44EfncA/BFTPQ8YqyMR3h8iBHNP8TW1ZlJg00XL61zhOWGkeNFJW0xn+8sTsdG2v/eDdoYQKtIuOQzKIQj08HIVYoMMJXz5eZtbUez5/dnYnx6xaR3tG7HY893ObxqsX4R8rmWJ306KR3Vxcw0apFW3ORejYlQcKDEEX6K5J1/JJvWdFhTJGxJw8UWDeW54zHlM9kwkpnp2xgvk/nkM/e8E3OrJ9Mjj1qH1wiuXux/8OoUnv8JOop1jZzoLKFF9L9b7Ed1mI78fOopS5ZmGFUaLc5FvOttoqAkrirkB7mmdh1XO5c2tcJFw1wmng/EqDbKbKTffJrdS72FMN6GSPRF/g873EkBDyHrlNsr/enDolx0uJXaLKdcfuOYv4A==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save command to history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/terminal/command_history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves a command to the command history for a specific host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"Command saved successfully."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to save command."}}}
+>
+  
+</StatusCodes>
+
+
+      

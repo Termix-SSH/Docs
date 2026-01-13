@@ -1,0 +1,71 @@
+---
+id: create-a-new-user
+title: "Create a new user"
+description: "Creates a new user with a username and password."
+sidebar_label: "Create a new user"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVMFO20AQ/ZXVnN0kLdCqvkFb1FaqigioB5TDxB7ihfWu2RmTRFb+vZq1gUBShOpDsvbOvH37ZuZ1UBIX0TZig4ccvkRCITZoPC1NyxTN0kplMK091mTQl6ZB5mWI5QgyEFww5FdwyRQZZhlEumuJ5SSUa8i79GojlZBLbCmDInghL7qFTeNsgXr2+IaVQAdcVFSjrmTdEOQQ5jdUCGTQxNBQFEusuw98tiJZovUL2GTwwG/PZnqUJDfBc4/1YTLRv+dS6H1MkfQoDbdFQczXrXPrkZ5w+K+UHY0MRjIPIgy5B7u557SwLDGJYSyboo2RvLi1KS3j3D3mfn7tXBcJy7WhlWXhlHC0j+gpWkelkTBcMFV3BCpMTVKFEnJoAifVUSrIYawRPO7DIQOmeK/1zq86aKODHCqRJh+PXSjQVYElP5hMJu8he3H0L7TelCg4R+6FwlYq8jI0gumRYZO9CnywAzydfjfSek/O1OhxQTV5eSPa4V60a+towIpvBDraBUp5hgXFstiC053r4K0E7cg3An/cAf6KXM0DxvKNCJ92EUJxS3GfWjMtcNFGK+tU4TlhpHjcaitczba3pzqu/RRtBz2OnVLRdklhkA9BkA2L0xBrFMjh55+L1H5qA+dPBvJthXXj6PnAP8zy9pxvDb/11yExsKKZcEGxtitzfPYDMtCm7W8/GU1Gkx1NhuATLG7Jl5pkzumaIvmCkrMElhqTUw1kesvccsyXmN2T5f2Xv/ZCCq1k3Di0XmmkOnfDcF4lbRgyGMZzloGWXXe6TufsMrrNRj/ftRS1pLMM7jFa9ZVU0QwqwpJiqvYtrZVqT/rdhZ6v4a5VHjuerd3waBpnv6cXWtzB++tQak7EJWTpNwfIICRhUs+kbx049IsWFxrbY+rzF6yvRx8=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new user with a username and password.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"User created successfully."},"400":{"description":"Username and password are required."},"403":{"description":"Registration is currently disabled."},"409":{"description":"Username already exists."},"500":{"description":"Failed to create user."}}}
+>
+  
+</StatusCodes>
+
+
+      

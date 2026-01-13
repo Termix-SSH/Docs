@@ -1,0 +1,71 @@
+---
+id: verify-totp-during-login
+title: "Verify TOTP during login"
+description: "Verifies the TOTP code during login."
+sidebar_label: "Verify TOTP during login"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVV1v2zAM/CsCn9XEXdsN8Fu7D6wDhhZNtj0EQcHYTKzGllyJzhoY+e8DZbdN62CIHxLHJk/HI49pIaeQeVOzcRZS+E3eLA0FxQWp6c30VmUuJ5U33tiVKt3K2BFoYFwFSGfwK5APMNfg6bGhwFcu30Laxp/GUw4p+4Y0ZM4yWZZXWNelyVDOGz8EObSFkBVUodzxtiZIwS0eKGPQUHtXk2dDIb6lqr5ntya7FxtYuMFOAzuu74XvgbfxEp6hdjZ0cB+SRL7eKhCL3kQZOpYqNFlGISybciSnnB/MElIKbb4nGnpSz0L0mafDzGu7wdLkSmpzHv1WxQKV869Qffb5MFsaoKxjtXSN7U65OK6qJZoy8tppqIgLl0MKtQtRdeQCUhg30t6xyDqOuduTOAGgIZDfSOvTWQuNLyGFgrlOx+PSZVgWLnB6liTJKeh3RH6isSpHxgUGioJhwwVZflE7IsNO/xf4bAA8mXxX3FhLparQ4ooqsnwk2vlBtKUpqcfyRwJdDIFingqMbAKbLMSaK2cNu+ip44A/DoC/YCgWDn1+JMKnIYLL1uQPqTWXBmeNN7yNHV4QevKXjUzFbL7/eiLO7dy0H/RiP6Ei4xLDIO2DQPc335yvkCGFH3+mcRJlI9y97pKvT1jVJb33/rOr31h+bxEYu3Qxx7Akw5R8ZZ7U5e01aJC57QRIRskoGcjSB19htiabS5K6oyV5shkJuHikwriBLMai4tLcdnbd35TvodvXPXj0ou1kZHricV2iscIgdrntXTqD6NJei66+V6fONcgESFjbiuV++XK3k8ePDXnp7lzDBr3BhSg1m+80FIQ5+dj4NW0hhc8d65OpkJHwshFSg00ug/GySm5vJlPpc/+PUHU98vgXdPxMATS4qEwcn/ishRLtqsGVxHaYcv0DwvZIKg==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify TOTP during login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/totp/verify-login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Verifies the TOTP code during login.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"temp_token":{"type":"string"},"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"TOTP verification successful."},"400":{"description":"Token and TOTP code are required."},"401":{"description":"Invalid temporary token or TOTP code."},"404":{"description":"User not found."},"500":{"description":"TOTP verification failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

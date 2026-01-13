@@ -1,0 +1,71 @@
+---
+id: compress-files
+title: "Compress files"
+description: "Compresses files and/or directories on the remote host."
+sidebar_label: "Compress files"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVduO2zgM/RWBz2qS7W0Bv/Wyg+0C3RadKfYhCArGZmJ1bMkl6dkJjPx7QTnJZJKgGKB+SGyJPCaPzqEHqEhKDp2GFKGAd6ntmERI3Co0JA5jNU3sqsBUauJA4lJ0WpNjapOSq5PoBDworgWKOVyFhtxHjLgmhoUHph89ib5N1QaKIT8GpgoK5Z48lCkqRbUt7LomlGiVTL+LlTOAlDW1aHe66QgKSMvvVCp46Dh1xBpIchyJhBQ/VEehohziGrYeOtRajnaQGTfgISi1ciFj6wG5rMMd/YstXYRcJW5RL+XaZW1Ll6KM1T2fzezvMdVXmd9yT3jlpC9LEln1TbOZ2DteXkr7GERCXLs9ka5DxpaUWFxi10fpuy6xUnXADim6sd4M++piNRgaqpymQ9YogElmoyWtUwUFdEky+ag1FDAVqacW9q0dDzwv7AFyg+BBiO+ITRwD9NxAAbVqV0ynTSqxMf0UL2az2R/gT1vFEF2FiksUMiU67LWmqDuVuBEZtv6XwC/OgK+v/3bax0iNGwtvKeoT0V5eRDMSdlj8RKBX50A5z4miBtFQZve5NsVgzovrJwK/PgN+j1IvE3L1RIQ/zxFSeUt8ia2FHXDZc9BNPuElIRO/6U0g88Xx9rV5eTTEcdDBQVaKySWHQbELAr+7udo5Dv757yaL0mbEl4fp8tc9tl1DJ9Ng78vDEJjvVxYnJn+I3Hv7yO4hrlIuNai9Am6I23Dv3nz+AB5M3SNNs8lsMjsjbxf8FstbipUluS+0IqZYUh5PSbTFPO/iWMq7Rx48BRwepubvDOyRdaV7nXYNhmilZFEMO3/PQaQ2Po4cbgeUFx+7fOHBcC1nGMyuX7nZbm35R09sylh4uEMOuDT+5outh5qwIs6iuaVN7iV39ezGKrPwps/T+vS7YKI6TKTPn65vTCO770ubKsth/B98/i0APKTMXJZeXhugwbjucW2xI6ZdPwEH03IL
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Compress files"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/ssh/compressFiles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Compresses files and/or directories on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"paths":{"type":"array","items":{"type":"string"}},"archiveName":{"type":"string"},"format":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Files compressed successfully."},"400":{"description":"Missing required parameters or unsupported compression format."},"500":{"description":"Failed to compress files."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: enable-autostart-for-ssh-configuration
+title: "Enable autostart for SSH configuration"
+description: "Enables autostart for a specific SSH configuration."
+sidebar_label: "Enable autostart for SSH configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVNtu00AQ/ZXVPC+JoS1IfmtLUYuEqEiAhyoPk/Uk3na96+6lNLLy72jWJg11hCL8kPhy5uyZy5kOKgrK6zZqZ6GEK4tLQ0Fgii5E9FGsnBcoQktKr7QSs9m1UM6u9Dp55KAJSIi4DlDewWx2DQsJnh4ThXjhqg2UXX7Uniooo08kQTkbyUb+hG1rtMo80/vACjoIqqYG+S5uWoIS3PKeVAQJrXct+agpZFyoL7OQm2oPbFOzJA/bfLGU0Dob+oh3RcF/f2d8nqKb5Uwp516JkJSiEFbJmM0EthJOD8X9QKMrsSdC6CD+pDqEnY7DRvUT1nGRk+2Dzg6ddWMjeYtGBPJP5AV57/wEOMGGYu0qKKF1IdcIYw0lTEOop7smTvvUQEJPwM3qIHkDJdQxtuV0apxCU7sQy5OiKN6CfCXhC2orKoy4xEACbcUjUpONQ/sGabCV/yQ+GRFzQWKyloxo0OKaGrLxSLbTg2wrbWjg8kcSnY2J+kqHiFGHqFXIOTfO6ui8tusjid+PiD9iqJcOfXUkw4cxg1MP5A9Va8ENVsnruMkdXhJ68ueJR+Jusf95xibrXbEP2tmIpfC4ZBiUAwjkcPPJ+QYjlPD55zyPIZv324vtr56xaQ2NbFpsJWi7cvkkHRkBc/KNfhbntzcggYezz7KYFJNilPsAvkD1QLbiIPGNVuTJKmL7sAsazHvEYlbeb7RXC23kwtcHdS9b6n93Yl/ISM9x2hrUluXlPneDSe+4NiBhxwsSBqMuJPAAMKbr2HHfvdlu+fVjIs/NXUh4Qq8zmnsroSasyOe+P9AGSrjsM3gzZyUMN4kVjXYuz8Vujdx+nc25zcPublzFMR5/gcy/JYAEl6uUpye/68CgXSdcM7bn5Os3Y6Ex6w==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enable autostart for SSH configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/autostart/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables autostart for a specific SSH configuration.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sshConfigId":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"AutoStart enabled successfully."},"400":{"description":"Valid sshConfigId is required."},"404":{"description":"SSH configuration not found."},"500":{"description":"Internal server error."}}}
+>
+  
+</StatusCodes>
+
+
+      

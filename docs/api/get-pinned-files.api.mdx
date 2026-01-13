@@ -1,0 +1,71 @@
+---
+id: get-pinned-files
+title: "Get pinned files"
+description: "Retrieves a list of pinned files for a specific host."
+sidebar_label: "Get pinned files"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVF1r20AQ/CvHPrVw2GqTtKC3lDaJC4USp/QhmLI+rawjpzvlbmVihP57WUktTuwGQ58knWbnZj9mOygomWgbtsFDDrfE0dKWkkLlbGIVStVY76lQpXWUVBmiQpUaMra0RlUh8Qw0MG4S5PewXN7ASkODEWtiinLYgRXqx5biDjR4rAlykMhFARoiPbY2UgE5x5Y0JFNRjZB3wLtGkNYzbShC368EnZrgEyUBvM8yeTxP4fKo8Bn0Gs6P4Rd+i84Wqk0UF4UKUY3ShoiLYxFXaB0VioMqiU318p5eQ01chQJy2BCDlIMryGGeUjUX1K8aPW4ozsdI0JAobv9Uq41O6sPc5PO5CwadCMrPsix7B/qFlm9ovSqQcY2JFPpCYcsVebYGBaJGZuj1q8RnB8TL5Y3i1ntyalRbk+cT2c6PsknmE1c8kejikGiIU4mRbWJr0pBzHbzlEK3fnEj84YD4M6ZqHTAWJzJ8PGQI5oHisWqtpMGmjZZ3Q4fXhJHiZStTcb/a/72U4R+Hex/01wsiBSaPyPcIAj29XIVYI0MOX3/eDYNofRmGcMtO8HcUa/ukLr8vQINM3Cg9m2Wz7CChCfwJzQP5QoLULZUUyRsSczQhcY1e+CdTXxM/c8NLyg5M8Eye/2fVjJVgeuJ549B6kTI0qpuMdg8pVaBh32riwtFsKz3sHoF1nbjmR3R9L8fjhpIGFTbh2slOKtEleiWLN7fT+nqr/qXtgXb7+26LrhXQMBZbjFZuGuZgb29cf5H+/QbuQum5
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get pinned files"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/file_manager/pinned"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a list of pinned files for a specific host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"A list of pinned files."},"400":{"description":"Invalid userId or hostId."},"500":{"description":"Failed to fetch pinned files."}}}
+>
+  
+</StatusCodes>
+
+
+      

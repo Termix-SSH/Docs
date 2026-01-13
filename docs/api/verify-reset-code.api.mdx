@@ -1,0 +1,71 @@
+---
+id: verify-reset-code
+title: "Verify reset code"
+description: "Verifies the password reset code."
+sidebar_label: "Verify reset code"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1v2zAM/SsCz2rire0G+NZ2K9YBw4om7Q5BDozNxGptyZXoNIGR/z5Q9tp8YYgvcazHJ5KPjy3kFDJvajbOQgpP5M3cUFBckKoxhDfnc+UpEKvM5TQADYyLAOkEHgP5AFMNnl4bCnzt8jWkbfxrPOWQsm9IQ+Ysk2U5wrouTYZy2fA5yI0thKygCuWN1zVBCm72TBmDhtq7mjwbCnLaBPIWK9pCBvbGLmAjKQTiG5cfO41PhNTOho7sc5LIz27xD+9lqmXXh3wg5BfHwHd2iaXJlfOKVrXUu9OmjYbLY2G3aErKFbvuivVu0EZDRVy4HFKoXYhNQC4ghaGUH4Zd0FkMOpMg0BDIL0WJdNJC40tIoWCu0+GwdBmWhQucnidJ8gn0Xi6/0FiVI+MMAym0ucKGC7LcS6Q6Ztjo/xKfHxCPRj8UN9ZSqSq0uKCKLJ/IdnGUbW5K6rn8iUSXh0QxTgVGNoFNFmLNlbOGnYzKicRfDoi/YShmDn1+IsPXQwaXvZA/1q2pCJw13vA6Kjwj9OSvGpmKyXT7eCRG6sZ7G/TuB0lFxiXCIO1BoPuXW+crZEjh559xnEQx6MOHtb+vsKpL2rXiP5PtOHDLl8bOXUzBsITCmHxlVurq/g40yNR25SeDZJAcNKUHX2P2QjaXIPVAc/JkMxJycUiFcYn02Tzte2qfs/3YRqftuq51TCse1iUaK/dGZdvemZPYjdCVs+fNqQbRXEBtKyZ79OVmI59fG/Ki51TDEr3BmXRnMt1oKAhz8lHqF1pDCjddwmdjSUXgZSMpHaxSGYX35XH/ezQWZfuVXHW6eHwTpfANUgANLjYlDkz81kKJdtHgQrAdpzx/AdH+HWE=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify reset code"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/verify-reset-code"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Verifies the password reset code.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"resetCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Reset code verified."},"400":{"description":"Invalid or expired reset code."},"500":{"description":"Failed to verify reset code."}}}
+>
+  
+</StatusCodes>
+
+
+      

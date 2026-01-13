@@ -1,0 +1,71 @@
+---
+id: generate-public-key-from-private-key
+title: "Generate public key from private key"
+description: "Generates a public key from a given private key."
+sidebar_label: "Generate public key from private key"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVE1v2zAM/SsCz2rire0G+NZ2a/eBYcGaYYcgB8ZmYjW25Ep02sDIfx8ou02aBEMwH/wl8ol6fI8t5BQyb2o2zkIKd2TJI1NQqOpmVppMLWmt5t5VCtXCrMiq2psVMsnCADQwLgKkE7jxlJNlg2WAqQZPjw0Fvnb5GtI2fhpPOaTsG9KQOctkWZawrkuToVQwfAhSRgshK6hCeeN1TZCCmz1QxqCh9q4mz4aCrPa1fKf1Tmxgb+wCNhqWtB5hCE/O50fW4yWVhtrZ0AG+TxJ5vGVlXJBa9MzkO7wMZI+LYxmjLUfKBPVy+phweSzhFk1JuWL3utHbfTYaKuLC5ZBC7UJkArmAFIbZlvjhS/JZl3y2pDVoCORX5KVLLTS+hBQK5jodDkuXYVm4wOl5kiTvQO9V9QONVTkyzjCQQpsrbLiQzbp+qQ4ZNvqfwOcHwPf3XxQ31lKpKrS4oIosn4h2cRRtbkrqsfyJQJeHQDFPBUY2gU0W4pkrZw070cyJwB8OgD9hKGYOfX4iwsdDBJctyR9jayoNzhpveB07PCP05K8aUcdkurt8L67qdL4b9GoMKUXkEsMg7YNA9y+3zlfIkMK3P+OoSHHrr63PPz9jVZe078sXv+3Zccemxs5dLMOwpMOYfGWe1dXoK2gQ5XYUJINkkBwQ0wdfY7Ykm0uS+kVz8mQzEnBxS4VxqliMx7o7dFg34XYm2/427XZi/deQ7AhmeuZhXaKxUlnsf9v7eAI7PgYNx5w81SAKkeC2FUv+9uVmI78fG/LS/amGFXqDM+FxMt1oKAhz8lEYy9iNm+4cZ2MpScLLRko7mMIinNeRM/p5PxYd9NO8crnkeHwCHe8pgAYXuYryiv9aKNEuGlxIbIcp11/eQTsb
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate public key from private key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/generate-public-key"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a public key from a given private key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The generated public key."},"400":{"description":"Private key is required."},"500":{"description":"Failed to generate public key."}}}
+>
+  
+</StatusCodes>
+
+
+      

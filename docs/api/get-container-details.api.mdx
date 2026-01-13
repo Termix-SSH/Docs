@@ -1,0 +1,71 @@
+---
+id: get-container-details
+title: "Get container details"
+description: "Retrieves detailed information about a specific container."
+sidebar_label: "Get container details"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VMFq3DAQ/RUxpxbErtskLfiWNk2aQqEkKT0sPsxas2sRW3Kkcchi/O9lbGfjZLdhS6EnW9LM0+i9mdeCoZgHW7P1DlK4Ig6W7ikqQ4y2JKOsW/lQoQQoXPqGFapYU25XNle5d4zWUZiBBsZ1hHQBZz6/pQCZhhoDVsQUZL8FK1fUyAVocFgRpBApRuvdpQENge4aG8hAyqEhDTEvqEJIW+BN3QdzsG4NXaf3Ym2L+Uu0TIJj7V2kKOfvk0Q+z5n5/Ag+MhNn0Gk43hd6ff1Vje9SzrNa+cYZ5UO/yL1zlDOZMf/4tau22X3wyb7LzgeV2Ks18ZMekyo7DRVx4Q2ksCYGPdCWwtz0Qs23SXHebvXo5u2Ezw40RAr3j0o2oYQUCuY6nc9Ln2NZ+MjpUZIk70C/KPE7WqcMMi4xkkJnFDZckGObD201IIPI+grw0Q6wEM2Nc1SqCh2uqSLHB6Id70Vb2ZJGrHAg0MkuUJ+nIiPbyDaP/Zsr7yx7abkDgT/sAJ9hLJYegzkQ4eMuQq/4PrYyEThvguVNr/CSMFA4baRTFtn0+FoGaZiUadB2rqQUGOdN1kMQ6PHnvHcTSOHbr5u+OcVg+nTLpcTfUKjsgzr9cQkapOOG0pNZMkt2HjQGf8L8lpyRJHVFKwrkcpKZqX3kCp3gjy5xsW9MXuK2vZmQ43/2xIETpgee1yVaJ0X1krXjGC5gGEPQTwYm9aRTa0yn3pZpEIkltW1lpn6Gsutk+66hIPJlGu4xWFwKoYsWjI3ybyBdYRnplce+uRpt8636U/XjJrqN6INlIyvQcEubZ4YuzfkfL54y1GVT07v4Io32G5uQX6g=
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get container details"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/docker/containers/{sessionId}/{containerId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves detailed information about a specific container.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Container details."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container details."}}}
+>
+  
+</StatusCodes>
+
+
+      

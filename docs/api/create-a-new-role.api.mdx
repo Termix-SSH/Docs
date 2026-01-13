@@ -1,0 +1,71 @@
+---
+id: create-a-new-role
+title: "Create a new role"
+description: "Creates a new role."
+sidebar_label: "Create a new role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1P20AQ/SurObuJKdCqvgVaVCq1RZCqhyiHiT2JF9a7ZndMiKz892rWhgQMVXyxvfvmzeebFgoKudc1a2chg3NPyBQUKktr5Z2hESTAuAqQzeD6bHIO8wQ83TcU+MwVG8ja+Ks9FZCxbyiB3Fkmy3KFdW10jsI+vg3iooWQl1ShfPGmJsjALW4pZ0ig9q4mz5qC3FqsaA8V2Gu7gm0ChQ61wc2vd+/3Uxrcx0dyCLWzoXP1MT2S18taXDtDKo8FKVRo8pxCWDbGbEbi5CRNhyaX9gGNLlRfILVwxRP6yxA9iQVWa82l4lIHJRkrNJ6w2Ch61IFDtD59y9cFakOFYtfH2HdLcquIS1dABrULsa7IJWQw9gvMxwILkEAg/0Be+tpC4w1kUDLX2XhsXI6mdIGz4zRNj+BVQeEnaqsKZFxgIIW2UNhwSZb7RquOGbbJf4mPB8Q3N98VN9aSURVaXFFFlg9kO3mTbakN9Vz+QKLTIVG0U4GRdWCdh5hz5axmJyN1IPGnAfFXDOXCoS8OZPg8ZHD5Hfm3qjWXBueN17yJHV4QevKTRgZhNt+/vhE5djLYBz3rRkKRcYkwyHoQJP3HhfMVMmTw4+80Dp/I/Hq3IL49YlUb2gn6SYivdLx3/CLFnay1XboYl2bhgyn5Sj+qydUlJCCj3Bmko3SUDmh68Bnmd2QLMVLXtCRPNichF6VUaPfC7Fbh3iZ8zdnuFt17e7OrINMjj2uD2oqn2OC21+QMRJOQQKfKeQLSbTlvW5HXH2+2Wzm+b8hLJ+cJPKDXuJASzObbBErCgnxs8h1tJJYuqg9T8S5w00gUg1UsQ/C8Ka5+30ylp/1Kr1whNh7XEhuuIQNIwMXM46jEsxYM2lWDK8F2nPL8A0ZTKoQ=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new role.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"displayName":{"type":"string"},"description":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"description":"Role created successfully."},"400":{"description":"Invalid request body."},"409":{"description":"A role with this name already exists."},"500":{"description":"Failed to create role."}}}
+>
+  
+</StatusCodes>
+
+
+      

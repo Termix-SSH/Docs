@@ -1,0 +1,71 @@
+---
+id: detect-ssh-public-key-type
+title: "Detect SSH public key type"
+description: "Detects the type of an SSH public key."
+sidebar_label: "Detect SSH public key type"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVNtu00AQ/ZXVPG8SQ1uQ/NYLFVAhKhLEQ5SHiT2Jt7F33d1xqWXl39GsTZo2EQp+8G3PnLme6SCnkHlTs3EWUrghpoyD4oIUtzUpt1Jo1XT6WdXNsjSZ2lA7Bg2M6wDpHK495WTZYBlgocHTY0OBr1zeQtrFT+Mph5R9QxoyZ5ksyxHWdWkyFL+ThyDOOwhZQRXKm/iGFNzygTIGDbV3NXk2FOS0D+WO2j1oYG/sGrbxkkBC7Wzo8e+TRB6vU72jtk8xjzkbZ5Wn0JQ8hq2G82Mm97sSKBPU3+Qi/uIY/hZNSbliN/jYq2F0PQYJtSIuXA4p1C7EXJELSGGSvZR20tuPevvRhtpRTFtDIP9EXlrRQeNLSKFgrtPJpHQZloULnJ4lSfIO9JvYvqGxKkfGJQZSaHOFDRfir2+K6plhq/9JfHZALLPCjbVUqgotrqkiyyeynR9lW5mSBi5/ItHFIVG0U4GRTWCThZhz5axhJ5NzIvGHA+IbDMXSoc9PZPh4yOCyDflj1VpIg7PGG25jh5eEnvxlIwMyX+wfT0U6/bTvg3bykFBkXCIM0gEEeni5db5ChhS+/prFoRRJ/ngR86dnrOqS3ohvJzoNxq5cdGdYYDAjX5lndXn/BTTIhPapJuNknBwUYABfYbYhm4uR+kEr8mQzEnIRRoVxRViM4fd76s1eUoMmXpF3L0vnP7ZbXzSmZ57UJRorUcSedoM857Anz+jzqEAXGqTxgu86UdpPX2638vuxIS9NXWh4Qm9wKWWbL7YaCsKcfOz3Jlb5uk9gNOvTe8KykegONqjMw26Z3H+fzqS9wyauXC42Hn+DjvcUQIOLRYpTE/91UKJdN7gWbM8p1x+w9x2O
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Detect SSH public key type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/detect-public-key-type"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Detects the type of an SSH public key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"publicKey":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Public key is required."},"500":{"description":"Failed to detect public key type."}}}
+>
+  
+</StatusCodes>
+
+
+      

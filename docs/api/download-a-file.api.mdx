@@ -1,0 +1,71 @@
+---
+id: download-a-file
+title: "Download a file"
+description: "Downloads a file from the remote host."
+sidebar_label: "Download a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu2zAM/RWBz17ire0G+K1dV6wDihVthj0EwcDYTKzWllyK7gVG/n2g7KRpEwyZH3yRDo/Iw4s7KCjkbBux3kEG5/7JVR6LYNAsbEVmwb42UpJhqr2QKX2QESQguAyQTeFCQVfocEkMswSYHloKcuaLF8i6+GmZCsiEW0og907IiW5h01Q2Rz14fBf09A5CXlKN+iYvDUEGfn5HuUACDfuGWCyFiKMQrHeXxRY0CFu3hFUCDUq5d0Odf2NjnZA6vkqgDcR7+eKlgYXGu9Cf/ylN9fFWu0lJvWZDkCOlPd6HvLIhWLc0a3VMg4w1CXEwnnsS8d5UyEuKNCf7aC7QVlQY8aYY0hZNR6D+1iSlLyCDxocoYBQFxiGUY0X9qfukxYW1vWYTEgjEj8Sa3w5ariCDUqTJxuPK51ipitlRmqYfIXkfGFpnChScYyCDrjDYSklOhkSbnhlWyT+Jj3aIb2+/G2mdo8r0ftfk5EC2471sUeRBgwOJTnaJop0JgmKD2DzEmGvvrHitngOJP+8Qn2Mo5x65OJDhyy6Dz++J96k10wTnLVt5iRmeEzLxaav1MZ1tb99qO/YVvw3atIi6ouUSYZANIEiGlwvPNQpk8OP3JNaktvnN64D49ox1U9G7hl433qZkN9/r9k1fu3Wrua1b+OibFeWECXFtn83p9SUkoOXc65KO0lG6o9YAPsP8nlyhRuaGFsTkcoojxQepMc4ohzHW9aQcBuV7xu511P3HUO1lFXqWcVOhdXEwada7QYwphFBCAtsdrBmIi2+6eNbrpSZdp+34i6vVSpcfWmLN/CyBR2SLc5VrOtP5SFgQx6K4pxfI4Gsfw4eJOqbwqlUHd0a3Fs1m4Fz/vJ1oDQy/gNoXasP4BEm8ZwAJ+KhTLK241kGFbtniUrE9p15/Aey1Re0=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/ssh/downloadFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads a file from the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"hostId":{"type":"integer"},"userId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The file content."},"400":{"description":"Missing required parameters or file too large."},"500":{"description":"Failed to download file."}}}
+>
+  
+</StatusCodes>
+
+
+      

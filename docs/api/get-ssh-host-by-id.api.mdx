@@ -1,0 +1,71 @@
+---
+id: get-ssh-host-by-id
+title: "Get SSH host by ID"
+description: "Retrieves a specific SSH host by its ID."
+sidebar_label: "Get SSH host by ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVlE1r20AQhv/KMqcWFlttkhZ0S0mTuFAocUoPxoeRdmQtkXaV3ZGJEfrvZSQlOLEb3JO0q3cezXcHhmIebMPWO0jhjjhY2lJUqGJDuS1srpbLW1X6yCrbKctRLa5moIFxEyFdwXJ5C2sNDQasiSnIZQdWaA1yCRoc1gQpWAMaAj22NpCBlENLGmJeUo2QdsC7ZlA5pg0F6Pu1qGPjXaQogs9JIo/XDt+XpIRJkcm8eDqDXsP5Mf3CbbGyRrWRwsIoHwb9wkwW54cWL9E7z6rwrRu1F8fo12grMoq9Kojzct+fXkNNXHoDKWyIQY/ZSWEeYzk32Vx0886aHjRECtvnTLahghRK5iadzyufYyXK9CxJkk+g3zjwE61TBhkzjKTQGYUtl+TY5igSNZKh1++Czw7AEgm3zlGlanS4oZocn0g7P0orbEUTK5wIujgEDXYqMrKNbPM4xFx7Z9kH6zYngr8cgK8wlpnHYE4kfD0k+PyBwrFsraXAeRss74YKZ4SBwmUr7bBa739eynSM3b8vehkWcQWmIZLzKAI9vVz7UCNDCj/+3A8daF3hB3PLlejvKdT2SV3+WoAG6bjR9WSWzJKDgCbxN8wfyBkxUndUUCCXk0xE4yPX6IQ/TfwN8avlsbh6C+0g947J8X/unjF8pieeNxVaJ/8fqtNNY7WCGGX3mAw0CAA0pNbIphpO6Qq6Tobkd6j6Xq4fWwpSj7WGLQaLmWRo1YGxUd4NpAVWkd4J4MPdtNw+qn/5OF2i20nCsWrlBBoeaDduyH69vyhuvkvd/gJ5y+Uo
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get SSH host by ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a specific SSH host by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The requested SSH host."},"400":{"description":"Invalid userId or hostId."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to fetch SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

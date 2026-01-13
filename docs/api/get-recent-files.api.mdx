@@ -1,0 +1,71 @@
+---
+id: get-recent-files
+title: "Get recent files"
+description: "Retrieves a list of recent files for a specific host."
+sidebar_label: "Get recent files"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVF1r20AQ/CvHPrVw2GqTtKC3lDaJC4USp/QhmLI+rawjpzvlbmVihP57WUktTuwGQ58knWbnZj9mOygomWgbtsFDDrfE0dKWkkLlbGIVShXJkGdVWkdJlSEqVKkhY0trVBUSz0AD4yZBfg/L5Q2sNDQYsSamKIcdWKF+bCnuQIPHmiAHiVwUoCHSY2sjFZBzbElDMhXVCHkHvGsEaT3ThiL0/UrQqQk+URLA+yyTx/MULo8Kn0Gv4fwYfuG36Gyh2kRxUagQ1ShtiLg4FnGF1lGhOKiS2FQv7+k11MRVKCCHDTFIObiCHOYpVXNB/arR44bifIwEDYni9k+12uikPsxNPp+7YNCJoPwsy7J3oF9o+YbWqwIZ15hIoS8UtlyRZ2tQIGpkhl6/Snx2QLxc3ihuvSenRrW15Hga2/lRNsl84oonEl0cEg1xKjGyTWxNGnKug7ccovWbE4k/HBB/xlStA8biRIaPhwzBPFA8Vq2VNNi00fJu6PCaMFK8bGUq7lf7v5cy/ONw74P+ekGkwOQR+R5BoKeXqxBrZMjh68+7YRCtL8MQbtkJ/o5ibZ/U5fcFaJCJG6Vns2yWHSQ0gT+heSBfSJC6pZIieUNijiYkrtEL/2Tqa+JnbnhJ2YEJnmXk/2PVjJVgeuJ549B6kTI0qpuMdg8pVaBh32rDohnMttLD7hFY14lrfkTX93I8bihpUGETrp3spBJdoleyeHM7ra+36l/aHmi3v++26FoBDWOxxWjlpmEO9vbG9Rfp328t1enO
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get recent files"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/file_manager/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a list of recent files for a specific host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"A list of recent files."},"400":{"description":"Invalid userId or hostId."},"500":{"description":"Failed to fetch recent files."}}}
+>
+  
+</StatusCodes>
+
+
+      

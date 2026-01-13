@@ -1,0 +1,71 @@
+---
+id: delete-a-specific-command-from-history
+title: "Delete a specific command from history"
+description: "Deletes a specific command from the history of a host."
+sidebar_label: "Delete a specific command from history"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVMFu2zAM/RWBZy/x1nYDfGvXFeuAYcWSYYcgKBiZidXKkivRXQMj/z5QdtOsyYYAyyFxLPLp8ZGPHZQUdTANG++ggEuyxBQVqtiQNkujlfZ1ja5Uy+BrxRWpykT2Ya38UqGqfOQRZMC4ilDMYEqhNg4tzDMI9NBS5AtfrqHo0l8TqISCQ0sZaO+YHMsRNo01GoXE+C4Kkw6irqhGeeJ1Q1CAX9yRZsigCb6hwIainAqD63InzjimFQXYyBWJ+85h5GDcCjbpIxRj413skd7lufz8qcjHofwyKVOq2GpNMS5ba9cjueP0UNZXE6NxK/Vcs2owYE1MIaaks0NJV2gslYr9cNmz9CMQqjVx5UsooPExqYBcQQFjHhQfD9G3Q3/GPQhkECk8UpD2dNAGCwVUzE0xHluv0Yp+xUme528he10FGqdKZFxgJCUqYMsVOR56pXpk2GT/BD7ZA55MPitunSOranS4opocH4l2ehBtaSwNWOFIoLN9oJSnIiObyEbHVHPtnWEvY3Mk8Ps94EuM1cJjKI9E+LCP4PU9hUNqzaXBug2G16nDC8JA4byV6ZjNd48n4qh+1HeDtt4QKjIuKQyKIQiy4eHKhxoZCvjyc5omUpz6/cXjn56wbiztejLfseDWehkYt/TpXsMS3y+NJ3V+cw0ZyKj2NeejfJTvKTEEX6C+J1dKkvpOSwrkNAm42KPGtEIcpjr6pfbXnTb45fVF3cuC+o+12CvL9MTjxqJxwjA1vhsMPINnA8NWrNtdSsnE8yxpKuFdJ278EexmI68fWgrS+HkGjxgMLkTR2XyTQUVYUkgzcU/rtMpSPW+mQkrCbSvk9pavzMx229x8m0xlBIYlXvtScgL+gix9FwAZ+KRZmqz0rgOLbtXiSmJ7TPn8BhBYOLA=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a specific command from history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/terminal/command_history/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a specific command from the history of a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Command deleted successfully."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to delete command."}}}
+>
+  
+</StatusCodes>
+
+
+      

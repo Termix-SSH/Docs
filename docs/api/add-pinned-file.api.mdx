@@ -1,0 +1,71 @@
+---
+id: add-pinned-file
+title: "Add pinned file"
+description: "Adds a file to the list of pinned files for a host."
+sidebar_label: "Add pinned file"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVO9v0zAQ/Ves+2zawDYQ+dYB04aEmNYhPlQVusbXxltiZ/ZlrIr6v6NzwhbWgibyIb/u+fn87t51YCgWwTZsvYMcZsZEhWptK1LsFZekKhtZ+bVqrHNkUiiqtQ8KVekjT0AD4yZCvoD5/ByWGgLdtRT51Jst5F36tIEM5Bxa0lB4x+RYQtg0lS1QNp/eRMmgg1iUVKO88bYhyMGvbqhg0NAE31BgS1GisvmFGeGsY9pQgJ2GBrkcRSIH6zYScFjTgUC6JPHYeBd7/jdZJo8/9TkTYXolJsJ3fAh04e6xskYZZBxQ7/9ChVUgNNsx5cnBfdFWZKQkjXWpBhOQjGvi0hvIofExSZQODtMYy6mgftTocENh2m8AGiKFewpSrg7aUEEOJXOTT6eVL7ASUfOjLMteg36Wwhe0Lh1phZEUOqOw5ZIcDwVUPTPs9D+Jj/aI5/Nzxa1zVKk+25ocv5Dt+CBbat/h5C8kOtknSutUZGQb2RYxnbn2zrKXrnkh8ds94o8Yy5XHYF7I8G6fwRe3FA6ptZQCF22wvE0VXhEGCrNWumKxHIfnYrO+08egR2tIKtIuCQb5AAI9vJz5UCNDDp+/X6dOFPtePRn/0wPWTUVjo2aP7TnY7rcdR/60bu1TEpZlMVxTqO2Dml1egAbp216AbJJNsj1ZBvApFrfkjCxSV7SmQK6gNBV85BrTkBk2nhkznmvPGbunWfW/k7EXk+mBp02F1kkeqdbdIMYCYixBw9itYuTer0ud5BNY14nxvoVqt5Pfdy0FqfFSwz0GiyvRa7HcaSgJDYVU/lvaQg4f+kO8upZkBF61ktTe8JX2eBwol1/n11LtYYjX3siagD9Bp3sOoMEnoVITpX8dVOg2LW4E23PK9Quedi15
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add pinned file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/pinned"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a file to the list of pinned files for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"},"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"File pinned."},"400":{"description":"Invalid data."},"409":{"description":"File already pinned."},"500":{"description":"Failed to pin file."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: validate-docker-availability
+title: "Validate Docker availability"
+description: "Validates if Docker is available on the host."
+sidebar_label: "Validate Docker availability"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVNtq3DAQ/RUxTy2IXbdJWvBbSnpJoVCSXh6CH2at2bWILDnSOGQx/vcytpIm2W1Y+mRdzhwfzcyZAQylOtqObfBQwi901iBTUnatzkJ9TVHZpPAWrcOVIxW84oZUExIvQAPjJkF5BTMUKg0dRmyJKcr5AFZYO+QGNHhsCUpIlJIN/tyAhkg3vY1koOTYk4ZUN9QilAPwtpvAHK3fwDhWAk5d8ImS3L8tCvk8lZ8VZ7nWWd6qxMh9WsCo4XhfzOXlF5UlKR9YrUPvjQpx2tTBe6qZzBR/si8+p0zC12jdBB01tMRNMFDChhj0nIISlmZSuLzNeV4OD9kYQUOieHufuT46KKFh7srl0oUanSS9PCqK4g3oZyK+ofXKIOMKEyn0RmHPDXm29SxtZoZRv0h8tEMs2eHee3KqRY8basnzgWzHe9nW1lHmigcSnewSTXFTbW1iW6fpzW3wloM0zIHE73aIzzA1q4DRHMjwfpdh7sE92aqkwHUfLW+nCq8II8XTXjrjqnp8fSk2mPv8MejBFSIFsltkP4NA58WnEFtkKOHr7x9TM1q/DlO4ZSf4HxRbe6dOv5+DBum4WXqxKBbFzoMy+APW1+SNBKkLWlMkX5O4oguJW/TCnx1+P0XUHj8+px+gDp7J8/9MnzkbTHe87BxaL3KmYg3ZcFcwG06emclBQ/l3BFUahE2QwyDm+RndOMrxTU9R6lRJaLTy/6lqxiZZGyjX6BK98JxXF3m6vVb/EpsP0W9nhb3sQMM1bZ9MyrF6PFI+f5Sy/gF+wfYP
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Validate Docker availability"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/docker/validate/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validates if Docker is available on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Docker availability status."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Validation failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

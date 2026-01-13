@@ -1,0 +1,71 @@
+---
+id: update-viewer-heartbeat
+title: "Update viewer heartbeat"
+description: "Updates the heartbeat timestamp for a metrics viewer session to keep it alive."
+sidebar_label: "Update viewer heartbeat"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu2kAQ/ZXVnB1wmqSVfEvaRkmlqlFI2wPiMNgD3rDedXbHBGTx79WsXSABVVzqAxjvzPObefOGFgoKudc1a2chg591gUxBcUmqJPQ8JWTFuqLAWNVq5rxCVRF7nQe11PRKXgUKQTur2KkFUa00KzR6SQNIgHEeIBvDiPySvBoxcoBJAp5eGgp844o1ZG38qT0VkLFvKIHcWSbLcoR1bXSOQnD4HIRlCyEvqUK543VNkIGbPlPOkEDtXU2eNQU57QiOOn73xV5CYK/tHDbxEjqhdjZ0WR/SVL7eduZu240m9qhQoclzCmHWGLMewCaBy2N593aJRhfqHZU+4fwwoQ9RtKqlI+pM1YYwkDJurrRVOEdt+/TLw/RfbzWxjtXMNbZ74dUxhreoDRWiXlfZTvgBSG8q4tIVkEHtQmwxcgkZDPspGG7DIYEQZRbFW2i8gQxK5jobDo3L0ZQucHaRpuk5JO9IfEdtVYGMUykVbaGw4ZIs99KrDhk2yT+BLw6AR6M7xY21ZFSFFudUkeUT0S6Pos20oR7Lnwh0dQjU+SEwsg4sZpKaK2c1O5nME4E/HgB/wVBOHfriRIRPhwguX5A/1q2JCJw3XvM6Kjwl9OSvG5mH8WT/eCQG7dy0H7S1n1CRcYlhkPVBkPQ3t85XyJDBt99PcQbF+I+7lfF1hVVt6KjFt9ZOQNuZiy/VLMHwRL7SK3X9cA8JyJx2BaeDdJAetKEPvsF8QbaQJPVIM/JkcxJwcUOFcR1ZjEV0y/PvVty3xRvkdrfd/sO+7frLtOJhbVBboRrlb3vjjqGHgwR2HCcJyEjIcduKB396s9nI45eGvMg9SWCJXuNUWjmebGJ2QT5OwoLWkMHnrq6zJyEh4aYRMgcbXCZlu1UefoyeRPj+n6ByheR4fIUkfmYACbjYuzhP8VkLBu28wbnEdphy/QGi/FwB
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update viewer heartbeat"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/metrics/heartbeat"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates the heartbeat timestamp for a metrics viewer session to keep it alive.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Heartbeat updated successfully."},"400":{"description":"Invalid viewerSessionId."},"401":{"description":"Session expired - please log in again."},"404":{"description":"Viewer session not found."},"500":{"description":"Failed to update heartbeat."}}}
+>
+  
+</StatusCodes>
+
+
+      

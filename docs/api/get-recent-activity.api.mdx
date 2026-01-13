@@ -1,0 +1,71 @@
+---
+id: get-recent-activity
+title: "Get recent activity"
+description: "Fetches the most recent activities for the authenticated user."
+sidebar_label: "Get recent activity"
+hide_title: true
+hide_table_of_contents: true
+api: eJytlF1r21AMhv/KQdcmcdd2A991bO02GIylYxclF4qtxKLnwztHDgnB/33ITosXdyWDXTmOpMevPg9QUSojN8LBQwG3JGVNyUhNxoUkJlJJXgyWwlsWpmTWIfZmbKUmL1yiUGXaRHEGGQhuEhQP8AFTvQoYK1hm0GBER0JRTQdg/dKvluIeMvDoCAqw7Fggg1TW5BCKA8i+UQN7oQ1F6LITqfcqEXfsWmd861YUTViPhUowkaSNfgbdMoNIqQk+UVL4mzzXx5/EG2M5iVImWc/0+1f5xTRoQSlx8IZ2DUeqesfrl+i3yJYqVbWh07ruZ9B1GTiSOlRQwIa0Fg1KDQXMn5zmQ5BWieL2qZpttFBALdIU87kNJdo6JCku8zy/gNOifUX2pkLBFSYy6KtxGzWNgQxd9ir4cgJeLD4Zab0naxx63JDT9M6jXb1IW7OlIyueCbqegvo4kwSFk3CZ+pxd8Cwhst+cCX47AT/P95mEd1NCKB8pvlStpTa4bCPLvu/wijBSvGl1Gh6WY/NCt2WY6LHT8/KolKel0vfBCbLjj9sQHQoU8OXnfT+A7NehD2ex6n9P0fHO3Hz7DBnoxA3S81k+yycJHZ3fY/lIvtIg853WFMmXpFvRhCQOvfKPS383XYRT6gHK4EWn/n8cp6EqQjuZNxbZq6y+aYfjsj3ASMhx3ZYZaBvVeDjo3vyItuv07+GGaYsqTriyVEGxRpvolST+5Wz9RfEj7UcXc4u2VZ9+brYYWYX0gzI6KHcftcG/AUg+C34=
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get recent activity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/activity/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the most recent activities for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"limit","schema":{"type":"integer"},"description":"The maximum number of activities to return."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"A list of recent activities."},"401":{"description":"Session expired."},"500":{"description":"Failed to get recent activity."}}}
+>
+  
+</StatusCodes>
+
+
+      

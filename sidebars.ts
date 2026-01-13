@@ -1,6 +1,13 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
+  apiSidebar: [
+    {
+      type: 'doc',
+      id: 'api/termix-api',
+    },
+    ...require('./docs/api/sidebar.js').apisidebar.slice(1),
+  ],
   docsSidebar: [
     {
       type: 'category',

@@ -1,0 +1,71 @@
+---
+id: rename-a-snippet-folder
+title: "Rename a snippet folder"
+description: "Renames a snippet folder for the authenticated user."
+sidebar_label: "Rename a snippet folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu2zAM/RWBZy/J1nbDfGu3FeuADUOTYocgB8ZiYrWy5Ep0k8DIvw+U3TZt0iGYL3Gsx2fykY9uQVMsgqnZeAc5XJPDiqJCFZ2pa2K18FZTUAsfFJeksOGSHJsCmbRqIoUBZMC4jJBPYdwFRZhlEOi+ocgXXm8gb9NfE0hDzqGhDArvmBzLEda1FULj3fA2Sh4txKKkCuWONzVBDn5+SwVDBnXwNQU2FOXUW/0LK9oBRg7GLWGbgaPVG2fpkhRj7V3smD6MRvLzUo/LrvqQZNEqNkVBMS4aazcDecXpoaAr94DWaNUr0ANP32R3XmRunO6Rn99ErgyXytFKSToKbSDUG0VrEzmm4LODRaCxpBX7vo5XvR2AaFERl15DDnWTVEYuIYdhD43DDhuHHQVkECk8UJC2t9AECzmUzHU+HFpfoC195PxkNBq9h+xVOj/ROKWRcY6RFDq9O1TGO9Uxwzb7J/HJHvF4/F1x4xxZVaHDJVXk+Ei204NsC2Op5wpHEp3tE6U4FRnZRDZFTDVX3hn2Mo5HEn/cI/6KsZx7DPpIhk/7DL64o3BIrZk0uGiC4U3q8JwwUDhvZCqms93jsTi1s9Au6MlzkoqMS4JB3oMg628ufaiQIYcffyZpEGUDXD/vjm9rrGpLL7z+6OMdi+/Y3riFT+83LHEwoVCZtTr/fQUZyMh2tY8Go8FoT5EefIHFHTktQeqaFhTIFSTktY9cYVpRrntxtzL3NuZr5vZ54/33lu0EZVrzsLZonCSU+t32fp3Co18hg96xIHsu5TrLQGZBYG0r5rsJdruVx/cNBenzLIMHDAbnItx0ts2gJJRiZATuaAM5fOmqeDeRZARuG0lqb4fLiDztlN83E2l4/ymovJaQgCvJDVeQA2Tgk1BpjtKzFiy6ZYNLwXaUcv0FEBhOzg==
+sidebar_class_name: "put api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename a snippet folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/snippets/folders/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renames a snippet folder for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"oldName":{"type":"string"},"newName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Folder renamed successfully."},"400":{"description":"Invalid request."},"404":{"description":"Folder not found."},"409":{"description":"Folder with new name already exists."},"500":{"description":"Failed to rename snippet folder."}}}
+>
+  
+</StatusCodes>
+
+
+      

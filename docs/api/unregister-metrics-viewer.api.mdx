@@ -1,0 +1,71 @@
+---
+id: unregister-metrics-viewer
+title: "Unregister metrics viewer"
+description: "Unregisters a viewer session when they stop viewing metrics for a host."
+sidebar_label: "Unregister metrics viewer"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVcFO20AQ/ZXVnJfEFGgl36AtKpWqIkLbQ5TDxJ7YC+tdszsGIiv/Xs3aCoFEFYf6kDj2zNs3b+ZNeigpFsG0bLyDHH65QJWJTCEqVI+GniioSDEa79RTTU5xTWsV2bfprXGVaoiDKaJa+aBQ1T7yBDQwVhHyOcwoPFJQM0aOsNAQ6KGjyBe+XEPep58mUAk5h440FN4xOZZX2LbWFCjMpndR6PUQi5oalDtetwQ5+OUdFQwa2uBbCmwoylthcVXuxBnHVFGAjYahqtlQ1KugyMG4CjbpEqqx9S4OiB+yTL5ey/V7EKjbqkalil1RUIyrztr1RM47PZR55R7RmlINRJUP6g2tMfV4P3UMUfTcinLqSLWWMJKyvlLGKazQuJR+dujkSzSWSsV+h/Z4+ASk7Ia49iXk0PqYlEWuIYfp2OfpS9rRkAYaYuqyNLyHLljIoWZu8+nU+gKtFJmfZFl2DPoNmx9onCqRcSkVoCsVdlyT47HzakCGjf4n8Mke8Gz2TXHnHFnVoMOKGnL8TrTTg2grY2nECu8EOtsHGuwQGdlEFttIzY13hr0M3zuBP+4Bf8FYLz2G8p0In/YRfHFP4ZBaC2lw0QXD69ThJWGgcN7JXMwXu69n4s/BMLtBW4cJFRmXFAb5GAR6vLn0oUGGHL7/uU2zKL6/edkYX5+xaS3tOjw7YOitkTUYt/LpfMOSB7cUGvOszq+vQIOM7FB7Nskm2Z4iY/AFFvfkSklSN7SiQK4gAReDNJgWk8NUz8v+3K7FrUdeYfcvm+5/Lt1BZaZnnrYWjROWaQj60cZzGDNBw76RFzrpKmF9L478FexmI48fOgrS/IWGRwwGl6LmfLHRUBOWFNJc3NMacvg8FHZ0K2Qk3HZCam+dy9xsd831z9mtjMH4t9D4UnICPoFOnzmABp/ES9OVnvVg0VUdVhI7YMr1F1OCYBU=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unregister metrics viewer"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/metrics/unregister-viewer"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Unregisters a viewer session when they stop viewing metrics for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Viewer unregistered successfully."},"400":{"description":"Invalid hostId or viewerSessionId."},"401":{"description":"Session expired - please log in again."},"500":{"description":"Failed to unregister viewer."}}}
+>
+  
+</StatusCodes>
+
+
+      

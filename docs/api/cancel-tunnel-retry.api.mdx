@@ -1,0 +1,71 @@
+---
+id: cancel-tunnel-retry
+title: "Cancel tunnel retry"
+description: "Cancels the retry mechanism for a failed SSH tunnel connection."
+sidebar_label: "Cancel tunnel retry"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMFu2zAM/RWBZy1x13YDfGu7FduAbUWbYYcgB0ZmYrW25Ep018DIvw+UvTaLgyGH+ZDY1uMzycfHDgqKJtiGrXeQwxU6Q1VUXJIKxGGjajIlOhtrtfJBoVqhrahQd3efFLfOUaWMd46MEExAA+M6Qj4HAcwSIMJCQ6DHliJf+mIDeZcebaACcg4taTDeMTmWI2yayhoUvul9lKw6iKakGuWONw1BDn55T4ZBQxN8Q4EtxXSaPvgNa9rBRg7WrWGbLskkNt7FPuBtlsnfoSaoIWUVyJB9omICWw1nhwL6OpXDmtSfygb0yRh90XJJjoca9wNODwQYQzGqgpwdYOeHsrjulWGvTF/AoE/ScQJSe01c+gJyaHxM3UMuIYdpjOW0R0/7WNAQKTxREC07aEMFOZTMTT6dVt5gVfrI+WmWZSeg9/L4itapAhmXGEmhKxT+XXHPDFv9T+LTEfHOzNXocE01OT6S7ewg28pWNHCFI4nOx0QpTkVGtpGtianm2jvLXibvSOJ3I+IPGMulx1AcyfB+zODNA4VD3VqIwKYNljdJ4SVhoCCjCfl8sXt8J97r3bILerGXpCLjkmCQDyDQw821DzUy5PDl5yzNoHj69nUbfHzGuqlo370vrtVg3cqnY8uCgxmF2j6ri5vPoEFGtK81m2STbNSBAXyJ5oFcIUHqllYUyBkScjFCjWnJuP7DV2Pz7LN2r/vqf2zMvo9MzzxtKrRO8koyd4NB5xBjKcgUDhoGky40iPgC6Dpx249Qbbfy+rGlIMIuNDxhsLiUzs0XWw0lYUEhaf5AGymgL+XNTNIQeNVKOqM1LDPxsj9uvt/NROJhnde+kJiAv0Cn3xxAg0/tSpOT3nVQoVu3uBZszynXbyUFPdY=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Cancel tunnel retry"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/tunnel/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Cancels the retry mechanism for a failed SSH tunnel connection.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tunnelName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Cancel request received."},"400":{"description":"Tunnel name required."},"401":{"description":"Authentication required."},"403":{"description":"Access denied."},"500":{"description":"Failed to cancel tunnel retry."}}}
+>
+  
+</StatusCodes>
+
+
+      

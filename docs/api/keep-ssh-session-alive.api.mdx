@@ -1,0 +1,71 @@
+---
+id: keep-ssh-session-alive
+title: "Keep SSH session alive"
+description: "Keeps an active SSH session alive."
+sidebar_label: "Keep SSH session alive"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVMFu2zAM/RWBZy3x1m4DdGvXDeuGYUWTYYcgB8ZmYjW25Ep01sDIvw+UvbSriyI+2LL99EQ+8rGDgmIebMPWOzDwnaiJCp3CnO2O1Gz2VUWK0XqnsLI7moAGxk0Es4Arn28pwFJDoPuWIl/6Yg+mS682UAGGQ0sacu+YHMsvbJrK5ijHTe+inNlBzEuqUVa8bwgM+NUd5QwamuAbCmwpJlwfyHXxBBo5WLeBQ7okkNh4F3v8uyyTx/8ZzoZstkRNykjFNs8pxnVbTeCg4fy1XddXykb1Lz/lw1Ed51mtfeuKCUggNXHpCzDQ+JgyQS7BwLRImk1jLKfHCEBDpLCjIKp20IYKDJTMjZlOK59jVfrI5izLsregnwX2A61TBTKuMJJCVyhsuSTHg8iqZ4aDfpX4bEQslefWOapUjQ43VJPjE9nOX2Rb24oGrnAi0fsxUdqnIiPbyDaPKefaO8teOuFE4g8j4iuM5cpjKE5k+DhmSKV9Sa2lFDhvg+V9qvCKMFC4aKUlFsunv2dihb57n4KO7S6hSLskGJgBBHpYfPGhRgYD337PUxuKxW4fzfn5AeumomdmOppIg3Vrn46zLDCYU6jtg7q4uQYN0qF9qtkkm2QjAQbwJeZbcoVsUre0pkAuJyEXK9SYLO8whS/jZjxjnhN3jwPkxAHVi8X0wNOmQuvk9FTLbjDiAnojipaxBA2PZlxqkCILpuvEVb9CdTjI5/uWghRwqWGHweJKJFosDxpKwoJCqu2W9mDgUx/wm7lEIvCqlYhG009qfxwVNz9ncynlMEVrX8iegH9Ap7sB0OCTKKlD0rcOKnSbFjeC7Tnl+gvyKAK4
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep SSH session alive"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/docker/ssh/keepalive"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Keeps an active SSH session alive.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Session keepalive successful."},"400":{"description":"Session ID is required or session not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

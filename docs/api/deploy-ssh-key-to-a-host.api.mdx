@@ -1,0 +1,71 @@
+---
+id: deploy-ssh-key-to-a-host
+title: "Deploy SSH key to a host"
+description: "Deploys an SSH public key to a target host's authorized_keys file."
+sidebar_label: "Deploy SSH key to a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv2zYQ/ivEvWwDFFtd0w3QW9usaAYMK5IMezCM4SyeLdYUqZKnNq6g/z4cqdZx5AV5mF4kkXff3X287ziAplgH07HxDiq4os76Q1To1O3te9X1G2tqtaeDYq9QMYYdsWp85B+iwp4bH8xX0v/s6RDV1lhaQAGMuwjVCt4G0uTYoI2wLqDDgC0xBdkcwEi8DrmBAhy2BBUYDQUE+tSbQBoqDj0VEOuGWoRqAD50ycox7SjAOK6zNUV+4/VBTB47194xOZYt7DprapRClx+jVDvMsf3mI9UMBXTBdxTYUEy7qe73PvK1PpuJPJJM7LyL2efnspTXKb9CqrCpE8+kVezrmmLc9tYeFjAWcHnO7cikur5S6PTDk0hLgdS32ieYF3OY1z03ApNZeOxw+WRcH05iOs9q63uXnV+dS/odGktaGidXq6biFyBctcSN19ICPibCpRMqWNbHplkORo/L7HzB/qLJlpHC529N1AcLFTTMXbVcWl+jFaPqZVmWL6B4lNAfaJzSyLjBSIlFPCUkI8NYPAn8cgYshXHvHFnVosMdteT4mWiXZ9FEShNWeCbQqzlQ8lORkU1kU8dUc+udYR+M2z0T+JcZ8BXGZuMx6Gci/DpH8PWewjm21nLAdR8MH9IJbwgDBelcqFbrh9u3It6stYdG39UpqcA0P+Q/G0ExfbzzoUWGCn7/+y51pAyFm+M4+e0e287SXP7lWIBxW592DIsJ3FFozb16/eEaCpDuzGWWi3JRzoqfjN9gvSenxUnd0JYCuZpETaKIFtOAmgbj1YmA8iye1HACPRwH3v80yjOVTPe87CwaJ/mlkx4mxa7ggWKhgCoN8UeiXReQ3tUKhkHU91ew4yjLn3oKctDrAj5jMLgROlcDaBPlW0O1RRvpiTp/vJnG2E/qvxKeFtEd5HTQ9vIHBezpkG+dcT0W0BBqCil63nibY1zcifvRcXaRSFN+H2cf/ry9kx6bLqTWa/EJ+EWuNvySA/tUR2rdtDaARbfrcSe2GVOefwFU8pzc
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Deploy SSH key to a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/{id}/deploy-to-host"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deploys an SSH public key to a target host's authorized_keys file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"targetHostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"SSH key deployed successfully."},"400":{"description":"Credential ID and target host ID are required."},"401":{"description":"Authentication required."},"404":{"description":"Credential or target host not found."},"500":{"description":"Failed to deploy SSH key."}}}
+>
+  
+</StatusCodes>
+
+
+      

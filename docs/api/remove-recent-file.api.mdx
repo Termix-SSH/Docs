@@ -1,0 +1,71 @@
+---
+id: remove-recent-file
+title: "Remove recent file"
+description: "Removes a file from the list of recent files for a host."
+sidebar_label: "Remove recent file"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVNtq20AQ/ZVlnre22iQt6C1pHJLSQrFd+mBMGUtjaxNpV9kdOTHC/15mpTjGNsVQvegyZ4/OnLm0kFPIvKnZOAspjKlyawoK1dKUpJbeVYoLUqUJrNxSecrIcgwGtXReoSpc4AFoYFwFSGcwmdzDXIOn54YC37h8A2kbX42nHFL2DWnInGWyLCGs69JkKAqGj0FktBCygiqUJ97UBCm4xSNlDBpq72rybChIVH7+kO/hjGVakYethhq52IsE9sauYBsv0RdqZ0NH8ylJ5HboxS5X5aMv+UB4L0+BH+waS5OrHBkj6uoU6g5NSbli1xPu+zkAkVURFy6HFHIqiQne0oBhCMVQcH8qtLgiP+zOgoZAfk1ezG+h8SWkUDDX6XBYugxLsSi9SJLkI+gDOT/Q2Kh4gYEU2lxhwwVZ7suhOmbY6n8SXxwRTyb3ihtrqVSd2kqyPI/t8iRbrEKf+ZlEV8dE8ZwKjGwCmyzEnCtnDTtpjjOJPx8R32IoFg59fibDl2MGlz2RP+XWXAqcNd7wJlZ4QejJXzfSFbP5fngiQ9M19D5oNwEiRdolwiDtQaD7hzvnK2RI4dvvaexFGcbx+xiPXrGqS9ofu2TXnm/TpcHYpYs/NSxgmJKvzKu6/vkAGqRPu4STQTJIjmzowTeYPZHN5ZAa05I82YziTLvAFcYVYTEmMT4apEPS9n3Z/Nd+60xkeuVhXaKxoifWuO1NmEEIBWjYn1KQTRPndK6jbQJrWxm4X77cbuXzc0NeajvXsEZvcCG+zeZbDQVhTj6W/Yk2kMLXLpMPUxEj8LIRUUcrVNpit0puR99H05HUuV/GlcvllMcXkYcvkAJocNGv2D7xWwsl2lWDK8F2rHL9BZAcHvk=
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove recent file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/ssh/file_manager/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a file from the list of recent files for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Recent file removed."},"400":{"description":"Invalid data."},"500":{"description":"Failed to remove recent file."}}}
+>
+  
+</StatusCodes>
+
+
+      

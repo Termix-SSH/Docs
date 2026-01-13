@@ -1,0 +1,71 @@
+---
+id: revoke-host-access
+title: "Revoke host access"
+description: "Revokes a user's or role's access to a host."
+sidebar_label: "Revoke host access"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VMFu00AQ/ZXVXArSKja0Bcm3lLYiCBBqizhEOUzsSbLKetfdHYdGlv8dje1GpQlV4MDJ3vWb55k386aBgmIeTMXGO8jghjZ+TVGhqiOFk6h8UMFbOokK85xiVOwVqpWPPAINjMsI2RRuLsYfYKahwoAlMQW5bcAIZYW8Ag0OS4IMTAEaAt3XJlABGYeaNMR8RSVC1gBvqw7lmJYUoG31QZY+l8lfcs0EHSvvIkUBvE1TefyuwLgvM3RCFCrW3XlRW7sdQavh7FDQxG3QmkJNLgfM6T7mq+dON+V/Ogod7vwQ1zUaS4Xo3OcwCD8SMaAkXvkCMijIEhPoXpgMkjDHPBH+pDFFm/RBSfOoVAsaIoXNY2vqYCGDFXOVJYn1OVqJzU7TNH0D+llKX9A4VSDjHCMpdIXCmlfk2OQoENUzg3TrBeLTPeLb24+Ka+fIqhIdLqkkx0eynR1kWxhLA1c4kuh8n6iLU5GRTWSTx67m0jvDPhi3PJL43R7xJcbV3GMojmR4v8/g8zWFQ2rNpMF5HQxvuw7PCQOFcS3jMZ09/XwrFukt8BS0c4ykAoOT5NyDQA8v1z6UyJDBpx933VAat/BduGEr+DsKpXlQ428T0CAT16eejtJRulfQAL7AfE2ukCB1QwsK5HISj1Q+colO+Afz9zuq91I/3s9JG8i9Y3L8Dxutl4DpgZPKonGSQ9ehZrDaFMRqoEFCQEPWrbRdItluN80GSDaFphHnfA+2beX6vqYgTZpp2GAwOBfZpg0UJsp7AdkCbaQXqnp1M6y91+pPSQ+X6LbSBbS1nEDDmrb9HpbZ+49/3OnSzp4ussurz1d3V9C2vwCEgjUO
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke host access"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/host/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes a user's or role's access to a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Access revoked successfully."},"400":{"description":"Invalid ID."},"403":{"description":"Not host owner."},"500":{"description":"Failed to revoke access."}}}
+>
+  
+</StatusCodes>
+
+
+      

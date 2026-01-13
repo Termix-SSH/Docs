@@ -1,0 +1,5623 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Termix API",
+    "version": "0.0.0",
+    "description": "Termix Backend API Reference"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:30001",
+      "description": "Main database and authentication server"
+    },
+    {
+      "url": "http://localhost:30003",
+      "description": "SSH tunnel management server"
+    },
+    {
+      "url": "http://localhost:30004",
+      "description": "SSH file manager server"
+    },
+    {
+      "url": "http://localhost:30005",
+      "description": "Server statistics and monitoring server"
+    },
+    {
+      "url": "http://localhost:30006",
+      "description": "Dashboard server"
+    },
+    {
+      "url": "http://localhost:30007",
+      "description": "Docker management server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Alerts",
+      "description": "System alerts and notifications management"
+    },
+    {
+      "name": "Credentials",
+      "description": "SSH credential management"
+    },
+    {
+      "name": "Network Topology",
+      "description": "Network topology visualization and management"
+    },
+    {
+      "name": "RBAC",
+      "description": "Role-based access control for host sharing"
+    },
+    {
+      "name": "Snippets",
+      "description": "Command snippet management"
+    },
+    {
+      "name": "Terminal",
+      "description": "Terminal command history"
+    },
+    {
+      "name": "Users",
+      "description": "User management and authentication"
+    },
+    {
+      "name": "Dashboard",
+      "description": "Dashboard statistics and activity"
+    },
+    {
+      "name": "Docker",
+      "description": "Docker container management"
+    },
+    {
+      "name": "SSH Tunnels",
+      "description": "SSH tunnel connection management"
+    },
+    {
+      "name": "Server Stats",
+      "description": "Server status monitoring and metrics collection"
+    },
+    {
+      "name": "File Manager",
+      "description": "SSH file management operations"
+    }
+  ],
+  "paths": {
+    "/alerts": {
+      "get": {
+        "summary": "Get active alerts",
+        "description": "Fetches active alerts for the authenticated user, excluding those that have been dismissed.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of active alerts."
+          },
+          "500": {
+            "description": "Failed to fetch alerts."
+          }
+        }
+      }
+    },
+    "/alerts/dismiss": {
+      "post": {
+        "summary": "Dismiss an alert",
+        "description": "Marks an alert as dismissed for the authenticated user.",
+        "tags": [
+          "Alerts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "alertId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Alert dismissed successfully."
+          },
+          "400": {
+            "description": "Alert ID is required."
+          },
+          "409": {
+            "description": "Alert already dismissed."
+          },
+          "500": {
+            "description": "Failed to dismiss alert."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Undismiss an alert",
+        "description": "Removes an alert from the dismissed list for the authenticated user.",
+        "tags": [
+          "Alerts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "alertId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Alert undismissed successfully."
+          },
+          "400": {
+            "description": "Alert ID is required."
+          },
+          "404": {
+            "description": "Dismissed alert not found."
+          },
+          "500": {
+            "description": "Failed to undismiss alert."
+          }
+        }
+      }
+    },
+    "/alerts/dismissed": {
+      "get": {
+        "summary": "Get dismissed alerts",
+        "description": "Fetches a list of alerts that have been dismissed by the authenticated user.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of dismissed alerts."
+          },
+          "500": {
+            "description": "Failed to fetch dismissed alerts."
+          }
+        }
+      }
+    },
+    "/credentials": {
+      "post": {
+        "summary": "Create a new credential",
+        "description": "Creates a new SSH credential for the authenticated user.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "authType": {
+                    "type": "string",
+                    "enum": [
+                      "password",
+                      "key"
+                    ]
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "keyPassword": {
+                    "type": "string"
+                  },
+                  "keyType": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Credential created successfully."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "500": {
+            "description": "Failed to create credential."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all credentials",
+        "description": "Retrieves all SSH credentials for the authenticated user.",
+        "tags": [
+          "Credentials"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of credentials."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch credentials."
+          }
+        }
+      }
+    },
+    "/credentials/folders": {
+      "get": {
+        "summary": "Get credential folders",
+        "description": "Retrieves all unique credential folders for the authenticated user.",
+        "tags": [
+          "Credentials"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of folder names."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch credential folders."
+          }
+        }
+      }
+    },
+    "/credentials/{id}": {
+      "get": {
+        "summary": "Get a specific credential",
+        "description": "Retrieves a specific credential by its ID, including secrets.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested credential."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Credential not found."
+          },
+          "500": {
+            "description": "Failed to fetch credential."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a credential",
+        "description": "Updates a specific credential by its ID.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated credential."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Credential not found."
+          },
+          "500": {
+            "description": "Failed to update credential."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a credential",
+        "description": "Deletes a specific credential by its ID.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Credential deleted successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Credential not found."
+          },
+          "500": {
+            "description": "Failed to delete credential."
+          }
+        }
+      }
+    },
+    "/credentials/{id}/apply-to-host/{hostId}": {
+      "post": {
+        "summary": "Apply a credential to a host",
+        "description": "Applies a credential to an SSH host for quick application.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Credential applied to host successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Credential not found."
+          },
+          "500": {
+            "description": "Failed to apply credential to host."
+          }
+        }
+      }
+    },
+    "/credentials/{id}/hosts": {
+      "get": {
+        "summary": "Get hosts using a credential",
+        "description": "Retrieves a list of hosts that are using a specific credential.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of hosts."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "500": {
+            "description": "Failed to fetch hosts using credential."
+          }
+        }
+      }
+    },
+    "/credentials/folders/rename": {
+      "put": {
+        "summary": "Rename a credential folder",
+        "description": "Renames a credential folder for the authenticated user.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed successfully."
+          },
+          "400": {
+            "description": "Both oldName and newName are required."
+          },
+          "500": {
+            "description": "Failed to rename folder."
+          }
+        }
+      }
+    },
+    "/credentials/detect-key-type": {
+      "post": {
+        "summary": "Detect SSH key type",
+        "description": "Detects the type of an SSH private key.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "privateKey": {
+                    "type": "string"
+                  },
+                  "keyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Key type detection result."
+          },
+          "400": {
+            "description": "Private key is required."
+          },
+          "500": {
+            "description": "Failed to detect key type."
+          }
+        }
+      }
+    },
+    "/credentials/detect-public-key-type": {
+      "post": {
+        "summary": "Detect SSH public key type",
+        "description": "Detects the type of an SSH public key.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "publicKey": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Key type detection result."
+          },
+          "400": {
+            "description": "Public key is required."
+          },
+          "500": {
+            "description": "Failed to detect public key type."
+          }
+        }
+      }
+    },
+    "/credentials/validate-key-pair": {
+      "post": {
+        "summary": "Validate SSH key pair",
+        "description": "Validates if a given SSH private key and public key match.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "privateKey": {
+                    "type": "string"
+                  },
+                  "publicKey": {
+                    "type": "string"
+                  },
+                  "keyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Key pair validation result."
+          },
+          "400": {
+            "description": "Private key and public key are required."
+          },
+          "500": {
+            "description": "Failed to validate key pair."
+          }
+        }
+      }
+    },
+    "/credentials/generate-key-pair": {
+      "post": {
+        "summary": "Generate new SSH key pair",
+        "description": "Generates a new SSH key pair.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keyType": {
+                    "type": "string"
+                  },
+                  "keySize": {
+                    "type": "integer"
+                  },
+                  "passphrase": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new key pair."
+          },
+          "500": {
+            "description": "Failed to generate SSH key pair."
+          }
+        }
+      }
+    },
+    "/credentials/generate-public-key": {
+      "post": {
+        "summary": "Generate public key from private key",
+        "description": "Generates a public key from a given private key.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "privateKey": {
+                    "type": "string"
+                  },
+                  "keyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The generated public key."
+          },
+          "400": {
+            "description": "Private key is required."
+          },
+          "500": {
+            "description": "Failed to generate public key."
+          }
+        }
+      }
+    },
+    "/credentials/{id}/deploy-to-host": {
+      "post": {
+        "summary": "Deploy SSH key to a host",
+        "description": "Deploys an SSH public key to a target host's authorized_keys file.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targetHostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSH key deployed successfully."
+          },
+          "400": {
+            "description": "Credential ID and target host ID are required."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "404": {
+            "description": "Credential or target host not found."
+          },
+          "500": {
+            "description": "Failed to deploy SSH key."
+          }
+        }
+      }
+    },
+    "/network-topology": {
+      "get": {
+        "summary": "Get network topology",
+        "description": "Retrieves the network topology for the authenticated user.",
+        "tags": [
+          "Network Topology"
+        ],
+        "responses": {
+          "200": {
+            "description": "The network topology."
+          },
+          "401": {
+            "description": "User not authenticated."
+          },
+          "500": {
+            "description": "Failed to fetch network topology."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save network topology",
+        "description": "Saves the network topology for the authenticated user.",
+        "tags": [
+          "Network Topology"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "topology": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Network topology saved successfully."
+          },
+          "400": {
+            "description": "Topology data is required."
+          },
+          "401": {
+            "description": "User not authenticated."
+          },
+          "500": {
+            "description": "Failed to save network topology."
+          }
+        }
+      }
+    },
+    "/rbac/host/{id}/share": {
+      "post": {
+        "summary": "Share a host",
+        "description": "Shares a host with a user or a role.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targetType": {
+                    "type": "string",
+                    "enum": [
+                      "user",
+                      "role"
+                    ]
+                  },
+                  "targetUserId": {
+                    "type": "string"
+                  },
+                  "targetRoleId": {
+                    "type": "integer"
+                  },
+                  "durationHours": {
+                    "type": "number"
+                  },
+                  "permissionLevel": {
+                    "type": "string",
+                    "enum": [
+                      "view"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host shared successfully."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "403": {
+            "description": "Not host owner."
+          },
+          "404": {
+            "description": "Target user or role not found."
+          },
+          "500": {
+            "description": "Failed to share host."
+          }
+        }
+      }
+    },
+    "/rbac/host/{id}/access/{accessId}": {
+      "delete": {
+        "summary": "Revoke host access",
+        "description": "Revokes a user's or role's access to a host.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accessId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access revoked successfully."
+          },
+          "400": {
+            "description": "Invalid ID."
+          },
+          "403": {
+            "description": "Not host owner."
+          },
+          "500": {
+            "description": "Failed to revoke access."
+          }
+        }
+      }
+    },
+    "/rbac/host/{id}/access": {
+      "get": {
+        "summary": "Get host access list",
+        "description": "Retrieves the list of users and roles that have access to a host.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The access list for the host."
+          },
+          "400": {
+            "description": "Invalid host ID."
+          },
+          "403": {
+            "description": "Not host owner."
+          },
+          "500": {
+            "description": "Failed to get access list."
+          }
+        }
+      }
+    },
+    "/rbac/shared-hosts": {
+      "get": {
+        "summary": "Get shared hosts",
+        "description": "Retrieves the list of hosts that have been shared with the authenticated user.",
+        "tags": [
+          "RBAC"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of shared hosts."
+          },
+          "500": {
+            "description": "Failed to get shared hosts."
+          }
+        }
+      }
+    },
+    "/rbac/roles": {
+      "get": {
+        "summary": "Get all roles",
+        "description": "Retrieves a list of all roles.",
+        "tags": [
+          "RBAC"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of roles."
+          },
+          "500": {
+            "description": "Failed to get roles."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new role",
+        "description": "Creates a new role.",
+        "tags": [
+          "RBAC"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Role created successfully."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "409": {
+            "description": "A role with this name already exists."
+          },
+          "500": {
+            "description": "Failed to create role."
+          }
+        }
+      }
+    },
+    "/rbac/roles/{id}": {
+      "put": {
+        "summary": "Update a role",
+        "description": "Updates a role by its ID.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role updated successfully."
+          },
+          "400": {
+            "description": "Invalid request body or role ID."
+          },
+          "404": {
+            "description": "Role not found."
+          },
+          "500": {
+            "description": "Failed to update role."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a role",
+        "description": "Deletes a role by its ID.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role deleted successfully."
+          },
+          "400": {
+            "description": "Invalid role ID."
+          },
+          "403": {
+            "description": "Cannot delete system roles."
+          },
+          "404": {
+            "description": "Role not found."
+          },
+          "500": {
+            "description": "Failed to delete role."
+          }
+        }
+      }
+    },
+    "/rbac/users/{userId}/roles": {
+      "post": {
+        "summary": "Assign a role to a user",
+        "description": "Assigns a role to a user.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "roleId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role assigned successfully."
+          },
+          "400": {
+            "description": "Role ID is required."
+          },
+          "403": {
+            "description": "System roles cannot be manually assigned."
+          },
+          "404": {
+            "description": "User or role not found."
+          },
+          "409": {
+            "description": "Role already assigned."
+          },
+          "500": {
+            "description": "Failed to assign role."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get user's roles",
+        "description": "Retrieves a list of roles for a specific user.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of roles."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "500": {
+            "description": "Failed to get user roles."
+          }
+        }
+      }
+    },
+    "/rbac/users/{userId}/roles/{roleId}": {
+      "delete": {
+        "summary": "Remove a role from a user",
+        "description": "Removes a role from a user.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "roleId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role removed successfully."
+          },
+          "400": {
+            "description": "Invalid role ID."
+          },
+          "403": {
+            "description": "System roles cannot be removed."
+          },
+          "404": {
+            "description": "Role not found."
+          },
+          "500": {
+            "description": "Failed to remove role."
+          }
+        }
+      }
+    },
+    "/snippets/folders": {
+      "get": {
+        "summary": "Get all snippet folders",
+        "description": "Retrieves all snippet folders for the authenticated user.",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of snippet folders."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch snippet folders."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new snippet folder",
+        "description": "Creates a new snippet folder for the authenticated user.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Snippet folder created successfully."
+          },
+          "400": {
+            "description": "Folder name is required."
+          },
+          "409": {
+            "description": "Folder with this name already exists."
+          },
+          "500": {
+            "description": "Failed to create snippet folder."
+          }
+        }
+      }
+    },
+    "/snippets/folders/{name}/metadata": {
+      "put": {
+        "summary": "Update snippet folder metadata",
+        "description": "Updates the metadata (color, icon) of a snippet folder.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet folder metadata updated successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Folder not found."
+          },
+          "500": {
+            "description": "Failed to update snippet folder metadata."
+          }
+        }
+      }
+    },
+    "/snippets/folders/rename": {
+      "put": {
+        "summary": "Rename a snippet folder",
+        "description": "Renames a snippet folder for the authenticated user.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Folder not found."
+          },
+          "409": {
+            "description": "Folder with new name already exists."
+          },
+          "500": {
+            "description": "Failed to rename snippet folder."
+          }
+        }
+      }
+    },
+    "/snippets/folders/{name}": {
+      "delete": {
+        "summary": "Delete a snippet folder",
+        "description": "Deletes a snippet folder and moves its snippets to the root.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippet folder deleted successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "500": {
+            "description": "Failed to delete snippet folder."
+          }
+        }
+      }
+    },
+    "/snippets/reorder": {
+      "put": {
+        "summary": "Reorder snippets",
+        "description": "Bulk updates the order and folder of snippets.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "order": {
+                          "type": "integer"
+                        },
+                        "folder": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippets reordered successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "500": {
+            "description": "Failed to reorder snippets."
+          }
+        }
+      }
+    },
+    "/snippets/execute": {
+      "post": {
+        "summary": "Execute a snippet on a host",
+        "description": "Executes a snippet on a specified host.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippetId": {
+                    "type": "integer"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet executed successfully."
+          },
+          "400": {
+            "description": "Snippet ID and Host ID are required."
+          },
+          "404": {
+            "description": "Snippet or host not found."
+          },
+          "500": {
+            "description": "Failed to execute snippet."
+          }
+        }
+      }
+    },
+    "/snippets": {
+      "get": {
+        "summary": "Get all snippets",
+        "description": "Retrieves all snippets for the authenticated user.",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of snippets."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch snippets."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new snippet",
+        "description": "Creates a new snippet for the authenticated user.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "order": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Snippet created successfully."
+          },
+          "400": {
+            "description": "Name and content are required."
+          },
+          "500": {
+            "description": "Failed to create snippet."
+          }
+        }
+      }
+    },
+    "/snippets/{id}": {
+      "get": {
+        "summary": "Get a specific snippet",
+        "description": "Retrieves a specific snippet by its ID.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested snippet."
+          },
+          "400": {
+            "description": "Invalid request parameters."
+          },
+          "404": {
+            "description": "Snippet not found."
+          },
+          "500": {
+            "description": "Failed to fetch snippet."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a snippet",
+        "description": "Updates a specific snippet by its ID.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "order": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated snippet."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Snippet not found."
+          },
+          "500": {
+            "description": "Failed to update snippet."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a snippet",
+        "description": "Deletes a specific snippet by its ID.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippet deleted successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Snippet not found."
+          },
+          "500": {
+            "description": "Failed to delete snippet."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/internal": {
+      "get": {
+        "summary": "Get internal SSH host data",
+        "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of autostart hosts."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "500": {
+            "description": "Failed to fetch autostart SSH data."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/internal/all": {
+      "get": {
+        "summary": "Get all internal SSH host data",
+        "description": "Returns all internal SSH host data. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of all hosts."
+          },
+          "401": {
+            "description": "Invalid or missing internal authentication token."
+          },
+          "500": {
+            "description": "Failed to fetch all hosts."
+          }
+        }
+      }
+    },
+    "/ssh/db/host": {
+      "post": {
+        "summary": "Create SSH host",
+        "description": "Creates a new SSH host configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "Host created successfully."
+          },
+          "400": {
+            "description": "Invalid SSH data."
+          },
+          "500": {
+            "description": "Failed to save SSH data."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all SSH hosts",
+        "description": "Retrieves all SSH hosts for the authenticated user.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of SSH hosts."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch SSH data."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/{id}": {
+      "put": {
+        "summary": "Update SSH host",
+        "description": "Updates an existing SSH host configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host updated successfully."
+          },
+          "400": {
+            "description": "Invalid SSH data."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to update SSH data."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get SSH host by ID",
+        "description": "Retrieves a specific SSH host by its ID.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested SSH host."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to fetch SSH host."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete SSH host",
+        "description": "Deletes an SSH host by its ID.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH host deleted successfully."
+          },
+          "400": {
+            "description": "Invalid userId or id."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to delete SSH host."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/{id}/export": {
+      "get": {
+        "summary": "Export SSH host",
+        "description": "Exports a specific SSH host with decrypted credentials.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported SSH host."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to export SSH host."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/recent": {
+      "get": {
+        "summary": "Get recent files",
+        "description": "Retrieves a list of recent files for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of recent files."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch recent files."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add recent file",
+        "description": "Adds a file to the list of recent files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recent file added."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to add recent file."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove recent file",
+        "description": "Removes a file from the list of recent files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recent file removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove recent file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/pinned": {
+      "get": {
+        "summary": "Get pinned files",
+        "description": "Retrieves a list of pinned files for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pinned files."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch pinned files."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add pinned file",
+        "description": "Adds a file to the list of pinned files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File pinned."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "409": {
+            "description": "File already pinned."
+          },
+          "500": {
+            "description": "Failed to pin file."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove pinned file",
+        "description": "Removes a file from the list of pinned files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pinned file removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove pinned file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/shortcuts": {
+      "get": {
+        "summary": "Get shortcuts",
+        "description": "Retrieves a list of shortcuts for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of shortcuts."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch shortcuts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add shortcut",
+        "description": "Adds a shortcut for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shortcut added."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "409": {
+            "description": "Shortcut already exists."
+          },
+          "500": {
+            "description": "Failed to add shortcut."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove shortcut",
+        "description": "Removes a shortcut for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shortcut removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove shortcut."
+          }
+        }
+      }
+    },
+    "/ssh/command-history/{hostId}": {
+      "get": {
+        "summary": "Get command history",
+        "description": "Retrieves the command history for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of commands."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch command history."
+          }
+        }
+      }
+    },
+    "/ssh/command-history": {
+      "delete": {
+        "summary": "Delete command from history",
+        "description": "Deletes a specific command from the history of a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Command deleted from history."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to delete command."
+          }
+        }
+      }
+    },
+    "/ssh/folders/rename": {
+      "put": {
+        "summary": "Rename folder",
+        "description": "Renames a folder for SSH hosts and credentials.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed successfully."
+          },
+          "400": {
+            "description": "Old name and new name are required."
+          },
+          "500": {
+            "description": "Failed to rename folder."
+          }
+        }
+      }
+    },
+    "/ssh/folders": {
+      "get": {
+        "summary": "Get all folders",
+        "description": "Retrieves all folders for the authenticated user.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of folders."
+          },
+          "400": {
+            "description": "Invalid user ID."
+          },
+          "500": {
+            "description": "Failed to fetch folders."
+          }
+        }
+      }
+    },
+    "/ssh/folders/metadata": {
+      "put": {
+        "summary": "Update folder metadata",
+        "description": "Updates the metadata (color, icon) of a folder.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder metadata updated successfully."
+          },
+          "400": {
+            "description": "Folder name is required."
+          },
+          "500": {
+            "description": "Failed to update folder metadata."
+          }
+        }
+      }
+    },
+    "/ssh/folders/{name}/hosts": {
+      "delete": {
+        "summary": "Delete all hosts in folder",
+        "description": "Deletes all SSH hosts within a specific folder.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hosts deleted successfully."
+          },
+          "400": {
+            "description": "Invalid folder name."
+          },
+          "500": {
+            "description": "Failed to delete hosts in folder."
+          }
+        }
+      }
+    },
+    "/ssh/bulk-import": {
+      "post": {
+        "summary": "Bulk import SSH hosts",
+        "description": "Bulk imports multiple SSH hosts.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/enable": {
+      "post": {
+        "summary": "Enable autostart for SSH configuration",
+        "description": "Enables autostart for a specific SSH configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sshConfigId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AutoStart enabled successfully."
+          },
+          "400": {
+            "description": "Valid sshConfigId is required."
+          },
+          "404": {
+            "description": "SSH configuration not found."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/disable": {
+      "delete": {
+        "summary": "Disable autostart for SSH configuration",
+        "description": "Disables autostart for a specific SSH configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sshConfigId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AutoStart disabled successfully."
+          },
+          "400": {
+            "description": "Valid sshConfigId is required."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/status": {
+      "get": {
+        "summary": "Get autostart status",
+        "description": "Retrieves the autostart status for the user's SSH configurations.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of autostart configurations."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/terminal/command_history": {
+      "post": {
+        "summary": "Save command to history",
+        "description": "Saves a command to the command history for a specific host.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Command saved successfully."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to save command."
+          }
+        }
+      }
+    },
+    "/terminal/command_history/{hostId}": {
+      "get": {
+        "summary": "Get command history",
+        "description": "Retrieves the command history for a specific host.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of commands."
+          },
+          "400": {
+            "description": "Invalid request parameters."
+          },
+          "500": {
+            "description": "Failed to fetch history."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Clear command history",
+        "description": "Clears the entire command history for a specific host.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Command history cleared successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "500": {
+            "description": "Failed to clear history."
+          }
+        }
+      }
+    },
+    "/terminal/command_history/delete": {
+      "post": {
+        "summary": "Delete a specific command from history",
+        "description": "Deletes a specific command from the history of a host.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Command deleted successfully."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to delete command."
+          }
+        }
+      }
+    },
+    "/users/create": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "Creates a new user with a username and password.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User created successfully."
+          },
+          "400": {
+            "description": "Username and password are required."
+          },
+          "403": {
+            "description": "Registration is currently disabled."
+          },
+          "409": {
+            "description": "Username already exists."
+          },
+          "500": {
+            "description": "Failed to create user."
+          }
+        }
+      }
+    },
+    "/users/oidc-config": {
+      "post": {
+        "summary": "Configure OIDC provider",
+        "description": "Creates or updates the OIDC provider configuration.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OIDC configuration updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update OIDC config."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Disable OIDC configuration",
+        "description": "Disables the OIDC provider configuration.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OIDC configuration disabled."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to disable OIDC config."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get OIDC configuration",
+        "description": "Returns the public OIDC configuration.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Public OIDC configuration."
+          },
+          "500": {
+            "description": "Failed to get OIDC config."
+          }
+        }
+      }
+    },
+    "/users/oidc-config/admin": {
+      "get": {
+        "summary": "Get OIDC configuration for admin",
+        "description": "Returns the full OIDC configuration for an admin.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Full OIDC configuration."
+          },
+          "500": {
+            "description": "Failed to get OIDC config for admin."
+          }
+        }
+      }
+    },
+    "/users/oidc/authorize": {
+      "get": {
+        "summary": "Get OIDC authorization URL",
+        "description": "Returns the OIDC authorization URL.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OIDC authorization URL."
+          },
+          "404": {
+            "description": "OIDC not configured."
+          },
+          "500": {
+            "description": "Failed to generate authorization URL."
+          }
+        }
+      }
+    },
+    "/users/oidc/callback": {
+      "get": {
+        "summary": "OIDC callback",
+        "description": "Handles the OIDC callback, exchanges the code for a token, and creates or logs in the user.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirects to the frontend with a success or error message."
+          },
+          "400": {
+            "description": "Code and state are required."
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "User login",
+        "description": "Authenticates a user and returns a JWT.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful."
+          },
+          "400": {
+            "description": "Invalid username or password."
+          },
+          "401": {
+            "description": "Invalid username or password."
+          },
+          "403": {
+            "description": "Password authentication is currently disabled."
+          },
+          "429": {
+            "description": "Too many login attempts."
+          },
+          "500": {
+            "description": "Login failed."
+          }
+        }
+      }
+    },
+    "/users/logout": {
+      "post": {
+        "summary": "User logout",
+        "description": "Logs out the user and clears the JWT cookie.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logged out successfully."
+          },
+          "500": {
+            "description": "Logout failed."
+          }
+        }
+      }
+    },
+    "/users/me": {
+      "get": {
+        "summary": "Get current user's info",
+        "description": "Retrieves information about the currently authenticated user.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "User information."
+          },
+          "401": {
+            "description": "Invalid userId or user not found."
+          },
+          "500": {
+            "description": "Failed to get username."
+          }
+        }
+      }
+    },
+    "/users/setup-required": {
+      "get": {
+        "summary": "Check if setup is required",
+        "description": "Checks if the system requires initial setup (i.e., no users exist).",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Setup status."
+          },
+          "500": {
+            "description": "Failed to check setup status."
+          }
+        }
+      }
+    },
+    "/users/count": {
+      "get": {
+        "summary": "Count users",
+        "description": "Returns the total number of users in the system.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "User count."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to count users."
+          }
+        }
+      }
+    },
+    "/users/db-health": {
+      "get": {
+        "summary": "Database health check",
+        "description": "Checks if the database is accessible.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Database is accessible."
+          },
+          "500": {
+            "description": "Database not accessible."
+          }
+        }
+      }
+    },
+    "/users/registration-allowed": {
+      "get": {
+        "summary": "Get registration status",
+        "description": "Checks if user registration is currently allowed.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Registration status."
+          },
+          "500": {
+            "description": "Failed to get registration allowed status."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set registration status",
+        "description": "Enables or disables user registration.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allowed": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registration status updated."
+          },
+          "400": {
+            "description": "Invalid value for allowed."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to set registration allowed status."
+          }
+        }
+      }
+    },
+    "/users/password-login-allowed": {
+      "get": {
+        "summary": "Get password login status",
+        "description": "Checks if password-based login is currently allowed.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Password login status."
+          },
+          "500": {
+            "description": "Failed to get password login allowed status."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set password login status",
+        "description": "Enables or disables password-based login.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allowed": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password login status updated."
+          },
+          "400": {
+            "description": "Invalid value for allowed."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to set password login allowed status."
+          }
+        }
+      }
+    },
+    "/users/delete-account": {
+      "delete": {
+        "summary": "Delete user account",
+        "description": "Deletes the authenticated user's account.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account deleted successfully."
+          },
+          "400": {
+            "description": "Password is required."
+          },
+          "401": {
+            "description": "Incorrect password."
+          },
+          "403": {
+            "description": "Cannot delete external authentication accounts or the last admin user."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to delete account."
+          }
+        }
+      }
+    },
+    "/users/initiate-reset": {
+      "post": {
+        "summary": "Initiate password reset",
+        "description": "Initiates the password reset process for a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset code has been generated."
+          },
+          "400": {
+            "description": "Username is required."
+          },
+          "403": {
+            "description": "Password reset not available for external authentication users."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to initiate password reset."
+          }
+        }
+      }
+    },
+    "/users/verify-reset-code": {
+      "post": {
+        "summary": "Verify reset code",
+        "description": "Verifies the password reset code.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "resetCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reset code verified."
+          },
+          "400": {
+            "description": "Invalid or expired reset code."
+          },
+          "500": {
+            "description": "Failed to verify reset code."
+          }
+        }
+      }
+    },
+    "/users/complete-reset": {
+      "post": {
+        "summary": "Complete password reset",
+        "description": "Completes the password reset process with a new password.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "tempToken": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password has been successfully reset."
+          },
+          "400": {
+            "description": "Invalid or expired temporary token."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to complete password reset."
+          }
+        }
+      }
+    },
+    "/users/change-password": {
+      "post": {
+        "summary": "Change user password",
+        "description": "Changes the authenticated user's password.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldPassword": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password changed successfully."
+          },
+          "400": {
+            "description": "Old and new passwords are required."
+          },
+          "401": {
+            "description": "Incorrect current password."
+          },
+          "500": {
+            "description": "Failed to update password and re-encrypt data."
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "summary": "List all users",
+        "description": "Retrieves a list of all users in the system.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to list users."
+          }
+        }
+      }
+    },
+    "/users/make-admin": {
+      "post": {
+        "summary": "Make user admin",
+        "description": "Grants admin privileges to a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User is now an admin."
+          },
+          "400": {
+            "description": "Username is required or user is already an admin."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to make user admin."
+          }
+        }
+      }
+    },
+    "/users/remove-admin": {
+      "post": {
+        "summary": "Remove admin status",
+        "description": "Revokes admin privileges from a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Admin status removed from user."
+          },
+          "400": {
+            "description": "Username is required or cannot remove your own admin status."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to remove admin status."
+          }
+        }
+      }
+    },
+    "/users/totp/verify-login": {
+      "post": {
+        "summary": "Verify TOTP during login",
+        "description": "Verifies the TOTP code during login.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "temp_token": {
+                    "type": "string"
+                  },
+                  "totp_code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP verification successful."
+          },
+          "400": {
+            "description": "Token and TOTP code are required."
+          },
+          "401": {
+            "description": "Invalid temporary token or TOTP code."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "TOTP verification failed."
+          }
+        }
+      }
+    },
+    "/uptime": {
+      "get": {
+        "summary": "Get server uptime",
+        "description": "Returns the uptime of the server in various formats.",
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Server uptime information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "uptimeMs": {
+                      "type": "number"
+                    },
+                    "uptimeSeconds": {
+                      "type": "number"
+                    },
+                    "formatted": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to get uptime."
+          }
+        }
+      }
+    },
+    "/activity/recent": {
+      "get": {
+        "summary": "Get recent activity",
+        "description": "Fetches the most recent activities for the authenticated user.",
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The maximum number of activities to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of recent activities."
+          },
+          "401": {
+            "description": "Session expired."
+          },
+          "500": {
+            "description": "Failed to get recent activity."
+          }
+        }
+      }
+    },
+    "/activity/log": {
+      "post": {
+        "summary": "Log a new activity",
+        "description": "Logs a new user activity, such as accessing a terminal or file manager. This endpoint is rate-limited.",
+        "tags": [
+          "Dashboard"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "terminal",
+                      "file_manager",
+                      "server_stats",
+                      "tunnel",
+                      "docker"
+                    ]
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "hostName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity logged successfully or rate-limited."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "401": {
+            "description": "Session expired."
+          },
+          "404": {
+            "description": "Host not found or access denied."
+          },
+          "500": {
+            "description": "Failed to log activity."
+          }
+        }
+      }
+    },
+    "/activity/reset": {
+      "delete": {
+        "summary": "Reset recent activity",
+        "description": "Clears all recent activity for the authenticated user.",
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Recent activity cleared."
+          },
+          "401": {
+            "description": "Session expired."
+          },
+          "500": {
+            "description": "Failed to reset activity."
+          }
+        }
+      }
+    },
+    "/docker/ssh/connect": {
+      "post": {
+        "summary": "Establish SSH session for Docker",
+        "description": "Establishes an SSH session to a host for Docker operations.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSH connection established."
+          },
+          "400": {
+            "description": "Missing sessionId or hostId."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "403": {
+            "description": "Docker is not enabled for this host."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "SSH connection failed."
+          }
+        }
+      }
+    },
+    "/docker/ssh/disconnect": {
+      "post": {
+        "summary": "Disconnect SSH session",
+        "description": "Closes an active SSH session for Docker operations.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSH session disconnected."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/docker/ssh/connect-totp": {
+      "post": {
+        "summary": "Verify TOTP and complete connection",
+        "description": "Verifies the TOTP code and completes the SSH connection.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP verified, SSH connection established."
+          },
+          "400": {
+            "description": "Session ID and TOTP code required."
+          },
+          "401": {
+            "description": "Invalid TOTP code."
+          },
+          "404": {
+            "description": "TOTP session expired."
+          }
+        }
+      }
+    },
+    "/docker/ssh/keepalive": {
+      "post": {
+        "summary": "Keep SSH session alive",
+        "description": "Keeps an active SSH session alive.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session keepalive successful."
+          },
+          "400": {
+            "description": "Session ID is required or session not found."
+          }
+        }
+      }
+    },
+    "/docker/ssh/status": {
+      "get": {
+        "summary": "Check SSH session status",
+        "description": "Checks the status of an active SSH session.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session status."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/docker/validate/{sessionId}": {
+      "get": {
+        "summary": "Validate Docker availability",
+        "description": "Validates if Docker is available on the host.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Docker availability status."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "500": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}": {
+      "get": {
+        "summary": "List all containers",
+        "description": "Lists all Docker containers on the host.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "all",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of containers."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "500": {
+            "description": "Failed to list containers."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}": {
+      "get": {
+        "summary": "Get container details",
+        "description": "Retrieves detailed information about a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container details."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container details."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/start": {
+      "post": {
+        "summary": "Start container",
+        "description": "Starts a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container started successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to start container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/stop": {
+      "post": {
+        "summary": "Stop container",
+        "description": "Stops a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container stopped successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to stop container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/restart": {
+      "post": {
+        "summary": "Restart container",
+        "description": "Restarts a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container restarted successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to restart container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/pause": {
+      "post": {
+        "summary": "Pause container",
+        "description": "Pauses a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container paused successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to pause container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/unpause": {
+      "post": {
+        "summary": "Unpause container",
+        "description": "Unpauses a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container unpaused successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to unpause container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/remove": {
+      "delete": {
+        "summary": "Remove container",
+        "description": "Removes a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container removed successfully."
+          },
+          "400": {
+            "description": "SSH session not found or not connected, or cannot remove a running container."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to remove container."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/logs": {
+      "get": {
+        "summary": "Get container logs",
+        "description": "Retrieves logs for a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tail",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "timestamps",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "until",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container logs."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container logs."
+          }
+        }
+      }
+    },
+    "/docker/containers/{sessionId}/{containerId}/stats": {
+      "get": {
+        "summary": "Get container stats",
+        "description": "Retrieves stats for a specific container.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container stats."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container stats."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/connect": {
+      "post": {
+        "summary": "Connect to SSH for file manager",
+        "description": "Establishes an SSH connection for file manager operations.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH connection established."
+          },
+          "400": {
+            "description": "Missing SSH connection parameters."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "500": {
+            "description": "SSH connection failed."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/connect-totp": {
+      "post": {
+        "summary": "Verify TOTP and complete connection",
+        "description": "Verifies the TOTP code and completes the SSH connection for file manager.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "TOTP verified, SSH connection established."
+          },
+          "400": {
+            "description": "Session ID and TOTP code required."
+          },
+          "401": {
+            "description": "Invalid TOTP code or authentication required."
+          },
+          "404": {
+            "description": "TOTP session expired."
+          },
+          "408": {
+            "description": "TOTP session timeout."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/disconnect": {
+      "post": {
+        "summary": "Disconnect from SSH",
+        "description": "Closes an active SSH connection for file manager.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH connection disconnected."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/status": {
+      "get": {
+        "summary": "Get SSH connection status",
+        "description": "Checks the status of an SSH connection for file manager.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH connection status."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/keepalive": {
+      "post": {
+        "summary": "Keep SSH session alive",
+        "description": "Keeps an active SSH session for file manager alive.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session keepalive successful."
+          },
+          "400": {
+            "description": "Session ID is required or session not found."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/listFiles": {
+      "get": {
+        "summary": "List files in a directory",
+        "description": "Lists the files and directories in a given path on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of files and directories."
+          },
+          "400": {
+            "description": "Session ID is required or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to list files."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/identifySymlink": {
+      "get": {
+        "summary": "Identify symbolic link",
+        "description": "Identifies the target of a symbolic link.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Symbolic link information."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to identify symbolic link."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/readFile": {
+      "get": {
+        "summary": "Read a file",
+        "description": "Reads the content of a file from the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The content of the file."
+          },
+          "400": {
+            "description": "Missing required parameters or file too large."
+          },
+          "404": {
+            "description": "File not found."
+          },
+          "500": {
+            "description": "Failed to read file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/writeFile": {
+      "post": {
+        "summary": "Write to a file",
+        "description": "Writes content to a file on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File written successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to write file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/uploadFile": {
+      "post": {
+        "summary": "Upload a file",
+        "description": "Uploads a file to the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "fileName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to upload file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/createFile": {
+      "post": {
+        "summary": "Create a file",
+        "description": "Creates an empty file on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "fileName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File created successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to create file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/createFolder": {
+      "post": {
+        "summary": "Create a folder",
+        "description": "Creates a new folder on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "folderName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder created successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to create folder."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/deleteItem": {
+      "delete": {
+        "summary": "Delete a file or directory",
+        "description": "Deletes a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "isDirectory": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item deleted successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to delete item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/renameItem": {
+      "put": {
+        "summary": "Rename a file or directory",
+        "description": "Renames a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "oldPath": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item renamed successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to rename item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/moveItem": {
+      "put": {
+        "summary": "Move a file or directory",
+        "description": "Moves a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "oldPath": {
+                    "type": "string"
+                  },
+                  "newPath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item moved successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "408": {
+            "description": "Move operation timed out."
+          },
+          "500": {
+            "description": "Failed to move item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/downloadFile": {
+      "post": {
+        "summary": "Download a file",
+        "description": "Downloads a file from the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "userId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The file content."
+          },
+          "400": {
+            "description": "Missing required parameters or file too large."
+          },
+          "500": {
+            "description": "Failed to download file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/copyItem": {
+      "post": {
+        "summary": "Copy a file or directory",
+        "description": "Copies a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "sourcePath": {
+                    "type": "string"
+                  },
+                  "targetDir": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "userId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item copied successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to copy item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/executeFile": {
+      "post": {
+        "summary": "Execute a file",
+        "description": "Executes a file on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "filePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File execution result."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not available."
+          },
+          "500": {
+            "description": "Failed to execute file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/changePermissions": {
+      "post": {
+        "summary": "Change file permissions",
+        "description": "Changes the permissions of a file on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Permissions changed successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not available."
+          },
+          "408": {
+            "description": "Permission change timed out."
+          },
+          "500": {
+            "description": "Failed to change permissions."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/compressFiles": {
+      "post": {
+        "summary": "Compress files",
+        "description": "Compresses files and/or directories on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "archiveName": {
+                    "type": "string"
+                  },
+                  "format": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Files compressed successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or unsupported compression format."
+          },
+          "500": {
+            "description": "Failed to compress files."
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "summary": "Get all host statuses",
+        "description": "Retrieves the status of all hosts for the authenticated user.",
+        "tags": [
+          "Server Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "A map of host IDs to their status entries."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/status/{id}": {
+      "get": {
+        "summary": "Get host status by ID",
+        "description": "Retrieves the status of a specific host by its ID.",
+        "tags": [
+          "Server Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host status entry."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Status not available."
+          }
+        }
+      }
+    },
+    "/clear-connections": {
+      "post": {
+        "summary": "Clear all SSH connections",
+        "description": "Clears all SSH connections from the connection pool.",
+        "tags": [
+          "Server Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "All SSH connections cleared."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/refresh": {
+      "post": {
+        "summary": "Refresh polling",
+        "description": "Clears all SSH connections and refreshes host polling.",
+        "tags": [
+          "Server Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "Polling refreshed."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/host-updated": {
+      "post": {
+        "summary": "Start polling for updated host",
+        "description": "Starts polling for a specific host after it has been updated.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host polling started."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to start polling."
+          }
+        }
+      }
+    },
+    "/host-deleted": {
+      "post": {
+        "summary": "Stop polling for deleted host",
+        "description": "Stops polling for a specific host after it has been deleted.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host polling stopped."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to stop polling."
+          }
+        }
+      }
+    },
+    "/metrics/{id}": {
+      "get": {
+        "summary": "Get host metrics",
+        "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
+        "tags": [
+          "Server Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host metrics data."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Metrics not available."
+          }
+        }
+      }
+    },
+    "/metrics/start/{id}": {
+      "post": {
+        "summary": "Start metrics collection",
+        "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
+        "tags": [
+          "Server Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metrics collection started successfully, or TOTP required."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to start metrics collection."
+          }
+        }
+      }
+    },
+    "/metrics/stop/{id}": {
+      "post": {
+        "summary": "Stop metrics collection",
+        "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
+        "tags": [
+          "Server Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metrics collection stopped successfully."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to stop metrics collection."
+          }
+        }
+      }
+    },
+    "/metrics/connect-totp": {
+      "post": {
+        "summary": "Complete TOTP verification for metrics",
+        "description": "Verifies the TOTP code and completes the metrics SSH connection.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP verified, metrics connection established."
+          },
+          "400": {
+            "description": "Missing sessionId or totpCode."
+          },
+          "401": {
+            "description": "Session expired or invalid TOTP code."
+          },
+          "404": {
+            "description": "TOTP session not found or expired."
+          },
+          "500": {
+            "description": "Failed to verify TOTP."
+          }
+        }
+      }
+    },
+    "/metrics/heartbeat": {
+      "post": {
+        "summary": "Update viewer heartbeat",
+        "description": "Updates the heartbeat timestamp for a metrics viewer session to keep it alive.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Heartbeat updated successfully."
+          },
+          "400": {
+            "description": "Invalid viewerSessionId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Viewer session not found."
+          },
+          "500": {
+            "description": "Failed to update heartbeat."
+          }
+        }
+      }
+    },
+    "/metrics/register-viewer": {
+      "post": {
+        "summary": "Register metrics viewer",
+        "description": "Registers a new viewer session for a host to track who is viewing metrics.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Viewer registered successfully."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to register viewer."
+          }
+        }
+      }
+    },
+    "/metrics/unregister-viewer": {
+      "post": {
+        "summary": "Unregister metrics viewer",
+        "description": "Unregisters a viewer session when they stop viewing metrics for a host.",
+        "tags": [
+          "Server Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Viewer unregistered successfully."
+          },
+          "400": {
+            "description": "Invalid hostId or viewerSessionId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to unregister viewer."
+          }
+        }
+      }
+    },
+    "/ssh/tunnel/status": {
+      "get": {
+        "summary": "Get all tunnel statuses",
+        "description": "Retrieves the status of all SSH tunnels.",
+        "tags": [
+          "SSH Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of all tunnel statuses."
+          }
+        }
+      }
+    },
+    "/ssh/tunnel/status/{tunnelName}": {
+      "get": {
+        "summary": "Get tunnel status by name",
+        "description": "Retrieves the status of a specific SSH tunnel by its name.",
+        "tags": [
+          "SSH Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tunnelName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tunnel status."
+          },
+          "404": {
+            "description": "Tunnel not found."
+          }
+        }
+      }
+    },
+    "/ssh/tunnel/connect": {
+      "post": {
+        "summary": "Connect SSH tunnel",
+        "description": "Establishes an SSH tunnel connection with the specified configuration.",
+        "tags": [
+          "SSH Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sourceHostId": {
+                    "type": "integer"
+                  },
+                  "tunnelIndex": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connection request received."
+          },
+          "400": {
+            "description": "Invalid tunnel configuration."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "403": {
+            "description": "Access denied to this host."
+          },
+          "500": {
+            "description": "Failed to connect tunnel."
+          }
+        }
+      }
+    },
+    "/ssh/tunnel/disconnect": {
+      "post": {
+        "summary": "Disconnect SSH tunnel",
+        "description": "Disconnects an active SSH tunnel.",
+        "tags": [
+          "SSH Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tunnelName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Disconnect request received."
+          },
+          "400": {
+            "description": "Tunnel name required."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "500": {
+            "description": "Failed to disconnect tunnel."
+          }
+        }
+      }
+    },
+    "/ssh/tunnel/cancel": {
+      "post": {
+        "summary": "Cancel tunnel retry",
+        "description": "Cancels the retry mechanism for a failed SSH tunnel connection.",
+        "tags": [
+          "SSH Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tunnelName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cancel request received."
+          },
+          "400": {
+            "description": "Tunnel name required."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "500": {
+            "description": "Failed to cancel tunnel retry."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+---
+id: delete-ssh-host
+title: "Delete SSH host"
+description: "Deletes an SSH host by its ID."
+sidebar_label: "Delete SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVMFu2zAM/RWBpw0QEm9tN8C3DmnRDBswNB12CHKgLSYWKkuuRBcNDP/7QNsr2iYrcrIlPT49knrswFAqo23YBg85LMgRU1Lo1Wp1o6qQWBV7ZTmp5WIGGhh3CfI1rFY3sNHQYMSamKJsdmCFo0GuQIPHmiAHa0BDpIfWRjKQc2xJQyorqhHyDnjfDCjPtKMIfb8RdGqCT5QE8DnL5PNa5rM2M+g1KrVlSSltW+f2M+g1nB8LW/pHdNaoNlFcGhWismZCn79ziQ+stqH1I/biGPM1WkdGcZgUPVdvBn2voSaugoEcxlPQY5FymKdUzU0xF+i8s6YHDYni47+CttFBDhVzk8/nLpToBJmfZVn2CfQbET/RemWQscBECr1R2HJFnm2JAlEjM/T6XeKzA2JJhlvvyakaPe6oJs8nsp0fZdtaRxNXPJHo4pBoiFOJkW1iW6Yh5zp4yyFavzuR+MsB8QJTVQSM5kSGr4cMobyneKxaG2lw2UbL+6HDBWGkeNnKc1hvXh6vxCSjCV6Cnj0jUmDykqxHEOjp5zrEGhly+P7nbniE1m/DEG7ZCf6OYm2f1OWvJWiQFzdKz2bZLDtIaAJ/w/KevJEgdUtbiuRLElc0IXGNXvgn4y9eG+EtYwdl8EyeT5o6Y8ZMTzxvHFovVw4N6SYnrSElmTqmAA3Tfbk1MqOGVb6GrhNf/I6u72X7oaUoLdhoeMRosZCirDswNsm/gXyLLtE7sj/cTmPto/qfxmkT/V5qjK6VFWi4p/04G/vNy/GwuPpxdXcFff8X2Vfgtw==
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/ssh/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes an SSH host by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"SSH host deleted successfully."},"400":{"description":"Invalid userId or id."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to delete SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

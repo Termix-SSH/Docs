@@ -1,0 +1,71 @@
+---
+id: establish-ssh-session-for-docker
+title: "Establish SSH session for Docker"
+description: "Establishes an SSH session to a host for Docker operations."
+sidebar_label: "Establish SSH session for Docker"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVMtu2zAQ/BViz6ztNEkL8JY0KZICRYPaRQ+BD2tpbTGRSIVcpTEE/XuxlOw8FBQG6oMtUzvD2de0kFPMgq3ZegcGLiPjqrSxoKjQqfn8SkWK0Xqn2CtUhY+s1j6oC5/dU1C+poCCjRPQwLiJYG6hfwlLDYEeGop87vMtmDb9tYFyMBwa0pB5x+RYXmFdlzZLXNO7KGJaiFlBFcoTb2sCA351RxlD13WdcMfau0hRAj7OZvLzOhuRn3nnKJMDRfvk8gl0Gk7ew3y3MVq32aV9nSsfUtrXO9DRGHTWcEGOB/1ql+YAOB4DhvLZqJxnRQ5XJeWpsFzYmO4bwCdj8JU0QXBr37j+ktMD0l+jLZOmTkNFXPgcDNQ+MmiokQswMM2TrmmMxXRAgoZI4ZGCdLaFJpRgoGCuzXRa+gxL0WqOZ7PZEei3tUTrVI6MK4yk0OUKXxeqZ4ZO/5P4eEQsmXHjHJWqQocbqsjxgWwn77KtbUkDVziQ6HRMlHAqMrKNbLOYcq68s+xDP1SHEH8aEV9gLFYeQ34gw+cxQz9w71RrKQ3OmmB5mzq8IgwUZKLB3C5fvp7LOvbr9jJov50iRcYlhYEZgkAPD199qJDBwLffizSEsuY/nw3i8gmruiQwbafBurVP1JblCBYUKvukzm6uQYNMY5/WbDKbzEbJDsHnmN2TywWkftKaArmMZFtk6CtMFuMwSd373ivLeza6t1e0z9b1v57Z147piad1idaJwNTadtjKW8h3GmIsILlm2sylBuGWiLaVFfsVyq6T44eGgnRzqeERgxV3Sc3UUBDmFFKj72kLBr70eXxYiA4JLxvRM7JjGYS9a9z8mC+kr4OtVz4XTMA/oNO3AdDgU63SuKSzFkp0mwY3EttzyucvSgQ7yw==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Establish SSH session for Docker"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/docker/ssh/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Establishes an SSH session to a host for Docker operations.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"SSH connection established."},"400":{"description":"Missing sessionId or hostId."},"401":{"description":"Authentication required."},"403":{"description":"Docker is not enabled for this host."},"404":{"description":"Host not found."},"500":{"description":"SSH connection failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

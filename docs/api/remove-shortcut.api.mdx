@@ -1,0 +1,71 @@
+---
+id: remove-shortcut
+title: "Remove shortcut"
+description: "Removes a shortcut for a specific host."
+sidebar_label: "Remove shortcut"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVF1v2zAM/CsGn7XEW9sN8Fu7pmiHDRiSDHsIgoGxmFitLXkSnTUw8t8Hyk6aNsGQ+cFfOp3II48taAq5NzUbZyGDMVVuTSHBJBTOc95wsnRePmvKzdLkSeECD0AB4ypANoPJ5B7mCjz9bijwjdMbyNr4aTxpyNg3pCB3lsmyLGFdlyZHOXD4GOTUFkJeUIXyxpuaIAO3eKScQUHtXU2eDQVZlcMf9AHOWKYVedgqqJGLg5XA3tgVbOMl8YXa2dDRfEhTebxOfbJL2EcN9EBIL08hH+waS6MTjYwRdXUKdYemJJ2w6wn3ig5AAqqIC6chA00lMcEuARiGUAyXpqRfFVpckR/uNgZQEMivyYvyLTS+hAwK5jobDkuXYyn6ZBdpmr4H9Sacb2hsjHiBgRK0OsGGC7Lc1yLpmGGr/kl8cUQ8mdwn3FhLZdIFXJHlM9kuT7JJ8j2XP5Po6pgo7ksCI5vAJg8x58pZw04640zij0fEtxiKhUOvz2T4dMzg8ifyp9SaS4HzxhvexAovCD3560YaYzY/XJ6IY7puPgTt219CkXaJMMh6EKj+5c75Chky+PJzGttRnDh+8fDoGau6pEPPpfsO3VlLgbFLFw81LGCYkq/Mc3L9/QEUSJ92CaeDdJAeydCDbzB/IqtlUzKmJXmyOUVDu8AVxvlgMSYxfm2kt4zty5j5n0HWCcb0zMO6RGPl7FjPtk94BiEUoODQlKLt3pZzFVUSZNuKv374cruV378b8lLKuYI1eoMLkWk23yooCDX5WOUn2kAGn7vY300lHoGXjcR1NC6lC/bD43b0dTQdSVn7wVs5Lbs8/gEV7xmAAhcVit0S/7VQol01uBJsxyrXXzm9FFY=
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove shortcut"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/ssh/file_manager/shortcuts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a shortcut for a specific host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Shortcut removed."},"400":{"description":"Invalid data."},"500":{"description":"Failed to remove shortcut."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: dismiss-an-alert
+title: "Dismiss an alert"
+description: "Marks an alert as dismissed for the authenticated user."
+sidebar_label: "Dismiss an alert"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1v2zAM/SsCz1rire2G+dauK9YBw4omww5BDozNxGpkyZXoroGR/z5Qdtp06YYA8yHxx+MTycfHDkqKRTANG+8gh28Y1lGhU2gpsMKoShNrEyOVaumD4ooUtlyRY1MgU6naSGEEGhhXEfIZnEtghLmGQPctRb7w5QbyLj2aQCXkHFrSUHjH5Fg+YdNYoTPeje+iJNJBLCqqUe540xDk4Bd3VDBoaIJvKLChmGLlvOtyDxg5GLeCbbokjdh4F3v0uyyTv5dFp5T3Co1tUVCMy9bazQi2Gk7/HnV9qUxUu9oG9Me/odEGwnLzfFYKOHuN/gqNpVKx34F7SUYgNdXElS8hh8bH1BLkCnIYJ0gcDxGgIVJ4oCDCdNAGCzlUzE0+HltfoK185Pwky7K3oA8GwThVIuMCIyl05b7sxjvVM8NW/5P45IB4MvmiuHWOrKrR4Ypqcnwk2+mrbEtjaeAKRxKdHRKlOBUZ2UQ2RUw1194Z9jJORxK/PyC+xFgtPIbySIYPhwy+WFN4rVtzEbhog+FNUnhBGCictzIMs/n+54m4qbfAPujJM5KKjEuCQT6AQA83Vz7UyJDD15/TNIDi0ttnf39+xLqx9MKPTz7UYNzSp8MMCwimFGrzqM5vrkGDzGdfaDbKRtlB+QP4Aos1uVKC1C0tKZArSMjFAjWmneEwJX+5M8ywxv6k7J53z/8svL5zTI88biwaJ8kkYbvBj7O+GeLDnSPnGkRp+dZ1Yq0fwW638vq+pSAqzjU8YDC4kE7N5lsNFWFJIQm8pg3k8KnP/s1UMhC4bSWTgy0qA/C0KW6+T6ai57CNa19KTMBfoNNvDqDBpw6lMUnvOrDoVi2uBNtzyvUbG7QjbA==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Dismiss an alert"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/alerts/dismiss"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Marks an alert as dismissed for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"alertId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Alert dismissed successfully."},"400":{"description":"Alert ID is required."},"409":{"description":"Alert already dismissed."},"500":{"description":"Failed to dismiss alert."}}}
+>
+  
+</StatusCodes>
+
+
+      

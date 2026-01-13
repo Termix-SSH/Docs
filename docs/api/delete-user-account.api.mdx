@@ -1,0 +1,71 @@
+---
+id: delete-user-account
+title: "Delete user account"
+description: "Deletes the authenticated user's account."
+sidebar_label: "Delete user account"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFP2zAQ/ivWvewl0DJgk/IGAzSmTUIDtIeqD1fn2hgcO9gXaBX1v0/npKUlaGJ5aFP78+fv7ru7tlBQ1MHUbLyDHC7IElNUXJLChktybDQyFaqJFD5FhVr7xvEhZMC4iJBP4D5SiDDNINBTQ5HPfbGCvE0/TaACcg4NZaC9Y3IsW1jXVniNd6OHKDe3EHVJFcobr2qCHPzsgTRDBnXwNQU2FGW3xhhffCh2kJGDcQtYp0d0xNq72ME/j8fytR/mWReFKlK4hYqN1hTjvLF2dQjrDE7eO3XT36xMVJvgevTREH3ttA+BNKuN4h57PMR+Q+f8Ro6iJVNwaHcdMN5tch+VD8kgi5EVFpVxyZ2e/mRILw4puWDuG9fJOH0vwCs0lgrFfqNk67aktSIufQE5dJtiDHIJOYzk9jjqlg/6M5BBpPAspZFPWmiChRxK5jofjazXaEsfOT8ej8dHkL3R8QuNUwUyzjCSQle8zUTHDOvsn8THA+Lb2++KG+fIqgodLqgixx9kO3mXbW4s9Vzhg0SnQ6J0TkVGNpGNjinmyjvDXir7g8RfBsQXGMuZx1B8kOHrkMHrRwrvZWsqBusmGF4lh2eEgcJZIyUxme5u30pnd924C9q2r0iRckkwyHsQZP3LlQ8VMuTw489dKkSZGL9fZ83lEqva0v5s2M6EDIyb+3SbYUHBHYXKLNXZzTVkIAXaRTo+HB+OB/H34HPUj+QKOaR+05wCOU1CXvvIFaYB5jCp70Zo6kj12gt7rO3rLPy/idvli2nJo9qicaIg2dn2vTiB1Ivpwr1unGYgLguibaWt7oNdr2X5qaEgDk4zeMZgcCZJmkzXGZSEBYVk7iOtZEx1qg/uRIfAbSN6BtNczN9Oi4vLn5d3l+Jm/79Q+UJOBXyBLH3mABn4lJtUJGmtBYtu0eBCsB2rPH8BqeRPmQ==
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/delete-account"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes the authenticated user's account.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Account deleted successfully."},"400":{"description":"Password is required."},"401":{"description":"Incorrect password."},"403":{"description":"Cannot delete external authentication accounts or the last admin user."},"404":{"description":"User not found."},"500":{"description":"Failed to delete account."}}}
+>
+  
+</StatusCodes>
+
+
+      

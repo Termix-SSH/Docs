@@ -1,0 +1,71 @@
+---
+id: generate-new-ssh-key-pair
+title: "Generate new SSH key pair"
+description: "Generates a new SSH key pair."
+sidebar_label: "Generate new SSH key pair"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVE1v2zAM/SsCz2rjresG+NZ26z6AYcWSYYcgB8ZmbTW25Ep0W8/Ifx8op61bB1t8sAWLfCQf+dhDTiHzpmHjLKTwmSx5ZAoKlaV7NZ9/URvqVIPGH4MGxiJAuoQLTzlZNlgFWGnwdNtS4HOXd5D2kDnLZFmO2DSVyVDgZzdBYvQQspJqlBN3DUEKbn1DGYOGxruGPBsKcruhbhENngwDe2ML2Gq5m5s/4ztjmQryctlgCE3pMezzjY+kHBpnwxDpbZLI5yUXi5IiB8/1bzWc7rO8RFNRrtipYsffK+IkYE1cuhxSaFyItSKXkMIse6Zy9uh+tKHuSFxBQyB/R15Y76H1FaRQMjfpbFa5DKvSBU5PkiR5A/pVVt/RWJUj4xoDKbS5wpZLCTX0Qw3IsNX/BD6ZAEtt3FpLlarRYkE1WT4Q7d1etGtT0Q7LHwh0OgWKfiowsglsshBrrp017KT1BwK/nwB/xFCuHfr8QIQPUwSXbcjvY2slDc5ab7iLHV4TevJnrczGcjW+notqhnEdGz3Nt6Qi4xLNIN0Zgd4dLp2vkSGFb78XcR5FjT+fdfvpAeumohe6e9TMSG7JS3WNFGnstYvpGBYYWJCvzYM6u/oKGmSCByqS4+Q4mRC0Mz7HbEM2Fyf1k67Jk80oKtoFrjFuD4uxvMdNNVlTr7FH6+j/620om+mBZ02Fxkrs2Ol+p9cljPQKGqaKXWmQSRDTvhfp/fLVdiu/b1vy0uWVhjv0BtfC03K11VAS5uTjAGyogxQuhpSPYh/EvGolsck2lQF5WixXP+YL6fduC9cuFx+P96DjOwXQ4CItcYzivx4qtEWLhdgOmPL8BRy4FxU=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate new SSH key pair"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/generate-key-pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a new SSH key pair.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"keyType":{"type":"string"},"keySize":{"type":"integer"},"passphrase":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The new key pair."},"500":{"description":"Failed to generate SSH key pair."}}}
+>
+  
+</StatusCodes>
+
+
+      

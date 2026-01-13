@@ -1,0 +1,71 @@
+---
+id: read-a-file
+title: "Read a file"
+description: "Reads the content of a file from the remote host."
+sidebar_label: "Read a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VNtq20AQ/ZVlnlpYbLVJWtBbSps2hUBJUvoQTBlLY2uJtKvsjEKM8L+XWcmNE7vBLfRJlz175npODyVxEV0rLnjI4ZKwZCMVmSJ4IS8mLAyahavJLGJo0lGkJgiZKrBMwILgkiG/gTMFXaDHJUWYWWgxYkNCUU97cMp/11FcgQWPDUEOTMwu+PMSLES661ykEnKJHVngoqIGIe9BVm0CS3R+Ceu13U/WolR/xTNTMLfBM7Gev80yfTztyPXTXmj92o0JrC0c77tw4ZidX5pNHuaxDybEoZUSgqkxLjc0x7s0qZs+iFmEzpcJd7Iv3Bm6mkojwUTCcpPb2kJDUoUScliSgB26k8OUuZoq6GczTCr90KsaECwwxfvNyLpYQw6VSJtPp3UosNaZ50dZlr0B+7xudN6UKDhHJoO+NNhJRV5cgQoxAzPo+F4gPtohvrr6YqTznmoz5NzoLA5jO97LlmYw1n8g0ckuUbpnWFAciys41dwE7yTogh1I/G6H+CNyNQ8YywMZ3u8yhOKW4r5uzXTARRedrNKE54SR4mmnu3Ez2z6+UtkMutgG/VaRpgKjuvR7AIEdX85CbFAgh68/rtM6Or8I6bqTWvHXFBv3YE6/nYMF3bgh9WySTbKdgkbwByxuyZd6yVzSgiL5glQZbWBp0Cv/aAZqZKNxPWfrYdTzv/rd0AChB5m2NTqvGaT59KPKboBZrWhbZ9orHvxp1NrMglIqvO9VNN9jvV7r78HYdD6lY5zXamYLrJleqOTV5eg3r82fcryl1TPPvce6U1xasf8Qa7TkxzAz/YhO46SF27Kpz590UX4BcGQ63w==
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/file_manager/ssh/readFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads the content of a file from the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The content of the file."},"400":{"description":"Missing required parameters or file too large."},"404":{"description":"File not found."},"500":{"description":"Failed to read file."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: validate-ssh-key-pair
+title: "Validate SSH key pair"
+description: "Validates if a given SSH private key and public key match."
+sidebar_label: "Validate SSH key pair"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFu2kAQ/ZXVnB1wm6SVfEvSRm2jqqjQ9oA4DPaAN9i7zu6YxLL492rWEEhMKqT6ALZ35u2b2ffGLWTkU6cr1tZAAr+x0BkyeaUXCtVSr8mo8fiLqpxeI5NaUaPQZKqq54VOw2OJnOYDiIBx6SGZwo2jjAxrLDzMInD0UJPna5s1kLThUTvKIGFXUwSpNUyGZQmrqtApCpfhvRdCLfg0pxLljpuKIAE7v6eUIYLK2Yoca/KyuiV4R81BrGenzRI2EXR831pdUTNC7x+ty46sh0vq8JU1vtvufRzL38vu3VGjKtROrbs2amuUI18XPJBdLo7ljN5uLDpSu24FgMtjALeoC8oU292uHZbwGIDwLolzm0EClfWhb8g5JDBM98c03KWerag5k1SIwJNbk5MTbaF2BSSQM1fJcFjYFIvcek7O4zh+B9ErRt9RG5Uh4xw9haKw5ly26s5Wdciwif4JfN4DFiFybQwVqkSDSyrJ8IloF0fRFrqgLZY7EeiyDxTylGdk7VmnPtRcWqPZioJOBP7QA/6EPp9bdNmJCB/7CDZdkTvWrZkccFo7zU044TmhI3dVizams8PlsTiwU/1h0LNNhIrIJYRBsg2CaHtza12JDAl8+zMJehRn/9zPhM9PWFYFvfbwzn0vrLt/+cKxB07WZmEDN82CCRNypX5SV6OvEIHIuetLPIgHca9b2+BrTFdkMklSP2lBjkxKYYhYzyWGsWQw1Lqbl2FG7mz3Grfdz7j/HLBdw5meeFgVqI2QCnpot66ewoGrpeKer2cRiF4ktG3FoL9csdnI64eanGhhJmlO41waOJ1tIsgJM3JBJqtwDDddPWcTIRR2qYVYb36LjJ7Hz+jHeCKq2H4HSptJjsNHiMJvAhCBDT0LYgvvWijQLGtcSmyHKddf+3VRHw==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Validate SSH key pair"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/validate-key-pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validates if a given SSH private key and public key match.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"publicKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Key pair validation result."},"400":{"description":"Private key and public key are required."},"500":{"description":"Failed to validate key pair."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,6 +1,8 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'Termix',
@@ -21,6 +23,25 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          termix: {
+            specPath: "static/openapi.json",
+            outputDir: "docs/api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          } satisfies OpenApiPlugin.Options,
+        }
+      },
+    ]
+  ],
+
   presets: [
     [
       'classic',
@@ -29,6 +50,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl: 'https://github.com/Termix-SSH/Docs/tree/main',
+          docItemComponent: "@theme/ApiItem",
         },
         blog: false,
         theme: {
@@ -37,6 +59,8 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+
+  themes: ["docusaurus-theme-openapi-docs"],
 
   themeConfig: {
     colorMode: {
@@ -54,6 +78,12 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
+          position: 'left',
+          label: 'API',
         },
       ],
     },

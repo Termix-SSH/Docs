@@ -1,0 +1,71 @@
+---
+id: stop-metrics-collection
+title: "Stop metrics collection"
+description: "Stops metrics collection for a specific host and cleans up the SSH session."
+sidebar_label: "Stop metrics collection"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVUuP3DYM/isCTy2gzDhN0gK+5dGgKVA0WG/Rw2IOHIkzVlaWFIne3YHh/17QNna28aTYQ32xLZIfHx9JDWCpmOwSuxighoZjKqojzs4UZaL3ZESkDjErVCWRcQdnVBsLKwxWGU8YiuqT4pZU0/ymCpXiYtiABsZjgfoGGsp3lFXDyAV2GhJm7Igpi3QAJ54TcgsaAnYENTgLGjJ97V0mCzXnnjQU01KHUA/ApzRpBaYjZRjH3axNhd9FexKVs/EBfSENJgamwCLDlLwzKIltvxRJfFiDx/0XMgwaUo6JMjsqIr1zdE+5mZP8ZJ8YFM4uHGGcHomnpBjKbPVTVcnr38X+Y13mwjElsqr0xlAph9770wZGDa+rl2uAJQpFD0lSVS9U8oSFlI9H5YLCI7owmb+55P8jOk9WcZzcXmB9A5JIR9xGKxTFMtVDmKphu+hvxXg7ODuChjIxPdPaZw81tMyp3m59NOila+pXVVW9BP1tLdAFZZFxL/FLZ2HPLQVeeFIzMoz6P4FfrYClJbkPgbzqMOCROgr8TLTXF9EOztOClZ8J9GYNNI9EYWRXWMouOXcxOI7SRs8E/nkF/AFLu4+Y7TMRflkjRHNL+VK1dkKw6bPj08TwnjBTfttLP9zsnoobmaa59Z8qPc6KhALLRMv/rAR6+fgYc4cMNfz+9/XUgzKlV+cB//UBu+Tp4jw+zqEGFw5xcupYlOGacuce1NvPn0CD9OmccLWpNtWqDIvyOzS3FKwYqSs6UKZgSMBlGjqcdseytJrLU/Qt8nBeRf/3vp2Ly/TA2+TRBYlz4n5YpvYGFl9SfI7CQe2s7GTxIPJhkAn8K/txlOOvPWUhe6fhDrPDvRTyZgDrinyf1+t3U/zhatnEP6rvhbgcYjgJL+h7+QMNt3Sa74JxN2poCS3lyfsseD/7eHEt5mfD1XaXxnxcYp//bK6lz5ZrootWbDLey4WD97PjOOUxte90NoDHcOzxKLozpjz/AEwGfxY=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop metrics collection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/metrics/stop/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops metrics collection for a specific host and cleans up the SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Metrics collection stopped successfully."},"401":{"description":"Session expired - please log in again."},"500":{"description":"Failed to stop metrics collection."}}}
+>
+  
+</StatusCodes>
+
+
+      

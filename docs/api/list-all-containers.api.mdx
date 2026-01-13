@@ -1,0 +1,71 @@
+---
+id: list-all-containers
+title: "List all containers"
+description: "Lists all Docker containers on the host."
+sidebar_label: "List all containers"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v00AQ/SurOYG0SgxtQfKtqBSKQEJtEYcqh4k9iVddz7q746qR5f+OxnabtAmonGyv37ydr/c6KCkV0TXiAkMO312SZNB7cxaKW4qmCCzomGIygY1UZKqQZAYWBNcJ8hsYgbCw0GDEmoSinnfglLBBqcACY02QQ6KUXOCLEixEumtdpBJyiS1ZSEVFNULegWyaASzR8Rr63k5cdy3FzZYMvYcDYcsQPCFD3y/0ktQETpQU8D7L9PG84lPjXRITVjulzqC3cHwIfXX11UxFGA5iVqHl0oQ4fBSBmQqhcog/ORR/js5TaSSMtz67srdQk1ShhBzWJGDH5uUwL4cWz7foeffUyV57QPH+sett9JBDJdLk87kPBXodWH6UZdk7sC/S+YGOTYmCS0xkkEuDrVTE4gpUiBmZQUfwD+KjPWLtk7TM5E2NjGuqieWVbMcH2VbO08QVX0l0sk80xJkkKC6JK9JQcx3YSdBleyXxhz3iM0zVMmAsX8nwcZ9h1NuBbi10wEUbnWyGCS8JI8XTVnfjZrH7+0q1MO76LuhJGprKo2QGqQwgsNPLeYg1CuTw7ff1sI6OV2EId+IVf02xdg/m9OcFWNCNG1PPZtks2ytoAn/C4pa41CBzSSuKxAWpPpqQpEZW/knQaj6D92wX/SVrB/qPWP7Tq8b6hR5k3nh0rAkM4+kmkd3AKDKw8Oz2fGtZCwvKp9iuU8H8ir7v9Xg0Jp1N6RIuvZraCn0iC7e0ebKqe/StpjGM9B6jU+jhsL8W/eZyss235m91TYfIm907H1PZ1tMvdh3ny2ed+R+AmBDv
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List all containers"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/docker/containers/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists all Docker containers on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"all","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"A list of containers."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Failed to list containers."}}}
+>
+  
+</StatusCodes>
+
+
+      

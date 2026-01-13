@@ -1,0 +1,71 @@
+---
+id: complete-totp-verification-for-metrics
+title: "Complete TOTP verification for metrics"
+description: "Verifies the TOTP code and completes the metrics SSH connection."
+sidebar_label: "Complete TOTP verification for metrics"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVcFu2zAM/RWBZzdx13YDfGu7FeuAoUWTbYcgB8ZmYrW25Ep01sDIvw+U1SRtsiGH+ZDYFvlEPj0+d1CQz51uWFsDGfwkp+eavOKS1PhufK9yW5BCU6jc1k1FHNdqYqdzr0ajryq3xlAuCANIgHHhIZvAiNySnBoxsodpAo6eW/J8ZYsVZF141I4KyNi1lEBuDZNhWcKmqXSOAjh89FJXBz4vqUa541VDkIGdPVLOkEDjbEOONfkQR95ra26LnVDPTpsFrBNgy821LejAYrikSt9Y43uwD2kqf28pCqwse56KZEPElgRFnnFWaV9SMZBdzw/BfNfea7NQm4KVdeq1vph2up826sMVvTTCniRps8RKF9vjitnnf6k97qiMZTW3rQkgES+kXhyq9wZ1RYVi2/e+CtsNQDiriUtbQAaN9eFEkEvIYBipGUZqTqQ7SMAHYYhGOmhdBRmUzE02HFY2x6q0nrOzNE1PIXlPGWqjCmScoe81iS2XZDiKRfXIsE7+CXy2Bywi5tYYqlSNBhdUk+Ej0c4Pos11RRHLHQl0sQ/UT5BnZO1ZRCY919Zotq7XzjHAH/eAP6MvZxZdcSTCp30Emz+RO8TWVA44b53mVTjhGaEjd9mKJCbT3eWRjHQ/aLtBm8mUUkQuIQyyGARJvLmxrkaGDL79GgcZilU8bE3mywuKYb0zhdd53/WCHYPQZm5DCZolFcbkav2iLu9vIQFRbd9+OkgH6R4pMfgK8ycyhSSpB5qTI5OTgMt41BjszGBo6Tp6qtoxlajluXWv3vJ+o25rlv/FsHu6mV542FSojdQa1NDFUZ7AtpI3wzxNQEQiEV0nU/nDVeu1vH5uyYkApgks0WmcCZ2T6TqBkrAgF7TxRKtAQmjmZCx1SHjVSj17XwHRzsZq7u9GY5FC/JrU/UE6/A1J+M0AErCBsKCw8K6DCs2ixYXE9phy/QHxwWsr
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Complete TOTP verification for metrics"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/metrics/connect-totp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Verifies the TOTP code and completes the metrics SSH connection.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"totpCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"TOTP verified, metrics connection established."},"400":{"description":"Missing sessionId or totpCode."},"401":{"description":"Session expired or invalid TOTP code."},"404":{"description":"TOTP session not found or expired."},"500":{"description":"Failed to verify TOTP."}}}
+>
+  
+</StatusCodes>
+
+
+      

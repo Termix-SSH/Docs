@@ -1,0 +1,71 @@
+---
+id: start-container
+title: "Start container"
+description: "Starts a specific container."
+sidebar_label: "Start container"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9lMFu2zAMhl9F4GkDhNhb2w3wrVtRrAOGFU2HHoIcGIlphNqSK9FFA8PvPtB2s6TJiuyyky2J/CTyJ9mCpWSiq9kFDwVMGSMnhSrVZNzSGWWCZ3Se4gQ0MN4nKGZwEcwDRZhrqDFiRUxR9ltwAqmRV6DBY0VQQKKUXPBXFjREemxcJAsFx4Y0JLOiCqFogdd1b8zR+XvoOn2QtXnMP9LmYpzq4BMlOf+Y5/LZjf3rC1wlyQJZlRpjKKVlU5brCXQaTg/5Taff1Bik8oHVMjTeqhD7hQnek2Gyo//pW/duvHvjs0OXXaIrySoOwyO35ek6DRXxKljJW0gMekhfAZntBcs21ilrN7p0WbuV1y7rwaAhUXx60bWJJRSwYq6LLCuDwXIVEhcneZ5/AP3qjT/QeWWRcYGJFHqrsOEVeXYGxUQNZBCR3wCf7IEl09x4T6Wq0OM9VeT5SNrpQdrSlTSy4pGgs31Q7yeCsEvsTOpjroJ3HKQAjwR/2gNfYFotAkZ7JOHzPqHX/VC25iKwaaLjda/wgjBSPG+kXmbz7eOptNXQN9tGmy6Tp8DYfbIejECPP5chVshQwPe7275GnV+G3t1xKfa3FCv3rM6vr0CDVNzw9HyST/K9gEbjL2geyFtxUje0pEjekDSN1H2FXvjjzJju9slrYtsPFfJ8xPQb4mV65qwu0Xm5sJejHRttBkOjgf4zqhJoKLaHYLE7xYZ2m2sQGQXRttI3v2LZdbL92FAUieYanjA6XEjSZi1Yl+TfQrHEMtEbYb27GQfle/W3KMZN9GvRAMtGVqDhgdY7I1wK8D9evJ2pbr49365/TqWafgOVKE+L
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start container"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/docker/containers/{sessionId}/{containerId}/start"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts a specific container.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Container started successfully."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to start container."}}}
+>
+  
+</StatusCodes>
+
+
+      

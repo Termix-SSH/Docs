@@ -1,0 +1,71 @@
+---
+id: check-ssh-session-status
+title: "Check SSH session status"
+description: "Checks the status of an active SSH session."
+sidebar_label: "Check SSH session status"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1r20AQ/SvLnFpYbLVJW9AtbfqRQqHELT0EH8bS2Fos7So7IxMj9N/LrJTgxGlwL/p8+/bNvjfTQ0lcRNeKCx5y+FRRsWUjFRkWlI5NWBv0BgtxOzKLxTfDxOyCn4EFwQ1DfgOXodhShKWFFiM2JBT1ew9OOW87inuw4LEhyGFaf1WChUi3nYtUQi6xIwtcVNQg5D3Ivk1gic5vYBiWCuY2eCbW/2+zTG+P1S9G6kn6DAYL5y/hri6NY3MvYgbDYKEhqUIJOWxIQAuSCnKYl6nEOXM1H9nBAlPc3VfaxRpyqETafD6vQ4F1FVjysyzL3oB9sv8PdN6UKLhCJoO+NNhJRV5cgZIKSMww2BeJz46I1R/pvKfaNOhxQw15OZHt/Fm2tatp4oonEr07Jkrrki2OxRWcam6CdxLU3xOJ3x8RXyJXq4CxPJHhwzFD8vW501qqwUUXneyTwyvCSPGi0zzcLA9/LzS1YywPQQ8hVikwhVvfRxDY6eFLiA0K5PD9z68UQefXIS13Uiv+F8XG3ZmLn1dgQRM3Ss9m2Sw7KmgCf8RiS77UReaa1hTJF6QN0QaWBr3yTw2Zev6wtc1Dwh9R91AEL+Tl/+fEeA5CdzJva3RehSSb+qnBbmBsMD0mrvQ6SlhaUPMU0PfaLb9jPQz6eZwqakzpGFe1DpE11kwvqH51PbX6a/MvVVvaP5lRO6w7xaVE7DA63SxF4GBYfP2s1v0F1PrO6Q==
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check SSH session status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/docker/ssh/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks the status of an active SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Session status."},"400":{"description":"Session ID is required."}}}
+>
+  
+</StatusCodes>
+
+
+      

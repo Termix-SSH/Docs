@@ -1,0 +1,71 @@
+---
+id: execute-a-file
+title: "Execute a file"
+description: "Executes a file on the remote host."
+sidebar_label: "Execute a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVFFP2zAQ/ivWPXttNmCT8gYbaExCQ2unPaBqujpHY3DsYF9Yq4j/Pp0ToKPV1Dy0if358919910PFSUTbcs2eCjhfE2mY0oK1a11pIJXXJOK1AQmVYfEE9DAuEpQ3sCFQK7Q44oiLDREeugo8VmoNlD2+dNGqqDk2JEGEzyTZ9nCtnXWoNw6vUtydQ/J1NSgvPGmJSghLO/IMGhoY2gpsqWUcZSSDf6y2oImjtav4EmDhH2NXO/ZzI9Emdrg00D2oSjk798q5Lwol8IGryKlzvFE2I/3wa9sStav1HO+qsWIDTHFpEJUs9lXZYL3ZDKbD6zwEa3DpaNMerI3BrSOKsVhDISyIBOQDBriOlRQQhtSrk/OF6Yp1VNB/W4GTfLCeFxyAg2J4iNFUa+HLjoooWZuy+nUBYNOBC6PiqJ4D/ptkmi9qpBxiYkU+kphxzV5HmVUAzM86f8SH+0QS3m4856cGsJuyPOBbMd72XLnjiU4kOhklyifU4mRbWJrUs65Cd5ykHY6kPjjDvEXTPUyYKwOZPi0yxDMPcV91VqIwKaLljdZ4SVhpHjaSXvcLLa3Z2K2wQLboBfPSCjSLhkG5QgCPb5chNggQwnffs1zS4qJf7za/3yNTevojV2fnbjt0i3rWn8bcgiW5SjMKTZ2rU6vL0GDdO2QfjEpJsVOUUbwGZp78pUcUj/oliJ5Q0IuVmkwDxqPOaVx1o2j7i1h/zquDp2KQ+WY1jxtHVov12Zh+9GhN5BSPWb/7FEpcl7c9ulCg7DKib4Xw/2M7ulJlh86iqLtQsMjRiszJEuroSasKGbZ72kDJXwe4n83l7gE7jqJb2f0Slu8TJTr77O5qDyO8CZUcibiH9D5twTQEHKNcvPktR4c+lWHK8EOnPL8BeeIMG0=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Execute a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/ssh/executeFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Executes a file on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"filePath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"File execution result."},"400":{"description":"Missing required parameters or SSH connection not available."},"500":{"description":"Failed to execute file."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: add-recent-file
+title: "Add recent file"
+description: "Adds a file to the list of recent files for a host."
+sidebar_label: "Add recent file"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVMFu2zAM/RWBZy/21nYDfEu3Fe2AYUWTYYcgGBiLidXakivRbQMj/z5Q9lq3CYZgvsQxyaenRz52oCkU3jRsnIUcploHhWptKlLsFJekKhNYubXyVJDlGApq7bxCVbrAE0iAcRMgX8BsdgnLBDzdtxT43Okt5F38azxpyNm3lEDhLJNlCWHTVKZAOTy9DcKgg1CUVKO88bYhyMGtbqlgSKDxriHPhoJE5fArPcozlmlDHnYJNMjlKBLYG7uRgMWaDgTiI8RD42zo8T9kmfy81ufmRQSFWpOeCOrpodQr+4CV0UojY8w6O5R1gaYiLVqj1mONJyCMauLSacihcSFKEC8GaQhlKlm/a7S4IZ/2lZBAIP9AXtrRQesryKFkbvI0rVyBlYiWn2RZ9h6SN0y+o7GR7AoDKbRaYcslWR4apHpk2CX/BD7ZA57NLhW31lKlera13PE4tNODaFH+4eZHAp3tA8U6FRjZBDZFiHeunTXsZCqOBP64B/wFQ7ly6PWRCJ/2EVxxR/6QWktpcNF6w9vY4RWhJz9tZSoWy3F4JjbqJ3mc9Dz6QkXGJaZBPiRBMrxcOF8jQw7ffs3jJIo9b16M/fUJ66aisRGz5/EcbPXXbiP/Gbt2kYRhKYY5+do8qen1FSQgc9sLkE2ySbYny5B8jsUdWS1F6obW5MkWFF3vAtcYl8hw8PS1p94idi+76H83Xy8m0xOnTYXGCo/Y624QYwEhlJDA2K0gqyb6dZlE+SSt68R4P32128nn+5a89HiZwAN6gyvRa7HcJVASavKx/Xe0hRw+95d4Nxcykl61Qmpvucp4PC+U6x+zuXR7WNK101Lj8VHI4SPkAAm4KFQcovitgwrtpsWN5PaY8vwBSowjLQ==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add recent file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a file to the list of recent files for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"},"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Recent file added."},"400":{"description":"Invalid data."},"500":{"description":"Failed to add recent file."}}}
+>
+  
+</StatusCodes>
+
+
+      

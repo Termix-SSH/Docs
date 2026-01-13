@@ -1,0 +1,71 @@
+---
+id: share-a-host
+title: "Share a host"
+description: "Shares a host with a user or a role."
+sidebar_label: "Share a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVU1v4zYQ/SvEnFpAtd0m2wK6JdsukqIfC9uLHgwfxuLY4oYiteTIjiHovy+GUpwPuYF1sUW9ecMZPr5pQVMsgqnZeAc5LEoMFBWq0kdWB8OlQtVECsoHhSp4SxPIgHEXIV/B/PbmI6wzqDFgRUxBVlswQlUjl5CBw4ogB6Mhg0DfGhNIQ86hoQxiUVKFkLfAxzqhHNOOAnTdukdT5FuvjwJ5G1x4x+RYPmFdW1Og1DD9GqWQdsztN1+pYMigDr6mwIZi+ophR7xMmBM2cjBuBxmQayopVFogBXhLsO6yIepLpHCvx3EnwNxbegU4FZiBbkLa8Z1vQnwBcU216RE1hcrEaLz7i/Zk39vf3tAB1l16pHOx9i72Bf4ym8nP63O+k+ONcthaxaYoKMZtY+1xInmvz0Xcuz1ao9VwKmrj9RP6aoz+x3MvIX9wFAbc9Ri3TG06KUz6q5xntfWN0ynsw7nNfEJjSSv2fQ0p1QSk9Iq49Frk52M6bFFhDtOwwWIqsGlrdDdNYZBBpLB/Um0TLORQMtf5dGp9gVbw+dVsNvsZsjc7+BuNUxoZNxhJodMKGy7J8aBD1TNDl71LfDUiXizuFDfOkVUVOtxRRY4vZLs+y7Y1lgaucCHRhzFRilORkU1kU8RUc+WdYS9avJD41xHx7xjLjcegL2T4bczgiwcK57q1lgMummD4mE54Qxgo3DQiidX65eeFuEV/X16CThdOtgKDYcl7D4Js+PPJhwoZcvjzv2WSobjQ/Nm//njEqrb01m+ebOW1mzzf7tcmMht5xuyMR/RW0GVg3NanhIYlMywF+ahuPt9DBiL6vnuzyWwyG/V0AN9i8UBOS5Ca05YCuYKSNfnIFSajHQw+TY5hcLyla5/N+uIJ0zeI6ZGntUXjJGuSRTvc6RXInYYMhox5GjH9xV4Pq/kK2lZu6Jdgu06WvzUURAzrDPYYDG6kN6sWtInyX0O+RRvpnQJ+mA+D6Ef1f/scFtEdpdVoG3mDDB7o2I/CTmZISagppOz9h499jp+SOJ4DR9NNhHvyuc//Lpaiw2FKVl5LTMCDjCs89Il9qiPJO621YNHtGtwJtueU5zu2rb76
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/host/{id}/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Shares a host with a user or a role.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"targetType":{"type":"string","enum":["user","role"]},"targetUserId":{"type":"string"},"targetRoleId":{"type":"integer"},"durationHours":{"type":"number"},"permissionLevel":{"type":"string","enum":["view"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Host shared successfully."},"400":{"description":"Invalid request body."},"403":{"description":"Not host owner."},"404":{"description":"Target user or role not found."},"500":{"description":"Failed to share host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: assign-a-role-to-a-user
+title: "Assign a role to a user"
+description: "Assigns a role to a user."
+sidebar_label: "Assign a role to a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVU1v1DAQ/SvWnEAyu4EWELm1fIgiIdBuEYdqD7Px7K6pYwd7Al1F+e9onLRbmrZqLknsN8/z+dyBoVRF27ANHko4SclufVKoYnCkOChUbaI4Aw2M2wTlBSxOT97DSkODEWtiirLagRX7BnkHGjzWBCWI5ZkBDZF+tzaSgZJjSxpStaMaoeyA940gE0frt9D3qwFMiU+D2Qvirm0VPJNn2cKmcbZC8X3+K0kA3ZQ6rH9RxaChiaGhyJZSpg2OzswtnPVMW4rQ50fcSE3waUC/Kgp5/Z+shaQIc8bIqNRWFaW0aZ3bz6DXcPygzdkHZZO6DmwEH03By31iqnMpkqrQ+8BqTapG36Jz+5uzR4bjKcOPRFGFOFRTzDeh9df4dw+F5CKhuUP/+r5oPqF1ZHKbZGw+ZwaSvpp4F4y0REg5+9IZJczjGqu5NEaad0N/9PMcIGhIFP9ct1MbHZSwY27K+dyFCt0uJC6PiqJ4CfqOH1/RemWQcY2JFHqjsOUdeR67Qw3M0OtHiY8mxMvlZ8Wt9+Qk67ilmjw/ke34XraNdTRyxScSvZ4SZTuVGNkmtlXKMdfBWw4ySE8kfjMh/oBptw4YzRMZ3k4ZQnVJ8b5sraTAVRst73OF14SR4kkrfXGxur29lBkeBu826GZUxRUYVUT+BxDo8eNTiDUylPDl53nuRdGGxUFVPl5h3Ti6rQJFr8H6TciHWJZNOKdY2yt18v0MNEhfDgEWs2JWTMIewadYXZI3YqQWtKFIviIZH5mCGrNCjeI4SO1Eae8ydwfBe1ydh9QwXfG8cWi9nJor142zdwEye6CzLMu4lQd9zgO40iCFFWTXyST9iK7vZfl3S1GKttLwB6PFtSToogNjk3wbKDfoEj3i+rPFqHbP1UPOjovo95JvdK38gYZL2h/ukn7Va9gRGorZg2Hz/XDOi3OhOBhP7gdpshth+v5teS49M94zdTBiE/GvJAT/DoeHHMtwY8haBw79tsWtYAdOef4BJoN6iw==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Assign a role to a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/users/{userId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Assigns a role to a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"roleId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Role assigned successfully."},"400":{"description":"Role ID is required."},"403":{"description":"System roles cannot be manually assigned."},"404":{"description":"User or role not found."},"409":{"description":"Role already assigned."},"500":{"description":"Failed to assign role."}}}
+>
+  
+</StatusCodes>
+
+
+      

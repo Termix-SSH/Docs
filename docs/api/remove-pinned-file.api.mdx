@@ -1,0 +1,71 @@
+---
+id: remove-pinned-file
+title: "Remove pinned file"
+description: "Removes a file from the list of pinned files for a host."
+sidebar_label: "Remove pinned file"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVFFv2kAM/isnP98gW9tNylu7UrXTJk3AtAeEJpMz5NrkLr1zWFHEf598oS0raEJaHiCJv/tif/bnDgzFItiGrXeQw5hqv6aoUC1tRWoZfK24JFXZyMovVWOdI5OCUS19UKhKH3kAGhhXEfIZTCa3MNcQ6LGlyFfebCDv0qMNZCDn0JKGwjsmxxLCpqlsgZLB8D5KGh3EoqQa5Y43DUEOfnFPBYOGJviGAluKEpWP35k9nHVMKwqw1dAgl3uRyMG6FWzTJfnFxrvY03zIMvn7W4vvr7WqkHQxA+E9Pwa+c2usrFEGGRPq4hjqBm1FRrHfEe7rOQBJqyYuvYEcDFXEBM9lwDDGcii4XzU6XFEY9mdBQ6SwpiDid9CGCnIomZt8OKx8gZVIlJ9lWfYe9Jt0vqF1KeMFRlLojMKWS3K8a4fqmWGr/0l8dkA8mdwqbp2jSvXZ1uT4RLbzo2ypC7vKTyS6OCRK51RkZBvZFjHVXHtn2ctwnEj88YD4GmO58BjMiQyfDhl88UDhmFpzaXDRBsub1OEFYaBw2cpUzOb74YmYph/ofdCLAyQVGZcEg3wHAr27ufGhRoYcvvycplkUM45fbTx6wrqpaN922ct4PrtLg3VLnz5qWcAwpVDbJ3X5/Q40yJz2BWeDbJAdyLADX2HxQM7IITWmJQVyBSVP+8g1phXhMBUxPjDSW9Luddn8137rRWR64mFToXWST+pxtxNhBjGWoGHfpWLg3qdznWQTWNeJ4X6EaruV148tBentXMMag8WF6DabbzWUhIZCavsDbSCHz30l76aSjMCrVpI6WKEyFi+r5Hr0dTQdSZ93y7j2Rk4F/A06/eYAGnzSK41PetdBhW7V4kqwPatcfwBK9R7k
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove pinned file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/ssh/file_manager/pinned"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a file from the list of pinned files for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Pinned file removed."},"400":{"description":"Invalid data."},"500":{"description":"Failed to remove pinned file."}}}
+>
+  
+</StatusCodes>
+
+
+      

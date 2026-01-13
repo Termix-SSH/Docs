@@ -1,0 +1,71 @@
+---
+id: detect-ssh-key-type
+title: "Detect SSH key type"
+description: "Detects the type of an SSH private key."
+sidebar_label: "Detect SSH key type"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v2zAM/SsCz27ire0G+NaPFduKYUGTYocgB8ZmYjW25Ep0WsPIfx8ou02aBEPmg79EPpKPfGwhI586XbG2BhK4JaaUveKcFDcVKbtQaNR4/F1VTq+RSa2oGUAEjEsPyRRuHGVkWGPhYRaBo+eaPF/brIGkDZ/aUQYJu5oiSK1hMixHWFWFTlECD5+8RG/BpzmVKG8SHBKw8ydKGSKonK3IsSYvp30u99Ts2Hp22ixhE8GKmhF6/2JdduQ8XJKpr6zxHeDnOJbHRzLuqelIyAIr2hrlyNcFDyTIxTGX0ZYkpb16Kz84XB5zuENdUKbY9kGCpwQdgCRZEuc2gwQq6wMNyDkkMEy3rA87x7MVNWeh0gg8uTU5aU8LtSsggZy5SobDwqZY5NZzch7H8SeI9rL5hdqoDBnn6EmhyRTWnEugrlGqQ4ZN9E/g8wNgGSCujaFClWhwSSUZPhHt4ijaQhfUY7kTgS4PgYKf8oysPevUh5pLazRbGZYTgb8cAN+iz+cWXXYiwtdDBJuuyB1jayYNTmunuQkdnhM6cle1TMZ0tns8Fjl1A75r9K4ISUXGJZhB0htB1L/cWVciQwI//0zCNIpMH7YC//aKZVXQviDfhLanwx19arOwIQ3N4g4TcqV+VVejHxCBTG5HQTyIB/EBMb3xNaYrMpk4qQdakCOTkoCLUkoM68RgKKtbamGJvalrH7Xdbqb/2YEdjUyvPKwK1Ebihy63vVKnsKPUEPSjVmcRyAyIYduK6B5dsdnI7+eanPR3FsEanca5MDWdbSLICTNyofWrwPdNl/rZpCtsjUUtaR0sWBmN94Uy+j2eSKf7RV3aTHwcvkAU7glABDbQEwYo/GuhQLOscSm2HaZcfwHJbSje
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Detect SSH key type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/detect-key-type"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Detects the type of an SSH private key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Private key is required."},"500":{"description":"Failed to detect key type."}}}
+>
+  
+</StatusCodes>
+
+
+      
