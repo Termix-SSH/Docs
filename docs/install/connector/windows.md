@@ -7,7 +7,7 @@
 Install via [chocolatey](https://community.chocolatey.org/packages/termix-ssh/):
 
 ```powershell
-choco install termix-ssh --version 1.9.0
+choco install termix-ssh
 ```
 
 **Update:**
