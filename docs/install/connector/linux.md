@@ -63,7 +63,12 @@ Do not start it with `sudo`.
 
 ### AUR
 
-Can be found [here](https://aur.archlinux.org/packages/termix-bin).
+Can be found [here](https://aur.archlinux.org/packages/termix-bin). May not always be up-to-date.
+
+Example install command:
+```bash
+yay -S termix-bin
+```
 
 ## Support
 

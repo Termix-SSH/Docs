@@ -8,6 +8,7 @@ For running the required Termix backend and web-app front end:
 
 - **[Docker](./install/server/docker)** - The simplest way to get Termix server up and running with Docker.
 - **[Manual](./install/server/manual)** - Build and compile Termix from source code for custom deployments.
+- **[Proxmox](./install/server/proxmox)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts .
 
 ## Connector
 
