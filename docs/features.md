@@ -6,6 +6,10 @@ General how-to for some of the Termix features.
 
 On an admin user, click on your username on the bottom left, then click `Admin Settings`.
 
+## TOTP
+
+See [TOTP docs](https://docs.termix.site/totp).
+
 ## OIDC
 
 OIDC must be configured within admin settings after creating a local account. It cannot be created using environment variables yet. See [OIDC](https://docs.termix.site/oidc) for more.
@@ -60,7 +64,19 @@ Configure a host with Docker enabled in `Host Manager` then visit the `Docker` o
 
 ## Command Palette
 
-Double tap `Left Shift` to open.
+Double tap `Left Shift` to open. Can be disabled in User Profile.
+
+## Customize Dashboard
+
+Use the `Gear` icon in the top right of the Dashboard to configure.
+
+## Network Graph
+
+Configure the Dashboard with the Network Graph enabled. Use the arrow on the Network Graph to customize it.
+
+## Quick Connection
+
+Click the `Lightning` icon in the top right nexat to the `Hammer`. Enter your connection details then connect.
 
 ## SSL Cert Generation
 
