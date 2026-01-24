@@ -1,0 +1,71 @@
+---
+id: generate-new-backup-codes
+title: "Generate new backup codes"
+description: "Generates new TOTP backup codes."
+sidebar_label: "Generate new backup codes"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVVFP20AM/isnP4c2DNikvME2NiZtVLRoD1U1uYnbHE3uwp1DqaL+d+RLgJZUU/OQpDn7s/3Z/tpARj51umJtDSTwgww5ZPLK0FpNbicjNcd0VVcqtRn5AUTAuPSQTOHek/Mwi8DRY02er2y2gaQJP7WjDBJ2NUWQWsNkWI6wqgqdosQaPngJ2IBPcypR3nhTESRg5w+UMkRQOVuRY01eTiv0fm1dtmPp2WmzhG0EbLn6JxkeOA2XZOkra3wL9imO5bFf+x9a7xWrlh0Z2UBinB/yGXVZKetatsRTaa9eWehcT/uuNya1zlHKqtoB0eYJC529g3UA530AaYAyltXC1qYNdHEox2vUBWWK7VtBH3oq9JTEuc0ggcr6QD5yDgkMa+nyUPgdtk4nwQki8OSeZAKSaQO1KyCBnLlKhsPCpljk1nNyFsfxKUQf8vmN2qgMGefoSaHJFNack+FuNFSLDNvov8BnPeDx+Kfi2hgqVIkGl1SS4SPRzg+iLXRBHZY7EuiiDxT8lGdk7VmnPtRcWqPZyogeCfy5B/wNfT636LIjEb70EWy6IneIrZk0OK2d5k3o8JzQkbusZSqms93jsSxwu1a7Rm97KKnIuAQzSDojiLqXa+tKZEjg199JmEQRhrt3Sfn+jGVV0L4EvC733ubv6IE2CxtS0CyuMCFX6md1ObqBCGRq2/LjQTyIe6R0xleYrshk4qTuaEGOTEoCLhtSYhAvg6GkV9UMorm7Wx+xm3c1PEpqWwaZnnlYFaiNhA8NbroFnUJY0I4IIXV3SWcRSPPFrGlk2+5dsd3K58eanDR2FsETOo1zoWk620aQE2bkQs9XtIEEvrYZn0wkGTEvakmqp+UyE28qMrodTySb7j+hbBvkcA1RuCcAEdjASpic8K2BAs2yxqXYtphyvQDEkkdk
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate new backup codes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/totp/backup-codes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates new TOTP backup codes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"},"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"New backup codes generated."},"400":{"description":"Password or TOTP code is required."},"401":{"description":"Incorrect password or invalid TOTP code."},"404":{"description":"User not found."},"500":{"description":"Failed to generate backup codes."}}}
+>
+  
+</StatusCodes>
+
+
+      

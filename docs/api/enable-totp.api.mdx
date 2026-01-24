@@ -1,0 +1,71 @@
+---
+id: enable-totp
+title: "Enable TOTP"
+description: "Enables TOTP after verifying the initial code."
+sidebar_label: "Enable TOTP"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVF1P20AQ/CunfXYTU6CV/AYtqFSqQCSoD1FUbexNfOR8Z+7WgcjKf6/2bALFtIrqh8T2jWc/ZmdbKCjkXtesnYUMLiwuDAU1vZ7eKFwyebUhr5dbbVeKS1LaatZoVO4KGkECjKsA2QzuAvkA8wQ8PTQU+NwVW8ja+Kg9FZCxbyiB3Fkmy3KEdW10jhJ5fB8kfAshL6lCueNtTZCBW9xTzpBA7V1NnjWFeOq4/iU5vIIG9tquYBcvSSTUzoYO/zFN5e/PYmORFCsuVGjynEJYNsZs1aPmUi0wXzd1rDSMYJfAyV9JBKN0UM/VKuf7FhpPWGyfo/Q0R0OaK7tBowu1p+uhJ0OotFpZx2rpGttRnr6X2SVqKYxdHz1yj0B6UxGXroAMahdic5FLyGDciIpjae64+wYSCOQ3om02a6HxBjIometsPDYuR1O6wNlxmqZHkLyJ/wO1VQUyLjCQQlsobLgky73oqmOGXfJP4uMB8WTyTXFjLRlVocUVVWT5QLaTd9mW2lDP5Q8kOh0Sxe9UYGQdWOch1lw5q9nJZB5I/GlA/BVDuXDoiwMZPg8ZXL4m/1635iJw3njN26jwgtCTP2tkHmbz18cTsWbnptegvf0kFRmXCIOsB0HS31w6XyFDBt9/TuMMiuVvX5bFxRNWtaE35t6bOgFtly6eahYYTMlX+kmd3VxBAjKhXanpKB2lgwb04HPM12QL+Ujd0pI82ZyEXHxQYVxBFmP6Fy+eecvWvmyx/1iYXbeYnnhcG9RWwkcx296GM4g2FKyLLe2tOE9AJBZA24qn7rzZ7eT1Q0Ne5JsnsEGvI1rUS6AkLMhHZde0hQy+dJl/mEoaAjeNpDPYxaL8fkvcXE+mImS/06tOGo+PkMTfDCABF7sT5yO+a8GgXTW4EmzHKddvbooz7A==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enable TOTP"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/totp/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables TOTP after verifying the initial code.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"TOTP enabled successfully with backup codes."},"400":{"description":"TOTP code is required or TOTP already enabled."},"401":{"description":"Invalid TOTP code."},"404":{"description":"User not found."},"500":{"description":"Failed to enable TOTP."}}}
+>
+  
+</StatusCodes>
+
+
+      
