@@ -1,6 +1,6 @@
 # JSON Import Format
 
-Use this guide to create JSON files for bulk importing SSH hosts. All examples are copyable.
+Use this guide to create JSON files for bulk importing SSH hosts.
 
 ## Required Fields
 
@@ -359,63 +359,6 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
   ]
 }
 ```
-
-## Import Validation Rules
-
-The bulk import endpoint validates each host entry with the following rules:
-
-1. **Required Fields Validation**
-
-- `ip` must be a non-empty string
-- `port` must be a number between 1 and 65535
-- `username` must be a non-empty string
-
-2. **Authentication Validation**
-
-- `authType` must be one of: `"password"`, `"key"`, `"credential"`, or `"none"`
-- For `password` auth: `password` field is required and must be non-empty
-- For `key` auth: `key` field is required and must be non-empty
-- For `credential` auth: `credentialId` must reference an existing credential
-- For `none` auth: no additional authentication fields required
-
-3. **Import Limitations**
-
-- Maximum 100 hosts per import operation
-- File must be valid JSON containing a `"hosts"` array, or be an array of host objects directly
-
-4. **Dependencies**
-
-- **Credentials**: Must be created in Termix before importing hosts that reference them via `credentialId`
-- **Jump Hosts**: The `hostId` in `jumpHosts` array must reference existing hosts in your Termix instance
-- **Snippets**: The `snippetId` in `quickActions` and `terminalConfig.startupSnippetId` must reference existing snippets in your Termix instance
-- **Tunnel Endpoints**: The `endpointHost` in `tunnelConnections` must match an existing host's name or `username@ip` format
-
-### Using the Export Feature
-
-- You can export existing hosts from Termix to see the exact JSON structure
-- Navigate to Host Manager → Select a host → Export
-- The exported JSON shows all available fields and their current values
-- Use exported files as templates for creating new imports
-
-## Import Process
-
-1. **Prepare Your JSON File**
-
-- Follow the format described in this guide
-- Validate your JSON syntax using a [JSON validator](https://jsonlint.com/)
-- Ensure all referenced credentials, hosts, and snippets exist
-
-2. **Import via Host Manager**
-
-- Navigate to Host Manager in Termix
-- Use the bulk import button
-- Select your prepared JSON file
-
-3. **Review Import Results**
-
-- The system will report successful imports and any failures
-- Failed imports include specific error messages
-- Successfully imported hosts appear in the host list
 
 ## Support
 
