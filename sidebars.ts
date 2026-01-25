@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Server',
-          items: ['install/server/docker', 'install/server/manual'],
+          items: ['install/server/docker', 'install/server/manual', 'install/server/proxmox'],
         },
         {
           type: 'category',
@@ -70,6 +70,11 @@ const sidebars: SidebarsConfig = {
       type: 'doc',
       id: 'contributing',
       label: 'Contributing',
+    },
+    {
+      type: 'doc',
+      id: 'translations',
+      label: 'Translations',
     },
   ],
 };
