@@ -1,0 +1,71 @@
+---
+id: save-network-topology-for-authenticated-user
+title: "Save network topology for authenticated user"
+description: "Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise."
+sidebar_label: "Save network topology for authenticated user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P2zYQ/SvEnFJAu3aapAV026QtmgJNg9iLHgwfxtRYYkyRypDyriHovwdDyRvbMoJtT/HFIjnz5uvNTAcFBc2micY7yGGBewrKs2qbAiMFFStSjuKD552KvvHWlwdVMjbVrboPFFTbBOKorC+NVjdKMyU9Rw+KSXsulNkq5x0pejQhhuwJOp2NK49yPlbEDybQLWQQsQyQr+DDaHs52oZ1BoF0yyYeIF91sCFk4rs2VpCv1v06A6YvLYX41hcHyLt0NEwF5JFbykB7F8lFecKmsUajxD77HCQBHQRdUY3yFQ8NQQ5+85l0hOwEaAXxxJ2GfUMcDYWkdXy5gnCe6w+XaS0wohL30DjJi/MFBYWuUFSUFODSVHo/sYPMeJiYuZNb5bdD1UbQF5UPccAu2bdN+An6DAYz/xEwKakX2jtHWkQEa/xJ0kLjXRhgf57P5e8c7lhZFXBPhQqt1hTCtrVWTP/vap2nakQ9Edx4bwkdHB19fc23926P1hTnJYIk/XIqfR+IlfNRYRsrclGcpULE31wDXxDviRUxewZxoaZY+QJyaHxIIaCQGmZj/908UUtaQHRD6oCWLeRQxdjks5n1Gq0UN381n89fTor3NxqXothgoFT/E2eNd2pAhj77LvCrCfBi8aeKrXNkVY0OS6rJxWeivb6KtjWWRix+JtCbKdCQ5BAxyrTRA+dr70z0LE32POBfJsC/Yag2Hrl4JsKvUwSvd8TXsnUy4xZC8IHDp5PuicZiS/iQxITWSQiy8eMPzzVGyOGvf5eJY9I4n74NyN8fsW4sXQ6ucbKsXGvt+mkuDEdBMW7rk46JogxL4to8qruP7yEDIeYQ4fx2fjufxD0Kv0W9I1eIkvpEW2JymqRZhP01pvZ2mIKSrTTdQlvP552m2pBCPzPXfRshP9B2G4oX6THOGovGSdyJPN3Y9SuYdP06A2GTvHWdtO89276X6y8tsWzDdQZ7ZIMbKcpq3WdQERbEaUzs6AA5vBuScbMUD0TctmnSX85WYfOgcac1NfG7suuT2fXxn8VS6Ddu39oXosP4IBsUHyAHyMCn4iRWp7sOLLqyxVJkB0yhGZ5z/YLbKarjpnKHEw+7bpBY+h25vodsDCXKGfp13/dfAff/I8c=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save network topology for authenticated user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/network-topology"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["topology"],"properties":{"topology":{"type":"object","description":"Network topology data containing nodes and edges","properties":{"nodes":{"type":"array","description":"Array of graph nodes (hosts and groups)"},"edges":{"type":"array","description":"Array of graph edges (connections)"}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Topology saved successfully","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean"}}}}}},"400":{"description":"Invalid topology data"},"401":{"description":"User not authenticated"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

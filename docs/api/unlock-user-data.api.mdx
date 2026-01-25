@@ -1,0 +1,71 @@
+---
+id: unlock-user-data
+title: "Unlock user data"
+description: "Re-authenticates user with password to unlock encrypted data."
+sidebar_label: "Unlock user data"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1P20AQ/SurOS+JKdBKvkEpKpWqIgLqIcphYk/ihfWu2R0DkZX/Xs3ahNBEVaT64K99+3Y+3psOSopFMA0b7yCHWzrClitybApkiqqNFNSL4Uo1GOOLD6Vir1pnffGoyBVh1TCVqkTGEWhgXEbIp3AfKUSYaQj01FLkC1+uIO/SpwlUQs6hJQ2Fd0yOZQmbxsqhxrvxQ5RoOohFRTXKG68aghz8/IEKBg1N8A0FNhRl9S22LWTkYNwS1umSOGLjXezhn7JMHh9Tv0TGITEqVWyLgmJctNauRrDWcLpvz81bTUxUb6kN6ONd9LV7RmvKTSUT8mwf7xUaS9uV7usridTElS8hh8bHVAjkCnIYS6PiuIcfCRw0RArP0od82kEbLORQMTf5eGx9gbbykfOTLMuOQf91/k80Lp05x0gKXam2VGG8Uz0zrPU/iU92iCeT74pb58iqGh0uqSbHB7Kd7mVbGEsDVziQ6GyXKO1TkZFNZFPElHPtnWEvMjqQ+PMO8SXGau4xlAcyfNllED2GfdWaSYOLNhhepQ7PCQOF81b0MJ1tL0/ERr30t0Ebr0goIpcEg3wAgR5ernyokSGHH7/vkgbFnrfvxv72inVj6aMRNwbUYNzCp9MMCwruKNTmVZ3fXIMGEWifaTbKRtlO/gP4AotHcqVsUre0oECuICEXG9SYpoXDFP19b5k0uQYjfKDs3qfO/8+7voBMrzxuLBonIaX+doMzp5CcCRq2vTnTID2X5a4Tk90Hu17L76eWgvRzpuEZg8G5lGw6W2uoCEsKqdWPtIIcvvZpHN1JEAK3rQSzM0hFCpuxcfNrciedHQZy7UvZE/AFdLrnABp8KlUSTPrXgUW3bHEp2J5Trj92SShY
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlock user data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/unlock-data"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Re-authenticates user with password to unlock encrypted data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Data unlocked successfully."},"400":{"description":"Password is required."},"401":{"description":"Invalid password."},"500":{"description":"Failed to unlock data."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: extract-archive-file
+title: "Extract archive file"
+description: "Extracts an archive file (.tar, .tar.gz, .tgz, .zip, .tar.bz2, .tbz2, .tar.xz, .txz) to a specified or default location on the remote host."
+sidebar_label: "Extract archive file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2kgQ/iureWolH3BNeyf5Lb0mupwUNWpyugeETsN6wNvYu+7OOIVY/Pdq1iaBgFrUp/IAZpn9Zvab75ulg4LYRteICx5yuFhJRCts0BuMtnQPZBauIvNqJBgzo++j5aM+pPdH1wyL88c3+jR8YBytUtTq8bWRYNBwQ9YtHBUmRFPQAttKTBUsamYTvJGSTKQ6CJkysIwgA8ElQz6FS63gGj0uKcIsg0hfWmJ5H4o15F366iIVkEtsKQMbvJAX/QmbpnJ9jvFn1iN2wLakGvVJ1g1BDmH+maxAtgM0BSZmF/xVARkMTNyglJq+iaGhKI44wT0FPiOyROeXkL1g9/b2bzOEm6sPsNlH/uF2jVIylam95gS/y5ziUt/H03A/pgesjG1ZQm2GzVploylfDe1iTc5YkylcJCshrg3ytpTXsEkvpZGb4Lmn581koh/7Gc+H6odMVBhurSXmRVtVa239T/fwRXMEpeVjFNAK66ZKS31qpa0mZlzSYfyPKN0e/e2x0147ZueXZisv02DEmoQiZ0Y1YYP31BPugxhiwXnluKQiU7e0ntumCVF5eup7iDXKCFLOs8OcNxRr1yutIO+oSKHvjpV3ia6iQns7HHGbZASbxImUoYAcGtVWBk0iAMbM5VjV93/dGzMtDAhDfyEDpvhAUV3cQRsryKEUafLxWK1fqVzzs8lk8vuBKK/ReVOg4ByZDPrCYCsleRmkYHpk2GTfBT47akJpvafK9JXX5OVEtLdH0ZIHBxZOBHp3CJT2GRWsY3GW05nr4J0EldiJwH8cAH9ALucBY3Eiwp+HCMHeUzzG1kwbbNvoZJ06PCeMFM9bVch0tvvzrRq29+Ru0JOPtBSVSwqDfAiCbHi4THKHHP757y6pUgfBp+dr4GLr5r15/Oz2vTm7OwR2PL3jdecXIRXnJI2IO3XTypzfXEEGqueemMloMpoc0DUEv0d7T77QTeYTLSiSt6Tg6qMa0xjzmA57se+7JKiXsN3zSPzVbum+g0IrGTcVOq+HTALrhmExBeYSMtgdF9rstPhiZMwySJdYPoWuU+//G6vNRpe/tBRVZrMMHjA6nGtrprNNBiVhQTEp8J7WkMNfPVW/3WlpGl61WuLBTaJW6HecW0uNfDd2tjMLbz7e3qk4h38gdSh0T8Sv+i8Cv0IOkEFIrUuaT2sdVOiXbbpgoMfU1zd4MUqy
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Extract archive file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/file_manager/ssh/extractArchive"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Extracts an archive file (.tar, .tar.gz, .tgz, .zip, .tar.bz2, .tbz2, .tar.xz, .txz) to a specified or default location on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","archivePath"],"properties":{"sessionId":{"type":"string","description":"SSH session ID"},"archivePath":{"type":"string","description":"Path to the archive file on remote host"},"extractPath":{"type":"string","description":"Optional custom extraction path (defaults to same directory as archive)"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Archive extracted successfully.","content":{"application/json":{"schema":{"type":"object","properties":{"status":{"type":"string","example":"success"},"message":{"type":"string"},"extractPath":{"type":"string"}}}}}},"400":{"description":"Missing required parameters, SSH connection not established, or unsupported archive format."},"403":{"description":"Permission denied."},"500":{"description":"Failed to extract archive."}}}
+>
+  
+</StatusCodes>
+
+
+      

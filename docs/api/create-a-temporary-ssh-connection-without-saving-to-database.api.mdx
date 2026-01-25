@@ -1,0 +1,71 @@
+---
+id: create-a-temporary-ssh-connection-without-saving-to-database
+title: "Create a temporary SSH connection without saving to database"
+description: "Returns a temporary host configuration for immediate use"
+sidebar_label: "Create a temporary SSH connection without saving to database"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVt+P4jYQ/leseWql3MF191opb3d7PR2VqqKFVR8QD0M8EB+JnR077FLE/34aJ0DYsHtIzQsk/vx5fn7jHWjyGZsqGGchhXsKNVuvUAUqK8fIW5U7H1Tm7NKsakYBqqVjZcqStMFAqvYECQRceUhnMJl8g3kCTI81+fDZ6S2ku/hqmDSkgWtKIHM2kA2yhFVVmCwSD757MWMHPsupRPkXthVBCm7xnbIASYdoBqaCBCrH8r32xBZLsQTrkE9l2zyBil1FHAx5ITNVh9IHNnYFyYsQTCbflCfeEKvRWDmO/kfmfXvYicLW5YL4LYq4Yd8x76rzj+h9x5sLO8nWpQSiQu+fHGtIYE1bSCBj0mSDwUKCcH7ApzrkstaEXJUUcqejcweWn9o4bpHql0M6lFmqg6XKeHXg+lWIxaar/K7YbKSi1rR9nXpN2wPr+GqLhV1Yq6PlLi5hceB6LcaXeSJq3w30SP+8MO6OaDX68rqHJ9JonNsQs9F02v3Qr6aFcwWh7R354ElV7DZGkz7WlTLWB0Kt3LJzWKfs4iPN5itnfdM8vw2H8nNOP31LJjImDKSVr7OMvF/WRbEVh24vMY3sBgujVSscSmPABvyhD36wEi/H5j/SDeimD/rqeGG0JtsgbvuITj6sC2rpahvpPl4ycNJ0NDE7BolO2zkpVM6LBFUYckhh4H0+eKxNtn6XOWsb2WrkQARyBzUXkEIeQpUOBoXLsJDYpTfD4fBDL39/o7ExFgv0pNDqWCmd/m2YYZ+8SXxzsZJDbS0VqkSLKyrJhivZbi+yLU1BLRdfSfSxT9RE2QcMxgeT+ehz6awJTjrySuLfe8Rf0OcLh6yvZPijz+CyNfGlaM0lwVnNJmxjhheETCxCC+ls3l2eyGBr+qkLOraxmCLlEmHS1hEESfvnq+MSA6Tw17/TWIMyMO9Po/bPZyyrgg6z7qRizeAadgfRafE0YrqT5DQOTsio5Gev48uo6QsVPdfJ4duiJleEfQLGLl0MjQniEkyJS/OsPo1HkIB0U5OW4fvh+2EvWS34M2Zrslo2qXtaEpPN2knuQ4nxstGG4y6q1dnVR6q67WFptScTclcH5XEjlRjcsTFfHr87XXD+152qiWKg5zCoCjRRyWLN7lq1mYH3OSRwrjfzBOQEWd7txL4HLvZ7+fxYE0uNzhPYIBtcSGRn830COaEmjuXbZPmu8eBdTKXAi1qM6V3XpLyPUjj+ZzKVam2vfaXTsofxSa5u+AQpQALN6I1NEL/toEC7qnEl2IZTnh/nWbCw
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a temporary SSH connection without saving to database"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/ssh/quick-connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a temporary host configuration for immediate use
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["ip","port","username","authType"],"properties":{"ip":{"type":"string","description":"SSH server IP or hostname"},"port":{"type":"number","description":"SSH server port"},"username":{"type":"string","description":"SSH username"},"authType":{"type":"string","enum":["password","key","credential"],"description":"Authentication method"},"password":{"type":"string","description":"Password (required if authType is password)"},"key":{"type":"string","description":"SSH private key (required if authType is key)"},"keyPassword":{"type":"string","description":"SSH key password (optional)"},"keyType":{"type":"string","description":"SSH key type"},"credentialId":{"type":"number","description":"Credential ID (required if authType is credential)"},"overrideCredentialUsername":{"type":"boolean","description":"Use provided username instead of credential username"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Temporary host configuration created successfully"},"400":{"description":"Invalid request data"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Credential not found"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
