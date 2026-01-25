@@ -4,7 +4,7 @@
 
 [Link](https://community-scripts.github.io/ProxmoxVE/scripts?id=termix)
 
-**Install:**
+**Install/Update:**
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/termix.sh)"
 ```
