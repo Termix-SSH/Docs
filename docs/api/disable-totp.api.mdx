@@ -1,0 +1,71 @@
+---
+id: disable-totp
+title: "Disable TOTP"
+description: "Disables TOTP for a user."
+sidebar_label: "Disable TOTP"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVNtO20AQ/ZXVPLuJKdBKfoNSVCpVRCSoD1FUTdaTeMHeNbtjILLy79WsDQQcofjBt505czlzpoWcgvamZuMsZHBhAi5LCmp2PZuolfMKVRPIjyABxnWAbA63gXyARQKeHhoKfO7yDWRt/DSecsjYN5SAdpbJshxhXZdGowQZ3wWJ1ELQBVUob7ypCTJwyzvSDAnU3tXk2VCQ0xpDeHI+37EM7I1dwzYBdlz/0y6nPafxkixD7WzowL6mqTzeFx1rzbvKcxUarSmEVVOWm5HEONnnM+mzUs53vZIklAnqpQu969HQ9cpq5z1pVvUOiLGPWJr8DawHOBkCCAHKOlYr19gu0Om+HC/RSEHsXoqL4COQrlTEhcshg9qF2HPkAjIYC9lhLG0d906QQCD/KJxn8xYaX0IGBXOdjcel01gWLnB2nKbpESQfMviDxqocGZcYSKHNFTZckOV+GFSHDNvkU+DjAfB0+ktxYy2VqkKLa6rI8oFoJ3vRVqakHssfCHQ6BIp+KjCyCWx0iDVXzhp2MpQHAn8bAF9gKJYOfX4gwvchgtP35Pd1ayEE68Yb3kSGl4Se/FkjAzFf7B5PRbKdkHaNXpUnqci4RDPIeiNI+pdL5ytkyOD331kcQlkFN29L5OczVnVJ70X/Iud3Wt/ZAMauXEzBsLjCjHxlntXZ5AoSkKntyk9H6SgdNKU3Pkd9TzYXJ3VDK/JkNQm4iKPCuK4sxpIudpT0Ea59W3mfL9KuW0zPPK5LNFZCRTLbXodziDrsi5Y4vRYXCQjHYtG2IqpbX2638vuhIS/8LRJ4RG+itdCXQEGYk4/U3tMGMvjRZfllJnmIedlIPoMlLdS/7onJ9XQmTPbLvup48PgESbxnAAm42Ik4IPFfCyXadYNrse0w5foPVUs1Aw==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disable TOTP"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/totp/disable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Disables TOTP for a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"},"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"TOTP disabled successfully."},"400":{"description":"Password or TOTP code is required."},"401":{"description":"Incorrect password or invalid TOTP code."},"404":{"description":"User not found."},"500":{"description":"Failed to disable TOTP."}}}
+>
+  
+</StatusCodes>
+
+
+      

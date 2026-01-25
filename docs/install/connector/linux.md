@@ -61,6 +61,15 @@ To start the app, run:
 
 Do not start it with `sudo`.
 
+### AUR
+
+Can be found [here](https://aur.archlinux.org/packages/termix-bin). May not always be up-to-date.
+
+Example install command:
+```bash
+yay -S termix-bin
+```
+
 ## Support
 
 If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.

@@ -1,0 +1,71 @@
+---
+id: revoke-all-sessions-for-a-user
+title: "Revoke all sessions for a user"
+description: "Revokes all sessions with option to exclude current session."
+sidebar_label: "Revoke all sessions for a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFO20AQ/ZXVnE3iFmgl34AWlUptEQnqIcphYk/iJetdszuGpFb+vZp1AgFHVaT6Esd+83b27XvjFgoKudc1a2chgzt6cksKCo1RgULQzgb1rLlULkIUO0Wr3DQFqbzxnizvcANIgHERIJvAfSAfYJqAp8eGAl+6Yg1ZG/9qTwVkczSBEsidZbIs77Cujc5RVhk+BOmmhZCXVKHc8bomyMDNHihnSKD2ribPmkJ8i35BLKveFHvowF7bBWwSoFVONV91He8hZs4ZQgubeEm/oXY2dKwf01R+3io02qnio1SFCk2eUwjzxpj1QNY6S0/7ZT8dK2y4dF7/oUJk7OpfVZ47rxyX5FUj6m2pzvpUsk1lHau5a2wRceeHOr1GbQ4uNQDZakVcugIyqF2IiiKXkMEwrj7cYYdd7QkaAwkE8k9ystmkhcYbyKBkrrPh0LgcTekCZ6dpmn6A5F0vP1BbVSDjDAMptEUUgyxvT1x1zLBJ/kl82iMejb4pbqwloyq0uKCqs+QxbGcH2eba0JbLH0l03ieKdSowsg6s8xD3XDmr2YknjyT+1CP+gqGcOfTFkQyf+wwuX5I/pNZUDjhvvOZ1POEZoSd/0YgvJtP91yPJZReSfdBLrKQVsUuEScwiCJLtzbXzFTJk8P33OHpR8n73Oiq+rrCqDfWTvUt0L9DsG9okoO3cxSrNUg5j8pVeqYvbG0hAnNtJkA7SQdoTZgu+xHxJtpAidUdz8mRzkpBJTiqMc8li3FY3Ld8OS4kxxgi/X6B9nXb/PWc7mZlWPKwNaiv9RRe02xxPIOY4ZrajB5luL1meJiAeEWDbSijvvdls5PFjQ17Of5rAE3qNM1FyMt0kUBIW5KM1lrSGDK66/ZyMpR2Bm0ba6k1ysc7LuLn9NRqLE7afhMoVUuPxWRrEZ8gAEuhUiAaLz1owaBcNLgTbccr1F+G3WFw=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke all sessions for a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/sessions/revoke-all"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes all sessions with option to exclude current session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"targetUserId":{"type":"string"},"exceptCurrent":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Sessions revoked successfully."},"403":{"description":"Not authorized to revoke sessions for other users."},"404":{"description":"User not found."},"500":{"description":"Failed to revoke sessions."}}}
+>
+  
+</StatusCodes>
+
+
+      

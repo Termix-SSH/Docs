@@ -191,33 +191,6 @@ identity_providers:
         token_endpoint_auth_method: client_secret_post
 ```
 
-## Troubleshooting
-
-### Common Issues
-
-1. **"Invalid redirect URI" error**
-   - Ensure the redirect URI in your OIDC provider matches exactly
-   - Check for trailing slashes or protocol mismatches
-
-2. **"Client authentication failed" error**
-   - Verify your Client ID and Client Secret are correct
-   - Ensure the Client Secret hasn't expired or been regenerated
-
-3. **"Invalid scope" error**
-   - Check that all requested scopes are supported by your provider
-   - Ensure the `openid` scope is always included
-
-4. **"Invalid issuer" error**
-   - Verify the Issuer URL matches your provider's issuer identifier
-   - Check for protocol mismatches (http vs https)
-
-5. **"Failed to get user information" error**
-   - Use the `Override User Info URL` field in OIDC configs within Termix. You can find this URL within your providers' config.
-
-6. **"Code and state are required" error**
-   - Proof Key for Code Exchange (PKCE) challenges are currently not supported by Termix
-   - Leave `PKCE Method` field as `Choose...` or otherwise disabled in your relevant SSO client settings
-
 ## Advanced Configuration
 
 ### Linking Local/OIDC Account
