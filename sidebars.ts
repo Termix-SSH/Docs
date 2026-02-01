@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Setup',
-      items: ['reverse-proxy'],
+      items: ['reverse-proxy', 'environment-variables'],
     },
     {
       type: 'category',

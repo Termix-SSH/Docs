@@ -88,10 +88,7 @@ You can also replace `:latest` in your docker run/compose with `:version.x.x.x` 
 
 ## Environment Variables
 
-| Config Name | Variable     | Default | Note                                                                                                                                        |
-| ----------- | ------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Port        | `PORT`       | 8080    | Port for the frontend web application. No additional ports should be exposed. Port must not fall within the restricted range `30001–30005`. |
-| Enable SSL  | `Enable_SSL` | false   | See [SSL](/ssl) for more information on how to enable SSL encryption.                                                                       |
+See [docs](/environment-variables).
 
 ## Usage
 

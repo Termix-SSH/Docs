@@ -9,6 +9,10 @@
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/termix.sh)"
 ```
 
+## Environment Variables
+
+See [docs](/environment-variables).
+
 ## Support
 
 If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
