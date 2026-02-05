@@ -52,7 +52,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Authentication',
-          items: ['oidc', 'totp', 'rbac', 'security'],
+          items: ['oidc', 'totp', 'rbac', 'security', 'opkssh'],
         },
         {
           type: 'category',
