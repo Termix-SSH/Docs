@@ -19,12 +19,6 @@ Edit the generated `config.yml` file. The config location depends on your deploy
 - **Development/Manual Compile**: `db/data/.opk/config.yml`
 - **Docker**: `/app/data/.opk/config.yml` (mounted volume)
 
-**Step 3:**
-Edit the generated `config.yml` file. The config location depends on your deployment:
-- **Development/Manual Compile**: `db/data/.opk/config.yml`
-- **Docker**: `/app/data/.opk/config.yml` (mounted volume)
-
-**For localhost:**
 ```yaml
 providers:
   - alias: google
@@ -33,19 +27,9 @@ providers:
     client_secret: YOUR_CLIENT_SECRET
     redirect_uris:
       - http://localhost:9285/login-callback
-      - http://127.0.0.1:9285/login-callback
 ```
 
-**For production:**
-```yaml
-providers:
-  - alias: google
-    issuer: https://accounts.google.com
-    client_id: YOUR_CLIENT_ID
-    client_secret: YOUR_CLIENT_SECRET
-    redirect_uris:
-      - https://termix.yourdomain.com/opkssh-callback
-```
+**Note**: The `redirect_uris` field is required by OPKSSH but the port specified here is not actually used when running through Termix. OPKSSH will automatically select an available port, and Termix will proxy the connection. You can leave the default port 9285 in the config.
 
 See [OPKSSH config docs](https://github.com/openpubkey/opkssh/blob/main/docs/config.md) for provider issuer URLs and additional configuration.
 
@@ -53,15 +37,27 @@ See [OPKSSH config docs](https://github.com/openpubkey/opkssh/blob/main/docs/con
 Configure OAuth credentials with your identity provider (Google, GitHub, Microsoft, etc.).
 
 **Authorized JavaScript Origins:**
-- Development/Manual Compilation: `http://localhost:5173` (frontend) and `http://localhost:4090` (backend)
+- Development: `http://localhost:5173` and `http://localhost:4090`
 - Docker: `http://localhost:8080` (or your mapped port)
-- Reverse Proxy: `https://termix.yourdomain.com`
+- Production: `https://termix.yourdomain.com`
 
 **Authorized Redirect URIs:**
 
-Add the same URIs you put in your `config.yml` redirect_uris:
-- Localhost: `http://localhost:9285/login-callback` and `http://127.0.0.1:9285/login-callback`
-- Production: `https://termix.yourdomain.com/opkssh-callback`
+You need to add the Termix callback and chooser URLs. Do not add OPKSSH's local ports (like `localhost:9285`) as those are internal to Termix and the OAuth provider doesn't need to know about them.
+
+**Localhost (Development):**
+- `http://localhost:5173/opkssh-callback`
+- `http://localhost:5173/opkssh-chooser`
+- `http://localhost:4090/opkssh-callback`
+- `http://localhost:4090/opkssh-chooser`
+
+**Docker:**
+- `http://localhost:8080/opkssh-callback` (or your mapped port)
+- `http://localhost:8080/opkssh-chooser`
+
+**Production:**
+- `https://termix.yourdomain.com/opkssh-callback`
+- `https://termix.yourdomain.com/opkssh-chooser`
 
 Copy the Client ID and Client Secret from your OAuth provider into your `config.yml`.
 
