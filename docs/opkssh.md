@@ -33,7 +33,7 @@ providers:
       - http://localhost:8080/ssh/opkssh-callback   # Docker (or your mapped port)
 ```
 
-The `redirect_uris` field tells OPKSSH which URL to include in the OAuth authorization request sent to your identity provider. It must match your Termix instance's public URL + `/ssh/opkssh-callback`. Termix automatically proxies the OAuth callback from your browser to OPKSSH's internal listener — you do not need to expose any internal OPKSSH ports.
+The `remote_redirect_uris` field tells OPKSSH which URL to include in the OAuth authorization request sent to your identity provider. It must match your Termix instance's public URL + `/ssh/opkssh-callback`. Termix automatically proxies the OAuth callback from your browser to OPKSSH's internal listener, you do not need to expose any internal OPKSSH ports.
 
 See [OPKSSH config docs](https://github.com/openpubkey/opkssh/blob/main/docs/config.md) for provider issuer URLs and additional configuration.
 
