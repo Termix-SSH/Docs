@@ -6,19 +6,19 @@ Choose the installation method that works best for your platform and use case.
 
 For running the required Termix backend and web-app front end:
 
-- **[Docker](./server/docker)** - The simplest way to get Termix server up and running with Docker.
-- **[Manual](./server/manual)** - Build and compile Termix from source code for custom deployments.
-- **[Proxmox](./server/proxmox)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts .
+- **[Docker](./install/server/docker.md)** - The simplest way to get Termix server up and running with Docker.
+- **[Manual](./install/server/manual.md)** - Build and compile Termix from source code for custom deployments.
+- **[Proxmox](./install/server/proxmox.md)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts .
 
 ## Connector
 
 For running Termix as a client/connector application that connects to the server (requires one of the above server installations to be running):
 
-- **[Windows](./connector/windows)** - Download Windows portable executable or installer.
-- **[Linux](./connector/linux)** - Download Linux portable executable or installer.
-- **[macOS](./connector/macos)** - Download macOS portable executable or via the App Store.
-- **[iOS](./connector/ios)** - Download iOS mobile app from the Apple App Store or via `.ipa`.
-- **[Android](./connector/android)** - Download Android mobile app from the Google Play Store or via `.apk`.
+- **[Windows](./install/connector/windows.md)** - Download Windows portable executable or installer.
+- **[Linux](./install/connector/linux.md)** - Download Linux portable executable or installer.
+- **[macOS](./install/connector/macos.md)** - Download macOS portable executable or via the App Store.
+- **[iOS](./install/connector/ios.md)** - Download iOS mobile app from the Apple App Store or via `.ipa`.
+- **[Android](./install/connector/android.md)** - Download Android mobile app from the Google Play Store or via `.apk`.
 
 ## Support
 
