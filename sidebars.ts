@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Setup',
-      items: ['reverse-proxy'],
+      items: ['reverse-proxy', 'environment-variables'],
     },
     {
       type: 'category',
@@ -52,7 +52,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Authentication',
-          items: ['oidc', 'totp', 'rbac', 'security'],
+          items: ['oidc', 'totp', 'rbac', 'security', 'opkssh'],
         },
         {
           type: 'category',

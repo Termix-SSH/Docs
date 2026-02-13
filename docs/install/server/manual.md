@@ -100,6 +100,10 @@ volumes:
 docker-compose up -d
 ```
 
+## Environment Variables
+
+See [docs](/environment-variables).
+
 ## Usage
 
 Once compiled and running, Termix will be available at `http://localhost:8080` (or whichever port you configured).

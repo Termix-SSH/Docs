@@ -193,6 +193,21 @@ identity_providers:
 
 ## Advanced Configuration
 
+### Environment Variables
+Setting variables will take precedence over the stored DB config.
+
+| Variable | Required | Default |
+|----------|----------|---------|
+| OIDC_CLIENT_ID | Yes | - |
+| OIDC_CLIENT_SECRET | Yes | - |
+| OIDC_ISSUER_URL | Yes | - |
+| OIDC_AUTHORIZATION_URL | Yes | - |
+| OIDC_TOKEN_URL | Yes | - |
+| OIDC_USERINFO_URL | No | "" |
+| OIDC_IDENTIFIER_PATH | No | "sub" |
+| OIDC_NAME_PATH | No | "name" |
+| OIDC_SCOPES | No | "openid email profile" |
+
 ### Linking Local/OIDC Account
 
 Using an admin account, visit `Admin Settings` and click on the blue chain icon on a OIDC host, then enter the username of the local account. The link can be removed with the orange chain icon on a linked local account.
