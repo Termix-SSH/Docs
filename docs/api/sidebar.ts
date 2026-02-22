@@ -315,6 +315,7 @@ const sidebar: SidebarsConfig = {
           id: 'api/get-command-history',
           label: 'Get command history',
           className: 'api-method get',
+          key: 'terminal-get-command-history',
         },
         {
           type: 'doc',
@@ -543,12 +544,14 @@ const sidebar: SidebarsConfig = {
           id: 'api/verify-totp-and-complete-connection',
           label: 'Verify TOTP and complete connection',
           className: 'api-method post',
+          key: 'docker-verify-totp',
         },
         {
           type: 'doc',
           id: 'api/keep-ssh-session-alive',
           label: 'Keep SSH session alive',
           className: 'api-method post',
+          key: 'docker-keep-alive',
         },
         {
           type: 'doc',
@@ -759,6 +762,7 @@ const sidebar: SidebarsConfig = {
           id: 'api/verify-totp-and-complete-connection',
           label: 'Verify TOTP and complete connection',
           className: 'api-method post',
+          key: 'filemanager-verify-totp',
         },
         {
           type: 'doc',
@@ -777,6 +781,7 @@ const sidebar: SidebarsConfig = {
           id: 'api/keep-ssh-session-alive',
           label: 'Keep SSH session alive',
           className: 'api-method post',
+          key: 'filemanager-keep-alive',
         },
         {
           type: 'doc',
@@ -981,6 +986,7 @@ const sidebar: SidebarsConfig = {
           id: 'api/get-command-history',
           label: 'Get command history',
           className: 'api-method get',
+          key: 'ssh-get-command-history',
         },
         {
           type: 'doc',

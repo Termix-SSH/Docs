@@ -20,7 +20,11 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh-Hans'],
+    localeConfigs: {
+      en: { label: 'English' },
+      'zh-Hans': { label: '简体中文' },
+    },
   },
 
   plugins: [
@@ -84,6 +88,10 @@ const config: Config = {
           sidebarId: 'apiSidebar',
           position: 'left',
           label: 'API',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
       ],
     },
