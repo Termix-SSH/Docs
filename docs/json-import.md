@@ -47,6 +47,16 @@ Use this guide to create JSON files for bulk importing SSH hosts.
 - **`enableDocker`** - Enable Docker integration (boolean, default: false)
 - **`defaultPath`** - Default directory path for file manager (string, default: "/")
 
+## Sidebar Visibility
+
+Control which features appear in the sidebar for quick access:
+
+- **`showTerminalInSidebar`** - Show terminal in sidebar (boolean, default: false)
+- **`showFileManagerInSidebar`** - Show file manager in sidebar (boolean, default: false)
+- **`showTunnelInSidebar`** - Show tunnel in sidebar (boolean, default: false)
+- **`showDockerInSidebar`** - Show Docker in sidebar (boolean, default: false)
+- **`showServerStatsInSidebar`** - Show server stats in sidebar (boolean, default: false)
+
 ## Tunnel Configuration
 
 Configure SSH port forwarding tunnels for this host:
@@ -139,6 +149,7 @@ Customize terminal appearance and behavior:
 
 ### Advanced SSH Settings
 
+- **`sudoPassword`** - Password for sudo commands (string, optional) - Can be used for automatic sudo authentication
 - **`forceKeyboardInteractive`** - Force keyboard-interactive authentication (boolean, default: false)
 
 ## Example JSON Structure
@@ -165,6 +176,9 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "enableTunnel": false,
       "enableFileManager": true,
       "enableDocker": false,
+      "showTerminalInSidebar": true,
+      "showFileManagerInSidebar": true,
+      "showServerStatsInSidebar": true,
       "defaultPath": "/var/www"
     },
     {
@@ -184,6 +198,9 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "enableTunnel": true,
       "enableFileManager": false,
       "enableDocker": false,
+      "showTerminalInSidebar": true,
+      "showTunnelInSidebar": true,
+      "showServerStatsInSidebar": true,
       "tunnelConnections": [
         {
           "sourcePort": 5432,
@@ -218,7 +235,11 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
       "enableTunnel": false,
       "enableFileManager": true,
       "enableDocker": true,
-      "defaultPath": "/home/developer"
+      "showTerminalInSidebar": true,
+      "showFileManagerInSidebar": true,
+      "showDockerInSidebar": true,
+      "defaultPath": "/home/developer",
+      "sudoPassword": "dev_sudo_password"
     },
     {
       "name": "Private Network Server",

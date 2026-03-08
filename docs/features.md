@@ -78,6 +78,10 @@ Configure the Dashboard with the Network Graph enabled. Use the arrow on the Net
 
 Click the `Lightning` icon in the top right nexat to the `Hammer`. Enter your connection details then connect.
 
+## Persistent Tabs
+
+Enable it in `User Profile`, then refresh to see tabs stay.
+
 ## SSL Cert Generation
 
 See [SSL](https://docs.termix.site/ssl).
