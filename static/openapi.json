@@ -2675,6 +2675,48 @@
         }
       }
     },
+    "/ssh/bulk-update": {
+      "patch": {
+        "summary": "Bulk update partial fields on multiple SSH hosts",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "updates": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk update completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
     "/ssh/autostart/enable": {
       "post": {
         "summary": "Enable autostart for SSH configuration",
@@ -2931,6 +2973,72 @@
         }
       }
     },
+    "/db/proxy/test": {
+      "post": {
+        "summary": "Test proxy connectivity",
+        "description": "Tests connectivity through a proxy configuration to a target host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "singleProxy": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "proxyChain": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "testTarget": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test result"
+          },
+          "500": {
+            "description": "Proxy connection failed"
+          }
+        }
+      }
+    },
     "/terminal/command_history": {
       "post": {
         "summary": "Save command to history",
@@ -3061,6 +3169,59 @@
           },
           "500": {
             "description": "Failed to delete command."
+          }
+        }
+      }
+    },
+    "/terminal/session_settings": {
+      "get": {
+        "summary": "Get session persistence settings",
+        "description": "Returns the session timeout and persistence enabled flag.",
+        "tags": [
+          "Terminal"
+        ],
+        "responses": {
+          "200": {
+            "description": "Session settings."
+          },
+          "500": {
+            "description": "Failed to fetch settings."
+          }
+        }
+      },
+      "post": {
+        "summary": "Update session persistence settings",
+        "description": "Saves session timeout and persistence enabled flag.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "timeoutMinutes": {
+                    "type": "integer"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settings saved successfully."
+          },
+          "400": {
+            "description": "Invalid parameters."
+          },
+          "500": {
+            "description": "Failed to save settings."
           }
         }
       }
@@ -5668,6 +5829,44 @@
         }
       }
     },
+    "/ssh/file_manager/ssh/resolvePath": {
+      "get": {
+        "summary": "Resolve a path with environment variables",
+        "description": "Expands environment variables and ~ in a path via the SSH session.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resolved absolute path."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to resolve path."
+          }
+        }
+      }
+    },
     "/ssh/file_manager/ssh/readFile": {
       "get": {
         "summary": "Read a file",
@@ -6735,6 +6934,57 @@
           },
           "500": {
             "description": "Failed to unregister viewer."
+          }
+        }
+      }
+    },
+    "/global-settings": {
+      "get": {
+        "summary": "Get global monitoring defaults",
+        "tags": [
+          "Stats"
+        ],
+        "responses": {
+          "200": {
+            "description": "Global monitoring settings."
+          },
+          "403": {
+            "description": "Requires admin privileges."
+          }
+        }
+      },
+      "post": {
+        "summary": "Update global monitoring defaults",
+        "tags": [
+          "Stats"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "statusCheckInterval": {
+                    "type": "integer"
+                  },
+                  "metricsInterval": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settings saved."
+          },
+          "400": {
+            "description": "Invalid parameters."
+          },
+          "403": {
+            "description": "Requires admin privileges."
           }
         }
       }
