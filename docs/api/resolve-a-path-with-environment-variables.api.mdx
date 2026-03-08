@@ -1,0 +1,71 @@
+---
+id: resolve-a-path-with-environment-variables
+title: "Resolve a path with environment variables"
+description: "Expands environment variables and ~ in a path via the SSH session."
+sidebar_label: "Resolve a path with environment variables"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VO9r20AM/VcOfdrAJN7abuBvHWu3Dgql7eiHEIZiK/HR8517krMGk/3tQ7azZk1WMtg++cdJT7qn99RCQZxHW4sNHjI4e6zRF2zIL20MviIvZonR4swRG/SF+WGsN2hqlNIsLRopydzcfDZMzDb4ESQguGDIJnBuHZlL9LigCNMEaoxYkVDU0xasFnxoKK4gAY8VQQYDykUBCUR6aGykAjKJDSXAeUkVQtaCrOouWKL1C1ivk/1g2uNf4Uw1mOvgmVjP36apPn6n6LYkE4mDW1JhcMbBNUIdHyNYJ3C8L+fSMlu/MJtWzBMVXdLJvqRztI4KI2FTblNknUBFUoYCMliQQNLfNIMxczmeW0ffqp717seQfdWzwRSXmwk00UEGpUidjccu5OjKwJIdpWn6BpLnd0DrTYGCM2TqpICNlOTF5qghpkcGncYLwEc7wKoeabwnZ/q2O9Udhna8F00pGLDigUAnu0BdnmFBsSw27+VfBW8lqF4OBH63A/wRuZwFjMWBCO93EUJ+T3EfW1MdcN5EK6tuwjPCSPG0UXlMptvHN+qCXubbQb9Moa3AYBb97oMgGV7OQ6xQIIMvd7edIq2fhy7ditP4W4qVfTSnVxeQgCqubz0dpaN050JD8AfM78kXmmSuaU6RfE7qjzqwVOgVf/D29WCJYRN9t1LuX1rPa7WQBy/k5Z9tu54voUcZ1w6t14a7cbaDLyfArNbbdqZSy/12enLnNAGduma0rdrsa3Trtf7uN5tOtLCs7RWQzdExvXC7V9fDtnlt/tTmPa2eLd0lukbjOlH+h1rDTn4qM9WPnvJOolu77dOZSusnIoZGBw==
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Resolve a path with environment variables"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/ssh/file_manager/ssh/resolvePath"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Expands environment variables and ~ in a path via the SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The resolved absolute path."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to resolve path."}}}
+>
+  
+</StatusCodes>
+
+
+      

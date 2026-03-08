@@ -1,0 +1,71 @@
+---
+id: test-proxy-connectivity
+title: "Test proxy connectivity"
+description: "Tests connectivity through a proxy configuration to a target host."
+sidebar_label: "Test proxy connectivity"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU2P00AM/Ssjn8M2sHxIucECAiTEihZxqHpwEzeZ3WQmeJylVdT/jjzJLqEt0MPm0Cax/eKP5zc9FBRytq1Y7yCDBQUJJvfOUS72zsrOSMW+KyuDpmW/3alxY8uOUUOMeINGkEsSU/kgF5CAYBkgW8J8/gFWCTD96CjIG1/sIOvjo2UqIBPuKIHcOyEnasK2rW0egWc3QRPqIeQVNah3smsJMvDrG8oFEmjZt8RiKUQ/68qarjXF/ztrphOvIGxdCfsEWs9Tg+uaNbEahhcnIrpA7LA5bWwxhJ+eixPG/T4mtd1dVWjdxAGZcQcJWKEmHJeicUJBFrHnj1/qeOnYQutdGFCepan+HZPFMIWuFgV8ccrn+p4zkVDemQ3amopYRkNS+QIyaDVH7ZZUkMGsWM9iZ2ZaJyQQiO+IlVI9dFxDBpVIm81mtc+x1gKzyzRNn0Jy8PHPaJ0pUHCNgQy6wmAnFTkZSWYGZNgn/wS+PAKezz8Y6Zyj2jTosKSGnJyJ9vwk2sbWNGLxmUAvjoFinAmCYoPYPMSaG++seB37mcAvj4DfYqjWHrk4E+HVMYLPb4lPdWulA847trKLE14TMvHrTrmwXE3Nc5WCgY9TpwcKaypKl+gG2egEyXjz3nODAhl8+r6I/FOJ+fpbnN5tsWlrOiEmww7d78796qTJwVJNxWDi/KAB0+WbbP6y1yL/3Om/fFGztm7jY9FWNFlYEDd2a15ff4QEdE+GhqcX6UV6NIbR+Q3mt+QKDTJfaUNMLqdBFII0GOVorCMuefvHFuuxcIjc/9bxRzpEhtYKbWXW1tooFVulXD8KxRKKNYythKGBetwMrVtC3+vWf+N6v9fXPzpiJdgqgTtki2tt3nK1T6AiLIgj925pBxlcDZU8WWgK6l53UZgPTycd24OGXX+ZL5Rq4ynX+EJjGH9CEn8zgAR87FZkcHzXQ42u7LBU3wFTr1/f26A6
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Test proxy connectivity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/db/proxy/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Tests connectivity through a proxy configuration to a target host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"singleProxy":{"type":"object","properties":{"host":{"type":"string"},"port":{"type":"number"},"type":{"type":"string"},"username":{"type":"string"},"password":{"type":"string"}}},"proxyChain":{"type":"array","items":{"type":"object"}},"testTarget":{"type":"object","properties":{"host":{"type":"string"},"port":{"type":"number"}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Test result"},"500":{"description":"Proxy connection failed"}}}
+>
+  
+</StatusCodes>
+
+
+      
