@@ -12,13 +12,13 @@ Unlike other tools in Termix, guacd is not automatically installed. To install i
 
 #### Quick Installation Methods
 
-**Docker Compose:** Use the official Docker compose in [install](/install/server/docker). \
+**Docker Compose:** Use the official Docker compose in [install](/install/server/docker#installation). \
 **Docker Run:** `docker run --name some-guacd -d guacamole/guacd`. Ensure this guacd container is accessible to the Termix container using Docker networks. \
 **Native:** Manually compile and run from [GitHub](https://github.com/apache/guacamole-server).
 
 ### Step 2: Configuring Termix
 
-Visit the Admin Settings by clicking on your username on the bottom left. In the General tab, you will see a `Enable RDP/VNC/Telnet Support` toggle, ensure its enabled with a checkmark. Then, enter the URL of your guacd service.
+Visit the Admin Settings by clicking on your username on the bottom left. In the General tab, you will see a `Enable RDP/VNC/Telnet Support` toggle, ensure its enabled with a checkmark. Then, enter the URL of your guacd service in the input under the toggle:
 
 #### Example URLs
 
@@ -31,6 +31,10 @@ Visit the Admin Settings by clicking on your username on the bottom left. In the
 Visit the Host Manager using the bottom in the top left. Find the Add Host button and select your remote desktop protocol of choice at the top.
 
 You are then given the opportunity to enter the IP, username, password, options, etc. just like any other remote desktop client.
+
+## Environment Variables
+
+See [docs](http://localhost:3000/environment-variables#guacamole-configuration).
 
 ## Support
 
