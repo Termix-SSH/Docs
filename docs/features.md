@@ -86,6 +86,10 @@ Enable it in `User Profile`, then refresh to see tabs stay.
 
 See [SSL](https://docs.termix.site/ssl).
 
+## Remote Desktop (RDP/VNC/Telnet)
+
+See [Remote Desktop](/remote-desktop).
+
 ## Support
 
 If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
