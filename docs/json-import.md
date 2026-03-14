@@ -1,15 +1,30 @@
 # JSON Import Format
 
-Use this guide to create JSON files for bulk importing SSH hosts.
+Use this guide to create JSON files for bulk importing hosts.
 
-## Required Fields
+## Connection Types
 
-- **`ip`** - Host IP address (string)
-- **`port`** - SSH port (number, 1-65535)
-- **`username`** - SSH username (string)
+Termix supports multiple connection protocols. Set the `connectionType` field accordingly:
+
+- **`"ssh"`** (default) - SSH connections with terminal, file manager, tunneling, and Docker support
+- **`"rdp"`** - Remote Desktop Protocol (Windows) via Guacamole
+- **`"vnc"`** - Virtual Network Computing via Guacamole
+- **`"telnet"`** - Telnet connections via Guacamole
+
+**Note:** RDP, VNC, and Telnet connections use Guacamole and require the Guacamole service to be configured. These connection types use password authentication only and do not support SSH-specific features like tunneling, file manager, or jump hosts.
+
+## Required Fields (All Connection Types)
+
+- **`ip`** - Host IP address or hostname (string)
+- **`port`** - Connection port (number, 1-65535)
+- **`username`** - Login username (string)
+- **`password`** - Login password (string)
+
+## SSH-Only: Authentication Fields
+
+For SSH connections, use `authType` to specify the authentication method:
+
 - **`authType`** - Authentication type: `"password"`, `"key"`, `"credential"`, or `"none"`
-
-## Authentication Fields
 
 ### Password Authentication
 
@@ -30,6 +45,41 @@ Use this guide to create JSON files for bulk importing SSH hosts.
 ### None Authentication
 
 - No additional fields required. Used for hosts with certificate-based authentication or when authentication is handled externally.
+
+## RDP/VNC/Telnet-Only: Remote Desktop Fields
+
+These fields only apply to `rdp`, `vnc`, and `telnet` connection types:
+
+- **`domain`** - Windows domain name (string, optional) - RDP only
+- **`security`** - RDP security mode (string, optional): `"nla"`, `"tls"`, `"rdp"`, `"any"` - RDP only
+- **`ignoreCert`** - Ignore SSL certificate errors (boolean, default: false) - RDP/VNC
+- **`guacamoleConfig`** - Protocol-specific Guacamole settings object (see below)
+
+### Guacamole Configuration
+
+The `guacamoleConfig` object accepts Guacamole connection parameters specific to each protocol.
+
+**RDP parameters:**
+- `"enable-drive"` - Enable file sharing (boolean)
+- `"drive-path"` - Shared drive path on Termix server (string)
+- `"create-drive-path"` - Auto-create drive path (boolean)
+- `"server-layout"` - Keyboard layout, e.g. `"en-us-qwerty"` (string)
+- `"resize-method"` - Screen resize method: `"display-update"` or `"reconnect"` (string)
+- `"console"` - Connect to admin console session (boolean)
+
+**VNC parameters:**
+- `"color-depth"` - Color depth in bits: `8`, `16`, `24`, or `32` (number)
+- `"cursor"` - Cursor rendering: `"local"` or `"remote"` (string)
+- `"read-only"` - Read-only session (boolean)
+- `"clipboard-encoding"` - Clipboard encoding, e.g. `"UTF-8"` (string)
+- `"swap-red-blue"` - Fix incorrect colors (boolean)
+
+**Telnet parameters:**
+- `"color-scheme"` - Terminal color scheme, e.g. `"green-black"` (string)
+- `"font-name"` - Font name, e.g. `"monospace"` (string)
+- `"font-size"` - Font size in points (number)
+- `"scrollback"` - Scrollback buffer lines (number)
+- `"backspace"` - Backspace key code (number)
 
 ## Organization Fields
 
@@ -375,6 +425,62 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
         "moshCommand": "mosh --server=/usr/local/bin/mosh-server",
         "sudoPasswordAutoFill": true,
         "sudoPassword": "sudo_password_here"
+      }
+    },
+    {
+      "connectionType": "rdp",
+      "name": "Windows Server 2022",
+      "ip": "192.168.1.200",
+      "port": 3389,
+      "username": "Administrator",
+      "password": "windows_password",
+      "domain": "COMPANY",
+      "security": "nla",
+      "ignoreCert": false,
+      "folder": "Remote Desktop",
+      "tags": ["rdp", "windows", "production"],
+      "notes": "Production Windows Server with RDP access",
+      "guacamoleConfig": {
+        "enable-drive": true,
+        "drive-path": "/shared",
+        "create-drive-path": true,
+        "server-layout": "en-us-qwerty",
+        "resize-method": "display-update"
+      }
+    },
+    {
+      "connectionType": "vnc",
+      "name": "Ubuntu Desktop",
+      "ip": "192.168.1.201",
+      "port": 5900,
+      "username": "vncuser",
+      "password": "vnc_password",
+      "folder": "Remote Desktop",
+      "tags": ["vnc", "linux", "desktop"],
+      "notes": "Ubuntu desktop with VNC server",
+      "guacamoleConfig": {
+        "color-depth": 24,
+        "cursor": "remote",
+        "read-only": false,
+        "clipboard-encoding": "UTF-8"
+      }
+    },
+    {
+      "connectionType": "telnet",
+      "name": "Network Switch",
+      "ip": "192.168.1.254",
+      "port": 23,
+      "username": "admin",
+      "password": "switch_password",
+      "folder": "Infrastructure",
+      "tags": ["telnet", "network", "switch"],
+      "notes": "Legacy network switch with Telnet access",
+      "guacamoleConfig": {
+        "color-scheme": "green-black",
+        "font-name": "monospace",
+        "font-size": 12,
+        "scrollback": 1024,
+        "backspace": 127
       }
     }
   ]
