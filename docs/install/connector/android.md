@@ -18,6 +18,10 @@ To those of you who already know how to install APK's, the installation is exact
 
 Once installed and opened, follow the on-screen guide to connect to your existing Termix instance.
 
+### F-Droid
+
+Repository link: https://termix.site/repo/
+
 ## Support
 
 If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
