@@ -786,6 +786,1254 @@
         }
       }
     },
+    "/ssh/db/host/internal": {
+      "get": {
+        "summary": "Get internal SSH host data",
+        "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of autostart hosts."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "500": {
+            "description": "Failed to fetch autostart SSH data."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/internal/all": {
+      "get": {
+        "summary": "Get all internal SSH host data",
+        "description": "Returns all internal SSH host data. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of all hosts."
+          },
+          "401": {
+            "description": "Invalid or missing internal authentication token."
+          },
+          "500": {
+            "description": "Failed to fetch all hosts."
+          }
+        }
+      }
+    },
+    "/ssh/db/host": {
+      "post": {
+        "summary": "Create SSH host",
+        "description": "Creates a new SSH host configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "Host created successfully."
+          },
+          "400": {
+            "description": "Invalid SSH data."
+          },
+          "500": {
+            "description": "Failed to save SSH data."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all SSH hosts",
+        "description": "Retrieves all SSH hosts for the authenticated user.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of SSH hosts."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to fetch SSH data."
+          }
+        }
+      }
+    },
+    "/ssh/quick-connect": {
+      "post": {
+        "summary": "Create a temporary SSH connection without saving to database",
+        "description": "Returns a temporary host configuration for immediate use",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ip",
+                  "port",
+                  "username",
+                  "authType"
+                ],
+                "properties": {
+                  "ip": {
+                    "type": "string",
+                    "description": "SSH server IP or hostname"
+                  },
+                  "port": {
+                    "type": "number",
+                    "description": "SSH server port"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "SSH username"
+                  },
+                  "authType": {
+                    "type": "string",
+                    "enum": [
+                      "password",
+                      "key",
+                      "credential"
+                    ],
+                    "description": "Authentication method"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password (required if authType is password)"
+                  },
+                  "key": {
+                    "type": "string",
+                    "description": "SSH private key (required if authType is key)"
+                  },
+                  "keyPassword": {
+                    "type": "string",
+                    "description": "SSH key password (optional)"
+                  },
+                  "keyType": {
+                    "type": "string",
+                    "description": "SSH key type"
+                  },
+                  "credentialId": {
+                    "type": "number",
+                    "description": "Credential ID (required if authType is credential)"
+                  },
+                  "overrideCredentialUsername": {
+                    "type": "boolean",
+                    "description": "Use provided username instead of credential username"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Temporary host configuration created successfully"
+          },
+          "400": {
+            "description": "Invalid request data"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Credential not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/ssh/db/host/{id}": {
+      "put": {
+        "summary": "Update SSH host",
+        "description": "Updates an existing SSH host configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host updated successfully."
+          },
+          "400": {
+            "description": "Invalid SSH data."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to update SSH data."
+          }
+        }
+      },
+      "get": {
+        "summary": "Get SSH host by ID",
+        "description": "Retrieves a specific SSH host by its ID.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested SSH host."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to fetch SSH host."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete SSH host",
+        "description": "Deletes an SSH host by its ID.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH host deleted successfully."
+          },
+          "400": {
+            "description": "Invalid userId or id."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to delete SSH host."
+          }
+        }
+      }
+    },
+    "/ssh/db/host/{id}/export": {
+      "get": {
+        "summary": "Export SSH host",
+        "description": "Exports a specific SSH host with decrypted credentials.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported SSH host."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to export SSH host."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/recent": {
+      "get": {
+        "summary": "Get recent files",
+        "description": "Retrieves a list of recent files for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of recent files."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch recent files."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add recent file",
+        "description": "Adds a file to the list of recent files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recent file added."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to add recent file."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove recent file",
+        "description": "Removes a file from the list of recent files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recent file removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove recent file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/pinned": {
+      "get": {
+        "summary": "Get pinned files",
+        "description": "Retrieves a list of pinned files for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pinned files."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch pinned files."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add pinned file",
+        "description": "Adds a file to the list of pinned files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File pinned."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "409": {
+            "description": "File already pinned."
+          },
+          "500": {
+            "description": "Failed to pin file."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove pinned file",
+        "description": "Removes a file from the list of pinned files for a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pinned file removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove pinned file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/shortcuts": {
+      "get": {
+        "summary": "Get shortcuts",
+        "description": "Retrieves a list of shortcuts for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of shortcuts."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch shortcuts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add shortcut",
+        "description": "Adds a shortcut for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shortcut added."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "409": {
+            "description": "Shortcut already exists."
+          },
+          "500": {
+            "description": "Failed to add shortcut."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove shortcut",
+        "description": "Removes a shortcut for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shortcut removed."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to remove shortcut."
+          }
+        }
+      }
+    },
+    "/ssh/command-history/{hostId}": {
+      "get": {
+        "summary": "Get command history",
+        "description": "Retrieves the command history for a specific host.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of commands."
+          },
+          "400": {
+            "description": "Invalid userId or hostId."
+          },
+          "500": {
+            "description": "Failed to fetch command history."
+          }
+        }
+      }
+    },
+    "/ssh/command-history": {
+      "delete": {
+        "summary": "Delete command from history",
+        "description": "Deletes a specific command from the history of a host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Command deleted from history."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to delete command."
+          }
+        }
+      }
+    },
+    "/ssh/folders/rename": {
+      "put": {
+        "summary": "Rename folder",
+        "description": "Renames a folder for SSH hosts and credentials.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed successfully."
+          },
+          "400": {
+            "description": "Old name and new name are required."
+          },
+          "500": {
+            "description": "Failed to rename folder."
+          }
+        }
+      }
+    },
+    "/ssh/folders": {
+      "get": {
+        "summary": "Get all folders",
+        "description": "Retrieves all folders for the authenticated user.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of folders."
+          },
+          "400": {
+            "description": "Invalid user ID."
+          },
+          "500": {
+            "description": "Failed to fetch folders."
+          }
+        }
+      }
+    },
+    "/ssh/folders/metadata": {
+      "put": {
+        "summary": "Update folder metadata",
+        "description": "Updates the metadata (color, icon) of a folder.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder metadata updated successfully."
+          },
+          "400": {
+            "description": "Folder name is required."
+          },
+          "500": {
+            "description": "Failed to update folder metadata."
+          }
+        }
+      }
+    },
+    "/ssh/folders/{name}/hosts": {
+      "delete": {
+        "summary": "Delete all hosts in folder",
+        "description": "Deletes all SSH hosts within a specific folder.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hosts deleted successfully."
+          },
+          "400": {
+            "description": "Invalid folder name."
+          },
+          "500": {
+            "description": "Failed to delete hosts in folder."
+          }
+        }
+      }
+    },
+    "/ssh/bulk-import": {
+      "post": {
+        "summary": "Bulk import SSH hosts",
+        "description": "Bulk imports multiple SSH hosts.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ssh/bulk-update": {
+      "patch": {
+        "summary": "Bulk update partial fields on multiple SSH hosts",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "updates": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk update completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ssh/folders/{folderName}/hosts": {
+      "delete": {
+        "summary": "Delete all hosts in a folder",
+        "description": "Deletes all hosts within a specific folder.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "folderName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All hosts deleted successfully."
+          },
+          "400": {
+            "description": "Invalid folder name."
+          },
+          "500": {
+            "description": "Failed to delete hosts."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/enable": {
+      "post": {
+        "summary": "Enable autostart for SSH configuration",
+        "description": "Enables autostart for a specific SSH configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sshConfigId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AutoStart enabled successfully."
+          },
+          "400": {
+            "description": "Valid sshConfigId is required."
+          },
+          "404": {
+            "description": "SSH configuration not found."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/disable": {
+      "delete": {
+        "summary": "Disable autostart for SSH configuration",
+        "description": "Disables autostart for a specific SSH configuration.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sshConfigId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AutoStart disabled successfully."
+          },
+          "400": {
+            "description": "Valid sshConfigId is required."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ssh/autostart/status": {
+      "get": {
+        "summary": "Get autostart status",
+        "description": "Retrieves the autostart status for the user's SSH configurations.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of autostart configurations."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/ssh/opkssh/token/{hostId}": {
+      "get": {
+        "summary": "Get OPKSSH token status for a host",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exists": {
+                      "type": "boolean",
+                      "description": "Whether a valid token exists"
+                    },
+                    "expiresAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Token expiration timestamp"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "User email from OIDC identity"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No valid token found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete OPKSSH token for a host",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token deleted successfully"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/opkssh-chooser/{requestId}": {
+      "get": {
+        "summary": "Proxy OPKSSH provider chooser page and all related resources",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Authentication request ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chooser page content"
+          },
+          "404": {
+            "description": "Session not found"
+          },
+          "500": {
+            "description": "Proxy error"
+          }
+        }
+      }
+    },
+    "/opkssh-callback": {
+      "get": {
+        "summary": "Static OAuth callback from OIDC provider for OPKSSH authentication",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "Callback processed successfully"
+          },
+          "404": {
+            "description": "No active authentication session found"
+          },
+          "500": {
+            "description": "Authentication failed"
+          }
+        }
+      }
+    },
+    "/opkssh-callback/{requestId}": {
+      "get": {
+        "summary": "OAuth callback from OIDC provider for OPKSSH authentication (handles all sub-paths)",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Authentication request ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Callback processed successfully"
+          },
+          "404": {
+            "description": "Invalid authentication session"
+          },
+          "500": {
+            "description": "Authentication failed"
+          }
+        }
+      }
+    },
+    "/db/proxy/test": {
+      "post": {
+        "summary": "Test proxy connectivity",
+        "description": "Tests connectivity through a proxy configuration to a target host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "singleProxy": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "proxyChain": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "testTarget": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test result"
+          },
+          "500": {
+            "description": "Proxy connection failed"
+          }
+        }
+      }
+    },
     "/network-topology": {
       "get": {
         "summary": "Get network topology for authenticated user",
@@ -1821,1224 +3069,6 @@
         }
       }
     },
-    "/ssh/db/host/internal": {
-      "get": {
-        "summary": "Get internal SSH host data",
-        "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of autostart hosts."
-          },
-          "403": {
-            "description": "Forbidden."
-          },
-          "500": {
-            "description": "Failed to fetch autostart SSH data."
-          }
-        }
-      }
-    },
-    "/ssh/db/host/internal/all": {
-      "get": {
-        "summary": "Get all internal SSH host data",
-        "description": "Returns all internal SSH host data. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of all hosts."
-          },
-          "401": {
-            "description": "Invalid or missing internal authentication token."
-          },
-          "500": {
-            "description": "Failed to fetch all hosts."
-          }
-        }
-      }
-    },
-    "/ssh/db/host": {
-      "post": {
-        "summary": "Create SSH host",
-        "description": "Creates a new SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "Host created successfully."
-          },
-          "400": {
-            "description": "Invalid SSH data."
-          },
-          "500": {
-            "description": "Failed to save SSH data."
-          }
-        }
-      },
-      "get": {
-        "summary": "Get all SSH hosts",
-        "description": "Retrieves all SSH hosts for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of SSH hosts."
-          },
-          "400": {
-            "description": "Invalid userId."
-          },
-          "500": {
-            "description": "Failed to fetch SSH data."
-          }
-        }
-      }
-    },
-    "/ssh/quick-connect": {
-      "post": {
-        "summary": "Create a temporary SSH connection without saving to database",
-        "description": "Returns a temporary host configuration for immediate use",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "ip",
-                  "port",
-                  "username",
-                  "authType"
-                ],
-                "properties": {
-                  "ip": {
-                    "type": "string",
-                    "description": "SSH server IP or hostname"
-                  },
-                  "port": {
-                    "type": "number",
-                    "description": "SSH server port"
-                  },
-                  "username": {
-                    "type": "string",
-                    "description": "SSH username"
-                  },
-                  "authType": {
-                    "type": "string",
-                    "enum": [
-                      "password",
-                      "key",
-                      "credential"
-                    ],
-                    "description": "Authentication method"
-                  },
-                  "password": {
-                    "type": "string",
-                    "description": "Password (required if authType is password)"
-                  },
-                  "key": {
-                    "type": "string",
-                    "description": "SSH private key (required if authType is key)"
-                  },
-                  "keyPassword": {
-                    "type": "string",
-                    "description": "SSH key password (optional)"
-                  },
-                  "keyType": {
-                    "type": "string",
-                    "description": "SSH key type"
-                  },
-                  "credentialId": {
-                    "type": "number",
-                    "description": "Credential ID (required if authType is credential)"
-                  },
-                  "overrideCredentialUsername": {
-                    "type": "boolean",
-                    "description": "Use provided username instead of credential username"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Temporary host configuration created successfully"
-          },
-          "400": {
-            "description": "Invalid request data"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Credential not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/ssh/db/host/{id}": {
-      "put": {
-        "summary": "Update SSH host",
-        "description": "Updates an existing SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Host updated successfully."
-          },
-          "400": {
-            "description": "Invalid SSH data."
-          },
-          "403": {
-            "description": "Access denied."
-          },
-          "404": {
-            "description": "Host not found."
-          },
-          "500": {
-            "description": "Failed to update SSH data."
-          }
-        }
-      },
-      "get": {
-        "summary": "Get SSH host by ID",
-        "description": "Retrieves a specific SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The requested SSH host."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "404": {
-            "description": "SSH host not found."
-          },
-          "500": {
-            "description": "Failed to fetch SSH host."
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete SSH host",
-        "description": "Deletes an SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "SSH host deleted successfully."
-          },
-          "400": {
-            "description": "Invalid userId or id."
-          },
-          "404": {
-            "description": "SSH host not found."
-          },
-          "500": {
-            "description": "Failed to delete SSH host."
-          }
-        }
-      }
-    },
-    "/ssh/db/host/{id}/export": {
-      "get": {
-        "summary": "Export SSH host",
-        "description": "Exports a specific SSH host with decrypted credentials.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The exported SSH host."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "404": {
-            "description": "SSH host not found."
-          },
-          "500": {
-            "description": "Failed to export SSH host."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/recent": {
-      "get": {
-        "summary": "Get recent files",
-        "description": "Retrieves a list of recent files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "hostId",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of recent files."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "500": {
-            "description": "Failed to fetch recent files."
-          }
-        }
-      },
-      "post": {
-        "summary": "Add recent file",
-        "description": "Adds a file to the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Recent file added."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "500": {
-            "description": "Failed to add recent file."
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove recent file",
-        "description": "Removes a file from the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Recent file removed."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "500": {
-            "description": "Failed to remove recent file."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/pinned": {
-      "get": {
-        "summary": "Get pinned files",
-        "description": "Retrieves a list of pinned files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "hostId",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of pinned files."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "500": {
-            "description": "Failed to fetch pinned files."
-          }
-        }
-      },
-      "post": {
-        "summary": "Add pinned file",
-        "description": "Adds a file to the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "File pinned."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "409": {
-            "description": "File already pinned."
-          },
-          "500": {
-            "description": "Failed to pin file."
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove pinned file",
-        "description": "Removes a file from the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Pinned file removed."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "500": {
-            "description": "Failed to remove pinned file."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/shortcuts": {
-      "get": {
-        "summary": "Get shortcuts",
-        "description": "Retrieves a list of shortcuts for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "hostId",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of shortcuts."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "500": {
-            "description": "Failed to fetch shortcuts."
-          }
-        }
-      },
-      "post": {
-        "summary": "Add shortcut",
-        "description": "Adds a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Shortcut added."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "409": {
-            "description": "Shortcut already exists."
-          },
-          "500": {
-            "description": "Failed to add shortcut."
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove shortcut",
-        "description": "Removes a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "path": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Shortcut removed."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "500": {
-            "description": "Failed to remove shortcut."
-          }
-        }
-      }
-    },
-    "/ssh/command-history/{hostId}": {
-      "get": {
-        "summary": "Get command history",
-        "description": "Retrieves the command history for a specific host.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "hostId",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of commands."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "500": {
-            "description": "Failed to fetch command history."
-          }
-        }
-      }
-    },
-    "/ssh/command-history": {
-      "delete": {
-        "summary": "Delete command from history",
-        "description": "Deletes a specific command from the history of a host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  },
-                  "command": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Command deleted from history."
-          },
-          "400": {
-            "description": "Invalid data."
-          },
-          "500": {
-            "description": "Failed to delete command."
-          }
-        }
-      }
-    },
-    "/ssh/folders/rename": {
-      "put": {
-        "summary": "Rename folder",
-        "description": "Renames a folder for SSH hosts and credentials.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "oldName": {
-                    "type": "string"
-                  },
-                  "newName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Folder renamed successfully."
-          },
-          "400": {
-            "description": "Old name and new name are required."
-          },
-          "500": {
-            "description": "Failed to rename folder."
-          }
-        }
-      }
-    },
-    "/ssh/folders": {
-      "get": {
-        "summary": "Get all folders",
-        "description": "Retrieves all folders for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of folders."
-          },
-          "400": {
-            "description": "Invalid user ID."
-          },
-          "500": {
-            "description": "Failed to fetch folders."
-          }
-        }
-      }
-    },
-    "/ssh/folders/metadata": {
-      "put": {
-        "summary": "Update folder metadata",
-        "description": "Updates the metadata (color, icon) of a folder.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "color": {
-                    "type": "string"
-                  },
-                  "icon": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Folder metadata updated successfully."
-          },
-          "400": {
-            "description": "Folder name is required."
-          },
-          "500": {
-            "description": "Failed to update folder metadata."
-          }
-        }
-      }
-    },
-    "/ssh/folders/{name}/hosts": {
-      "delete": {
-        "summary": "Delete all hosts in folder",
-        "description": "Deletes all SSH hosts within a specific folder.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Hosts deleted successfully."
-          },
-          "400": {
-            "description": "Invalid folder name."
-          },
-          "500": {
-            "description": "Failed to delete hosts in folder."
-          }
-        }
-      }
-    },
-    "/ssh/bulk-import": {
-      "post": {
-        "summary": "Bulk import SSH hosts",
-        "description": "Bulk imports multiple SSH hosts.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hosts": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Import completed."
-          },
-          "400": {
-            "description": "Invalid request body."
-          }
-        }
-      }
-    },
-    "/ssh/bulk-update": {
-      "patch": {
-        "summary": "Bulk update partial fields on multiple SSH hosts",
-        "tags": [
-          "SSH"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostIds": {
-                    "type": "array",
-                    "items": {
-                      "type": "number"
-                    }
-                  },
-                  "updates": {
-                    "type": "object"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Bulk update completed."
-          },
-          "400": {
-            "description": "Invalid request body."
-          }
-        }
-      }
-    },
-    "/ssh/autostart/enable": {
-      "post": {
-        "summary": "Enable autostart for SSH configuration",
-        "description": "Enables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sshConfigId": {
-                    "type": "number"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "AutoStart enabled successfully."
-          },
-          "400": {
-            "description": "Valid sshConfigId is required."
-          },
-          "404": {
-            "description": "SSH configuration not found."
-          },
-          "500": {
-            "description": "Internal server error."
-          }
-        }
-      }
-    },
-    "/ssh/autostart/disable": {
-      "delete": {
-        "summary": "Disable autostart for SSH configuration",
-        "description": "Disables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sshConfigId": {
-                    "type": "number"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "AutoStart disabled successfully."
-          },
-          "400": {
-            "description": "Valid sshConfigId is required."
-          },
-          "500": {
-            "description": "Internal server error."
-          }
-        }
-      }
-    },
-    "/ssh/autostart/status": {
-      "get": {
-        "summary": "Get autostart status",
-        "description": "Retrieves the autostart status for the user's SSH configurations.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of autostart configurations."
-          },
-          "500": {
-            "description": "Internal server error."
-          }
-        }
-      }
-    },
-    "/ssh/opkssh/token/{hostId}": {
-      "get": {
-        "summary": "Get OPKSSH token status for a host",
-        "tags": [
-          "SSH"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "hostId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Host ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Token status retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "exists": {
-                      "type": "boolean",
-                      "description": "Whether a valid token exists"
-                    },
-                    "expiresAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Token expiration timestamp"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "User email from OIDC identity"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No valid token found"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete OPKSSH token for a host",
-        "tags": [
-          "SSH"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "hostId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Host ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Token deleted successfully"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        }
-      }
-    },
-    "/opkssh-chooser/{requestId}": {
-      "get": {
-        "summary": "Proxy OPKSSH provider chooser page and all related resources",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Authentication request ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Chooser page content"
-          },
-          "404": {
-            "description": "Session not found"
-          },
-          "500": {
-            "description": "Proxy error"
-          }
-        }
-      }
-    },
-    "/opkssh-callback": {
-      "get": {
-        "summary": "Static OAuth callback from OIDC provider for OPKSSH authentication",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "Callback processed successfully"
-          },
-          "404": {
-            "description": "No active authentication session found"
-          },
-          "500": {
-            "description": "Authentication failed"
-          }
-        }
-      }
-    },
-    "/opkssh-callback/{requestId}": {
-      "get": {
-        "summary": "OAuth callback from OIDC provider for OPKSSH authentication (handles all sub-paths)",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Authentication request ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Callback processed successfully"
-          },
-          "404": {
-            "description": "Invalid authentication session"
-          },
-          "500": {
-            "description": "Authentication failed"
-          }
-        }
-      }
-    },
-    "/db/proxy/test": {
-      "post": {
-        "summary": "Test proxy connectivity",
-        "description": "Tests connectivity through a proxy configuration to a target host.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "singleProxy": {
-                    "type": "object",
-                    "properties": {
-                      "host": {
-                        "type": "string"
-                      },
-                      "port": {
-                        "type": "number"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "username": {
-                        "type": "string"
-                      },
-                      "password": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "proxyChain": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  },
-                  "testTarget": {
-                    "type": "object",
-                    "properties": {
-                      "host": {
-                        "type": "string"
-                      },
-                      "port": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Test result"
-          },
-          "500": {
-            "description": "Proxy connection failed"
-          }
-        }
-      }
-    },
     "/terminal/command_history": {
       "post": {
         "summary": "Save command to history",
@@ -3346,6 +3376,16 @@
         "description": "Returns the OIDC authorization URL.",
         "tags": [
           "Users"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "rememberMe",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Whether to extend the session to 30 days instead of 2 hours."
+          }
         ],
         "responses": {
           "200": {
@@ -4459,6 +4499,74 @@
         }
       }
     },
+    "/users/guacamole-settings": {
+      "get": {
+        "summary": "Get Guacamole settings",
+        "description": "Returns current guacd enabled status and host:port URL. No authentication required.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Guacamole settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to get guacamole settings."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Guacamole settings",
+        "description": "Admin-only. Updates guacd enabled status and/or host:port URL.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Guacamole settings updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update guacamole settings."
+          }
+        }
+      }
+    },
     "/uptime": {
       "get": {
         "summary": "Get server uptime",
@@ -4545,7 +4653,10 @@
                       "file_manager",
                       "server_stats",
                       "tunnel",
-                      "docker"
+                      "docker",
+                      "telnet",
+                      "vnc",
+                      "rdp"
                     ]
                   },
                   "hostId": {

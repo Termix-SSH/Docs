@@ -1,0 +1,71 @@
+---
+id: delete-all-hosts-in-a-folder
+title: "Delete all hosts in a folder"
+description: "Deletes all hosts within a specific folder."
+sidebar_label: "Delete all hosts in a folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v1DAQ/SvWnECyNoG2IOVW1FYtAoS6RRxWOcwmk8aqY6f2pHQV5b+jSULZdpdqOcUfb15mxvNeDyXFIpiWjXeQwRlZYooKrVW1jxzVL8O1cQpVbKkwlSlU5W1JYQEaGG8jZCtYLi8h19BiwIaYghz2YISwRa5Bg8OGIIMp9JtsNAS670ygEjIOHWmIRU0NQtYDb1pBRw7G3cIw5AKOrXeRoty/T1P5PE/99CnlciyiVLErCoqx6qzdLGDQcLwv7so9oDXlXJaSTEfwyT7wBRpLpWI//2T64wKGQUNDXPsSMpiuQE/FZ5DEWCcTfUz6vz0YkjEaNEQKD3/a1gULGdTMbZYk1hdoBZUdpWn6DvSLfL6icapExjVGUuhKhR3X5NgUKBA1McOgXyU+2iFeLi8Vd86RVQ06vKWGHB/IdryXrTKWZq5wINHJLtEYpyIjm8imiGPNjXeGvQzLgcQfdojPMNZrj6E8kOHjLoMv7ijs61YuD1x0wfBmfOE1YaBw2slwrPLt66VIYJrxbdCTIiQVmJUi+wkEel5c+NAgQwaff96MI2lc5cdww1bwNxQa86hOv1+BBpm4KfV0kS7SnYJm8Ccs7siVEqSuqaJAriARSOsjN+iEf5b35B5b5jEaxzTwL+l7KLxjcvz/rjP1gumRk9aicZLM+FT9rLgVxCiuM2sONGTPnGeSXT4tBN73op8fwQ6DHN93FOSpcg0PGAyupXmrHkoTZV1CVqGN9EpFb65nc3ur/pXxfIhuI2+BtpMdaLijzXOnHPJtczk7/3J+cw7D8ButfPSj
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete all hosts in a folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/ssh/folders/{folderName}/hosts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes all hosts within a specific folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"folderName","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"All hosts deleted successfully."},"400":{"description":"Invalid folder name."},"500":{"description":"Failed to delete hosts."}}}
+>
+  
+</StatusCodes>
+
+
+      

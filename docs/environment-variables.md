@@ -42,6 +42,14 @@ See [OIDC](/oidc#environment-variables) for complete setup instructions.
 |----------|---------|-------------|
 | `DB_FILE_ENCRYPTION` | `true` | Enable SQLite database file encryption |
 
+## Guacamole Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ENABLE_GUACAMOLE` | `true` | Enable/disable Guacamole remote desktop support (`false` to disable) |
+| `GUACD_HOST` | `localhost` | Guacamole daemon (guacd) hostname |
+| `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port |
+
 ## Docker Configuration
 
 | Variable | Default | Description |

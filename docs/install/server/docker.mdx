@@ -1,26 +1,58 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Docker
 
 The simplest way to get Termix server up and running is with Docker.
 
-## Docker Run Installation
+## Installation
 
-```bash
-# Step 1: Create the volume
-docker volume create termix-data
+<Tabs defaultValue="guacd">
+  <TabItem value="guacd" label="Docker Compose with guacd (Recommended)">
 
-# Step 2: Run the container
-docker run -d \
-  --name termix \
-  --restart unless-stopped \
-  -p 8080:8080 \
-  -v termix-data:/app/data \
-  -e PORT=8080 \
-  ghcr.io/lukegus/termix:latest
+```yaml
+services:
+  termix:
+    image: ghcr.io/lukegus/termix:latest
+    container_name: termix
+    restart: unless-stopped
+    ports:
+      - '8080:8080'
+    volumes:
+      - termix-data:/app/data
+    environment:
+      PORT: '8080'
+    depends_on:
+      - guacd
+    networks:
+      - termix-net
+
+  guacd:
+    image: guacamole/guacd:latest
+    container_name: guacd
+    restart: unless-stopped
+    ports:
+      - "4822:4822"
+    networks:
+      - termix-net
+
+volumes:
+  termix-data:
+    driver: local
+
+networks:
+  termix-net:
+    driver: bridge
 ```
 
-## Docker Compose Installation
+To start the containers, run:
 
-For a more comprehensive setup, you can use Docker Compose:
+```bash
+docker-compose up -d
+```
+
+  </TabItem>
+  <TabItem value="compose" label="Docker Compose">
 
 ```yaml
 services:
@@ -46,39 +78,29 @@ To start the container, run:
 docker-compose up -d
 ```
 
-## Docker Hub Mirror
-
-As an alternative to GHCR, you can also use the Docker Hub mirror:
+  </TabItem>
+  <TabItem value="run" label="Docker Run">
 
 ```bash
+# Step 1: Create the volume
+docker volume create termix-data
+
+# Step 2: Run the container
 docker run -d \
   --name termix \
   --restart unless-stopped \
   -p 8080:8080 \
   -v termix-data:/app/data \
   -e PORT=8080 \
-  bugattiguy527/termix:latest
+  ghcr.io/lukegus/termix:latest
 ```
 
-Or with Docker Compose:
+  </TabItem>
+</Tabs>
 
-```yaml
-services:
-  termix:
-    image: bugattiguy527/termix:latest
-    container_name: termix
-    restart: unless-stopped
-    ports:
-      - '8080:8080'
-    volumes:
-      - termix-data:/app/data
-    environment:
-      PORT: '8080'
+## Docker Hub Mirror
 
-volumes:
-  termix-data:
-    driver: local
-```
+As an alternative to GHCR, you can also use the Docker Hub mirror by replacing `ghcr.io/lukegus/termix:latest` with `bugattiguy527/termix:latest` in any of the configurations above.
 
 ## Specific Version
 
