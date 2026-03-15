@@ -75,5 +75,5 @@ See [OIDC](/oidc#environment-variables) for complete setup instructions.
 
 - **Auto-Generated Secrets**: Security keys (`JWT_SECRET`, `DATABASE_KEY`, `INTERNAL_AUTH_TOKEN`) are automatically generated on first startup and stored in `{DATA_DIR}/.env`. Do not manually set these unless restoring from backup.
 - **Environment File Locations**:
-  - Primary: `.env` in application root
-  - Persistent: `{DATA_DIR}/.env` (auto-generated secrets stored here)
+    - Primary: `.env` in application root
+    - Persistent: `{DATA_DIR}/.env` (auto-generated secrets stored here)
