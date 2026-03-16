@@ -34,7 +34,7 @@ You are then given the opportunity to enter the IP, username, password, options,
 
 ## Environment Variables
 
-See [docs](http://localhost:3000/environment-variables#guacamole-configuration).
+See [docs](https://docs.termix.site/environment-variables#guacamole-configuration).
 
 ## Support
 
