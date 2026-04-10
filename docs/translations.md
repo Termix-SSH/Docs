@@ -1,4 +1,4 @@
-# SSL
+# Translations
 
 Termix uses Crowdin to manage its translations. Most text is auto-translated in bulk using Google Translate. However, it's possible for volunteers to fix incorrect translations.
 
