@@ -28,7 +28,7 @@ services:
       - termix-net
 
   guacd:
-    image: guacamole/guacd:latest
+    image: guacamole/guacd:1.6.0
     container_name: guacd
     restart: unless-stopped
     ports:
@@ -52,7 +52,7 @@ docker-compose up -d
 ```
 
   </TabItem>
-  <TabItem value="compose" label="Docker Compose">
+  <TabItem value="compose" label="Docker Compose (Remote Desktop Not Supported)">
 
 ```yaml
 services:
@@ -79,7 +79,7 @@ docker-compose up -d
 ```
 
   </TabItem>
-  <TabItem value="run" label="Docker Run">
+  <TabItem value="run" label="Docker Run (Remote Desktop Not Supported)">
 
 ```bash
 # Step 1: Create the volume
