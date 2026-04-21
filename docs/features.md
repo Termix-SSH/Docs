@@ -82,6 +82,18 @@ Click the `Lightning` icon in the top right nexat to the `Hammer`. Enter your co
 
 Enable it in `User Profile`, then refresh to see tabs stay.
 
+## TMUX
+
+Enable auto-tmux in the `Terminal` tab when adding/editing a host.
+
+## WOL
+
+Add a MAC address when adding/editing on the `General` tab for a host, then use the `Menu` button on the host to do WOL.
+
+## Port-knocking
+
+Configure a port-knocking sequence on the `General` tab when adding/editing a host.
+
 ## SSL Cert Generation
 
 See [SSL](https://docs.termix.site/ssl).
