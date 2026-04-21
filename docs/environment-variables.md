@@ -7,6 +7,7 @@
 | `PORT` | `4090` | HTTP server port. Must not fall within restricted range `30001–30005`. |
 | `NODE_ENV` | `production` | Application environment (`production`, `development`, etc.) |
 | `DATA_DIR` | `./db/data` | Directory for persistent data (database, SSL certs, encryption keys, OPKSSH binary) |
+| `LOG_LEVEL` | `info` | Logging verbosity (`debug`, `info`, `warn`, `error`) |
 
 ## SSL/TLS Configuration
 
@@ -75,5 +76,5 @@ See [OIDC](/oidc#environment-variables) for complete setup instructions.
 
 - **Auto-Generated Secrets**: Security keys (`JWT_SECRET`, `DATABASE_KEY`, `INTERNAL_AUTH_TOKEN`) are automatically generated on first startup and stored in `{DATA_DIR}/.env`. Do not manually set these unless restoring from backup.
 - **Environment File Locations**:
-    - Primary: `.env` in application root
-    - Persistent: `{DATA_DIR}/.env` (auto-generated secrets stored here)
+  - Primary: `.env` in application root
+  - Persistent: `{DATA_DIR}/.env` (auto-generated secrets stored here)
