@@ -28,13 +28,11 @@ providers:
     scopes: openid email profile
     access_type: offline
     prompt: consent
-    redirect_uris:
-      - http://localhost:30001/host/opkssh-callback   # Development/Manual Compile
-      - http://localhost:8080/host/opkssh-callback    # Docker (or your mapped port)
-      - https://termix.yourdomain.com/host/opkssh-callback  # Reverse Proxy
 ```
 
-The `redirect_uris` field tells OPKSSH which URL to include in the OAuth authorization request sent to your identity provider. It must match your Termix instance's public URL + `/host/opkssh-callback`. Termix automatically proxies the OAuth callback from your browser to OPKSSH's internal listener, you do not need to expose any internal OPKSSH ports.
+The `redirect_uris` field is optional and is NOT your Termix public URL. It lists the localhost ports OPKSSH binds its internal callback listener on. Omit it to use the OPKSSH defaults (`http://localhost:3000/login-callback`, `:10001`, `:11110`). If you set it, every entry must be a localhost URL — OPKSSH will reject non-localhost entries at runtime.
+
+Termix automatically tells OPKSSH which public URL your OAuth provider should redirect back to (via `--remote-redirect-uri`), derived from the request origin. You do not configure this in `config.yml`.
 
 See [OPKSSH config docs](https://github.com/openpubkey/opkssh/blob/main/docs/config.md) for provider issuer URLs and additional configuration.
 
@@ -47,13 +45,13 @@ Configure OAuth credentials with your identity provider (Google, GitHub, Microso
 - Reverse Proxy: `https://termix.yourdomain.com`
 
 **Authorized Redirect URIs:**
-Add the Termix callback URL matching your deployment to your OAuth provider:
+Register the public Termix callback URL(s) matching your deployment(s) with your OAuth provider:
 
 - Development/Manual Compile: `http://localhost:30001/host/opkssh-callback`
 - Docker: `http://localhost:8080/host/opkssh-callback` (or your mapped port)
 - Reverse Proxy: `https://termix.yourdomain.com/host/opkssh-callback`
 
-These must match the `redirect_uris` entries in your `config.yml`.
+These URLs are what the OAuth provider redirects the browser back to after sign-in. They do NOT go in `config.yml` — Termix supplies them automatically.
 
 Copy the Client ID and Client Secret from your OAuth provider into your `config.yml`.
 
