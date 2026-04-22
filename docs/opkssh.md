@@ -30,7 +30,7 @@ providers:
     prompt: consent
 ```
 
-The `redirect_uris` field is optional and is NOT your Termix public URL. It lists the localhost ports OPKSSH binds its internal callback listener on. Omit it to use the OPKSSH defaults (`http://localhost:3000/login-callback`, `:10001`, `:11110`). If you set it, every entry must be a localhost URL — OPKSSH will reject non-localhost entries at runtime.
+The `redirect_uris` field is optional and is NOT your Termix public URL. It lists the localhost ports OPKSSH binds its internal callback listener on. Omit it to use the OPKSSH defaults (`http://localhost:3000/login-callback`, `:10001`, `:11110`). If you set it, every entry must be a localhost URL, OPKSSH will reject non-localhost entries at runtime.
 
 Termix automatically tells OPKSSH which public URL your OAuth provider should redirect back to (via `--remote-redirect-uri`), derived from the request origin. You do not configure this in `config.yml`.
 
@@ -51,7 +51,7 @@ Register the public Termix callback URL(s) matching your deployment(s) with your
 - Docker: `http://localhost:8080/host/opkssh-callback` (or your mapped port)
 - Reverse Proxy: `https://termix.yourdomain.com/host/opkssh-callback`
 
-These URLs are what the OAuth provider redirects the browser back to after sign-in. They do NOT go in `config.yml` — Termix supplies them automatically.
+These URLs are what the OAuth provider redirects the browser back to after sign-in. They do NOT go in `config.yml`, Termix supplies them automatically.
 
 Copy the Client ID and Client Secret from your OAuth provider into your `config.yml`.
 
