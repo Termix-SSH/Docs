@@ -21,7 +21,23 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Server',
-          items: ['install/server/docker', 'install/server/manual', 'install/server/proxmox'],
+          items: [
+            'install/server/docker',
+            'install/server/manual',
+            'install/server/proxmox',
+            {
+              type: 'category',
+              label: 'Cloud',
+              items: [
+                'install/server/cloud/railway',
+                {
+                  type: 'link',
+                  label: 'Cloudzy',
+                  href: 'https://get.vast-melon.com/b?y=49ii4eh26osm6e9lcgrjadpp74sm8o9g60om8e1m75gj2d125gh748hq49k78t3gect2ubr3dhnnap3qf4n66rrd5tmm2sjbclq70r31cdiiut35e9mmiu1dedin4tj5e8h0====',
+                },
+              ],
+            },
+          ],
         },
         {
           type: 'category',
