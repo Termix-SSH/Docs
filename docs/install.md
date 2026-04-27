@@ -10,7 +10,7 @@ For running the required Termix backend and web-app front end:
 - **[Manual](./install/server/manual.md)** - Build and compile Termix from source code for custom deployments.
 - **[Proxmox](./install/server/proxmox.md)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts.
 - **Cloud:**
-  - [Railway (sponsored)](https://railway.com/deploy/termix-ssh?referralCode=T8zxoP&utm_medium=integration&utm_source=template&utm_campaign=generic)
+  - [Railway](./install/server/cloud/railway.md)
   - [Cloudzy](https://get.vast-melon.com/b?y=49ii4eh26osm6e9lcgrjadpp74sm8o9g60om8e1m75gj2d125gh748hq49k78t3gect2ubr3dhnnap3qf4n66rrd5tmm2sjbclq70r31cdiiut35e9mmiu1dedin4tj5e8h0====)
 
 ## Connector
