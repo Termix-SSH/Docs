@@ -8,6 +8,7 @@
 | `NODE_ENV` | `production` | Application environment (`production`, `development`, etc.) |
 | `DATA_DIR` | `./db/data` | Directory for persistent data (database, SSL certs, encryption keys, OPKSSH binary) |
 | `LOG_LEVEL` | `info` | Logging verbosity (`debug`, `info`, `warn`, `error`) |
+| `LOG_TIMESTAMP_FORMAT` | locale format | Timestamp format for log output: `24h` (e.g. `14:58:45`), `iso` (e.g. `2026-04-25T14:58:45.000Z`), or omit for locale format (e.g. `2:58:45 PM`) |
 
 ## SSL/TLS Configuration
 
@@ -21,19 +22,20 @@
 
 ## OIDC/OAuth Authentication
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `OIDC_CLIENT_ID` | - | OAuth provider client ID (required if using OIDC) |
-| `OIDC_CLIENT_SECRET` | - | OAuth provider client secret (required if using OIDC) |
-| `OIDC_ISSUER_URL` | - | OAuth provider issuer URL (e.g., `https://accounts.google.com`) |
-| `OIDC_AUTHORIZATION_URL` | - | OAuth authorization endpoint URL |
-| `OIDC_TOKEN_URL` | - | OAuth token endpoint URL |
-| `OIDC_USERINFO_URL` | `""` | OAuth userinfo endpoint URL (optional) |
-| `OIDC_IDENTIFIER_PATH` | `sub` | JSON path in userinfo response for user identifier |
-| `OIDC_NAME_PATH` | `name` | JSON path in userinfo response for display name |
-| `OIDC_SCOPES` | `openid email profile` | Space-separated OAuth scopes to request |
-| `OIDC_ALLOWED_USERS` | `""` | Comma-separated list of allowed user identifiers/email patterns. Use `*` for all users, `@example.com` for domain wildcards, or leave empty to allow all. |
-| `OIDC_FORCE_HTTPS` | `false` | Force HTTPS for OIDC callback URLs (required if behind reverse proxy) |
+| Variable                  | Default                | Description                                                                                                                                               |
+|---------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `OIDC_CLIENT_ID`          | -                      | OAuth provider client ID (required if using OIDC)                                                                                                         |
+| `OIDC_CLIENT_SECRET`      | -                      | OAuth provider client secret (required if using OIDC)                                                                                                     |
+| `OIDC_ISSUER_URL`         | -                      | OAuth provider issuer URL (e.g., `https://accounts.google.com`)                                                                                           |
+| `OIDC_AUTHORIZATION_URL`  | -                      | OAuth authorization endpoint URL                                                                                                                          |
+| `OIDC_TOKEN_URL`          | -                      | OAuth token endpoint URL                                                                                                                                  |
+| `OIDC_USERINFO_URL`       | `""`                   | OAuth userinfo endpoint URL (optional)                                                                                                                    |
+| `OIDC_IDENTIFIER_PATH`    | `sub`                  | JSON path in userinfo response for user identifier                                                                                                        |
+| `OIDC_NAME_PATH`          | `name`                 | JSON path in userinfo response for display name                                                                                                           |
+| `OIDC_SCOPES`             | `openid email profile` | Space-separated OAuth scopes to request                                                                                                                   |
+| `OIDC_ALLOWED_USERS`      | `""`                   | Comma-separated list of allowed user identifiers/email patterns. Use `*` for all users, `@example.com` for domain wildcards, or leave empty to allow all. |
+| `OIDC_FORCE_HTTPS`        | `false`                | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                     |
+| `OIDC_ALLOW_REGISTRATION` | `false`                | Allows user creation via OIDC even when general registration is disabled, while still enforcing allowed-users whitelist                                   |
 
 See [OIDC](/oidc#environment-variables) for complete setup instructions.
 

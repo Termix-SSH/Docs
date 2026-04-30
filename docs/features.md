@@ -98,6 +98,10 @@ Configure a port-knocking sequence on the `General` tab when adding/editing a ho
 
 See [SSL](https://docs.termix.site/ssl).
 
+## API Keys
+
+See [API Keys](https://docs.termix.site/api-keys)
+
 ## Remote Desktop (RDP/VNC/Telnet)
 
 See [Remote Desktop](/remote-desktop).
