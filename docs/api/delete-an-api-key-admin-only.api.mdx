@@ -1,0 +1,71 @@
+---
+id: delete-an-api-key-admin-only
+title: "Delete an API key (admin only)"
+description: "Permanently deletes an API key. It can no longer be used to authenticate."
+sidebar_label: "Delete an API key (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMtu2zAQ/BViTwnA2mqTtIBuKZyg7gMIEhc9GD6spbVFWFoq5CqIIOjfC0qy68ZO6kNPenB2uK+ZBlLyiTOlGMsQwx25AplY8lqllJOQV8jq+m6qNlSP1FRUgqzYqtzympxakqo8pUqswkoyYjEJCo1Ag+DaQzyHEPyNag8LDSU6LEjIhZMGTLizRMlAA2NBEMOG6mkKGhw9VsZRCrG4ijT4JKMCIW5A6jIAvTjDa2j1ixJmGanpRNmVkoy2mYf8+npG0C4Cuy8te/KB8EMUhcffNNvAPiodhYsuo4sjwLQwrDBJyHu1zXqAX77Oy1bUylbcQ6+OpXCLJu9b2yexGwO0rYaCJLMpxNAfgu4bGcO48uT8GEvzbkO1HzddS1vQ4Mk9bVtfuRxiyETKeDzObYJ5Zr3EF1EUvYeXPf2BhlWKgkv0pJDT/WEby6pnhla/SXxxQPzw8EVJxUy5KpBxTQWxnMh2eZRtZXIauNyJRFeHRF2c8oJivJjEdzUXlo3YsHUnEn88IJ6gz5YWXXoiw6dDBptsyB3r1iIMOKmckbqb8JLQkbuuwlLMF/vHD0FL/e7vg3bSCqnAILnw3YNADy+31hUoEMPXX7NuFQ2vbBduJA/4GbnCPId1BQ1h4/rUo1E0ig4KGsCfMdkQp92O39OKHHFCQRql9VIgB/7BIia9Gv74kjrDToSW8/r85QUNJJaFWP63vfW9EnqWcZmj4ZBsN8pmUOIcOiWChq0WQUPcG9xCQxhyADVNUNVPl7dt+P1YkQsDXGh4QmdwGVo6byA1PrynEK8w9/RGlWf3gwudq3+a4St1DD+R6zBBzKvwBTq4886j28W+C01uvt/MbqBtfwPV5yH8
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an API key (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/api-keys/{keyId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permanently deletes an API key. It can no longer be used to authenticate.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"keyId","required":true,"schema":{"type":"string"},"description":"The ID of the API key to delete."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"API key deleted."},"403":{"description":"Admin access required."},"404":{"description":"API key not found."},"500":{"description":"Failed to delete API key."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -2,30 +2,30 @@
 
 ## Understanding SSH Tunnels
 
-A SSH tunnel creates a connection between a local computer and a remote server, allowing the traffic on a port to pass through safely in either direction.
+A SSH tunnel creates a connection between two hosts, allowing traffic on a port to pass through safely in either direction.
 
-A tunnel can either be local (forward local port to remote) or remote (forward remote port to local).
+Tunnels have two main concepts:
+
+**Scope** - who initiates the tunnel:
+- `s2s` (server-to-server): The Termix server manages the tunnel between a source host and an endpoint host. This is the default.
+- `c2s` (client-to-server): Your local machine (the Termix desktop client) connects to a remote host and forwards traffic between your machine and the server.
+
+**Mode** - which direction traffic flows:
+- `local`: Forwards a local port to a remote target. Like `ssh -L`.
+- `remote`: Forwards a remote port back to a local target. Like `ssh -R`.
+- `dynamic`: Acts as a SOCKS5 proxy, letting you route any traffic through the tunnel.
 
 ## Server Requirements
 
 ### Required SSH Server Settings
 
-For SSH tunnels to work properly, the endpoint SSH server must have these settings in `/etc/ssh/sshd_config`:
+For tunnels to work, the endpoint SSH server needs these settings in `/etc/ssh/sshd_config`:
 
 ```bash
-# Allow port forwarding
 AllowTcpForwarding yes
-
-# Bind remote ports (required for reverse tunnels)
 GatewayPorts yes
-
-# Allow root login (if using root user)
 PermitRootLogin yes
-
-# Allow public key authentication
 PubkeyAuthentication yes
-
-# Allow password authentication (if using passwords)
 PasswordAuthentication yes
 ```
 
@@ -35,68 +35,50 @@ After making changes, restart the SSH service:
 sudo systemctl restart sshd
 ```
 
-### Installing sshpass
-
-For password-based authentication, install `sshpass` on both local and remote systems:
-
-**Debian/Ubuntu:**
-
-```bash
-sudo apt install sshpass
-```
-
-**CentOS/RHEL/Fedora:**
-
-```bash
-sudo yum install sshpass
-# or
-sudo dnf install sshpass
-```
-
-**macOS:**
-
-```bash
-brew install hudochenkov/sshpass/sshpass
-```
-
 ## Setup
 
-Navigate to the tunnel tab when adding/editing a host in the Host Manager. At the bottom of the tab, click `Add Tunnel Connection`.
+Navigate to the tunnel tab when adding or editing a host in the Host Manager. At the bottom of the tab, click `Add Tunnel Connection`.
 
-### Field Explanation:
+### Field Explanation
 
 **Tunnel Type:**
-- Local (-L): Forwards the port on the source (host your currently adding/editing) to the remote endpoint
-```bash
+- Local (-L): Forwards a port on the source host to the endpoint
+```
 [ Source ]
 localhost:8080
      |
-     |
      v
 [ Endpoint ]
-     |
-     v
 127.0.0.1:8080
 ```
-- Remote (-R): Forwards the port on the remote endpoint to the source (host your currently adding/editing)
-```bash
+- Remote (-R): Forwards a port on the endpoint back to the source
+```
 [ Endpoint ]
 localhost:8080
      |
-     |
      v
 [ Source ]
-     |
-     v
 127.0.0.1:8080
 ```
 
 **Port:**
-- Source: The port that will be forwarded/recieved (depending on tunnel type) on the source host
-- Endpoint: The port that will be forwarded/recieved (depending on tunnel type) on the endpoint host
+- Source: The port on the source host
+- Endpoint: The port on the endpoint host
 
 **Endpoint SSH Configuration:**
-- This is where you select the host that defines the remote endpoint where traffic is forwarded/recieved (depending on tunnel type)
+- Select the host that acts as the remote endpoint
+
+### Auto Start
+
+Tunnels with auto start enabled will connect automatically when Termix starts. The server resolves credentials on its own, so you don't need to be logged in.
+
+### Retry Behavior
+
+If a tunnel disconnects, Termix will automatically retry up to the configured max retries. You can configure the max retries and the delay between retries per tunnel. Authentication failures and config errors won't retry since they won't fix themselves.
+
+### SOCKS5 Proxy
+
+If your source host is only reachable through a SOCKS5 proxy, you can configure it on the host and the tunnel will use it automatically.
 
 ## Support
 

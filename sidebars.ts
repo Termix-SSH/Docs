@@ -80,6 +80,11 @@ const sidebars: SidebarsConfig = {
           label: 'Data',
           items: ['json-import'],
         },
+        {
+          type: 'category',
+          label: 'API',
+          items: ['api-keys'],
+        },
       ],
     },
     {
