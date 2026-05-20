@@ -6,19 +6,21 @@
  */
 
 .cardContainer {
-  --ifm-link-color: var(--ifm-color-emphasis-800);
-  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+  --ifm-link-color: var(--foreground);
+  --ifm-link-hover-color: var(--foreground);
   --ifm-link-hover-decoration: none;
 
-  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  transition: all var(--ifm-transition-fast) ease;
-  transition-property: border, box-shadow;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-base) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .cardContainer:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+  border-color: var(--ifm-color-primary) !important;
+  box-shadow: none !important;
+  background-color: var(--bg-surface);
 }
 
 .cardContainer *:last-child {
@@ -26,9 +28,12 @@
 }
 
 .cardTitle {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
 }
 
 .cardDescription {
   font-size: 0.8rem;
+  color: var(--foreground-subtle);
 }
