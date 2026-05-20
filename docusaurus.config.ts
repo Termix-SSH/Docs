@@ -9,10 +9,6 @@ const config: Config = {
   tagline: 'SSH server manager',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://docs.termix.site',
   baseUrl: '/',
 
