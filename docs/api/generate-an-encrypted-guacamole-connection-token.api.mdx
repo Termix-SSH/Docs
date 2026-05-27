@@ -1,0 +1,71 @@
+---
+id: generate-an-encrypted-guacamole-connection-token
+title: "Generate an encrypted Guacamole connection token"
+description: "Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters"
+sidebar_label: "Generate an encrypted Guacamole connection token"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuLOdORmsQpwJvtumkKFA0iBT0IOoyWY3FjcpeZHcoWCP73Ypa0RFtKYKBAdRHJmXk7H2/edlBQtOwaccFDDjdMKBQNenN1u7h4e/nh4ub6xpC3vG+ECiPhnry5C2y2LVqsQ0UXlRMyD05KIyWZrduRNzZ4T1ZRTYOMNQlxhAwEtxHyFXx8ioZ1BpFsy072kK862BAy8VUrJeSrdb/OgOl7S1GuQ7GHvEuvjqmAXLilDGzwQl7UhE1TOYt67Oxb1Io6iLakGvVJ9g1BDmHzjaxANgFaDbYMyhDFY52yajg0xOIoHoMPIFHY+S1kQL6tFYCLBjLYeatFUuVJYN1PAE9C+wyawDIxOC+0JVZLG4l/HIYxPgQuzhqLUKPzZ0zpp0XHJvg4FPV2Pte/5xy4PQx7MsQ0d/gPzX7RzQT3wyTfn8vrk99h5Qoz0kGLvTzntyDeERtiDgyKVpOUoYAcmhBTKqjcgtmBwbOn6mIKjYmHLVeQQynS5LNZFSxWOsv83Xw+/wWyF2f+hc6bAgU3GMmgLwy2UpKXsUFmQIY++ynwuxPgxeIPI633VJkaPW6pJi+vRHt/Fu3OVTRi8SuBLk+Bhh5HQXFRnI2p5jp4J0En+UrgDyfAv2EsNwG5eCXCr6cIwd4Tn+vWRGkWytOBilO9OfBRz1I+JDfIRyfIxoffA9cokMOf/ywTxZT/X44ydfuIdVNNt3eQh6MaHAVkEIH5dOcnxsOqH789bfhk6Z2/C+kwJ3oqLIlr92iuPn9STSKOQ2vmb+Zv5icNG52v0d6TLzTIfKE7YvKWBpWKUmPa1jG9j+SJUZTok6vhIOnndOPZkd1RRv6HG2cYgNCjzJpKO6f6qozqRiVYwQFZ/VPG62FYauw6XeqvXPW9fv7eEutNtc5gh+xwox1fJa0nLIiTeNzTXmsbqrxYDpfLDqtWUzkRTuX4EHFlLTXyU9/1RNA+/71YKinHm7EOReIaPujthg+QA2QQUtcT19O3Dir02xa36jtgKoXx+Qa8YHyqajSh308y7LrBY6l963vIxlKGPvbrvu//Bb345UE=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate an encrypted Guacamole connection token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/guacamole/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["type","hostname"],"properties":{"type":{"type":"string","enum":["rdp","vnc","telnet"]},"hostname":{"type":"string"},"port":{"type":"integer"},"username":{"type":"string"},"password":{"type":"string"},"domain":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Encrypted connection token","content":{"application/json":{"schema":{"type":"object","properties":{"token":{"type":"string"}}}}}},"400":{"description":"Invalid request"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

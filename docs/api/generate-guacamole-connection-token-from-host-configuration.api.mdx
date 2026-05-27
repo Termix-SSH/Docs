@@ -1,0 +1,71 @@
+---
+id: generate-guacamole-connection-token-from-host-configuration
+title: "Generate Guacamole connection token from host configuration"
+description: "Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet"
+sidebar_label: "Generate Guacamole connection token from host configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20YQ/SuLObXANlRrpwV4c+ImcYG2hqW2B0GH0XIobUzuMrNDIwLB/x4MSSu2qAS+lBd+vX07H2/edlBQcuwb8TFADu9I3J6S2cckxsVQ+l3LqD9NybE2BQpuMZHBUJgdBWIUSgYVG8gNQIn3FEwZ2dxd32b//vU2W1EVSMCC4C5Bvob3LTqsY0WwsZDItezlAPm6gy0hE1+1sod8vek3FhpkrEmI0wDwGmaDsgcLAWuCHDTYmwIsMH1qPVMBuXBLFpLbU42QdyCHRpE+CO2IobcneX/QfG+ujcTHTIxE0O2ZUhNDoqQ0vywWenu+9u1p6o91KUxqnaOUyraqDmDBxSAURCmwaSrvhspmH5PydPNw4/YjOa1bw7EhFj9GMezyBJaEfdjBaU6/B8eHRsM4bQ70w2Xh8lw+N+EBK18YrSYlMZFNG1LbNJFPyXT/geZiTnM1pG4KCp4KLay2aURfztFDA0IUU8Y2FAp7fS62JfEDsSHmyKAZ1CT7WKgklN2Oysgh2z0qLJvi/Um3z7pRKz2o7JRqFFXLlepIpMmzrIoOK8XlF4vF4udZXf9EH54PAraypyBTP83IDL39LvHFjHi5/GCkDYEqU2PAHdUU5IVsl2fZSl/RxMUvJHo9JxprngTFJ/EuDTnXMXiJKrwXEv86I77GtN9G5OKFDL/NGaK7Jz5XrSe+stSxGifnqbscx0f3gsks9H0EgZ0e3kWuUSCHP/5bDZLzoYzDci+V4lfEtf9srm5vwIJKaoxt8WrxajGLeAK/QXdPodBF5o5KYgpuGCWVcY3DdE/u9n5yE3M0zTNmq9489+zT3buvDvS/O/1YW6HPkjUV+qDJDb3tphldw3FGR2s8TilYyCdP39jB3RXddRrOP1z1vX7+1BLrkbGx8IDscau9WHdQ+KTPBeQlVom+U4Ef7qbj4kdz3v6/kcX0EYNa+gNWrb6BhXs6fD2M+k1vYU9YEA9hjT/VExt5smx2DKhwj552+/dyBRbwuV5P9DnQn42p60bEStvU98cQpzNg0/f9F0XTxMA=
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate Guacamole connection token from host configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/guacamole/connect-host/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"},"description":"Host ID to connect to"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Connection token generated successfully","content":{"application/json":{"schema":{"type":"object","properties":{"token":{"type":"string","description":"Encrypted connection token"}}}}}},"400":{"description":"Invalid request or unsupported connection type"},"403":{"description":"Access denied to host"},"404":{"description":"Host not found"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
