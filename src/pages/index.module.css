@@ -3,18 +3,20 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: #18181b;
-  color: #fafafa;
+  background-color: oklch(0.165 0.003 128.73);
+  color: oklch(0.985 0 0);
+  border-bottom: 1px solid oklch(1 0 0 / 12%);
 }
 
-[data-theme='dark'] .heroBanner {
-  background-color: #0e0e10;
-  color: #fafafa;
+[data-theme='light'] .heroBanner {
+  background-color: oklch(0.97 0 0);
+  color: oklch(0.1802 0.0043 128.73);
+  border-bottom: 1px solid oklch(0.922 0 0);
 }
 
 .heroBanner :global(.hero__title),
 .heroBanner :global(.hero__subtitle) {
-  color: #fafafa;
+  color: inherit;
 }
 
 @media screen and (max-width: 996px) {
@@ -30,22 +32,16 @@
 }
 
 .buttons :global(.button) {
-  background-color: #fafafa;
-  color: #18181b;
+  background-color: #f59145;
+  color: #ffffff;
   border: none;
+  border-radius: 0;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .buttons :global(.button):hover {
-  background-color: #e5e7eb;
-  color: #18181b;
-}
-
-[data-theme='dark'] .buttons :global(.button) {
-  background-color: #fafafa;
-  color: #18181b;
-}
-
-[data-theme='dark'] .buttons :global(.button):hover {
-  background-color: #d1d5db;
-  color: #18181b;
+  background-color: #f37e25;
+  color: #ffffff;
 }

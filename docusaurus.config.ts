@@ -9,10 +9,6 @@ const config: Config = {
   tagline: 'SSH server manager',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://docs.termix.site',
   baseUrl: '/',
 
@@ -133,7 +129,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };
