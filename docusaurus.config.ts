@@ -67,6 +67,7 @@ const config: Config = {
       logo: {
         alt: 'Termix Logo',
         src: 'img/logo.svg',
+        href: 'https://termix.site',
       },
       items: [
         {
