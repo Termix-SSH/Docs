@@ -70,9 +70,9 @@
   --ifm-color-primary-lightest: #fbd0b0;
 
   /* Green-tinted dark surfaces matching new app */
-  --ifm-background-color:          oklch(0.155 0.004 128.73);
-  --ifm-background-surface-color:  oklch(0.195 0.004 128.68);
-  --ifm-navbar-background-color:   oklch(0.165 0.003 128.73);
+  --ifm-background-color:          #0e0f0d;
+  --ifm-background-surface-color:  #181917;
+  --ifm-navbar-background-color:   #181917;
   --ifm-footer-background-color:   #0e0f0d;
   --ifm-card-background-color:     oklch(0.21 0.004 128.68);
 
@@ -82,10 +82,10 @@
   --ifm-scrollbar-thumb-hover-background-color: oklch(1 0 0 / 35%);
   --docusaurus-highlighted-code-line-bg: oklch(1 0 0 / 0.08);
 
-  --bg-base:              oklch(0.155 0.004 128.73);
-  --bg-elevated:          oklch(0.21 0.004 128.68);
-  --bg-surface:           oklch(0.21 0.004 128.68);
-  --bg-surface-hover:     oklch(0.24 0.004 128.68);
+  --bg-base:              #0e0f0d;
+  --bg-elevated:          #181917;
+  --bg-surface:           #181917;
+  --bg-surface-hover:     #222320;
   --border-base:          oklch(1 0 0 / 12%);
   --border-medium:        oklch(1 0 0 / 18%);
   --foreground:           oklch(0.985 0 0);
@@ -96,6 +96,10 @@
 html,
 body {
   font-family: "JetBrains Mono Variable", "JetBrains Mono", monospace;
+}
+
+[data-theme='dark'] body {
+  background-color: #0e0f0d !important;
 }
 
 .theme-doc-sidebar-container {
@@ -204,4 +208,18 @@ article a:not(.pagination-nav__link):not(.breadcrumbs__link):hover {
 article .cardContainer,
 article .card.padding--lg {
   display: none !important;
+}
+
+/* Force doc content background to match app theme */
+[data-theme='dark'] div[class*="docMainContainer"],
+[data-theme='dark'] div[class*="docItemContainer"],
+[data-theme='dark'] div[class*="docRoot"],
+[data-theme='dark'] div[class*="docsWrapper"],
+[data-theme='dark'] main,
+[data-theme='dark'] article {
+  background-color: #0e0f0d !important;
+}
+
+[data-theme='dark'] .menu {
+  background-color: #181917 !important;
 }
