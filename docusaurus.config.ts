@@ -70,14 +70,12 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
+          href: 'https://docs.termix.site',
           position: 'left',
           label: 'Docs',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'apiSidebar',
+          href: 'https://docs.termix.site/api',
           position: 'left',
           label: 'API',
         },
