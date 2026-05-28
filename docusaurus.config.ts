@@ -80,6 +80,11 @@ const config: Config = {
           position: 'left',
           label: 'API',
         },
+        {
+          href: 'mailto:mail@termix.site',
+          position: 'left',
+          label: 'Contact',
+        },
       ],
     },
     footer: {
