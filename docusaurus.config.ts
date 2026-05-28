@@ -75,11 +75,13 @@ const config: Config = {
           href: 'https://docs.termix.site',
           position: 'left',
           label: 'Docs',
+          target: '_self',
         },
         {
-          href: 'https://docs.termix.site/api',
+          href: 'https://docs.termix.site/api/termix-api',
           position: 'left',
           label: 'API',
+          target: '_self',
         },
         {
           href: 'mailto:mail@termix.site',
