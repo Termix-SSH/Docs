@@ -100,7 +100,7 @@ Before configuring OIDC, you need:
 
 ### Step 3: Configure Termix
 
-1. Open Termix Admin Settings → OIDC tab
+1. Open Termix Admin Settings -> OIDC tab
 2. Fill in all required fields with the information from your provider
 3. Adjust optional fields based on your provider's token structure
 4. Click "Save Configuration"
@@ -194,6 +194,7 @@ identity_providers:
 ## Advanced Configuration
 
 ### Environment Variables
+
 Setting variables will take precedence over the stored DB config.
 
 | Variable | Required | Default |
@@ -207,10 +208,20 @@ Setting variables will take precedence over the stored DB config.
 | OIDC_IDENTIFIER_PATH | No | "sub" |
 | OIDC_NAME_PATH | No | "name" |
 | OIDC_SCOPES | No | "openid email profile" |
+| OIDC_ALLOWED_USERS | No | "" |
+| OIDC_ADMIN_GROUP | No | "" |
+
+### OIDC_ADMIN_GROUP
+
+When set, Termix will sync the user's admin status on every login based on whether they belong to the specified group in the OIDC token. If the user is in the group, they are granted admin; if not, admin is revoked. Leave unset to manage admin privileges manually in Termix.
+
+Your OIDC provider must include group membership in the token and you must request the appropriate scope (e.g. `groups`). The value should match the group name exactly as it appears in the token.
+
+**Example**: `OIDC_ADMIN_GROUP=termix-admins`
 
 ### Linking Local/OIDC Account
 
-Using an admin account, visit `Admin Settings` and click on the blue chain icon on a OIDC host, then enter the username of the local account. The link can be removed with the orange chain icon on a linked local account.
+Using an admin account, visit `Admin Settings` and click on the blue chain icon on an OIDC user, then enter the username of the local account. The link can be removed with the orange chain icon on a linked local account.
 
 ### Multiple OIDC Providers
 

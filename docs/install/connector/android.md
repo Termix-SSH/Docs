@@ -6,7 +6,7 @@
 
 ### Google Play Store (Recommended)
 
-Using your Android device, visit [this link](https://play.google.com/store/apps/details?id=com.karmaa.termix) or search `Termix - SSH Companion` on the Google Play Store. You can install and open it like you would any other app via the Play Store.
+Using your Android device, visit [this link](https://play.google.com/store/apps/details?id=com.karmaa.termix) or search `Termix - Remote Access` on the Google Play Store. You can install and open it like you would any other app via the Play Store.
 
 Once installed and opened, follow the on-screen guide to connect to your existing Termix instance. If you enjoy the app, consider leaving an honest review so the app shows up higher in the search results.
 

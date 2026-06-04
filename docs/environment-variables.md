@@ -34,6 +34,7 @@
 | `OIDC_NAME_PATH`          | `name`                 | JSON path in userinfo response for display name                                                                                                           |
 | `OIDC_SCOPES`             | `openid email profile` | Space-separated OAuth scopes to request                                                                                                                   |
 | `OIDC_ALLOWED_USERS`      | `""`                   | Comma-separated list of allowed user identifiers/email patterns. Use `*` for all users, `@example.com` for domain wildcards, or leave empty to allow all. |
+| `OIDC_ADMIN_GROUP`        | `""`                   | OIDC group name whose members are synced as Termix admins on each login. Requires group claims in the token (e.g. request the `groups` scope).            |
 | `OIDC_FORCE_HTTPS`        | `false`                | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                     |
 | `OIDC_ALLOW_REGISTRATION` | `false`                | Allows user creation via OIDC even when general registration is disabled, while still enforcing allowed-users whitelist                                   |
 
