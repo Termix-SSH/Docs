@@ -12,7 +12,7 @@ const config: Config = {
   url: 'https://termix.site',
   baseUrl: '/',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',

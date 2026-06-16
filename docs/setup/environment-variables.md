@@ -14,13 +14,15 @@
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `ENABLE_SSL` | `false` | Enable automatic SSL certificate generation. See [SSL](/ssl) for details. |
+| `ENABLE_SSL` | `false` | Enable automatic SSL certificate generation. See [SSL](/features/networking/ssl) for details. |
 | `SSL_PORT` | `8443` | HTTPS server port (only used when ENABLE_SSL=true) |
 | `SSL_CERT_PATH` | `{DATA_DIR}/ssl/termix.crt` | Path to SSL certificate file |
 | `SSL_KEY_PATH` | `{DATA_DIR}/ssl/termix.key` | Path to SSL private key file |
 | `SSL_DOMAIN` | `localhost` | Domain name for SSL certificate generation |
 
 ## OIDC/OAuth Authentication
+
+The normal way to add login providers is through Admin Settings, which supports OIDC, LDAP, GitHub, and Google providers side by side. See [SSO Providers](/features/authentication/sso-providers) for that. The variables below are a fallback for setting up a single generic OIDC provider through environment variables instead, and they only take effect when no OIDC provider has been added in Admin Settings yet.
 
 | Variable                  | Default                | Description                                                                                                                                               |
 |---------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -35,10 +37,14 @@
 | `OIDC_SCOPES`             | `openid email profile` | Space-separated OAuth scopes to request                                                                                                                   |
 | `OIDC_ALLOWED_USERS`      | `""`                   | Comma-separated list of allowed user identifiers/email patterns. Use `*` for all users, `@example.com` for domain wildcards, or leave empty to allow all. |
 | `OIDC_ADMIN_GROUP`        | `""`                   | OIDC group name whose members are synced as Termix admins on each login. Requires group claims in the token (e.g. request the `groups` scope).            |
-| `OIDC_FORCE_HTTPS`        | `false`                | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                     |
-| `OIDC_ALLOW_REGISTRATION` | `false`                | Allows user creation via OIDC even when general registration is disabled, while still enforcing allowed-users whitelist                                   |
+| `OIDC_GROUP_CLAIM`        | `""`                   | Path in the token where group membership lives, used to check `OIDC_ADMIN_GROUP`                                                                          |
 
-See [OIDC](/oidc#environment-variables) for complete setup instructions.
+Two more variables apply no matter which provider type or setup method you use:
+
+| Variable                  | Default                | Description                                                                                                                                               |
+|---------------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `OIDC_FORCE_HTTPS`        | `false`                | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                     |
+| `OIDC_ALLOW_REGISTRATION` | `false`                | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list |
 
 ## Database Configuration
 
@@ -73,7 +79,7 @@ See [OIDC](/oidc#environment-variables) for complete setup instructions.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `VITE_BASE_PATH` | `/` | Base path for the web application. See [Reverse Proxy](/reverse-proxy#changing-base-path) for details. |
+| `VITE_BASE_PATH` | `/` | Base path for the web application. See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
 
 ## Notes
 

@@ -77,7 +77,7 @@ It consists of two main parts:
 
 ## Flaws
 
-- **Password Transmission**: During login/registration, the user's password is sent in the body of an HTTP request. The security of this transmission depends entirely on the deployment environment using TLS (HTTPS). The [SSL](https://docs.termix.site/ssl) utility is provided to fix this, it's highly recommended to serve ovr HTTPS in production.
+- **Password Transmission**: During login/registration, the user's password is sent in the body of an HTTP request. The security of this transmission depends entirely on the deployment environment using TLS (HTTPS). The [SSL](../networking/ssl) utility is provided to fix this, it's highly recommended to serve over HTTPS in production.
 - **`.env` File Security**: The `JWT_SECRET` and `DATABASE_KEY` are stored in the `.env` file within the application's data directory. Filesystem access to this file could compromise the security of the database file and all sessions.
 - **In-Memory Data**: Because the database is decrypted and held in memory, an attacker with the ability to dump the application's process memory could potentially access sensitive data.
 - **Data Export**: The data export feature decrypts user data and provides it as an unencrypted SQLite file. This exported file is highly sensitive and must be stored securely.

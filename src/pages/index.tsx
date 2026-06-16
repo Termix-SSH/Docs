@@ -21,6 +21,9 @@ function HomepageHeader() {
           <Link className="button button--primary button--lg" href="https://docs.termix.site/install" target="_self">
             Install
           </Link>
+          <Link className="button button--secondary button--lg" href="https://docs.termix.site/intro" target="_self">
+            Learn More
+          </Link>
         </div>
       </div>
     </header>

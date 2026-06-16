@@ -18,9 +18,9 @@ Your Termix instance is now ready for setup.
 
 Enter the URL from above into any browser, and create your account.
 
-For a list of all Termix features, visit [docs](https://docs.termix.site/features)!
+For a list of all Termix features, visit [docs](../../../features/overview)!
 
-To change or add any [environment variables](https://docs.termix.site/environment-variables), click on the `lukegus/termix:latest` again, visit the `Variables` tab, and add variables as needed. 
+To change or add any [environment variables](../../../setup/environment-variables), click on the `lukegus/termix:latest` again, visit the `Variables` tab, and add variables as needed.
 
 ## Support
 

@@ -29,9 +29,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.buttons :global(.button) {
+.buttons :global(.button--primary) {
   background-color: #f59145;
   color: #ffffff;
   border: none;
@@ -41,7 +43,22 @@
   letter-spacing: 0.03em;
 }
 
-.buttons :global(.button):hover {
+.buttons :global(.button--primary):hover {
   background-color: #f37e25;
   color: #ffffff;
+}
+
+.buttons :global(.button--secondary) {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.buttons :global(.button--secondary):hover {
+  background-color: oklch(1 0 0 / 10%);
+  color: inherit;
 }

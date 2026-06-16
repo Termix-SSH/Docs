@@ -11,7 +11,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 ## Environment Variables
 
-See [docs](/environment-variables).
+See [docs](/setup/environment-variables).
 
 ## Support
 

@@ -66,7 +66,7 @@ Use the: `VITE_BASE_PATH` environment variable to configure the base path.
 ```bash
 VITE_BASE_PATH=/termix/
 
-http://localhost:8080/termixx
+http://localhost:8080/termix/
 ```
 
 ## Support

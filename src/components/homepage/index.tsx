@@ -14,10 +14,10 @@ const FeatureList: FeatureItem[] = [
     title: 'SSH Terminal',
     description: (
       <>
-        Full-featured terminal with split-screen support (up to 4 panels) and a browser-like tab
-        system. Customize with themes, fonts, and other components. Supports jump hosts, Warpgate,
-        TOTP, SOCKS5, OPKSSH, tmux, port knocking, and more. Run one command across all open
-        terminals, save reusable command snippets, and auto-complete from your command history.
+        A full terminal with split screen (up to 4 panels) and tabs like a browser. Customize themes
+        and fonts. Supports jump hosts, Warpgate, TOTP, SOCKS5, OPKSSH, tmux, and port knocking. Run
+        one command across every open terminal, save reusable snippets, and reuse your command
+        history.
       </>
     ),
   },
@@ -25,8 +25,7 @@ const FeatureList: FeatureItem[] = [
     title: 'Remote Desktop',
     description: (
       <>
-        RDP, VNC, and Telnet support over the browser with complete customization and split
-        screening.
+        RDP, VNC, and Telnet, all in the browser. Full customization and split screen support.
       </>
     ),
   },
@@ -34,9 +33,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Remote File Manager',
     description: (
       <>
-        Manage files directly on remote servers with support for viewing and editing code, images,
-        audio, and video. Upload, download, rename, delete, and move files seamlessly with sudo
-        support.
+        Manage files on remote servers, with support for viewing and editing code, images, audio,
+        and video. Upload, download, rename, delete, and move files, with sudo support.
       </>
     ),
   },
@@ -44,9 +42,9 @@ const FeatureList: FeatureItem[] = [
     title: 'SSH Tunnel Management',
     description: (
       <>
-        Create and manage server-to-server SSH tunnels with automatic reconnection, health
-        monitoring, and local, remote, or dynamic SOCKS forwarding. Optional preset snapshots can be
-        saved to the server and loaded across clients.
+        Create and manage SSH tunnels with automatic reconnection and health monitoring. Supports
+        local, remote, and dynamic SOCKS forwarding. Save tunnel presets to the server and load them
+        on any client.
       </>
     ),
   },
@@ -54,9 +52,10 @@ const FeatureList: FeatureItem[] = [
     title: 'Host Manager',
     description: (
       <>
-        Save, organize, and manage SSH connections with tags and folders. Save reusable login info
-        and automate SSH key deployment. Quick connect without saving, or use the command palette
-        (double tap left shift) to open connections from your keyboard.
+        Save and organize SSH connections with tags and folders. Reuse login info and automate SSH
+        key deployment. Quick connect without saving, or open a connection from your keyboard with
+        the command palette (double tap left shift). Pull devices straight from your Tailscale
+        tailnet or import guests from Proxmox.
       </>
     ),
   },
@@ -64,18 +63,18 @@ const FeatureList: FeatureItem[] = [
     title: 'Docker Management',
     description: (
       <>
-        Start, stop, pause, and remove containers. View container stats and control containers with a
-        docker exec terminal. Built to simplify managing containers, not replace Portainer or Dockge.
+        Start, stop, pause, and remove containers. View container stats and open a docker exec
+        terminal. Built to make managing containers easier, not to replace Portainer or Dockge.
       </>
     ),
   },
   {
-    title: 'Server Stats & Dashboard',
+    title: 'Host Metrics & Dashboard',
     description: (
       <>
-        View CPU, memory, disk usage, network, uptime, firewall, and port monitor on most
-        Linux-based servers. Customize your dashboard with a network graph to visualize your homelab
-        based off your SSH connections with status support.
+        View CPU, memory, disk usage, network, uptime, firewall, and open ports on most Linux
+        servers. Customize your dashboard with a network graph that maps your homelab from your SSH
+        connections, with live status.
       </>
     ),
   },
@@ -83,9 +82,9 @@ const FeatureList: FeatureItem[] = [
     title: 'Auth & Access Control',
     description: (
       <>
-        Secure user management with admin controls, OIDC (with access control), and 2FA (TOTP)
-        support. Create roles and share hosts across users. View and revoke active sessions across
-        all platforms. Link OIDC and local accounts together.
+        Sign in with local accounts, OIDC, LDAP, GitHub, or Google, all side by side. Add 2FA with
+        TOTP. Create roles and share hosts between users. View and revoke active sessions across
+        every platform, and link an SSO account to a local one.
       </>
     ),
   },
@@ -94,8 +93,8 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Create user-scoped API keys with expiration dates for automation and CI. Export and import
-        SSH hosts, credentials, and file manager data. Backend stored as encrypted SQLite database
-        files.
+        SSH hosts, credentials, and file manager data. The backend is stored as an encrypted SQLite
+        database.
       </>
     ),
   },
@@ -103,9 +102,10 @@ const FeatureList: FeatureItem[] = [
     title: 'Platform Support',
     description: (
       <>
-        Available as a web app, desktop application (Windows, Linux, macOS, can run standalone
-        without the Termix backend), PWA, and dedicated mobile app for iOS and Android. Built-in SSL
-        certificate generation with HTTPS redirects. Supports ~30 languages via Crowdin.
+        Available as a web app, a desktop app for Windows, Linux, and macOS (can run standalone
+        without the Termix backend), a PWA, and dedicated mobile apps for iOS and Android. Includes
+        built in SSL certificate generation with HTTPS redirects, and support for around 30
+        languages through Crowdin.
       </>
     ),
   },

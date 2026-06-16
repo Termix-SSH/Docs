@@ -11,6 +11,11 @@ const sidebars: SidebarsConfig = {
   ],
   docsSidebar: [
     {
+      type: 'doc',
+      id: 'intro',
+      label: 'Introduction',
+    },
+    {
       type: 'category',
       label: 'Installation',
       link: {
@@ -55,35 +60,84 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Setup',
-      items: ['reverse-proxy', 'environment-variables', 'remote-desktop'],
+      items: [
+        'setup/reverse-proxy',
+        'setup/environment-variables',
+        'setup/remote-desktop',
+      ],
     },
     {
       type: 'category',
       label: 'Features',
       link: {
         type: 'doc',
-        id: 'features',
+        id: 'features/overview',
       },
       items: [
         {
           type: 'category',
           label: 'Authentication',
-          items: ['oidc', 'totp', 'rbac', 'security', 'opkssh'],
+          link: {
+            type: 'doc',
+            id: 'features/authentication/overview',
+          },
+          items: [
+            'features/authentication/sso-providers',
+            'features/authentication/oidc',
+            'features/authentication/github-google',
+            'features/authentication/ldap',
+            'features/authentication/totp',
+            'features/authentication/rbac',
+            'features/authentication/security',
+            'features/authentication/opkssh',
+          ],
         },
         {
           type: 'category',
           label: 'Networking',
-          items: ['tunnels', 'server-stats', 'docker', 'ssl'],
+          items: [
+            'features/networking/tunnels',
+            'features/networking/host-metrics',
+            'features/networking/docker',
+            'features/networking/ssl',
+            'features/networking/tailscale',
+            'features/networking/port-knocking',
+            'features/networking/wake-on-lan',
+          ],
         },
         {
           type: 'category',
-          label: 'Data',
-          items: ['json-import'],
+          label: 'Terminal',
+          items: [
+            'features/terminal/tmux',
+            'features/terminal/command-palette',
+            'features/terminal/snippets',
+            'features/terminal/command-history',
+            'features/terminal/session-recording',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Files & Hosts',
+          items: [
+            'features/files-and-hosts/proxmox-import',
+            'features/files-and-hosts/credentials',
+            'features/files-and-hosts/json-import',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Dashboard',
+          link: {
+            type: 'doc',
+            id: 'features/dashboard/overview',
+          },
+          items: ['features/dashboard/network-graph'],
         },
         {
           type: 'category',
           label: 'API',
-          items: ['api-keys'],
+          items: ['features/api/api-keys'],
         },
       ],
     },
