@@ -102,7 +102,7 @@ docker-compose up -d
 
 ## Environment Variables
 
-See [docs](/environment-variables).
+See [docs](/setup/environment-variables).
 
 ## Usage
 

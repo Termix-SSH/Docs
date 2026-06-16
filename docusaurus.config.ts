@@ -12,7 +12,7 @@ const config: Config = {
   url: 'https://termix.site',
   baseUrl: '/',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -45,7 +45,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/Termix-SSH/Docs/tree/main',
           docItemComponent: '@theme/ApiItem',
         },
         blog: false,

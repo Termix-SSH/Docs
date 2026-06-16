@@ -104,13 +104,16 @@ As an alternative to GHCR, you can also use the Docker Hub mirror by replacing `
 
 ## Specific Version
 
-To download a specific Docker image, you can visit [GitHub](https://github.com/users/LukeGus/packages/container/package/termix) and replace your Docker tag with one of items listed in the table.
+By default, `:latest` always points to the newest release. If you want to pin a specific version instead, replace `:latest` in your docker run/compose with one of these tag formats, swapping in the version you want:
 
-You can also replace `:latest` in your docker run/compose with `:version.x.x.x` and change `x.x.x` to the version you would like to install. See a list of all versions [here](https://github.com/Termix-SSH/Termix/releases).
+- `:x.x.x`, for example `:2.4.0`
+- `:release-x.x.x`, for example `:release-2.4.0`
+
+Both formats point to the same image for a given version, so use whichever you prefer. See a list of all versions [here](https://github.com/Termix-SSH/Termix/releases), or browse every published tag on [GitHub](https://github.com/users/LukeGus/packages/container/package/termix).
 
 ## Environment Variables
 
-See [docs](/environment-variables).
+See [docs](/setup/environment-variables).
 
 ## Usage
 

@@ -22,10 +22,10 @@
 Run the following command:
 
 ```sh
-npm run docs:dev
+npm run start
 ```
 
-This will start the frontend server. You can access Docs by going to `http://localhost:5173/`.
+This will start the docs site. You can access it by going to `http://localhost:3000/`.
 
 ## Contributing
 

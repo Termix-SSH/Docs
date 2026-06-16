@@ -2,7 +2,7 @@
 
 All remote desktop features in Termix rely on [guacd](https://hub.docker.com/r/guacamole/guacd). It's the gateway/proxy backend that translates the remote desktop protocol into HTML.
 
-Remote desktop is not available on any mobile client.
+Remote desktop is also available on mobile clients.
 
 ## Setting Up
 
@@ -32,9 +32,13 @@ Visit the Host Manager using the bottom in the top left. Find the Add Host butto
 
 You are then given the opportunity to enter the IP, username, password, options, etc. just like any other remote desktop client.
 
+## Session Recording
+
+RDP, VNC, and Telnet hosts can record their sessions to video files on disk. In the host's settings, under Session Recording, set a Recording Path on the server running guacd, and Termix will save a recording every time someone connects. This is separate from the [Session Recording](/features/terminal/session-recording) for SSH terminals, which stores plain text logs instead of video.
+
 ## Environment Variables
 
-See [docs](https://docs.termix.site/environment-variables#guacamole-configuration).
+See [Environment Variables](/setup/environment-variables#guacamole-configuration).
 
 ## Support
 
