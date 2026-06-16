@@ -14,8 +14,8 @@
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `SSL_ENABLED` | `false` | Enable automatic SSL certificate generation. See [SSL](/ssl) for details. |
-| `SSL_PORT` | `8443` | HTTPS server port (only used when SSL_ENABLED=true) |
+| `ENABLE_SSL` | `false` | Enable automatic SSL certificate generation. See [SSL](/ssl) for details. |
+| `SSL_PORT` | `8443` | HTTPS server port (only used when ENABLE_SSL=true) |
 | `SSL_CERT_PATH` | `{DATA_DIR}/ssl/termix.crt` | Path to SSL certificate file |
 | `SSL_KEY_PATH` | `{DATA_DIR}/ssl/termix.key` | Path to SSL private key file |
 | `SSL_DOMAIN` | `localhost` | Domain name for SSL certificate generation |
