@@ -45,7 +45,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/Termix-SSH/Docs/tree/main',
           docItemComponent: '@theme/ApiItem',
         },
         blog: false,
