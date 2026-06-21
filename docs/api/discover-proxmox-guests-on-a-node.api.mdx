@@ -1,0 +1,68 @@
+---
+id: discover-proxmox-guests-on-a-node
+title: "Discover Proxmox guests on a node"
+description: "Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required."
+sidebar_label: "Discover Proxmox guests on a node"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v4zYQ/SvEnHYB1vYm2S6gWzZpsSmaNti4H4Drw1gaW9xQpMKhvDYE/fdiKCWxYzebotfmEkOcecP5eG/YQkGcB1NH4x1kcOGdozyyil6hU7QxHI1bqdvbT6r0HNUbVDfBbyq/Uc4X9FY1LOcmsuLoAxUqD1SQiwYtaxUax6peE5eCSK6pKGAkhdaqVUMcWb35/ZoVukL9/OeFyr2LaBwFfquMU7EklduGIwWdbALFJjiWg0oFwmIruAtSpqp9iFQoZDWlUJlNui+P1C9eMdWYwj5c/fzmSkV/R04ZVoHuGxOoGP3lQEPEFUM2g8EU5hqY8iaYuIVs1sKCMFA4b2IJ2WzezTWIP3H86IstZC08wEEWQ0MaJCVyUY6wrq3JUWo9/sJS8BY4L6lC+RW3NUEGfvGF8gh6B2gGkstVIZepg68pREMsPsP3J2/XVAsKoJ/19epS+WUq52MnY4lR0t9v6Ai69CfhufaO+zgnk4n82we9NJz7NUnT+16O4D+ku59YD7hjhyHgFjSYSBV/299hRTtWHINxK+g0rCtzpF6dHj4899AgQystuKeqAQ12k8O80yDFOhqAI8aGjx6Z+lgA11iLC0v9wHSphEJC4930G3diLmVQijpdiZzAXPr8jsKO18J7S+igb+sTPY/PzcFtClpiY+PFv/Mbhujs2NxcG06i4YMybo3WFKqf4xEkl3eHLsI3id5P0yNlBYKJWb7Rpk4s7jFOj2DkOTGrgpyhQmRD6CCBB5ezQ5dPQhTno1r6xg3QJyf/YGc4me7zKSXJqnGBMC+lQAnl/Ut82qolGptS6TRUFEtfQAa15zTnKNID47qPMi4GLxChCmsKnHSqCRYyKGOss/HY+hytpJqdTiaTdwfycI3GqQIjLpApCS3uF7xHhk6/CHx6ACxqExvnyKoKHa6oIhdfiXZ2FG1pLA1Y4ZVA7w+Bkp8SqsqCy/sFVHlnoheKvRL4+wPgS+Ry4TEUr0T4cIiQ6HusWjub6FZUtBe63X30yEqJJfOQzEQCkhHo4cePPlQYIYOf/pimGRN1/vy0xn7YYFVb2l0wE5Evt/QpiIlyCMOePb+5Ag0yeH0Gk9FkNDnIazD+iPkduSJt4M+0pEAuJ2GETHeF7km7H+nwyKfhweCdwsSt5zHap+Xz/0PmYRQibeK4tmicVDmNYjtoyAwGDZFCPqjIXKeey2nbihz8FmzXyef7hoK8geYa1hhML/YzWTwlYSErZ9bCHW376ksfvkv7S8xtk3b48weBsKP3EHGu44u28x0tvPn1dirjPLy5qrSMIeBXWYf4FTIADT7NRWJJ+taCRbdqcCW2PaYMP+5z5xlXUlYPbxC33blh2/YWU6l/14EeUkn9gG7edd3fulrvHA==
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Discover Proxmox guests on a node"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/proxmox/discover"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./discover-proxmox-guests-on-a-node.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./discover-proxmox-guests-on-a-node.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

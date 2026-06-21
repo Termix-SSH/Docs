@@ -100,8 +100,8 @@
       "description": "SSH tunnel connection management"
     },
     {
-      "name": "Server Stats",
-      "description": "Server status monitoring and metrics collection"
+      "name": "Host Metrics",
+      "description": "Host status monitoring, metrics collection, and managers"
     },
     {
       "name": "File Manager",
@@ -354,6 +354,35 @@
         }
       }
     },
+    "/users/me/token": {
+      "get": {
+        "summary": "Get current session token",
+        "description": "Returns the JWT for the currently authenticated session. Intended for mobile WebView clients that cannot read HTTP-only cookies.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Current session token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated."
+          }
+        }
+      }
+    },
     "/users/setup-required": {
       "get": {
         "summary": "Check if setup is required",
@@ -457,6 +486,59 @@
           },
           "500": {
             "description": "Failed to set registration allowed status."
+          }
+        }
+      }
+    },
+    "/users/oidc-silent-login-default": {
+      "get": {
+        "summary": "Get OIDC silent login default setting",
+        "description": "Returns whether silent OIDC login is enabled as the default behavior.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Silent login default setting."
+          },
+          "500": {
+            "description": "Failed to get setting."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set OIDC silent login default setting",
+        "description": "Enables or disables silent OIDC login as the default behavior on the login page.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting updated."
+          },
+          "400": {
+            "description": "Invalid value."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update setting."
           }
         }
       }
@@ -611,129 +693,6 @@
         }
       }
     },
-    "/users/initiate-reset": {
-      "post": {
-        "summary": "Initiate password reset",
-        "description": "Initiates the password reset process for a user.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Password reset code has been generated."
-          },
-          "400": {
-            "description": "Username is required."
-          },
-          "403": {
-            "description": "Password reset not available for external authentication users."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to initiate password reset."
-          }
-        }
-      }
-    },
-    "/users/verify-reset-code": {
-      "post": {
-        "summary": "Verify reset code",
-        "description": "Verifies the password reset code.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string"
-                  },
-                  "resetCode": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Reset code verified."
-          },
-          "400": {
-            "description": "Invalid or expired reset code."
-          },
-          "500": {
-            "description": "Failed to verify reset code."
-          }
-        }
-      }
-    },
-    "/users/complete-reset": {
-      "post": {
-        "summary": "Complete password reset",
-        "description": "Completes the password reset process with a new password.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string"
-                  },
-                  "tempToken": {
-                    "type": "string"
-                  },
-                  "newPassword": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Password has been successfully reset."
-          },
-          "400": {
-            "description": "Invalid or expired temporary token."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to complete password reset."
-          }
-        }
-      }
-    },
     "/users/change-password": {
       "post": {
         "summary": "Change user password",
@@ -775,30 +734,10 @@
         }
       }
     },
-    "/users/list": {
-      "get": {
-        "summary": "List all users",
-        "description": "Retrieves a list of all users in the system.",
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of users."
-          },
-          "403": {
-            "description": "Not authorized."
-          },
-          "500": {
-            "description": "Failed to list users."
-          }
-        }
-      }
-    },
-    "/users/make-admin": {
-      "post": {
-        "summary": "Make user admin",
-        "description": "Grants admin privileges to a user.",
+    "/users/delete-user": {
+      "delete": {
+        "summary": "Delete user (admin only)",
+        "description": "Allows an admin to delete another user and all related data.",
         "tags": [
           "Users"
         ],
@@ -809,13 +748,8 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "userId": {
-                    "type": "string",
-                    "description": "Preferred unique user identifier."
-                  },
                   "username": {
-                    "type": "string",
-                    "description": "Legacy fallback identifier."
+                    "type": "string"
                   }
                 }
               }
@@ -824,65 +758,19 @@
         },
         "responses": {
           "200": {
-            "description": "User is now an admin."
+            "description": "User deleted successfully."
           },
           "400": {
-            "description": "User ID or username is required, or the user is already an admin."
+            "description": "Username is required or cannot delete yourself."
           },
           "403": {
-            "description": "Not authorized."
+            "description": "Not authorized or cannot delete last admin."
           },
           "404": {
             "description": "User not found."
           },
           "500": {
-            "description": "Failed to make user admin."
-          }
-        }
-      }
-    },
-    "/users/remove-admin": {
-      "post": {
-        "summary": "Remove admin status",
-        "description": "Revokes admin privileges from a user.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "userId": {
-                    "type": "string",
-                    "description": "Preferred unique user identifier."
-                  },
-                  "username": {
-                    "type": "string",
-                    "description": "Legacy fallback identifier."
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Admin status removed from user."
-          },
-          "400": {
-            "description": "User ID or username is required, or cannot remove your own admin status."
-          },
-          "403": {
-            "description": "Not authorized."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to remove admin status."
+            "description": "Failed to delete user."
           }
         }
       }
@@ -1083,285 +971,6 @@
         }
       }
     },
-    "/users/delete-user": {
-      "delete": {
-        "summary": "Delete user (admin only)",
-        "description": "Allows an admin to delete another user and all related data.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "User deleted successfully."
-          },
-          "400": {
-            "description": "Username is required or cannot delete yourself."
-          },
-          "403": {
-            "description": "Not authorized or cannot delete last admin."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to delete user."
-          }
-        }
-      }
-    },
-    "/users/unlock-data": {
-      "post": {
-        "summary": "Unlock user data",
-        "description": "Re-authenticates user with password to unlock encrypted data.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "password": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Data unlocked successfully."
-          },
-          "400": {
-            "description": "Password is required."
-          },
-          "401": {
-            "description": "Invalid password."
-          },
-          "500": {
-            "description": "Failed to unlock data."
-          }
-        }
-      }
-    },
-    "/users/data-status": {
-      "get": {
-        "summary": "Check user data unlock status",
-        "description": "Checks if user data is currently unlocked.",
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "Data status returned."
-          },
-          "500": {
-            "description": "Failed to check data status."
-          }
-        }
-      }
-    },
-    "/users/sessions": {
-      "get": {
-        "summary": "Get sessions",
-        "description": "Retrieves all sessions for authenticated user (or all sessions for admins).",
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "Sessions list returned."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to get sessions."
-          }
-        }
-      }
-    },
-    "/users/sessions/{sessionId}": {
-      "delete": {
-        "summary": "Revoke a specific session",
-        "description": "Revokes a specific session by ID.",
-        "tags": [
-          "Users"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "The session ID to revoke"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Session revoked successfully."
-          },
-          "400": {
-            "description": "Session ID is required."
-          },
-          "403": {
-            "description": "Not authorized to revoke this session."
-          },
-          "404": {
-            "description": "Session not found."
-          },
-          "500": {
-            "description": "Failed to revoke session."
-          }
-        }
-      }
-    },
-    "/users/sessions/revoke-all": {
-      "post": {
-        "summary": "Revoke all sessions for a user",
-        "description": "Revokes all sessions with option to exclude current session.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "targetUserId": {
-                    "type": "string"
-                  },
-                  "exceptCurrent": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Sessions revoked successfully."
-          },
-          "403": {
-            "description": "Not authorized to revoke sessions for other users."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to revoke sessions."
-          }
-        }
-      }
-    },
-    "/users/link-oidc-to-password": {
-      "post": {
-        "summary": "Link OIDC user to password account",
-        "description": "Merges an OIDC-only account into a password-based account (admin only).",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "oidcUserId": {
-                    "type": "string"
-                  },
-                  "targetUsername": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Accounts linked successfully."
-          },
-          "400": {
-            "description": "Invalid request or incompatible accounts."
-          },
-          "403": {
-            "description": "Admin access required."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to link accounts."
-          }
-        }
-      }
-    },
-    "/users/unlink-oidc-from-password": {
-      "post": {
-        "summary": "Unlink OIDC from password account",
-        "description": "Removes OIDC authentication from a dual-auth account (admin only).",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "userId": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OIDC unlinked successfully."
-          },
-          "400": {
-            "description": "Invalid request or user doesn't have OIDC."
-          },
-          "403": {
-            "description": "Admin privileges required."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to unlink OIDC."
-          }
-        }
-      }
-    },
     "/users/guacamole-settings": {
       "get": {
         "summary": "Get Guacamole settings",
@@ -1494,6 +1103,704 @@
         }
       }
     },
+    "/users/tailscale-settings": {
+      "get": {
+        "summary": "Get Tailscale settings",
+        "description": "Returns whether a Tailscale API key is configured (value is masked).",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tailscale settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "apiKey": {
+                      "type": "string",
+                      "description": "Masked API key or empty string if not set."
+                    },
+                    "hasApiKey": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Tailscale settings (admin only)",
+        "description": "Saves or clears the Tailscale API key used for device discovery.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tailscale settings updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update Tailscale settings."
+          }
+        }
+      }
+    },
+    "/users/command-history-enabled": {
+      "get": {
+        "summary": "Get command history enabled setting",
+        "description": "Returns whether command history recording is globally enabled.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Command history enabled status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update command history enabled setting (admin only)",
+        "description": "Globally enables or disables command history recording for all hosts.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update setting."
+          }
+        }
+      }
+    },
+    "/users/host-defaults": {
+      "get": {
+        "summary": "Get host creation defaults",
+        "description": "Returns the global default settings applied when creating a new host.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Host defaults object."
+          },
+          "500": {
+            "description": "Failed to get host defaults."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update host creation defaults (admin only)",
+        "description": "Sets global default settings applied when a new host is created.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host defaults updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update host defaults."
+          }
+        }
+      }
+    },
+    "/users/sessions": {
+      "get": {
+        "summary": "Get sessions",
+        "description": "Retrieves all sessions for authenticated user (or all sessions for admins).",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sessions list returned."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to get sessions."
+          }
+        }
+      }
+    },
+    "/users/sessions/{sessionId}": {
+      "delete": {
+        "summary": "Revoke a specific session",
+        "description": "Revokes a specific session by ID.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The session ID to revoke"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session revoked successfully."
+          },
+          "400": {
+            "description": "Session ID is required."
+          },
+          "403": {
+            "description": "Not authorized to revoke this session."
+          },
+          "404": {
+            "description": "Session not found."
+          },
+          "500": {
+            "description": "Failed to revoke session."
+          }
+        }
+      }
+    },
+    "/users/sessions/revoke-all": {
+      "post": {
+        "summary": "Revoke all sessions for a user",
+        "description": "Revokes all sessions with option to exclude current session.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targetUserId": {
+                    "type": "string"
+                  },
+                  "exceptCurrent": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sessions revoked successfully."
+          },
+          "403": {
+            "description": "Not authorized to revoke sessions for other users."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to revoke sessions."
+          }
+        }
+      }
+    },
+    "/user-preferences": {
+      "get": {
+        "summary": "Get preferences for the current user",
+        "tags": [
+          "User Preferences"
+        ],
+        "responses": {
+          "200": {
+            "description": "User preferences.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "reopenTabsOnLogin": {
+                      "type": "boolean"
+                    },
+                    "theme": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "fontSize": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "accentColor": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "language": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "storageMode": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "commandAutocomplete": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "commandPaletteEnabled": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "showHostTags": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "hostTrayOnClick": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "pinAppRail": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "foldersCollapsed": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "confirmSnippetExecution": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "disableUpdateCheck": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "confirmTabClose": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "hiddenRailTabs": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "compactHostView": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
+                    "statusColorScheme": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update preferences for the current user",
+        "tags": [
+          "User Preferences"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reopenTabsOnLogin": {
+                    "type": "boolean"
+                  },
+                  "theme": {
+                    "type": "string"
+                  },
+                  "fontSize": {
+                    "type": "string"
+                  },
+                  "accentColor": {
+                    "type": "string"
+                  },
+                  "language": {
+                    "type": "string"
+                  },
+                  "storageMode": {
+                    "type": "string"
+                  },
+                  "commandAutocomplete": {
+                    "type": "boolean"
+                  },
+                  "commandPaletteEnabled": {
+                    "type": "boolean"
+                  },
+                  "showHostTags": {
+                    "type": "boolean"
+                  },
+                  "hostTrayOnClick": {
+                    "type": "boolean"
+                  },
+                  "pinAppRail": {
+                    "type": "boolean"
+                  },
+                  "foldersCollapsed": {
+                    "type": "boolean"
+                  },
+                  "confirmSnippetExecution": {
+                    "type": "boolean"
+                  },
+                  "disableUpdateCheck": {
+                    "type": "boolean"
+                  },
+                  "confirmTabClose": {
+                    "type": "boolean"
+                  },
+                  "hiddenRailTabs": {
+                    "type": "string"
+                  },
+                  "compactHostView": {
+                    "type": "boolean"
+                  },
+                  "statusColorScheme": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          }
+        }
+      }
+    },
+    "/users/initiate-reset": {
+      "post": {
+        "summary": "Initiate password reset",
+        "description": "Initiates the password reset process for a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset code has been generated."
+          },
+          "400": {
+            "description": "Username is required."
+          },
+          "403": {
+            "description": "Password reset not available for external authentication users."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to initiate password reset."
+          }
+        }
+      }
+    },
+    "/users/verify-reset-code": {
+      "post": {
+        "summary": "Verify reset code",
+        "description": "Verifies the password reset code.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "resetCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reset code verified."
+          },
+          "400": {
+            "description": "Invalid or expired reset code."
+          },
+          "500": {
+            "description": "Failed to verify reset code."
+          }
+        }
+      }
+    },
+    "/users/complete-reset": {
+      "post": {
+        "summary": "Complete password reset",
+        "description": "Completes the password reset process with a new password.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "tempToken": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password has been successfully reset."
+          },
+          "400": {
+            "description": "Invalid or expired temporary token."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to complete password reset."
+          }
+        }
+      }
+    },
+    "/users/link-oidc-to-password": {
+      "post": {
+        "summary": "Link OIDC user to password account",
+        "description": "Merges an OIDC-only account into a password-based account (admin only).",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oidcUserId": {
+                    "type": "string"
+                  },
+                  "targetUsername": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Accounts linked successfully."
+          },
+          "400": {
+            "description": "Invalid request or incompatible accounts."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to link accounts."
+          }
+        }
+      }
+    },
+    "/users/unlink-oidc-from-password": {
+      "post": {
+        "summary": "Unlink OIDC from password account",
+        "description": "Removes OIDC authentication from a dual-auth account (admin only).",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OIDC unlinked successfully."
+          },
+          "400": {
+            "description": "Invalid request or user doesn't have OIDC."
+          },
+          "403": {
+            "description": "Admin privileges required."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to unlink OIDC."
+          }
+        }
+      }
+    },
+    "/users/unlock-data": {
+      "post": {
+        "summary": "Unlock user data",
+        "description": "Re-authenticates user with password to unlock encrypted data.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Data unlocked successfully."
+          },
+          "400": {
+            "description": "Password is required."
+          },
+          "401": {
+            "description": "Invalid password."
+          },
+          "500": {
+            "description": "Failed to unlock data."
+          }
+        }
+      }
+    },
+    "/users/data-status": {
+      "get": {
+        "summary": "Check user data unlock status",
+        "description": "Checks if user data is currently unlocked.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Data status returned."
+          },
+          "500": {
+            "description": "Failed to check data status."
+          }
+        }
+      }
+    },
     "/users/api-keys": {
       "post": {
         "summary": "Create an API key (admin only)",
@@ -1597,6 +1904,162 @@
           },
           "500": {
             "description": "Failed to delete API key."
+          }
+        }
+      }
+    },
+    "/users/list": {
+      "get": {
+        "summary": "List all users",
+        "description": "Retrieves a list of all users in the system.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to list users."
+          }
+        }
+      }
+    },
+    "/users/make-admin": {
+      "post": {
+        "summary": "Make user admin",
+        "description": "Grants admin privileges to a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "Preferred unique user identifier."
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Legacy fallback identifier."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User is now an admin."
+          },
+          "400": {
+            "description": "User ID or username is required, or the user is already an admin."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to make user admin."
+          }
+        }
+      }
+    },
+    "/users/remove-admin": {
+      "post": {
+        "summary": "Remove admin status",
+        "description": "Revokes admin privileges from a user.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "Preferred unique user identifier."
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Legacy fallback identifier."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Admin status removed from user."
+          },
+          "400": {
+            "description": "User ID or username is required, or cannot remove your own admin status."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to remove admin status."
+          }
+        }
+      }
+    },
+    "/users/admin-create": {
+      "post": {
+        "summary": "Admin create user",
+        "description": "Allows an admin to create a new user regardless of whether public registration is enabled.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User created successfully."
+          },
+          "400": {
+            "description": "Username and password are required."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "409": {
+            "description": "Username already exists."
+          },
+          "500": {
+            "description": "Failed to create user."
           }
         }
       }
@@ -1784,6 +2247,146 @@
           },
           "500": {
             "description": "Failed to save settings."
+          }
+        }
+      }
+    },
+    "/tailscale/devices": {
+      "get": {
+        "summary": "List Tailscale devices",
+        "description": "Returns the list of devices in the configured tailnet using the stored API key.",
+        "tags": [
+          "Tailscale"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of tailnet devices.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "devices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to fetch Tailscale devices."
+          }
+        }
+      }
+    },
+    "/users/sso-providers": {
+      "get": {
+        "summary": "List enabled SSO providers (public)",
+        "description": "Returns public info for all enabled SSO providers for the login page.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of public SSO provider objects."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create SSO provider",
+        "description": "Creates a new SSO provider configuration.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Provider created."
+          },
+          "400": {
+            "description": "Validation error."
+          }
+        }
+      }
+    },
+    "/users/sso-providers/admin": {
+      "get": {
+        "summary": "List all SSO providers (admin)",
+        "description": "Returns full SSO provider list with decrypted configs for the admin panel.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of full SSO provider objects with decrypted config."
+          }
+        }
+      }
+    },
+    "/users/sso-providers/{id}": {
+      "put": {
+        "summary": "Update SSO provider",
+        "description": "Updates an existing SSO provider configuration.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider updated."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete SSO provider",
+        "description": "Deletes an SSO provider. Blocked if users are associated.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider deleted."
+          },
+          "404": {
+            "description": "Provider not found."
+          },
+          "409": {
+            "description": "Users are associated with this provider."
           }
         }
       }
@@ -2065,6 +2668,67 @@
         }
       }
     },
+    "/snippets/export": {
+      "get": {
+        "summary": "Export all snippets and folders as JSON",
+        "description": "Returns all snippets and snippet folders for the authenticated user as a JSON export.",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Export object containing snippets and folders arrays."
+          },
+          "400": {
+            "description": "Invalid userId."
+          },
+          "500": {
+            "description": "Failed to export snippets."
+          }
+        }
+      }
+    },
+    "/snippets/bulk-import": {
+      "post": {
+        "summary": "Bulk import snippets and folders from JSON",
+        "description": "Imports snippets and folders. Existing folders are skipped; existing snippets (matched by name+folder) can be skipped or overwritten.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippets": {
+                    "type": "array"
+                  },
+                  "folders": {
+                    "type": "array"
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import results with counts."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "500": {
+            "description": "Failed to import snippets."
+          }
+        }
+      }
+    },
     "/snippets": {
       "get": {
         "summary": "Get all snippets",
@@ -2248,6 +2912,120 @@
           },
           "500": {
             "description": "Failed to delete snippet."
+          }
+        }
+      }
+    },
+    "/session_logs": {
+      "get": {
+        "summary": "List session logs",
+        "description": "Returns all terminal session recordings for the authenticated user.",
+        "tags": [
+          "Session Logs"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of session recordings."
+          },
+          "500": {
+            "description": "Failed to fetch session logs."
+          }
+        }
+      }
+    },
+    "/session_logs/{id}": {
+      "get": {
+        "summary": "Get session log metadata",
+        "description": "Returns metadata for a single session recording.",
+        "tags": [
+          "Session Logs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session recording metadata."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "Session log not found."
+          },
+          "500": {
+            "description": "Failed to fetch session log."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete session log",
+        "description": "Deletes a session recording and its log file.",
+        "tags": [
+          "Session Logs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session log deleted."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "Session log not found."
+          },
+          "500": {
+            "description": "Failed to delete session log."
+          }
+        }
+      }
+    },
+    "/session_logs/{id}/content": {
+      "get": {
+        "summary": "Get session log content",
+        "description": "Returns the raw text content of a session log file.",
+        "tags": [
+          "Session Logs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Raw log text."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "Session log or file not found."
+          },
+          "500": {
+            "description": "Failed to read session log."
           }
         }
       }
@@ -2719,6 +3497,299 @@
         ]
       }
     },
+    "/proxmox/discover": {
+      "post": {
+        "summary": "Discover Proxmox guests on a node",
+        "description": "Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required.\n",
+        "tags": [
+          "Proxmox"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "number",
+                    "description": "ID of the SSH host that is a Proxmox node."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Discovered guests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "guests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "vmid": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "qemu",
+                              "lxc"
+                            ]
+                          },
+                          "node": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "connectionType": {
+                            "type": "string",
+                            "enum": [
+                              "ssh",
+                              "rdp"
+                            ]
+                          },
+                          "enableDocker": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "credentialId": {
+                      "type": "number",
+                      "nullable": true
+                    },
+                    "defaultCredentialId": {
+                      "type": "number",
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid hostId."
+          },
+          "401": {
+            "description": "Authentication required or session expired."
+          },
+          "403": {
+            "description": "Access denied to the host."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "422": {
+            "description": "Host is not a Proxmox node or is unreachable."
+          },
+          "500": {
+            "description": "Discovery failed."
+          }
+        }
+      }
+    },
+    "/open-tabs": {
+      "get": {
+        "summary": "Get all open tabs for the current user",
+        "tags": [
+          "Open Tabs"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of open tabs ordered by tab_order."
+          }
+        }
+      },
+      "post": {
+        "summary": "Upsert a single open tab for the current user",
+        "tags": [
+          "Open Tabs"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "tabType",
+                  "label",
+                  "tabOrder"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "tabType": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "tabOrder": {
+                    "type": "integer"
+                  },
+                  "backendSessionId": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tab upserted successfully."
+          }
+        }
+      },
+      "put": {
+        "summary": "Bulk replace all open tabs for the current user",
+        "tags": [
+          "Open Tabs"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tabs": {
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tabs updated successfully."
+          }
+        }
+      }
+    },
+    "/open-tabs/{id}": {
+      "patch": {
+        "summary": "Update a single open tab",
+        "tags": [
+          "Open Tabs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tab updated successfully."
+          },
+          "404": {
+            "description": "Tab not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a single open tab",
+        "tags": [
+          "Open Tabs"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tab deleted successfully."
+          }
+        }
+      }
+    },
+    "/open-tabs/active-sessions": {
+      "get": {
+        "summary": "Get all active backend sessions for the current user",
+        "description": "Returns live terminal sessions from the session manager. Used by the Active Connections panel and tab restore logic.",
+        "tags": [
+          "Open Tabs"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of active sessions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sessionId": {
+                        "type": "string"
+                      },
+                      "hostId": {
+                        "type": "integer"
+                      },
+                      "hostName": {
+                        "type": "string"
+                      },
+                      "tabInstanceId": {
+                        "type": "string"
+                      },
+                      "isConnected": {
+                        "type": "boolean"
+                      },
+                      "createdAt": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/network-topology": {
       "get": {
         "summary": "Get network topology for authenticated user",
@@ -2859,42 +3930,52 @@
         }
       }
     },
-    "/host/db/host/internal": {
-      "get": {
-        "summary": "Get internal SSH host data",
-        "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
+    "/users/ldap/login": {
+      "post": {
+        "summary": "LDAP login",
+        "description": "Authenticates a user against an LDAP server.",
         "tags": [
-          "SSH"
+          "SSO"
         ],
-        "responses": {
-          "200": {
-            "description": "A list of autostart hosts."
-          },
-          "403": {
-            "description": "Forbidden."
-          },
-          "500": {
-            "description": "Failed to fetch autostart SSH data."
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "rememberMe": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
           }
-        }
-      }
-    },
-    "/host/db/host/internal/all": {
-      "get": {
-        "summary": "Get all internal SSH host data",
-        "description": "Returns all internal SSH host data. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
+        },
         "responses": {
           "200": {
-            "description": "A list of all hosts."
+            "description": "Login successful."
+          },
+          "400": {
+            "description": "Missing fields."
           },
           "401": {
-            "description": "Invalid or missing internal authentication token."
+            "description": "Invalid credentials."
           },
-          "500": {
-            "description": "Failed to fetch all hosts."
+          "403": {
+            "description": "User not allowed."
+          },
+          "404": {
+            "description": "Provider not found."
           }
         }
       }
@@ -3094,6 +4175,37 @@
             "description": "Failed to fetch SSH host."
           }
         }
+      },
+      "delete": {
+        "summary": "Delete SSH host",
+        "description": "Deletes an SSH host by its ID.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SSH host deleted successfully."
+          },
+          "400": {
+            "description": "Invalid userId or id."
+          },
+          "404": {
+            "description": "SSH host not found."
+          },
+          "500": {
+            "description": "Failed to delete SSH host."
+          }
+        }
       }
     },
     "/host/db/host/{id}/password": {
@@ -3167,7 +4279,7 @@
         }
       }
     },
-    "/ssh/db/hosts/export": {
+    "/host/db/hosts/export": {
       "get": {
         "summary": "Export all SSH hosts",
         "description": "Exports all SSH hosts for the current user with decrypted credentials.",
@@ -3187,35 +4299,403 @@
         }
       }
     },
-    "/ssh/db/host/{id}": {
+    "/host/opkssh/token/{hostId}": {
+      "get": {
+        "summary": "Get OPKSSH token status for a host",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exists": {
+                      "type": "boolean",
+                      "description": "Whether a valid token exists"
+                    },
+                    "expiresAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Token expiration timestamp"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "User email from OIDC identity"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No valid token found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
       "delete": {
-        "summary": "Delete SSH host",
-        "description": "Deletes an SSH host by its ID.",
+        "summary": "Delete OPKSSH token for a host",
+        "tags": [
+          "SSH"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token deleted successfully"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/host/opkssh-chooser/{requestId}": {
+      "get": {
+        "summary": "Proxy OPKSSH provider chooser page and all related resources",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Authentication request ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chooser page content"
+          },
+          "404": {
+            "description": "Session not found"
+          },
+          "500": {
+            "description": "Proxy error"
+          }
+        }
+      }
+    },
+    "/host/opkssh-callback": {
+      "get": {
+        "summary": "Static OAuth callback from OIDC provider for OPKSSH authentication",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "Callback processed successfully"
+          },
+          "404": {
+            "description": "No active authentication session found"
+          },
+          "500": {
+            "description": "Authentication failed"
+          }
+        }
+      }
+    },
+    "/host/opkssh-callback/{requestId}": {
+      "get": {
+        "summary": "OAuth callback from OIDC provider for OPKSSH authentication (handles all sub-paths)",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Authentication request ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Callback processed successfully"
+          },
+          "404": {
+            "description": "Invalid authentication session"
+          },
+          "500": {
+            "description": "Authentication failed"
+          }
+        }
+      }
+    },
+    "/host/db/proxy/test": {
+      "post": {
+        "summary": "Test proxy connectivity",
+        "description": "Tests connectivity through a proxy configuration to a target host.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "singleProxy": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "proxyChain": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "testTarget": {
+                    "type": "object",
+                    "properties": {
+                      "host": {
+                        "type": "string"
+                      },
+                      "port": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Test result"
+          },
+          "500": {
+            "description": "Proxy connection failed"
+          }
+        }
+      }
+    },
+    "/host/db/host/internal": {
+      "get": {
+        "summary": "Get internal SSH host data",
+        "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of autostart hosts."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "500": {
+            "description": "Failed to fetch autostart SSH data."
+          }
+        }
+      }
+    },
+    "/host/db/host/internal/all": {
+      "get": {
+        "summary": "Get all internal SSH host data",
+        "description": "Returns all internal SSH host data. Requires internal auth token.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of all hosts."
+          },
+          "401": {
+            "description": "Invalid or missing internal authentication token."
+          },
+          "500": {
+            "description": "Failed to fetch all hosts."
+          }
+        }
+      }
+    },
+    "/host/folders/rename": {
+      "put": {
+        "summary": "Rename folder",
+        "description": "Renames a folder for SSH hosts and credentials.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed successfully."
+          },
+          "400": {
+            "description": "Old name and new name are required."
+          },
+          "500": {
+            "description": "Failed to rename folder."
+          }
+        }
+      }
+    },
+    "/host/folders": {
+      "get": {
+        "summary": "Get all folders",
+        "description": "Retrieves all folders for the authenticated user.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of folders."
+          },
+          "400": {
+            "description": "Invalid user ID."
+          },
+          "500": {
+            "description": "Failed to fetch folders."
+          }
+        }
+      }
+    },
+    "/host/folders/metadata": {
+      "put": {
+        "summary": "Update folder metadata",
+        "description": "Updates the metadata (color, icon) of a folder.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder metadata updated successfully."
+          },
+          "400": {
+            "description": "Folder name is required."
+          },
+          "500": {
+            "description": "Failed to update folder metadata."
+          }
+        }
+      }
+    },
+    "/host/folders/{name}/hosts": {
+      "delete": {
+        "summary": "Delete all hosts in folder",
+        "description": "Deletes all SSH hosts within a specific folder.",
         "tags": [
           "SSH"
         ],
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "name",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "SSH host deleted successfully."
+            "description": "Hosts deleted successfully."
           },
           "400": {
-            "description": "Invalid userId or id."
-          },
-          "404": {
-            "description": "SSH host not found."
+            "description": "Invalid folder name."
           },
           "500": {
-            "description": "Failed to delete SSH host."
+            "description": "Failed to delete hosts in folder."
           }
         }
       }
@@ -3609,135 +5089,6 @@
         }
       }
     },
-    "/host/folders/rename": {
-      "put": {
-        "summary": "Rename folder",
-        "description": "Renames a folder for SSH hosts and credentials.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "oldName": {
-                    "type": "string"
-                  },
-                  "newName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Folder renamed successfully."
-          },
-          "400": {
-            "description": "Old name and new name are required."
-          },
-          "500": {
-            "description": "Failed to rename folder."
-          }
-        }
-      }
-    },
-    "/host/folders": {
-      "get": {
-        "summary": "Get all folders",
-        "description": "Retrieves all folders for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of folders."
-          },
-          "400": {
-            "description": "Invalid user ID."
-          },
-          "500": {
-            "description": "Failed to fetch folders."
-          }
-        }
-      }
-    },
-    "/host/folders/metadata": {
-      "put": {
-        "summary": "Update folder metadata",
-        "description": "Updates the metadata (color, icon) of a folder.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "color": {
-                    "type": "string"
-                  },
-                  "icon": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Folder metadata updated successfully."
-          },
-          "400": {
-            "description": "Folder name is required."
-          },
-          "500": {
-            "description": "Failed to update folder metadata."
-          }
-        }
-      }
-    },
-    "/host/folders/{name}/hosts": {
-      "delete": {
-        "summary": "Delete all hosts in folder",
-        "description": "Deletes all SSH hosts within a specific folder.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Hosts deleted successfully."
-          },
-          "400": {
-            "description": "Invalid folder name."
-          },
-          "500": {
-            "description": "Failed to delete hosts in folder."
-          }
-        }
-      }
-    },
     "/host/bulk-import": {
       "post": {
         "summary": "Bulk import SSH hosts",
@@ -3815,32 +5166,41 @@
         }
       }
     },
-    "/host/folders/{folderName}/hosts": {
-      "delete": {
-        "summary": "Delete all hosts in a folder",
-        "description": "Deletes all hosts within a specific folder.",
+    "/host/ssh-config-import": {
+      "post": {
+        "summary": "Import hosts from an OpenSSH config file",
+        "description": "Parses an OpenSSH ~/.ssh/config file and imports the defined hosts.",
         "tags": [
           "SSH"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "folderName",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "content"
+                ],
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "description": "Raw text content of the SSH config file."
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  }
+                }
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "All hosts deleted successfully."
+            "description": "Import completed."
           },
           "400": {
-            "description": "Invalid folder name."
-          },
-          "500": {
-            "description": "Failed to delete hosts."
+            "description": "Invalid request body."
           }
         }
       }
@@ -3935,178 +5295,110 @@
         }
       }
     },
-    "/host/opkssh/token/{hostId}": {
+    "/service-links": {
       "get": {
-        "summary": "Get OPKSSH token status for a host",
+        "summary": "Get service links",
+        "description": "Returns all dashboard service links for the authenticated user.",
         "tags": [
-          "SSH"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "hostId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Host ID"
-          }
+          "Dashboard"
         ],
         "responses": {
           "200": {
-            "description": "Token status retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "exists": {
-                      "type": "boolean",
-                      "description": "Whether a valid token exists"
-                    },
-                    "expiresAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Token expiration timestamp"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "User email from OIDC identity"
-                    }
+            "description": "List of service links."
+          },
+          "500": {
+            "description": "Failed to fetch service links."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create service link",
+        "description": "Creates a new dashboard service link for the authenticated user.",
+        "tags": [
+          "Dashboard"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "url"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
                   }
                 }
               }
             }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Service link created."
           },
-          "404": {
-            "description": "No valid token found"
+          "400": {
+            "description": "Invalid data."
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Failed to create service link."
           }
         }
-      },
+      }
+    },
+    "/service-links/{id}": {
       "delete": {
-        "summary": "Delete OPKSSH token for a host",
+        "summary": "Delete service link",
+        "description": "Deletes a dashboard service link by ID.",
         "tags": [
-          "SSH"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
+          "Dashboard"
         ],
         "parameters": [
           {
-            "name": "hostId",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
               "type": "integer"
-            },
-            "description": "Host ID"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Token deleted successfully"
+            "description": "Service link deleted."
+          },
+          "400": {
+            "description": "Invalid id."
+          },
+          "404": {
+            "description": "Not found."
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Failed to delete service link."
           }
         }
-      }
-    },
-    "/host/opkssh-chooser/{requestId}": {
-      "get": {
-        "summary": "Proxy OPKSSH provider chooser page and all related resources",
+      },
+      "put": {
+        "summary": "Update service link",
+        "description": "Updates label or url of a dashboard service link.",
         "tags": [
-          "SSH"
+          "Dashboard"
         ],
         "parameters": [
           {
-            "name": "requestId",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "string"
-            },
-            "description": "Authentication request ID"
+              "type": "integer"
+            }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Chooser page content"
-          },
-          "404": {
-            "description": "Session not found"
-          },
-          "500": {
-            "description": "Proxy error"
-          }
-        }
-      }
-    },
-    "/host/opkssh-callback": {
-      "get": {
-        "summary": "Static OAuth callback from OIDC provider for OPKSSH authentication",
-        "tags": [
-          "SSH"
-        ],
-        "responses": {
-          "200": {
-            "description": "Callback processed successfully"
-          },
-          "404": {
-            "description": "No active authentication session found"
-          },
-          "500": {
-            "description": "Authentication failed"
-          }
-        }
-      }
-    },
-    "/host/opkssh-callback/{requestId}": {
-      "get": {
-        "summary": "OAuth callback from OIDC provider for OPKSSH authentication (handles all sub-paths)",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Authentication request ID"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Callback processed successfully"
-          },
-          "404": {
-            "description": "Invalid authentication session"
-          },
-          "500": {
-            "description": "Authentication failed"
-          }
-        }
-      }
-    },
-    "/host/db/proxy/test": {
-      "post": {
-        "summary": "Test proxy connectivity",
-        "description": "Tests connectivity through a proxy configuration to a target host.",
-        "tags": [
-          "SSH"
         ],
         "requestBody": {
           "required": true,
@@ -4115,42 +5407,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "singleProxy": {
-                    "type": "object",
-                    "properties": {
-                      "host": {
-                        "type": "string"
-                      },
-                      "port": {
-                        "type": "number"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "username": {
-                        "type": "string"
-                      },
-                      "password": {
-                        "type": "string"
-                      }
-                    }
+                  "label": {
+                    "type": "string"
                   },
-                  "proxyChain": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  },
-                  "testTarget": {
-                    "type": "object",
-                    "properties": {
-                      "host": {
-                        "type": "string"
-                      },
-                      "port": {
-                        "type": "number"
-                      }
-                    }
+                  "url": {
+                    "type": "string"
                   }
                 }
               }
@@ -4159,10 +5420,16 @@
         },
         "responses": {
           "200": {
-            "description": "Test result"
+            "description": "Service link updated."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "404": {
+            "description": "Not found."
           },
           "500": {
-            "description": "Proxy connection failed"
+            "description": "Failed to update service link."
           }
         }
       }
@@ -4736,6 +6003,113 @@
         }
       }
     },
+    "/audit-logs": {
+      "get": {
+        "summary": "List audit logs",
+        "description": "Returns paginated, filterable audit log entries. Admin only.",
+        "tags": [
+          "Audit"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "maximum": 200
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "action",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "resourceType",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "success",
+            "schema": {
+              "type": "string",
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of audit logs."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to fetch audit logs."
+          }
+        }
+      }
+    },
+    "/audit-logs/actions": {
+      "get": {
+        "summary": "List distinct audit log action types",
+        "description": "Returns all distinct action values in the audit log for filter dropdowns. Admin only.",
+        "tags": [
+          "Audit"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of distinct action strings."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to fetch audit log actions."
+          }
+        }
+      }
+    },
     "/alerts": {
       "get": {
         "summary": "Get active alerts",
@@ -4840,6 +6214,95 @@
           },
           "500": {
             "description": "Failed to fetch dismissed alerts."
+          }
+        }
+      }
+    },
+    "/users/acme-ssl-settings": {
+      "get": {
+        "summary": "Get ACME SSL settings",
+        "description": "Returns current ACME/Let's Encrypt configuration and certificate status.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "ACME SSL settings and certificate status."
+          },
+          "500": {
+            "description": "Failed to get ACME SSL settings."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update ACME SSL settings (admin only)",
+        "description": "Saves ACME/Let's Encrypt configuration.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "domain": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "challengeType": {
+                    "type": "string",
+                    "enum": [
+                      "http-webroot",
+                      "dns-cloudflare"
+                    ]
+                  },
+                  "cloudflareToken": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ACME SSL settings updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to update ACME SSL settings."
+          }
+        }
+      }
+    },
+    "/users/acme-ssl-request": {
+      "post": {
+        "summary": "Request or renew Let's Encrypt certificate (admin only)",
+        "description": "Triggers certbot to issue or renew a certificate using the configured challenge method.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Certificate issued or renewed successfully."
+          },
+          "400": {
+            "description": "Invalid configuration."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Certificate issuance failed."
           }
         }
       }
@@ -4982,102 +6445,6 @@
           },
           "500": {
             "description": "Failed to reset activity."
-          }
-        }
-      }
-    },
-    "/dashboard/preferences": {
-      "get": {
-        "summary": "Get dashboard layout preferences",
-        "description": "Returns the user's customized dashboard layout settings. If no preferences exist, returns default layout.",
-        "tags": [
-          "Dashboard"
-        ],
-        "responses": {
-          "200": {
-            "description": "Dashboard preferences retrieved",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "cards": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "string"
-                          },
-                          "enabled": {
-                            "type": "boolean"
-                          },
-                          "order": {
-                            "type": "integer"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Session expired"
-          },
-          "500": {
-            "description": "Failed to get preferences"
-          }
-        }
-      },
-      "post": {
-        "summary": "Save dashboard layout preferences",
-        "description": "Saves or updates the user's customized dashboard layout settings.",
-        "tags": [
-          "Dashboard"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "cards": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string"
-                        },
-                        "enabled": {
-                          "type": "boolean"
-                        },
-                        "order": {
-                          "type": "integer"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Preferences saved successfully"
-          },
-          "400": {
-            "description": "Invalid request body"
-          },
-          "401": {
-            "description": "Session expired"
-          },
-          "500": {
-            "description": "Failed to save preferences"
           }
         }
       }
@@ -5257,7 +6624,7 @@
         "summary": "Get all host statuses",
         "description": "Retrieves the status of all hosts for the authenticated user.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "responses": {
           "200": {
@@ -5274,7 +6641,7 @@
         "summary": "Get host status by ID",
         "description": "Retrieves the status of a specific host by its ID.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "parameters": [
           {
@@ -5304,7 +6671,7 @@
         "summary": "Clear all SSH connections",
         "description": "Clears all SSH connections from the connection pool.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "responses": {
           "200": {
@@ -5321,7 +6688,7 @@
         "summary": "Refresh polling",
         "description": "Clears all SSH connections and refreshes host polling.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "responses": {
           "200": {
@@ -5338,7 +6705,7 @@
         "summary": "Start polling for updated host",
         "description": "Starts polling for a specific host after it has been updated.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5379,7 +6746,7 @@
         "summary": "Stop polling for deleted host",
         "description": "Stops polling for a specific host after it has been deleted.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5417,7 +6784,7 @@
         "summary": "Get host metrics",
         "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "parameters": [
           {
@@ -5447,7 +6814,7 @@
         "summary": "Start metrics collection",
         "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "parameters": [
           {
@@ -5480,7 +6847,7 @@
         "summary": "Stop metrics collection",
         "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "parameters": [
           {
@@ -5525,7 +6892,7 @@
         "summary": "Complete TOTP verification for metrics",
         "description": "Verifies the TOTP code and completes the metrics SSH connection.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5569,7 +6936,7 @@
         "summary": "Update viewer heartbeat",
         "description": "Updates the heartbeat timestamp for a metrics viewer session to keep it alive.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5610,7 +6977,7 @@
         "summary": "Register metrics viewer",
         "description": "Registers a new viewer session for a host to track who is viewing metrics.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5648,7 +7015,7 @@
         "summary": "Unregister metrics viewer",
         "description": "Unregisters a viewer session when they stop viewing metrics for a host.",
         "tags": [
-          "Server Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5688,7 +7055,7 @@
       "get": {
         "summary": "Get global monitoring defaults",
         "tags": [
-          "Stats"
+          "Host Metrics"
         ],
         "responses": {
           "200": {
@@ -5702,7 +7069,7 @@
       "post": {
         "summary": "Update global monitoring defaults",
         "tags": [
-          "Stats"
+          "Host Metrics"
         ],
         "requestBody": {
           "required": true,
@@ -5731,6 +7098,82 @@
           },
           "403": {
             "description": "Requires admin privileges."
+          }
+        }
+      }
+    },
+    "/host-metrics/preferences/{id}": {
+      "get": {
+        "summary": "Get the Host Metrics layout for a host",
+        "description": "Returns the current user's saved card layout for the host, or a default layout derived from the host's enabled widgets when none is saved.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The layout for this host."
+          },
+          "403": {
+            "description": "No access to this host."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the Host Metrics layout for a host",
+        "description": "Persists the current user's card layout for the host and keeps statsConfig.enabledWidgets in sync (for hosts the user owns) so the mobile app keeps working.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "slots": {
+                    "type": "array"
+                  },
+                  "columns": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Layout saved."
+          },
+          "400": {
+            "description": "Invalid layout."
+          },
+          "403": {
+            "description": "No access to this host."
           }
         }
       }
@@ -6113,165 +7556,80 @@
         }
       }
     },
-    "/ssh/file_manager/ssh/listFiles": {
-      "get": {
-        "summary": "List files in a directory",
-        "description": "Lists the files and directories in a given path on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of files and directories."
-          },
-          "400": {
-            "description": "Session ID is required or SSH connection not established."
-          },
-          "500": {
-            "description": "Failed to list files."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/identifySymlink": {
-      "get": {
-        "summary": "Identify symbolic link",
-        "description": "Identifies the target of a symbolic link.",
-        "tags": [
-          "File Manager"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Symbolic link information."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "500": {
-            "description": "Failed to identify symbolic link."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/resolvePath": {
-      "get": {
-        "summary": "Resolve a path with environment variables",
-        "description": "Expands environment variables and ~ in a path via the SSH session.",
-        "tags": [
-          "File Manager"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The resolved absolute path."
-          },
-          "400": {
-            "description": "Missing required parameters."
-          },
-          "500": {
-            "description": "Failed to resolve path."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/readFile": {
-      "get": {
-        "summary": "Read a file",
-        "description": "Reads the content of a file from the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The content of the file."
-          },
-          "400": {
-            "description": "Missing required parameters or file too large."
-          },
-          "404": {
-            "description": "File not found."
-          },
-          "500": {
-            "description": "Failed to read file."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/writeFile": {
+    "/ssh/file_manager/ssh/extractArchive": {
       "post": {
-        "summary": "Write to a file",
-        "description": "Writes content to a file on the remote host and preserves the existing permissions when the file already exists.",
+        "summary": "Extract archive file",
+        "description": "Extracts an archive file (.tar, .tar.gz, .tgz, .zip, .tar.bz2, .tbz2, .tar.xz, .txz) to a specified or default location on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "archivePath"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string",
+                    "description": "SSH session ID"
+                  },
+                  "archivePath": {
+                    "type": "string",
+                    "description": "Path to the archive file on remote host"
+                  },
+                  "extractPath": {
+                    "type": "string",
+                    "description": "Optional custom extraction path (defaults to same directory as archive)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Archive extracted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "extractPath": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required parameters, SSH connection not established, or unsupported archive format."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to extract archive."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/compressFiles": {
+      "post": {
+        "summary": "Compress files",
+        "description": "Compresses files and/or directories on the remote host.",
         "tags": [
           "File Manager"
         ],
@@ -6285,10 +7643,16 @@
                   "sessionId": {
                     "type": "string"
                   },
-                  "path": {
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "archiveName": {
                     "type": "string"
                   },
-                  "content": {
+                  "format": {
                     "type": "string"
                   }
                 }
@@ -6298,57 +7662,13 @@
         },
         "responses": {
           "200": {
-            "description": "File written successfully."
+            "description": "Files compressed successfully."
           },
           "400": {
-            "description": "Missing required parameters or SSH connection not established."
+            "description": "Missing required parameters or unsupported compression format."
           },
           "500": {
-            "description": "Failed to write file."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/uploadFile": {
-      "post": {
-        "summary": "Upload a file",
-        "description": "Uploads a file to the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "content": {
-                    "type": "string"
-                  },
-                  "fileName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "File uploaded successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "500": {
-            "description": "Failed to upload file."
+            "description": "Failed to compress files."
           }
         }
       }
@@ -6576,10 +7896,48 @@
         }
       }
     },
+    "/ssh/file_manager/ssh/listFiles": {
+      "get": {
+        "summary": "List files in a directory",
+        "description": "Lists the files and directories in a given path on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of files and directories."
+          },
+          "400": {
+            "description": "Session ID is required or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to list files."
+          }
+        }
+      }
+    },
     "/ssh/file_manager/ssh/downloadFile": {
       "post": {
         "summary": "Download a file",
-        "description": "Downloads a file from the remote host.",
+        "description": "Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.",
         "tags": [
           "File Manager"
         ],
@@ -6616,6 +7974,293 @@
           },
           "500": {
             "description": "Failed to download file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/downloadFileStream": {
+      "post": {
+        "summary": "Stream-download a file",
+        "description": "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Binary file stream."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Download failed."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/identifySymlink": {
+      "get": {
+        "summary": "Identify symbolic link",
+        "description": "Identifies the target of a symbolic link.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Symbolic link information."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to identify symbolic link."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/resolvePath": {
+      "get": {
+        "summary": "Resolve a path with environment variables",
+        "description": "Expands environment variables and ~ in a path via the SSH session.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resolved absolute path."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to resolve path."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/readFile": {
+      "get": {
+        "summary": "Read a file",
+        "description": "Reads the content of a file from the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The content of the file."
+          },
+          "400": {
+            "description": "Missing required parameters or file too large."
+          },
+          "404": {
+            "description": "File not found."
+          },
+          "500": {
+            "description": "Failed to read file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/writeFile": {
+      "post": {
+        "summary": "Write to a file",
+        "description": "Writes content to a file on the remote host and preserves the existing permissions when the file already exists.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File written successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to write file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/uploadFile": {
+      "post": {
+        "summary": "Upload a file",
+        "description": "Uploads a file to the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "fileName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to upload file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/uploadFileStream": {
+      "post": {
+        "summary": "Stream-upload a file via multipart form",
+        "description": "Uploads a file to the remote host by streaming multipart form data directly into an SFTP write stream, avoiding full in-memory buffering.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "path",
+                  "file"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to upload file."
           }
         }
       }
@@ -6745,123 +8390,6 @@
           },
           "500": {
             "description": "Failed to change permissions."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/extractArchive": {
-      "post": {
-        "summary": "Extract archive file",
-        "description": "Extracts an archive file (.tar, .tar.gz, .tgz, .zip, .tar.bz2, .tbz2, .tar.xz, .txz) to a specified or default location on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "sessionId",
-                  "archivePath"
-                ],
-                "properties": {
-                  "sessionId": {
-                    "type": "string",
-                    "description": "SSH session ID"
-                  },
-                  "archivePath": {
-                    "type": "string",
-                    "description": "Path to the archive file on remote host"
-                  },
-                  "extractPath": {
-                    "type": "string",
-                    "description": "Optional custom extraction path (defaults to same directory as archive)"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Archive extracted successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "extractPath": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Missing required parameters, SSH connection not established, or unsupported archive format."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "500": {
-            "description": "Failed to extract archive."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/compressFiles": {
-      "post": {
-        "summary": "Compress files",
-        "description": "Compresses files and/or directories on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "paths": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "archiveName": {
-                    "type": "string"
-                  },
-                  "format": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Files compressed successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or unsupported compression format."
-          },
-          "500": {
-            "description": "Failed to compress files."
           }
         }
       }
@@ -7543,6 +9071,158 @@
           },
           "500": {
             "description": "Failed to get container stats."
+          }
+        }
+      }
+    },
+    "/guacamole/token": {
+      "post": {
+        "summary": "Generate an encrypted Guacamole connection token",
+        "description": "Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters",
+        "tags": [
+          "Guacamole"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "hostname"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "hostname": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Encrypted connection token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/guacamole/connect-host/{hostId}": {
+      "post": {
+        "summary": "Generate Guacamole connection token from host configuration",
+        "description": "Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet",
+        "tags": [
+          "Guacamole"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID to connect to"
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ],
+                    "description": "Override the host's default connection type"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connection token generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "description": "Encrypted connection token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request or unsupported connection type"
+          },
+          "403": {
+            "description": "Access denied to host"
+          },
+          "404": {
+            "description": "Host not found"
+          },
+          "500": {
+            "description": "Server error"
           }
         }
       }
