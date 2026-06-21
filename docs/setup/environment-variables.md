@@ -46,6 +46,15 @@ Two more variables apply no matter which provider type or setup method you use:
 | `OIDC_FORCE_HTTPS`        | `false`                | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                     |
 | `OIDC_ALLOW_REGISTRATION` | `false`                | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list |
 
+## Authentication Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ALLOW_REGISTRATION` | (from Admin Settings) | Override the Admin Settings toggle for user registration. Set to `true` or `false` to lock the value regardless of what is configured in the UI. |
+| `ALLOW_PASSWORD_LOGIN` | (from Admin Settings) | Override the Admin Settings toggle for password-based login. Set to `true` or `false` to lock the value. |
+| `ALLOW_PASSWORD_RESET` | (from Admin Settings) | Override the Admin Settings toggle for password reset. Set to `true` or `false` to lock the value. |
+| `SALT` | `10` | Bcrypt salt rounds used when hashing passwords. Higher values increase security but slow down login. |
+
 ## Database Configuration
 
 | Variable | Default | Description |
@@ -59,6 +68,7 @@ Two more variables apply no matter which provider type or setup method you use:
 | `ENABLE_GUACAMOLE` | `true` | Enable/disable Guacamole remote desktop support (`false` to disable) |
 | `GUACD_HOST` | `localhost` | Guacamole daemon (guacd) hostname |
 | `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port |
+| `GUACAMOLE_ENCRYPTION_KEY` | (derived from `JWT_SECRET`) | Custom 32-byte or 64-char hex encryption key for Guacamole tokens. Only needed if you need to share tokens across multiple instances. |
 
 ## Docker Configuration
 
