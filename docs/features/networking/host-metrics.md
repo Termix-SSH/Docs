@@ -1,8 +1,25 @@
 # Host Metrics
 
-Host Metrics shows live CPU, memory, disk, network, and process stats for your servers, collected over the same SSH connection you already use to manage them.
+Host Metrics shows live CPU, memory, disk, network, and process stats for your servers, collected over the same SSH connection you already use to manage them. It also stores history so you can look back at what happened over the past hours or days.
 
 These metrics only work on Linux. The collection scripts rely on commands and virtual filesystems (`/proc`) that are standard on most Linux distributions, like Debian, Ubuntu, CentOS, Fedora, and Arch. They won't work on Windows, macOS, or other Unix variants like FreeBSD without changes, since those use different commands for reading system stats.
+
+## Layout
+
+The metrics view shows cards for CPU, memory, disk, network, uptime, processes, system info, login stats, open ports, and firewall rules. You can drag and drop the cards to rearrange them. Your layout is saved per host.
+
+## History
+
+Each metric card has a history button in its header (a clock icon). Clicking it opens a chart showing how that metric changed over time.
+
+The chart lets you pick a time range:
+
+- Presets: 1h, 6h, 24h, 7d, 30d
+- Custom: pick a start and end time with the date picker
+
+CPU, memory, and disk history are shown together as a percentage chart. Network history shows RX and TX rates in bytes per second, calculated from the difference between consecutive data points.
+
+History is stored in the Termix database and kept for 7 days by default. Admins can change the retention period in Admin Settings under Monitoring (1 to 90 days). Old data is pruned automatically.
 
 ## Commands
 
@@ -10,26 +27,26 @@ For the service to collect all available metrics, the authenticated user on the 
 
 | Metric Category | Command(s)                                                                                     | Purpose                                                                                                                                                            |
 | --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **CPU**         | `cat /proc/stat`                                                                               | Reads CPU time statistics (user, system, idle, etc.) to calculate usage percentage.                                                                               |
+| CPU             | `cat /proc/stat`                                                                               | Reads CPU time statistics (user, system, idle, etc.) to calculate usage percentage.                                                                               |
 |                 | `cat /proc/loadavg`                                                                            | Reads the 1, 5, and 15-minute system load averages.                                                                                                               |
 |                 | `nproc` or `grep -c ^processor /proc/cpuinfo`                                                  | Determines the number of available CPU cores.                                                                                                                      |
-| **Memory**      | `cat /proc/meminfo`                                                                            | Reads detailed memory statistics (total, free, available, buffers, cached) to calculate usage.                                                                    |
-| **Disk**        | `df -h -P /`                                                                                   | Gets human-readable disk usage for the root filesystem (`/`).                                                                                                      |
+| Memory          | `cat /proc/meminfo`                                                                            | Reads detailed memory statistics (total, free, available, buffers, cached) to calculate usage.                                                                    |
+| Disk            | `df -h -P /`                                                                                   | Gets human-readable disk usage for the root filesystem (`/`).                                                                                                      |
 |                 | `df -B1 -P /`                                                                                  | Gets disk usage in bytes for the root filesystem to calculate the percentage.                                                                                     |
-| **Network**     | `ip -o addr show`                                                                              | Lists network interfaces and their associated IP addresses.                                                                                                        |
+| Network         | `ip -o addr show`                                                                              | Lists network interfaces and their associated IP addresses.                                                                                                        |
 |                 | `ip -o link show`                                                                              | Lists network interfaces and their operational state (e.g., UP/DOWN).                                                                                              |
 |                 | `cat /proc/net/dev`                                                                            | Reads network interface statistics for received and transmitted bytes.                                                                                             |
-| **Uptime**      | `cat /proc/uptime`                                                                             | Reads the system uptime in seconds.                                                                                                                                |
-| **Processes**   | `ps aux --sort=-%cpu \| head -n 11`                                                            | Lists the top 10 processes sorted by CPU usage.                                                                                                                    |
+| Uptime          | `cat /proc/uptime`                                                                             | Reads the system uptime in seconds.                                                                                                                                |
+| Processes       | `ps aux --sort=-%cpu \| head -n 11`                                                            | Lists the top 10 processes sorted by CPU usage.                                                                                                                    |
 |                 | `ps aux \| wc -l`                                                                              | Counts the total number of running processes.                                                                                                                      |
 |                 | `ps aux \| grep -c ' R '`                                                                      | Counts the number of processes in the "Running" state.                                                                                                             |
-| **System Info** | `hostname`                                                                                     | Gets the system's hostname.                                                                                                                                        |
+| System Info     | `hostname`                                                                                     | Gets the system's hostname.                                                                                                                                        |
 |                 | `uname -r`                                                                                     | Gets the kernel release version.                                                                                                                                   |
 |                 | `cat /etc/os-release`                                                                          | Reads the OS distribution's "pretty name" (e.g., "Ubuntu 22.04.1 LTS").                                                                                            |
-| **Login Stats** | `last -n 20 -F -w`                                                                             | Shows the 20 most recent successful user logins.                                                                                                                   |
+| Login Stats     | `last -n 20 -F -w`                                                                             | Shows the 20 most recent successful user logins.                                                                                                                   |
 |                 | `grep 'Failed password' /var/log/auth.log` or `grep 'authentication failure' /var/log/secure` | Reads common system log files to find the 10 most recent failed login attempts. Access may be restricted.                                                         |
-| **Ports**       | `ss -tulpn` or `netstat -tulpn`                                                                | Lists all listening TCP and UDP ports with process information. Requires elevated privileges for full process details.                                            |
-| **Firewall**    | `iptables -L -n -v --line-numbers` or `nft list ruleset`                                       | Lists firewall rules and chains. Requires root or sudo privileges. Falls back to iptables if nftables is not available, and reports "none" if neither is present. |
+| Ports           | `ss -tulpn` or `netstat -tulpn`                                                                | Lists all listening TCP and UDP ports with process information. Requires elevated privileges for full process details.                                            |
+| Firewall        | `iptables -L -n -v --line-numbers` or `nft list ruleset`                                       | Lists firewall rules and chains. Requires root or sudo privileges. Falls back to iptables if nftables is not available, and reports "none" if neither is present. |
 
 ## Support
 
