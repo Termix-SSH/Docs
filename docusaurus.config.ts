@@ -87,6 +87,12 @@ const config: Config = {
           position: 'left',
           label: 'Contact',
         },
+        {
+          href: 'https://donate.termix.site',
+          position: 'left',
+          label: 'Donate',
+          target: '_self',
+        },
       ],
     },
     footer: {
@@ -128,6 +134,10 @@ const config: Config = {
               label: 'eMail',
               href: 'mailto:mail@termix.site',
             },
+            {
+              label: 'Donate',
+              href: 'https://donate.termix.site',
+            }
           ],
         },
       ],
