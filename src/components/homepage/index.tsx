@@ -15,9 +15,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         A full terminal with split screen (up to 4 panels) and tabs like a browser. Customize themes
-        and fonts. Supports jump hosts, Warpgate, TOTP, SOCKS5, OPKSSH, tmux, and port knocking. Run
-        one command across every open terminal, save reusable snippets, and reuse your command
-        history.
+        and fonts. Supports jump hosts, Warpgate, TOTP, SOCKS5, OPKSSH, tmux, port knocking, SSH
+        agent forwarding, Bitwarden SSH agent, and HashiCorp Vault SSH certificate signing. Run one
+        command across every open terminal, save reusable snippets, and reuse your command history.
+        Sessions and tabs persist across devices and refreshes.
       </>
     ),
   },
@@ -25,7 +26,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Remote Desktop',
     description: (
       <>
-        RDP, VNC, and Telnet, all in the browser. Full customization and split screen support.
+        RDP, VNC, and Telnet, all in the browser, powered by Guacamole. Full customization and split
+        screen support.
       </>
     ),
   },
@@ -33,8 +35,9 @@ const FeatureList: FeatureItem[] = [
     title: 'Remote File Manager',
     description: (
       <>
-        Manage files on remote servers, with support for viewing and editing code, images, audio,
-        and video. Upload, download, rename, delete, and move files, with sudo support.
+        Manage files on remote servers over SFTP, with support for viewing and editing code, images,
+        audio, and video. Upload, download, rename, delete, and move files between servers, with sudo
+        support.
       </>
     ),
   },
@@ -52,29 +55,48 @@ const FeatureList: FeatureItem[] = [
     title: 'Host Manager',
     description: (
       <>
-        Save and organize SSH connections with tags and folders. Reuse login info and automate SSH
-        key deployment. Quick connect without saving, or open a connection from your keyboard with
-        the command palette (double tap left shift). Pull devices straight from your Tailscale
-        tailnet or import guests from Proxmox.
+        Save and organize SSH connections with tags and nested folders. Reuse login info and automate
+        SSH key deployment. Quick connect without saving, or jump to any connection from the keyboard
+        with the command palette (double tap left shift). Pull devices from your Tailscale tailnet or
+        import guests from Proxmox.
       </>
     ),
   },
   {
-    title: 'Docker Management',
+    title: 'Docker & Podman',
     description: (
       <>
-        Start, stop, pause, and remove containers. View container stats and open a docker exec
-        terminal. Built to make managing containers easier, not to replace Portainer or Dockge.
+        Start, stop, pause, and remove containers. View live container stats and open a docker exec
+        terminal directly in the UI. Supports both Docker and Podman as the container runtime.
       </>
     ),
   },
   {
-    title: 'Host Metrics & Dashboard',
+    title: 'Host Metrics',
     description: (
       <>
-        View CPU, memory, disk usage, network, uptime, firewall, and open ports on most Linux
-        servers. Customize your dashboard with a network graph that maps your homelab from your SSH
-        connections, with live status.
+        View CPU, memory, disk, network, uptime, system info, firewall rules, open ports, log viewer,
+        users, permissions, and SSL certificates on most Linux servers. Includes time-series history
+        graphs and a network graph that maps your homelab with live status.
+      </>
+    ),
+  },
+  {
+    title: 'Alerts',
+    description: (
+      <>
+        Set threshold-based alert rules on any host metric and get notified via ntfy or webhooks when
+        they fire or resolve. Full alert history log included.
+      </>
+    ),
+  },
+  {
+    title: 'Homepage',
+    description: (
+      <>
+        A fully customizable homepage with a drag-and-drop widget grid. Add widgets for host status,
+        service links, clocks, notes, RSS feeds, weather, Docker containers, host metrics charts,
+        embedded terminals, iframes, and more.
       </>
     ),
   },
@@ -83,8 +105,27 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Sign in with local accounts, OIDC, LDAP, GitHub, or Google, all side by side. Add 2FA with
-        TOTP. Create roles and share hosts between users. View and revoke active sessions across
-        every platform, and link an SSO account to a local one.
+        TOTP or passkeys (WebAuthn). Create roles and share hosts between users with fine-grained
+        RBAC. View and revoke active sessions across every platform, link SSO accounts to local ones,
+        and review a full audit log of user actions.
+      </>
+    ),
+  },
+  {
+    title: 'Serial Connections',
+    description: (
+      <>
+        Connect to serial devices like routers, switches, and microcontrollers directly from the
+        browser or desktop app. Configure baud rate, data bits, stop bits, and parity.
+      </>
+    ),
+  },
+  {
+    title: 'Termix ID',
+    description: (
+      <>
+        A self-hosted alternative to sshid.io built into Termix. Claim a handle, publish your public
+        SSH keys at a resolver URL, and use a built-in CA to issue SSH certificates.
       </>
     ),
   },
@@ -104,7 +145,7 @@ const FeatureList: FeatureItem[] = [
       <>
         Available as a web app, a desktop app for Windows, Linux, and macOS (can run standalone
         without the Termix backend), a PWA, and dedicated mobile apps for iOS and Android. Includes
-        built in SSL certificate generation with HTTPS redirects, and support for around 30
+        automatic SSL certificate generation with HTTPS redirects, and support for around 30
         languages through Crowdin.
       </>
     ),
