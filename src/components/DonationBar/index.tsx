@@ -18,8 +18,16 @@ type Snapshot = {
 
 type Prices = { eth: number; btc: number; sol: number };
 
+function fetchWithTimeout(input: RequestInfo, init?: RequestInit, ms = 8000): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(input, { ...init, signal: controller.signal }).finally(() =>
+    clearTimeout(timer)
+  );
+}
+
 async function fetchPrices(): Promise<Prices> {
-  const res = await fetch(
+  const res = await fetchWithTimeout(
     'https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin,solana&vs_currencies=usd'
   );
   const data = await res.json();
@@ -31,20 +39,23 @@ async function fetchPrices(): Promise<Prices> {
 }
 
 async function fetchSnapshot(): Promise<Snapshot> {
-  const res = await fetch('/donation-snapshot.json', { cache: 'no-store' });
+  const res = await fetchWithTimeout('/donation-snapshot.json', { cache: 'no-store' });
   return res.json();
 }
 
 async function fetchEthBalance(address: string): Promise<number> {
-  const res = await fetch(
-    `https://api.ethplorer.io/getAddressInfo/${address}?apiKey=freekey`
+  // eth.blockscout.com — no API key required, same interface as Base
+  const res = await fetchWithTimeout(
+    `https://eth.blockscout.com/api/v2/addresses/${address}`
   );
   const data = await res.json();
-  return data.ETH?.balance ?? 0;
+  const wei = BigInt(data.coin_balance ?? '0');
+  return Number(wei) / 1e18;
 }
 
 async function fetchBaseBalance(address: string): Promise<number> {
-  const res = await fetch(
+  // Base ETH (native token on Base, priced as ETH)
+  const res = await fetchWithTimeout(
     `https://base.blockscout.com/api/v2/addresses/${address}`
   );
   const data = await res.json();
@@ -53,7 +64,7 @@ async function fetchBaseBalance(address: string): Promise<number> {
 }
 
 async function fetchBtcBalance(address: string): Promise<number> {
-  const res = await fetch(`https://blockstream.info/api/address/${address}`);
+  const res = await fetchWithTimeout(`https://blockstream.info/api/address/${address}`);
   const data = await res.json();
   const sats =
     (data.chain_stats?.funded_txo_sum ?? 0) -
@@ -62,7 +73,7 @@ async function fetchBtcBalance(address: string): Promise<number> {
 }
 
 async function fetchSolBalance(address: string): Promise<number> {
-  const res = await fetch('https://api.mainnet-beta.solana.com', {
+  const res = await fetchWithTimeout('https://api.mainnet-beta.solana.com', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
