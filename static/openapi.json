@@ -29,6 +29,10 @@
     {
       "url": "http://localhost:30007",
       "description": "Docker management server"
+    },
+    {
+      "url": "http://localhost:30011",
+      "description": "Serial connection server"
     }
   ],
   "components": {
@@ -109,6 +113,212 @@
     }
   ],
   "paths": {
+    "/vault/oidc/callback": {
+      "get": {
+        "summary": "Vault OIDC callback",
+        "description": "Unauthenticated endpoint the IdP redirects to after login. Correlates the authorization code to a pending session via the Vault-issued state parameter.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "state",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HTML page confirming sign-in success or failure."
+          },
+          "400": {
+            "description": "Missing parameters or authentication failure."
+          }
+        }
+      }
+    },
+    "/vault/profiles": {
+      "get": {
+        "summary": "List Vault profiles",
+        "description": "Returns all Vault signer profiles owned by the authenticated user or marked as shared.",
+        "tags": [
+          "Vault"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vault profile objects."
+          },
+          "500": {
+            "description": "Failed to list vault profiles."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a Vault profile",
+        "description": "Creates a new Vault signer profile owned by the authenticated user. The shared flag requires admin privileges.",
+        "tags": [
+          "Vault"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "vaultAddr",
+                  "sshRole"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "vaultAddr": {
+                    "type": "string"
+                  },
+                  "vaultNamespace": {
+                    "type": "string"
+                  },
+                  "oidcMount": {
+                    "type": "string"
+                  },
+                  "oidcRole": {
+                    "type": "string"
+                  },
+                  "sshMount": {
+                    "type": "string"
+                  },
+                  "sshRole": {
+                    "type": "string"
+                  },
+                  "validPrincipals": {
+                    "type": "string"
+                  },
+                  "keyType": {
+                    "type": "string"
+                  },
+                  "shared": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created Vault profile object."
+          },
+          "400": {
+            "description": "Missing required fields."
+          },
+          "403": {
+            "description": "Non-admin attempted to create a shared profile."
+          },
+          "500": {
+            "description": "Failed to create vault profile."
+          }
+        }
+      }
+    },
+    "/vault/profiles/{id}": {
+      "put": {
+        "summary": "Update a Vault profile",
+        "description": "Updates a Vault signer profile. Only the owner may edit; toggling shared to true requires admin privileges.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated Vault profile object."
+          },
+          "400": {
+            "description": "Invalid profile id."
+          },
+          "403": {
+            "description": "Non-owner attempted to edit, or non-admin attempted to share."
+          },
+          "404": {
+            "description": "Profile not found."
+          },
+          "500": {
+            "description": "Failed to update vault profile."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Vault profile",
+        "description": "Permanently deletes a Vault signer profile. Only the owner may delete it.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletion confirmed."
+          },
+          "400": {
+            "description": "Invalid profile id."
+          },
+          "403": {
+            "description": "Non-owner attempted to delete."
+          },
+          "404": {
+            "description": "Profile not found."
+          },
+          "500": {
+            "description": "Failed to delete vault profile."
+          }
+        }
+      }
+    },
     "/users/create": {
       "post": {
         "summary": "Create a new user",
@@ -1425,6 +1635,10 @@
                       "type": "boolean",
                       "nullable": true
                     },
+                    "expandAppRailOnHover": {
+                      "type": "boolean",
+                      "nullable": true
+                    },
                     "foldersCollapsed": {
                       "type": "boolean",
                       "nullable": true
@@ -1503,6 +1717,9 @@
                     "type": "boolean"
                   },
                   "pinAppRail": {
+                    "type": "boolean"
+                  },
+                  "expandAppRailOnHover": {
                     "type": "boolean"
                   },
                   "foldersCollapsed": {
@@ -2060,6 +2277,459 @@
           },
           "500": {
             "description": "Failed to create user."
+          }
+        }
+      }
+    },
+    "/termix-id/me": {
+      "get": {
+        "summary": "Get current user's Termix ID and keys",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity and keys (identity may be null)"
+          }
+        }
+      }
+    },
+    "/termix-id/check/{handle}": {
+      "get": {
+        "summary": "Check if a handle is available",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "handle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability and validity status"
+          }
+        }
+      }
+    },
+    "/termix-id": {
+      "post": {
+        "summary": "Create a Termix ID",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "handle"
+                ],
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created identity"
+          },
+          "409": {
+            "description": "Handle taken or user already has an identity"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Termix ID handle or description",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated identity"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Termix ID and all associated keys",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/termix-id/keys": {
+      "post": {
+        "summary": "Publish a public key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "publicKey": {
+                    "type": "string"
+                  },
+                  "credentialId": {
+                    "type": "integer"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Published key"
+          }
+        }
+      }
+    },
+    "/termix-id/keys/generate": {
+      "post": {
+        "summary": "Generate a new key pair and publish the public key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "ed25519",
+                      "rsa"
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "saveCredential": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Generated key info with private key (shown once)"
+          }
+        }
+      }
+    },
+    "/termix-id/keys/{id}": {
+      "patch": {
+        "summary": "Update key metadata (enabled state or label)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated key"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Revoke and delete a published key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/termix-id/ca": {
+      "get": {
+        "summary": "Get current user's certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CA info or null"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created CA"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete the certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    },
+    "/termix-id/ca/rotate": {
+      "post": {
+        "summary": "Rotate the certificate authority (revokes all issued certificates)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New CA public key"
+          }
+        }
+      }
+    },
+    "/termix-id/keys/{id}/certificate": {
+      "post": {
+        "summary": "Issue an SSH certificate for a key (ed25519 only)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  },
+                  "principals": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Issued certificate"
+          }
+        }
+      }
+    },
+    "/termix-id/linked-credentials": {
+      "get": {
+        "summary": "Get credential IDs that have at least one enabled published Termix ID key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of credential IDs"
           }
         }
       }
@@ -4231,7 +4901,8 @@
               "type": "string",
               "enum": [
                 "password",
-                "sudoPassword"
+                "sudoPassword",
+                "vncPassword"
               ]
             }
           }
@@ -5295,6 +5966,338 @@
         }
       }
     },
+    "/homepage/rss": {
+      "get": {
+        "summary": "Proxy and parse an RSS/Atom feed",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of feed items."
+          },
+          "400": {
+            "description": "Invalid or missing URL."
+          },
+          "500": {
+            "description": "Failed to fetch or parse the feed."
+          }
+        }
+      }
+    },
+    "/homepage/proxy": {
+      "get": {
+        "summary": "Proxy a JSON API URL and return the parsed response",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ttl",
+            "schema": {
+              "type": "integer",
+              "description": "Cache TTL in seconds (min 10, default 60)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The JSON body returned by the target URL."
+          },
+          "400": {
+            "description": "Invalid or missing URL, or non-JSON response."
+          },
+          "500": {
+            "description": "Failed to fetch the target URL."
+          }
+        }
+      }
+    },
+    "/homepage/ping": {
+      "get": {
+        "summary": "Check the HTTP reachability and latency of a URL",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ttl",
+            "schema": {
+              "type": "integer",
+              "description": "Cache TTL in seconds (min 10)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping result with ok, statusCode and latencyMs."
+          },
+          "400": {
+            "description": "Invalid or missing URL."
+          }
+        }
+      }
+    },
+    "/homepage/layout": {
+      "get": {
+        "summary": "Get homepage layout",
+        "description": "Returns the homepage canvas layout (widget positions, pan, zoom) for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "responses": {
+          "200": {
+            "description": "Layout data or null."
+          },
+          "500": {
+            "description": "Failed to fetch homepage layout."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save homepage layout",
+        "description": "Saves or updates the homepage canvas layout for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "entries": {
+                    "type": "array"
+                  },
+                  "pan": {
+                    "type": "object"
+                  },
+                  "zoom": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Layout saved."
+          },
+          "500": {
+            "description": "Failed to save homepage layout."
+          }
+        }
+      }
+    },
+    "/homepage/items": {
+      "get": {
+        "summary": "Get homepage items",
+        "description": "Returns all homepage widget items for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of homepage items."
+          },
+          "500": {
+            "description": "Failed to fetch homepage items."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create homepage item",
+        "description": "Creates a new homepage widget item for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "typeId"
+                ],
+                "properties": {
+                  "typeId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Homepage item created."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to create homepage item."
+          }
+        }
+      }
+    },
+    "/homepage/items/{id}": {
+      "put": {
+        "summary": "Update homepage item",
+        "description": "Updates a homepage widget item.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Homepage item updated."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to update homepage item."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete homepage item",
+        "description": "Deletes a homepage widget item and cascades deletion to children if a folder.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Homepage item deleted."
+          },
+          "400": {
+            "description": "Invalid id."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to delete homepage item."
+          }
+        }
+      }
+    },
+    "/homepage/favicon": {
+      "get": {
+        "summary": "Proxy favicon fetch",
+        "description": "Fetches and caches a site favicon server-side to avoid CORS issues.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Favicon image."
+          },
+          "400": {
+            "description": "Invalid URL."
+          },
+          "500": {
+            "description": "Failed to fetch favicon."
+          }
+        }
+      }
+    },
     "/service-links": {
       "get": {
         "summary": "Get service links",
@@ -6218,6 +7221,99 @@
         }
       }
     },
+    "/notification-channels": {
+      "get": {
+        "summary": "List notification channels for the current user",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of notification channels."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a notification channel",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/notification-channels/{id}": {
+      "put": {
+        "summary": "Update a notification channel",
+        "tags": [
+          "Alerts"
+        ]
+      },
+      "delete": {
+        "summary": "Delete a notification channel",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/notification-channels/{id}/test": {
+      "post": {
+        "summary": "Send a test notification",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/alert-rules": {
+      "get": {
+        "summary": "List alert rules for the current user",
+        "tags": [
+          "Alerts"
+        ]
+      },
+      "post": {
+        "summary": "Create an alert rule",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/alert-rules/{id}": {
+      "put": {
+        "summary": "Update an alert rule",
+        "tags": [
+          "Alerts"
+        ]
+      },
+      "delete": {
+        "summary": "Delete an alert rule",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/alert-firings": {
+      "get": {
+        "summary": "List alert firings for the current user",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/alert-firings/{id}/acknowledge": {
+      "post": {
+        "summary": "Acknowledge an alert firing",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
+    "/alert-firings/acknowledge-all": {
+      "post": {
+        "summary": "Acknowledge all alert firings for the current user",
+        "tags": [
+          "Alerts"
+        ]
+      }
+    },
     "/users/acme-ssl-settings": {
       "get": {
         "summary": "Get ACME SSL settings",
@@ -7102,6 +8198,56 @@
         }
       }
     },
+    "/global-settings/history": {
+      "get": {
+        "summary": "Get metrics history retention setting",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Retention setting in days."
+          },
+          "403": {
+            "description": "Requires admin privileges."
+          }
+        }
+      },
+      "post": {
+        "summary": "Update metrics history retention setting",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "metricsHistoryRetentionDays": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 90
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting saved."
+          },
+          "400": {
+            "description": "Invalid value."
+          },
+          "403": {
+            "description": "Requires admin privileges."
+          }
+        }
+      }
+    },
     "/host-metrics/preferences/{id}": {
       "get": {
         "summary": "Get the Host Metrics layout for a host",
@@ -7174,6 +8320,65 @@
           },
           "403": {
             "description": "No access to this host."
+          }
+        }
+      }
+    },
+    "/metrics/history/{id}": {
+      "get": {
+        "summary": "Get historical metrics for a host",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1h",
+                "6h",
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of metric history rows."
+          },
+          "403": {
+            "description": "Access denied."
+          },
+          "404": {
+            "description": "Host not found or no access."
           }
         }
       }
@@ -8261,6 +9466,72 @@
           },
           "500": {
             "description": "Failed to upload file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/uploadFileChunk": {
+      "post": {
+        "summary": "Upload a single chunk of a large file",
+        "description": "Receives one chunk of a large file upload via multipart form data and either creates a new remote file (chunkIndex=0) or appends to the existing file (chunkIndex>0). Used by the client to upload files larger than ~2GB that would otherwise hit browser-side ArrayBuffer limits.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "path",
+                  "fileName",
+                  "chunkIndex",
+                  "totalChunks",
+                  "totalSize",
+                  "chunk"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "fileName": {
+                    "type": "string"
+                  },
+                  "chunkIndex": {
+                    "type": "integer"
+                  },
+                  "totalChunks": {
+                    "type": "integer"
+                  },
+                  "totalSize": {
+                    "type": "integer"
+                  },
+                  "chunk": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chunk accepted. When chunkIndex === totalChunks - 1 the full file is complete."
+          },
+          "400": {
+            "description": "Missing required parameters, invalid chunk metadata, or SSH connection not established."
+          },
+          "403": {
+            "description": "Session access denied."
+          },
+          "500": {
+            "description": "Failed to write chunk to remote filesystem."
           }
         }
       }
