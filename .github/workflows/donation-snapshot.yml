@@ -24,6 +24,16 @@ jobs:
           SOL_ADDRESS="T4BF5ioySVUjwaPNw4Sdu7oK8SXLxgQRcMaTQ6YJ2UJ"
           MONTH=$(date -u +"%Y-%m")
 
+          # Ethereum mainnet stablecoin contracts
+          ETH_USDC="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          ETH_USDT="0xdAC17F958D2ee523a2206206994597C13D831ec7"
+          ETH_DAI="0x6B175474E89094C44Da98b954EedeAC495271d0F"
+
+          # Base stablecoin contracts
+          BASE_USDC="0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+          BASE_USDT="0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+          BASE_DAI="0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb"
+
           # ETH balance (Blockscout — no API key required)
           ETH_RAW=$(curl -sf "https://eth.blockscout.com/api/v2/addresses/${EVM_ADDRESS}" || echo '{"coin_balance":"0"}')
           ETH_BAL=$(echo "$ETH_RAW" | python3 -c "import sys,json; d=json.load(sys.stdin); print(int(d.get('coin_balance','0')) / 1e18)" 2>/dev/null || echo 0)
@@ -31,6 +41,38 @@ jobs:
           # Base balance (Blockscout, coin_balance in wei)
           BASE_RAW=$(curl -sf "https://base.blockscout.com/api/v2/addresses/${EVM_ADDRESS}" || echo '{"coin_balance":"0"}')
           BASE_BAL=$(echo "$BASE_RAW" | python3 -c "import sys,json; d=json.load(sys.stdin); print(int(d.get('coin_balance','0')) / 1e18)" 2>/dev/null || echo 0)
+
+          # Helper: fetch an ERC-20 token balance from Blockscout token-balances endpoint
+          fetch_token_balance() {
+            local base_url="$1"
+            local contract="$2"
+            curl -sf "${base_url}/api/v2/addresses/${EVM_ADDRESS}/tokens?type=ERC-20" \
+              | python3 -c "
+import sys, json
+contract = '$contract'.lower()
+try:
+    d = json.load(sys.stdin)
+except Exception:
+    print(0)
+    sys.exit()
+for item in d.get('items', []):
+    token = item.get('token', {})
+    if token.get('address', '').lower() == contract:
+        decimals = int(token.get('decimals') or 18)
+        value = int(item.get('value') or 0)
+        print(value / (10 ** decimals))
+        sys.exit()
+print(0)
+" 2>/dev/null || echo 0
+          }
+
+          ETH_USDC_BAL=$(fetch_token_balance "https://eth.blockscout.com" "$ETH_USDC")
+          ETH_USDT_BAL=$(fetch_token_balance "https://eth.blockscout.com" "$ETH_USDT")
+          ETH_DAI_BAL=$(fetch_token_balance "https://eth.blockscout.com" "$ETH_DAI")
+
+          BASE_USDC_BAL=$(fetch_token_balance "https://base.blockscout.com" "$BASE_USDC")
+          BASE_USDT_BAL=$(fetch_token_balance "https://base.blockscout.com" "$BASE_USDT")
+          BASE_DAI_BAL=$(fetch_token_balance "https://base.blockscout.com" "$BASE_DAI")
 
           # BTC balance (Blockstream)
           BTC_RAW=$(curl -sf "https://blockstream.info/api/address/${BTC_ADDRESS}" || echo '{"chain_stats":{"funded_txo_sum":0,"spent_txo_sum":0}}')
@@ -50,6 +92,12 @@ jobs:
             'baseBal': ${BASE_BAL},
             'btcBal': ${BTC_BAL},
             'solBal': ${SOL_BAL},
+            'ethUsdcBal': ${ETH_USDC_BAL},
+            'ethUsdtBal': ${ETH_USDT_BAL},
+            'ethDaiBal': ${ETH_DAI_BAL},
+            'baseUsdcBal': ${BASE_USDC_BAL},
+            'baseUsdtBal': ${BASE_USDT_BAL},
+            'baseDaiBal': ${BASE_DAI_BAL},
           }
           with open('static/donation-snapshot.json', 'w') as f:
               json.dump(snapshot, f, indent=2)
