@@ -66,8 +66,9 @@ Two more variables apply no matter which provider type or setup method you use:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `ENABLE_GUACAMOLE` | `true` | Enable/disable Guacamole remote desktop support (`false` to disable) |
-| `GUACD_HOST` | `localhost` | Guacamole daemon (guacd) hostname |
-| `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port |
+| `GUACD_URL` | - | Guacamole daemon URL (e.g. `localhost:4822` or `tcp://guacd:4822`). Takes precedence over `GUACD_HOST`/`GUACD_PORT` when set. |
+| `GUACD_HOST` | `localhost` | Guacamole daemon (guacd) hostname. Ignored when `GUACD_URL` is set. |
+| `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port. Ignored when `GUACD_URL` is set. |
 | `GUACAMOLE_ENCRYPTION_KEY` | (derived from `JWT_SECRET`) | Custom 32-byte or 64-char hex encryption key for Guacamole tokens. Only needed if you need to share tokens across multiple instances. |
 
 ## Docker Configuration
@@ -85,11 +86,27 @@ Two more variables apply no matter which provider type or setup method you use:
 | `https_proxy` / `HTTPS_PROXY` | - | HTTPS proxy URL for outbound HTTPS connections |
 | `no_proxy` / `NO_PROXY` | `""` | Comma-separated hosts that should bypass proxy (e.g., `localhost,127.0.0.1,.example.com`) |
 
+## CORS Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `CORS_ALLOWED_ORIGINS` | - | Comma-separated list of additional allowed CORS origins (e.g., `https://app.example.com,https://other.example.com`). Use `*` to allow all origins. Local and same-origin requests are always allowed. |
+
 ## Frontend Configuration
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `VITE_BASE_PATH` | `/` | Base path for the web application. See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
+| `BASE_PATH` | `""` | Server-side base path prefix used when building OIDC callback URLs (e.g., `/termix`). Must match `VITE_BASE_PATH`. See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
+| `VITE_BASE_PATH` | `/` | Base path for the web application (build-time variable). See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
+
+## Advanced Security Configuration
+
+These variables control internal key derivation for OIDC token and WebAuthn credential encryption. They are optional and only needed in multi-instance deployments where you need keys to be consistent across nodes.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OIDC_SYSTEM_SECRET` | (internal default) | Secret used to derive per-user encryption keys for stored OIDC tokens. Set a strong random value if deploying multiple instances sharing the same database. |
+| `WEBAUTHN_SYSTEM_SECRET` | (falls back to `OIDC_SYSTEM_SECRET`) | Secret used to derive per-user encryption keys for stored WebAuthn credentials. Defaults to `OIDC_SYSTEM_SECRET` if not set separately. |
 
 ## Notes
 

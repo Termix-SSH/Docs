@@ -90,6 +90,8 @@ const sidebars: SidebarsConfig = {
             'features/authentication/rbac',
             'features/authentication/security',
             'features/authentication/opkssh',
+            'features/authentication/vault',
+            'features/authentication/termix-id',
           ],
         },
         {
