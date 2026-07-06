@@ -90,7 +90,9 @@ async function fetchTokenBalance(
   const data = await res.json();
   const items: any[] = data.items ?? [];
   const match = items.find(
-    (item) => item.token?.address?.toLowerCase() === contract.toLowerCase()
+    (item) =>
+      (item.token?.address_hash ?? item.token?.address)?.toLowerCase() ===
+      contract.toLowerCase()
   );
   if (!match) return 0;
   const decimals = Number(match.token?.decimals ?? 18);
