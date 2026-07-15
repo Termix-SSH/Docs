@@ -1,0 +1,57 @@
+name: Monthly Donation Snapshot
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TERMIX_PAT }}
+
+      - name: Fetch monthly donation total from Cointer
+        env:
+          COINTER_PERSONAL_KEY: ${{ secrets.COINTER_PERSONAL_KEY }}
+        run: |
+          set -e
+
+          curl -sf --max-time 30 \
+            -H "Authorization: Bearer ${COINTER_PERSONAL_KEY}" \
+            -o /tmp/cointer-month.json \
+            "https://api.cointer.app/activity/month"
+
+          python3 - <<'PY'
+          import json
+
+          with open('/tmp/cointer-month.json') as f:
+              d = json.load(f)
+          snapshot = {
+              'month': d['month'],
+              'currency': d.get('currency', 'usd'),
+              'fiatTotal': d.get('fiatTotal', 0),
+              'count': d.get('count', 0),
+              'unpricedCount': d.get('unpricedCount', 0),
+              'priceAsOf': d.get('priceAsOf'),
+          }
+          with open('static/donation-snapshot.json', 'w') as f:
+              json.dump(snapshot, f, indent=2)
+              f.write('\n')
+          PY
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet static/donation-snapshot.json; then
+            echo "Snapshot unchanged, nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add static/donation-snapshot.json
+          git commit -m "chore: update monthly donation snapshot $(date -u +%Y-%m)"
+          git push
