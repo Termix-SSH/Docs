@@ -176,6 +176,11 @@ export default function DonatePage(): ReactNode {
           <a href="https://github.com/Termix-SSH/Support/issues/new/choose">Open a request</a>.
         </p>
       </details>
+
+      <p className={styles.lede}>
+        Company interested in a paid placement in the README to support development? Email{' '}
+        <a href="mailto:mail@termix.site">mail@termix.site</a>.
+      </p>
     </div>
   );
 }
