@@ -78,7 +78,7 @@ export default function MonthlyDonations(): ReactNode {
           {snapshot.unpricedCount > 0
             ? ` (${snapshot.unpricedCount} not yet priced)`
             : ''}
-          . Updated hourly.
+          .
         </p>
       )}
     </div>
