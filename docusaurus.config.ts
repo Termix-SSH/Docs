@@ -131,7 +131,7 @@ const config: Config = {
               href: 'https://github.com/Termix-SSH/Support/issues/new?template=bug_report.yml',
             },
             {
-              label: 'eMail',
+              label: 'Email',
               href: 'mailto:mail@termix.site',
             },
             {
