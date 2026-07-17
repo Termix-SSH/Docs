@@ -93,7 +93,7 @@ export default function DonatePage(): ReactNode {
               className={`${styles.amountButton} ${selected === amount ? styles.amountButtonActive : ''}`}
               onClick={() => selectAmount(amount)}
             >
-              ${amount}
+              {copied === `amount-${amount}` ? 'Base address copied ✓' : `$${amount}`}
             </button>
           ))}
           <button
@@ -101,9 +101,15 @@ export default function DonatePage(): ReactNode {
             className={`${styles.amountButton} ${selected === -1 ? styles.amountButtonActive : ''}`}
             onClick={() => selectAmount(-1)}
           >
-            Any amount
+            {copied === 'amount--1' ? 'Base address copied ✓' : 'Any amount'}
           </button>
         </div>
+        {selected !== null && (
+          <p className={styles.amountHint}>
+            Base address copied. Paste it in your wallet to send{' '}
+            {selected === -1 ? 'any amount' : `$${selected}`}.
+          </p>
+        )}
       </div>
 
       <div className={styles.preferredCoin}>
