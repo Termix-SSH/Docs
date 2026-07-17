@@ -144,7 +144,7 @@ export default function DonatePage(): ReactNode {
 
       <details className={styles.otherCoins}>
         <summary className={styles.otherCoinsSummary}>
-          Prefer a different coin? Ethereum, Bitcoin, Bitcoin Cash, Solana, Litecoin
+          Prefer a different coin? Ethereum, Bitcoin, Bitcoin Cash, Solana, Litecoin, Monero
         </summary>
         <div className={styles.otherCoinsGrid}>
           <CoinRow name="Ethereum" ticker="ETH" img="qr-eth.png" address={BASE_ADDRESS} copy={copy} />
@@ -174,6 +174,13 @@ export default function DonatePage(): ReactNode {
             ticker="LTC"
             img="qr-ltc.png"
             address="ltc1q04y9m60lawy3cscjpy6svfagmag34rr5gdkz97"
+            copy={copy}
+          />
+          <CoinRow
+            name="Monero"
+            ticker="XMR"
+            img="qr-xmr.png"
+            address="8As7QMowT5kaa3oLrF2JjVQtY8YFHNE4vfswYjQsVXmRSdp8FWhh9GSKcyxzwkUDahApqCyXT7MkcdKGUqCPQpkfAmU8NTt"
             copy={copy}
           />
         </div>
