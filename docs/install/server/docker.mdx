@@ -111,6 +111,30 @@ By default, `:latest` always points to the newest release. If you want to pin a 
 
 Both formats point to the same image for a given version, so use whichever you prefer. See a list of all versions [here](https://github.com/Termix-SSH/Termix/releases), or browse every published tag on [GitHub](https://github.com/users/LukeGus/packages/container/package/termix).
 
+## Beta Builds
+
+:::info Want to try what's coming next?
+Termix publishes an automated weekly beta build from active development, tagged `:beta`. It's a great way to try upcoming features early and help catch issues before they reach stable.
+:::
+
+To opt in, replace `:latest` with `:beta` in any of the configurations above, for example:
+
+```
+ghcr.io/lukegus/termix:beta
+```
+
+:::warning
+The `:beta` tag is a rolling, unstable channel:
+
+- It is overwritten every week with a fresh snapshot of in-progress development, it is not a fixed version.
+- It may contain incomplete features, regressions, or breaking changes without notice.
+- Do not run it in production or on data you can't afford to lose.
+
+If you need to reference an exact beta snapshot later, each weekly build is also pushed as a dated tag, `:beta-x.x.x-beta.YYYYMMDD`, and published as a [pre-release on GitHub](https://github.com/Termix-SSH/Termix/releases/tag/beta).
+:::
+
+Found something broken on a beta build? [Open a Beta Feedback report](https://github.com/Termix-SSH/Support/issues/new?template=beta_feedback.yml) on the Support page, or mention it in the [Discord](https://discord.gg/jVQGdvHDrf) server in the meantime. Be sure to include the exact beta build tag you're running.
+
 ## Environment Variables
 
 See [docs](/setup/environment-variables).

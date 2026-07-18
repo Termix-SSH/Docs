@@ -83,9 +83,10 @@ const config: Config = {
           target: '_self',
         },
         {
-          href: 'mailto:mail@termix.site',
+          to: '/contact',
           position: 'left',
           label: 'Contact',
+          target: '_self',
         },
         {
           href: 'https://donate.termix.site',
