@@ -142,6 +142,25 @@ export default function DonatePage(): ReactNode {
         </div>
       </div>
 
+      <div className={styles.preferredCoin}>
+        <div className={styles.preferredHeader}>
+          <h2 className={styles.preferredTitle}>Drips</h2>
+          <span className={styles.badge}>recurring or one-time</span>
+        </div>
+        <p className={styles.preferredSub}>
+          Support Termix's GitHub repo directly through Drips, a crypto-based funding platform for open source
+          projects.
+        </p>
+        <a
+          href="https://www.drips.network/app/projects/github/Termix-SSH/Termix"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.copyButton}
+        >
+          Fund on Drips
+        </a>
+      </div>
+
       <details className={styles.otherCoins}>
         <summary className={styles.otherCoinsSummary}>
           Prefer a different coin? Ethereum, Bitcoin, Bitcoin Cash, Solana, Litecoin, Monero
