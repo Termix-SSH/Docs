@@ -564,6 +564,26 @@
         }
       }
     },
+    "/users/me/dismiss-donation-modal": {
+      "post": {
+        "summary": "Permanently dismiss the donation reminder modal",
+        "description": "Marks the donation reminder modal as dismissed for the currently authenticated user so it is never shown to them again.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Donation modal dismissed."
+          },
+          "401": {
+            "description": "Invalid userId or user not found."
+          },
+          "500": {
+            "description": "Failed to dismiss donation modal."
+          }
+        }
+      }
+    },
     "/users/me/token": {
       "get": {
         "summary": "Get current session token",
@@ -981,6 +1001,127 @@
           },
           "500": {
             "description": "Failed to delete user."
+          }
+        }
+      }
+    },
+    "/users/webauthn/credentials": {
+      "get": {
+        "summary": "List passkeys",
+        "description": "Lists the authenticated user's registered passkeys.",
+        "tags": [
+          "WebAuthn"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of passkeys."
+          },
+          "401": {
+            "description": "Authentication required."
+          }
+        }
+      }
+    },
+    "/users/webauthn/register/options": {
+      "post": {
+        "summary": "Start passkey registration",
+        "description": "Generates WebAuthn registration options for the authenticated user.",
+        "tags": [
+          "WebAuthn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Registration options and challenge id."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/users/webauthn/register/verify": {
+      "post": {
+        "summary": "Finish passkey registration",
+        "description": "Verifies the WebAuthn registration response and stores the passkey.",
+        "tags": [
+          "WebAuthn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Passkey registered."
+          },
+          "400": {
+            "description": "Registration failed or challenge expired."
+          },
+          "401": {
+            "description": "Authentication required."
+          }
+        }
+      }
+    },
+    "/users/webauthn/authenticate/options": {
+      "post": {
+        "summary": "Start passkey login",
+        "description": "Generates WebAuthn authentication options, optionally scoped to a username.",
+        "tags": [
+          "WebAuthn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authentication options and challenge id."
+          },
+          "404": {
+            "description": "No passkeys found for the user."
+          }
+        }
+      }
+    },
+    "/users/webauthn/authenticate/verify": {
+      "post": {
+        "summary": "Finish passkey login",
+        "description": "Verifies the WebAuthn assertion and issues a session token (or a TOTP challenge).",
+        "tags": [
+          "WebAuthn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Login succeeded or TOTP verification required."
+          },
+          "400": {
+            "description": "Challenge expired or invalid response."
+          },
+          "401": {
+            "description": "Passkey not recognized or authentication failed."
+          }
+        }
+      }
+    },
+    "/users/webauthn/credentials/{credentialId}": {
+      "delete": {
+        "summary": "Delete a passkey",
+        "description": "Removes one of the authenticated user's passkeys.",
+        "tags": [
+          "WebAuthn"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "credentialId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Passkey deleted."
+          },
+          "401": {
+            "description": "Authentication required."
           }
         }
       }
@@ -2277,6 +2418,139 @@
           },
           "500": {
             "description": "Failed to create user."
+          }
+        }
+      }
+    },
+    "/users/admin/reset-password": {
+      "post": {
+        "summary": "Reset a user's password (admin only)",
+        "description": "Resets another user's password. Data is preserved for users whose encryption key has been migrated to the system wrap. Users who never logged in since the encryption upgrade require confirmDataWipe, which deletes their encrypted data.\n",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "newPassword"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  },
+                  "confirmDataWipe": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset; dataWiped indicates whether encrypted data was deleted."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "409": {
+            "description": "Reset would wipe the user's data and confirmDataWipe was not set."
+          },
+          "500": {
+            "description": "Failed to reset password."
+          }
+        }
+      }
+    },
+    "/users/admin/totp/disable": {
+      "post": {
+        "summary": "Disable a user's TOTP (admin only)",
+        "description": "Clears another user's TOTP secret, enabled flag and backup codes so they can log in without 2FA.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP disabled for the user."
+          },
+          "400": {
+            "description": "User ID is required or TOTP is not enabled."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to disable TOTP."
+          }
+        }
+      }
+    },
+    "/users/admin/export/{userId}": {
+      "get": {
+        "summary": "Export a user's data (admin only)",
+        "description": "Downloads a JSON export of another user's data (hosts, credentials, file manager bookmarks). Secrets are decrypted server-side, so handle the file carefully.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON export of the user's data."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "423": {
+            "description": "The user's data stays locked until their next login."
+          },
+          "500": {
+            "description": "Failed to export user data."
           }
         }
       }
@@ -3703,7 +3977,7 @@
     "/rbac/host/{id}/share": {
       "post": {
         "summary": "Share a host",
-        "description": "Shares a host with a user or a role.",
+        "description": "Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). Allowed for the host owner or recipients holding the manage level. Every auth type is shareable; per-recipient secret snapshots are created automatically.",
         "tags": [
           "RBAC"
         ],
@@ -3723,28 +3997,46 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "targets"
+                ],
                 "properties": {
-                  "targetType": {
-                    "type": "string",
-                    "enum": [
-                      "user",
-                      "role"
-                    ]
-                  },
-                  "targetUserId": {
-                    "type": "string"
-                  },
-                  "targetRoleId": {
-                    "type": "integer"
-                  },
-                  "durationHours": {
-                    "type": "number"
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "user",
+                            "role"
+                          ]
+                        },
+                        "id": {
+                          "oneOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "integer"
+                            }
+                          ]
+                        }
+                      }
+                    }
                   },
                   "permissionLevel": {
                     "type": "string",
                     "enum": [
-                      "view"
+                      "connect",
+                      "view",
+                      "edit",
+                      "manage"
                     ]
+                  },
+                  "durationHours": {
+                    "type": "number"
                   }
                 }
               }
@@ -3759,7 +4051,7 @@
             "description": "Invalid request body."
           },
           "403": {
-            "description": "Not host owner."
+            "description": "Caller may not share this host."
           },
           "404": {
             "description": "Target user or role not found."
@@ -3771,6 +4063,74 @@
       }
     },
     "/rbac/host/{id}/access/{accessId}": {
+      "patch": {
+        "summary": "Update a host access grant",
+        "description": "Changes the permission level and/or expiry of an existing host access grant. Allowed for the host owner or recipients holding the manage level.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accessId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionLevel": {
+                    "type": "string",
+                    "enum": [
+                      "connect",
+                      "view",
+                      "edit",
+                      "manage"
+                    ]
+                  },
+                  "durationHours": {
+                    "type": "number",
+                    "nullable": true,
+                    "description": "Hours from now until the grant expires; null clears the expiry."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Grant updated successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "403": {
+            "description": "Caller may not manage sharing on this host."
+          },
+          "404": {
+            "description": "Grant not found."
+          },
+          "500": {
+            "description": "Failed to update grant."
+          }
+        }
+      },
       "delete": {
         "summary": "Revoke host access",
         "description": "Revokes a user's or role's access to a host.",
@@ -3803,7 +4163,7 @@
             "description": "Invalid ID."
           },
           "403": {
-            "description": "Not host owner."
+            "description": "Caller may not manage sharing on this host."
           },
           "500": {
             "description": "Failed to revoke access."
@@ -3830,13 +4190,13 @@
         ],
         "responses": {
           "200": {
-            "description": "The access list for the host."
+            "description": "The access list for the host, including each grant's permission level."
           },
           "400": {
             "description": "Invalid host ID."
           },
           "403": {
-            "description": "Not host owner."
+            "description": "Caller may not manage sharing on this host."
           },
           "500": {
             "description": "Failed to get access list."
@@ -3949,6 +4309,13 @@
                   },
                   "description": {
                     "type": "string"
+                  },
+                  "permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Permission strings validated against the permissions catalog (wildcards like hosts.* and * allowed)."
                   }
                 }
               }
@@ -4001,6 +4368,20 @@
           },
           "500": {
             "description": "Failed to delete role."
+          }
+        }
+      }
+    },
+    "/rbac/permissions/catalog": {
+      "get": {
+        "summary": "Get the role permissions catalog",
+        "description": "Returns the grouped catalog of role permission strings used by the role permissions editor.",
+        "tags": [
+          "RBAC"
+        ],
+        "responses": {
+          "200": {
+            "description": "The permissions catalog."
           }
         }
       }
@@ -4684,6 +5065,106 @@
           },
           "500": {
             "description": "Failed to fetch SSH data."
+          }
+        }
+      }
+    },
+    "/host/enroll": {
+      "post": {
+        "summary": "Enroll a host with an API key",
+        "description": "Creates a host owned by the user assigned to the API key. The user's encrypted data must be unlocked by an active sign-in.",
+        "tags": [
+          "Host Enrollment"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ip"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "ip": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535,
+                    "default": 22
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "authType": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "password",
+                      "key",
+                      "credential",
+                      "agent"
+                    ],
+                    "default": "none"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    ]
+                  },
+                  "enableTerminal": {
+                    "type": "boolean"
+                  },
+                  "enableFileManager": {
+                    "type": "boolean"
+                  },
+                  "enableTunnel": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host enrolled successfully."
+          },
+          "400": {
+            "description": "Invalid host data."
+          },
+          "401": {
+            "description": "Missing or invalid API key."
+          },
+          "423": {
+            "description": "The API key user's encrypted data is locked."
+          },
+          "500": {
+            "description": "Failed to enroll the host."
           }
         }
       }
@@ -7006,6 +7487,129 @@
         }
       }
     },
+    "/c2s-tunnel-presets": {
+      "get": {
+        "summary": "List client tunnel presets",
+        "description": "Returns the authenticated user's saved client-to-server tunnel presets.",
+        "tags": [
+          "Tunnel Presets"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of tunnel presets."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "500": {
+            "description": "Failed to list presets."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a client tunnel preset",
+        "description": "Saves a named client-to-server tunnel configuration for the authenticated user.",
+        "tags": [
+          "Tunnel Presets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preset created."
+          },
+          "400": {
+            "description": "Invalid name or config."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "500": {
+            "description": "Failed to create preset."
+          }
+        }
+      }
+    },
+    "/c2s-tunnel-presets/{id}": {
+      "put": {
+        "summary": "Update a client tunnel preset",
+        "description": "Updates the name or config of one of the authenticated user's tunnel presets.",
+        "tags": [
+          "Tunnel Presets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Preset updated."
+          },
+          "400": {
+            "description": "Invalid name or config."
+          },
+          "404": {
+            "description": "Preset not found."
+          },
+          "500": {
+            "description": "Failed to update preset."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a client tunnel preset",
+        "description": "Deletes one of the authenticated user's tunnel presets.",
+        "tags": [
+          "Tunnel Presets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Preset deleted."
+          },
+          "404": {
+            "description": "Preset not found."
+          },
+          "500": {
+            "description": "Failed to delete preset."
+          }
+        }
+      }
+    },
     "/audit-logs": {
       "get": {
         "summary": "List audit logs",
@@ -7545,20 +8149,6 @@
         }
       }
     },
-    "/ssh/tunnel/status": {
-      "get": {
-        "summary": "Get all tunnel statuses",
-        "description": "Retrieves the status of all SSH tunnels.",
-        "tags": [
-          "SSH Tunnels"
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of all tunnel statuses."
-          }
-        }
-      }
-    },
     "/ssh/tunnel/status/{tunnelName}": {
       "get": {
         "summary": "Get tunnel status by name",
@@ -7715,314 +8305,16 @@
         }
       }
     },
-    "/status": {
+    "/ssh/tunnel/status": {
       "get": {
-        "summary": "Get all host statuses",
-        "description": "Retrieves the status of all hosts for the authenticated user.",
+        "summary": "Get all tunnel statuses",
+        "description": "Retrieves the status of all SSH tunnels.",
         "tags": [
-          "Host Metrics"
+          "SSH Tunnels"
         ],
         "responses": {
           "200": {
-            "description": "A map of host IDs to their status entries."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          }
-        }
-      }
-    },
-    "/status/{id}": {
-      "get": {
-        "summary": "Get host status by ID",
-        "description": "Retrieves the status of a specific host by its ID.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Host status entry."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "404": {
-            "description": "Status not available."
-          }
-        }
-      }
-    },
-    "/clear-connections": {
-      "post": {
-        "summary": "Clear all SSH connections",
-        "description": "Clears all SSH connections from the connection pool.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "responses": {
-          "200": {
-            "description": "All SSH connections cleared."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          }
-        }
-      }
-    },
-    "/refresh": {
-      "post": {
-        "summary": "Refresh polling",
-        "description": "Clears all SSH connections and refreshes host polling.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "responses": {
-          "200": {
-            "description": "Polling refreshed."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          }
-        }
-      }
-    },
-    "/host-updated": {
-      "post": {
-        "summary": "Start polling for updated host",
-        "description": "Starts polling for a specific host after it has been updated.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Host polling started."
-          },
-          "400": {
-            "description": "Invalid hostId."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "404": {
-            "description": "Host not found."
-          },
-          "500": {
-            "description": "Failed to start polling."
-          }
-        }
-      }
-    },
-    "/host-deleted": {
-      "post": {
-        "summary": "Stop polling for deleted host",
-        "description": "Stops polling for a specific host after it has been deleted.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "hostId": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Host polling stopped."
-          },
-          "400": {
-            "description": "Invalid hostId."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "500": {
-            "description": "Failed to stop polling."
-          }
-        }
-      }
-    },
-    "/metrics/{id}": {
-      "get": {
-        "summary": "Get host metrics",
-        "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Host metrics data."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "404": {
-            "description": "Metrics not available."
-          }
-        }
-      }
-    },
-    "/metrics/start/{id}": {
-      "post": {
-        "summary": "Start metrics collection",
-        "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Metrics collection started successfully, or TOTP required."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "404": {
-            "description": "Host not found."
-          },
-          "500": {
-            "description": "Failed to start metrics collection."
-          }
-        }
-      }
-    },
-    "/metrics/stop/{id}": {
-      "post": {
-        "summary": "Stop metrics collection",
-        "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "viewerSessionId": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Metrics collection stopped successfully."
-          },
-          "401": {
-            "description": "Session expired - please log in again."
-          },
-          "500": {
-            "description": "Failed to stop metrics collection."
-          }
-        }
-      }
-    },
-    "/metrics/connect-totp": {
-      "post": {
-        "summary": "Complete TOTP verification for metrics",
-        "description": "Verifies the TOTP code and completes the metrics SSH connection.",
-        "tags": [
-          "Host Metrics"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "totpCode": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "TOTP verified, metrics connection established."
-          },
-          "400": {
-            "description": "Missing sessionId or totpCode."
-          },
-          "401": {
-            "description": "Session expired or invalid TOTP code."
-          },
-          "404": {
-            "description": "TOTP session not found or expired."
-          },
-          "500": {
-            "description": "Failed to verify TOTP."
+            "description": "A list of all tunnel statuses."
           }
         }
       }
@@ -8324,6 +8616,318 @@
         }
       }
     },
+    "/status": {
+      "get": {
+        "summary": "Get all host statuses",
+        "description": "Retrieves the status of all hosts for the authenticated user.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "A map of host IDs to their status entries."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/status/{id}": {
+      "get": {
+        "summary": "Get host status by ID",
+        "description": "Retrieves the status of a specific host by its ID.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host status entry."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Status not available."
+          }
+        }
+      }
+    },
+    "/clear-connections": {
+      "post": {
+        "summary": "Clear all SSH connections",
+        "description": "Clears all SSH connections from the connection pool.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "All SSH connections cleared."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/refresh": {
+      "post": {
+        "summary": "Refresh polling",
+        "description": "Refreshes host polling for the authenticated user.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Polling refreshed."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/host-updated": {
+      "post": {
+        "summary": "Start polling for updated host",
+        "description": "Starts polling for a specific host after it has been updated.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host polling started."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to start polling."
+          }
+        }
+      }
+    },
+    "/host-deleted": {
+      "post": {
+        "summary": "Stop polling for deleted host",
+        "description": "Stops polling for a specific host after it has been deleted.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host polling stopped."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to stop polling."
+          }
+        }
+      }
+    },
+    "/metrics/{id}": {
+      "get": {
+        "summary": "Get host metrics",
+        "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host metrics data."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Metrics not available."
+          }
+        }
+      }
+    },
+    "/metrics/start/{id}": {
+      "post": {
+        "summary": "Start metrics collection",
+        "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metrics collection started successfully, or TOTP required."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to start metrics collection."
+          }
+        }
+      }
+    },
+    "/metrics/stop/{id}": {
+      "post": {
+        "summary": "Stop metrics collection",
+        "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metrics collection stopped successfully."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "500": {
+            "description": "Failed to stop metrics collection."
+          }
+        }
+      }
+    },
+    "/metrics/connect-totp": {
+      "post": {
+        "summary": "Complete TOTP verification for metrics",
+        "description": "Verifies the TOTP code and completes the metrics SSH connection.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP verified, metrics connection established."
+          },
+          "400": {
+            "description": "Missing sessionId or totpCode."
+          },
+          "401": {
+            "description": "Session expired or invalid TOTP code."
+          },
+          "404": {
+            "description": "TOTP session not found or expired."
+          },
+          "500": {
+            "description": "Failed to verify TOTP."
+          }
+        }
+      }
+    },
     "/metrics/history/{id}": {
       "get": {
         "summary": "Get historical metrics for a host",
@@ -8379,6 +8983,767 @@
           },
           "404": {
             "description": "Host not found or no access."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/wireguard/{id}": {
+      "get": {
+        "summary": "Get WireGuard interfaces and peers",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "WireGuard installation status, interfaces, and peer details."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/wireguard/{id}/action": {
+      "post": {
+        "summary": "Bring a WireGuard interface up or down",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "interface": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "up",
+                      "down"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/tailscale/{id}": {
+      "get": {
+        "summary": "Get Tailscale status and IPs",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tailscale installation status, running state, IPs, and peer count."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/tailscale/{id}/action": {
+      "post": {
+        "summary": "Connect or disconnect Tailscale",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "up",
+                      "down"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/ssl/{id}/revoke": {
+      "post": {
+        "summary": "Revoke and remove an issued certificate (certbot or acme.sh)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "certbot",
+                      "acme.sh"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "certbot cert name or acme.sh domain"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Revoke result."
+          },
+          "400": {
+            "description": "Invalid client or certificate name."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/services/{id}": {
+      "get": {
+        "summary": "List systemd services",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of services."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/services/{id}/action": {
+      "post": {
+        "summary": "Start/stop/restart/enable/disable a systemd service",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          },
+          "400": {
+            "description": "Invalid unit or action."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/processes/{id}": {
+      "get": {
+        "summary": "List processes (rich, sortable, filterable client-side)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Process list."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/processes/{id}/signal": {
+      "post": {
+        "summary": "Send a signal to a process (TERM/KILL/HUP/INT)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pid": {
+                    "type": "integer"
+                  },
+                  "signal": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signal result."
+          },
+          "400": {
+            "description": "Invalid pid or signal."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/host-metrics/platform/{id}": {
+      "get": {
+        "summary": "Detect available management tooling on a host",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Platform capabilities (systemd, package manager, certbot, docker)."
+          }
+        }
+      }
+    },
+    "/guacamole/token": {
+      "post": {
+        "summary": "Generate an encrypted Guacamole connection token",
+        "description": "Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters",
+        "tags": [
+          "Guacamole"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "hostname"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "hostname": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Encrypted connection token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/guacamole/connect-host/{hostId}": {
+      "post": {
+        "summary": "Generate Guacamole connection token from host configuration",
+        "description": "Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet",
+        "tags": [
+          "Guacamole"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Host ID to connect to"
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ],
+                    "description": "Override the host's default connection type"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connection token generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "description": "Encrypted connection token"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request or unsupported connection type"
+          },
+          "403": {
+            "description": "Access denied to host"
+          },
+          "404": {
+            "description": "Host not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/createFile": {
+      "post": {
+        "summary": "Create a file",
+        "description": "Creates an empty file on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "fileName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File created successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to create file."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/createFolder": {
+      "post": {
+        "summary": "Create a folder",
+        "description": "Creates a new folder on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "folderName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder created successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to create folder."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/deleteItem": {
+      "delete": {
+        "summary": "Delete a file or directory",
+        "description": "Deletes a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "isDirectory": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item deleted successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to delete item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/renameItem": {
+      "put": {
+        "summary": "Rename a file or directory",
+        "description": "Renames a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "oldPath": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item renamed successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "500": {
+            "description": "Failed to rename item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/moveItem": {
+      "put": {
+        "summary": "Move a file or directory",
+        "description": "Moves a file or directory on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "oldPath": {
+                    "type": "string"
+                  },
+                  "newPath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item moved successfully."
+          },
+          "400": {
+            "description": "Missing required parameters or SSH connection not established."
+          },
+          "403": {
+            "description": "Permission denied."
+          },
+          "408": {
+            "description": "Move operation timed out."
+          },
+          "500": {
+            "description": "Failed to move item."
+          }
+        }
+      }
+    },
+    "/ssh/file_manager/ssh/listFiles": {
+      "get": {
+        "summary": "List files in a directory",
+        "description": "Lists the files and directories in a given path on the remote host.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of files and directories."
+          },
+          "400": {
+            "description": "Session ID is required or SSH connection not established."
+          },
+          "500": {
+            "description": "Failed to list files."
           }
         }
       }
@@ -8878,267 +10243,6 @@
         }
       }
     },
-    "/ssh/file_manager/ssh/createFile": {
-      "post": {
-        "summary": "Create a file",
-        "description": "Creates an empty file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "fileName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "File created successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "500": {
-            "description": "Failed to create file."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/createFolder": {
-      "post": {
-        "summary": "Create a folder",
-        "description": "Creates a new folder on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "folderName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Folder created successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "500": {
-            "description": "Failed to create folder."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/deleteItem": {
-      "delete": {
-        "summary": "Delete a file or directory",
-        "description": "Deletes a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "isDirectory": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Item deleted successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "500": {
-            "description": "Failed to delete item."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/renameItem": {
-      "put": {
-        "summary": "Rename a file or directory",
-        "description": "Renames a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "oldPath": {
-                    "type": "string"
-                  },
-                  "newName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Item renamed successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "500": {
-            "description": "Failed to rename item."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/moveItem": {
-      "put": {
-        "summary": "Move a file or directory",
-        "description": "Moves a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "oldPath": {
-                    "type": "string"
-                  },
-                  "newPath": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Item moved successfully."
-          },
-          "400": {
-            "description": "Missing required parameters or SSH connection not established."
-          },
-          "403": {
-            "description": "Permission denied."
-          },
-          "408": {
-            "description": "Move operation timed out."
-          },
-          "500": {
-            "description": "Failed to move item."
-          }
-        }
-      }
-    },
-    "/ssh/file_manager/ssh/listFiles": {
-      "get": {
-        "summary": "List files in a directory",
-        "description": "Lists the files and directories in a given path on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of files and directories."
-          },
-          "400": {
-            "description": "Session ID is required or SSH connection not established."
-          },
-          "500": {
-            "description": "Failed to list files."
-          }
-        }
-      }
-    },
     "/ssh/file_manager/ssh/downloadFile": {
       "post": {
         "summary": "Download a file",
@@ -9472,68 +10576,11 @@
     },
     "/ssh/file_manager/ssh/uploadFileChunk": {
       "post": {
-        "summary": "Upload a single chunk of a large file",
-        "description": "Receives one chunk of a large file upload via multipart form data and either creates a new remote file (chunkIndex=0) or appends to the existing file (chunkIndex>0). Used by the client to upload files larger than ~2GB that would otherwise hit browser-side ArrayBuffer limits.",
+        "summary": "Upload one raw file chunk",
+        "description": "Writes a raw request body to the remote file at the supplied byte offset, allowing browser clients to avoid multipart/FormData 2GB limits.",
         "tags": [
           "File Manager"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "sessionId",
-                  "path",
-                  "fileName",
-                  "chunkIndex",
-                  "totalChunks",
-                  "totalSize",
-                  "chunk"
-                ],
-                "properties": {
-                  "sessionId": {
-                    "type": "string"
-                  },
-                  "path": {
-                    "type": "string"
-                  },
-                  "fileName": {
-                    "type": "string"
-                  },
-                  "chunkIndex": {
-                    "type": "integer"
-                  },
-                  "totalChunks": {
-                    "type": "integer"
-                  },
-                  "totalSize": {
-                    "type": "integer"
-                  },
-                  "chunk": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Chunk accepted. When chunkIndex === totalChunks - 1 the full file is complete."
-          },
-          "400": {
-            "description": "Missing required parameters, invalid chunk metadata, or SSH connection not established."
-          },
-          "403": {
-            "description": "Session access denied."
-          },
-          "500": {
-            "description": "Failed to write chunk to remote filesystem."
-          }
-        }
+        ]
       }
     },
     "/ssh/file_manager/ssh/copyItem": {
@@ -10342,158 +11389,6 @@
           },
           "500": {
             "description": "Failed to get container stats."
-          }
-        }
-      }
-    },
-    "/guacamole/token": {
-      "post": {
-        "summary": "Generate an encrypted Guacamole connection token",
-        "description": "Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters",
-        "tags": [
-          "Guacamole"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "type",
-                  "hostname"
-                ],
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "enum": [
-                      "rdp",
-                      "vnc",
-                      "telnet"
-                    ]
-                  },
-                  "hostname": {
-                    "type": "string"
-                  },
-                  "port": {
-                    "type": "integer"
-                  },
-                  "username": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string"
-                  },
-                  "domain": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Encrypted connection token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/guacamole/connect-host/{hostId}": {
-      "post": {
-        "summary": "Generate Guacamole connection token from host configuration",
-        "description": "Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet",
-        "tags": [
-          "Guacamole"
-        ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "hostId",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            },
-            "description": "Host ID to connect to"
-          }
-        ],
-        "requestBody": {
-          "required": false,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "protocol": {
-                    "type": "string",
-                    "enum": [
-                      "rdp",
-                      "vnc",
-                      "telnet"
-                    ],
-                    "description": "Override the host's default connection type"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Connection token generated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "token": {
-                      "type": "string",
-                      "description": "Encrypted connection token"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request or unsupported connection type"
-          },
-          "403": {
-            "description": "Access denied to host"
-          },
-          "404": {
-            "description": "Host not found"
-          },
-          "500": {
-            "description": "Server error"
           }
         }
       }
