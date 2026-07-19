@@ -78,8 +78,9 @@ export default function DonationMilestones(): ReactNode {
     <div className={styles.wrapper}>
       <span className={styles.label}>Milestones</span>
       <p className={styles.sub}>
-        Funded by all donations to date{snapshot ? ` — ${formatFiat(total, currency)} raised` : ''}.
-        Each milestone unlocks a new feature once total donations reach its goal.
+        Funded by all donations to date.{snapshot ? ` ${formatFiat(total, currency)} raised.` : ''}
+        {' '}Each milestone funds the research needed to learn and implement that protocol
+        correctly, since it isn't something we know how to build yet.
       </p>
       <div className={styles.list}>
         {MILESTONES.map((m) => {
