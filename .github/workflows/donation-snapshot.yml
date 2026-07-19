@@ -44,14 +44,40 @@ jobs:
               f.write('\n')
           PY
 
+      - name: Fetch all-time donation total from Cointer
+        env:
+          COINTER_PERSONAL_KEY: ${{ secrets.COINTER_PERSONAL_KEY }}
+        run: |
+          set -e
+
+          curl -sf --max-time 30 \
+            -H "Authorization: Bearer ${COINTER_PERSONAL_KEY}" \
+            -o /tmp/cointer-wallets.json \
+            "https://api.cointer.app/wallets/value"
+
+          python3 - <<'PY'
+          import json
+
+          with open('/tmp/cointer-wallets.json') as f:
+              d = json.load(f)
+          snapshot = {
+              'currency': d.get('currency', 'usd'),
+              'total': d.get('total', 0),
+              'priceAsOf': d.get('priceAsOf'),
+          }
+          with open('static/donation-total.json', 'w') as f:
+              json.dump(snapshot, f, indent=2)
+              f.write('\n')
+          PY
+
       - name: Commit and push if changed
         run: |
-          if git diff --quiet static/donation-snapshot.json; then
+          if git diff --quiet static/donation-snapshot.json static/donation-total.json; then
             echo "Snapshot unchanged, nothing to commit"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add static/donation-snapshot.json
-          git commit -m "chore: update monthly donation snapshot $(date -u +%Y-%m)"
+          git add static/donation-snapshot.json static/donation-total.json
+          git commit -m "chore: update donation snapshot $(date -u +%Y-%m)"
           git push

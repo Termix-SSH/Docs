@@ -1,0 +1,85 @@
+.wrapper {
+  border: 1px solid var(--border-base);
+  background: var(--bg-surface);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--foreground-secondary);
+}
+
+.sub {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--foreground-subtle);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.milestone:not(:last-child) {
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border-base);
+}
+
+.milestoneHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.milestoneName {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.milestoneCost {
+  font-weight: 400;
+  color: var(--foreground-subtle);
+  font-size: 0.85rem;
+}
+
+.status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--foreground-subtle);
+  white-space: nowrap;
+}
+
+.statusDone {
+  color: var(--ifm-color-primary);
+}
+
+.milestoneDescription {
+  margin: 0.35rem 0 0.6rem;
+  font-size: 0.85rem;
+  color: var(--foreground-secondary);
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-base);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--ifm-color-primary);
+  opacity: 0.6;
+  transition: width 0.3s ease;
+}
+
+.progressFillDone {
+  opacity: 1;
+}
