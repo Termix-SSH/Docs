@@ -1,0 +1,59 @@
+---
+id: mint-a-session-for-the-sole-local-desktop-user
+title: "Mint a session for the sole local desktop user"
+description: "Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key."
+sidebar_label: "Mint a session for the sole local desktop user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVcFuG0cM/RViLm2BlazUSQuoJxet0RQNYlQJejB8oGYo7cCznO2QK1sV9O8FR6tUjozWveck7S7n8c0j+bhzgcSX2GvM7Obuo1CA5Ra0Jfg5kdeSGQLJveYesO9BM8h97GtAyuvIsMqlA2KNhdIWHlpiKANz5DWIIgdMmQlwjZFF6znqlhQCBUjZY4Il+nviMIX3nLaAG4wJl4kgb6hAyrm3gCn8ltcCkQGlgkhONAIMQgUKrbGERCKQVxBVwBcKxguT/ABxNVK2AwEVlygELQp0uRBoiwzGs2J9TdP1FAr1hEoBOuQBk2WIogVNqm8aCKRUushRNHpMaWt6nDLE0NmD93lgbSCXw+WxpEiikwMcFQrHGCPJRiLKeHgyATyVuRtEgcmEwb4nLPb65GKjlDBwsBDego/FD50VwtOocCCfIpNYur+o5BMVBegxigIqYEoNPLTRt8C5dKba2AZ9yZsoMdcSH8j0JYfBk0zh5vjxoEEhyWlDoaJ/JVX5CbEv29pxcE9bo9FFEUNb0sqq0UVWe6x1JjG4BjpU39pby7iFrG1tD9OmR21NK6G0mrSESQA/KW+1VegLbWIeJG2B2Hpv6OEhagsIG0wxHPPAclDgDIPUHnxKdeoap7gWN7+1SSni7hpXSPrMQuLmO/ftbGY/T4dqMUL7Uvtp6vaNez27PA+8zmUZQyCu3cLPVKaeffNckmuMiYLN5yHN8UJTt983riNtc3Bz12dR1zhTzM3dRYW+iKxUGNMFDpon40HXOKGysVvOb3duKMnNXavazy8uKq82i84vZ7PZK9d8RuYdRv5nypAD4KCtDaOv4wMHZLdv/hX48gx4sfgFdGCmZFOJa+qI9YVor59FW8VEI1Z5IdCbc6B6zvxOqx1IvXOXOWou1QlfBPzdGfBPKO0yYwkvRPj+HCH7eyr/W61X50VdUImYwGdm8k+qeGet4ocSdVt7ZUlYqFwN1mO3d6efF76l7jAqp0E7p9ueRirWeDXMzccg14x/rs2J1M3dr398qH0deZXr8ajJ4j+YJT/C1c1b1zjr3QP12XQ2nZ1daAz+cTTNq5u38DutqBB7sjmzWemQDZ+x0nkXWQE/ecXRfE920dEkbbA+T7hzPrMS65dF+2XRflm0/7VoD46g9KgXfcLINpLVsHbj+rp1VUpnNnBYYK5xT1bYXePM0Cx0t7NG/FjSfm+v/xyomFndNW6DJRqH6lUnq/Lm/cJM5m8jP/XN
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mint a session for the sole local desktop user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/internal/auto-session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./mint-a-session-for-the-sole-local-desktop-user.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./mint-a-session-for-the-sole-local-desktop-user.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
