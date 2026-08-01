@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -75,6 +76,14 @@ export default function Sponsors(): ReactNode {
             </a>
           ))}
         </div>
+        <p className={styles.sponsorsFootnote}>
+          Want to run Termix on a cloud VPS instead of your own hardware? Our sponsor{' '}
+          <a href="https://ginernet.com/" target="_blank" rel="noopener noreferrer sponsored">
+            GINERNET
+          </a>{' '}
+          is one option, with a step-by-step{' '}
+          <Link to="/install/ginernet">deployment guide</Link> in the docs.
+        </p>
       </div>
     </section>
   );
