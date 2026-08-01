@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Homepage from '../components/homepage';
+import Sponsors from '../components/sponsors';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -35,6 +36,7 @@ export default function Home(): ReactNode {
     <Layout title={`Home`}>
       <HomepageHeader />
       <main>
+        <Sponsors />
         <Homepage />
       </main>
     </Layout>

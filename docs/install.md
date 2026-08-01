@@ -10,6 +10,12 @@ For running the required Termix backend and web-app front end:
 - **[Manual](./install/server/manual.md)** - Build and compile Termix from source code for custom deployments.
 - **[Proxmox](./install/server/proxmox.md)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts.
 
+## Cloud Hosting
+
+For hosting the Termix server on a cloud provider. Running Termix outside the network it manages means an outage cannot take Termix with it, so your hosts and saved sessions stay reachable when you need them most. You also get a static IP and access from anywhere without a VPN or port forward.
+
+- **[GINERNET](./install/ginernet.md)** - Install and run the Termix server on a GINERNET VPS.
+
 ## Connector
 
 For running Termix as a client/connector application that connects to the server (requires one of the above server installations to be running):
