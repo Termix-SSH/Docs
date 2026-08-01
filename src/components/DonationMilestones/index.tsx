@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 type Snapshot = {
   currency: string;
   total: number;
-  priceAsOf: number | null;
+  updatedAt: string | null;
 };
 
 type Milestone = {

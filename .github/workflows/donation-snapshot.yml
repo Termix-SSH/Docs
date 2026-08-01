@@ -15,58 +15,35 @@ jobs:
         with:
           token: ${{ secrets.TERMIX_PAT }}
 
-      - name: Fetch monthly donation total from Cointer
-        env:
-          COINTER_PERSONAL_KEY: ${{ secrets.COINTER_PERSONAL_KEY }}
+      - name: Fetch donation totals
         run: |
           set -e
 
           curl -sf --max-time 30 \
-            -H "Authorization: Bearer ${COINTER_PERSONAL_KEY}" \
-            -o /tmp/cointer-month.json \
-            "https://api.cointer.app/activity/month"
+            -o /tmp/donations.json \
+            "http://138.68.23.209:4000/api/donations"
 
           python3 - <<'PY'
           import json
 
-          with open('/tmp/cointer-month.json') as f:
+          with open('/tmp/donations.json') as f:
               d = json.load(f)
-          snapshot = {
-              'month': d['month'],
-              'currency': d.get('currency', 'usd'),
-              'fiatTotal': d.get('fiatTotal', 0),
-              'count': d.get('count', 0),
-              'unpricedCount': d.get('unpricedCount', 0),
-              'priceAsOf': d.get('priceAsOf'),
-          }
+
           with open('static/donation-snapshot.json', 'w') as f:
-              json.dump(snapshot, f, indent=2)
+              json.dump({
+                  'month': d['month'],
+                  'currency': 'usd',
+                  'fiatTotal': d.get('monthly_total_usd', 0),
+                  'updatedAt': d.get('updated_at'),
+              }, f, indent=2)
               f.write('\n')
-          PY
 
-      - name: Fetch all-time donation total from Cointer
-        env:
-          COINTER_PERSONAL_KEY: ${{ secrets.COINTER_PERSONAL_KEY }}
-        run: |
-          set -e
-
-          curl -sf --max-time 30 \
-            -H "Authorization: Bearer ${COINTER_PERSONAL_KEY}" \
-            -o /tmp/cointer-wallets.json \
-            "https://api.cointer.app/wallets/value"
-
-          python3 - <<'PY'
-          import json
-
-          with open('/tmp/cointer-wallets.json') as f:
-              d = json.load(f)
-          snapshot = {
-              'currency': d.get('currency', 'usd'),
-              'total': d.get('total', 0),
-              'priceAsOf': d.get('priceAsOf'),
-          }
           with open('static/donation-total.json', 'w') as f:
-              json.dump(snapshot, f, indent=2)
+              json.dump({
+                  'currency': 'usd',
+                  'total': d.get('all_time_total_usd', 0),
+                  'updatedAt': d.get('updated_at'),
+              }, f, indent=2)
               f.write('\n')
           PY
 

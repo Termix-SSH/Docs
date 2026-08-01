@@ -6,9 +6,7 @@ type Snapshot = {
   month: string;
   currency: string;
   fiatTotal: number;
-  count: number;
-  unpricedCount: number;
-  priceAsOf: number | null;
+  updatedAt: string | null;
 };
 
 function formatMonth(month: string): string {
@@ -72,15 +70,6 @@ export default function MonthlyDonations(): ReactNode {
           )}
         </span>
       </div>
-      {snapshot && (
-        <p className={styles.sub}>
-          {snapshot.count} donation{snapshot.count === 1 ? '' : 's'} this month
-          {snapshot.unpricedCount > 0
-            ? ` (${snapshot.unpricedCount} not yet priced)`
-            : ''}
-          .
-        </p>
-      )}
     </div>
   );
 }

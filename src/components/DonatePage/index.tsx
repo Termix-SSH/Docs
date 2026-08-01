@@ -1,38 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 import styles from './styles.module.css';
 
 const BASE_ADDRESS = '0x67e0C779119D9BcC2187564A66B80a58767d05d1';
-const GHCR_PULLS_LABEL = '11M+';
-const REPO = 'Termix-SSH/Termix';
-
-const AMOUNTS = [5, 20, 50];
-
-function useGithubStars(repo: string): number | null {
-  const [stars, setStars] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(`https://api.github.com/repos/${repo}`)
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (!cancelled && data?.stargazers_count) {
-          setStars(data.stargazers_count);
-        }
-      })
-      .catch(() => {});
-    return () => {
-      cancelled = true;
-    };
-  }, [repo]);
-
-  return stars;
-}
-
-function formatStars(n: number): string {
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k`;
-  return String(n);
-}
 
 function useCopy(): [string | null, (label: string, value: string) => void] {
   const [copied, setCopied] = useState<string | null>(null);
@@ -48,69 +18,16 @@ function useCopy(): [string | null, (label: string, value: string) => void] {
 }
 
 export default function DonatePage(): ReactNode {
-  const stars = useGithubStars(REPO);
   const [copied, copy] = useCopy();
-  const [selected, setSelected] = useState<number | null>(null);
-
-  const selectAmount = (amount: number) => {
-    setSelected(amount);
-    copy(`amount-${amount}`, BASE_ADDRESS);
-  };
 
   return (
     <div className={styles.page}>
-      <div className={styles.statLine}>
-        <span className={styles.stat}>
-          <span className={styles.statValue}>{stars ? formatStars(stars) : '—'}</span>
-          <span className={styles.statLabel}>GitHub stars</span>
-        </span>
-        <span className={styles.statDivider}>·</span>
-        <span className={styles.stat}>
-          <span className={styles.statValue}>{GHCR_PULLS_LABEL}</span>
-          <span className={styles.statLabel}>container pulls</span>
-        </span>
-        <span className={styles.statDivider}>·</span>
-        <span className={styles.stat}>
-          <span className={styles.statValue}>2</span>
-          <span className={styles.statLabel}>people building it</span>
-        </span>
-      </div>
-
       <p className={styles.lede}>
         Termix is free and open source, no paywalled features and no "pro" tier. It's built and
         maintained by a two-person team in our spare time, and hosting it for everyone using it
         costs real money every month. If Termix has replaced a commercial tool you'd otherwise be
         paying for, a donation helps cover that and keeps development going.
       </p>
-
-      <div className={styles.amountBlock}>
-        <span className={styles.amountLabel}>Choose an amount</span>
-        <div className={styles.amountRow}>
-          {AMOUNTS.map((amount) => (
-            <button
-              key={amount}
-              type="button"
-              className={`${styles.amountButton} ${selected === amount ? styles.amountButtonActive : ''}`}
-              onClick={() => selectAmount(amount)}
-            >
-              {copied === `amount-${amount}` ? 'Base address copied ✓' : `$${amount}`}
-            </button>
-          ))}
-          <button
-            type="button"
-            className={`${styles.amountButton} ${selected === -1 ? styles.amountButtonActive : ''}`}
-            onClick={() => selectAmount(-1)}
-          >
-            {copied === 'amount--1' ? 'Base address copied ✓' : 'Any amount'}
-          </button>
-        </div>
-        {selected !== null && (
-          <p className={styles.amountHint}>
-            Base address copied. Paste it in your wallet to send{' '}
-            {selected === -1 ? 'any amount' : `$${selected}`}.
-          </p>
-        )}
-      </div>
 
       <div className={styles.preferredCoin}>
         <div className={styles.preferredHeader}>
