@@ -38,6 +38,7 @@ The normal way to add login providers is through Admin Settings, which supports 
 | `OIDC_ALLOWED_USERS`      | `""`                   | Comma-separated list of allowed user identifiers/email patterns. Use `*` for all users, `@example.com` for domain wildcards, or leave empty to allow all. |
 | `OIDC_ADMIN_GROUP`        | `""`                   | OIDC group name whose members are synced as Termix admins on each login. Requires group claims in the token (e.g. request the `groups` scope).            |
 | `OIDC_GROUP_CLAIM`        | `""`                   | Path in the token where group membership lives, used to check `OIDC_ADMIN_GROUP`                                                                          |
+| `OIDC_ROLE_MAP`           | `""`                   | Comma/newline-separated `group:role` pairs (e.g. `devops-interns:devops-intern,devops-seniors:devops-senior`) mapping OIDC groups to Termix RBAC roles, synced on each login. See [OIDC](/features/authentication/oidc#mapping-groups-to-roles). |
 
 Two more variables apply no matter which provider type or setup method you use:
 
@@ -53,7 +54,6 @@ Two more variables apply no matter which provider type or setup method you use:
 | `ALLOW_REGISTRATION` | (from Admin Settings) | Override the Admin Settings toggle for user registration. Set to `true` or `false` to lock the value regardless of what is configured in the UI. |
 | `ALLOW_PASSWORD_LOGIN` | (from Admin Settings) | Override the Admin Settings toggle for password-based login. Set to `true` or `false` to lock the value. |
 | `ALLOW_PASSWORD_RESET` | (from Admin Settings) | Override the Admin Settings toggle for password reset. Set to `true` or `false` to lock the value. |
-| `SALT` | `10` | Bcrypt salt rounds used when hashing passwords. Higher values increase security but slow down login. |
 
 ## Telemetry Configuration
 
@@ -76,6 +76,9 @@ Two more variables apply no matter which provider type or setup method you use:
 | `GUACD_HOST` | `localhost` | Guacamole daemon (guacd) hostname. Ignored when `GUACD_URL` is set. |
 | `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port. Ignored when `GUACD_URL` is set. |
 | `GUACAMOLE_ENCRYPTION_KEY` | (derived from `JWT_SECRET`) | Custom 32-byte or 64-char hex encryption key for Guacamole tokens. Only needed if you need to share tokens across multiple instances. |
+| `GUACD_TUNNEL_HOST` | - | Hostname guacd uses to reach back to Termix for jump/tunnel connections. Needed when guacd runs in its own container (e.g. `termix` in Docker Compose setups). |
+| `GUACD_RECORDING_PATH` | `{DATA_DIR}/session_recordings/guacamole` | Path where guacd writes session recordings. Only needed when guacd runs in a separate container — must point at guacd's mount point for the shared recordings volume. |
+| `GUACD_RECORDING_BACKEND_PATH` | `{DATA_DIR}/session_recordings/guacamole` | Path where the Termix backend reads session recordings from. Must be the backend's mount point for the same shared volume as `GUACD_RECORDING_PATH`. |
 
 ## Docker Configuration
 
@@ -105,6 +108,14 @@ Two more variables apply no matter which provider type or setup method you use:
 | `BASE_PATH` | `""` | Server-side base path prefix used when building OIDC callback URLs (e.g., `/termix`). Must match `VITE_BASE_PATH`. See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
 | `VITE_BASE_PATH` | `/` | Base path for the web application (build-time variable). See [Reverse Proxy](/setup/reverse-proxy#changing-base-path) for details. |
 
+## Other Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SESSION_RECORDING_RETENTION_DAYS` | `30` | Days to keep terminal/Guacamole session recordings before cleanup (1-3650). Overridden by the Admin Settings retention value when that's set. |
+| `SNIPPET_EXECUTION_TIMEOUT_SECONDS` | (no timeout) | Timeout for snippet execution jobs, in seconds. |
+| `ALLOW_EMPTY_DATA_DIR` | `false` | Bypasses the startup safety check that blocks launching with an unexpectedly empty `DATA_DIR` when an existing database is found elsewhere. Only set this if you intend to start fresh. |
+
 ## Advanced Security Configuration
 
 These variables control internal key derivation for OIDC token and WebAuthn credential encryption. They are optional and only needed in multi-instance deployments where you need keys to be consistent across nodes.
@@ -116,7 +127,7 @@ These variables control internal key derivation for OIDC token and WebAuthn cred
 
 ## Notes
 
-- **Auto-Generated Secrets**: Security keys (`JWT_SECRET`, `DATABASE_KEY`, `INTERNAL_AUTH_TOKEN`) are automatically generated on first startup and stored in `{DATA_DIR}/.env`. Do not manually set these unless restoring from backup.
+- **Auto-Generated Secrets**: Security keys (`JWT_SECRET`, `DATABASE_KEY`, `INTERNAL_AUTH_TOKEN`, `ENCRYPTION_KEY`) are automatically generated on first startup and stored in `{DATA_DIR}/.env`. Do not manually set these unless restoring from backup.
 - **Environment File Locations**:
   - Primary: `.env` in application root
   - Persistent: `{DATA_DIR}/.env` (auto-generated secrets stored here)

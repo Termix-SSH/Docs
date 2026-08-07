@@ -14,6 +14,10 @@ A host can only be shared if it uses a saved credential for auth, not a typed in
 
 Sharing works the same way for SSH, RDP, VNC, and Telnet hosts.
 
+:::info
+If you sign in through OIDC, roles can also be assigned automatically based on your provider group membership. See [group-to-role mapping](./oidc#mapping-groups-to-roles) on the OIDC page.
+:::
+
 ## Step 1:
 
 With an Admin user (such as the initial user) visit the Admin Settings using the button in the bottom left after logging in, the button with your username on it.

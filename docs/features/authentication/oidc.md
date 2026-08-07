@@ -37,6 +37,19 @@ This page covers setting up a generic OIDC provider in Termix. Use this for any 
 | Allowed Users | A comma separated list of usernames or email patterns allowed to sign in. Leave empty to allow anyone who can log in to the provider |
 | Admin Group | If set, users in this group are made admins. This is checked on login, using the value of Group Claim |
 | Group Claim | The path in the token where group membership lives. Your provider must include this in the token, which usually means requesting a `groups` scope |
+| CA Certificate | Optional. A PEM-encoded CA certificate, for providers using a private or self-signed CA. Leave empty to use the system trust store |
+
+## Mapping groups to roles
+
+Beyond the single Admin Group, you can map multiple provider groups to specific Termix roles. This isn't yet exposed as an Admin Settings field — set it through the `OIDC_ROLE_MAP` environment variable, or by adding `role_map` directly to the provider's config.
+
+The value is a comma or newline separated list of `group:role` pairs, for example:
+
+```
+devops-interns:devops-intern,devops-seniors:devops-senior
+```
+
+On every login, Termix compares the user's provider groups (from Group Claim) against this map and syncs matching role assignments. Only roles named in the map are touched — this doesn't affect the Admin Group sync or any roles assigned by hand. Role names must match an existing Termix role's name exactly. Malformed pairs are skipped rather than blocking login.
 
 ## Registering Termix with your provider
 
@@ -139,6 +152,7 @@ Admin Settings is the normal way to add a provider, but Termix also supports con
 | `OIDC_ALLOWED_USERS` | No | Same as Allowed Users above |
 | `OIDC_ADMIN_GROUP` | No | Same as Admin Group above |
 | `OIDC_GROUP_CLAIM` | No | Same as Group Claim above |
+| `OIDC_ROLE_MAP` | No | Same as the group-to-role mapping described above |
 
 Two more environment variables apply no matter how a provider was set up:
 
