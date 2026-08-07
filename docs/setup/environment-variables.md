@@ -55,6 +55,12 @@ Two more variables apply no matter which provider type or setup method you use:
 | `ALLOW_PASSWORD_RESET` | (from Admin Settings) | Override the Admin Settings toggle for password reset. Set to `true` or `false` to lock the value. |
 | `SALT` | `10` | Bcrypt salt rounds used when hashing passwords. Higher values increase security but slow down login. |
 
+## Telemetry Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ENABLE_TELEMETRY` | `true` | Enable the anonymous daily usage heartbeat. Set to `false` to disable telemetry entirely, including before the first launch. When set, this overrides and locks the Admin Settings toggle. |
+
 ## Database Configuration
 
 | Variable | Default | Description |
