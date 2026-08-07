@@ -1599,7 +1599,7 @@
     "/users/analytics-enabled": {
       "get": {
         "summary": "Get analytics enabled setting",
-        "description": "Returns whether anonymous usage telemetry is enabled.",
+        "description": "Returns whether anonymous usage telemetry is enabled, and whether the value is locked by the ENABLE_TELEMETRY environment variable.",
         "tags": [
           "Users"
         ],
@@ -1612,6 +1612,9 @@
                   "type": "object",
                   "properties": {
                     "enabled": {
+                      "type": "boolean"
+                    },
+                    "locked": {
                       "type": "boolean"
                     }
                   }
@@ -1648,6 +1651,9 @@
           },
           "403": {
             "description": "Not authorized."
+          },
+          "409": {
+            "description": "Setting is locked by the ENABLE_TELEMETRY environment variable."
           },
           "500": {
             "description": "Failed to update setting."
@@ -3448,6 +3454,26 @@
         }
       }
     },
+    "/sync/tombstones": {
+      "post": {
+        "summary": "Report a deletion from the other side of a sync pair",
+        "description": "Applies a remote deletion locally (if the row still exists) and records the tombstone so future pulls stay consistent.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletion applied (or row already absent)."
+          },
+          "400": {
+            "description": "Unknown entity type or missing syncId."
+          },
+          "500": {
+            "description": "Failed to apply deletion."
+          }
+        }
+      }
+    },
     "/sync/{entityType}/tombstones": {
       "get": {
         "summary": "Pull deletion tombstones for an entity type",
@@ -3481,26 +3507,6 @@
           },
           "500": {
             "description": "Failed to fetch tombstones."
-          }
-        }
-      }
-    },
-    "/sync/tombstones": {
-      "post": {
-        "summary": "Report a deletion from the other side of a sync pair",
-        "description": "Applies a remote deletion locally (if the row still exists) and records the tombstone so future pulls stay consistent.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Deletion applied (or row already absent)."
-          },
-          "400": {
-            "description": "Unknown entity type or missing syncId."
-          },
-          "500": {
-            "description": "Failed to apply deletion."
           }
         }
       }
@@ -4255,7 +4261,7 @@
     "/rbac/host/{id}/share": {
       "post": {
         "summary": "Share a host",
-        "description": "Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). Allowed for the host owner or recipients holding the manage level. Every auth type is shareable; per-recipient secret snapshots are created automatically.",
+        "description": "Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). SSH authentication remains private to the owner; recipients may select one of their own saved SSH credentials.",
         "tags": [
           "RBAC"
         ],
@@ -4409,9 +4415,6 @@
           },
           "400": {
             "description": "Invalid request body."
-          },
-          "404": {
-            "description": "Folder has no hosts."
           },
           "500": {
             "description": "Failed to share folder."
@@ -4902,6 +4905,31 @@
         "description": "Retrieves snippets shared with the current user.",
         "tags": [
           "RBAC"
+        ]
+      }
+    },
+    "/rbac/host-access/{hostId}/auth/{protocol}": {
+      "put": {
+        "summary": "Set personal authentication for a shared host protocol",
+        "description": "Selects one of the authenticated recipient's own credentials, or clears the selection with null. Only SSH is currently supported.",
+        "tags": [
+          "RBAC"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get the current recipient's shared-host protocol authentication override",
+        "tags": [
+          "RBAC"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ]
       }
     },
@@ -8104,6 +8132,88 @@
           },
           "500": {
             "description": "Failed to fetch audit log actions."
+          }
+        }
+      }
+    },
+    "/audit-logs/export": {
+      "get": {
+        "summary": "Export audit logs",
+        "description": "Streams the full filtered result set as CSV or NDJSON. Accepts the same filters as GET /audit-logs. Admin only. The export is itself audited.",
+        "tags": [
+          "Audit"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "csv",
+                "ndjson"
+              ],
+              "default": "csv"
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "action",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "resourceType",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "success",
+            "schema": {
+              "type": "string",
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit log file."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to export audit logs."
           }
         }
       }
