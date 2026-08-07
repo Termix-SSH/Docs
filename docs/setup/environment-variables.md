@@ -77,7 +77,7 @@ Two more variables apply no matter which provider type or setup method you use:
 | `GUACD_PORT` | `4822` | Guacamole daemon (guacd) port. Ignored when `GUACD_URL` is set. |
 | `GUACAMOLE_ENCRYPTION_KEY` | (derived from `JWT_SECRET`) | Custom 32-byte or 64-char hex encryption key for Guacamole tokens. Only needed if you need to share tokens across multiple instances. |
 | `GUACD_TUNNEL_HOST` | - | Hostname guacd uses to reach back to Termix for jump/tunnel connections. Needed when guacd runs in its own container (e.g. `termix` in Docker Compose setups). |
-| `GUACD_RECORDING_PATH` | `{DATA_DIR}/session_recordings/guacamole` | Path where guacd writes session recordings. Only needed when guacd runs in a separate container — must point at guacd's mount point for the shared recordings volume. |
+| `GUACD_RECORDING_PATH` | `{DATA_DIR}/session_recordings/guacamole` | Path where guacd writes session recordings. Only needed when guacd runs in a separate container; must point at guacd's mount point for the shared recordings volume. |
 | `GUACD_RECORDING_BACKEND_PATH` | `{DATA_DIR}/session_recordings/guacamole` | Path where the Termix backend reads session recordings from. Must be the backend's mount point for the same shared volume as `GUACD_RECORDING_PATH`. |
 
 ## Docker Configuration
