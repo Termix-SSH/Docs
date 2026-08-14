@@ -5,7 +5,7 @@ description: "Adds a shortcut for a specific host."
 sidebar_label: "Add shortcut"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVE1v2zAM/SsGz1rire2G+ZZuK9oBw4omww5BMDAWE6u1JVeiuwRG/vtA2U29Jijig79IPlKPfGxBU8i9qdk4CxlMtA4JJqFwnvOGk5Xz8llTblYmTwoXeAQKGNcBsjlMp9ewUODpsaHAl05vIWvjp/GkIWPfkILcWSbLYsK6Lk2Okm18HyRlCyEvqEJ5421NkIFb3lPOoKD2ribPhoJYJfmNHvgZy7QmDzsFNXIxsAT2xq7FYLGiI4Z4SeGhdjZ0+B/SVB7/EzJ9ZgK1Jj0SyPNjfjf2CUujE42Mvdfnt9BKT6i3CW1M4BADLo7BXqEpSSfsJP++LSOQ4iviwmnIoHYhshU5gHEIxXhlSvpTocU1+fFzWAAFgfwTeWleC40vIYOCuc7G49LlWArF2Vmapu9BvarkBxobT7fEQAlanWDDBVnu25l0yLBTbwKfHQBPp9cJN9ZSmXQFV2T5RLTzo2hy+B7Lnwh0cQgU45LAyCawyUM8c+WsYSczdCLwxwPgrxiKpUOvT0T4dIjg8gfyx9haSIPzxhvexg4vCT35SSODMV8MzVMRXTf3Q6e9UKQUGZfoBlnvBKp/uXK+QoYMvv+exWEUMd+9rIFvG6zqkoayTfcT2ovwWZwDtRq7crEIwxIMM/KV2SST2xtQIHPbEZCO0lF6QEvvfIn5A1ktQckdrciTzSnuCBe4wrhy+sSTgaZew7Uva+vkrdhRx7ThcV2isZI1drbtjz6HEApQMJSnsLwX6EJFvsSzbUVpv3y528nvx4a8NHWh4Am9waUQNF/sFBSEmnzs9wNtIYMvXeHvZlKPuJeN1HWwe2Ue9kvk9ud0Ju3td3jltMR4/Asq3jMABS6SE6cm/muhRLtucC2+HaZc/wA9aSsd
+api: eJyVVVFP20AM/isnP2dtGLBpeSvbEEyahlamPVTV5Obc5iC5C3cOaxX1v0++hBJohbo8tElsf/Z99ue0oCnk3tRsnIUMJloHhSoUznPesFo6L4815WZpclW4wCNIgHEVIJvBdHoF8wQ8PTQU+MLpDWRtfDSeNGTsG0ogd5bJspiwrkuTo2Qb3wVJ2ULIC6pQ7nhTE2TgFneUMyRQe1eTZ0NBrJL8Wg/8jGVakYdtAjVyMbAE9sauxGCxogOGeEnhoXY2dPjv01T+XhIyfWICtSY9EsizQ37X9hFLo5VGxt7r01topSfUG0VrEzjEgPNDsJdoStKKneTftWUEUnxFXDgNGdQuRLYiBzAWnsZLU9KfCi2uyI+f4gIkEMg/kpfutdD4EjIomOtsPC5djqXEZqdpmp5A8qqU72hsPN4CAym0WmHDBVnu+6k6ZNgmbwKf7gFPp1eKG2upVF3BFVk+Eu3sIJocvsfyRwKd7wPFOBUY2QQ2eYhnrpw17GSIjgT+sAf8BUOxcOj1kQgf9xFcfk/+v9k62W/qlLzBUuXOWspfdHEuo5I33vAmzsqC0JOfNDJjs/nQPBX9dhIaOu00J6XI4EU3yHonSPqbS+crZMjg2+/bONeyF34+b5Sva6zqkoYbIN0Ne6/nJ50PhG/s0sUiDEsw3JKvzFpNbq4hAVFAR0A6SkfpHi298wXm92S1BKmftCRPNqe4blzgCuP26hNPBvJ8Ddc+b8CjF2xHHdOax3WJxkrW2Nm2P/ossgEJDJUuNO+0Pk86l2wGbSui/eXL7VZePzTkpavzBB7RG1wIQ7P5NoGCUJOPDb+nDWTwuav83a0UJO5lI4Xt7XEZiN1CuvkxvZX+9t+DymmJ8fgXkvibASTgIjtxbOK7Fkq0qwZX4tthyvUPhWZFfw==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ssh/file_manager/shortcuts"}
+  path={"/host/file_manager/shortcuts"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Adds a shortcut for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"},"name":{"type":"string"}}}}}}}
+  {...require("./add-shortcut.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Shortcut added."},"400":{"description":"Invalid data."},"409":{"description":"Shortcut already exists."},"500":{"description":"Failed to add shortcut."}}}
+  {...require("./add-shortcut.StatusCodes.json")}
 >
   
 </StatusCodes>

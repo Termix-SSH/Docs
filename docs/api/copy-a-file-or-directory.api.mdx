@@ -5,7 +5,7 @@ description: "Copies a file or directory on the remote host."
 sidebar_label: "Copy a file or directory"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVdtu2zAM/RWBz17i3QG/7VasA4YVa4c9FMHAyGys1ZY8kt4aGPn3gXLapE0wFPNDYlPUMXl0Dj1CTeI59BpShArepT6QOHRXoSWX2NWByWvitUvRaUOOqUtKrkmiMyhAcSVQXcKJ5X/GiCtiWBTA9Gsg0bepXkM15sfAVEOlPFABPkWlqLaEfd8Gj1bA/KdYFSOIb6hDu9N1T1BBWv4kr1BAz6kn1kCS80gkpHha76WKcogr2BQgaWBPZ6jN0WVFXpG+D3x01Rq8hxuikjW3KWAQ4qPvzJc1L32KMtX4rCzt7z7Pp0qd80Z27WTwnkSuhrZdzwz+xbEdn4NIiCt3y6TrkbEjJRY7p/Pzj86nGMlbvotJHYnisg3SUJ1hXx6DPcHQUu00WTVrF5S6GVgPHWmTaqigT5KJzzTCXKSZmzh+dNNh54DttZagACH+TWyaGGHgFipoVPtqPm+Tx9ZYrZ6XZfkUiocNYoiuRsUlCjmMtcNBG4q6FYebkGFT/BP4+QGwUaNDjNS6qeaOoj4S7cVRtGyObf+PBHp5CJT3OVHUIBq85J67FIMmU9MjgV8dAL9HaZYJuX4kwutDhOSviY+xtbAD9gMHXecTXhIy8ZvBtHG52F8+NwtPDthPurOMlWJyyWlQbZOg2N6cJO5QoYJP3y+yHm00fN0NlQ832PUtPRgCt0a87/1ddM/yu+Ct08udsffmQIhXKZcd1F4HF8RduHFvzk6hAFP6RFk5K2flAZHb5LforynWtsl9pStiip4M3LzVYR55ETMN78yFR8bvQ+hxN0L/Y2hPR6B0o/O+xRDzUDOFjFufX4JIAwXsO91YzcE7ty8m8ix9HM2237jdbCz8ayA2hSwK+I0ccGncXS5srhLWxFk817TO1ec+nlxYUZbeDlbcwWfBxHU3lM6+nF+YVrafly7VtofxDxT5twIoIGWusgRzbIQW42rAleVOmHb9BbOsakA=
+api: eJydVU1v20gM/SsDnrW2+rmAbmm7wWaBokGdoofAKOgRY00jzagk1Y0h+L8XHDmxExuLbHWwJQ7niXzz+DRCTeI59BpShArepz6QOHQ3oSWX2NWByWvijUvRaUOOqUtKrkmiMyhAcS1QXcO55X/EiGtiWBbA9GMg0Xep3kA15sfAVEOlPFABPkWlqLaEfd8Gj1bA/LtYFSOIb6hDu9NNT1BBWn0nr1BAz6kn1kCS80gkpHhRH6SKcohr2BYgaWBPl6jNyWVFXpN+CHxy1Rp8hBuikjW3LWAQ4pPvzJc1L32KMtX4sizt7zHPF0qd80Z27WTwnkRuhrbdzAz+9akdH4NIiGt3z6TrkbEjJRY7p8Xib+dTjOQt38WkjkRx1QZpqM6wb07BnmNoqXaarJqNC0rdDKyHjrRJNVTQJ8nEZxphLtLMTRzfuumwc8D2WktQgBD/JDZNjDBwCxU0qn01n7fJY2usVq/KsnwBxdMGMURXo+IKhRzG2uGgDUXdicNNyLAt/hP41RGwUaNDjNS6qeaOoj4T7fVJtDwcu/6fCfTmGCjvc6KoQTR4yT13KQZNpqZnAr89Av6A0qwScv1MhD+PEZK/Jf7fbL04PtQFccD2UJn3SEuTih846CZrZUXIxGeDqex6ebi8MDOYZukw6WH4rBQTXk6DapcExe7mPHGHChX88/UqK9tM5vPenv66w65v6Ymd3I/0YxfZRw/MYx+894xybxEHjhLiTcplB7XXwRVxF+7c2eUFFGAzM1FWzspZeUTkLvkd+luKtW1yn+mGmKInA7cp7TCbZ8RMw3ub5xNG/hR63Jvxb9j/dARKdzrvWwwx26MpZNw5xjWINFDAoWcYqzn44BvLiTxLH0czgC/cbrcW/jEQm0KWBfxEDrgy7q6X5tCENXEWzy1tcvW5jz+urChLbwcr7ugDY+J6sLfLT4sr08ruQ9Wl2vYw/gtF/q0ACkiZqyzBHBuhxbgecG25E6ZdvwAg0oPC
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Copies a file or directory on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"sourcePath":{"type":"string"},"targetDir":{"type":"string"},"hostId":{"type":"integer"},"userId":{"type":"string"}}}}}}}
+  {...require("./copy-a-file-or-directory.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Item copied successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to copy item."}}}
+  {...require("./copy-a-file-or-directory.StatusCodes.json")}
 >
   
 </StatusCodes>

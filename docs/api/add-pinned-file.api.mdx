@@ -5,7 +5,7 @@ description: "Adds a file to the list of pinned files for a host."
 sidebar_label: "Add pinned file"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVO9v0zAQ/Ves+2zawDYQ+dYB04aEmNYhPlQVusbXxltiZ/ZlrIr6v6NzwhbWgibyIb/u+fn87t51YCgWwTZsvYMcZsZEhWptK1LsFZekKhtZ+bVqrHNkUiiqtQ8KVekjT0AD4yZCvoD5/ByWGgLdtRT51Jst5F36tIEM5Bxa0lB4x+RYQtg0lS1QNp/eRMmgg1iUVKO88bYhyMGvbqhg0NAE31BgS1GisvmFGeGsY9pQgJ2GBrkcRSIH6zYScFjTgUC6JPHYeBd7/jdZJo8/9TkTYXolJsJ3fAh04e6xskYZZBxQ7/9ChVUgNNsx5cnBfdFWZKQkjXWpBhOQjGvi0hvIofExSZQODtMYy6mgftTocENh2m8AGiKFewpSrg7aUEEOJXOTT6eVL7ASUfOjLMteg36Wwhe0Lh1phZEUOqOw5ZIcDwVUPTPs9D+Jj/aI5/Nzxa1zVKk+25ocv5Dt+CBbat/h5C8kOtknSutUZGQb2RYxnbn2zrKXrnkh8ds94o8Yy5XHYF7I8G6fwRe3FA6ptZQCF22wvE0VXhEGCrNWumKxHIfnYrO+08egR2tIKtIuCQb5AAI9vJz5UCNDDp+/X6dOFPtePRn/0wPWTUVjo2aP7TnY7rcdR/60bu1TEpZlMVxTqO2Dml1egAbp216AbJJNsj1ZBvApFrfkjCxSV7SmQK6gNBV85BrTkBk2nhkznmvPGbunWfW/k7EXk+mBp02F1kkeqdbdIMYCYixBw9itYuTer0ud5BNY14nxvoVqt5Pfdy0FqfFSwz0GiyvRa7HcaSgJDYVU/lvaQg4f+kO8upZkBF61ktTe8JX2eBwol1/n11LtYYjX3siagD9Bp3sOoMEnoVITpX8dVOg2LW4E23PK9Quedi15
+api: eJydVVFv00AM/isnP4c2YxuIvHXAtCEhJjrEQ1UhN+c2t13usjtnrIr635EvYcvWgQZ5SNLY/uz77M/tQFMsg2nYeAcFzLSOCtXaWFLsFVekrIms/Fo1xjnSyRTV2geFqvKRJ5AB4yZCsYD5/AyWGQS6aSnyiddbKLr00wTSUHBoKYPSOybHYsKmsaZEST69ilJBB7GsqEZ5421DUIBfXVHJkEETfEOBDUWxSvJzPfIzjmlDAXYZNMjVyBI5GLcRg8OanjGkSwqPjXexx3+d5/J4zM+pENMzMRG8o+eczt0tWqOVRsbB690foNAGQr0dQx4/mxeNJS0taYxLPZiAVFwTV15DAY2PiaJ0cJgKOVNx+1Gjww2FaZ8BMogUbilIvzpog4UCKuammE6tL9FKYHGY5/kBZE9q+IzGpTOtMJJCpxW2XJHjoYOqR4Zd9lfgwz3g+fxMcescWdVXW5PjF6IdPYuW5nc4+QuBjveBUpyKjGwimzKmM9feGfYyNi8EfrMH/AFjtfIY9AsR3u4j+PKawj+zdbDf1DkFg1aV3jkqH3VxKaNStsHwNs3KijBQmLUyYIvl2DwXxfaiGTvdq0xKkcFLblAMTpANL6c+1MhQwKfvl2moZRN8fdghH++wbiyNNZ/fT/qg4N/KHknduLVPRRiWYLikUJs7Nbs4hwxEAT0B+SSf5Hu0DM4nWF6T0xKkvtKaArmS0oLxkWtM+2pIPNN6vCKfInYPa+9/l2xPJtMdTxuLxkkdqdfdQMYi8QMZjIUvS6GX/jLr7cUCuk40/C3Y3U4+37QUpMnLDG4xGFwJYYvlLoOKUFNI/b+mLRTwvj/Fq0upRtxtK1XtLXKZj/vldPFlfintHv4Qaq8lJuBPyNK9AMjAJ6bSFKVvHVh0mxY34ttjyvUL7RtH2w==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ssh/file_manager/pinned"}
+  path={"/host/file_manager/pinned"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Adds a file to the list of pinned files for a host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"},"name":{"type":"string"}}}}}}}
+  {...require("./add-pinned-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"File pinned."},"400":{"description":"Invalid data."},"409":{"description":"File already pinned."},"500":{"description":"Failed to pin file."}}}
+  {...require("./add-pinned-file.StatusCodes.json")}
 >
   
 </StatusCodes>

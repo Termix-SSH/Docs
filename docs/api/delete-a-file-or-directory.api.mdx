@@ -5,7 +5,7 @@ description: "Deletes a file or directory on the remote host."
 sidebar_label: "Delete a file or directory"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVWFP2zAQ/SvWfc7absAm5dsYoDENCQ2mfaiq6RofjcGxg++yUUX979M5gRVaTWj50Cb288v5+b1LD5a4Sq4VFwOUcEKehNiguXGeTEzGukSVxLQ2MRipySRqopCpI8sEChBcMZRzOFP8BQZcUYJFAYnuO2I5jnYNZZ8fXSILpaSOCqhiEAqiU9i23lWoFUxvWcvogauaGtQ7WbcEJcTlLVUCBbQptpTEEWccMbsYzu0WlCW5sIJNAS1KvXfC8cnjtrbmlzF6wgCbfOkWuI2Bhze9m83077lc50KNsVkza7irKmK+6bxfT/Qth/uWXDhmF1bmURDTYsKGhBKr3FdXn00VQ6BK8SZEMcSCS++4JjvSHuzSXlJqXNbCWApuhB7tq+AMnSdrJI6VGyfUTEB33JDU0UIJwww8SghT5nqqlvjZDEecBwaUigAFMKVflNQLPXTJQwm1SFtOpz5W6NUu5cFsNnsLxUtF0AVjUXCJTAaDNdhJTUFGU5iBGTbFP4kPdohVS+lCIG+GqhsK8kq2w71sORSjAq8kOtolyusMC4pjcRXnPTcxOIlq0FcSv98hPkGulxGTfSXDh12GWN1R2qfWQg+46pKTdT7hJWGi9LFTd8wX29NXGt0hM9ugp5RpKWqXDNPUZRAU481ZTA0KlPDlx3X2pLaEb3+byekDNq2nF+F/zPaTYZ+en0Vde4/GP9zEXJETZYJrDc+D+Xh5DgWoiQc1ZpPZZLaj0Qg+xuqOgtVF5hvdUKJQUW46kaXB3MUC5h0OTXVfT31J3v/ti//TigeBhR5k2np0QcvJ59+PssyBuYYCtpOsZ5EHt9K8KEBJdUHfayy/J7/Z6PB9RyrkfFHAL0wOlyrgfLEpoCa0lLI57mgNJXwatvLmWstSuO+0vJ12r+Z5ajwnp19Pr0/VDeOHo4lWVyX8DUX+LQEKiFmwbLI81oPHsOpwpdiBVa8/K5NeJg==
+api: eJydVe9v0zAQ/Ves+xzawvgh5dtgmxhi0rQN8aGq0DW+NWaOHXyXsSrq/47OSUdZKzTIhzaxn1/Oz+9eerDEVXKtuBighBPyJMQGza3zZGIy1iWqJKa1icFITSZRE4VMHVkmUIDgiqGcw5niLzDgihIsCkj0oyOW99Guoezzo0tkoZTUUQFVDEJBdArb1rsKtYLpd9YyeuCqpgb1TtYtQQlx+Z0qgQLaFFtK4ogzjphdDOd2B8qSXFjBpoAWpT444fhku62d+WWMnjDAJl+6BW5j4OFNr2Yz/ftTrnOhxtismTXcVRUx33beryf6lteHllw4ZhdWZiuIaTFhQ0KJVe7r64+miiFQpXgTohhiwaV3XJMdaY/2aS8pNS5rYSwFN0LfHKrgDJ0naySOlRsn1ExAd9yQ1NFCCcMMbCWEKXM9VUt8a4YjzgMDSkWAApjSPSX1Qg9d8lBCLdKW06mPFXq1S3k0m81eQvFUEXTBWBRcIpPBYA12UlOQ0RRmYIZN8Vfioz1i1VK6EMiboeqGgjyT7fVBttwUowLPJHqzT5TXGRYUx+IqzntuYnAS1aDPJH67R3yCXC8jJvtMhnf7DLG6o/TPar3cP9RrSg79rpW3TAu1StUlJ+vslSVhonTcqc/mi93paw2Boft2QY/9qqWo8TJM+zeDoBhvzmJqUKCET19vsrs1XK5+x9LpAzatpycxsk2JR+s/Pv8RGppiGiThNuaKnCgT3GgbPpjjy3MoQNthUGM2mU1mexqN4PdY3VGwushc0S0lChXl+IosDeY8DJh3OMTzoXR+St7/Ttj/CfVBYKEHmbYeXdBy8vn3oyxzYK6hgN1M0LPIgzu5sChASXVB32uDf0l+s9HhHx2pkPNFAfeYHC5VwPliU0BNaCllc9zRGkr4MGzlxY2WpXDfaXl7Hw41z2OEnZx+Pr05VTeMn6AmWl2V8CcU+bcEKCBmwbLJ8lgPHsOqw5ViB1a9fgHhVHeo
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Deletes a file or directory on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"isDirectory":{"type":"boolean"}}}}}}}
+  {...require("./delete-a-file-or-directory.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Item deleted successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"403":{"description":"Permission denied."},"500":{"description":"Failed to delete item."}}}
+  {...require("./delete-a-file-or-directory.StatusCodes.json")}
 >
   
 </StatusCodes>

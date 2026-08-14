@@ -5,7 +5,7 @@ description: "Shares a snippet with a user or role."
 sidebar_label: "Share a snippet"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk9tq20AQhl9lmevFUkkPsHdOS2kLpSFO6YXRxXg1tpZIu+rsKE0QevcysmjSOBT3Tod/vjn+I9SUPYdeQorgYNMgUzZocgx9T2J+BWkMmiETm8SGU0srsCB4yOC2cH25fg+VhY6kSTU46FMWsNCjNOCg4B36YmEVY6inImsGsJCJ74gVMsLALThoRHpXFG3y2DYpi7soy/IV2GclfsUQTY2CO8xkMNYGB2koSvCoEnMkw2T/Cb44AW82n4wMMVJrOox4oI6inEl7/SJtH1paWHwm6M0paI4zWVBCluDz3HOXYpDEIR7OBL89AX/A3OwScn0m4d0pIflb4pemVemC/cBBHuYN7wiZeD3oVWyrp783vqGOMri/RSPIQ09LKXouswzcIgK7PHxM3KGAgy8/bmCaLIS4T3N4kFb1N8RduDfrq89gQS/uWHq5KlflSUOL+BL9LcVag8w17YkpeoLJztfdYVR+xLmc2TCPfnlOHMGnKBTlf7x1bFzoXoq+xRA187yXcfHVFtRXOpU/WV2o9X02V2VBl6a6cVSXfOd2mvTzz4FYF1JZuEMOuNMRbavpiYGvvm10kL8BLU5k3g==
+api: eJyVlNtunDAQhl/FmmtrIUoPku82raK0UtUopOrFiovBzC5WwKbjIU2EePfKLGoOVNXmDvDvb44/I9QULbteXPBgoGiQKSpU0bu+J1G/nTQK1RCJVWDFoaUNaBA8RDA7uLnYfoJSQ0fShBoM9CEKaOhRGjCQcYU2W1jZ6OopiykCaIjE98QJMsLALRhoRHqTZW2w2DYhijnP8/wM9KsUv6HzqkbBCiMp9LXCQRry4iwmiTqSYdL/BZ+vwEVxpWTwnlrVoccDdeTlRNq7f9L2rqWFxSeC3q9B8z0VBcVFcTbONXfBOwns/OFE8IcV+DPGpgrI9YmEj2tCsHfEb+7W2XqoBbHDVtngPdkXUyzTqtiBnTzOu1IRMvF2SPu1K58fF7ahjiKYl6IR5LGnJZW0eLMMzCICvTxcBu5QwMDXn7cwTRqc34f5upM26W+JO/egttdfQEPa3WPq+Sbf5KuCFvEF2jvydbqkbmhPTN4STHr2SYc+8T3O6czWe3Lea+IINnghL29x6bFwoQfJ+hadT5HnuYyLQ3eQHJq68jeqcXV6n21aakhDS7pxTH77we00pc+/BuI0kFLDPbLDKrVoV07PfgXX34vUyD8Jun5g
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,24 +39,17 @@ import Heading from "@theme/Heading";
 
 Shares a snippet with a user or role.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./share-a-snippet.RequestSchema.json")}
 >
   
 </RequestSchema>
 
-<StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={undefined}
->
+<StatusCodes>
   
 </StatusCodes>
 

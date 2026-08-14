@@ -5,7 +5,7 @@ description: "Retrieves a list of roles for a specific user."
 sidebar_label: "Get user's roles"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlE1r20AQhv/KMpe2sNhqk7Sgm9M2aQqF4qT0YHQYr0bWEmlX2R2FGKH/XkZSEqd2g+lJq9U7j+a7g5yiCbZh6x2ksCQOlu4pKlSVjax8oYKvKKrCB4UqNmRsYY1qI4UZaGDcREhXsDxffIZMQ4MBa2IKctuBFWiDXIIGhzVBCmJ5lYOGQHetDZRDyqElDdGUVCOkHfC2EWXkYN0G+j4TcWy8ixTl+4ckkcdL1xcvHZ5Br+E0OTkgNIZiVDk5S/kgOzvEu0BbUa7Yqw3xEO8TuNdQE5c+hxQ2xKDHEFOYhzWauWjjvBsD7eeDFWiIFO4f89KGClIomZt0Pq+8war0kdOTJEneg/7Lkx9oncqRcY2RFLpcYcslObYGRaJGMvT6VfDJHvj6+pvi1jmqVI0ON1ST4yNppwdpha1oYoUjQWf7oMFORUa2ka2JQ8y1d5a9dMSR4I974C8Yy7XHkB9J+LRP8OaWwqFsZVJg0wbL26HCa8JAYdFKX6yy3c/X0udjI++KntpeXIFpHOR9FIGeDhc+1MiQwvffN0MrWlf4wdxyJfobCrV9UIufV6BBOm50PZkls2QvoEl8juaWXC5GakkFBXKGZDQaH7lGJ/xpfi+naXgT1WNnv0B2YLxjcvxf62RMAdMDz5sKrRMfhgp104ytQGYM9LBH5Ofp80IZ3Mk0SAFF2XUyMb9C1fdyfddSkOJkGu4xWFxLulYd5DbKOYe0wCrSK/G8XU476536l7PTJbqtZB+rVt5Awy1tn5dfn+2ukMuvUsg/grbhCw==
+api: eJydVE1v00AQ/SuruQDSKnFpC5JvKdBSJCSUFHGIcpisx/Gq9q67O64aWf7vaGy3TUipAiev12+e33y8aSGjaIKt2XoHKcyJg6V7igpVaSMrn6vgS4oq90GhijUZm1ujmkhhAhoYNxHSJcwvZp9gpaHGgBUxBbltwQppjVyABocVQQoSeZ2BhkB3jQ2UQcqhIQ3RFFQhpC3wthZk5GDdBrpuJeBYexcpyvf3SSKPfemzfcET6DScJacvAI2hGFVGzlLWw85f4rtEW1Km2KsNcZ/vE3GnoSIufAYpbIhBDymmMA1rNFPBxmk7JNpN+yjQECncP9alCSWkUDDX6XRaeoNl4SOnp0mSnID+Q8l3tE5lyLjGSApdprDhghxbgwJRAzN0+lXi0wPixeKr4sY5KlWFDjdUkeMj2c5eZMttSSNXOJLo/JCoj1ORkW1ka2Kfc+WdZS8TcSTxhwPizxiLtceQHcnw8ZDBm1sK/1ytk8OmLihYLJXxzpHZ6+JKRsU0wfK2n5U1YaAwa2TClqvdzwtxzGCJXdCTgUQKjMaS9wEEejxc+lAhQwrfft30Q21d7vtwy6XgbyhU9kHNflyDBpndQXoySSbJQUIj+ALNLblMgtSccgrkDInJah+5Qif84ya4Gn31JqpHj+xRtmC8Y3L8X4tpKAHTA0/rEq0TDX2H2tGtSxC3gu43kvw8fV5NvZyVBmmgINtWvPczlF0n13cNBWnOSsM9BotrKdeyhcxGOWeQ5lhGeiWft/Nx+71TfxM7XqLbSvWxbOQNNNzS9nmNdqvdZXT1RRr5G52W+o0=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieves a list of roles for a specific user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-users-roles.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-users-roles.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of roles."},"403":{"description":"Access denied."},"500":{"description":"Failed to get user roles."}}}
+  {...require("./get-users-roles.StatusCodes.json")}
 >
   
 </StatusCodes>

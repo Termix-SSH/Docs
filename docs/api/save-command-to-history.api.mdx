@@ -5,7 +5,7 @@ description: "Saves a command to the command history for a specific host."
 sidebar_label: "Save command to history"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVF1v2zAM/CsCn7XEXdsN8Fu7rVgHDCuWDnsIgoGRmVitLLkSnTUw8t8HKm6aLsUQYH7wl6jT8chjDxUlE23LNngoYYIrSgqVCU2DvlIcFNe0+6xt4hDXahGiQpVaMnZhjapD4hFoYFwmKKdwS7GxHh3MNER66CjxZajWUPb500aqoOTYkQYTPJNnWcK2ddagMBnfJaHTQzI1NShvvG4JSgjzOzIMGtoYWopsKcmqMLiu9uKsZ1pShI0ckcnvLSaO1i9hky+hmNrg0xbpbXEij5eyfBjyT7iiSqXOGEpp0Tm3HskJZ0VxuOerTcn6pXrKWLUYsSGmmPKm89c2XaF1lGWXo550H4HQbIjrUEEJbUhZAeQaShjzoPZ4iP41VAk0JIorilKTHrrooISauS3HYxcMOhGtPC2K4gT03+TRelUh4xwTKUkdO67J81AgtUWGjf4n8OkB8GTyWXHnPTnVoMclNeT5SLSzV9EW1tGAFY8EOj8EyvtUYmSb2JqUc26CtxykV44EfncA/BFTPQ8YqyMR3h8iBHNP8TW1ZlJg00XL61zhOWGkeNFJW0xn+8sTsdG2v/eDdoYQKtIuOQzKIQj08HIVYoMMJXz5eZtbUez5/dnYnx6xaR3tG7HY893ObxqsX4R8rmWJ306KR3Vxcw0apFW3ORejYlQcKDEEX6K5J1/JJvWdFhTJGxJw8UWDeW54zHlM9kwkpnp2xgvk/nkM/e8E3OrJ9Mjj1qH1wiuXux/8OoUnv8JOop1jZzoLKFF9L9b7Ed1mI78fOopS5ZmGFUaLc5FvOttoqAkrirkB7mmdh1XO5c2tcJFw1wmng/EqDbKbKTffJrdS72FMN6GSPRF/g873EkBDyHrlNsr/enDolx0uJXaLKdcfuOYv4A==
+api: eJylVF1v2zAM/CsCn73EXdsN8Fu7rVgHDCuaDHsIgoGRmVitLLkSnTUw8t8HKm6azsWQYX7wl6jT8chjByVFHUzDxjsoYIJrigqV9nWNrlTsFVe0/6xMZB82aumDQhUb0mZptKp85BFkwLiKUMxgSqE2Di3MMwj00FLkS19uoOjSpwlUQsGhpQy0d0yOZQmbxhqNwmR8F4VOB1FXVKO88aYhKMAv7kgzZNAE31BgQ1FWhcF1eRBnHNOKAmzliET+YDFyMG4F23QJxdh4F3dIb/MTebyU5UOff8Q1lSq2WlOMy9bazUhOOMvz4Z6vJkbjVuopY9VgwJqYQkybzl/bdIXGUpJdjnrSfQRCsyaufAkFND4mBZArKGDMvdrjPvpnXyXIIFJYU5CadNAGCwVUzE0xHluv0YpoxWme5yeQ/UkejVMlMi4wkpLUseWKHPcFUjtk2GZ/BT4dAE8mnxW3zpFVNTpcUU2Oj0Q7exVtaSz1WOFIoPMhUNqnIiObyEbHlHPtnWEvvXIk8LsB8EeM1cJjKI9EeD9E8Pqewj+rdTIs6oSCQau0d470iyrOpVV0GwxvUq8sCAOFi1YabDY/XJ6IIXdOOQzaW0uoSOOlMCj6IMj6lysfamQo4MuPaWpqMfrt84j49Ih1Y+nQ0vmBg/fOzcC4pU/nGpb43cx5VBc315CBNP0u53yUj/KBEn3wJep7cqVsUre0pEBOk4CLw2pME8hhymNyYEex57PHXiB3zwPtf2fpTk+mRx43Fo0TXqncXe/8GTw5H/YS7b0/z5KAEtV1YuLvwW638vuhpSBVnmewxmBwIfLN5tsMKsKSQmqAe9qksZdyeTMVLhJuW+E0GNTSIPvpdPNtMpV69wO/9qXsCfgLsnQvADLwSa/URulfBxbdqsWVxO4w5foNu8RJYg==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Saves a command to the command history for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+  {...require("./save-command-to-history.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"description":"Command saved successfully."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to save command."}}}
+  {...require("./save-command-to-history.StatusCodes.json")}
 >
   
 </StatusCodes>

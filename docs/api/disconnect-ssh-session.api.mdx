@@ -5,7 +5,7 @@ description: "Closes an active SSH session for Docker operations."
 sidebar_label: "Disconnect SSH session"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1v00AQ/SurOS+xoQUk31oCokiIigRxiHKYrCfxtvauuzsujaz8dzRrk4SmQhE++Gvfvn3z8aaHkqIJtmXrHRTwofaRokKn0LB9JDWbfVaRYrTeqbUPaurNPQXlWwooe+IENDBuIhQLGBZhqSHQQ0eRr325haJPnzZQCQWHjjQY75gcyxK2bW1N4sruoojoIZqKGpQ33rYEBfjVHRkGDW2Qk9lSTLhB2E15BI0crNvALl0iJLbexQH/Js/l8XfIxxGWNhrvHBmmcgI7DZcv7hjRN1Nlo/oT2wTkvIa48iUU0PqYBCNXUEBWptRkMVbZ4RDQECk8UpDs9dCFGgqomNsiy2pvsK585OIiz/PXoJ+J+IrWqRIZVxhJoSsVdlyR4zGZamCGnf4n8cUJseSDO+eoVg063FBDjs9ku3yRbW1rGrnCmURvT4nSPhUZ2Ua2JqaYG+8se6n4mcTvToinGKuVx1CeyfD+lGHwxAvZWkqBTRcsb1OFV4SBwlUnPbFYHi/PpOWHLj0G7dtapEi7JBgUIwj0+PLJhwYZCvjyc576UKz0/WDCj0/YtDU9M83eLBqsW/t0nGWBwZxCY5/U1e0NaJAOHULNJ/kkP0nACL5Gc0+ulE3qO60pkDMk5OKFBpO1HSb5070HjifMc+L+MCj+dzIN2WN64qyt0TqRk4rbj9ZcwGBNSW6sRMHBnksNUnYB9b347Eeodzv5/dBRkJIuNTxisLiSpC2WOw0VYUkhVfuetiJ8COHVXKQIvO5E0snck27YT4/bb7O5FHecn40vZU/AX6DTvQDQ4FOaUs+kfz3U6DYdbgQ7cMr1GxV1BzM=
+api: eJydVE1v00AQ/SurOS+xSwtIvrUERJEQVRPUQ5TDxJ7E29q77u64NLLy39GsTRLqCgV88Ne+ffvm400HBYXcm4aNs5DBx8oFCgqtwpzNE6nZ7IsKFIJxVq2dV1OXP5BXriGPsidMQAPjJkC2gH4Rlho8PbYU+MoVW8i6+Gk8FZCxb0lD7iyTZVnCpqlMHrmS+yAiOgh5STXKG28bggzc6p5yBg2Nl5PZUIi4Xth1cQQN7I3dwC5eIiQ0zoYe/zZN5fFnyMcRFibkzlrKmYoJ7DRcvLpjQF9PlQnqd2wTkPNq4tIVkEHjQhSMXEIGSRFTk4RQJodDQEMg/0RestdB6yvIoGRusiSpXI5V6QJn52manoF+IeIbGqsKZFxhIIW2UNhySZaHZKqeGXb6r8TnI2LJB7fWUqVqtLihmiyfyHbxKtvaVDRw+ROJ3o2J4j4VGNkENnmIMdfOGnZS8ROJ34+IpxjKlUNfnMjwYczQe+Jfs3U2LuqMvMFKDe1xXMWltEreesPb2CsrQk/+spXuWiyPl2dinr7fj0F7g4gUabwIg2wAgR5ePjtfI0MGX+/msaPFlLcHO396xrqp6IX99rbTYOzaxeMMCwzm5GvzrC5vrkGD9HofajpJJ+koAQP4CvMHsoVsUre0Jk82JyEXV9UYh4TFKH+6d9PxrHpJ3B1Gzv/OuD57TM+cNBUaK3JicbvB5AvoTS7JDaUoOBh9qUHKLqCuE8f+8NVuJ78fW/JS0qWGJ/QGV5K0xXKnoSQsyMdqP9BWhPchvJmLFIFXrUgaTVDphv0cuvk+m0txh0lcu0L2ePwJOt4zAA0upin2TPzXQYV20+JGsD2nXL8AgDcgtQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Closes an active SSH session for Docker operations.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+  {...require("./disconnect-ssh-session.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"SSH session disconnected."},"400":{"description":"Session ID is required."}}}
+  {...require("./disconnect-ssh-session.StatusCodes.json")}
 >
   
 </StatusCodes>

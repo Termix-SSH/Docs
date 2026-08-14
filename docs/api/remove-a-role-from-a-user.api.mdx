@@ -5,7 +5,7 @@ description: "Removes a role from a user."
 sidebar_label: "Remove a role from a user"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VE1r20AQ/SvLnFpYLLVJWtDNaRLq0kKxU3owOoylsb1ktavsjkyM0H8vI6lJiJ3Up54krd68na/3WigpFsHUbLyDDOZU+R1FhSp4S2odfKVQNZHCBDQwbiJkS5hfTr9ArqHGgBUxBTltwQhDjbwFDQ4rggwkclaChkD3jQlUQsahIQ2x2FKFkLXA+1qQkYNxG+g6fZRI0jmNyDimDQXoulzQsfYuUhTAxzSVx4uKpc7Ql12q2BQFxbhurN1PoNNwfixk5nZoTTm0aHY1As8OgYt9ZKp6XFQFOudZrR5vG+POX8lJwGvfuAF3cSyRGzSWSsV+pOxvmkgPoSLe+hIyKMkSE+ihnxkkYYVFInOJSTuMp0v6DJN2aHIHGiKF3d+xNsFCBlvmOksS6wu0Wx85O0vT9APoFyn9QONUiYwrjKTQlQob3pJjU6BA1MAMMuY3iM8OiBeLr4ob58iqCh1uqCLHJ7KdH2VbG0sjVziR6OKQqI9TkZFNZFPEvubKO8NeFvpE4k8HxFcYtyuPoTyR4fMhgy/uKBzrVi4DLppgeN9PeEUYKEwbWZBl/vz3QtQ1qOc56FFskgqMIpTvAQR6fLnxoUKGDL79vu3X0ri178MNW8HfUqjMg5r+nIEG2bgh9XSSTtKDgkbwJRZ35EoJUnNaUyBXkGik9pErdMI/usZgZ0fc7CV3C4V3TI7/7YFD4UwPnNQWjZOb+7m0o8SWIBID3ZtfBA3ZkwuKzuRktLNcgwxQYtpWFPMr2K6T4/uGggwn17DDYHAl7Vq2UJoo7yVka7SR3ijj3Xx0yvfqtbTHQ3R76T7aRr5Awx3tn7xb9u4/3jp2psufm9jV9ffr22vouj80/0Jl
+api: eJy9VU1v00AQ/SurOYG0igNtQfKtpa0IAgklRRyiHCbrSbLqetfdHUeNLP93NLZpS5OWcOEUe/Pm7Xy95wYKSibaim3wkMOUyrClpFDF4EitYigVqjpRHIEGxnWCfA7Ti/NPsNBQYcSSmKKcNmCFoULegAaPJUEOEjkpQEOku9pGKiDnWJOGZDZUIuQN8K4SZOJo/RraVh8kknSOI7KeaU0R2nYh6FQFnygJ4P14LD/PKpY6Y1d2oVJtDKW0qp3bjaDVcHooZOK36GzRt2hyOQBP9oGzXWIqO1xSBr0PrJYPtw1xpy/kJOBVqH2POzuUyDVaR4XiMFB2N42kh1ASb0IBORTkiAl0388csrhEk8lcUtb042mzLsOs6ZvcgoZEcft7rHV0kMOGucqzzAWDbhMS5yfj8fgd6GcpfUPrVYGMS0yk0BcKa96QZ2tQIKpnBhnzK8Qne8Sz2WfFtffkVIke11SS5yPZTg+yrayjgSseSXS2T9TFqcTINrE1qau5DN5ykIU+kvjDHvElps0yYCyOZPi4zxDMLcV/7ta7/aHOKFp0ygTvyfwxxYWsiqmj5V23K0vCSPG8llWbL57+PROd9jp8CnqQraQCg5zlvQeBHh6uQyyRIYcvP2+6Bbd+Fbpwy07wNxRLe6/Ov09Ag+xun/p4NB6N9woawBdobskXEqSmtKJI3pCorQqJS/TCP/hPb4wHfPE5dwMmeCbPf3fTvnCme84qh9bLzd1cmkGscxCxgu5sNIGG/NFPRbFyMhjjQoMMUGKaRrT3I7q2leO7mqIMZ6Fhi9HiUto1b6CwSZ4LyFfoEr1Sxpvp4Llv1UtpD4fod9J9dLW8gYZb2j1+BWTv/uOtQ2faxVM7vLz6enVzBW37C0mYW+c=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Removes a role from a user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}},{"in":"path","name":"roleId","required":true,"schema":{"type":"integer"}}]}
+  {...require("./remove-a-role-from-a-user.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./remove-a-role-from-a-user.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Role removed successfully."},"400":{"description":"Invalid role ID."},"403":{"description":"System roles cannot be removed."},"404":{"description":"Role not found."},"500":{"description":"Failed to remove role."}}}
+  {...require("./remove-a-role-from-a-user.StatusCodes.json")}
 >
   
 </StatusCodes>

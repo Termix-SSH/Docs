@@ -5,7 +5,7 @@ description: "Retrieves a specific snippet by its ID."
 sidebar_label: "Get a specific snippet"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVlMFu2zAMhl9F4GkDhMRb0w3wrUPXLgMGDE2HHYIcGIuOhdiSK9FBA8PvPtB2tqzJiuxkW/r5+RcpsgVDMQu2ZusdpPBAHCztKCpUsabM5jZT0dm6JlbrvbIc1fx2AhoYNxHSJSyGzQgrDTUGrIgpyE4LVog1cgEaHFYEKVgDGgI9NTaQgZRDQxpiVlCFkLbA+7pXOaYNBei6lahj7V2kKIL3SSKPv00/FqSESZHJHNxOoNMwOyefux2W1hxC1B/XY8zsNGY8pXKeVe4bZ3rp9Tn8HdqSjGKvcuKsOPLTaaiIC28ghQ0x6CE5KUxHTZy21nSgIVLYHbLYhBJSKJjrdDotfYZl4SOnV0mSvAP94uff0DplkHGNkRQ6o7DhghzbDEWiBjJ0+lXw1Ql4sfiiuHGOSlWhww1V5PhC2uwsLbcljaxwIej6FNTHqcjINrLNYn/myjvLPli3uRD84QR8i7FYewzmQsLHU4LPthTOZWslBc6aYHnfV3hNGCjcNHIXlqvj7YV0xnDzj0W/G0WswNhA8j2IQI8vdz5UyJDC15+P/fWzLvd9uOVS9I8UKvusbr7PQYPcuMF6MkkmycmBRvEnzLbkjASpB8opkMtIuqH2kSt0wh+7/Z74zBx5CW4h847J8f/NnyEDTM88rUu0Tiz0BWrHtlrCoa1AQ2qNTCipl+y0rTTIj1B2nSw/NRSkFisNOwwW15KdZQvGRnk3kOZYRnrF+JuHcai9Vf8yNy6i20uysWzkCzRsaT9Mxm51PCHuP0vNfgHmr+po
+api: eJyVlE1r20AQhv/KMqcWFltpkhZ0S0mTplAocUoPxofx7tgaIu0quyNTI/Tfy0py68RucE6WtO88fne+WrAUTeBa2DvI4Z4kMG0oKlSxJsMrNio6rmsStdwqlqjuriegQXAdIZ/DbDiMsNBQY8CKhEI6aYETsUYpQIPDiiAHtqAh0FPDgSzkEhrSEE1BFULegmzrXuWE1hSg6xZJHWvvIsUk+JBl6ee56YeCVGJSFLI7txPoNFwck9+5DZZsdyHqn+sx5uIwZrylcl7UyjfO9tLLY/gb5JKsEq9WJKbY89NpqEgKbyGHNQnoITk5TEdNnLZsO9AQKWx2WWxCCTkUInU+nZbeYFn4KPl5lmVnoF/8+XdkpywKLjGSQmcVNlKQEzaYJGogQ6dfBZ8fgGezr0oa56hUFTpcU0VOTqRdHKWtuKSRFU4EXR6C+jgVBYWjsIn9nSvvWHxgtz4R/PEAfI2xWHoM9kTCp0OCN48U3pyts8Oizigwlsp458g8q+IitYppAsu275UlYaBw1aSumi/2j2dpxoYZ2hf9HblkBcZRTO+DCPT4cONDhQI5fPv10Dcyu5Xvw1nKpH+gUPFvdfXjDjSk3h2sZ5Nskh1caBR/RvNIzqYgdU8rCuQMpbmqfZQKXeKPe+OW5MhGegluwXgn5ORtm2zIgNBvmdYlsksW+gK144DOYTegoCFnm3Zdqlc6ads0aj9D2XXp81NDIdVioWGDgXGZsjNvwXJMzxbyFZaRXjH+7n5cj+/V/8yNH9FtU7KxbNIbaHik7bBju8X+rrn9kmr2B592A/k=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieves a specific snippet by its ID.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+  {...require("./get-a-specific-snippet.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-a-specific-snippet.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"The requested snippet."},"400":{"description":"Invalid request parameters."},"404":{"description":"Snippet not found."},"500":{"description":"Failed to fetch snippet."}}}
+  {...require("./get-a-specific-snippet.StatusCodes.json")}
 >
   
 </StatusCodes>

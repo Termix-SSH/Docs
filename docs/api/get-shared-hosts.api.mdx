@@ -5,7 +5,7 @@ description: "Retrieves the list of hosts that have been shared with the authent
 sidebar_label: "Get shared hosts"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1k8FuEzEQhl/FmrNJFkpB2lsKtICEhNKiHqI9zHonsdVdexnPhlarvDuys0IhiVAunGzZ/3wez8w/QkPRsOvFBQ8lLEnY0ZaiEkuqdVFUWCsboqQTFGVxS6om8ipaZGrULyc2i3EQS16cQaFGDZF4BhoENxHKFSxvFh+g0sAU++AjRShHeFMUafk7hcWfZ6cX8usz2Gm4Pqe/RddSoySoDclxzE5DR2JDAyVsSEBDj2KhhDnXaOZ79ausBg2ReEuc8h1h4BZKsCJ9OZ+3wWCbVOVVURSvQR/l8A2dVw0K1hhJoW8Oq+GCV3sy7PQ/wVcn4Pv7z0oG76lVHXrcUEdeLqS9PUtbu5YmFl8Iuj4F5TgVBcVFcSbmP3fBOwns/OZC8LsT8EeMtg7IzYWE96eEYJ6Iz1WrSg02Azt5yR2uCZl4MaR5WFWH1/fGUrcf0UPRCPLS05RKGpcsg3ISgZ42t4E7FCjh6+NDHkHn1yGHO2mT/oG4c89q8f0LaEgTt0+9mBWz4uRDk/gGzRP5JgWpJa2JyRtKpuhDlA594nvM6dwd+eAYOYIJXsjLfzH8vkRCzzLvW3Q+5Zg7OE7eW0HyXqrfofsqDWmTrscx2egHt7tdOv45EKeOVRq2yA7rVMNVdWjtu0+p0L8BwHqlnA==
+api: eJy1lMFu2zAMhl9F4FlL3HXdAN/Sbe02YMDQdNgh8IGRmVioTXkUnbUw8u6DHGNI42LIDjtZsH5+osif6qGk6MS36gNDDnek4mlH0WhFpvZRTdiYKkRNf1BNhTsyayI2sUKh0vzyWg1i7LQiVu9QqTRdJJmBBcVthHwFd9eL91BYEIpt4EgR8h5eZ1n6PE9h8efY8YTh9BnsLVy9pL9BX1NpNJgt6WnM3kJDWoUSctiSgoUWtYIc5rJGNz+oXw1qsBBJdiQp3x46qSGHSrXN5/M6OKyTKr/MsuwC7EkOX9GzKVFxjZEMcnlcDR/YHMiwt38FX07Ay+Unox0z1aZBxi01xHom7c2LtI2vaWTJmaCrKWiIM1FRfVTv4nDnJrDXIJ63Z4LfTsAfMFbrgFKeSXg3JQT3QPLP1bqYNnVJ4rE2LjCTe9bFIlnFdeL1afDKmlBIFl1y1qo43l66ipqD2Y9FPehTS2MqyXiDDPJRBHZc3ARpUCGHLz/uBzN73oQh3Gud9PckjX80i2+fwULy7iH1bJbNssmFRvE1ugfiMgWZO9qQEDtK49WGqA1y4jMO6dyeTNQpsgcXWIn1vzwdhxIpPeq8rdFzynHoYD9O8QrSFKf6Hc9xYSEt0nbfp4H8LvV+n37/7EhSxwoLOxSP61TDVXH8SNx+TIX+DZryvx4=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Retrieves the list of hosts that have been shared with the authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-shared-hosts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of shared hosts."},"500":{"description":"Failed to get shared hosts."}}}
+  {...require("./get-shared-hosts.StatusCodes.json")}
 >
   
 </StatusCodes>

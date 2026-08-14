@@ -5,7 +5,7 @@ description: "Executes a file on the remote host."
 sidebar_label: "Execute a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVFFP2zAQ/ivWPXttNmCT8gYbaExCQ2unPaBqujpHY3DsYF9Yq4j/Pp0ToKPV1Dy0if358919910PFSUTbcs2eCjhfE2mY0oK1a11pIJXXJOK1AQmVYfEE9DAuEpQ3sCFQK7Q44oiLDREeugo8VmoNlD2+dNGqqDk2JEGEzyTZ9nCtnXWoNw6vUtydQ/J1NSgvPGmJSghLO/IMGhoY2gpsqWUcZSSDf6y2oImjtav4EmDhH2NXO/ZzI9Emdrg00D2oSjk798q5Lwol8IGryKlzvFE2I/3wa9sStav1HO+qsWIDTHFpEJUs9lXZYL3ZDKbD6zwEa3DpaNMerI3BrSOKsVhDISyIBOQDBriOlRQQhtSrk/OF6Yp1VNB/W4GTfLCeFxyAg2J4iNFUa+HLjoooWZuy+nUBYNOBC6PiqJ4D/ptkmi9qpBxiYkU+kphxzV5HmVUAzM86f8SH+0QS3m4856cGsJuyPOBbMd72XLnjiU4kOhklyifU4mRbWJrUs65Cd5ykHY6kPjjDvEXTPUyYKwOZPi0yxDMPcV91VqIwKaLljdZ4SVhpHjaSXvcLLa3Z2K2wQLboBfPSCjSLhkG5QgCPb5chNggQwnffs1zS4qJf7za/3yNTevojV2fnbjt0i3rWn8bcgiW5SjMKTZ2rU6vL0GDdO2QfjEpJsVOUUbwGZp78pUcUj/oliJ5Q0IuVmkwDxqPOaVx1o2j7i1h/zquDp2KQ+WY1jxtHVov12Zh+9GhN5BSPWb/7FEpcl7c9ulCg7DKib4Xw/2M7ulJlh86iqLtQsMjRiszJEuroSasKGbZ72kDJXwe4n83l7gE7jqJb2f0Slu8TJTr77O5qDyO8CZUcibiH9D5twTQEHKNcvPktR4c+lWHK8EOnPL8BeeIMG0=
+api: eJyVVV1P2zAU/SvWffbaMGCT8gYbaExCQ7QTD6iabpNLY3DsYN+wVlH/+3SdFDpaTV0e2tQ+Pr4f5552UFIsgmnYeAc5XCypaJmiQvVgLCnvFFekAtWeSVU+8gg0MC4i5PdwKZBrdLigADMNgZ5binzuyxXkXfppApWQc2hJQ+Edk2PZwqaxpkC5dfwY5eoOYlFRjfLGq4YgBz9/pIJBQxN8Q4ENxYSjGI13V+UWNHIwbgFrDRL2DXK1ZzM9EmVsvIs92ccsk6+/q5DyolQK450KFFvLI2E/2Qe/NjEat1CbfFWDAWtiClH5oCaTb6rwzlGR2JxnhS9oLM4tJdLTvTGgsVQq9kMglBoyAsmgJq58CTk0Pqb6pHxhHGM1FtSvuu9JWhiOS06gIVJ4oSDd66ANFnKomJt8PLa+QCsNzo+zLDsC/T5JNE6VyDjHSApdqbDlihwPbVQ9M6z1P4mPd4ilPNw6R1b1Ydfk+EC2k71sSblDCQ4kOt0lSudUZGQT2RQx5Vx7Z9iLnA4k/rRD/BVjNfcYygMZPu8y+OKJwn9X62i3qRMKBu22OjdMM5FK0QbDq6SVOWGgcNaK0O5n29sTGdt+mLZBr9MnoYjwEgzyAQR6eLn0oUaGHL7fTZO4xQ5u34zkYol1Y+nd4G9menvet0zAuAefQjAsR2FKoTZLdXZzBRpE/3362SgbZTtFGcDnWDyRK+WQuqUHCuQKEnIZuhqTZTlMKQ2uOZjme8LuzfgO9de+ckxLHjcWjZNrU2O7YdbvIcZqyH4z7VLktLg98TMNwionuk5G92ew67UsP7cUpLczDS8YjLhRaq2GirCkkNr+RCvI4Usf/4epxCVw20p8OyYusnj1ppsfk6l0efgzqH0pZwL+Bp0+cwANPtUoiSetdWDRLVpcCLbnlOcPkWlJ7w==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Executes a file on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"filePath":{"type":"string"}}}}}}}
+  {...require("./execute-a-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"File execution result."},"400":{"description":"Missing required parameters or SSH connection not available."},"500":{"description":"Failed to execute file."}}}
+  {...require("./execute-a-file.StatusCodes.json")}
 >
   
 </StatusCodes>

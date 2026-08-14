@@ -5,7 +5,7 @@ description: "Proxy OPKSSH provider chooser page and all related resources"
 sidebar_label: "Proxy OPKSSH provider chooser page and all related resources"
 hide_title: true
 hide_table_of_contents: true
-api: eJyllN9v00AMx/+Vk59AOtbANpDyNhiwgRDTOsRD1Qc3cZtTk7vM50yrovzvyGk2WlJQJZ6SOPbn/OO+bkFwFSGdwXR6BXMLNTJWJMRqbMFjRZAC031DUa5zsOA8pFCjFGB7u2PKIRVuyELMCqoQ0hZkU2tgFHZ+BZ2FnGLGrhYXNP6ikYK8uAzVYAa+ub6Ebq7YWAcfKSrpTZLoYz/+QxFCJDY1rshkwQt50VPOkrOx85Ri1FN8ELMMjc/V8/wQ9obD48YQc2DoRklv/36/+TqdXpmaw4PLiU22mwr63GBZGqYShXLDFEPDGUWwUJEUIYcUViRgty1MYRLqdYzFqwEzaZ973YGFSPzwNIuGS0ihEKnTyaQMGZZFiJKeJknyGv7M9Rs6b3IUXGAc0tpv+ZYMnf0n+HQE1tql8Z5KU6HHFVXk5Uja2UHa0pU0sPhI0PkY1MeZKCguistiX3MVvJOgV/BI8NsR+BJjsQjI+ZGEd2NCyNbEh7o11wFnDTvZ9BNeEDKxagPS2Xz391SFtdXDrtOzzjQVGPSn31snsMPLp8AVCqTw5eddf7GdX4Y+3Emp/nfElXs0FzfXYEFv3Db15CQ5SUYFDc7vMVuTzzXI3NKSmHxGKq06RKnQK3/YH/+pnL3jn2sWepRJXaLzemg/knZQ1Qz2VQUW0t87bG5Bx6Vubav6+MFl16n5viHWUcwtPCA7XGhzZi3kLup7DukSy0ijjJ42UAovboeV+NL8fcfZwyUMRvQbHQKWjX6BhTVt9nZwN+92tsnnjzrSXwyS/Vk=
+api: eJyllFFv00AMx7/KyU8gHWvGNpDubTBgAyGmdYiHqg9u4janJneZz5lWVfnuyG02WjJQEU9JHPt3Ptt/r0FwkcBNYDy+hKmFBhlrEmI1riFgTeCA6a6lJFcFWPABHDQoJdiN3TMV4IRbspDykmoEtwZZNRqYhH1YQGehoJSzb8RHjT9vpaQgPkc1mJ5vri6gmyo2NTEkSkp6nWX62I9/X8aYiE2DCzJ5DEJB9JTT7HToPKaU9JQQxcxjGwr1PHsOe83xYWWIOTJ0g6S3f79dfxmPL03D8d4XxCbfTQVDYbCqDFOFQoVhSrHlnBJYqEnKWICDBQnYbQkdjMqYZBSbZUrlq541Wj8VvAMLifj+sSEtV+CgFGncaFTFHCuNdydZlh3D7wl/RR9MgYIzTH1u+3XfkqGzfwWfDMBaAGlDoMrUGHBBNQU5kHb6LG3uK+pZfCDobAjaxJkkKD6Jz9PmznUMXqLO4YHgNwPwBaZyFpGLAwlvh4SYL4n/uVrHw6aOiT1WOvSB8r0uTnVU8pa9rDazMiNkYpUauMl09/dYdbqV167Tk2w1FejlrN9bJ7D9y8fINQo4+PzjdqMTH+ZxE+6lUv9b4to/mPPrK7Cgs7tNPTvKjrLBhXrnd5gvKRQaZG5oTkwhJ1VqE5PUGJTfr6P/FOLe8U93FnqQUVOhD3ropiXrXqQT0H6AhX2ZggX3azNO7dbLTWC9VsF956rr1HzXEmtHphbukT3OtEaTNRQ+6XsBbo5VokFij3vNwYubftG+NH/enPb5m/RGDCvtBVatfoGFJa32Nns37XZ21KcP2tmfTI4bBQ==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/opkssh-chooser/{requestId}"}
+  path={"/host/opkssh-chooser/{requestId}"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Proxy OPKSSH provider chooser page and all related resources
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"requestId","in":"path","required":true,"schema":{"type":"string"},"description":"Authentication request ID"}]}
+  {...require("./proxy-opkssh-provider-chooser-page-and-all-related-resources.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./proxy-opkssh-provider-chooser-page-and-all-related-resources.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Chooser page content"},"404":{"description":"Session not found"},"500":{"description":"Proxy error"}}}
+  {...require("./proxy-opkssh-provider-chooser-page-and-all-related-resources.StatusCodes.json")}
 >
   
 </StatusCodes>

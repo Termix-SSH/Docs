@@ -1,11 +1,11 @@
 ---
 id: verify-totp-and-complete-connection
 title: "Verify TOTP and complete connection"
-description: "Verifies the TOTP code and completes the SSH connection."
+description: "Verifies the TOTP code and completes the SSH connection for file manager."
 sidebar_label: "Verify TOTP and complete connection"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVMFu2kAQ/RVrzhtwmrSVfEtCq1KpShRoe0AcBnvAm9i7zu6Ygiz+vZq1E1ygFVJ9ANs78zzz5r1pICOfOl2xtgYS+EFOLzX5iHOKpvfThyi1GUVosii1ZVUQd2eTyZcotcZQKpkDUMC48pDMYGTTZ3IwV+DopSbPtzbbQtKER+0og4RdTQpSa5gMyxFWVaFTFKjhk5dKGvBpTiXKHW8rggTs4olSBgWVsxU51uRDHHmvrRlnvVDPTpsV7BSw5erOZnTiMFxSpa+s8S3YuziWvz9JCTysW2YyddB6RJ5xUWifUzaQL16fgpi0RUbjUeByz+wrKV3q5XHq2Kyx0L2cLvT6L4V2fES0qTrgnYKSOLcZJFBZHyhEziGBYRaGNfQ+H3YtXQhjoMCTW5OTiTZQuwISyJmrZDgsbIpFbj0nV3EcX4I6KOIbahNlyLhA3yoHa87JcDfgqEWGnfon8NURsPDOtTFURCUaXFFJhs9Euz6JttQFdVjuTKD3x0AhL/KMrD3r1IeeS2s0WxHamcAfjoBH6POFRZedifDxGCFM9xRbcxlwWjvN2zDhBaEjd1OLKmbz/vFEbNiaox/05iYpReQSwiDpgkB1N5+tK5Ehga8/p0GJYu/H/WL4tEFZKwdGfvVo3789U2uztKEEzZIKU3Kl3kQ3D2NQIKpt248H8SA+IqULvsX0mUwmSdEjLcmRSUnAxSElhhVkMLQUluK2NWB/E/a2wOFXmv12+6+d2nLMtOFhVaA2UmCQQNNZeAathWUEPoewVfc2nisQeUhY04gfv7tit5PXLzU5Gf1cwRqdxoUQOZvvFOSEGbmgimfaQgJ3bScXUylGwotaijra2aKatz3zcD+Zigi63V+2I3T4C1T4TQAU2MBW0FZ410CBZlXjSmJbTLl+A1aXRwA=
+api: eJytVNtu1DAQ/RVrns1uSstFeStCFUWqWrELPKxWaNaZbawmdmpPVq2i/Xc0ToB0U2CReEo0PnN85nLcQUHRBNuw9Q5y+ELBbi1FxSWp5fXyRhlfkEJXKOPrpiIezhaLD8p458hIptr6oLa2IlWjw1sKM9DAeBshX8GFxK/6OKw1BIqNd5Ei5B28zDL5PFWRLt71Ugp9eBdFxk1lY0nFDPYazp6jWFCMAr58n8T/KiXQfWvDz9STaeql22Flxzk+KGy5JMfWYNJwwHL2mxrioIIemhH67V/QbGvyLc9gv9dQE5e+gBwaHxk0NMgl5DCPsZxLx78NHU+BoUsv2HMDGiKFHQUZQgdtqCCHkrnJ5/PKG6xKHzk/zbLsBPSBnCu0ThXIuMHYT/+g/p4Z9vqPxKcTYhklt85RNWxKTY6PZDt7lm28dUcSvZoSpTwVGdlGtiammmvvLPtg3e2RxK8nxO8xlhuPoTiS4c2UwZs7Cv/crZPpUBcULFZjJ/1gWsuqmDZYfky7siEMFM5b2bTVeny8MCXVvXPHoA74saFBiixegkE+gEAPPxc+1MiQw8evy7Td1m19SrdcCX5JobYP6vzmEjTI7vbSs1k2yyYFDeB3aO7IFZKkPtGWAjlD4jRxTI1O+B0mOel5e+ydPX7TRk05vKUD4x2T4//9OvYNY3rgeVOhdaI4zbMbPL6CGEvQMHa59DYFnzh9rUHmLildJ5b9HKr9XsL3LQWZ6VrDDoPFjXR5tR6/KzfXC5nFdyifEV0=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/docker/ssh/connect-totp"}
+  path={"/ssh/file_manager/ssh/connect-totp"}
   context={"endpoint"}
 >
   
@@ -36,33 +37,20 @@ import Heading from "@theme/Heading";
 
 
 
-Verifies the TOTP code and completes the SSH connection.
+Verifies the TOTP code and completes the SSH connection for file manager.
 
-<Heading
-  id={"request"}
-  as={"h2"}
-  className={"openapi-tabs__heading"}
-  children={"Request"}
->
-</Heading>
-
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"totpCode":{"type":"string"}}}}}}}
+  {...require("./verify-totp-and-complete-connection.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"TOTP verified, SSH connection established."},"400":{"description":"Session ID and TOTP code required."},"401":{"description":"Invalid TOTP code."},"404":{"description":"TOTP session expired."}}}
+  {...require("./verify-totp-and-complete-connection.StatusCodes.json")}
 >
   
 </StatusCodes>

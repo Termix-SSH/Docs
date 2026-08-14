@@ -5,7 +5,7 @@ description: "Returns the JWT for the currently authenticated session. Intended 
 sidebar_label: "Get current session token"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVE1v2zAM/SsCz17srt0G+JZ99QPYULTpeghyoGUmVmNLnkR3DYz894Jy2qV1MeQ4XyxI5OMj+cgeSgram5aNs5DDFXHnbVBckbq4naml8/GsO+/Jcr1R2HFFlo1GplIFCsE4O1HnlsmWVEaPxhWmJnVLxS9Df5SuDVkWUGSl0VrHyhOW6mw2u3znbL1R2rm1oTCBBBhXAfI53ATyARYJeAqts4EC5D28zzL5vWT9ZWD3xEaxW5MVLO2EFosHtm0tpI2z6V0Qtx6CrqhBOfGmJcjBFXekGRJovWvJsxmCRrw9s8De2BVs45fASXY05vTT8ctaTUBsG+LKlZDDimIc5ApySDtJNm0oHUIlEMjfS/75vIfO15BDxdzmaVo7jXXlAufHWZYdQfIq7g80VpXIWGAghbbcZyHFGZBhm/wT+HgEfH19prizlmrVoMUVNUPJD0E7eRNtKSIZsPyBQB/GQNFPBUY2gY0OMefGWcNOunQg8McR8FcMVeHQlwcifBojOL0m/1a1FtJg3XnDm9jhgtCTn3Yihvli//laJDqocN/oWYpCReQSzSDfGUGyO3x3vkGGHC5uZ1F/xi5ddDdci/2MfGMe1PTyHBIQxQ3Us0k2yUYJ7Yw/o16TLcVJXdGSPFlNsE2gdYEbjJNiMdI5JX7aHS+n8zV2/3dW/4slNFSX6YHTtkZjJb3Y/H43s3OIMwsy0uIQk1okIHqQ176XAbzx9XYr17878tLrRQL36A0WUv35YptARViSjzJY0wZymGpNrSyHe6w7YTFaXSKQ50Vy+k06+whvUACb
+api: eJzNVE1v2zAM/SsCz17srt0G+NZ99QPYUDTpeghyoGUmVmNLnkR3C4z894Fy2iX1MGS3+WJBIh8fyUf2UFLQ3rRsnIUcbok7b4PiitT1/UwtnY9n3XlPluuNwo4rsmw0MpUqUAjG2Ym6sky2pDJ6NK4wNal7Kr4Z+qF0bciygCIrjdY6Vp6wVJez2c0rZ+uN0s6tDYUJJMC4CpDP4S6QD7BIwFNonQ0UIO/hdZbJ75D1h4HdExvFbk1WsLQTWiwe2La1kDbOpg9B3HoIuqIG5cSbliAHVzyQZkig9a4lz2YIGvH2zAJ7Y1ewjV8CZ9nJmNNXx4e1moDYNsSVKyGHFcU4yBXkkHaSbNpQOoRKIJB/lPzzeQ+dryGHirnN07R2GuvKBc5Psyw7geRF3C9orCqRscBACm25z0KKMyDDNvkr8OkIeDq9VNxZS7Vq0OKKmqHkx6Cd/RFtKSIZsPyRQG/GQNFPBUY2gY0OMefGWcNOunQk8NsR8EcMVeHQl0civBsjOL0m/8/VOhk3dUreYK20s5b0QRcXIhXdecObqJWC0JM/70RW88X+81TEPuh53+hZ1EJFhBfNIN8ZQbI7fHa+QYYcru9nUcnGLl10N1yL/Yx8Y36q85srSEC0O1DPJtkkGyW0M36Pek22FCd1S0vyZDXBNoHWBW4wzpzFSOeC+GkLHc75S+z+99T/F+tsqC7TT07bGo2V9GLz+930zyFOP8hyEIeY1CIB0YO89r2M8p2vt1u5/t6Rl14vEnhEb7CQ6s8X2wQqwpJ8lMGaNpDDudbUypp5xLoTFqMlKAJ5XkkXn6SzvwBtOBod
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the JWT for the currently authenticated session. Intended for mobile WebView clients that cannot read HTTP-only cookies.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-current-session-token.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Current session token.","content":{"application/json":{"schema":{"type":"object","properties":{"token":{"type":"string"}}}}}},"401":{"description":"Not authenticated."}}}
+  {...require("./get-current-session-token.StatusCodes.json")}
 >
   
 </StatusCodes>

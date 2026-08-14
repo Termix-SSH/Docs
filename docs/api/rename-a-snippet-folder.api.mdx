@@ -5,7 +5,7 @@ description: "Renames a snippet folder for the authenticated user."
 sidebar_label: "Rename a snippet folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVcFu2zAM/RWBZy/J1nbDfGu3FeuADUOTYocgB8ZiYrWy5Ep0k8DIvw+U3TZt0iGYL3Gsx2fykY9uQVMsgqnZeAc5XJPDiqJCFZ2pa2K18FZTUAsfFJeksOGSHJsCmbRqIoUBZMC4jJBPYdwFRZhlEOi+ocgXXm8gb9NfE0hDzqGhDArvmBzLEda1FULj3fA2Sh4txKKkCuWONzVBDn5+SwVDBnXwNQU2FOXUW/0LK9oBRg7GLWGbgaPVG2fpkhRj7V3smD6MRvLzUo/LrvqQZNEqNkVBMS4aazcDecXpoaAr94DWaNUr0ANP32R3XmRunO6Rn99ErgyXytFKSToKbSDUG0VrEzmm4LODRaCxpBX7vo5XvR2AaFERl15DDnWTVEYuIYdhD43DDhuHHQVkECk8UJC2t9AECzmUzHU+HFpfoC195PxkNBq9h+xVOj/ROKWRcY6RFDq9O1TGO9Uxwzb7J/HJHvF4/F1x4xxZVaHDJVXk+Ei204NsC2Op5wpHEp3tE6U4FRnZRDZFTDVX3hn2Mo5HEn/cI/6KsZx7DPpIhk/7DL64o3BIrZk0uGiC4U3q8JwwUDhvZCqms93jsTi1s9Au6MlzkoqMS4JB3oMg628ufaiQIYcffyZpEGUDXD/vjm9rrGpLL7z+6OMdi+/Y3riFT+83LHEwoVCZtTr/fQUZyMh2tY8Go8FoT5EefIHFHTktQeqaFhTIFSTktY9cYVpRrntxtzL3NuZr5vZ54/33lu0EZVrzsLZonCSU+t32fp3Co18hg96xIHsu5TrLQGZBYG0r5rsJdruVx/cNBenzLIMHDAbnItx0ts2gJJRiZATuaAM5fOmqeDeRZARuG0lqb4fLiDztlN83E2l4/ymovJaQgCvJDVeQA2Tgk1BpjtKzFiy6ZYNLwXaUcv0FEBhOzg==
+api: eJydVU1P20AQ/SurObtJKNCqvkFbVCq1qkhQD1EOE+8kXljvmt0xSWTlv1ezNhAIVGl9ieN98zwfb55b0BSLYGo23kEOV+SwoqhQRWfqmlgtvNUU1MIHxSUpbLgkx6ZAJq2aSGEAGTAuI+RTGHdBEWYZBLprKPK51xvI2/TXBNKQc2gog8I7JsdyhHVthdB4N7yJkkcLsSipQrnjTU2Qg5/fUMGQQR18TYENRTn1Vv/EinaAkYNxS9hm4Gj1xlm6JMVYexc7pvejkfw878dFV31IbdEqNkVBMS4aazcDecXJa0GX7h6t0arvQA88eZPdeWlz43SP/PQmcmW4VI5WStJRaAOh3iham8gxBZ++WgQaS1qx7+t4MdsBSC8q4tJryKFuUpeRS8hh2EPjsMPGYUcBGUQK9xRk7C00wUIOJXOdD4fWF2hLHzk/Ho1GR5C9SOcHGqc0Ms4xkkKnd0VlvFMdM2yzvxIf7xGPx98UN86RVRU6XFJFjg9kO3mVbWEs9VzhQKLTfaIUpyIjm8imiKnmyjvDXuR4IPGHPeIvGMu5x6APZPi4z+CLWwr/3K2j/aGOKRi0qvDOUfFsijORStEEw5uklTlhoHDWiL6ms93jsex8t4y7oMftlVREeAkGeQ+CrL+58KFChhy+/54kSYuXXD250Nc1VrWlZ67x4Ag7ZrFjIMYtfHq/YYmDCYXKrNXZr0vIQMTf1T4ajAajvY704HMsbslpCVJXtKBAriAhr33kCpPZue7Fnfnuee9L5vbJO//br7uGMq15WFs0ThJK8277zZ/Cw+ZDBv3ugzhmynWWgWhBYG0ra3wd7HYrj+8aCjLnWQb3GAzOpXHT2TaDklCKEQnc0gZy+NxV8W4iyQjcNpLU3tdAJPLoTr+uJzLw/qNSeS0hAVeSG64gB8jAp0YlHaVnLVh0ywaXgu0o5foDG8VoUA==
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Renames a snippet folder for the authenticated user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"oldName":{"type":"string"},"newName":{"type":"string"}}}}}}}
+  {...require("./rename-a-snippet-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Folder renamed successfully."},"400":{"description":"Invalid request."},"404":{"description":"Folder not found."},"409":{"description":"Folder with new name already exists."},"500":{"description":"Failed to rename snippet folder."}}}
+  {...require("./rename-a-snippet-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

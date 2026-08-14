@@ -5,7 +5,7 @@ description: "Stops a specific container."
 sidebar_label: "Stop container"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9lMFu2zAMhl9F4GkDhNhb2w3wrVtRrAOGFU2HHYIcGIluhNqSK9FFA8PvPtBxs6TJuuyyky2J/CTyJ9mBpWSia9gFDwVMOTRJoUoNGVc6o0zwjM5TnIAGxrsExQwugrmnCHMNDUasiSnKfgdOGA3yEjR4rAkKSJSSC/7KgoZID62LZKHg2JKGZJZUIxQd8KoZjDk6fwd9rw+yNo/5R9pcjFMTfKIk5+/zXD67oX9+hqvEoWnIqtQaQymVbVWtJtBrOD3kN51+UWOQygdWZWi9VSEOCxO8J8NkR//T1+7deA/GZ4cuu0RXkVUchkduq9P3GmriZbCStpAY9Dp7BWR20CvbWKes28jSZ91WWvtMuKAhUXx8VrWNFRSwZG6KLKuCwWoZEhcneZ6/A/3ihd/QeWWRcYGJFHqrsOUleXYGxUStySASvwI+2QNLnrn1nipVo8c7qsnzkbTTg7TSVTSy4pGgs33Q4KcSI7vEzqQh5jp4x0HK70jwhz3wBablImC0RxI+7hMG2Q9lay4CmzY6Xg0KLwgjxfNWymU23z6eSlOtu2bbaNNj8hQYe0/WayPQ489liDUyFPD15+1Qos6XYXB3XIn9LcXaPanz6yvQIBW3fno+ySf5XkCj8Sc09+StOKkbKimSNyQtI2Vfoxf+ODGmO13yEtgNE4U8/33yraNleuKsqdB5uW4Qoxu7bAbrLgP9e0wl0FBsD8Bid4INvTbXIBoKoeukaX7Equ9l+6GlKPrMNTxidLiQjM06sC7Jv4WixCrRK0G9uRln5Fv1pyDGTfQrEQCrVlag4Z5WO9Nbqu8/XrydqH6+Pduuv0+llH4Bh/ZNIw==
+api: eJy9VU1v2zAM/SsCTxsg1O7aboBv3YpiHTCsaDrsEOTASEwj1JZciS4aGP7vAx03c5qsSy87WR/kE8nHR7dgKZnoanbBQwETDnVSqFJNxi2cUSZ4RucpHoEGxrsExRQugrmnCDMNNUasiCnKeQtOMGrkJWjwWBEUkCglF/yVBQ2RHhoXyULBsSENySypQiha4FXdG3N0/g66Tu/F2gTzRrSZGKc6+ERJ7j/kuXy2U//yDK4Sh7omq1JjDKW0aMpydQSdhtN9fpPJVzUkqXxgtQiNtyrEfmOC92SY7OB/+tq7G+/e+GzfY5foSrKKQx/kmJ2u01ARL4OVsoXEoNfVKyCzPV/Zxjpl7YaWLmtHZe0ywQUNieLjM6tNLKGAJXNdZFkZDJbLkLg4yfP8GPSLCL+j88oi4xwTKfRWYcNL8uwMiolaI4NQ/ArwyQ6w1Jkb76lUFXq8o4o8H4h2uhdt4UoasOKBQGe7QL2fSozsEjuT+pyr4B0Hab8DgT/uAF9gWs4DRnsgwqddhJ72N1freJfUCUWH5XM3j1mcSauYJjpe9b0yJ4wUzxtpvOlsfD0Rea71NzbaqFVCgUHFsl8bgR4WlyFWyFDAt1+3fbM7vwi9u+NS7G8pVu5JnV9fgQbp3XXo+VF+lO8kNBh/RnNP3oqTuqEFRfKGRHwioAq94A+zZ7Klt5eAbT+byPO/Z+g6W6YnzuoSnZfnejLaQa9TWOsV9J+Bl0BDMR6lxfYs7FU70yAcCkLbivx+xrLr5PihoSj8zDQ8YnQ4l4pNW7AuydpCscAy0StJvbsZpu179bckhkP0KyEAy0Z2oOGeVlv/Aem+//jwuFDdbDwlr39MpJV+A+4tZqU=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Stops a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+  {...require("./stop-container.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./stop-container.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container stopped successfully."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to stop container."}}}
+  {...require("./stop-container.StatusCodes.json")}
 >
   
 </StatusCodes>

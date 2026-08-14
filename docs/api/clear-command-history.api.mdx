@@ -5,7 +5,7 @@ description: "Clears the entire command history for a specific host."
 sidebar_label: "Clear command history"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVF1r20AQ/CvHPrVw2GqTtKC3tEloSgslH/TBiLI+ra0jpzvlbmVihP57WUlpg+0GQ58knWbndmd3toOSkom2YRs85PDZEcakuCJFnm0kZUJdoy9VZROHuFWrEBWq1JCxK2tUFRLPQAPjOkG+gDuKtfXooNDQYMSamKL86cDKBQ1yBRo81gQ5SPR1CRoiPbY2Ugk5x5Y0JFNRjZB3wNtGkNYzrSlC3xeCTk3wiZIA3meZPHbq2MnaSF1UqtQaQymtWue2M+g1nB6KvvYbdLZUkhVJfb2Gs0PAK7SOSsVhvOD5uhn0vYaauAol5FCSIybQY/E5zHkSaT6J+2uKm3ejID1oSBQ3z8q10YlYzE0+n7tg0AkuP8my7B3onZy+o/WqRMYlJlIiArZcSTcNCkSNzNDrV4lP9ohvb78obr0np2r0uKaaPB/JdnqQbWUdTVzxSKKzfaIhTiVGtomtSUPNdfCWQ7R+fSTxhz3iC0zVMmAsj2T4uM8QzAPFQ2oV0mDTRsvbocNLGc943sp8LIqXv2/FCeOkvwT9MYakApNh5HsEgZ5erkKskSGHrz/vhqm0fhWGcMtO8INhn9T5j2vQIBM3pp7Nslm2V9AE/oTmgXwpQeqGVhTJGxKTNCFxjV74J4cPC2V3iezydmCCZ/L8Xxto1IPpieeNQ+sloaFd3WS8BTwbDzTsWA805NM2KvSwlwTfdWKi++j6Xo4fW4rSr0LDBqPFpSi46KC0Sd5LyFfoEr1S3ZubadG9Vf9KeTpELzlt0LXyBRoeaPt3Y/bFywVzcfnt8u4S+v43fnX+1w==
+api: eJylVF1v00AQ/CunfQLplLi0BclvhbaiCCTUFPEQRWhz3sSnnu/cu3XUyPJ/R2s7UJJSBfFk+zw7t18zLRSUTLQ12+Ahhw+OMCbFJSnybCMpE6oKfaFKmzjErVqFqFClmoxdWaPKkHgCGhjXCfI53FGsrEcHCw01RqyIKcqfFqxcUCOXoMFjRZCDRN8UoCHSQ2MjFZBzbEhDMiVVCHkLvK0FaT3TmiJ03ULQqQ4+URLAmyyTx14de1kbqYsKlRpjKKVV49x2Ap2Gs+eib/wGnS2UZEVSX6fh/DngNVpHheIwXLC7bgJdp6EiLkMBORTkiAn0UHwOUx6bNB2b+2OMm7ZDQzrQkChudp1ropNmMdf5dOqCQSe4/DTLshPQezl9QetVgYxLTKSkCdhwKdM0KBA1MEOnXyQ+PSCezT4qbrwnpyr0uKaKPB/JdvYs28o6GrnikUTnh0R9nEqMbBNbk/qaq+Ath2j9+kjitwfEl5jKZcBYHMnw7pAhmHuK/9ytk8OhzihadMoE78n8McWFrIppouVtvytLWfR40cimzRdPf89EU4NmnoJ+SUxSgVF68j2AQI8v1yFWyJDDp+93/X5bvwp9uGUn+F76j+ri6w1okN0dUs8m2SQ7KGgEv0dzT76QIHVLK4rkDYnc6pC4Qi/8o1f01rRvR/u8LZjgmTz/l5cN/WB65Gnt0HpJqB9XO0p4DjsJg4Y9EYOGfPS1he4dTvBtK3L8Fl3XyfFDQ1HmtdCwwWhxKR2ct1DYJO8F5Ct0iV6o7tXtaJmv1d9SHg/RS04bdI18gYZ72v723m7x1Kourz5f3V1B1/0EoW0YaA==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Clears the entire command history for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  {...require("./clear-command-history.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./clear-command-history.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Command history cleared successfully."},"400":{"description":"Invalid request."},"500":{"description":"Failed to clear history."}}}
+  {...require("./clear-command-history.StatusCodes.json")}
 >
   
 </StatusCodes>

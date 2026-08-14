@@ -5,7 +5,7 @@ description: "Returns the configured session timeout in hours."
 sidebar_label: "Get session timeout setting"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk8tunEAQRX+lVevODInzkNg5LyeRIkUeW1kgFjVQAy1DNamutmwh/j1qhsXYWNEoKxDcOvW8I9QUKnGDOs+QwzVpFA5GWzKV54NrolBtAoXgPBt1PfmoxrFpfZSwAQuKTYC8gNtAEqC0IBQGz4EC5CO8ybL0eJrlUxQh1hV2YU6ThZ609TXk0JCChQG1hRy2MSXZLnGvljiwEEjuU/q8GCFKBzm0qkO+3Xa+wq71QfOLLMteg31Wyk90bGpU3GMgg1wbjNoSq6swScyRDJP9J/hiBd7tvhmNzNSZHhkb6o8dn0N7+yLt4DpaWHIm6N0aNMeZoKguqKvC3HPv2akXx82Z4Pcr8GcM7d6j1GcSPqwJvrojeWlaZVpwFcXp47zhPaGQXMZ0E0V5+ntXtdQfL+9UNII+DrSUks5llkG+iMAuL1+99KiQw4/fN/MZOj74Odxpl/Q3JL17MJe/voOFdHHH0rNNtslWDS3ij1jdEdcpyFzTgYS4IpgsDD5oj5z4jHM5V7Q2RSBVx81z+giVZyXW/3TtcR5KD7odOnScCprXNS5mK2A222yup3YrLaQ1Jsk4Jt/cSjdN6fOfSJJWVFq4R3G4T0MrylM/X31Jk/0LALCMEw==
+api: eJydlE1v2zAMhv+KwLOWuOs+AN+6r24DBgxNix4CHxiZsYXalEfRRQvD/32Q40NSD0O2U4z45SOKfF8PUFJ04jv1gSGHG9JeOBqtybjAe1/1QqWJFKMPbNS3FHo1nk0deokrsKBYRci3cBdJIhQWhGIXOFKEfIDXWZZ+Tk/52IsQ6wI7M8fRQktahxJyqEjBQodaQw7rPh2ynutezXVgIZI8puPz7QC9NJBDrdrl63UTHDZ1iJpfZll2AfZFKz/QsylRcYeRDHJpsNeaWL3DJDEHMoz2r+DLBXiz+Wq0Z6bGtMhYUXu48Tm0N3+k7X1DM0vOBL1dgqY6ExXVR/UuTnduA3sN4rk6E/xuAf6Esd4FlPJMwvslIbgHkn+e1sVyqRsSj00yMJM72WKRrOJ68fo8eWVHKCRXfXLXtjh+vXE1tQcPH4sG0OeO5laS8SYZ5LMI7PzwJUiLCjl8v7+dDO15H6Zyr03S35K0/slc/fwGFpJ3D61nq2yVLS40iz+geyAuU5G5oT0JsSMYLXQhaouc+IxTO9e0jFckVc/VS/oALrAS63/m/zAPpSdddw16Tg1N6xrm2G5hiu0U09PgFhbSGpNkGFIC76QZx/T3r54kraiw8IjicZeGti2OvwzXn9NkfwMo1KWV
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the configured session timeout in hours.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-session-timeout-setting.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Current session timeout hours."}}}
+  {...require("./get-session-timeout-setting.StatusCodes.json")}
 >
   
 </StatusCodes>

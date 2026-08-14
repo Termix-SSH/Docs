@@ -5,7 +5,7 @@ description: "Deletes the authenticated user's account."
 sidebar_label: "Delete user account"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVVFP2zAQ/ivWvewl0DJgk/IGAzSmTUIDtIeqD1fn2hgcO9gXaBX1v0/npKUlaGJ5aFP78+fv7ru7tlBQ1MHUbLyDHC7IElNUXJLChktybDQyFaqJFD5FhVr7xvEhZMC4iJBP4D5SiDDNINBTQ5HPfbGCvE0/TaACcg4NZaC9Y3IsW1jXVniNd6OHKDe3EHVJFcobr2qCHPzsgTRDBnXwNQU2FGW3xhhffCh2kJGDcQtYp0d0xNq72ME/j8fytR/mWReFKlK4hYqN1hTjvLF2dQjrDE7eO3XT36xMVJvgevTREH3ttA+BNKuN4h57PMR+Q+f8Ro6iJVNwaHcdMN5tch+VD8kgi5EVFpVxyZ2e/mRILw4puWDuG9fJOH0vwCs0lgrFfqNk67aktSIufQE5dJtiDHIJOYzk9jjqlg/6M5BBpPAspZFPWmiChRxK5jofjazXaEsfOT8ej8dHkL3R8QuNUwUyzjCSQle8zUTHDOvsn8THA+Lb2++KG+fIqgodLqgixx9kO3mXbW4s9Vzhg0SnQ6J0TkVGNpGNjinmyjvDXir7g8RfBsQXGMuZx1B8kOHrkMHrRwrvZWsqBusmGF4lh2eEgcJZIyUxme5u30pnd924C9q2r0iRckkwyHsQZP3LlQ8VMuTw489dKkSZGL9fZ83lEqva0v5s2M6EDIyb+3SbYUHBHYXKLNXZzTVkIAXaRTo+HB+OB/H34HPUj+QKOaR+05wCOU1CXvvIFaYB5jCp70Zo6kj12gt7rO3rLPy/idvli2nJo9qicaIg2dn2vTiB1Ivpwr1unGYgLguibaWt7oNdr2X5qaEgDk4zeMZgcCZJmkzXGZSEBYVk7iOtZEx1qg/uRIfAbSN6BtNczN9Oi4vLn5d3l+Jm/79Q+UJOBXyBLH3mABn4lJtUJGmtBYtu0eBCsB2rPH8BqeRPmQ==
+api: eJyVVU1P20AQ/SurufRiklCglXyDAipVKyE+1EOUw2Q9iRfWu2Z3DERW/ns1awcIRlXwIbG9b9/OzJt5bqGgqIOp2XgHOZySJaaouCSFDZfk2GhkKlQTKXyJCrX2jeMRZMC4jJBP4TZSiDDLINBDQ5FPfLGCvE2PJlABOYeGMtDeMTmWJaxrK7zGu/FdlJNbiLqkCuWOVzVBDn5+R5ohgzr4mgIbirJaY4xPPhRvkJGDcUtYp0viiLV3sYN/nUzkbzvN4y4LVaR0CxUbrSnGRWPtagTrDA4/2nXZn6xMVJvkevT+EH3htA+BNKtNxD32YIj9gc75TTiKnpmCQ/tWAePdpvZR+ZAEshhZYVEZl9Tp6Q+H9KKQkgMWvnFdGEcfJXiOxlKh2G8ieVFbyloRl76AHLpFEQa5hBzGcnocd6/3+j2QQaTwKK2RT1togoUcSuY6H4+t12hLHzk/mEwm+5C9i+MPGqcKZJxjJIWueF+JjhnW2X+JDwbE19c/FTfOkVUVOlxSRY53ZDv8kG1hLPVcYUeioyFR2qciI5vIRseUc+WdYS+dvSPxtwHxKcZy7jEUOzJ8HzJ4fU/h09XaH4p6TcGgVdo7R3pLxZm0im6C4VXqlTlhoHDcSHNNZ2+Xr8Ujurl+C3oxAglFGi/BIO9BkPU35z5UyJDDr783qaXFe65eXevsGava0rbLvLhLBsYtfDrNsKDghkJlntXx5QVkIK3eZToZTUaTQf49+AT1PblCNqkrWlAgp0nIax+5wmSFDlP0nRmn2VavU7XF2r666ue8u6sX0zOPa4vGSQRJzraf6imkqU4Hbs31LANRWRBtKwN6G+x6La8fGgqi4CyDRwwG51Kk6WydQUlYUEji3tNKDK+Leu9G4hC4bSSewXdBxH/xndOz32c3Z6Jm/4WpfCG7Aj5Bln5zgAx8qk1qkvSuBYtu2eBSsB2rXP8A3U9pGw==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Deletes the authenticated user's account.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+  {...require("./delete-user-account.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Account deleted successfully."},"400":{"description":"Password is required."},"401":{"description":"Incorrect password."},"403":{"description":"Cannot delete external authentication accounts or the last admin user."},"404":{"description":"User not found."},"500":{"description":"Failed to delete account."}}}
+  {...require("./delete-user-account.StatusCodes.json")}
 >
   
 </StatusCodes>

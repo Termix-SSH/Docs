@@ -5,7 +5,7 @@ description: "Checks if the system requires initial setup (i.e., no users exist)
 sidebar_label: "Check if setup is required"
 hide_title: true
 hide_table_of_contents: true
-api: eJytk02L2zAQhv+KmFMLquN2uy3otv3YfkChNLv0EHyYyJN4iC15pfGSxeS/FylmSZpQcujJRn7n8auZeUeoKdrAvbB3YOBjQ3YTFa+UNKTiUxTqVKCHgQNFxY6FsVWRZOjVCy6o0Mp5NUQKUdGWo7wsQIPgOoJZwH06h0pDoNh7FymCGeFNWabH8Y/nGRkFZYgF7DRcn1PdIrdUK/HKJqOTkeeqnYaOpPE1GFiTgIYepQEDs+xwluWvpuvUoCFSeEwWzWKEIbRgoBHpzWzWeott46OYq7IsX4P+y8gPZKdqFFxiJIWuVjhIQ07YYpKoPRl2+p/gqxPwfP5VyeActapDh2vqyMmFtLdnaStuaWKFC0HXp6BclzvNUdjGfOfOOxYf2K0vBL87AX/C2Cw9hvpCwvtTgrcbCue6VaUB2yGwPOUJLwkDhZshrcSiOvw8tw11++08FI0gTz1NVtK6ZBmYSQR6ern1oUMBA99/3+UtZLfyuZylTfo7Ch1v1c3Pb6AhbdzeelmURXlyoUn8Ae2GXJ2K1C9aUSBnKSWj91E6dInvMNvJqU2h3eeBozrY8SP4CNY7ISf/L+v7DgltZda3yC5ZzAMcp/QtINfkuB3lr9KQ5poU45iCdB/a3S4dPwwU0swqDY8YGJepi4vqMN9fPqdW/wHaAKDd
+api: eJytVE1r20AQ/SvLnFrYykrTtKBb+pF+QKHUCT0YHcarsTVY2lV2R8FG+L+XXYtgV6E4kJPE6s3Tm5n3doCKgvHcCTsLBXyqyWyC4pWSmlTYBaFWebrv2VNQbFkYGxVI+k694owyraxTfSAfFG05yOsMNAiuAxQLuIvnUGrwFDpnAwUoBnib5/Fx+uN5ogyC0ocM9hqunkLdIDdUKXHKRKGjkMeqvYaWpHYVFLAmAQ0dSg0FzJLCWYK/GdupQEMg/xAlFosBet9AAbVIV8xmjTPY1C5IcZnn+QXof4T8RLaqQsElBlJoK4W91GSFDUaIOjDDXv+X+HJCPJ9/U9JbS41q0eKaWrJyJtu7J9lW3NDI5c8kupoSpbo0aQ7CJqSeW2dZnGe7PpP4/YT4M4Z66dBXZzJ8mDI4syH/7GldTJc6Jx/dbZy1ZE62WEarmN6z7JJXloSe/HUfzbUojz/PTU3twefHoAFk19EoJRovwaAYQaDHlxvnWxQo4Mef2+RntiuXylmaiL8l3/JWXf/6Dhqidw/S8yzP8klDI/gjmg3ZKhap37QiT9ZQzFjngrRoI7/FJCflP8b/kCwO6igtJ+QDGGeFrLzcrXGYkNBWZl2DbKPEtMBhzPECUk0K7kmSSw1xrxExDDGSd77Z7+PxfU8+7qzU8ICecRmnuCiPb4qvX+Ko/wKFU7pf
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Checks if the system requires initial setup (i.e., no users exist).
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./check-if-setup-is-required.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Setup status."},"500":{"description":"Failed to check setup status."}}}
+  {...require("./check-if-setup-is-required.StatusCodes.json")}
 >
   
 </StatusCodes>

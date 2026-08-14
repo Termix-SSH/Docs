@@ -5,7 +5,7 @@ description: "Retrieves all snippets for the authenticated user."
 sidebar_label: "Get all snippets"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlE1r20AQhv/KMufFVpukBd1c2qQuFEqc0oPRYbwaWUtWs+ruyCQI/feyshqU2BTTk8Tq3Wc+X/VQUjTBtmI9Qw73JMHSgaJC51Rk27YkUVU+KKlJYSc1sViDQqXqIoUFaBDcR8i3sJnkUGgIFFvPkSLkPbzPsvR4HWqlnI2ifPUSZgGDhutz2jUf0NljxHU56m7O6W7ROiqVeFWRmHpOHjQ0JLUvIYc9CWhoUWrIYflXBBoihQOFVEwPXXCQQy3S5sul8wZd7aPkV1mWvQP9JvB3tKxKFNxhJIVczltlPasjGQb9T/DVCXiz+aqkYyanGmTcU0MsF9Kuz9Iq62hihQtBN6eg8Z6KgmKjWBPHmhvPVnywvL8Q/OEE/BljvfMYygsJH08J3jxSONetIg3YdMHK8zjhHWGgsOrSGmyL+eeNqak57u5c1IM8tzSlktZllEE+iUBPL7c+NCiQw7dfD+PmWa78eN2KS/oHCo19Uqsfa9CQNu6YerbIFtlJQZP4E5pH4jJdUvdUUSA2lJzQ+igNcuIzjunckbzy71tkD8azEMt/O/7YBqEnWbYOLac8xin1k622EGd/gzSudNb3yR8/gxuGdPy7o5BGUWg4YLC4S83ZFnOr3n1JHfwDbq2YuQ==
+api: eJydlN9r2zAQx/8Vcc8icdd2A79lbO0yGIymYw8hDxf5HIvKJ086hxaT/33I8YpTh5HtyUb63ud+q4OCogm2EesZcnggCZb2FBU6pyLbpiGJqvRBSUUKW6mIxRoUKlQbKcxAg+AuQr6G1SCHjYZAsfEcKULewbssS59TVwvlbBTly1c3MzhouDmnXfIenT16XBa97vac7g6to0KJVyWJqcbkg4aapPIF5LAjAQ0NSgU5zP+IQEOksKeQkumgDQ5yqESafD533qCrfJT8OsuyK9BvHH9Dy6pAwS1GUsjFuFTWszqS4aD/Cr6egFerL0paZnKqRsYd1cRyIe3mLK20jgZWuBB0OwX1dioKio1iTexzrj1b8cHy7kLw+wn4E8Zq6zEUFxI+TAnePFH452pdTZu6omDRKeOZyZx0cZNGxbTByks/K1vCQGHRpoFab8bXK1NRfdyCsagDeWloCCUNXi+DfBCBHn7ufKhRIIevPx/7GbZc+t7cikv6Rwq1fVaL70vQkGb3GHo2y2bZJKFB/BHNE3GRjNQDlRSIDaWdanyUGjnxGftw7klOXoK3yA6MZyGW/347jmUQepZ549ByiqPvUjcs6Bri6F1J7UpnXZc27Udwh0M6/tVSSK3YaNhjsLhNxVlvxkt//zlV8DeFU7I7
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Retrieves all snippets for the authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-all-snippets.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of snippets."},"400":{"description":"Invalid userId."},"500":{"description":"Failed to fetch snippets."}}}
+  {...require("./get-all-snippets.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Retrieves all folders for the authenticated user."
 sidebar_label: "Get all folders"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk1Fr2zAQx7+KuGeReGu7gd4yurYZDEbTsYfgh4t8jkRlyZPOocXkuw85Lnh1GGFPFtb/fne6u38PFSUdbcs2eFDwSBwtHSgJdE7UwVUUk6hDFGxIYMeGPFuNTJXoEsUFSGDcJ1Bb2GweoJQQKbXBJ0qgevhYFPnzd5KVcDaxCPVbggUcJVyfk679AZ095RLr20F4c054h9ZRJTiImlibCfkooSE2oQIFe2KQ0CIbULBMySxHHUhIFA/5pLY9dNGBAsPcquXSBY3OhMTqqiiKDyDfpf6O1osKGXeYSKCvpn2ywYsTGY7yn+CrGXizeRDceU9ONOhxTw15vpB2fZZWW0cjK14IupmDhjiRGNkmtjoNb26Ctxyi9fsLwZ9m4FtMZhcwVhcSPs8JQT9TPNetMg9Yd9Hy6zDhHWGkuOryJmzL6fVGG2pO2zsV9cCvLY2l5HUZZKBGEcjxcBdigwwKvv16GpbP+joM4ZZd1j9RbOyLWP1Yg4S8cafSi0WxKGYPGsVfUD+Tr3KQeKSaInlN2QttSNygz3yPQzn3xFPvvif2oINn8vy/Zj81gemFl61D63MVw4z60VdbSMmAhLcCSgl5Yvmi77NFfkZ3PObfvzuKeRqlhANGi7vcn205Nez919zEP30rlds=
+api: eJydlMFq3DAQhl9FzFnsOk3Sgm8b0iRbKJQ4pQfjw6w8XovIkiuNlwSz715kO+DES9n2ZCH/+mY08496KCkor1vWzkIKj8Re04GCQGNE5UxJPojKecE1Cey4JstaIVMpukB+BRIY9wHSHLLsAQoJnkLrbKAAaQ+fkiR+3gfZCKMDC1e9BVjBUcLVKenWHtDoMZbY3g7C61PCO9SGSsFOVMSqnpGPEhri2pWQwp4YJLTINaSwrl3g9SQECYH8Ia7SvIfOG0ihZm7T9do4hSaK08skSS5Afoj9HbUVJTLuMJBAW84LpZ0VIxmO8q/gywU4yx4Ed9aSEQ1a3FNDls+kXZ2kVdrQxPJngq6XoOGcCIysA2sVhjs3zmp2Xtv9meDPC/Athnrn0JdnEr4sCU49k//nal0sm5qR12iEctaSetfFIlpFdV7z6+CVHaEnv+miqfJi/jtTNTXjIMxFPfBrS1Mq0XiDDNJJBHJa3DnfIEMK3349DT7WtnLDcc0m6p/IN/pFbH5sQUL07ph6skpWyeJCk/gG1TPZMh4Sj1SRJ6sojlXrAjdoI9/ikM498fwZ+EjsQTnLZPl/342xCEwvvG4NahuzGHrUTyOaQ2wQSHjLoJDjTppD38dp++nN8Ri3f3fkYzsKCQf0GnexQHkxH/77r7GKfwDH57A9
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/ssh/folders"}
+  path={"/host/folders"}
   context={"endpoint"}
 >
   
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Retrieves all folders for the authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-all-folders.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of folders."},"400":{"description":"Invalid user ID."},"500":{"description":"Failed to fetch folders."}}}
+  {...require("./get-all-folders.StatusCodes.json")}
 >
   
 </StatusCodes>

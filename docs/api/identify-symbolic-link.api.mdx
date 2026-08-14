@@ -5,7 +5,7 @@ description: "Identifies the target of a symbolic link."
 sidebar_label: "Identify symbolic link"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lE1v00AQhv/Kak4gWYmhLUi+FUEhSJVQA+JQRWhiT+JV1rvuzriqZeW/o7FdGpJQpQdOiXdnnp2vdzooiPNoa7HBQwazgrzYlSU2UpIRjGsSE1YGDbfVMjibG2f9ZgIJCK4Zslu4so7MNXpcU4RFAjVGrEgo6m0HVrl3DcUWEvBYEWTAxGyDnxWQQKS7xkYqIJPYUAKcl1QhZB1IW/fGEq1fw3abHIfVKOWLOAs15jp4Jtb7t2mqP39XYr6brrF+FWKFejeBbQLnx1yuLbP1a/MYiXmqhAnRzOdfTB68p1ztjQ9iiAWXznJJRY+9OIa9QuuoMBKMHbrT7vdiu02gIilDARmsSSAZipLBlLmcrqyjX9XQoP7gkTNvKwVAAkzx/rFhTXSQQSlSZ9OpCzm6MrBkZ2mavoFkP2e03hQouEQmg74w2Eip+LyvlhnIoM17Bnx2ANZqSeM9OTOEXpGXE2nnR2lahpEVTwRdHIJ6P8OCYllszn3OVfBWgo7XieB3B+CPyOUyYCxOJLw/JIR8Q/FYtRba4LyJVtq+w0vCSPGy0RG5Xexez1U0gyp2jf5oSEOBUVv6PRhBMv656kUCGXz9+b2fStVN727Fqf13ipV9MJffZpCATtwQejpJJ+lBQqPxB8w35At1Mje0okg+J1VLHVgq9MofV8HsqED2wR3kwQt5eenCG2og9CDT2qH1GkTfom7U2y0w6y7aVZyWqz/cV90iAe2menWdyudHdNutHg8LTjtVWMal06W2Qsf0TCKvbsat89r8K9QNtXu79x5do3b9sP2Ht8bV/PTMQj+i1Xf60dvZW58/6cj8Bk60QNM=
+api: eJy1lE1r20AQhv/KMqcWhK00SQu6pbRpXQiUOKWHYMpYGluLV7vKzijECP/3MpLcuLYbnENPtnZnnp2vd1ooiPNoa7HBQwaTgrzYhSU2UpIRjEsSExYGDa+reXA2N8761QgSEFwyZPdwbR2ZG/S4pAizBGqMWJFQ1NsWrHIfGoprSMBjRZABE7MNflJAApEeGhupgExiQwlwXlKFkLUg67ozlmj9Ejab5DisRilfxZmpMdfBM7Hev0tT/fm7EtPddI31ixAr1LsRbBK4OOZyY5mtX5ptJOa5EiZEM51+NXnwnnK1Nz6IIRacO8slFR328hj2Gq2jwkgwtu/Oer8Xm00CFUkZCshgSQJJX5QMxszleGEd/ar6BnUHW850XSkAEmCKj9uGNdFBBqVInY3HLuToysCSnadpegbJfs5ovSlQcI5MBn1hsJFS8XlXLdOTQZv3Avj8AKzVksZ7cqYPvSIvJ9IujtK0DAMrngi6PAR1foYFxbLYnLucq+CtBB2vE8HvD8CfkMt5wFicSPhwSAj5iuKrq3V22NQpRYtud1i3pJmOSt5EK+tuVuaEkeJVo8N2P9u9nqr8en3tGv1Ro4YCg0r1uzeCZPhz3ckNMvj2866bb1Vg527Fqf0dxco+mavvE0hAZ7cPPR2lo/QgocH4I+Yr8oU6mVtaUCSfk+quDiwVeuUPS2VyVGr74Bby4IW8vHZ19jUQepJx7dB6DaJrUTso9x6YdavtalfL1R3u63eWgHZTvdpWhfgjus1Gj/tVqZ0qLOPc6XpcoGN6IZE3t8P+emv+FeqK1ntb/BFdo3bdsP2Ht4Yl//zMTD+i1Xe60dvZgF8+68j8BsAlWlU=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Identifies the target of a symbolic link.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+  {...require("./identify-symbolic-link.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./identify-symbolic-link.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Symbolic link information."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to identify symbolic link."}}}
+  {...require("./identify-symbolic-link.StatusCodes.json")}
 >
   
 </StatusCodes>

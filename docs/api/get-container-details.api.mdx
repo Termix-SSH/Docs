@@ -5,7 +5,7 @@ description: "Retrieves detailed information about a specific container."
 sidebar_label: "Get container details"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VMFq3DAQ/RUxpxbErtskLfiWNk2aQqEkKT0sPsxas2sRW3Kkcchi/O9lbGfjZLdhS6EnW9LM0+i9mdeCoZgHW7P1DlK4Ig6W7ikqQ4y2JKOsW/lQoQQoXPqGFapYU25XNle5d4zWUZiBBsZ1hHQBZz6/pQCZhhoDVsQUZL8FK1fUyAVocFgRpBApRuvdpQENge4aG8hAyqEhDTEvqEJIW+BN3QdzsG4NXaf3Ym2L+Uu0TIJj7V2kKOfvk0Q+z5n5/Ag+MhNn0Gk43hd6ff1Vje9SzrNa+cYZ5UO/yL1zlDOZMf/4tau22X3wyb7LzgeV2Ks18ZMekyo7DRVx4Q2ksCYGPdCWwtz0Qs23SXHebvXo5u2Ezw40RAr3j0o2oYQUCuY6nc9Ln2NZ+MjpUZIk70C/KPE7WqcMMi4xkkJnFDZckGObD201IIPI+grw0Q6wEM2Nc1SqCh2uqSLHB6Id70Vb2ZJGrHAg0MkuUJ+nIiPbyDaP/Zsr7yx7abkDgT/sAJ9hLJYegzkQ4eMuQq/4PrYyEThvguVNr/CSMFA4baRTFtn0+FoGaZiUadB2rqQUGOdN1kMQ6PHnvHcTSOHbr5u+OcVg+nTLpcTfUKjsgzr9cQkapOOG0pNZMkt2HjQGf8L8lpyRJHVFKwrkcpKZqX3kCp3gjy5xsW9MXuK2vZmQ43/2xIETpgee1yVaJ0X1krXjGC5gGEPQTwYm9aRTa0yn3pZpEIkltW1lpn6Gsutk+66hIPJlGu4xWFwKoYsWjI3ybyBdYRnplce+uRpt8636U/XjJrqN6INlIyvQcEubZ4YuzfkfL54y1GVT07v4Io32G5uQX6g=
+api: eJy9VVFr2zAQ/ivinjYQsbu2G/itW9eug8FoOvYQ8nCxLomoLbnSuTQY//dxtpu6TVZSBnuyJd99Ot333ecGDMU82Iqtd5DBNXGwdE9RGWK0BRll3dKHEiVA4cLXrFDFinK7tLnKvWO0jsIENDCuImQzOPf5LQWYa6gwYElMQfYbsHJEhbwGDQ5LggwixWi9uzKgIdBdbQMZyDjUpCHmayoRsgZ4U3XBHKxbQdvqvVjbYt6INpfgWHkXKcr3D2kqj+ed+fIIPnQmTqDVcLIvdDr9poZ7KedZLX3tjPKhW+TeOcqZzJB/8tpR2+wu+HTfYRc9S+zViviJj1GVrYaSeO0NZLAiBt23LYPEdEQl26SYNFs+2qQZ9bMFDZHC/SOTdSgggzVzlSVJ4XMs1j5ydpym6RHoFyX+QOuUQcYFRlLojMKa1+TY5r2semQQWl8BPt4BlkZz7RwVqkSHKyrJ8YFoJ3vRlragASscCHS6C9TlqcjINrLNY3fn0jvLXiR3IPDHHeBzjOuFx2AORPi0i9Ax/uZuHe2SOqVgsXiU85jFuUglr4PlTaeVBWGgcFaL5mbz8eepjGQ/c+Og7YRKKTBMrqz7INDDy0XnS5DB9983nczFqrp0y4XE31Ao7YM6+3kFGkS7fenpJJ2kOxcagj9jfkvOSJK6piUFcjnJ9FU+colO8Ae/udw3cC9xm86WyPE/u2vfE6YHTqoCrZOiOsqaYaBn0A806CcrlHqysclmY5ecaxCKJbVpZDp/haJtZfuupiD0zTXcY7C4kIbOGjA2yruBbIlFpFcu++56MOD36m/VD5voNsIPFrWsQMMtbZ79GkSc//HgcYfa+dg+L7+K0P4A6rZ5Kg==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieves detailed information about a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-container-details.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-container-details.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container details."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container details."}}}
+  {...require("./get-container-details.StatusCodes.json")}
 >
   
 </StatusCodes>

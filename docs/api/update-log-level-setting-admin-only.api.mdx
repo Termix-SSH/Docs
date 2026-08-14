@@ -5,7 +5,7 @@ description: "Sets the log verbosity level."
 sidebar_label: "Update log level setting (admin only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNk8GO0zAQhl/FmhNIpg10YSXfCgjtIkAr2opDlcM0mSbWOnawJ9WWKO+O7EbasqlQT47if76Z8czfQ0mh8Lpl7SwoWBEHwTUJ4ypxIL9zQfNRGDqQmYEExiqA2sImkA+QS/AUWmcDBVA9vMuyePyL/OaqU7zo2hKZyhkMEm4uSe/tAY0uU/IxZZIuptIfjgV2XDuv/yTkIKEhrl0JClrkogYZzxoUzLtY7dy46k2igoRA/hA7UNseOm9AQc3cqvncuAJN7QKrRZZlb0G+yPsdtRUlMu4wkEBbpirIsi4wSsSJDIP8L3gxAa9Wd4I7a8mIBi1W1JDlK2k3F2l7bWhk+StB76egFCcCI+vAugip58ZZzc5rW10J/jABf8ZQ7xz68krC7ZTgikfyl14rjwMuOq/5mCa8I/Tkl13chm1+fr0qampOy3su6oGPLY2lxHVJMlCjCOT48cX5BhkUfP21Tiuo7d6lcM0m6tfkG/0klg/3ICFu3Kn0bJbNsklDo/gjFo9kyxgkftKePNmCohFaF7hBG/kWUzmb5Khnv4hAzHEqr7BstBXOmuPrl3l6KJxlsnyN30/PwPTE89agtrGONKV+dNcWkrtAwrO/cglxbvGy76NRNt4MQ/z9uyMfZ5JLOKDXuIuvtM3PzfuwXH+6g2H4CxfBklE=
+api: eJyVlFFv0zAQx7+KdU8gmTajA6S8FRDaEKCJtuKhysPVuSbWHDvYl2olyndHdiOtWyZUnhzF//vd2Xd/91BSUF63rJ2FHFbEQXBNwrhKHMjvXNB8FIYOZGYggbEKkG9hE8gHKCR4Cq2zgQLkPbzNsrg8RX5z1SledG2JTOUMBgnXL0lv7QGNLlPyMWWSLqbSH44Fdlw7r/8k5CChIa5dCTm0yKoGGdcacph3sdq5cdWbRAUJgfwhniDf9tB5AznUzG0+nxun0NQucL7IsuwK5LO831FbUSLjDgMJtGWqgixrhVEiTmQY5D/Biwl4tboR3FlLRjRosaKGLF9Iu36RtteGRpa/EPRuCkpxIjCyDqxVSGdunNXsvLbVheD3E/BnDPXOoS8vJHyYEpy6J//ft3U1beqKvEYjlLOW1JMuFnFUVOc1H9Os7Ag9+WUX52pbnG+vVE3NyQbnoh742NJYShy8JIN8FIEcP7443yBDDl9/rdMwa7t3KVyzifo1+UY/iOXdLUiIs3sqPZtls2xyoFH8EdU92TIGiZ+0J09WUbRU6wI3aCPfYipnk7z56DwRiDn29xWWjbbCWXN8/TxPD8pZJsuXvByna2B64HlrUNtYR+pSP/p0C8mnIOHRqYWE2Le42ffRchtvhiH+/t2Rjz0pJBzQa9zFW9oW58/A3XL96QaG4S+1i6vT
 sidebar_class_name: "patch api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Sets the log verbosity level.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./update-log-level-setting-admin-only.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Log level updated."},"400":{"description":"Invalid log level."},"403":{"description":"Not authorized."}}}
+  {...require("./update-log-level-setting-admin-only.StatusCodes.json")}
 >
   
 </StatusCodes>

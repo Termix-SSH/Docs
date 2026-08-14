@@ -5,7 +5,7 @@ description: "Removes an alert from the dismissed list for the authenticated use
 sidebar_label: "Undismiss an alert"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v2zAM/SsCz17ire0G+NYuKdZhA4a2ww5BDozFxGplyZXoroGR/z5QdpO06YYc5oMtS49P/HrsQFMsg2nYeAcFXFPtHykqdAotBVbL4GvFFSltYm1iJK2siayWPqRtbLkix6ZEJq3aSGEEGTCuIhQzOBeOCPMMAj20FPnC6zUUXfo1gTQUHFrKoPSOybEcYdNYoTPeje+ieNVBLCuqUVa8bggK8Is7KhkyaIJvKLChmGzlviu9B4wcjFvBJj3iRmy8iz36Q57L52UGksuqdbt4Y1uWFOOytXY9gk0Gp3+3u5ooE9VzdAP69BA92bL3aXZeUtq63uTsrQsu0VjSiv3Oud54BBJZTVx5DQVossQkqUGuoIBxAsXxYAMZRAqPFKRAHbTBQgEVc1OMx9aXaCsfuTjJ8/w9ZK9c+I7GKY2MC4yk0On98hvvVM8Mm+yfxCcHxDc3XxS3zpFVNTpcUU2Oj2Q7fZNtaSwNXOFIorNDomSnIiObyKaMKebaO8Ne2upI4o8HxBOM1cJj0EcyfDpk8OU9hbeyNZcCl20wvE4VXhAGCuetNMNsvn98I6rqpbAP2mpHXJF2STAoBhBkw+LShxoZCvj66za1oKj1eqfz6RPWjaUXutzqMQPjlj5dZlhAcEuhNk/q/McVZCD92Qeaj/JRfhD+AL7A8p6cFiN1TUsK5EoS8sZHrjHNDofJ+Z870Qyz7TVpt5tC/20O9olkeuJxY9E48S3VuRvkOetzI7J8Fug8Aym8nHWdKO1nsJuNbD+0FKSo8wweMRhcSOJm800GFaGmkOp9T2so4HMfyrtb8UDgthVPDoar9MN2dEym36a3UynwMKZrr8Uq4G/I0rsAyMCnhKW+SXsdWHSrFleC7Vnl+QNiBjHV
+api: eJytVE1v2zAM/SsCz17iru0G+NYuKdZhA4amww5BDozNxGplyZXoroGR/z5QdpO07oYMmA+2LD0+8euxhYJC7nXN2lnI4IYq90hBoVVoyLNaeVcpLkkVOlQ6BCqU0YHVyvm4jQ2XZFnnyFSoJpAfQQKM6wDZHC6EI8AiAU8PDQW+dMUGsjb+ak8FZOwbSiB3lsmyHGFdG6HTzo7vgnjVQshLqlBWvKkJMnDLO8oZEqi9q8mzphBt5b7r4gAY2Gu7hm18xI1QOxs69Ps0lc/LDESXVWP38YYmzymEVWPMZgTbBM7+bHc9UTqo5+h69NkQPdmxd2m2TlLa2M7k/K0LrlAbKhS7vXOd8Qgksoq4dAVkUJAhJkkNcgkZjCMojHsbSCCQfyQvBWqh8QYyKJnrbDw2LkdTusDZaZqmJ5C8cuEbaqsKZFxiIIW2OCy/dlZ1zLBN/kp8OiCezT4rbqwloyq0uKaKLB/JdvYm20ob6rn8kUTnQ6JopwIj68A6DzHmylnNTtrqSOIPA+IJhnLp0BdHMnwcMrj8nvw/Z+tkWNQZeY1G5c5ayl9UcSGtkjde8yb2ypLQk79opK3mi8PjmeizE9UhaKdCcUUaL8Ig60GQ9Isr5ytkyODLz9vYzKL7m/3EmD5hVRt6ofCdshPQduXiZZoFBLfkK/2kLr5fQwLS6V2g6SgdpYPwe/Al5vdkCzFSN7QiTzYnIa9d4ArjFLIYnf+xl18/JV+Ttvt59t8mapdIpice1wa1Fd9indte6PMuNyLwZ6kvEpDCy1nbimZ/eLPdyvZDQ16KukjgEb3GpSRuvtgmUBIW5GO972kDGXzqQnl3Kx4I3DTiyWBMSz/shtBk+nV6O5UC9wO/coVYefwFSXxnAAm4mLDYN3GvBYN23eBasB2rPL8B7W5LVw==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Removes an alert from the dismissed list for the authenticated user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"alertId":{"type":"string"}}}}}}}
+  {...require("./undismiss-an-alert.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Alert undismissed successfully."},"400":{"description":"Alert ID is required."},"404":{"description":"Dismissed alert not found."},"500":{"description":"Failed to undismiss alert."}}}
+  {...require("./undismiss-an-alert.StatusCodes.json")}
 >
   
 </StatusCodes>

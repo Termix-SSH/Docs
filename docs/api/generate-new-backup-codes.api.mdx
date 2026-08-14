@@ -5,7 +5,7 @@ description: "Generates new TOTP backup codes."
 sidebar_label: "Generate new backup codes"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVVFP20AM/isnP4c2DNikvME2NiZtVLRoD1U1uYnbHE3uwp1DqaL+d+RLgJZUU/OQpDn7s/3Z/tpARj51umJtDSTwgww5ZPLK0FpNbicjNcd0VVcqtRn5AUTAuPSQTOHek/Mwi8DRY02er2y2gaQJP7WjDBJ2NUWQWsNkWI6wqgqdosQaPngJ2IBPcypR3nhTESRg5w+UMkRQOVuRY01eTiv0fm1dtmPp2WmzhG0EbLn6JxkeOA2XZOkra3wL9imO5bFf+x9a7xWrlh0Z2UBinB/yGXVZKetatsRTaa9eWehcT/uuNya1zlHKqtoB0eYJC529g3UA530AaYAyltXC1qYNdHEox2vUBWWK7VtBH3oq9JTEuc0ggcr6QD5yDgkMa+nyUPgdtk4nwQki8OSeZAKSaQO1KyCBnLlKhsPCpljk1nNyFsfxKUQf8vmN2qgMGefoSaHJFNack+FuNFSLDNvov8BnPeDx+Kfi2hgqVIkGl1SS4SPRzg+iLXRBHZY7EuiiDxT8lGdk7VmnPtRcWqPZyogeCfy5B/wNfT636LIjEb70EWy6IneIrZk0OK2d5k3o8JzQkbusZSqms93jsSxwu1a7Rm97KKnIuAQzSDojiLqXa+tKZEjg199JmEQRhrt3Sfn+jGVV0L4EvC733ubv6IE2CxtS0CyuMCFX6md1ObqBCGRq2/LjQTyIe6R0xleYrshk4qTuaEGOTEoCLhtSYhAvg6GkV9UMorm7Wx+xm3c1PEpqWwaZnnlYFaiNhA8NbroFnUJY0I4IIXV3SWcRSPPFrGlk2+5dsd3K58eanDR2FsETOo1zoWk620aQE2bkQs9XtIEEvrYZn0wkGTEvakmqp+UyE28qMrodTySb7j+hbBvkcA1RuCcAEdjASpic8K2BAs2yxqXYtphyvQDEkkdk
+api: eJyVVVFv2kAM/isnP6dA13aT8tZu69ZJW1Gh2gNCk7kYuJLcpXdOKYr475MvaQsNmlgeIMnZn+3P9pcaMgram5KNs5DCN7LkkSkoS2s1vh0P1Qz1qiqVdhmFHiTAuAiQTuA+kA8wTcDTY0WBr1y2gbSOj8ZTBin7ihLQzjJZliMsy9xolFj9hyABawh6SQXKHW9KghTc7IE0QwKldyV5NhTktMQQ1s5nO5aBvbEL2CbAjss/kuGB03hJlqF0NjRgHwYD+duv/Ret94pVi5aMrCcxzg/5DNuslPMNW+KpTFAvLLSup13XG6ud96RZlTsgxj5hbrI3sBbgvAsgDVDWsZq7yjaBLg7leI0mp0yxey3oXU+FnoJ46TJIoXQhko+8hBT6lXS5L/z2G6eT6AQJBPJPMgHppIbK55DCkrlM+/3cacyXLnB6NhgMTiF5l89PNFZlyDjDQAptprDiJVluR0M1yLBN/gl81gEejb4rrqylXBVocUEFWT4S7fwg2tzk1GL5I4EuukDRTwVGNoGNDrHmwlnDTkb0SOCPHeAvGJYzhz47EuFTF8HpFfn/Zuu029QReYO50s5a0ntdnMqo6Mob3sRZmRF68peVzNdkuns8EiloFnTX6HWjJRUZvGgGaWsESXtz7XyBDCn8+D2OMy0Sc/cmTl+fsShz2heTF5nY05AdZTF27mIKhsUVxuQL86wuhzeQgMx/U/6gN+gNOqS0xleoV2QzcVJ3NCdPVpOAy64VGGXQYizpRX+j/O5u6Xvs+k1XjxLthkGmZ+6XORor4WOD63bVJxBXvSVCSN1d92kC0nwxq2vZ23ufb7fy+rEiL42dJvCE3uBMaJpMtwksCTPysecr2kAKn5uMT8aSjJjnlSTV+SrITLzq0fB2NJZs2q9L0TTI4xqS+JsCJOAiK3Fy4rsacrSLChdi22DK9RfczWDm
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Generates new TOTP backup codes.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"},"totp_code":{"type":"string"}}}}}}}
+  {...require("./generate-new-backup-codes.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"New backup codes generated."},"400":{"description":"Password or TOTP code is required."},"401":{"description":"Incorrect password or invalid TOTP code."},"404":{"description":"User not found."},"500":{"description":"Failed to generate backup codes."}}}
+  {...require("./generate-new-backup-codes.StatusCodes.json")}
 >
   
 </StatusCodes>

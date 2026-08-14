@@ -5,7 +5,7 @@ description: "Checks if user data is currently unlocked."
 sidebar_label: "Check user data unlock status"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk09v2zAMxb+KwLOWeOu6Ab5167o/wIBhabFD4AMjM7EQW/Ikqmhg+LsPlI0iXYIhO9mwHn96JvkGqCmaYHu23kEJHxsy+6jsVqVIQdXIqGxUJoVAjtuDSq71Zk/1AjQw7iKUa3iIFCJUGgLF3rtIEcoB3hSFPF7ybwUYGTlFFYhTcIIaNVyfU9+hbalW7JURX5OdqXoB46ihI258DSXsiEFDj9xACUvxHpeifjWpQUOk8Cg2y/UAKbRQQsPcl8tl6w22jY9cXhVF8Rr0Xya+o3X55g1GUuhqhYkbcmwNikRNZBj1P8FXJ+DV6ovi5By1qkOHO+rI8YW0t2dpW9vSzAoXgq5PQbkut9lGtibmf+68s+yDdbsLwe9OwLcYm43HUF9IeH9KkNUL57pVyYBNCpYPecIbwkDhJsk+rKvj45VpqJs29Fg0AB96mq3IumQZlLMI9Pxy50OHDCV8+3WfV9C6rc/lllvR31Po7JO6+fEVNMjGTdaLRbEoTn5oFn9AsydXS5H6SVsK5AxJKnofuUMnfIfZTg7oUTinPKrnNX/BH8B4x+T4v5M99YLpiZd9i9aJmTyqYQ7ZGnLI5MajmFUaZHxyPAySl4fQjqN8/p0oyGgqDY8YLG6kWevqOMOfP0lH/wDfNpEY
+api: eJyVlE9v2zAMxb+KwLOWuOu6Ab5167o/wIBhabFD4AMjM7EQWfIkumhh+LsPlI0iWYohPdmwnn56Ivk8QE3JRNuxDR5K+NSQ2Sdlt6pPFFWNjMomZfoYybN7Ur13weypXoAGxl2Ccg33iWKCSkOk1AWfKEE5wNuikMcx/0aAiZH7pCJxH72gRg1XL6lv0TqqFQdlxNdkZ9q9gHHU0BI3oYYSdsSgoUNuoISleE9LUb+Z1KAhUXwQm+V6gD46KKFh7srl0gWDrgmJy8uiKC5A/2PiB1qfT95gIoW+VthzQ56tQZGoiQyj/i/48gS8Wn1V3HtPTrXocUcteT6T9u5F2tY6mlnxTNDVKSjvy2W2ia1J+c5t8JZDtH53Jvj9CfgGU7MJGOszCR9OCTJ68dXVujht6oqiRadM8J7MURcrGRXTR8tPeVY2hJHidS+Tta4Ol1emoXaa9UPRAPzU0WxFBi/LoJxFoOeX2xBbZCjh+++7PMzWb0PebtmJ/o5iax/V9c9voEFmd7JeLIpFcXKhWfwRzZ58LZvUL9pSJG9I8tWFxC164XvMdnLUD2I+JVs9B+aIP4AJnsnzq/8RUy2YHnnZObRezORWDXNc15DjKiceBLbSIO2T5WGQ5N1HN47y+U9PUVpTaXjAaHEjxVpXh3+DL5+lon8B7D6qmg==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Checks if user data is currently unlocked.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./check-user-data-unlock-status.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Data status returned."},"500":{"description":"Failed to check data status."}}}
+  {...require("./check-user-data-unlock-status.StatusCodes.json")}
 >
   
 </StatusCodes>

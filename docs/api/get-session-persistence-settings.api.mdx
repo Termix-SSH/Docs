@@ -5,7 +5,7 @@ description: "Returns the session timeout and persistence enabled flag."
 sidebar_label: "Get session persistence settings"
 hide_title: true
 hide_table_of_contents: true
-api: eJylU9Fq20AQ/JVjnw9bTZoW9JbSJm2hUOKUPhhR1qe1dOS0p96tQoLwv5c7K0GJTTHkSUKanZ3d2RmhpmiC7cV6hhJuSIbAUUlLKlKM1rMS25EfRCHXqqcQbRRiQ4oYN45qtXXYLECDYBOhXMMthc4yOqg0BIq950gRyhHOiiI9XnZcTV0iiVhu4gJ2Gi6OIa/Qpnbi1ZbEtPOKnYaOpPU1lNCQgIYepYUSljKJWU7T/HmqAg2Rwj2FpHmEITgooRXpy+XSeYOu9VHK86Io3oF+peQHWlY1Cm4wUt4LDtISizUo+2ESM+z0f4nPD4hXq69KBmZyqkPGhjpiOZHt/VG2rXU0cYUTiS4OiXKdioJio1gT88ydZys+WG5OJP5wQPwZY7vxGOoTGT4eMnhzR+HYtqpksBmClcfs8IYwULgc0l2sq/nvlWmp25/oHDSCPPY0SUnnkmFQTiDQ08uVDx0KlPD9920+Rctbn8utuITPgXhQlz+/gYZ0cXvpxaJYFAcDTeBPaO6I61SkbmhLIUUuRaP3UTrkxM+Y5VyTPGd1ns/Zpb9oMYLxLMTy1rzvtyP0IMveoeUkL5s3TvFbw1P8ctpeBbDSkIxNsHFMSfoV3G6XPv8dKCTTKg33GGxqmz2bpfz6S9r1Px+fpPw=
+api: eJylVNFq3DAQ/BWxz+LOaZoW/JbSJm2hUHIpfTiOsifv2SLyypXWIcHcvxfpnOCLQ7nSJxt7dnZWO6MBKoom2E6sZyjhhqQPHJU0pCLFaD0rsS35XhRypToK0UYhNqSIceuoUjuH9QI0CNYRyjXcUmgto4ONhkCx8xwpQjnAm6JIj+OOq7FLJBHLdVzAXsPFa8grtKmdeLUjMc20Yq+hJWl8BSXUJKChQ2mghKWMYpbjNL+eqkBDpHBPIWkeoA8OSmhEunK5dN6ga3yU8rwoijPQL5R8Q8uqQsEtRsrngr00xGINymGYxAx7/Vfi8xnxavVZSc9MTrXIWFNLLCeyvX2VbWcdjVzhRKKLOVGuU1FQbBRrYp659WzFB8v1icTvZsQfMTZbj6E6keH9nMGbOwr/fFpn86WuKFh0ynhmMkdb3CSrmD5Yecxe2RIGCpd9cth6M/29Mg21B7NPQQPIY0ejlGS8DINyBIEeX658aFGghK8/b7OpLe98LrfiEj5H60Fdfv8CGpJ3D9KLRbEoZgON4A9o7oirVKRuaEchhTeFrPNRWuTEz5jlXJM8p36a9ElmjloMYDwLsfzvzXE4HaEHWXYOLSd5eXnDGOQ1PAU55/ZFlDca0mITbBhSJn8Et9+nz797CmlpGw33GGxqm3c2uS+uP6Wz/gM+7r5+
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the session timeout and persistence enabled flag.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-session-persistence-settings.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Session settings."},"500":{"description":"Failed to fetch settings."}}}
+  {...require("./get-session-persistence-settings.StatusCodes.json")}
 >
   
 </StatusCodes>

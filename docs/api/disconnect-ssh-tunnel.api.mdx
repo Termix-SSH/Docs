@@ -5,7 +5,7 @@ description: "Disconnects an active SSH tunnel."
 sidebar_label: "Disconnect SSH tunnel"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVE1v00AQ/SurOS+JS1uQfGspFSABFQ3iEOUwWU/jbe1dd3ccGln572jWbhKSgOJDYu++efP5poOCogm2Yesd5HBjo/HOkeGo0Ck0bJek7u8/KW6do2oEGhgXEfIpyOkknUaYaQj03FLka1+sIO/Spw1UQM6hJQ3GOybHcoVNU1mD4nL8GMVvB9GUVKO88aohyMHPH8kwaGiCbyiwpZhuk8NvWNMONnKwbgHr9EgksfEu9gZvs0z+/pWmGsJWgQzZJRUjWGu4OGbU56oc1qResxvQZ4foq5ZLcjzkuW9wfsTAGIpRFeTsALs8FsUt2ooKxV4V2yRemyPZ18SlLyCHxsdUP+QSchjHWI573HhrCRoihSUF6WgHbaggh5K5ycfjyhusSh85P8+y7Az0XiRf0TpVIOMcIyl0hcK/c+6ZYa3/S3x+QLwdN1WjwwXV5PhEtoujbA+2ooErnEh0eUiU7FRkZBvZmphyrr2z7GX+TiR+d0B8g7GcewzFiQzvDxm8eaJwrFozabBpg+VV6vCcMFCQ4YR8Otu9vhcF9prZBW1EJqHIuCQY5AMI9PBy60ONDDl8+TVJcyjK/rHdCR9fsG4q2tfwRrsarHvw6dqy4GBCobYv6uruM2iQEe1zzUbZKDuowAC+RvNErhAj9YMeKJAzJOQihhrTqnG9450dsB24fd5uu7dO2419rZheeNxUaJ34Tq3sBiFOIcZSkBt/WzHONEiTBdR1oqqfoVqv5fi5pSANnGlYYrA4lwpNZ2sNJWFBIfX2iVaQw4c+4DcTCUXgVSshHSxd6f1mV9x9v59IK4flXftCbAL+Bp1+cwANPhUlTUg666BCt2hxIdieU54/ZH4tGA==
+api: eJyVVU1v2kAQ/SurObvgNEkr+ZY0jdpKbaNA1QPiMKwneBN719kd0yCL/17N2gGKaUV9ALP75s3Xm6GFnIL2pmbjLGRwY4J21pLmoNAq1GxWpCaTT4oba6kcQQKMywDZDOR0Gk8DzBPw9NxQ4GuXryFr40/jKYeMfUMJaGeZLMsV1nVpNIrL8WMQvy0EXVCF8sbrmiADt3gkzZBA7V1Nng2FeBsdfsOK9rCBvbFL2MRHIgm1s6EzeJum8vW3NFUftvKkyawoH8EmgYtjRl2uymJF6jW7Hn02RF81XJDlPs9Dg/MjBlpTCCona3rY5bEobtGUlCt2Kt8l8docyb4iLlwOGdQuxPohF5DBOIRi3OHGO0tIIJBfkZeOttD4EjIomOtsPC6dxrJwgbPzNE3PIDmI5Csaq3JkXGAghTZX+GfOHTNskn8Snw+Id3JTFVpcUkWWT2S7OMr2YErqufyJRJdDominAiObwEaHmHPlrGEn+juR+N2A+AZDsXDo8xMZ3g8ZnH4i/9/VOhs2dULeYKl6eex3cS5S0Y03vI5aWRB68iJzyGbz/euJzHI3ffug7bhKKCK8CIOsB0HSv9w6XyFDBl9+TqOiZUfc77bLxxes6pIOt8F2CyRg7IOL14YFB1PylXlRV3efIQERe5drOkpH6aACPfga9RPZXIzUPT2QJ6tJyGWsKoxLy3aO97bJTrqHvO1uA562ZbtaMb3wuC7RWPEdW9n2Iz2DEApBbv3txnqegDRZQG0r8/nDl5uNHD835KWB8wRW6A0upEKz+SaBgjAnH3v7RGvI4EMX8JuphCLwspGQButber/dOnffJ1NpZf83ULlcbDz+giR+ZgAJuFiUqJB41kKJdtngUrAdpzy/Adv5Rpo=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Disconnects an active SSH tunnel.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tunnelName":{"type":"string"}}}}}}}
+  {...require("./disconnect-ssh-tunnel.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Disconnect request received."},"400":{"description":"Tunnel name required."},"401":{"description":"Authentication required."},"403":{"description":"Access denied."},"500":{"description":"Failed to disconnect tunnel."}}}
+  {...require("./disconnect-ssh-tunnel.StatusCodes.json")}
 >
   
 </StatusCodes>

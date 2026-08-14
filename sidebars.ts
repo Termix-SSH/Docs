@@ -30,6 +30,7 @@ const sidebars: SidebarsConfig = {
             'install/server/docker',
             'install/server/manual',
             'install/server/proxmox',
+            'install/ginernet',
           ],
         },
         {
@@ -52,6 +53,7 @@ const sidebars: SidebarsConfig = {
         'setup/reverse-proxy',
         'setup/environment-variables',
         'setup/remote-desktop',
+        'setup/remote-sync',
       ],
     },
     {
@@ -74,6 +76,7 @@ const sidebars: SidebarsConfig = {
             'features/authentication/oidc',
             'features/authentication/github-google',
             'features/authentication/ldap',
+            'features/authentication/trusted-proxy',
             'features/authentication/totp',
             'features/authentication/rbac',
             'features/authentication/security',
@@ -88,6 +91,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'features/networking/tunnels',
             'features/networking/host-metrics',
+            'features/networking/alerts',
             'features/networking/docker',
             'features/networking/ssl',
             'features/networking/tailscale',
@@ -103,8 +107,37 @@ const sidebars: SidebarsConfig = {
             'features/terminal/command-palette',
             'features/terminal/snippets',
             'features/terminal/command-history',
+            'features/terminal/split-screen',
+            'features/terminal/session-sharing',
             'features/terminal/session-recording',
           ],
+        },
+        {
+          type: 'category',
+          label: 'Fleets',
+          link: {
+            type: 'doc',
+            id: 'features/fleets/overview',
+          },
+          items: ['features/fleets/inventory'],
+        },
+        {
+          type: 'category',
+          label: 'Automations',
+          link: {
+            type: 'doc',
+            id: 'features/automations/overview',
+          },
+          items: ['features/automations/triggers', 'features/automations/steps'],
+        },
+        {
+          type: 'category',
+          label: 'AI',
+          link: {
+            type: 'doc',
+            id: 'features/ai/overview',
+          },
+          items: ['features/ai/providers', 'features/ai/tools'],
         },
         {
           type: 'category',
@@ -128,6 +161,38 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'API',
           items: ['features/api/api-keys'],
+        },
+        {
+          type: 'doc',
+          id: 'features/workspaces',
+          label: 'Workspaces',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'CLI',
+      link: {
+        type: 'doc',
+        id: 'cli/overview',
+      },
+      items: [
+        'cli/installation',
+        'cli/authentication',
+        'cli/configuration',
+        'cli/scripting',
+        {
+          type: 'category',
+          label: 'Commands',
+          items: [
+            'cli/commands/hosts',
+            'cli/commands/exec-and-ssh',
+            'cli/commands/files',
+            'cli/commands/fleets',
+            'cli/commands/tunnels-and-docker',
+            'cli/commands/snippets-and-credentials',
+            'cli/commands/admin',
+          ],
         },
       ],
     },

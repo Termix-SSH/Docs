@@ -5,7 +5,7 @@ description: "Returns the OIDC authorization URL."
 sidebar_label: "Get OIDC authorization URL"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNlE9vm0AQxb/Kas4rQxunlbilTZOmatXKjtUD4jBexrAKzNLdIUqK/N2rxUR1Y7vyCQRvf7z58xigpGC87cQ6hgwWJL3noKQm9f3u+qPCXmrn7W+MArVafJ2BBsEqQJbDKpAPUGjwFDrHgQJkA7xN03j5F3wKttUwT+cn9OxEGccbW/WeylF8eQx+g7ahUolTFTF5FDr6qa2GlqR2JWRQkYCGDqWGDJI+FpI4W5rk5SCBhkD+MVaY5QP0voEMapEuS5LGGWxqFyS7SNP0DehXhr6hZVWi4BoDKeRy9EMs1uwM7ciw1f8FXxyAl8vPSnpmalSLjBW1xHImbX6UtrENTSx/JujyEDSeU0FQbBBrwlhz69iK85arM8HvDsDXGOq1Q1+eSXh/SHDmgfyxbhVxwKb3Vp7HCa8JPfmrPq5EXuy/Xpqa2t1y74sGkOeOJitxXUYZZJMI9HRz43yLAhl8+Xk/bqHljRuPW2mi/p58a5/U1Y870BA3bmc9naWz9KCgSfwBzQNxGQ+pBW3IExuKCelckBY58hlHO7ckJ8L8Gj6AcSzEcv6vYNcBoSdJugYtRwvjgIYpXTmM6QINMV+g4W/CCg1xclEzDDEqK99st/Hxr558nEqh4RG9xXXsU17sJ/j2U2zmH3jXnm4=
+api: eJylVMtu2zAQ/BViz4StvFpAt7Rp0hQNGsQJcjB8WEtri4hEqstVEFfwvxdLO21ix4GLnvTgcDjc3ZkeSooFu1Zc8JDDDUnHPhqpyPy4PPtssJMqsPuFCjB3N98HYEFwHiEfw10kjjCx0CJjQ6Jf+bgHp1Q/O+IFWPDYEOTA1FAzJb4isBCLihqEvAdZtLo6DaEm9LC0G4LuK5KK2Egw9CTkyyQtUoyqR4I5ykyJi2icj0JYmjAzh6YKHccBLCcWmGIbfKSopx1mmT5eH7HrnksLx9nxDrwPYorgZ27eMZUJfPIW+Tm6mkoVOidPjEJvHrW00JBUoYQc5iSgJZUKchh2WuNhcGUxfN6YKkj8+FzujmvIoRJp8+GwDgXWVYiSH2VZdgCbBb1C502JglOMZNCXSQ95ccVK0IoZlvZd4qMt4tHoq5HOe6pNgx7n1JCXPdmO32SbuZrWXLwn0ck2UdpnoqC4KK6I6c5N8E4COz/fk/jDFvEZxmoakMs9GT5uM4Tigfifq3Ww3dQRscNaB9JT8aqLEx2VomMnizQrU0ImPu10uMaTl8sj9eTKJi9BfyyqUp6tmyybQGDXL+eBGxTI4dv9bZpn52chbXdSK/6WuHFP5vT6Eizo7K6kZ4NskG1daA3+hMWDev70+tLc0IyYfEHqtTZEadAr/zpfLkh2JNYmeQ9F8EJe9s+7VQWEnmTY1uhSTqUG9WufjiH5FCyoU8HCX69OLGjnFNP3aro7rpdL/b1KSO1K6SJOayohn2Ed6R3B/5WHO27yQIvNgH7EulNgGqBHZKfy0sS8CKqLL9rp39C5IwQ=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,28 @@ import Heading from "@theme/Heading";
 
 Returns the OIDC authorization URL.
 
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
 <ParamsDetails
-  parameters={undefined}
+  {...require("./get-oidc-authorization-url.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-oidc-authorization-url.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"OIDC authorization URL."},"404":{"description":"OIDC not configured."},"500":{"description":"Failed to generate authorization URL."}}}
+  {...require("./get-oidc-authorization-url.StatusCodes.json")}
 >
   
 </StatusCodes>

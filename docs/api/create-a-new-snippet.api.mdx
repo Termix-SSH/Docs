@@ -5,7 +5,7 @@ description: "Creates a new snippet for the authenticated user."
 sidebar_label: "Create a new snippet"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVcFu2zAM/RWBZy9x13YDfGu3FduAbUWTYYcgB8ZmYrW25Ep028Dwvw+UncapgyGYD4kjkk/kIx/TQEY+dbpibQ0k8MkRMnmFytCz8kZXFbFaW6c4J4U152RYp8iUqdqTm0AEjBsPyQJmnbeHZQSOHmvyfG2zLSRN+KkdZZCwqymC1Bomw2LCqioEUFszvfeSRAM+zalEeeNtRZCAXd1TyhBB5WxFjjV5sRosaeDl2WmzgfYAf2Q7KPiIfW2LjNxRk3WHFm2YNuSgDY9U7StrfJfc+/hMvg757TlSaeA5U75OU/J+XRfFdiJXXMTxOOonlqTQZKqvS6EjteM0hF0eC7tBXVCm2PbX7fo5AUm2JM5tBglU1gdqkXNIYOp3bYzAk3siJ81toHYFJJAzV8l0WtgUi9x6Ts7jOD6DN6zCD9RGZci4Qt9lPhgdbY3qkKGN/gl8PgKezb4qro2hQpVocEOl0HEa2sVRtLUuqMdyJwJdjoFCnPKMrD3r1IeaS2s0WxmeE4E/jIA/o89XFl12IsLHMYJNH8gdY2spDU5rp3kbOrwidOSuahmDxXJonokeu6keOr3qQFKRcQlukPROEPUvN9aVyJDA9z/zMHqi87v9hvjygmVV0F7RO8kNhLw/Oizv9Xgn2/1Jr9a4jUCbtQ35apZ7YE6u1C/q6vYbRCAj3oHFk3gSj67ona8xfSCTSZC6ozU5MimJ9kQ/JZpB+t0WPVyib2GbQW3/tXU76pleeFoVqI2kEiaj6aW8AD/YyDIictY0osnfrmhbOX6syUn7lxE8odO4En4WyzaCnDDwt2jggbaSZZfvu7ncLO5FLRmMFrhMzutyuf01m8sg9H8Epc0kxuEzROEzAelU4CTMVzhroECzqXEjvh2mPH8BMjJM0w==
+api: eJydVd9v0zAQ/lesewIptBkwkPK2ARMg8UN0aA/THq7OtfHm2MG+jFVR/3d0Trqmy4QGeWgT3/nz/fjucwclRR1Mw8Y7KOBdIGSKCpWj3yo60zTEauWD4ooUtlyRY6ORqVRtpDCDDBjXEYpLWPTeEa4yCPSrpcinvtxA0aVPE6iEgkNLGWjvmByLCZvGCqDxbn4dJYgOoq6oRnnjTUNQgF9ek2bIoAm+ocCGolgd1jTyihyMW8P2AH9iO0j4EfvK25LCoyYfDi3GMa0piMnEr57HwSy9t4QOHhwIFxU5laqQSrorsUk190zqmfbNZt5gZFLe2U0my6o0gTTbjaI70i3j0opVoap85Ocz2KZHCh8b72Jfn5f5kfwdBjC0SenU6lLFVmuKcdVau5lJKq/zfLrrK9ak0JVqKK3CQGrX1rTt+LFtZ2gslYr9cNwuXwk4g5q48iUU0PiYuotcQQHzuGNSBpHCLQXhVwdtsFBAxdwU87n1Gq0kX7zK8/xoUucvaJwqkXGJsY98xF7jneqRYZv9FfjVBHix+Ki4dY6sqtHhmmopx9PQXj+KtjKWBqzwRKDjKVDapyIjm8hGx5Rz7Z1hL/x9IvCbCfB7jNXSYyifiPB2iuD1DYV/rtbRtKkLCgatcNCRPujilVBFt8HwJnFlSRgonLRCqMursXkh4tLPx9jpfnAlFCFecpNBTk6QDS9nPtTIUMDni/NEYhGtH3u5+3CHdWNpL087/Rip0n7pML375Z0G7VcG6cn3SiMaIsLjVj5Fb1hOhXMKtblTJ98/QQYyOj10Pstn+eTAwfkU9Q25UjapH7SiQE6TzLTMZY1ulEx/QRzeDw9hu1Gm/3Wh9I1guuN5Y9E4CSXxpBsk4hLi6LIRwsha18ms/wx2u5XlXy0FIcNVBrcYjEhm4kIGFWGq5mUHN7SRKPt4X5zLyeJuW4lgcjcJj+5F6/u3xbnQYrjjal/KnoC/IUu/BUjfUk0S29JaBxbdusW1+PaY8vwBNiyY8w==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Creates a new snippet for the authenticated user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"content":{"type":"string"},"description":{"type":"string"},"folder":{"type":"string"},"order":{"type":"integer"}}}}}}}
+  {...require("./create-a-new-snippet.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"description":"Snippet created successfully."},"400":{"description":"Name and content are required."},"500":{"description":"Failed to create snippet."}}}
+  {...require("./create-a-new-snippet.StatusCodes.json")}
 >
   
 </StatusCodes>

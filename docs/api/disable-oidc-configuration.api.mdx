@@ -5,7 +5,7 @@ description: "Disables the OIDC provider configuration."
 sidebar_label: "Disable OIDC configuration"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVlE9v2zAMxb+KwLOWeEu7Ab51S4p12D8sKXYIcmAkJhZqS55EB+0Mf/dBsge4dTBkJxv240+PJp9b0BSUNzUbZyGHpQm4LykILkh8u1t+ELV3J6PJC+XswRwbj1E6AwmMxwD5Fu4D+QA7CZ5C7WygAHkLb7IsXp7jE/EZSOj+RD2DTsJVtpgWfXUssOHCefN70F2fg9+iKUkLdn+ZYnTcDLpOQkVcOA05aCqJCSTUyAXkMG9iE3NntHrVF4CEQP4UW8u3LTS+hBwK5jqfz0unsCxc4HyRZdlrkC+cfEFjhUbGPQYSaHXyT5aN6pvuydDJf4IXE/B6/VFwYy2VokKLR6rI8oW0q7O0gylpYPkLQddTUKoTgZFNYKNC6rly1rDzxh4vBL+dgJcYir1Dry8kvJsSnHogf+5r7eKAVeMNP6UJ7wk9+Zsm7sN2N369VgVV/VaPRS3wU02DlbguSQb5IAI53Nw6XyFDDp9+btIWGntwqdxwGfUb8pV5FDff70BC3LjeejbLZtmkoUH8HtUDWR2LxA86kCerKEajdoErtJFvMdlZTtMwhO8lvAXlLJPl//0T9N+B6ZHndYnGRiNpTO0QsC2kgIGEccR2EuLo4uu2jVm592XXxce/GvJxLDsJJ/QmOklTGUV4ufq82qyg6/4Ad/qgcg==
+api: eJyVlE1v2zAMhv+KwLOWuEu7Ab51S4p12BeWFjsEOTASEwuVJU+ii3aG//sg2QPSuhjSkwWLfESK76sONEUVTMPGOyhhaSLuLEXBFYnv18uPogn+3mgKQnm3N4c2YAqdgQTGQ4RyA7eRQoSthECx8S5ShLKDt0WRPk/xmfgEJPRwop5BL+G8WEyTvnkW2HLlg/kzxl28BL9CY0kL9v+Y4ui4GfS9hJq48hpK0GSJCSQ0yBWUMG9TE3NvtHozJICESOE+tVZuOmiDhRIq5qacz61XaCsfuVwURXEG8lklX9E4oZFxh5EEOp3rJ8dGDU0PZOjlf8GLCXi9/iS4dY6sqNHhgWpyfCLt/EXa3lgaWeFE0MUUlPNEZGQT2aiYe669M+yDcYcTwe8m4CXGaucx6BMJ76cEr+4ovPq2zqZDXVMwaJOcHKknU9wmqag2GH7MWtkRBgqXbVLWZnu8vVYV1YM/joM64MeGxlKS8HIYlGMQyHFx5UONDCV8/nWT9Wzc3ud0wzbF31CozYO4/HENEpJ2h9KLWTErJg2NwR9Q3ZHTKUn8pD0FcoqSyRofuUaX+A5zOcupr0YbP4d3oLxjcvzaN2W4B6YHnjcWjUuF5DF1o1U3kK0KEo7NupWQRpe2uy657jbYvk+/f7cU0li2Eu4xmFRJnsrRY7BcfVndrKDv/wItU7n0
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Disables the OIDC provider configuration.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./disable-oidc-configuration.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"OIDC configuration disabled."},"403":{"description":"Not authorized."},"500":{"description":"Failed to disable OIDC config."}}}
+  {...require("./disable-oidc-configuration.StatusCodes.json")}
 >
   
 </StatusCodes>

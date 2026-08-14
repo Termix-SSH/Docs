@@ -5,7 +5,7 @@ description: "Returns the uptime of the server in various formats."
 sidebar_label: "Get server uptime"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE2P0zAQ/SvWnKM2sCxIvi2CXUBaCW0Xcah6mDjTxtvEDvak2irqf0fjZEuXVKgilyT2+M3He889lBRNsC1b70DDA3EXXFRckepatg0pv05/kcKOgrJO7TBY30W19qFBjjPIgHETQS/hE8aq8BhKWGUQKLbeRYqge3ib5/J6nW0xYI6JrBsQrXeCabxjciynsG1ra9LO/CnK0R6iqahB+eJ9S6DBF09kGDJog28psB0SD+D38STSdU1BAQ7ZuLkg4115PmIoiak82Y0crNvAIT0ZXJ9r7RZtTaVirzbEY4czkPCGuPIlaNhQqha5Ag3zIQQyGAYt4+yhCzVoqJhbPZ/X3mBd+cj6Ks/zN5D9lfIerVMlMhYYSaErFXZckeNxdCOFcMj+CXw1AV4svijunKNaNehwQw05vhDt3Vm0ta1pxAoXAl1PgQb1REa2ka2JqefGO8teCLoQ+P0E+KjiCxE+TBG82VI4N62VEGy6YHmfGC4IA4WbTkSwXJ1uL0Tgg4ZPg44qlFJELikM9BgE2fhxm4QLGr79fEy6E3ul45ZriX+k0NhndfP9K2QgihtKz2f5LJ80NAZ/RLMlV8oh9UBrCuQMiU1aH7nBZEyHqZw7emlaHaX9CrP/4/D/vnaGSTA987yt0brkaSGqH321HC0u95HwJSt9Lwb5EerDQZZ/dRSEi1UGkgILmc5ydcigIiwpJJq2tAcNN8ZQK6bdYd1J5snFJAQeDX73WSb/G6lu25Q=
+api: eJydVMFu2zAM/RWBZyNx13UDfOuwtduAAkPTYYcgB0ZmYrU25Ul00cLIvw+U3SyZiyGbL7Yl6pHie489lBRtcK04z1DALUkXOBqpyHStuIaM36S/SOGRgnFsHjE430Wz8aFBiTPIQHAboVjCR4zV2mMoYZVBoNh6jhSh6OFNnuvrONtiwBwTOR4QnWfFtJ6FWPQUtm3tbNqZ30c92kO0FTWoX/LcEhTg1/dkBTJog28piBsSD+A38SCSu2ZNAXbZuLkg67l8PWIoSag82I0SHG9hl54MLl672hW6mkoj3mxJxhvOQMMbksqXUMCWUrUoFRQwH0Igg6HR2s4eulBDAZVIW8zntbdYVz5KcZ7n+Rlkf6S8QcemRME1RjLIpcFOKmIZWzdSCLvsr8DnE+DF4rORjplq0yDjlhpiORHt7atoG1fTiBVOBLqYAg3qiYLiojgb050bz068EnQi8LsJ8F7FJyK8nyJ4+0Dhn7t1NiV1QcFhbaxnJnvE4kqlYrvg5DlpZU0YKFx2Kqfl6nB7oVYZ3HAYtNezlqLCS2FQjEGQjR9XyQJQwNcfd0nBatR03Emt8XcUGvdkLr99gQxUu0Pp+Syf5ZMLjcEf0D4Ql3rI3NKGArElNVzrozSYLM6Yyrmml/aZvUmOMPvfs+K/B9jQCaEnmbc1Ok7TQYnqR4cux2Ghk0350pW+V6t9D/Vup8s/OwrKxSoDTYFr7c5ytcugIiwpJJoe6BkKuLSWWrX/I9adZp6MOCVwPyquP2nnfwE9yPUW
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the uptime of the server in various formats.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-server-uptime.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Server uptime information.","content":{"application/json":{"schema":{"type":"object","properties":{"uptimeMs":{"type":"number"},"uptimeSeconds":{"type":"number"},"formatted":{"type":"string"}}}}}},"500":{"description":"Failed to get uptime."}}}
+  {...require("./get-server-uptime.StatusCodes.json")}
 >
   
 </StatusCodes>

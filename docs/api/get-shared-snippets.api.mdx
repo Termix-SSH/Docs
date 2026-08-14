@@ -5,7 +5,7 @@ description: "Retrieves snippets shared with the current user."
 sidebar_label: "Get shared snippets"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk1tr20AQhf/KMs9bSyW9wL45vaQtFIqd0gejh9FqbC2RdtXZkZsg9N/Lygo4USimb2J15mNmzpwBKoqWXScueDCwIWFHR4oqetd1JFHFGpkq9cdJraQmZXtm8qL6SLwCDYKHCGYHm+v1Byg0tCR1qMDAgQQ0dCg1GMi4RJudWK8e2aAhEh+JE2CAnhswUIt0JsuaYLGpQxRzlef5a9DPOv2OzqsKBUuMpNBXCnupyYuzmCTqRIZR/xN8tQBvt1+U9N5To1r0eKA2TXsZ7c2LtL1raGbxhaC3S9BUp6KguCjOxmnmNngngZ0/XAh+twB/xFiXAbm6kPB+SQj2jvilbRXJYNuzk4fJ4ZKQidd9Ooldcf57a2tqKYJ5KhpAHjqaW0nnMsnAzCLQ88fnwC0KGPj26xbGUYPz+zCVO2mS/pa4dfdq/eMraEgXd2o9X+WrfDHQLL5Ge0e+SkVqQ3ti8pZg1NCFKC36xPc4tXND8hiUs+N+Qh3ABi/k5T9jdtqD0L1kXYPOp0Ymm4Y5YztIGUtLepayQkNyLymGIcXlJzfjmJ5/98TJmULDEdlhmXa1K8azFN98Sgv9C+2Lbb4=
+api: eJydlFtr20AQhf/KMs9bSyG9wL45vaQtFIqd0gejh/FqbC2RdtXZkZsg9N/LygrYUShu34R05mNmzhz1UFK07FpxwYOBFQk7OlBU0bu2JYkqVshUqt9OKiUVKdsxkxfVReIFaBDcRzAbWN0s30OhoSGpQgkG9iSgoUWpwEDGW7TZkfXqiQ0aIvGBOAF66LgGA5VIa7KsDhbrKkQx13meX4F+1uk3dF6VKLjFSAp9qbCTirw4i0mijmQY9F/B1zPwev1ZSec91apBj3tq0rSX0V6/SNu5miYWXwh6MweNdSoKiovibBxnboJ3Etj5/YXgtzPwB4zVNiCXFxLezQnB3hP/87au5qauiR3WygbvyZ65WKRTsR07eRxvZUvIxMsuHdemOP28thU1FMGci3qQx5amVtLhjTIwkwj09PApcIMCBr7+vINh0OD8LozlTuqkvyNu3INafv8CGtLtHlvPF/kinw00iW/Q3pMvU5Fa0Y6YvCUYNLQhSoM+8T2O7dySPEXuJCZn1B5s8EJe/jOwxz0IPUjW1uh8amS0qZ/SuoGU1rSkZ3ktNCT3kqLvU/B+cD0M6fWvjjg5U2g4IDvcpl1tiuHkf3D7MS30D5Hrh0A=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,24 +39,17 @@ import Heading from "@theme/Heading";
 
 Retrieves snippets shared with the current user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-shared-snippets.RequestSchema.json")}
 >
   
 </RequestSchema>
 
-<StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={undefined}
->
+<StatusCodes>
   
 </StatusCodes>
 

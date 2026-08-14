@@ -5,7 +5,7 @@ description: "Permanently deletes an API key. It can no longer be used to authen
 sidebar_label: "Delete an API key (admin only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMtu2zAQ/BViTwnA2mqTtIBuKZyg7gMIEhc9GD6spbVFWFoq5CqIIOjfC0qy68ZO6kNPenB2uK+ZBlLyiTOlGMsQwx25AplY8lqllJOQV8jq+m6qNlSP1FRUgqzYqtzympxakqo8pUqswkoyYjEJCo1Ag+DaQzyHEPyNag8LDSU6LEjIhZMGTLizRMlAA2NBEMOG6mkKGhw9VsZRCrG4ijT4JKMCIW5A6jIAvTjDa2j1ixJmGanpRNmVkoy2mYf8+npG0C4Cuy8te/KB8EMUhcffNNvAPiodhYsuo4sjwLQwrDBJyHu1zXqAX77Oy1bUylbcQ6+OpXCLJu9b2yexGwO0rYaCJLMpxNAfgu4bGcO48uT8GEvzbkO1HzddS1vQ4Mk9bVtfuRxiyETKeDzObYJ5Zr3EF1EUvYeXPf2BhlWKgkv0pJDT/WEby6pnhla/SXxxQPzw8EVJxUy5KpBxTQWxnMh2eZRtZXIauNyJRFeHRF2c8oJivJjEdzUXlo3YsHUnEn88IJ6gz5YWXXoiw6dDBptsyB3r1iIMOKmckbqb8JLQkbuuwlLMF/vHD0FL/e7vg3bSCqnAILnw3YNADy+31hUoEMPXX7NuFQ2vbBduJA/4GbnCPId1BQ1h4/rUo1E0ig4KGsCfMdkQp92O39OKHHFCQRql9VIgB/7BIia9Gv74kjrDToSW8/r85QUNJJaFWP63vfW9EnqWcZmj4ZBsN8pmUOIcOiWChq0WQUPcG9xCQxhyADVNUNVPl7dt+P1YkQsDXGh4QmdwGVo6byA1PrynEK8w9/RGlWf3gwudq3+a4St1DD+R6zBBzKvwBTq4886j28W+C01uvt/MbqBtfwPV5yH8
+api: eJytVNtO20AQ/ZXVPBVpm5gCreQ3qoCaXiREUvUhysPEnsSr2LNmd4ywLP97tbZDAwGaSn3yZc+cnds5DaTkE2dKMZYhhhtyBTKx5LVKKSchr5DV5c1UbakeqamoBFmxVbnlDTm1IlV5SpVYhZVkxGISFBqBBsGNh3gBIfgb1R6WGkp0WJCQCycNmHBniZKBBsaCIIYt1dMUNDi6q4yjFGJxFWnwSUYFQtyA1GUAenGGN9DqZyXMM1LTibJrJRntMg/59fWMoF0Gdl9a9uQD4YcoCo+nNLvAPiodhYvOo7MXgGlhWGGSkPdql/UAP3+dl62ota24h168lMI1mrxvbZ/E4xigbTUUJJlNIYb+EHTfyBjGlSfnx1ia91uq/bjpWtqCBk/uftf6yuUQQyZSxuNxbhPMM+slPoui6BSe9/QHGlYpCq7Qk0JO94dtLKueGVr9JvHZAfFs9kVJxUy5KpBxQwWxHMl2/iLb2uQ0cLkjiS4Oibo45QXFeDGJ72ouLBuxYeuOJP54QDxBn60suvRIhk+HDDbZkvvnbp0eDnVGzmCuEstMyZMpLsOqJJUzUne7siJ05C6rsF6L5f7xLKiyV9E+6FGkIRUYxBu+exDo4eXaugIFYvj6a94tteG17cKN5AE/J1eYh7D4oCHsbp96NIpG0UFBA/gzJlvitFPLLa3JEScURFZaLwVy4B/MZtLr6o/DqXfYydlyXp88v6CBxLIQy/82yr5XQg8yLnM0HJLtRtkMml5Ap2nQsFM1aIh7q1xqCEMOoKYJ+vzp8rYNv+8qcmGASw336AyuQksXDaTGh/cU4jXmnt6o8t3t4Gcn6q+2+kodw0/kOkwQ8yp8gQ4+/+j27XLfzyZX36/mV9C2vwEnMzt+
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Permanently deletes an API key. It can no longer be used to authenticate.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"keyId","required":true,"schema":{"type":"string"},"description":"The ID of the API key to delete."}]}
+  {...require("./delete-an-api-key-admin-only.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-an-api-key-admin-only.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"API key deleted."},"403":{"description":"Admin access required."},"404":{"description":"API key not found."},"500":{"description":"Failed to delete API key."}}}
+  {...require("./delete-an-api-key-admin-only.StatusCodes.json")}
 >
   
 </StatusCodes>

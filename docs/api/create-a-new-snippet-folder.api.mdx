@@ -5,7 +5,7 @@ description: "Creates a new snippet folder for the authenticated user."
 sidebar_label: "Create a new snippet folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVVFv2jAQ/ivWPWeQru2m5a3dVm2TplWFag+IhyM5iFvHTu1LC4r479M5oVBgE9LyACZ39/nz5/uOFgoKudc1a2chg8+ekCkoVJZeVLC6ronV3JmCvJo7r7gkhQ2XZFnnyFSoJpAfQAKMiwDZBEZdUYBpAp6eGgp87YoVZG38qT0VkLFvKIHcWSbLEsK6NgKonR0+BOHSQshLqlBWvKoJMnCzB8oZEqi9q8mzpiBRixXtZAX22i5gLfjG+aMRnXdb7AXiI7RD7Wzo0N+nZ/L1VqfRW2XyKFuhQpPnFMK8MWY1kH0u0vSw+KYrEtpKB7VRpS/49NeCF82l4lKHrhSNJyxWipY6cIjVl0e3Q22oUOx6mnvXOgA5ckVcugIyqF2ICiOXkMGwzw3DLjlAAoH8s6yySQuNN5BByVxnw6FxOZrSBc7O0zQ9g2SPyE/UVhXIOMNACm2x20naWdUhwzr5J/D5AfBo9E1xYy0ZVaHFBVVk+US0i6Noc22ox/InAl0eAsU6FRhZB9Z5iGeunNXspN9OBP5wAPwFQzlz6IsTET4eIrj8kfwxtaZywXnjNa/iDc8IPfmrRtphMt0Nj8SenUd2k15NJVSkXWIaZH0SJP3ixvkKGTL48XscW1Bsf7cdGF+XWNWGtgbfuPTV19sXnZ13/W3nLlLRLBAwJl/ppbq6/Q4JSPd2MqSDdJAeiNMnX2P+SLaQInVHc/JkcxJwsUiFdodZNzaPTs199HY79f5r2nYaMy15WBvUVojFFmh7705g411IYOPeaQLSFRJtW7HhvTfrtbx+asjLjU8TeEavcSa6TabrBEpCOYc0wyOthHZ3gHdj4SDpphEuByNcmuV1rtz+Go3l7vu/gsoVUuPxBZL4mQEk4KJIsaXiuxYM2kWDC8ntMOX5A5l6UIY=
+api: eJylVVFv2jAQ/ivWPWeQru2m5a3dVm2TplWFaQ+Ih8M5iFvHTu1LC4r479MloVBgE9PyAI599/nz+bsvDeQUdTAVG+8gg4+BkCkqVI6eVXSmqojV3Nucgpr7oLgghTUX5NhoZMpVHSkMIAHGRYRsAqMuKcI0gUCPNUW+9vkKsqZ9NYFyyDjUlID2jsmxLGFVWQE03g3vo3BpIOqCSpQRryqCDPzsnjRDAlXwFQU2FGXVYUk7UZGDcQtYC7714eiK0d0WewvtI7Rj5V3s0N+mZ/L3uk6j15XRbdlyFWutKcZ5be1qIPtcpOlh8k2XJLSViWpTlT7hwx8Tng0XigsTu1S0gTBfKVqayLHNvjy6HRpLuWLf09y71gHIkUviwueQQeVjW2HkAjIY9rFx2AVHSCBSeJJRNmmgDhYyKJirbDi0XqMtfOTsPE3TM0j2iHxH41SOjDOMpNDlu0oy3qkOGdbJX4HPD4BHoy+Ka+fIqhIdLqgkxyeiXRxFmxtLPVY4EejyEKjNU5GRTWSjY3vm0jvDXvR2IvC7A+BPGIuZx5CfiPD+EMHrBwr/XK2zw0sdUTBolfbOkX51i1ORiq6D4VWrlRlhoHBVi7Am093lkTR61227QS/tKVREeG0YZH0QJP3gxocSGTL49mvcilkM5G5rPZ+XWFaWtlax6fcXh9hOdMaw6xRu7lsqhgUCxhRKs1RXt18hAemDrgzpIB2kB8Xpg69RP5DLJUnd0ZwCOU0CLs1Wotth1hnwUf/dR2+2/vlfvt3VmGnJw8qicUKslUDTu8AENi4ACWx8YJqAqEJWm0Ya+mew67VMP9YU5ManCTxhMDiTuk2m6wQKQjmHiOGBVkK7O8CbsXCQcFsLl4OPgYjlxaFuf4zGcvf9R6X0ueQEfIak/c0AEvBtkVpJtXMNWHSLGhcS22HK8xs0NGoI
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Creates a new snippet folder for the authenticated user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"color":{"type":"string"},"icon":{"type":"string"}}}}}}}
+  {...require("./create-a-new-snippet-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"description":"Snippet folder created successfully."},"400":{"description":"Folder name is required."},"409":{"description":"Folder with this name already exists."},"500":{"description":"Failed to create snippet folder."}}}
+  {...require("./create-a-new-snippet-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

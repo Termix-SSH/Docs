@@ -5,7 +5,7 @@ description: "Checks the status of an active SSH session."
 sidebar_label: "Check SSH session status"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVE1r20AQ/SvLnFpYbLVJW9AtbfqRQqHELT0EH8bS2Fos7So7IxMj9N/LrJTgxGlwL/p8+/bNvjfTQ0lcRNeKCx5y+FRRsWUjFRkWlI5NWBv0BgtxOzKLxTfDxOyCn4EFwQ1DfgOXodhShKWFFiM2JBT1ew9OOW87inuw4LEhyGFaf1WChUi3nYtUQi6xIwtcVNQg5D3Ivk1gic5vYBiWCuY2eCbW/2+zTG+P1S9G6kn6DAYL5y/hri6NY3MvYgbDYKEhqUIJOWxIQAuSCnKYl6nEOXM1H9nBAlPc3VfaxRpyqETafD6vQ4F1FVjysyzL3oB9sv8PdN6UKLhCJoO+NNhJRV5cgZIKSMww2BeJz46I1R/pvKfaNOhxQw15OZHt/Fm2tatp4oonEr07Jkrrki2OxRWcam6CdxLU3xOJ3x8RXyJXq4CxPJHhwzFD8vW501qqwUUXneyTwyvCSPGi0zzcLA9/LzS1YywPQQ8hVikwhVvfRxDY6eFLiA0K5PD9z68UQefXIS13Uiv+F8XG3ZmLn1dgQRM3Ss9m2Sw7KmgCf8RiS77UReaa1hTJF6QN0QaWBr3yTw2Zev6wtc1Dwh9R91AEL+Tl/+fEeA5CdzJva3RehSSb+qnBbmBsMD0mrvQ6SlhaUPMU0PfaLb9jPQz6eZwqakzpGFe1DpE11kwvqH51PbX6a/MvVVvaP5lRO6w7xaVE7DA63SxF4GBYfP2s1v0F1PrO6Q==
+api: eJyVVMtu2zAQ/BViTy1A2EqTtoBuad2HCxQo4hQ9GD6sqbVFWCIVcmXEEPTvxVJK4MRt4Fz0HA5nObPbQUHRBNuw9Q5y+FyS2UXFJanIyG1UfqPQKTRs96QWi+8qUozWuwloYNxGyJcw82ZHAVYaGgxYE1OQ7x1Y4bxrKRxAg8OaIIdx/bwADYHuWhuogJxDSxqiKalGyDvgQ5PAHKzbQt+vBBwb7yJF+f8uy+T2VP1ioB6lT6DXcPUSbj5TNqoHERPoew01cekLyGFLDFIQl5DDtEglTmMspwM7aIgU9g+VtqGCHErmJp9OK2+wKn3k/DLLsgvQz/b/idapAhnXGEmhKxS2XJJja5BTAYkZev0i8eUJsfjDrXNUqRodbqkmx2eyXf2TbWMrGrnCmUTvT4nSumSLjWxNTDXX3ln24u+ZxB9OiGcYy7XHUJzJ8PGUIfn66tO6ODV1QcFipYx3jswTF1cSFdMGy4eUlTVhoHDdSrKWq+PfC8n/EPBj0GM7iBQY20TeBxDo8eGrDzUy5PDjz20Ks3Ubn5ZbrgR/S6G29+r61xw0SHYH6dkkm2QnBY3gT2h25ApZpG5oQ4GcIWmtxkeu0Qn/2NppehwPCfXYK0+oOzDeMTl+/cQZzoHpnqdNhdaJkGRTN7bqEoZWlWOKpVwHCSsNYp4Auk767neo+l4+D/NJjClsxHUl42iDVaQXVL+5GYfGW/U/VTs6PJt2e6xawaVE7DFY2SxF4GjsfPsi1v0FXKHoaw==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Checks the status of an active SSH session.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+  {...require("./check-ssh-session-status.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./check-ssh-session-status.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Session status."},"400":{"description":"Session ID is required."}}}
+  {...require("./check-ssh-session-status.StatusCodes.json")}
 >
   
 </StatusCodes>

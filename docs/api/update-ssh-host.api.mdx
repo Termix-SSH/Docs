@@ -5,7 +5,7 @@ description: "Updates an existing SSH host configuration."
 sidebar_label: "Update SSH host"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVN9r2zAQ/lfEPW0gEm9tN/BbxyjtYFCahj2EPFyscyxqS650Kg3G//s42+uyJi3ZkyX5u++++9mBoVgE27L1DnJYtgaZokKn6NlGtm6rFotrVfnIqvCutNsUUMAz0MC4jZCvYLG4hrWGFgM2xBTksQMrhC1yBRocNgQ5WAMaAj0mG8hAziGRhlhU1CDkHfCuHVCOaUsB+n4t6Nh6FykK4HOWyedfzdeiLQ3CjYqpKCjGMtX1bga9hvNjJjfuCWtrhtAMMk7Is0Pk5UCnDDlLZoKdv6HBeValT27EXRxzfIW2JqPYT4L3FfQaGuLKG0lbYtBj8nKYx1jNzWYuRZh31vSgIVJ4+pPoFGrIoWJu8/m89gXWgszPsiz7BPqVgp9o3eBxg5EUOqMwcUWObTHUVY3M0Ot3ic8OiCUSTs5RrRp0uKWGHJ/Idn6UrbQ1TVzhRKKLQ6LBTkVGln4u4hBz451lH6S9TyP+ckD8HWO18RjMiQxfDxl88UDhWLbWUuAiBcu7ocIbwkDhMkk7rNb7vxcyPONw7INeZkmkwDRjch9BoKfDlQ8NMuTw49f90IHWlX4wt1wL/p5CY5/V5e0NaJCOG6Vns2yWHQQ0gb9h8UDOiJG6o5ICuYJkJFofuUEn/NNCWP6dAknUa8YOCu+YHP//ahrDZ3rmeVujdeJ/qE43jdUKYpTVZDagYXKeWyOLbLjlK+g6GZJlqPtenh8TBanHWsMTBosbydCqA2OjnA3kJdaR3onhw920+z6qtzROj+h2knCsk9xAwwPtxgXar/cXxe1S6vYbutTzvw==
+api: eJyVVE1rGzEQ/StiTi0Ie9MkLewtpYSkUAhxTQ/Gh/FqbItopY00CjHL/vcyu5vWiZPgnFbSPj29+XjTgqFURduwDR5KmDcGmZJCr+jRJrZ+o2azK7UNiVUV/NpuckQBT0AD4yZBuYDZ7AqWGhqMWBNTlMMWrBA2yFvQ4LEmKMEa0BDpPttIBkqOmTSkaks1QtkC75oe5Zk2FKHrloJOTfCJkgC+FIV8nmu+Em25F25UylVFKa2zc7sJdBrOXrty7R/QWdOHZpBxRJ4eIi96OmXIWzIj7OwNDT6wWofsB9z5aw9fonVkFIdR8L6CTkNNvA1G0pYZ9JC8EqaS/alZDd/Wmg40JIoPT5nO0UEJW+amnE5dqNAJsjwtiuIE9AsJv9D6/skVJlLojcLMW/Jsq76wamCGTr9LfHpALKFw9p6cqtHjhmryfCTb2atsa+to5IpHEp0fEvX3VGJkaegq9THXwVsOUfr7OOKvB8Q/MG1XAaM5kuHbIUOo7ih+OFsnh0WdUbToxKGeqmdVXEqrVDla3vW9siKMFC+ydNZiuf97Jj4cfLYP+mdLkQKjXWU/gECPi8sQa2Qo4eef330zW78O/XXLTvC/Kdb2UV3cXIMG6d1BejEpJsVBQCP4O1Z35I1cUre0pki+InFXExLX6IV/nC3z/4aSRL1kbKEKnsnzx6fcED7TI08bh9bL+3112tGhC3h6cQX6aV1aI0Ox35ULaFvx2zy6rpPj+0xRCrLU8IDR4kpStGjB2CRrA+UaXaJ3gvh0O87Rz+otkeMh+p1kHF2WHWi4o90wjLvl/tC5mUvh/gIMGA4w
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"put"}
-  path={"/ssh/db/host/{id}"}
+  path={"/host/db/host/{id}"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Updates an existing SSH host configuration.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+  {...require("./update-ssh-host.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./update-ssh-host.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Host updated successfully."},"400":{"description":"Invalid SSH data."},"403":{"description":"Access denied."},"404":{"description":"Host not found."},"500":{"description":"Failed to update SSH data."}}}
+  {...require("./update-ssh-host.StatusCodes.json")}
 >
   
 </StatusCodes>

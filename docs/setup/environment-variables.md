@@ -55,6 +55,36 @@ Two more variables apply no matter which provider type or setup method you use:
 | `ALLOW_PASSWORD_LOGIN` | (from Admin Settings) | Override the Admin Settings toggle for password-based login. Set to `true` or `false` to lock the value. |
 | `ALLOW_PASSWORD_RESET` | (from Admin Settings) | Override the Admin Settings toggle for password reset. Set to `true` or `false` to lock the value. |
 
+## Trusted Proxy Authentication
+
+Lets a reverse proxy in front of Termix handle the login. See [Trusted Proxy Authentication](/features/authentication/trusted-proxy) before turning this on.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `TRUSTED_PROXY_AUTH_ENABLED` | `false` | Turn on proxy based login. |
+| `TRUSTED_PROXY_AUTH_TRUSTED_PROXIES` | - | Comma separated addresses or CIDR ranges allowed to send auth headers. Required when enabled. |
+| `TRUSTED_PROXY_AUTH_ROLE_MAP` | - | JSON mapping proxy roles to Termix roles, for example `{"admins":"admin"}`. Required when enabled. |
+| `TRUSTED_PROXY_AUTH_USERNAME_HEADER` | `x-forwarded-username` | Header carrying the username. |
+| `TRUSTED_PROXY_AUTH_ROLE_HEADER` | `x-forwarded-role` | Header carrying the role. |
+
+## Audit Log Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `AUDIT_LOG_RETENTION_DAYS` | - | Days to keep audit log entries before they are cleaned up. |
+| `AUDIT_LOG_MAX_ENTRIES` | - | Maximum number of audit log entries to keep. Oldest are removed first. |
+
+## HashiCorp Vault Configuration
+
+Used for SSH certificate signing through Vault. See [HashiCorp Vault SSH Signer](/features/authentication/vault).
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `VAULT_ADDR` | - | Address of your Vault server. |
+| `VAULT_TOKEN` | - | Token Termix uses to authenticate with Vault. |
+| `VAULT_SSH_MOUNT` | - | Mount path of the SSH secrets engine. |
+| `VAULT_SSH_ROLE` | - | Vault role used to sign certificates. |
+
 ## Telemetry Configuration
 
 | Variable | Default | Description |
@@ -63,9 +93,15 @@ Two more variables apply no matter which provider type or setup method you use:
 
 ## Database Configuration
 
+Termix runs on SQLite by default and needs no setup. PostgreSQL and MySQL are also supported for self-hosted setups that need more than one process to reach the same data.
+
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DB_FILE_ENCRYPTION` | `true` | Enable SQLite database file encryption |
+| `DATABASE_DIALECT` | `sqlite` | Database engine to use. One of `sqlite`, `postgres`, or `mysql`. |
+| `DATABASE_URL` | - | Connection string, required when `DATABASE_DIALECT` is `postgres` or `mysql`. Not used by SQLite. The scheme has to match the dialect you set. |
+| `DB_FILE_ENCRYPTION` | `true` | Enable SQLite database file encryption. SQLite only. |
+
+The desktop app always uses SQLite, because it runs its own backend and cannot ship a database server with it.
 
 ## Guacamole Configuration
 

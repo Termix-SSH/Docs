@@ -5,7 +5,7 @@ description: "Revokes all sessions with option to exclude current session."
 sidebar_label: "Revoke all sessions for a user"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVcFO20AQ/ZXVnE3iFmgl34AWlUptEQnqIcphYk/iJetdszuGpFb+vZp1AgFHVaT6Esd+83b27XvjFgoKudc1a2chgzt6cksKCo1RgULQzgb1rLlULkIUO0Wr3DQFqbzxnizvcANIgHERIJvAfSAfYJqAp8eGAl+6Yg1ZG/9qTwVkczSBEsidZbIs77Cujc5RVhk+BOmmhZCXVKHc8bomyMDNHihnSKD2ribPmkJ8i35BLKveFHvowF7bBWwSoFVONV91He8hZs4ZQgubeEm/oXY2dKwf01R+3io02qnio1SFCk2eUwjzxpj1QNY6S0/7ZT8dK2y4dF7/oUJk7OpfVZ47rxyX5FUj6m2pzvpUsk1lHau5a2wRceeHOr1GbQ4uNQDZakVcugIyqF2IiiKXkMEwrj7cYYdd7QkaAwkE8k9ystmkhcYbyKBkrrPh0LgcTekCZ6dpmn6A5F0vP1BbVSDjDAMptEUUgyxvT1x1zLBJ/kl82iMejb4pbqwloyq0uKCqs+QxbGcH2eba0JbLH0l03ieKdSowsg6s8xD3XDmr2YknjyT+1CP+gqGcOfTFkQyf+wwuX5I/pNZUDjhvvOZ1POEZoSd/0YgvJtP91yPJZReSfdBLrKQVsUuEScwiCJLtzbXzFTJk8P33OHpR8n73Oiq+rrCqDfWTvUt0L9DsG9okoO3cxSrNUg5j8pVeqYvbG0hAnNtJkA7SQdoTZgu+xHxJtpAidUdz8mRzkpBJTiqMc8li3FY3Ld8OS4kxxgi/X6B9nXb/PWc7mZlWPKwNaiv9RRe02xxPIOY4ZrajB5luL1meJiAeEWDbSijvvdls5PFjQ17Of5rAE3qNM1FyMt0kUBIW5KM1lrSGDK66/ZyMpR2Bm0ba6k1ysc7LuLn9NRqLE7afhMoVUuPxWRrEZ8gAEuhUiAaLz1owaBcNLgTbccr1F+G3WFw=
+api: eJylVV1P20AQ/CunfTaJKdBKfgNaVCq1RQTUhygPm/MmPjjfmbs1JLXy36s9J3wZVVT1Sxx7dm5vbnbcQUlRB9Ow8Q4KuKR7f0tRobUqUozGu6geDFfKJ4hir2ilbVuS0m0I5HiHG0EGjMsIxRSuI4UIswwC3bUU+cSXayi69NcEKqFYoI2UgfaOybG8w6axRqOsMr6J0k0HUVdUo9zxuiEowM9vSDNk0ATfUGBDMb3FsCSWVc/LZ+jIwbglbDKglaaGT/uOnyHm3ltCB5t0Sb+x8S72rB/yXH5eKjTZqRKSVKWKrdYU46K1dj2StQ7zg2HZD88KW658ML+pFBn7+ieVFz4ozxUF1Yp6W6rDIZVsUznPauFbVybc0VudnqGxby41AtlqTVz5EgpofEyKIldQwDitPt5hx33tHloLGUQK93KyxbSDNlgooGJuivHYeo228pGLgzzP9yF71ct3NE6VyDjHSApdmcQgx9sTVz0zbLK/Eh8MiCeTr4pb58iqGh0uqe4t+R62wzfZFsbSliu8k+hoSJTqVGRkE9nomPZce2fYiyffSfxxQPwZYzX3GMp3MnwaMnh9S+Gf1dofHuqEgkGrtHeO9ItTnIlVdBsMr5NX5oSBwnErDpvOnr+eyIT34/Yc9Dig0ooYL8FkYBMIsu3NmQ81MhTw7ddVcrUkx+VT6HxZYd1YGmbELhsG0cChpU0Gxi18qjIs5XBFoTYrdXxxDhnIDPQS5KN8lA+E2YJPUN+SK6VIXdKCAjlNMq4ycTWmhHOYttXn7svYlUDAFAavF+iecvO/E7uXmWnF48aicdJfckG3TYQppERI09/Tg+TkYyrMMhCPCLDrZLyvg91s5PFdS0HOf5bBPQaDc1FyOttkUBGWFJI1bmkNBZz2+9m7knYEbltpa/BNEOs8BtfFz8mVOGH7cal9KTUBH6RBfIACIINehWSw9KwDi27Z4lKwPadcfwAW23He
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Revokes all sessions with option to exclude current session.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"targetUserId":{"type":"string"},"exceptCurrent":{"type":"boolean"}}}}}}}
+  {...require("./revoke-all-sessions-for-a-user.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Sessions revoked successfully."},"403":{"description":"Not authorized to revoke sessions for other users."},"404":{"description":"User not found."},"500":{"description":"Failed to revoke sessions."}}}
+  {...require("./revoke-all-sessions-for-a-user.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Revokes a specific session by ID."
 sidebar_label: "Revoke a specific session"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVE1v2zAM/SsCTxsgJN7aboBvHdJiGbZhaFLsEOTAyHQtxJZckS6aGf7vg2z3M2mRkyX58ZHU02MLGbEJthbrHaRwRXd+S6xQcU3G5tYoJmbrndrs1Hw2AQ2CNwzpCq6ZAsNaQ40BK5K4S1ct2EhUoxSgwWFFkMLIMc9AQ6DbxgbKIJXQkAY2BVUIaQuyq3uwBOtuoNOvalsW9FjMfKbEq9BXC906snLtHRNHos9JEj8vwxdj6BCUKW6MIea8KcvdJGY7fS9qPlOW1UPtI/5kH//bi8JGCh/sP8qeilRSWH4ofww/fTud86Jy37gh09mhyi7Rli8yPJF3GiqSwmeQQkYlCYEeFElh2kTZpiOYp+2jNh1oYAp3Dzo2oYQUCpE6nU5Lb7AsPEt6kiTJJ3gtzi+0TmUouEEmhS7rb4GcWIMRogZm6PS7xCd7xIvFdyWNc1SqCh3eUEVOjmQ7PciW25JGrnAk0dk+UR+nWFAsizXc91x5Z8XH53sk8Zc94hlysfEYsiMZvu4zeLOlcOi21lFg0wQru17hDWGgcN7Eh7FaP/+9iKYczPQc9OjRWAqM3o37AQR6XFz6UKFACj/+LvvnaF3u+3ArZcQvKVT2Xp3/mYOG+OKG0pNJMkn2GhrB39BsyWUxSF1RToGcoWiP2rNU6CL/OG+GMXZgir3mbsF4J+Tk2Nk3tC90L9O6ROti/l6ddjTYCnqD9V4aLAYa0qcBuNYQtYvAto1muQ5l18Xj24ZC1GWt4Q6DxU28qVULmeW4ziDNsWR6p4MPV+N8+qjeHJZv9DAeottFQbBs4g40bGn3Yn536+fDZXbx82J5AV33HyETJl8=
+api: eJyVVcFu2zAM/RWBpw0QEndtN8C3DmmxDNswNCl2CHJgZLoWIkuuRBfNDP/7INtpm7otslMs5/GR1COfG8goKK8r1s5CCtd077YUBIpQkdK5ViJQCNpZsdmJ+WwCEhhvA6QruAnkA6wlVOixJI6ndNWAjkQVcgESLJYEKQwc8wwkeLqrtacMUvY1SQiqoBIhbYB3VQdmr+0ttPJFbcuCHouZzwQ74btqoV1H1lA5GyhEok9JEn8OwxdDaB+UiVArRSHktTG7Scx29l7UfCZ0EPvaB/zpGP/LscCaC+f1X8qeihRc6LAvfwg/ezuddSxyV9s+0/lrlV2hNgcZnshbCSVx4TJIISNDTCB7RVKY1lG26QAO0+ZRmxYkBPL3ex1rbyCFgrlKp1PjFJrCBU5PkyQ5gZfi/ERtRYaMGwwk0GbdLZBlrTBCRM8MrXyX+HREvFh8E1xbS0aUaPGWSrJ8JNvZq2y5NjRw+SOJzsdEXZwIjKwDaxW6nktnNbs4vkcSfx4RzzAUG4c+O5Lhy5jBqS35/76tk7GoC/IajVDOWlIHKq7jqKjaa951s7Ih9OQv6jhiq/Xzvxdxvfu1fA563PZYCgwuEM89COTwcOV8iQwpfP+z7AZb29x14ZpNxC/Jl/pBXPyeg4Q4u33pySSZJKOGBvBXVFuyWQwS15STJ6soLlrlApdoI//gXL0hvuKHL7kbUM4yWT7WRfv2mR54WhnUNubv1GmGVV1Bt6rdVvbLChLSJytdS4jaRWDTxLW78aZt4+u7mnzUZS3hHr3GTbypVQOZDvE5gzRHE+idDj5cD073Ubxpu2/0MLxEu4uCoKnjCSRsaXfwJWjXz21qdvnjcnkJbfsP35g/4Q==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Revokes a specific session by ID.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"},"description":"The session ID to revoke"}]}
+  {...require("./revoke-a-specific-session.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./revoke-a-specific-session.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Session revoked successfully."},"400":{"description":"Session ID is required."},"403":{"description":"Not authorized to revoke this session."},"404":{"description":"Session not found."},"500":{"description":"Failed to revoke session."}}}
+  {...require("./revoke-a-specific-session.StatusCodes.json")}
 >
   
 </StatusCodes>

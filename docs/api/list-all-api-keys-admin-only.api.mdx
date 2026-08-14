@@ -5,7 +5,7 @@ description: "Returns all API keys with associated usernames. Token hashes are n
 sidebar_label: "List all API keys (admin only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lE1v2kAQhv/Kak6ttAW3JK3kG1WbfktVoOoBcRjWA15h7zozYxpk8d+jNTQiAVVcerLlffeZz9cdFCSOfaM+BsjhlrTlIAaryox/fjFr2or547U0KBKdR6XCtEIcsCYZmGlcUzAlSklikMkE2hAb7jFUDMCC4kogn0HCfaOtwNwCkzQxCAnkHbzJsvR4msh3L2ri8jGJAewsXGWjU+W4qH0w6ByJGKa71nMKvLNwfQ58g76iwmg0S1JXHgfYWahJy1hADitSsNCglpDDMFUsQ2z8qyQFC0K8IU51ddByBTmUqk0+HFbRYVVG0XyUZdlrsM/C/0AfTIGKCxQyGAqDrZYU1DtMErMnw87+Ezw6AU8mn422IVBlagy4opqCXki7Oktb+ooOLL4QdH0K6u8ZUVQv6p30NdcxeI3sw+pC8NsT8AeUchGRiwsJ704J0a2Jz3VrngbsWva67Se8IGTicZuWYTY/Pp64kur9Gh+LOtBtQ4dU0rr0MsgPIrCHl5vINSrk8PX3tN8/H5axv+61Svopce3v05KChbRx+9SzQTbITgo6iN+jW1Mo+s2+pSUxBUfJD00UrTEkfrLvX5c98foL7O0UQ7V9+TxABy4GpaD/6Uexb5nSvQ6bCn1IOfcT7Q5GnEFvRLDwaMW5hTTidNZ1yVO/uNrt0ue7ljiNb25hg+xxkRo6mx+b/NPH1PUH2OS17w==
+api: eJy1lE1r20AQhv/KMqcWtrZSJy3oltKm31DilB6MD+PV2FoszSqzozRG+L+Hld1gR6G4h54ktK+e+Xy3g4KiE9+oDww5XJO2wtFgVZnLH5/NmjbR/PZaGowxOI9KhWkjCWNNcWRuwprYlBhLigaFDNMdiZEeQ8UILCiuIuQzSLivtIkwtyAUm8CRIuQdvM6y9DhO5JuPasLyMYkRbC2cZ5Oh8rKoPRt0jmI0QretlxR4a+HiOfAV+ooKo8EsSV15GGBroSYtQwE5rEjBQoNaQg7jVHEcY+NfJSlYiCR3JKmuDlqpIIdStcnH4yo4rMoQNZ9kWXYG9kn47+jZFKi4wEgGuTDYakms3mGSmB0Ztvav4MkAPJ1+MtoyU2VqZFxRTawn0s6fpS19RXuWnAi6GIL6/0xUVB/Vu9jXXAf2GsTz6kTwmwH4PcZyEVCKEwlvh4Tg1iT/3K2z4VCnJB4r4wIzuaMpztOquFa8bvpdWRAKyWWb1mo2PzyeupLqnSEORR3opqF9KmnxehnkexHY/ctVkBoVcvjy66bfZM/L0P/utUr6G5La36d1Bwtpd3epZ6NslA0K2ovfoVsTF71HrmlJQuwoOasJUWvkxE8XwR+/Ht0aL7A3ZuBq8/JpgA5cYCXW/3Tl7FqmdK/jpkLPKed+ot3e0jPoLQ0WHk09t5BGnM66Lrnzp1Tbbfp825Kk8c0t3KF4XKSGzuaH18XHD6nrD7Nhz3E=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns all API keys with associated usernames. Token hashes are never returned.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-all-api-keys-admin-only.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"List of API keys."},"403":{"description":"Admin access required."},"500":{"description":"Failed to fetch API keys."}}}
+  {...require("./list-all-api-keys-admin-only.StatusCodes.json")}
 >
   
 </StatusCodes>

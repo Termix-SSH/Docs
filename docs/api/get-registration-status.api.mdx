@@ -5,7 +5,7 @@ description: "Checks if user registration is currently allowed."
 sidebar_label: "Get registration status"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlE2L2zAQhv+KmLOauN1uC75tP3bbQqFsdukh+DCRJ7aILLmj8XaDyX8vUgzNJqGEnmysmUfvfLweoaZo2PZig4cSPrZkNlHZtRoisWJqbBTGdKpsVGZgJi9uq9C58JvqGWgQbCKUS3iMxBEqDUyxDz5ShHKEN0WRHi+vuT/kRkEZ4gx2Gq7PBd+idVQrCaoheSlpUvEXsdPQkbShhhIaEtDQo7RQwjzVE+eH2a+mbNAQiZ+S+HI5wsAOSmhF+nI+d8Gga0OU8qooitegj7R9R+tVjYIrjKTQ1woHacmLNVNxmQw7/U/w1Ql4sfiiZPCenOrQY0MdebmQ9vYsbW0dTSy+EHR9Csp5ud82ijUx19wFbyWw9c2F4Hcn4E8Y21VAri8kvD8lBLMhPtetKg3YDGxlmye8ImTimyEtxrI6PF6Ylrr93h4GjSDbniYpaV1yGJRTEOjp5TZwhwIlfPv5kHfR+nXI6VZcin8g7uyzuvnxFTSkjdtLL2bFrDgpaAr+gGZDvk5J6p7WxOQNJbP0IUqHPvE9Zjl3x/7Y++KYPIIJXsjL/xp+3wyhZ5n3Dq1PavKsxsluS8h2g/QvOGO4SkMaZIobx+ScR3a7Xfr8ayBOQ6o0PCFbXKW2LatDW999Tr39A/R3osU=
+api: eJydlE1v2zAMhv+KwLOWuOu6Ab51H+02YMDQtNgh8IGRGVuILHkU3TUw8t8HOQaWxMGQ7WTDIh+//HjVQ0nRsG3FBg85fKjJbKKya9VFYsVU2SiM6VTZqEzHTF7cVqFz4ReVM9AgWEXIl/AUiSMUGphiG3ykCHkPr7MsPY5/83DIjYLSxRnsNNycC75D66hUElRFcixpVPEHsdPQkNShhBwqEtDQotSQwzzVE+eH2a/GbNAQiZ+T+HzZQ8cOcqhF2nw+d8Ggq0OU/DrLsivQJ9q+ofWqRMEVRlLoS4Wd1OTFmrG4gQw7/Vfw9QS8WHxW0nlPTjXosaKGvFxIe3OWtraORhZfCLqZgoa8od82ijVxqLkJ3kpg66sLwW8n4I8Y61VALi8kvJsSgtkQ/3O3rqZDXRBbdMoE78kcTbFIq2I6trIddmVFyMS3XVqxZXF4vDA1NXsHHAb1INuWRilp8YYwyMcg0OPLXeAGBXL4+uNx2Grr12FIt+JS/CNxY1/U7fcvoCHt7l56Nstm2aSgMfg9mg35MiWpB1oTkzeUbNeGKA36xPc4yLk/ddreYafkHkzwQl7+9+rYN0PoReatQ+uTmmFW/WjcJQzGhXSrnLFuoSENMsX1ffLgE7vdLn3+2RGnIRUanpEtrlLblsXhBXH/KfX2N6X2vEc=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Checks if user registration is currently allowed.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-registration-status.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Registration status."},"500":{"description":"Failed to get registration allowed status."}}}
+  {...require("./get-registration-status.StatusCodes.json")}
 >
   
 </StatusCodes>

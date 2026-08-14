@@ -5,7 +5,7 @@ description: "Deletes a snippet folder and moves its snippets to the root."
 sidebar_label: "Delete a snippet folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v2zAM/SsCTxsgJN7aboBvHdpiHTZgaDrsEPjAWEwtVJZciQ4aGP7vA21nSJusyGEnWebjE/n40YGhVEbbsA0ecrgiR0xJoUreNg2xWgdnKCr0RtVhQ0lZTjtjUhwUV6RiCDwDDYwPCfIlLCY7FBoajFgTUxRLB1aeaZAr0OCxJsjHQ0Okp9ZGMpBzbElDKiuqEfIOeNsILnG0/gH6vhBwaoJPlMT+McvkeJnK4mUCZsjMqNSWJaW0bp3bzqDXcH7M+dZv0FmjJCZKPAAvjgFv0DoyosP4wCvdZtD3GmriKhjIYcSAHgXIYb4Tcj7C07wTMXrQkChudpq10UEOFXOTz+culOiqkDg/y7LsA+hXEf1A65VBxhUmGuqGLVfk2ZYoEDUyQ6/fJD47IF4svipuvSenavT4QDV5PpHt/Cjb2jqauOKJRBeHRIOfSoxsE9syTb3qLQfplxOJPx0QX2GqVgGjOZHh8yFDKB8pHlOrkAKXbbS8HSq8IowUL1vpimWxb17IFIxtvg/6OxQSCkzDIvcRBHr6uAmxRoYcvv2+H3rR+nUY3C07wd9TrO2zuvx5Cxqk48bQs1k2yw4SmsBfsHwkb8RJ3dGaIvmSZESakLhGL/zTbI8L5WCfvGbuoAyeyfN/2EGjLkzPPG8cWi+BDWXrprFbws4XNEyDBxryIeRCg1RUUF0nI/Qrur6X308tRalWoWGD0eJK9Ft2YGySbwP5Gl2iNzJ7dzetuPfqX4FOP9FvpRzoWrmBhkfa7jZlX+yvlKvr79f319D3fwCZQPxR
+api: eJytVN9r2zAQ/lfEPW0gEndtN/BbR1vWscFoOvYQ/HCRL7WoLLnSOTQY/+/jbGekTVcy2JMs33ef7r770UFJyUTbsA0ecrgkR0xJoUreNg2xWgdXUlToS1WHDSVlOe2MSXFQXJGKIfAMNDDeJ8iXsJjsUGhoMGJNTFEsHVh5pkGuQIPHmiAfDw2RHlsbqYScY0sakqmoRsg74G0juMTR+nvo+0LAqQk+URL7hyyT43kqi+cJlENmpUqtMZTSunVuO4New9lrzjd+g86WSmKixAPw/DXgNVpHpegwPvBCtxn0vYaauAol5DBiQI8C5DDfCTkf4WneiRg9aEgUNzvN2uggh4q5yedzFwy6KiTOT7MsOwH9IqLvaL0qkXGFiYa6YcsVebYGBaJGZuj1m8SnB8SLxRfFrffkVI0e76kmz0eynb3KtraOJq54JNH5IdHgpxIj28TWpKlXveUg/XIk8ccD4ktM1SpgLI9k+HTIEMwDxX9W6+SwqAuKFp0ywXsyz6pYSKuYNlreDr2yIowUL1rpr2Wxb17IPI0Dsw/6M14SCkxjJ/cRBHr6uA6xRoYcvv66G7ra+nUY3C07wd9RrO2TuvhxAxqkd8fQs1k2yw4SmsCf0TyQL8VJ3dKaInlDMmxNSFyjF/5pS4yr6WAzvWTuwATP5Pk/bLNRF6YnnjcOrZfAhrJ10wAvYecLGqYRBg35EHKhQSoqqK6TYfwZXd/L78eWolSr0LDBaHEl+i07KG2S7xLyNbpEb2T27nZalu/V3wKdfqLfSjnQtXIDDQ+03e3cvthfTpdX367urqDvfwM8wBXi
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Deletes a snippet folder and moves its snippets to the root.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+  {...require("./delete-a-snippet-folder.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-a-snippet-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Snippet folder deleted successfully."},"400":{"description":"Invalid request."},"500":{"description":"Failed to delete snippet folder."}}}
+  {...require("./delete-a-snippet-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

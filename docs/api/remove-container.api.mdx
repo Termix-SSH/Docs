@@ -5,7 +5,7 @@ description: "Removes a specific container."
 sidebar_label: "Remove container"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VMFu2zAM/RWBpw0QYm9tN8C3bm2xDhswpB12KHJgZDoRKkuuJAcLDP/7QMVJvSQtgh12SsKQjxQf3+ugpKC8bqJ2FgqYUu1WFASK0JDSlVZCORtRW/ITkBBxEaB4gCunHsnDTEKDHmuK5DnegWaUBuMSJFisCQoIFIJ29rYECZ6eWu2phCL6liQEtaQaoeggrpuUHL22C+h7eRRrN8w/oj215NfPcJXziuBI4dw5Q2ih72fcJjTOBgqc8D7P+ePvtX3ejiV8WmApQqsUhVC1xqwn0Es4P1Z3d/dFDOsR1kVRudaWwvn0QzlrSUUqJUcUWg5u8AUK31qr7WJMT+py/tp0ux4p+eLYSDeoDZUium2rcYNeQk1x6UoooCRDkZeXGCogK9NNZLv8kHU76vusG1HXZxts3jz51fZ2Wm+ggGWMTZFlxik0SxdicZbn+TuQe3N+R21FiRHnGEigLQW2cUk2aoWcIjbIwNS/Anx2AMycxNZaMqJGiwuqycYT0c6PolXa0IDlTwS6OARKdSJEjDpErUJ6c+2sjo6P/ETgDwfAVxiWc4e+PBHh4yFCIv7YtmZMsGq9juvE8JzQk79s+WAeZuO/71iBG4WNk3aC5FG2Qk0CTUkghy83ztcYoYCvv+7TmWpbuVSuo+H8e/K1/i0uf9yCBL64zej5JJ/kBw8akj+heiRbcpGYUkWerCIWTuNCrNEy/mAk0z2t7EN2ybnIxlM8dvPiSL9j1hjUllsmQrpBaw+w0RrIZ0MMIKEYW22x75VJcTMJzCRjdB1L56c3fc/hjTUyS6UOODdsqxWaQBIeaT0yyxWalgdM9K7Qa04+XvjiDt5MB+t+K1568RBEux733A7z/FI+1//YeLzVfjY2xKvrb9f319D3fwCpIYH1
+api: eJy9VU1v2zAM/SsCTxtgxN7aboBv3dpiHTZgSDrsUOTAyHQiVJZciQ4aGP7vg2Qn9ZK0yHbYyTFDPn48PrqFgrx0qmZlDeQwpcquyQsUviapSiWFtIZRGXITSIBx6SG/hysrH8jBPIEaHVbE5IK9BRVQauQVJGCwIsjBk/fKmtsCEnD02ChHBeTsGkrAyxVVCHkLvKmjMztlltB1yVGsXTH/iPbYkNs8w5XWSYIjgQtrNaGBrpuHNL62xpMPDu+zLDz+HNvnbVnCxQEWwjdSkvdlo/VmAl0C58fiZrMvYhiPMJZFaRtTCOvii7TGkGQqkmCRaIKxxxcoXGOMMssxPTHL+WvV7XJE54tjJd2g0lQItttU4wRdAhXxyhaQQ0GaOAwvMpRDWsSdSHf+Pm131HdpO6KuS3vsMHly6+3uNE5DDivmOk9TbSXqlfWcn2VZ9g6SvTq/ozKiQMYFehJoCoENr8iwkhhcRI8MgfpXgM8OgAMn3BhDWlRocEkVGT4R7fwoWqk0DVjuRKCLQ6AYJzwjK89K+thzZY1iG5b8ROAPB8BX6FcLi644EeHjIUIk/q+n9e6Q1Bk5hXq7+WMW52FVZOMUb+KuLAgducsmrN79fPz3LGi51+rYaSftUMpW8lHq0QmS4ceNdRUy5PD1111ceGVKG8MV6+B/R65ST+Lyxy0kEHa3Lz2bZJPsoKHB+RPKBzJFCBJTKsmRkRQkWFvPFZqAP5yk6Z7q9iHbeAPJ8CnXuu+Y6YnTWqMyIWUkpB1Uew+9aiF5Pq0eEsjHRzvfv7pRu/MEApMBo22DCH863XXB3B/ZwFKhPC50ONAlak8JPNBmdHbXqJtQYKR3jU4F5+OBL87gzXT4CLwVL3U8GNFsxjm3xTx3Gtb1PyYeT7Wbj0/r1fW367tr6Lrfjgybdw==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Removes a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}},{"in":"query","name":"force","schema":{"type":"boolean"}}]}
+  {...require("./remove-container.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./remove-container.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container removed successfully."},"400":{"description":"SSH session not found or not connected, or cannot remove a running container."},"404":{"description":"Container not found."},"500":{"description":"Failed to remove container."}}}
+  {...require("./remove-container.StatusCodes.json")}
 >
   
 </StatusCodes>

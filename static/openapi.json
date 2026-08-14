@@ -64,6 +64,10 @@
   ],
   "tags": [
     {
+      "name": "AI",
+      "description": "AI assistant providers, conversations and proposals"
+    },
+    {
       "name": "Alerts",
       "description": "System alerts and notifications management"
     },
@@ -113,13 +117,307 @@
     }
   ],
   "paths": {
+    "/workspaces": {
+      "get": {
+        "summary": "List the current user's saved workspaces",
+        "description": "Returns every manual workspace plus the single auto-maintained \"Last Session\" workspace, each with a computed tabCount.",
+        "tags": ["Workspaces"],
+        "responses": {
+          "200": {
+            "description": "List of workspaces."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the current tab arrangement as a new named workspace",
+        "tags": ["Workspaces"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/workspaces/last-session": {
+      "get": {
+        "summary": "Fetch the auto-maintained \"Last Session\" workspace",
+        "description": "Returns null if the current session has never been auto-saved yet.",
+        "tags": ["Workspaces"],
+        "responses": {
+          "200": {
+            "description": "The Last Session workspace, or null."
+          }
+        }
+      },
+      "put": {
+        "summary": "Upsert the auto-maintained \"Last Session\" workspace",
+        "description": "Always overwrites the single Last Session row for the caller - never creates a second one. Called by the frontend's debounced auto-save effect.",
+        "tags": ["Workspaces"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Last Session workspace saved."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}": {
+      "patch": {
+        "summary": "Rename or recolor a workspace",
+        "description": "Does not accept a payload - use PUT /workspaces/{id}/content to overwrite a workspace's saved tab arrangement. Rejects the Last Session workspace.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace updated."
+          },
+          "400": {
+            "description": "Invalid request, or target is the Last Session workspace."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a workspace",
+        "description": "Rejects the Last Session workspace, which is not user-deletable.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace deleted."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/content": {
+      "put": {
+        "summary": "Overwrite a workspace's saved tab arrangement with a new payload",
+        "description": "Used by \"Update with current\" in the Workspaces panel. Rejects the Last Session workspace.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace content updated."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a workspace's content and color/icon under a new name",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New workspace created from the duplicate."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/set-default": {
+      "post": {
+        "summary": "Mark a workspace as the restore-on-login default",
+        "description": "Clears isDefault on any other workspace for the caller. Idempotent if the target is already the default. Rejects the Last Session workspace.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace set as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/unset-default": {
+      "post": {
+        "summary": "Remove a workspace as the restore-on-login default",
+        "description": "Idempotent if the target is not currently the default. Rejects the Last Session workspace.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace unset as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/apply": {
+      "post": {
+        "summary": "Fetch a workspace to apply and mark it as just used",
+        "description": "Returns the full workspace with its payload parsed, and touches lastUsedAt server-side so the caller does not need a second round trip.",
+        "tags": ["Workspaces"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The workspace to apply."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
     "/vault/oidc/callback": {
       "get": {
         "summary": "Vault OIDC callback",
         "description": "Unauthenticated endpoint the IdP redirects to after login. Correlates the authorization code to a pending session via the Vault-issued state parameter.",
-        "tags": [
-          "Vault"
-        ],
+        "tags": ["Vault"],
         "parameters": [
           {
             "in": "query",
@@ -159,9 +457,7 @@
       "get": {
         "summary": "List Vault profiles",
         "description": "Returns all Vault signer profiles owned by the authenticated user or marked as shared.",
-        "tags": [
-          "Vault"
-        ],
+        "tags": ["Vault"],
         "responses": {
           "200": {
             "description": "Array of Vault profile objects."
@@ -174,20 +470,14 @@
       "post": {
         "summary": "Create a Vault profile",
         "description": "Creates a new Vault signer profile owned by the authenticated user. The shared flag requires admin privileges.",
-        "tags": [
-          "Vault"
-        ],
+        "tags": ["Vault"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "vaultAddr",
-                  "sshRole"
-                ],
+                "required": ["name", "vaultAddr", "sshRole"],
                 "properties": {
                   "name": {
                     "type": "string"
@@ -244,9 +534,7 @@
       "put": {
         "summary": "Update a Vault profile",
         "description": "Updates a Vault signer profile. Only the owner may edit; toggling shared to true requires admin privileges.",
-        "tags": [
-          "Vault"
-        ],
+        "tags": ["Vault"],
         "parameters": [
           {
             "in": "path",
@@ -287,9 +575,7 @@
       "delete": {
         "summary": "Delete a Vault profile",
         "description": "Permanently deletes a Vault signer profile. Only the owner may delete it.",
-        "tags": [
-          "Vault"
-        ],
+        "tags": ["Vault"],
         "parameters": [
           {
             "in": "path",
@@ -323,9 +609,7 @@
       "post": {
         "summary": "Create a new user",
         "description": "Creates a new user with a username and password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -367,9 +651,7 @@
       "post": {
         "summary": "Configure OIDC provider",
         "description": "Creates or updates the OIDC provider configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "OIDC configuration updated."
@@ -385,9 +667,7 @@
       "delete": {
         "summary": "Disable OIDC configuration",
         "description": "Disables the OIDC provider configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "OIDC configuration disabled."
@@ -403,9 +683,7 @@
       "get": {
         "summary": "Get OIDC configuration",
         "description": "Returns the public OIDC configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Public OIDC configuration."
@@ -420,9 +698,7 @@
       "get": {
         "summary": "Get OIDC configuration for admin",
         "description": "Returns the full OIDC configuration for an admin.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Full OIDC configuration."
@@ -437,9 +713,7 @@
       "get": {
         "summary": "Get OIDC authorization URL",
         "description": "Returns the OIDC authorization URL.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "parameters": [
           {
             "in": "query",
@@ -467,9 +741,7 @@
       "get": {
         "summary": "OIDC callback",
         "description": "Handles the OIDC callback, exchanges the code for a token, and creates or logs in the user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "302": {
             "description": "Redirects to the frontend with a success or error message."
@@ -484,9 +756,7 @@
       "post": {
         "summary": "User login",
         "description": "Authenticates a user and returns a JWT.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -531,9 +801,7 @@
       "post": {
         "summary": "User logout",
         "description": "Logs out the user and clears the JWT cookie.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Logged out successfully."
@@ -548,9 +816,7 @@
       "get": {
         "summary": "Get current user's info",
         "description": "Retrieves information about the currently authenticated user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "User information."
@@ -568,9 +834,7 @@
       "post": {
         "summary": "Permanently dismiss the donation reminder modal",
         "description": "Marks the donation reminder modal as dismissed for the currently authenticated user so it is never shown to them again.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Donation modal dismissed."
@@ -588,9 +852,7 @@
       "get": {
         "summary": "Get current session token",
         "description": "Returns the JWT for the currently authenticated session. Intended for mobile WebView clients that cannot read HTTP-only cookies.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Current session token.",
@@ -617,9 +879,7 @@
       "get": {
         "summary": "Check if setup is required",
         "description": "Checks if the system requires initial setup (i.e., no users exist).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Setup status."
@@ -634,9 +894,7 @@
       "post": {
         "summary": "Mint a session for the sole local desktop user",
         "description": "Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Session created."
@@ -654,9 +912,7 @@
       "get": {
         "summary": "Count users",
         "description": "Returns the total number of users in the system.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "User count."
@@ -674,9 +930,7 @@
       "get": {
         "summary": "Database health check",
         "description": "Checks if the database is accessible.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Database is accessible."
@@ -691,9 +945,7 @@
       "get": {
         "summary": "Get registration status",
         "description": "Checks if user registration is currently allowed.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Registration status."
@@ -706,9 +958,7 @@
       "patch": {
         "summary": "Set registration status",
         "description": "Enables or disables user registration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -744,9 +994,7 @@
       "get": {
         "summary": "Get OIDC silent login default setting",
         "description": "Returns whether silent OIDC login is enabled as the default behavior.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Silent login default setting."
@@ -759,9 +1007,7 @@
       "patch": {
         "summary": "Set OIDC silent login default setting",
         "description": "Enables or disables silent OIDC login as the default behavior on the login page.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -797,9 +1043,7 @@
       "get": {
         "summary": "Get password login status",
         "description": "Checks if password-based login is currently allowed.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Password login status."
@@ -812,9 +1056,7 @@
       "patch": {
         "summary": "Set password login status",
         "description": "Enables or disables password-based login.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -850,9 +1092,7 @@
       "get": {
         "summary": "Get password reset status",
         "description": "Checks if password reset is currently allowed.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Password reset status."
@@ -865,9 +1105,7 @@
       "patch": {
         "summary": "Set password reset status",
         "description": "Enables or disables password reset.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -903,9 +1141,7 @@
       "delete": {
         "summary": "Delete user account",
         "description": "Deletes the authenticated user's account.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -947,9 +1183,7 @@
       "post": {
         "summary": "Change user password",
         "description": "Changes the authenticated user's password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -988,9 +1222,7 @@
       "delete": {
         "summary": "Delete user (admin only)",
         "description": "Allows an admin to delete another user and all related data.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1029,9 +1261,7 @@
       "get": {
         "summary": "List passkeys",
         "description": "Lists the authenticated user's registered passkeys.",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "responses": {
           "200": {
             "description": "List of passkeys."
@@ -1046,9 +1276,7 @@
       "post": {
         "summary": "Start passkey registration",
         "description": "Generates WebAuthn registration options for the authenticated user.",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "responses": {
           "200": {
             "description": "Registration options and challenge id."
@@ -1066,9 +1294,7 @@
       "post": {
         "summary": "Finish passkey registration",
         "description": "Verifies the WebAuthn registration response and stores the passkey.",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "responses": {
           "200": {
             "description": "Passkey registered."
@@ -1086,9 +1312,7 @@
       "post": {
         "summary": "Start passkey login",
         "description": "Generates WebAuthn authentication options, optionally scoped to a username.",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "responses": {
           "200": {
             "description": "Authentication options and challenge id."
@@ -1103,9 +1327,7 @@
       "post": {
         "summary": "Finish passkey login",
         "description": "Verifies the WebAuthn assertion and issues a session token (or a TOTP challenge).",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "responses": {
           "200": {
             "description": "Login succeeded or TOTP verification required."
@@ -1123,9 +1345,7 @@
       "delete": {
         "summary": "Delete a passkey",
         "description": "Removes one of the authenticated user's passkeys.",
-        "tags": [
-          "WebAuthn"
-        ],
+        "tags": ["WebAuthn"],
         "parameters": [
           {
             "in": "path",
@@ -1150,9 +1370,7 @@
       "post": {
         "summary": "Setup TOTP",
         "description": "Initiates TOTP setup by generating a secret and QR code.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "TOTP setup initiated with secret and QR code."
@@ -1173,9 +1391,7 @@
       "post": {
         "summary": "Enable TOTP",
         "description": "Enables TOTP after verifying the initial code.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1214,9 +1430,7 @@
       "post": {
         "summary": "Disable TOTP",
         "description": "Disables TOTP for a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1258,9 +1472,7 @@
       "post": {
         "summary": "Generate new backup codes",
         "description": "Generates new TOTP backup codes.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1302,9 +1514,7 @@
       "post": {
         "summary": "Verify TOTP during login",
         "description": "Verifies the TOTP code during login.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1346,9 +1556,7 @@
       "get": {
         "summary": "Get Guacamole settings",
         "description": "Returns current guacd enabled status and host:port URL. No authentication required.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Guacamole settings.",
@@ -1376,9 +1584,7 @@
       "patch": {
         "summary": "Update Guacamole settings",
         "description": "Admin-only. Updates guacd enabled status and/or host:port URL.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1414,9 +1620,7 @@
       "get": {
         "summary": "Get log level setting",
         "description": "Returns the configured log verbosity level.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Current log level."
@@ -1426,9 +1630,7 @@
       "patch": {
         "summary": "Update log level setting (admin only)",
         "description": "Sets the log verbosity level.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Log level updated."
@@ -1446,9 +1648,7 @@
       "get": {
         "summary": "Get session timeout setting",
         "description": "Returns the configured session timeout in hours.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Current session timeout hours."
@@ -1458,9 +1658,7 @@
       "patch": {
         "summary": "Update session timeout setting (admin only)",
         "description": "Sets the session timeout in hours.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Session timeout updated."
@@ -1478,9 +1676,7 @@
       "get": {
         "summary": "Get Tailscale settings",
         "description": "Returns whether a Tailscale API key is configured (value is masked).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Tailscale settings.",
@@ -1495,6 +1691,10 @@
                     },
                     "hasApiKey": {
                       "type": "boolean"
+                    },
+                    "apiBaseUrl": {
+                      "type": "string",
+                      "description": "Custom control-plane API base URL (e.g. a Headscale instance), or empty string for the Tailscale default."
                     }
                   }
                 }
@@ -1506,9 +1706,7 @@
       "patch": {
         "summary": "Update Tailscale settings (admin only)",
         "description": "Saves or clears the Tailscale API key used for device discovery.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1518,6 +1716,10 @@
                 "properties": {
                   "apiKey": {
                     "type": "string"
+                  },
+                  "apiBaseUrl": {
+                    "type": "string",
+                    "description": "Optional custom control-plane API base URL (e.g. a Headscale instance). Leave empty to use the Tailscale default."
                   }
                 }
               }
@@ -1541,9 +1743,7 @@
       "get": {
         "summary": "Get command history enabled setting",
         "description": "Returns whether command history recording is globally enabled.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Command history enabled status.",
@@ -1565,9 +1765,7 @@
       "patch": {
         "summary": "Update command history enabled setting (admin only)",
         "description": "Globally enables or disables command history recording for all hosts.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1600,9 +1798,7 @@
       "get": {
         "summary": "Get analytics enabled setting",
         "description": "Returns whether anonymous usage telemetry is enabled, and whether the value is locked by the ENABLE_TELEMETRY environment variable.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Analytics enabled status.",
@@ -1627,9 +1823,7 @@
       "patch": {
         "summary": "Update analytics enabled setting (admin only)",
         "description": "Enables or disables the daily anonymous usage telemetry heartbeat.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1665,9 +1859,7 @@
       "get": {
         "summary": "Get session sharing globally enabled setting",
         "description": "Returns whether live session sharing (terminal/RDP/VNC/Telnet share links and in-app joins) is allowed instance-wide. Overrides every per-host toggle when false.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Session sharing enabled status.",
@@ -1689,9 +1881,7 @@
       "patch": {
         "summary": "Update session sharing globally enabled setting (admin only)",
         "description": "Enables or disables live session sharing instance-wide, overriding every per-host allowSessionSharing toggle.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1720,13 +1910,104 @@
         }
       }
     },
+    "/users/ai-enabled": {
+      "get": {
+        "summary": "Get whether the AI assistant is enabled instance-wide",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "AI enabled status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update the instance-wide AI assistant setting (admin only)",
+        "description": "Turning this off hides and blocks the assistant for every user, whatever their own preference says.",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
+    "/users/ai-private-endpoints": {
+      "get": {
+        "summary": "Get the allowlist of private AI endpoint hosts",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "Allowed hosts."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Replace the allowlist of private AI endpoint hosts (admin only)",
+        "description": "Providers on private or loopback addresses, such as a self-hosted Ollama, are refused unless their host appears here. Without this an ordinary user could point a provider at an internal service and use the server as a probe of its own network.\n",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Allowlist updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
     "/users/host-defaults": {
       "get": {
         "summary": "Get host creation defaults",
         "description": "Returns the global default settings applied when creating a new host.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Host defaults object."
@@ -1739,9 +2020,7 @@
       "patch": {
         "summary": "Update host creation defaults (admin only)",
         "description": "Sets global default settings applied when a new host is created.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -1769,9 +2048,7 @@
       "get": {
         "summary": "Get sessions",
         "description": "Retrieves all sessions for authenticated user (or all sessions for admins).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Sessions list returned."
@@ -1789,9 +2066,7 @@
       "delete": {
         "summary": "Revoke a specific session",
         "description": "Revokes a specific session by ID.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "parameters": [
           {
             "in": "path",
@@ -1826,9 +2101,7 @@
       "post": {
         "summary": "Revoke all sessions for a user",
         "description": "Revokes all sessions with option to exclude current session.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": false,
           "content": {
@@ -1866,9 +2139,8 @@
     "/user-preferences": {
       "get": {
         "summary": "Get preferences for the current user",
-        "tags": [
-          "User Preferences"
-        ],
+        "description": "showHostTags, hostTrayOnClick, compactHostView, statusColorScheme and foldersCollapsed are legacy fields, kept here read-only for backward compatibility. The authoritative copy is GET /host-sidebar/preferences.",
+        "tags": ["User Preferences"],
         "responses": {
           "200": {
             "description": "User preferences.",
@@ -1971,9 +2243,8 @@
       },
       "put": {
         "summary": "Update preferences for the current user",
-        "tags": [
-          "User Preferences"
-        ],
+        "description": "showHostTags, hostTrayOnClick, compactHostView, statusColorScheme and foldersCollapsed are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign.",
+        "tags": ["User Preferences"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2005,19 +2276,10 @@
                   "commandPaletteEnabled": {
                     "type": "boolean"
                   },
-                  "showHostTags": {
-                    "type": "boolean"
-                  },
-                  "hostTrayOnClick": {
-                    "type": "boolean"
-                  },
                   "pinAppRail": {
                     "type": "boolean"
                   },
                   "expandAppRailOnHover": {
-                    "type": "boolean"
-                  },
-                  "foldersCollapsed": {
                     "type": "boolean"
                   },
                   "confirmSnippetExecution": {
@@ -2030,12 +2292,6 @@
                     "type": "boolean"
                   },
                   "hiddenRailTabs": {
-                    "type": "string"
-                  },
-                  "compactHostView": {
-                    "type": "boolean"
-                  },
-                  "statusColorScheme": {
                     "type": "string"
                   },
                   "customThemes": {
@@ -2062,9 +2318,7 @@
       "post": {
         "summary": "Initiate password reset",
         "description": "Initiates the password reset process for a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2103,9 +2357,7 @@
       "post": {
         "summary": "Verify reset code",
         "description": "Verifies the password reset code.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2141,9 +2393,7 @@
       "post": {
         "summary": "Complete password reset",
         "description": "Completes the password reset process with a new password.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2185,9 +2435,7 @@
       "post": {
         "summary": "Link OIDC user to password account",
         "description": "Merges an OIDC-only account into a password-based account (admin only).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2229,9 +2477,7 @@
       "post": {
         "summary": "Unlink OIDC from password account",
         "description": "Removes OIDC authentication from a dual-auth account (admin only).",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2270,9 +2516,7 @@
       "post": {
         "summary": "Unlock user data",
         "description": "Re-authenticates user with password to unlock encrypted data.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2308,9 +2552,7 @@
       "get": {
         "summary": "Check user data unlock status",
         "description": "Checks if user data is currently unlocked.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Data status returned."
@@ -2325,19 +2567,14 @@
       "post": {
         "summary": "Create an API key (admin only)",
         "description": "Creates a new API key scoped to a specific user. The full token is returned only once.",
-        "tags": [
-          "API Keys"
-        ],
+        "tags": ["API Keys"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "userId"
-                ],
+                "required": ["name", "userId"],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -2378,9 +2615,7 @@
       "get": {
         "summary": "List all API keys (admin only)",
         "description": "Returns all API keys with associated usernames. Token hashes are never returned.",
-        "tags": [
-          "API Keys"
-        ],
+        "tags": ["API Keys"],
         "responses": {
           "200": {
             "description": "List of API keys."
@@ -2398,9 +2633,7 @@
       "delete": {
         "summary": "Delete an API key (admin only)",
         "description": "Permanently deletes an API key. It can no longer be used to authenticate.",
-        "tags": [
-          "API Keys"
-        ],
+        "tags": ["API Keys"],
         "parameters": [
           {
             "in": "path",
@@ -2430,14 +2663,42 @@
     },
     "/users/list": {
       "get": {
-        "summary": "List all users",
-        "description": "Retrieves a list of all users in the system.",
-        "tags": [
-          "Users"
+        "summary": "List users",
+        "description": "Retrieves users in the system. Without `limit` the full list is returned, which is what the sharing pickers rely on. Pass `limit` (and optionally `offset`/`search`) to page through large directories.\n",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive username substring filter."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500
+            },
+            "description": "Page size. Omit to return every user."
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of users to skip. Requires `limit`."
+          }
         ],
         "responses": {
           "200": {
-            "description": "A list of users."
+            "description": "A list of users, with the total matching count."
           },
           "403": {
             "description": "Not authorized."
@@ -2452,9 +2713,7 @@
       "post": {
         "summary": "Make user admin",
         "description": "Grants admin privileges to a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2498,9 +2757,7 @@
       "post": {
         "summary": "Remove admin status",
         "description": "Revokes admin privileges from a user.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2544,9 +2801,7 @@
       "post": {
         "summary": "Admin create user",
         "description": "Allows an admin to create a new user regardless of whether public registration is enabled.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2588,18 +2843,14 @@
       "post": {
         "summary": "Reset a user's password (admin only)",
         "description": "Resets another user's password. Data is preserved for users whose encryption key has been migrated to the system wrap. Users who never logged in since the encryption upgrade require confirmDataWipe, which deletes their encrypted data.\n",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "newPassword"
-                ],
+                "required": ["newPassword"],
                 "properties": {
                   "userId": {
                     "type": "string"
@@ -2644,9 +2895,7 @@
       "post": {
         "summary": "Disable a user's TOTP (admin only)",
         "description": "Clears another user's TOTP secret, enabled flag and backup codes so they can log in without 2FA.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -2685,9 +2934,7 @@
       "get": {
         "summary": "Export a user's data (admin only)",
         "description": "Downloads a JSON export of another user's data (hosts, credentials, file manager bookmarks). Secrets are decrypted server-side, so handle the file carefully.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "parameters": [
           {
             "in": "path",
@@ -2717,12 +2964,45 @@
         }
       }
     },
+    "/ui-preferences": {
+      "get": {
+        "summary": "Get the UI complexity preferences for the current user",
+        "description": "Returns the current user's interface preset (simple, balanced, advanced or custom), their per-area overrides, and their onboarding state. A first-time GET returns defaults without writing a row; a row is only created once the user actually changes something via PUT. Users who registered before this feature existed are returned an already-completed onboarding state so they are never shown the first-run flow.",
+        "tags": ["UI Preferences"],
+        "responses": {
+          "200": {
+            "description": "The current user's UI preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the UI complexity preferences for the current user",
+        "description": "Persists the current user's interface preset, per-area overrides and onboarding state as a single JSON document. Overrides are merged two levels deep, so a request only has to send the keys it changes. A null at a key clears that single override; a null at an area clears every override for that area; a null at overrides clears all of them.",
+        "tags": ["UI Preferences"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
+          }
+        }
+      }
+    },
     "/termix-id/me": {
       "get": {
         "summary": "Get current user's Termix ID and keys",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2738,9 +3018,7 @@
     "/termix-id/check/{handle}": {
       "get": {
         "summary": "Check if a handle is available",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2766,9 +3044,7 @@
     "/termix-id": {
       "post": {
         "summary": "Create a Termix ID",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2780,9 +3056,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "handle"
-                ],
+                "required": ["handle"],
                 "properties": {
                   "handle": {
                     "type": "string"
@@ -2806,9 +3080,7 @@
       },
       "put": {
         "summary": "Update Termix ID handle or description",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2839,9 +3111,7 @@
       },
       "delete": {
         "summary": "Delete Termix ID and all associated keys",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2857,9 +3127,7 @@
     "/termix-id/keys": {
       "post": {
         "summary": "Publish a public key",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2895,9 +3163,7 @@
     "/termix-id/keys/generate": {
       "post": {
         "summary": "Generate a new key pair and publish the public key",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2911,10 +3177,7 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "ed25519",
-                      "rsa"
-                    ]
+                    "enum": ["ed25519", "rsa"]
                   },
                   "label": {
                     "type": "string"
@@ -2940,9 +3203,7 @@
     "/termix-id/keys/{id}": {
       "patch": {
         "summary": "Update key metadata (enabled state or label)",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -2983,9 +3244,7 @@
       },
       "delete": {
         "summary": "Revoke and delete a published key",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3011,9 +3270,7 @@
     "/termix-id/ca": {
       "get": {
         "summary": "Get current user's certificate authority",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3027,9 +3284,7 @@
       },
       "post": {
         "summary": "Create a certificate authority",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3057,9 +3312,7 @@
       },
       "delete": {
         "summary": "Delete the certificate authority",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3075,9 +3328,7 @@
     "/termix-id/ca/rotate": {
       "post": {
         "summary": "Rotate the certificate authority (revokes all issued certificates)",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3107,9 +3358,7 @@
     "/termix-id/keys/{id}/certificate": {
       "post": {
         "summary": "Issue an SSH certificate for a key (ed25519 only)",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3155,9 +3404,7 @@
     "/termix-id/linked-credentials": {
       "get": {
         "summary": "Get credential IDs that have at least one enabled published Termix ID key",
-        "tags": [
-          "Termix ID"
-        ],
+        "tags": ["Termix ID"],
         "security": [
           {
             "bearerAuth": []
@@ -3174,9 +3421,7 @@
       "post": {
         "summary": "Save command to history",
         "description": "Saves a command to the command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3212,9 +3457,7 @@
       "get": {
         "summary": "Get command history",
         "description": "Retrieves the command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "parameters": [
           {
             "in": "path",
@@ -3240,9 +3483,7 @@
       "delete": {
         "summary": "Clear command history",
         "description": "Clears the entire command history for a specific host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "parameters": [
           {
             "in": "path",
@@ -3270,9 +3511,7 @@
       "post": {
         "summary": "Delete a specific command from history",
         "description": "Deletes a specific command from the history of a host.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3308,9 +3547,7 @@
       "get": {
         "summary": "Get session persistence settings",
         "description": "Returns the session timeout and persistence enabled flag.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "responses": {
           "200": {
             "description": "Session settings."
@@ -3323,9 +3560,7 @@
       "post": {
         "summary": "Update session persistence settings",
         "description": "Saves session timeout and persistence enabled flag.",
-        "tags": [
-          "Terminal"
-        ],
+        "tags": ["Terminal"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3361,9 +3596,7 @@
       "get": {
         "summary": "List Tailscale devices",
         "description": "Returns the list of devices in the configured tailnet using the stored API key.",
-        "tags": [
-          "Tailscale"
-        ],
+        "tags": ["Tailscale"],
         "responses": {
           "200": {
             "description": "List of tailnet devices.",
@@ -3393,9 +3626,7 @@
       "get": {
         "summary": "Pull synced rows for an entity type",
         "description": "Returns rows owned by the authenticated user whose updatedAt is newer than `since` (or all rows if omitted). Used by the desktop app's remote sync engine to reconcile the embedded backend against a connected remote server.",
-        "tags": [
-          "Sync"
-        ],
+        "tags": ["Sync"],
         "parameters": [
           {
             "in": "path",
@@ -3428,9 +3659,7 @@
       "post": {
         "summary": "Upsert a synced row by syncId",
         "description": "Creates or updates a row by its syncId. Used by the desktop app's remote sync engine to push local-only or newer rows to the other side of a sync pair.",
-        "tags": [
-          "Sync"
-        ],
+        "tags": ["Sync"],
         "parameters": [
           {
             "in": "path",
@@ -3458,9 +3687,7 @@
       "post": {
         "summary": "Report a deletion from the other side of a sync pair",
         "description": "Applies a remote deletion locally (if the row still exists) and records the tombstone so future pulls stay consistent.",
-        "tags": [
-          "Sync"
-        ],
+        "tags": ["Sync"],
         "responses": {
           "200": {
             "description": "Deletion applied (or row already absent)."
@@ -3478,9 +3705,7 @@
       "get": {
         "summary": "Pull deletion tombstones for an entity type",
         "description": "Returns tombstones recorded since `since` so the other side of a sync pair can apply the same deletions.",
-        "tags": [
-          "Sync"
-        ],
+        "tags": ["Sync"],
         "parameters": [
           {
             "in": "path",
@@ -3515,9 +3740,7 @@
       "get": {
         "summary": "List enabled SSO providers (public)",
         "description": "Returns public info for all enabled SSO providers for the login page.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "responses": {
           "200": {
             "description": "Array of public SSO provider objects."
@@ -3527,9 +3750,7 @@
       "post": {
         "summary": "Create SSO provider",
         "description": "Creates a new SSO provider configuration.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3554,9 +3775,7 @@
       "get": {
         "summary": "List all SSO providers (admin)",
         "description": "Returns full SSO provider list with decrypted configs for the admin panel.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "responses": {
           "200": {
             "description": "Array of full SSO provider objects with decrypted config."
@@ -3568,9 +3787,7 @@
       "put": {
         "summary": "Update SSO provider",
         "description": "Updates an existing SSO provider configuration.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "parameters": [
           {
             "in": "path",
@@ -3593,9 +3810,7 @@
       "delete": {
         "summary": "Delete SSO provider",
         "description": "Deletes an SSO provider. Blocked if users are associated.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "parameters": [
           {
             "in": "path",
@@ -3623,9 +3838,7 @@
       "get": {
         "summary": "Get all snippet folders",
         "description": "Retrieves all snippet folders for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "responses": {
           "200": {
             "description": "A list of snippet folders."
@@ -3641,9 +3854,7 @@
       "post": {
         "summary": "Create a new snippet folder",
         "description": "Creates a new snippet folder for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3685,9 +3896,7 @@
       "put": {
         "summary": "Update snippet folder metadata",
         "description": "Updates the metadata (color, icon) of a snippet folder.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -3736,9 +3945,7 @@
       "put": {
         "summary": "Rename a snippet folder",
         "description": "Renames a snippet folder for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3780,9 +3987,7 @@
       "delete": {
         "summary": "Delete a snippet folder",
         "description": "Deletes a snippet folder and moves its snippets to the root.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -3810,9 +4015,7 @@
       "put": {
         "summary": "Reorder snippets",
         "description": "Bulk updates the order and folder of snippets. Accepts `snippets` and the legacy `updates` payload key.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3859,9 +4062,7 @@
       "post": {
         "summary": "Execute a snippet on a host",
         "description": "Executes a snippet on a specified host.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3874,6 +4075,13 @@
                   },
                   "hostId": {
                     "type": "integer"
+                  },
+                  "inputValues": {
+                    "type": "object",
+                    "description": "Optional resolved values for $INPUT_n placeholders in the snippet content, keyed by \"INPUT_n\". Host variables ($HOST, $USER, $PORT, $NAME) are resolved server-side per target host and do not need to be passed here.\n",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -3900,9 +4108,7 @@
       "get": {
         "summary": "Export all snippets and folders as JSON",
         "description": "Returns all snippets and snippet folders for the authenticated user as a JSON export.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "responses": {
           "200": {
             "description": "Export object containing snippets and folders arrays."
@@ -3920,9 +4126,7 @@
       "post": {
         "summary": "Bulk import snippets and folders from JSON",
         "description": "Imports snippets and folders. Existing folders are skipped; existing snippets (matched by name+folder) can be skipped or overwritten.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -3961,9 +4165,7 @@
       "get": {
         "summary": "Get all snippets",
         "description": "Retrieves all snippets for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "responses": {
           "200": {
             "description": "A list of snippets."
@@ -3979,9 +4181,7 @@
       "post": {
         "summary": "Create a new snippet",
         "description": "Creates a new snippet for the authenticated user.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4003,6 +4203,10 @@
                   },
                   "order": {
                     "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean",
+                    "description": "When true, the snippet is a note (copy/paste only, not directly executable on a host)."
                   }
                 }
               }
@@ -4026,9 +4230,7 @@
       "get": {
         "summary": "Get a specific snippet",
         "description": "Retrieves a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -4057,9 +4259,7 @@
       "put": {
         "summary": "Update a snippet",
         "description": "Updates a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -4091,6 +4291,10 @@
                   },
                   "order": {
                     "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean",
+                    "description": "When true, the snippet is a note (copy/paste only, not directly executable on a host)."
                   }
                 }
               }
@@ -4115,9 +4319,7 @@
       "delete": {
         "summary": "Delete a snippet",
         "description": "Deletes a specific snippet by its ID.",
-        "tags": [
-          "Snippets"
-        ],
+        "tags": ["Snippets"],
         "parameters": [
           {
             "in": "path",
@@ -4148,9 +4350,7 @@
       "get": {
         "summary": "List session logs",
         "description": "Returns all terminal session recordings for the authenticated user.",
-        "tags": [
-          "Session Logs"
-        ],
+        "tags": ["Session Logs"],
         "responses": {
           "200": {
             "description": "List of session recordings."
@@ -4165,9 +4365,7 @@
       "get": {
         "summary": "Get session log metadata",
         "description": "Returns metadata for a single session recording.",
-        "tags": [
-          "Session Logs"
-        ],
+        "tags": ["Session Logs"],
         "parameters": [
           {
             "in": "path",
@@ -4196,9 +4394,7 @@
       "delete": {
         "summary": "Delete session log",
         "description": "Deletes a session recording and its log file.",
-        "tags": [
-          "Session Logs"
-        ],
+        "tags": ["Session Logs"],
         "parameters": [
           {
             "in": "path",
@@ -4229,9 +4425,7 @@
       "get": {
         "summary": "Get session log content",
         "description": "Returns the raw text content of a session log file.",
-        "tags": [
-          "Session Logs"
-        ],
+        "tags": ["Session Logs"],
         "parameters": [
           {
             "in": "path",
@@ -4262,9 +4456,7 @@
       "post": {
         "summary": "Share a host",
         "description": "Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). SSH authentication remains private to the owner; recipients may select one of their own saved SSH credentials.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4281,9 +4473,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "targets"
-                ],
+                "required": ["targets"],
                 "properties": {
                   "targets": {
                     "type": "array",
@@ -4292,10 +4482,7 @@
                       "properties": {
                         "type": {
                           "type": "string",
-                          "enum": [
-                            "user",
-                            "role"
-                          ]
+                          "enum": ["user", "role"]
                         },
                         "id": {
                           "oneOf": [
@@ -4312,12 +4499,7 @@
                   },
                   "permissionLevel": {
                     "type": "string",
-                    "enum": [
-                      "connect",
-                      "view",
-                      "edit",
-                      "manage"
-                    ]
+                    "enum": ["connect", "view", "edit", "manage"]
                   },
                   "durationHours": {
                     "type": "number"
@@ -4350,19 +4532,14 @@
       "post": {
         "summary": "Share all hosts in a folder",
         "description": "Shares every host within a folder (and its subfolders) with one or more users and/or roles at a permission level. Only hosts owned by the caller are shared; skips hosts the caller may not share.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "folder",
-                  "targets"
-                ],
+                "required": ["folder", "targets"],
                 "properties": {
                   "folder": {
                     "type": "string"
@@ -4374,10 +4551,7 @@
                       "properties": {
                         "type": {
                           "type": "string",
-                          "enum": [
-                            "user",
-                            "role"
-                          ]
+                          "enum": ["user", "role"]
                         },
                         "id": {
                           "oneOf": [
@@ -4394,12 +4568,7 @@
                   },
                   "permissionLevel": {
                     "type": "string",
-                    "enum": [
-                      "connect",
-                      "view",
-                      "edit",
-                      "manage"
-                    ]
+                    "enum": ["connect", "view", "edit", "manage"]
                   },
                   "durationHours": {
                     "type": "number"
@@ -4426,9 +4595,7 @@
       "patch": {
         "summary": "Update a host access grant",
         "description": "Changes the permission level and/or expiry of an existing host access grant. Allowed for the host owner or recipients holding the manage level.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4456,12 +4623,7 @@
                 "properties": {
                   "permissionLevel": {
                     "type": "string",
-                    "enum": [
-                      "connect",
-                      "view",
-                      "edit",
-                      "manage"
-                    ]
+                    "enum": ["connect", "view", "edit", "manage"]
                   },
                   "durationHours": {
                     "type": "number",
@@ -4494,9 +4656,7 @@
       "delete": {
         "summary": "Revoke host access",
         "description": "Revokes a user's or role's access to a host.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4535,9 +4695,7 @@
       "get": {
         "summary": "Get host access list",
         "description": "Retrieves the list of users and roles that have access to a host.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4568,9 +4726,7 @@
       "get": {
         "summary": "Get shared hosts",
         "description": "Retrieves the list of hosts that have been shared with the authenticated user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "responses": {
           "200": {
             "description": "A list of shared hosts."
@@ -4585,9 +4741,7 @@
       "get": {
         "summary": "Get all roles",
         "description": "Retrieves a list of all roles.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "responses": {
           "200": {
             "description": "A list of roles."
@@ -4600,9 +4754,7 @@
       "post": {
         "summary": "Create a new role",
         "description": "Creates a new role.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "requestBody": {
           "required": true,
           "content": {
@@ -4644,9 +4796,7 @@
       "put": {
         "summary": "Update a role",
         "description": "Updates a role by its ID.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4700,9 +4850,7 @@
       "delete": {
         "summary": "Delete a role",
         "description": "Deletes a role by its ID.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4736,9 +4884,7 @@
       "get": {
         "summary": "Get the role permissions catalog",
         "description": "Returns the grouped catalog of role permission strings used by the role permissions editor.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "responses": {
           "200": {
             "description": "The permissions catalog."
@@ -4750,9 +4896,7 @@
       "post": {
         "summary": "Assign a role to a user",
         "description": "Assigns a role to a user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4802,9 +4946,7 @@
       "get": {
         "summary": "Get user's roles",
         "description": "Retrieves a list of roles for a specific user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4832,9 +4974,7 @@
       "delete": {
         "summary": "Remove a role from a user",
         "description": "Removes a role from a user.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "parameters": [
           {
             "in": "path",
@@ -4876,45 +5016,35 @@
       "post": {
         "summary": "Share a snippet",
         "description": "Shares a snippet with a user or role.",
-        "tags": [
-          "RBAC"
-        ]
+        "tags": ["RBAC"]
       }
     },
     "/rbac/snippet/{id}/access/{accessId}": {
       "delete": {
         "summary": "Revoke snippet access",
         "description": "Revokes a user's or role's access to a snippet.",
-        "tags": [
-          "RBAC"
-        ]
+        "tags": ["RBAC"]
       }
     },
     "/rbac/snippet/{id}/access": {
       "get": {
         "summary": "Get snippet access list",
         "description": "Retrieves the list of users and roles with access to a snippet.",
-        "tags": [
-          "RBAC"
-        ]
+        "tags": ["RBAC"]
       }
     },
     "/rbac/shared-snippets": {
       "get": {
         "summary": "Get shared snippets",
         "description": "Retrieves snippets shared with the current user.",
-        "tags": [
-          "RBAC"
-        ]
+        "tags": ["RBAC"]
       }
     },
     "/rbac/host-access/{hostId}/auth/{protocol}": {
       "put": {
         "summary": "Set personal authentication for a shared host protocol",
         "description": "Selects one of the authenticated recipient's own credentials, or clears the selection with null. Only SSH is currently supported.",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "security": [
           {
             "bearerAuth": []
@@ -4923,9 +5053,7 @@
       },
       "get": {
         "summary": "Get the current recipient's shared-host protocol authentication override",
-        "tags": [
-          "RBAC"
-        ],
+        "tags": ["RBAC"],
         "security": [
           {
             "bearerAuth": []
@@ -4937,9 +5065,7 @@
       "post": {
         "summary": "Discover Proxmox guests on a node",
         "description": "Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required.\n",
-        "tags": [
-          "Proxmox"
-        ],
+        "tags": ["Proxmox"],
         "security": [
           {
             "bearerAuth": []
@@ -4951,9 +5077,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "hostId"
-                ],
+                "required": ["hostId"],
                 "properties": {
                   "hostId": {
                     "type": "number",
@@ -4985,10 +5109,7 @@
                           },
                           "type": {
                             "type": "string",
-                            "enum": [
-                              "qemu",
-                              "lxc"
-                            ]
+                            "enum": ["qemu", "lxc"]
                           },
                           "node": {
                             "type": "string"
@@ -5002,10 +5123,7 @@
                           },
                           "connectionType": {
                             "type": "string",
-                            "enum": [
-                              "ssh",
-                              "rdp"
-                            ]
+                            "enum": ["ssh", "rdp"]
                           },
                           "enableDocker": {
                             "type": "boolean"
@@ -5050,9 +5168,7 @@
     "/open-tabs": {
       "get": {
         "summary": "Get all open tabs for the current user",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "responses": {
           "200": {
             "description": "List of open tabs ordered by tab_order."
@@ -5061,21 +5177,14 @@
       },
       "post": {
         "summary": "Upsert a single open tab for the current user",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "id",
-                  "tabType",
-                  "label",
-                  "tabOrder"
-                ],
+                "required": ["id", "tabType", "label", "tabOrder"],
                 "properties": {
                   "id": {
                     "type": "string"
@@ -5110,9 +5219,7 @@
       },
       "put": {
         "summary": "Bulk replace all open tabs for the current user",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5138,9 +5245,7 @@
     "/open-tabs/{id}": {
       "patch": {
         "summary": "Update a single open tab",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "parameters": [
           {
             "in": "path",
@@ -5162,9 +5267,7 @@
       },
       "delete": {
         "summary": "Delete a single open tab",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "parameters": [
           {
             "in": "path",
@@ -5186,9 +5289,7 @@
       "get": {
         "summary": "Get all active backend sessions for the current user",
         "description": "Returns live terminal sessions from the session manager, both sessions the caller owns and SSH sessions shared to the caller by another user (via an in-app session share). Used by the Active Connections panel and tab restore logic.\n",
-        "tags": [
-          "Open Tabs"
-        ],
+        "tags": ["Open Tabs"],
         "responses": {
           "200": {
             "description": "List of active sessions (own and shared-with-me).",
@@ -5245,9 +5346,7 @@
       "get": {
         "summary": "Get network topology for authenticated user",
         "description": "Retrieves the saved network topology graph (nodes and edges) for the current user. Returns null if no topology exists.",
-        "tags": [
-          "Network Topology"
-        ],
+        "tags": ["Network Topology"],
         "security": [
           {
             "bearerAuth": []
@@ -5316,9 +5415,7 @@
       "post": {
         "summary": "Save network topology for authenticated user",
         "description": "Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise.",
-        "tags": [
-          "Network Topology"
-        ],
+        "tags": ["Network Topology"],
         "security": [
           {
             "bearerAuth": []
@@ -5330,9 +5427,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "topology"
-                ],
+                "required": ["topology"],
                 "properties": {
                   "topology": {
                     "type": "object",
@@ -5385,9 +5480,7 @@
       "post": {
         "summary": "LDAP login",
         "description": "Authenticates a user against an LDAP server.",
-        "tags": [
-          "SSO"
-        ],
+        "tags": ["SSO"],
         "requestBody": {
           "required": true,
           "content": {
@@ -5435,9 +5528,7 @@
       "post": {
         "summary": "Create SSH host",
         "description": "Creates a new SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "Host created successfully."
@@ -5453,9 +5544,7 @@
       "get": {
         "summary": "Get all SSH hosts",
         "description": "Retrieves all SSH hosts for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of SSH hosts."
@@ -5473,9 +5562,7 @@
       "post": {
         "summary": "Enroll a host with an API key",
         "description": "Creates a host owned by the user assigned to the API key. The user's encrypted data must be unlocked by an active sign-in.",
-        "tags": [
-          "Host Enrollment"
-        ],
+        "tags": ["Host Enrollment"],
         "security": [
           {
             "bearerAuth": []
@@ -5487,9 +5574,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "ip"
-                ],
+                "required": ["ip"],
                 "properties": {
                   "name": {
                     "type": "string"
@@ -5508,13 +5593,7 @@
                   },
                   "authType": {
                     "type": "string",
-                    "enum": [
-                      "none",
-                      "password",
-                      "key",
-                      "credential",
-                      "agent"
-                    ],
+                    "enum": ["none", "password", "key", "credential", "agent"],
                     "default": "none"
                   },
                   "password": {
@@ -5573,21 +5652,14 @@
       "post": {
         "summary": "Create a temporary SSH connection without saving to database",
         "description": "Returns a temporary host configuration for immediate use",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "ip",
-                  "port",
-                  "username",
-                  "authType"
-                ],
+                "required": ["ip", "port", "username", "authType"],
                 "properties": {
                   "ip": {
                     "type": "string",
@@ -5603,11 +5675,7 @@
                   },
                   "authType": {
                     "type": "string",
-                    "enum": [
-                      "password",
-                      "key",
-                      "credential"
-                    ],
+                    "enum": ["password", "key", "credential"],
                     "description": "Authentication method"
                   },
                   "password": {
@@ -5665,9 +5733,7 @@
       "put": {
         "summary": "Update SSH host",
         "description": "Updates an existing SSH host configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -5699,9 +5765,7 @@
       "get": {
         "summary": "Get SSH host by ID",
         "description": "Retrieves a specific SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -5730,9 +5794,7 @@
       "delete": {
         "summary": "Delete SSH host",
         "description": "Deletes an SSH host by its ID.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -5763,9 +5825,7 @@
       "get": {
         "summary": "Get host password for clipboard copy",
         "description": "Returns the password for a specific host. Used by the copy-password feature.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -5806,9 +5866,7 @@
       "get": {
         "summary": "Export SSH host",
         "description": "Exports a specific SSH host with decrypted credentials.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -5839,9 +5897,7 @@
       "get": {
         "summary": "Export all SSH hosts",
         "description": "Exports all SSH hosts for the current user. By default credentials are decrypted and embedded. With `share=1`, secrets are omitted and credential-authenticated hosts instead reference a scrubbed `credentials` array by alias, suitable for handing off to another user.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -5869,9 +5925,7 @@
     "/host/opkssh/token/{hostId}": {
       "get": {
         "summary": "Get OPKSSH token status for a host",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "security": [
           {
             "bearerAuth": []
@@ -5924,9 +5978,7 @@
       },
       "delete": {
         "summary": "Delete OPKSSH token for a host",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "security": [
           {
             "bearerAuth": []
@@ -5953,12 +6005,45 @@
         }
       }
     },
+    "/host-sidebar/preferences": {
+      "get": {
+        "summary": "Get the host sidebar preferences for the current user",
+        "description": "Returns the current user's saved sidebar preferences (sort, group, filters, open folders, display settings). On first access, seeds the preferences from the legacy per-column user-preferences fields (showHostTags, hostTrayOnClick, compactHostView, statusColorScheme) so existing settings are not lost.",
+        "tags": ["Host Sidebar"],
+        "responses": {
+          "200": {
+            "description": "The current user's sidebar preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the host sidebar preferences for the current user",
+        "description": "Persists the current user's sidebar preferences (sort, group, filters, open folders, display settings) as a single JSON document.",
+        "tags": ["Host Sidebar"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
+          }
+        }
+      }
+    },
     "/host/opkssh-chooser/{requestId}": {
       "get": {
         "summary": "Proxy OPKSSH provider chooser page and all related resources",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "name": "requestId",
@@ -5986,9 +6071,7 @@
     "/host/opkssh-callback": {
       "get": {
         "summary": "Static OAuth callback from OIDC provider for OPKSSH authentication",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "Callback processed successfully"
@@ -6005,9 +6088,7 @@
     "/host/opkssh-callback/{requestId}": {
       "get": {
         "summary": "OAuth callback from OIDC provider for OPKSSH authentication (handles all sub-paths)",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "name": "requestId",
@@ -6036,9 +6117,7 @@
       "post": {
         "summary": "Test proxy connectivity",
         "description": "Tests connectivity through a proxy configuration to a target host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6102,9 +6181,7 @@
       "get": {
         "summary": "Get internal SSH host data",
         "description": "Returns internal SSH host data for autostart tunnels. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of autostart hosts."
@@ -6122,9 +6199,7 @@
       "get": {
         "summary": "Get all internal SSH host data",
         "description": "Returns all internal SSH host data. Requires internal auth token.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of all hosts."
@@ -6142,9 +6217,7 @@
       "put": {
         "summary": "Rename folder",
         "description": "Renames a folder for SSH hosts and credentials.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6180,9 +6253,7 @@
       "get": {
         "summary": "Get all folders",
         "description": "Retrieves all folders for the authenticated user.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of folders."
@@ -6200,9 +6271,7 @@
       "put": {
         "summary": "Update folder metadata",
         "description": "Updates the metadata (color, icon, assigned credential) of a folder.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6241,13 +6310,55 @@
         }
       }
     },
+    "/host/folders/reorder": {
+      "put": {
+        "summary": "Reorder folders",
+        "description": "Sets a manual sortOrder for multiple sibling folders, used by drag-to-reorder in the sidebar's manual sort mode. Folders with no existing metadata row are created.",
+        "tags": ["SSH"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folders reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder folders."
+          }
+        }
+      }
+    },
     "/host/folders/{name}/hosts": {
       "delete": {
         "summary": "Delete all hosts in folder",
         "description": "Deletes all SSH hosts within a specific folder.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -6275,9 +6386,7 @@
       "get": {
         "summary": "Get recent files",
         "description": "Retrieves a list of recent files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -6303,9 +6412,7 @@
       "post": {
         "summary": "Add recent file",
         "description": "Adds a file to the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6342,9 +6449,7 @@
       "delete": {
         "summary": "Remove recent file",
         "description": "Removes a file from the list of recent files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6380,9 +6485,7 @@
       "get": {
         "summary": "Get pinned files",
         "description": "Retrieves a list of pinned files for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -6408,9 +6511,7 @@
       "post": {
         "summary": "Add pinned file",
         "description": "Adds a file to the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6450,9 +6551,7 @@
       "delete": {
         "summary": "Remove pinned file",
         "description": "Removes a file from the list of pinned files for a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6488,9 +6587,7 @@
       "get": {
         "summary": "Get shortcuts",
         "description": "Retrieves a list of shortcuts for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "query",
@@ -6516,9 +6613,7 @@
       "post": {
         "summary": "Add shortcut",
         "description": "Adds a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6558,9 +6653,7 @@
       "delete": {
         "summary": "Remove shortcut",
         "description": "Removes a shortcut for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6596,9 +6689,7 @@
       "get": {
         "summary": "Get command history",
         "description": "Retrieves the command history for a specific host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "parameters": [
           {
             "in": "path",
@@ -6626,9 +6717,7 @@
       "delete": {
         "summary": "Delete command from history",
         "description": "Deletes a specific command from the history of a host.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6664,9 +6753,7 @@
       "post": {
         "summary": "Bulk import SSH hosts",
         "description": "Bulk imports multiple SSH hosts.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6698,9 +6785,7 @@
     "/host/bulk-update": {
       "patch": {
         "summary": "Bulk update partial fields on multiple SSH hosts",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "security": [
           {
             "bearerAuth": []
@@ -6720,7 +6805,17 @@
                     }
                   },
                   "updates": {
-                    "type": "object"
+                    "type": "object",
+                    "description": "Partial fields to apply. Setting folder clears parentHostId and vice versa, since a host is either in a folder or nested under a parent host.",
+                    "properties": {
+                      "folder": {
+                        "type": "string"
+                      },
+                      "parentHostId": {
+                        "type": "integer",
+                        "nullable": true
+                      }
+                    }
                   }
                 }
               }
@@ -6737,22 +6832,62 @@
         }
       }
     },
-    "/host/ssh-config-import": {
-      "post": {
-        "summary": "Import hosts from an OpenSSH config file",
-        "description": "Parses an OpenSSH ~/.ssh/config file and imports the defined hosts.",
-        "tags": [
-          "SSH"
-        ],
+    "/host/reorder": {
+      "put": {
+        "summary": "Reorder hosts",
+        "description": "Sets a manual sortOrder for multiple hosts within the same folder, used by drag-to-reorder in the sidebar's manual sort mode.",
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "content"
-                ],
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hosts reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder hosts."
+          }
+        }
+      }
+    },
+    "/host/ssh-config-import": {
+      "post": {
+        "summary": "Import hosts from an OpenSSH config file",
+        "description": "Parses an OpenSSH ~/.ssh/config file and imports the defined hosts.",
+        "tags": ["SSH"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["content"],
                 "properties": {
                   "content": {
                     "type": "string",
@@ -6780,9 +6915,7 @@
       "post": {
         "summary": "Enable autostart for SSH configuration",
         "description": "Enables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6818,9 +6951,7 @@
       "delete": {
         "summary": "Disable autostart for SSH configuration",
         "description": "Disables autostart for a specific SSH configuration.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "requestBody": {
           "required": true,
           "content": {
@@ -6853,9 +6984,7 @@
       "get": {
         "summary": "Get autostart status",
         "description": "Retrieves the autostart status for the user's SSH configurations.",
-        "tags": [
-          "SSH"
-        ],
+        "tags": ["SSH"],
         "responses": {
           "200": {
             "description": "A list of autostart configurations."
@@ -6869,9 +6998,7 @@
     "/homepage/rss": {
       "get": {
         "summary": "Proxy and parse an RSS/Atom feed",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "query",
@@ -6906,9 +7033,7 @@
     "/homepage/proxy": {
       "get": {
         "summary": "Proxy a JSON API URL and return the parsed response",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "query",
@@ -6943,9 +7068,7 @@
     "/homepage/ping": {
       "get": {
         "summary": "Check the HTTP reachability and latency of a URL",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "query",
@@ -6978,9 +7101,7 @@
       "get": {
         "summary": "Get homepage layout",
         "description": "Returns the homepage canvas layout (widget positions, pan, zoom) for the authenticated user.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "responses": {
           "200": {
             "description": "Layout data or null."
@@ -6993,9 +7114,7 @@
       "put": {
         "summary": "Save homepage layout",
         "description": "Saves or updates the homepage canvas layout for the authenticated user.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7031,9 +7150,7 @@
       "get": {
         "summary": "Get homepage items",
         "description": "Returns all homepage widget items for the authenticated user.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "responses": {
           "200": {
             "description": "List of homepage items."
@@ -7046,18 +7163,14 @@
       "post": {
         "summary": "Create homepage item",
         "description": "Creates a new homepage widget item for the authenticated user.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "typeId"
-                ],
+                "required": ["typeId"],
                 "properties": {
                   "typeId": {
                     "type": "string"
@@ -7090,9 +7203,7 @@
       "put": {
         "summary": "Update homepage item",
         "description": "Updates a homepage widget item.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "path",
@@ -7139,9 +7250,7 @@
       "delete": {
         "summary": "Delete homepage item",
         "description": "Deletes a homepage widget item and cascades deletion to children if a folder.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "path",
@@ -7172,9 +7281,7 @@
       "get": {
         "summary": "Proxy favicon fetch",
         "description": "Fetches and caches a site favicon server-side to avoid CORS issues.",
-        "tags": [
-          "Homepage"
-        ],
+        "tags": ["Homepage"],
         "parameters": [
           {
             "in": "query",
@@ -7198,13 +7305,473 @@
         }
       }
     },
+    "/fleets": {
+      "get": {
+        "summary": "List the current user's fleets",
+        "tags": ["Fleets"],
+        "responses": {
+          "200": {
+            "description": "List of fleets with member counts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a fleet",
+        "tags": ["Fleets"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "tagRules": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/fleets/{id}": {
+      "patch": {
+        "summary": "Update a fleet",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet updated."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a fleet",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet deleted."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/members": {
+      "get": {
+        "summary": "List the resolved effective members of a fleet",
+        "description": "Returns the union of statically-added hosts and hosts matched by the fleet's tag rules, each annotated with the caller's permission level on that host.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resolved member hosts."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a host to a fleet's static membership",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host added."
+          },
+          "404": {
+            "description": "Fleet or host not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/members/{hostId}": {
+      "delete": {
+        "summary": "Remove a host from a fleet's static membership",
+        "description": "Only removes the static membership row - a host still matched by the fleet's tag rules remains an effective member.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host removed."
+          },
+          "404": {
+            "description": "Fleet or membership not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/share": {
+      "post": {
+        "summary": "Share a fleet's current member hosts with users or roles",
+        "description": "Snapshot at share time - grants hostAccess for every current member host to each target. Hosts added to the fleet later are not automatically shared; re-run this route to extend sharing to new members.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "permissionLevel": {
+                    "type": "string"
+                  },
+                  "durationHours": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet shared."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/execute": {
+      "post": {
+        "summary": "Run a command across every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  },
+                  "inputValues": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host execution results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/transfer/push": {
+      "post": {
+        "summary": "Push an uploaded file to the same remote path on every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host push results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/transfer/pull": {
+      "post": {
+        "summary": "Pull the same remote path from every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host (<hostName>/<filename>). Single file only (v1).",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zip archive containing the per-host pulled files, plus an X-Fleet-Transfer-Results header with the per-host JSON result summary."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/inventory": {
+      "get": {
+        "summary": "Read the last-known inventory snapshot for a fleet's members",
+        "description": "No live connection - reads back whatever the most recent POST refresh stored. Latest-only per host, no history.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stored inventory rows for current members."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Refresh the inventory snapshot for every host in a fleet",
+        "description": "Connects to every effective member host the caller has view-level access to, collects OS/kernel/arch/hostname/uptime, and overwrites the stored latest-only snapshot per host.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-host refresh results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/packages": {
+      "post": {
+        "summary": "Run a package action across every host in a fleet",
+        "description": "Auto-detects each host's package manager (apt/dnf/yum/pacman) and runs install/remove/upgrade-all, elevating with the host's stored sudo password. Requires manage-level access per host.",
+        "tags": ["Fleets"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": ["install", "remove", "upgrade-all"]
+                  },
+                  "package": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host package action results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
     "/service-links": {
       "get": {
         "summary": "Get service links",
         "description": "Returns all dashboard service links for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "responses": {
           "200": {
             "description": "List of service links."
@@ -7217,19 +7784,14 @@
       "post": {
         "summary": "Create service link",
         "description": "Creates a new dashboard service link for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "label",
-                  "url"
-                ],
+                "required": ["label", "url"],
                 "properties": {
                   "label": {
                     "type": "string"
@@ -7259,9 +7821,7 @@
       "delete": {
         "summary": "Delete service link",
         "description": "Deletes a dashboard service link by ID.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "parameters": [
           {
             "in": "path",
@@ -7290,9 +7850,7 @@
       "put": {
         "summary": "Update service link",
         "description": "Updates label or url of a dashboard service link.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "parameters": [
           {
             "in": "path",
@@ -7341,9 +7899,7 @@
       "post": {
         "summary": "Create a new credential",
         "description": "Creates a new SSH credential for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7368,10 +7924,7 @@
                   },
                   "authType": {
                     "type": "string",
-                    "enum": [
-                      "password",
-                      "key"
-                    ]
+                    "enum": ["password", "key"]
                   },
                   "username": {
                     "type": "string"
@@ -7408,9 +7961,7 @@
       "get": {
         "summary": "Get all credentials",
         "description": "Retrieves all SSH credentials for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "responses": {
           "200": {
             "description": "A list of credentials."
@@ -7428,9 +7979,7 @@
       "get": {
         "summary": "Get credential folders",
         "description": "Retrieves all unique credential folders for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "responses": {
           "200": {
             "description": "A list of folder names."
@@ -7448,9 +7997,7 @@
       "get": {
         "summary": "Get a specific credential",
         "description": "Retrieves a specific credential by its ID, including secrets.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7479,9 +8026,7 @@
       "put": {
         "summary": "Update a credential",
         "description": "Updates a specific credential by its ID.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7528,9 +8073,7 @@
       "delete": {
         "summary": "Delete a credential",
         "description": "Deletes a specific credential by its ID.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7561,9 +8104,7 @@
       "post": {
         "summary": "Apply a credential to a host",
         "description": "Applies a credential to an SSH host for quick application.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7602,9 +8143,7 @@
       "get": {
         "summary": "Get hosts using a credential",
         "description": "Retrieves a list of hosts that are using a specific credential.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7632,9 +8171,7 @@
       "put": {
         "summary": "Rename a credential folder",
         "description": "Renames a credential folder for the authenticated user.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7666,13 +8203,46 @@
         }
       }
     },
+    "/credential-sidebar/preferences": {
+      "get": {
+        "summary": "Get the credential sidebar preferences for the current user",
+        "description": "Returns the current user's saved credential sidebar preferences (sort, filters, open folders, display settings). Unlike /host-sidebar/preferences, there is no legacy-column migration to perform here — credentials never had exploded preference columns on userPreferences — so a first-time GET simply returns the defaults without writing a row; a row is only created once the user actually changes something via PUT.",
+        "tags": ["Credential Sidebar"],
+        "responses": {
+          "200": {
+            "description": "The current user's credential sidebar preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the credential sidebar preferences for the current user",
+        "description": "Persists the current user's credential sidebar preferences (sort, filters, open folders, display settings) as a single JSON document.",
+        "tags": ["Credential Sidebar"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
+          }
+        }
+      }
+    },
     "/credentials/detect-key-type": {
       "post": {
         "summary": "Detect SSH key type",
         "description": "Detects the type of an SSH private key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7708,9 +8278,7 @@
       "post": {
         "summary": "Detect SSH public key type",
         "description": "Detects the type of an SSH public key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7743,9 +8311,7 @@
       "post": {
         "summary": "Validate SSH key pair",
         "description": "Validates if a given SSH private key and public key match.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7784,9 +8350,7 @@
       "post": {
         "summary": "Generate new SSH key pair",
         "description": "Generates a new SSH key pair.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -7821,9 +8385,7 @@
       "post": {
         "summary": "Generate public key from private key",
         "description": "Generates a public key from a given private key.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7859,9 +8421,7 @@
       "post": {
         "summary": "Deploy SSH key to a host",
         "description": "Deploys an SSH public key to a target host's authorized_keys file.",
-        "tags": [
-          "Credentials"
-        ],
+        "tags": ["Credentials"],
         "parameters": [
           {
             "in": "path",
@@ -7906,13 +8466,55 @@
         }
       }
     },
+    "/credentials/reorder": {
+      "put": {
+        "summary": "Reorder credentials",
+        "description": "Sets a manual sortOrder for multiple credentials within the same folder, used by drag-to-reorder in the sidebar's manual sort mode.",
+        "tags": ["Credentials"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credentials reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder credentials."
+          }
+        }
+      }
+    },
     "/c2s-tunnel-presets": {
       "get": {
         "summary": "List client tunnel presets",
         "description": "Returns the authenticated user's saved client-to-server tunnel presets.",
-        "tags": [
-          "Tunnel Presets"
-        ],
+        "tags": ["Tunnel Presets"],
         "responses": {
           "200": {
             "description": "List of tunnel presets."
@@ -7928,9 +8530,7 @@
       "post": {
         "summary": "Create a client tunnel preset",
         "description": "Saves a named client-to-server tunnel configuration for the authenticated user.",
-        "tags": [
-          "Tunnel Presets"
-        ],
+        "tags": ["Tunnel Presets"],
         "requestBody": {
           "required": true,
           "content": {
@@ -7972,9 +8572,7 @@
       "put": {
         "summary": "Update a client tunnel preset",
         "description": "Updates the name or config of one of the authenticated user's tunnel presets.",
-        "tags": [
-          "Tunnel Presets"
-        ],
+        "tags": ["Tunnel Presets"],
         "parameters": [
           {
             "in": "path",
@@ -8003,9 +8601,7 @@
       "delete": {
         "summary": "Delete a client tunnel preset",
         "description": "Deletes one of the authenticated user's tunnel presets.",
-        "tags": [
-          "Tunnel Presets"
-        ],
+        "tags": ["Tunnel Presets"],
         "parameters": [
           {
             "in": "path",
@@ -8029,13 +8625,243 @@
         }
       }
     },
+    "/automations": {
+      "get": {
+        "summary": "List the current user's automations",
+        "description": "Returns every automation the caller owns, with its parsed definition and linked notification channels.",
+        "tags": ["Automations"],
+        "responses": {
+          "200": {
+            "description": "List of automations."
+          },
+          "403": {
+            "description": "Missing the automations.view permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an automation",
+        "description": "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time.",
+        "tags": ["Automations"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "definition": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/automations/{id}": {
+      "get": {
+        "summary": "Fetch a single automation",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The automation."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an automation",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an automation",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/automations/{id}/run": {
+      "post": {
+        "summary": "Run an automation now",
+        "description": "Runs immediately, as the automation's owner. Pass dryRun to record what each step would do without touching anything outside Termix.",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dryRun": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run outcome."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/automations/runs": {
+      "get": {
+        "summary": "List automation runs",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "automationId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recent runs, newest first."
+          }
+        }
+      }
+    },
+    "/automations/runs/{runId}/steps": {
+      "get": {
+        "summary": "Step-by-step results for a run",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run's steps in order."
+          },
+          "404": {
+            "description": "Run not found."
+          }
+        }
+      }
+    },
+    "/automations/webhook/{token}": {
+      "post": {
+        "summary": "Trigger an automation from an external system",
+        "description": "Unauthenticated by design; the 32-byte token in the path is the credential and is compared against a stored hash in constant time.",
+        "tags": ["Automations"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The run was accepted."
+          },
+          "404": {
+            "description": "No automation matches that token."
+          }
+        }
+      }
+    },
     "/audit-logs": {
       "get": {
         "summary": "List audit logs",
         "description": "Returns paginated, filterable audit log entries. Admin only.",
-        "tags": [
-          "Audit"
-        ],
+        "tags": ["Audit"],
         "parameters": [
           {
             "in": "query",
@@ -8080,10 +8906,7 @@
             "name": "success",
             "schema": {
               "type": "string",
-              "enum": [
-                true,
-                false
-              ]
+              "enum": [true, false]
             }
           },
           {
@@ -8120,9 +8943,7 @@
       "get": {
         "summary": "List distinct audit log action types",
         "description": "Returns all distinct action values in the audit log for filter dropdowns. Admin only.",
-        "tags": [
-          "Audit"
-        ],
+        "tags": ["Audit"],
         "responses": {
           "200": {
             "description": "List of distinct action strings."
@@ -8140,19 +8961,14 @@
       "get": {
         "summary": "Export audit logs",
         "description": "Streams the full filtered result set as CSV or NDJSON. Accepts the same filters as GET /audit-logs. Admin only. The export is itself audited.",
-        "tags": [
-          "Audit"
-        ],
+        "tags": ["Audit"],
         "parameters": [
           {
             "in": "query",
             "name": "format",
             "schema": {
               "type": "string",
-              "enum": [
-                "csv",
-                "ndjson"
-              ],
+              "enum": ["csv", "ndjson"],
               "default": "csv"
             }
           },
@@ -8182,10 +8998,7 @@
             "name": "success",
             "schema": {
               "type": "string",
-              "enum": [
-                true,
-                false
-              ]
+              "enum": [true, false]
             }
           },
           {
@@ -8222,9 +9035,7 @@
       "get": {
         "summary": "Get active alerts",
         "description": "Fetches active alerts for the authenticated user, excluding those that have been dismissed.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "responses": {
           "200": {
             "description": "A list of active alerts."
@@ -8239,9 +9050,7 @@
       "post": {
         "summary": "Dismiss an alert",
         "description": "Marks an alert as dismissed for the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8275,9 +9084,7 @@
       "delete": {
         "summary": "Undismiss an alert",
         "description": "Removes an alert from the dismissed list for the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8313,9 +9120,7 @@
       "get": {
         "summary": "Get dismissed alerts",
         "description": "Fetches a list of alerts that have been dismissed by the authenticated user.",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "responses": {
           "200": {
             "description": "A list of dismissed alerts."
@@ -8329,9 +9134,7 @@
     "/notification-channels": {
       "get": {
         "summary": "List notification channels for the current user",
-        "tags": [
-          "Alerts"
-        ],
+        "tags": ["Alerts"],
         "responses": {
           "200": {
             "description": "List of notification channels."
@@ -8340,92 +9143,68 @@
       },
       "post": {
         "summary": "Create a notification channel",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/notification-channels/{id}": {
       "put": {
         "summary": "Update a notification channel",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       },
       "delete": {
         "summary": "Delete a notification channel",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/notification-channels/{id}/test": {
       "post": {
         "summary": "Send a test notification",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/alert-rules": {
       "get": {
         "summary": "List alert rules for the current user",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       },
       "post": {
         "summary": "Create an alert rule",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/alert-rules/{id}": {
       "put": {
         "summary": "Update an alert rule",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       },
       "delete": {
         "summary": "Delete an alert rule",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/alert-firings": {
       "get": {
         "summary": "List alert firings for the current user",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/alert-firings/{id}/acknowledge": {
       "post": {
         "summary": "Acknowledge an alert firing",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/alert-firings/acknowledge-all": {
       "post": {
         "summary": "Acknowledge all alert firings for the current user",
-        "tags": [
-          "Alerts"
-        ]
+        "tags": ["Alerts"]
       }
     },
     "/users/acme-ssl-settings": {
       "get": {
         "summary": "Get ACME SSL settings",
         "description": "Returns current ACME/Let's Encrypt configuration and certificate status.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "ACME SSL settings and certificate status."
@@ -8438,9 +9217,7 @@
       "patch": {
         "summary": "Update ACME SSL settings (admin only)",
         "description": "Saves ACME/Let's Encrypt configuration.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8459,11 +9236,7 @@
                   },
                   "challengeType": {
                     "type": "string",
-                    "enum": [
-                      "http-webroot",
-                      "dns-cloudflare",
-                      "manual"
-                    ]
+                    "enum": ["http-webroot", "dns-cloudflare", "manual"]
                   },
                   "cloudflareToken": {
                     "type": "string"
@@ -8490,9 +9263,7 @@
       "post": {
         "summary": "Request or renew Let's Encrypt certificate (admin only)",
         "description": "Triggers certbot to issue or renew a certificate using the configured challenge method.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "responses": {
           "200": {
             "description": "Certificate issued or renewed successfully."
@@ -8513,9 +9284,7 @@
       "post": {
         "summary": "Upload a manual/custom SSL certificate and key (admin only)",
         "description": "Validates and installs a user-supplied PEM certificate and private key as the active Termix SSL certificate.",
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8550,13 +9319,333 @@
         }
       }
     },
+    "/ai/status": {
+      "get": {
+        "summary": "Whether the AI assistant is available to this user",
+        "description": "Deliberately not behind the AI gate: the frontend calls this to decide whether to render any AI surface at all, and needs a plain answer rather than a 403 when the feature is off.\n",
+        "tags": ["AI"],
+        "responses": {
+          "200": {
+            "description": "The effective enablement state."
+          }
+        }
+      }
+    },
+    "/ai/providers": {
+      "get": {
+        "summary": "List the user's configured AI providers",
+        "tags": ["AI"],
+        "responses": {
+          "200": {
+            "description": "Providers, with API keys masked."
+          },
+          "403": {
+            "description": "The AI assistant is not enabled."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an AI provider",
+        "tags": ["AI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "defaultModel": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Provider created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ai/providers/{id}": {
+      "patch": {
+        "summary": "Update an AI provider",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider updated."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an AI provider",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider deleted."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      }
+    },
+    "/ai/probe-models": {
+      "post": {
+        "summary": "List models for a provider that has not been saved yet",
+        "description": "Lets the add-provider form fill its model picker before the provider exists, so nobody has to go and look up model names by hand.\n",
+        "tags": ["AI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Model ids, possibly a curated fallback list."
+          },
+          "400": {
+            "description": "Unknown provider type."
+          }
+        }
+      }
+    },
+    "/ai/providers/{id}/models": {
+      "get": {
+        "summary": "List models available from a provider",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ids."
+          },
+          "502": {
+            "description": "The provider could not be reached."
+          }
+        }
+      }
+    },
+    "/ai/conversations": {
+      "get": {
+        "summary": "List the user's AI conversations",
+        "tags": ["AI"],
+        "responses": {
+          "200": {
+            "description": "Conversations, newest first."
+          }
+        }
+      }
+    },
+    "/ai/conversations/{id}": {
+      "get": {
+        "summary": "Get one conversation with its messages and proposals",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a conversation",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation deleted."
+          }
+        }
+      }
+    },
+    "/ai/chat/stream": {
+      "post": {
+        "summary": "Send a message and stream the assistant's reply",
+        "description": "Server-sent events. Emits token, tool_call, tool_result, proposal, done and error frames.\n",
+        "tags": ["AI"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "type": "integer"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "activeTab": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ai/proposals/{id}/apply": {
+      "post": {
+        "summary": "Apply a pending proposal",
+        "description": "Re-validates the stored payload and dispatches it through the same repository logic a manual action uses.\n",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal applied."
+          },
+          "400": {
+            "description": "The proposal could not be applied."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    },
+    "/ai/proposals/{id}/reject": {
+      "post": {
+        "summary": "Reject a pending proposal",
+        "tags": ["AI"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal rejected."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    },
     "/uptime": {
       "get": {
         "summary": "Get server uptime",
         "description": "Returns the uptime of the server in various formats.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "responses": {
           "200": {
             "description": "Server uptime information.",
@@ -8589,9 +9678,7 @@
       "get": {
         "summary": "Get recent activity",
         "description": "Fetches the most recent activities for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "parameters": [
           {
             "in": "query",
@@ -8619,9 +9706,7 @@
       "post": {
         "summary": "Log a new activity",
         "description": "Logs a new user activity, such as accessing a terminal or file manager. This endpoint is rate-limited.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8676,9 +9761,7 @@
       "delete": {
         "summary": "Reset recent activity",
         "description": "Clears all recent activity for the authenticated user.",
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "responses": {
           "200": {
             "description": "Recent activity cleared."
@@ -8696,9 +9779,7 @@
       "get": {
         "summary": "Get tunnel status by name",
         "description": "Retrieves the status of a specific SSH tunnel by its name.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "parameters": [
           {
             "in": "path",
@@ -8723,9 +9804,7 @@
       "post": {
         "summary": "Connect SSH tunnel",
         "description": "Establishes an SSH tunnel connection with the specified configuration.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8770,9 +9849,7 @@
       "post": {
         "summary": "Disconnect SSH tunnel",
         "description": "Disconnects an active SSH tunnel.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8811,9 +9888,7 @@
       "post": {
         "summary": "Cancel tunnel retry",
         "description": "Cancels the retry mechanism for a failed SSH tunnel connection.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "requestBody": {
           "required": true,
           "content": {
@@ -8852,9 +9927,7 @@
       "get": {
         "summary": "Get all tunnel statuses",
         "description": "Retrieves the status of all SSH tunnels.",
-        "tags": [
-          "SSH Tunnels"
-        ],
+        "tags": ["SSH Tunnels"],
         "responses": {
           "200": {
             "description": "A list of all tunnel statuses."
@@ -8866,9 +9939,7 @@
       "post": {
         "summary": "Create a session share (link or targeted user)",
         "description": "Mints a share grant for a live terminal/RDP/VNC/Telnet session. Caller must own the live session.",
-        "tags": [
-          "Session Sharing"
-        ],
+        "tags": ["Session Sharing"],
         "security": [
           {
             "bearerAuth": []
@@ -8899,29 +9970,18 @@
                   },
                   "protocol": {
                     "type": "string",
-                    "enum": [
-                      "ssh",
-                      "rdp",
-                      "vnc",
-                      "telnet"
-                    ]
+                    "enum": ["ssh", "rdp", "vnc", "telnet"]
                   },
                   "shareType": {
                     "type": "string",
-                    "enum": [
-                      "link",
-                      "user"
-                    ]
+                    "enum": ["link", "user"]
                   },
                   "targetUserId": {
                     "type": "string"
                   },
                   "permissionLevel": {
                     "type": "string",
-                    "enum": [
-                      "read-only",
-                      "read-write"
-                    ]
+                    "enum": ["read-only", "read-write"]
                   },
                   "expiryHours": {
                     "type": "number"
@@ -8951,9 +10011,7 @@
       "get": {
         "summary": "List active session shares for a host",
         "description": "Returns active (non-revoked, non-expired) shares owned by the caller for the given host.",
-        "tags": [
-          "Session Sharing"
-        ],
+        "tags": ["Session Sharing"],
         "security": [
           {
             "bearerAuth": []
@@ -8986,9 +10044,7 @@
       "delete": {
         "summary": "Revoke a session share",
         "description": "Revokes a share. Owner or admin only. Best-effort kick of live SSH participants; guac joins are not force-disconnected in v1.",
-        "tags": [
-          "Session Sharing"
-        ],
+        "tags": ["Session Sharing"],
         "security": [
           {
             "bearerAuth": []
@@ -9024,9 +10080,7 @@
       "get": {
         "summary": "Resolve a guest share link",
         "description": "Public, unauthenticated endpoint for anonymous share-link guests. Never returns host name, IP, username, or hostId. Rate-limited per IP.",
-        "tags": [
-          "Session Sharing"
-        ],
+        "tags": ["Session Sharing"],
         "parameters": [
           {
             "in": "path",
@@ -9057,9 +10111,7 @@
       "post": {
         "summary": "End a shared session for all participants",
         "description": "Owner-only. Terminates the underlying session and notifies joined participants. Guac protocol kick is best-effort in v1.",
-        "tags": [
-          "Session Sharing"
-        ],
+        "tags": ["Session Sharing"],
         "security": [
           {
             "bearerAuth": []
@@ -9095,9 +10147,7 @@
       "post": {
         "summary": "Update viewer heartbeat",
         "description": "Updates the heartbeat timestamp for a metrics viewer session to keep it alive.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9136,9 +10186,7 @@
       "post": {
         "summary": "Register metrics viewer",
         "description": "Registers a new viewer session for a host to track who is viewing metrics.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9174,9 +10222,7 @@
       "post": {
         "summary": "Unregister metrics viewer",
         "description": "Unregisters a viewer session when they stop viewing metrics for a host.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9214,9 +10260,7 @@
     "/global-settings": {
       "get": {
         "summary": "Get global monitoring defaults",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "responses": {
           "200": {
             "description": "Global monitoring settings."
@@ -9228,9 +10272,7 @@
       },
       "post": {
         "summary": "Update global monitoring defaults",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9265,9 +10307,7 @@
     "/global-settings/history": {
       "get": {
         "summary": "Get metrics history retention setting",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "responses": {
           "200": {
             "description": "Retention setting in days."
@@ -9279,9 +10319,7 @@
       },
       "post": {
         "summary": "Update metrics history retention setting",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9312,13 +10350,158 @@
         }
       }
     },
+    "/proxmox-stats/{id}": {
+      "get": {
+        "summary": "Get cached Proxmox node stats for a host",
+        "description": "Returns the most recently polled Proxmox Stats snapshot for a host, or an empty skeleton if none has been collected yet.",
+        "tags": ["Proxmox Stats"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proxmox stats snapshot."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Stats not available yet."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/start/{id}": {
+      "post": {
+        "summary": "Start Proxmox stats collection",
+        "description": "Registers a viewer and starts (or reuses) polling for a host's Proxmox node stats.",
+        "tags": ["Proxmox Stats"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Polling started, snapshot returned if already available."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "403": {
+            "description": "Proxmox Stats is not enabled for this host."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/stop/{id}": {
+      "post": {
+        "summary": "Stop Proxmox stats collection",
+        "description": "Unregisters a viewer session for a host's Proxmox node stats polling.",
+        "tags": ["Proxmox Stats"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Polling stopped successfully."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/history/{hostId}": {
+      "get": {
+        "summary": "Get historical Proxmox node stats for a host",
+        "tags": ["Proxmox Stats"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": ["1h", "6h", "24h", "7d", "30d"]
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of node history rows."
+          },
+          "403": {
+            "description": "Access denied."
+          }
+        }
+      }
+    },
     "/host-metrics/preferences/{id}": {
       "get": {
         "summary": "Get the Host Metrics layout for a host",
         "description": "Returns the current user's saved card layout for the host, or a default layout derived from the host's enabled widgets when none is saved.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9344,9 +10527,7 @@
       "post": {
         "summary": "Save the Host Metrics layout for a host",
         "description": "Persists the current user's card layout for the host and keeps statsConfig.enabledWidgets in sync (for hosts the user owns) so the mobile app keeps working.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9392,9 +10573,7 @@
       "get": {
         "summary": "Get all host statuses",
         "description": "Retrieves the status of all hosts for the authenticated user.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "responses": {
           "200": {
             "description": "A map of host IDs to their status entries."
@@ -9409,9 +10588,7 @@
       "get": {
         "summary": "Get host status by ID",
         "description": "Retrieves the status of a specific host by its ID.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9439,9 +10616,7 @@
       "post": {
         "summary": "Clear all SSH connections",
         "description": "Clears all SSH connections from the connection pool.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "responses": {
           "200": {
             "description": "All SSH connections cleared."
@@ -9456,9 +10631,7 @@
       "post": {
         "summary": "Refresh polling",
         "description": "Refreshes host polling for the authenticated user.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "responses": {
           "200": {
             "description": "Polling refreshed."
@@ -9473,9 +10646,7 @@
       "post": {
         "summary": "Start polling for updated host",
         "description": "Starts polling for a specific host after it has been updated.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9514,9 +10685,7 @@
       "post": {
         "summary": "Stop polling for deleted host",
         "description": "Stops polling for a specific host after it has been deleted.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9552,9 +10721,7 @@
       "get": {
         "summary": "Get host metrics",
         "description": "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9582,9 +10749,7 @@
       "post": {
         "summary": "Start metrics collection",
         "description": "Establishes an SSH connection and starts collecting metrics for a specific host.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9615,9 +10780,7 @@
       "post": {
         "summary": "Stop metrics collection",
         "description": "Stops metrics collection for a specific host and cleans up the SSH session.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9660,9 +10823,7 @@
       "post": {
         "summary": "Complete TOTP verification for metrics",
         "description": "Verifies the TOTP code and completes the metrics SSH connection.",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "requestBody": {
           "required": true,
           "content": {
@@ -9703,9 +10864,7 @@
     "/metrics/history/{id}": {
       "get": {
         "summary": "Get historical metrics for a host",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9720,13 +10879,7 @@
             "name": "range",
             "schema": {
               "type": "string",
-              "enum": [
-                "1h",
-                "6h",
-                "24h",
-                "7d",
-                "30d"
-              ]
+              "enum": ["1h", "6h", "24h", "7d", "30d"]
             }
           },
           {
@@ -9762,9 +10915,7 @@
     "/host-metrics/managers/wireguard/{id}": {
       "get": {
         "summary": "Get WireGuard interfaces and peers",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9785,9 +10936,7 @@
     "/host-metrics/managers/wireguard/{id}/action": {
       "post": {
         "summary": "Bring a WireGuard interface up or down",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9810,10 +10959,7 @@
                   },
                   "action": {
                     "type": "string",
-                    "enum": [
-                      "up",
-                      "down"
-                    ]
+                    "enum": ["up", "down"]
                   }
                 }
               }
@@ -9830,9 +10976,7 @@
     "/host-metrics/managers/tailscale/{id}": {
       "get": {
         "summary": "Get Tailscale status and IPs",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9853,9 +10997,7 @@
     "/host-metrics/managers/tailscale/{id}/action": {
       "post": {
         "summary": "Connect or disconnect Tailscale",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9875,10 +11017,7 @@
                 "properties": {
                   "action": {
                     "type": "string",
-                    "enum": [
-                      "up",
-                      "down"
-                    ]
+                    "enum": ["up", "down"]
                   }
                 }
               }
@@ -9895,9 +11034,7 @@
     "/host-metrics/managers/ssl/{id}/revoke": {
       "post": {
         "summary": "Revoke and remove an issued certificate (certbot or acme.sh)",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9917,10 +11054,7 @@
                 "properties": {
                   "client": {
                     "type": "string",
-                    "enum": [
-                      "certbot",
-                      "acme.sh"
-                    ]
+                    "enum": ["certbot", "acme.sh"]
                   },
                   "name": {
                     "type": "string",
@@ -9947,9 +11081,7 @@
     "/host-metrics/managers/services/{id}": {
       "get": {
         "summary": "List systemd services",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -9970,9 +11102,7 @@
     "/host-metrics/managers/services/{id}/action": {
       "post": {
         "summary": "Start/stop/restart/enable/disable a systemd service",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -10017,9 +11147,7 @@
     "/host-metrics/managers/processes/{id}": {
       "get": {
         "summary": "List processes (rich, sortable, filterable client-side)",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -10040,9 +11168,7 @@
     "/host-metrics/managers/processes/{id}/signal": {
       "post": {
         "summary": "Send a signal to a process (TERM/KILL/HUP/INT)",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -10087,9 +11213,7 @@
     "/host-metrics/platform/{id}": {
       "get": {
         "summary": "Detect available management tooling on a host",
-        "tags": [
-          "Host Metrics"
-        ],
+        "tags": ["Host Metrics"],
         "parameters": [
           {
             "in": "path",
@@ -10111,9 +11235,7 @@
       "post": {
         "summary": "Generate an encrypted Guacamole connection token",
         "description": "Creates an AES-256-CBC encrypted token for guacamole-lite with the given connection parameters",
-        "tags": [
-          "Guacamole"
-        ],
+        "tags": ["Guacamole"],
         "security": [
           {
             "bearerAuth": []
@@ -10125,18 +11247,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "type",
-                  "hostname"
-                ],
+                "required": ["type", "hostname"],
                 "properties": {
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "rdp",
-                      "vnc",
-                      "telnet"
-                    ]
+                    "enum": ["rdp", "vnc", "telnet"]
                   },
                   "hostname": {
                     "type": "string"
@@ -10187,9 +11302,7 @@
       "post": {
         "summary": "Generate Guacamole connection token from host configuration",
         "description": "Fetches host configuration from database and generates a connection token for RDP/VNC/Telnet",
-        "tags": [
-          "Guacamole"
-        ],
+        "tags": ["Guacamole"],
         "security": [
           {
             "bearerAuth": []
@@ -10215,11 +11328,7 @@
                 "properties": {
                   "protocol": {
                     "type": "string",
-                    "enum": [
-                      "rdp",
-                      "vnc",
-                      "telnet"
-                    ],
+                    "enum": ["rdp", "vnc", "telnet"],
                     "description": "Override the host's default connection type"
                   },
                   "promptedUsername": {
@@ -10276,9 +11385,7 @@
       "post": {
         "summary": "Create a file",
         "description": "Creates an empty file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10320,9 +11427,7 @@
       "post": {
         "summary": "Create a folder",
         "description": "Creates a new folder on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10364,9 +11469,7 @@
       "delete": {
         "summary": "Delete a file or directory",
         "description": "Deletes a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10408,9 +11511,7 @@
       "put": {
         "summary": "Rename a file or directory",
         "description": "Renames a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10452,9 +11553,7 @@
       "put": {
         "summary": "Move a file or directory",
         "description": "Moves a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10499,9 +11598,7 @@
       "get": {
         "summary": "List files in a directory",
         "description": "Lists the files and directories in a given path on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -10537,21 +11634,14 @@
       "post": {
         "summary": "Connect to SSH for file management",
         "description": "Establishes an SSH/SFTP connection for file manager operations. Supports password, key-based, and keyboard-interactive authentication, as well as jump hosts and SOCKS5 proxies.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "sessionId",
-                  "ip",
-                  "port",
-                  "username"
-                ],
+                "required": ["sessionId", "ip", "port", "username"],
                 "properties": {
                   "sessionId": {
                     "type": "string",
@@ -10587,11 +11677,7 @@
                   },
                   "authType": {
                     "type": "string",
-                    "enum": [
-                      "password",
-                      "key",
-                      "none"
-                    ],
+                    "enum": ["password", "key", "none"],
                     "description": "Authentication method"
                   },
                   "credentialId": {
@@ -10742,9 +11828,7 @@
       "post": {
         "summary": "Verify TOTP and complete connection",
         "description": "Verifies the TOTP code and completes the SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "responses": {
           "200": {
             "description": "TOTP verified, SSH connection established."
@@ -10768,18 +11852,14 @@
       "post": {
         "summary": "Complete Warpgate authentication",
         "description": "Submits empty response to complete Warpgate authentication after user completes browser auth.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "sessionId"
-                ],
+                "required": ["sessionId"],
                 "properties": {
                   "sessionId": {
                     "type": "string",
@@ -10810,9 +11890,7 @@
       "post": {
         "summary": "Disconnect from SSH",
         "description": "Closes an active SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "responses": {
           "200": {
             "description": "SSH connection disconnected."
@@ -10824,9 +11902,7 @@
       "post": {
         "summary": "Set sudo password for session",
         "description": "Stores sudo password temporarily in session for elevated operations.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10859,9 +11935,7 @@
       "get": {
         "summary": "Get SSH connection status",
         "description": "Checks the status of an SSH connection for file manager.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -10883,9 +11957,7 @@
       "post": {
         "summary": "Keep SSH session alive",
         "description": "Keeps an active SSH session for file manager alive.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -10915,19 +11987,14 @@
       "post": {
         "summary": "Extract archive file",
         "description": "Extracts an archive file (.tar, .tar.gz, .tgz, .zip, .tar.bz2, .tbz2, .tar.xz, .txz) to a specified or default location on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "sessionId",
-                  "archivePath"
-                ],
+                "required": ["sessionId", "archivePath"],
                 "properties": {
                   "sessionId": {
                     "type": "string",
@@ -10985,9 +12052,7 @@
       "post": {
         "summary": "Compress files",
         "description": "Compresses files and/or directories on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11032,9 +12097,7 @@
       "post": {
         "summary": "Download a file",
         "description": "Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11076,9 +12139,7 @@
       "post": {
         "summary": "Stream-download a file",
         "description": "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11114,9 +12175,7 @@
       "get": {
         "summary": "Identify symbolic link",
         "description": "Identifies the target of a symbolic link.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -11152,9 +12211,7 @@
       "get": {
         "summary": "Resolve a path with environment variables",
         "description": "Expands environment variables and ~ in a path via the SSH session.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -11190,9 +12247,7 @@
       "get": {
         "summary": "Read a file",
         "description": "Reads the content of a file from the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "parameters": [
           {
             "in": "query",
@@ -11231,9 +12286,7 @@
       "post": {
         "summary": "Write to a file",
         "description": "Writes content to a file on the remote host and preserves the existing permissions when the file already exists.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11272,9 +12325,7 @@
       "post": {
         "summary": "Upload a file",
         "description": "Uploads a file to the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11316,20 +12367,14 @@
       "post": {
         "summary": "Stream-upload a file via multipart form",
         "description": "Uploads a file to the remote host by streaming multipart form data directly into an SFTP write stream, avoiding full in-memory buffering.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "sessionId",
-                  "path",
-                  "file"
-                ],
+                "required": ["sessionId", "path", "file"],
                 "properties": {
                   "sessionId": {
                     "type": "string"
@@ -11363,18 +12408,14 @@
       "post": {
         "summary": "Upload one raw file chunk",
         "description": "Writes a raw request body to the remote file at the supplied byte offset, allowing browser clients to avoid multipart/FormData 2GB limits.",
-        "tags": [
-          "File Manager"
-        ]
+        "tags": ["File Manager"]
       }
     },
     "/ssh/file_manager/ssh/copyItem": {
       "post": {
         "summary": "Copy a file or directory",
         "description": "Copies a file or directory on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11419,9 +12460,7 @@
       "post": {
         "summary": "Execute a file",
         "description": "Executes a file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11457,9 +12496,7 @@
       "post": {
         "summary": "Change file permissions",
         "description": "Changes the permissions of a file on the remote host.",
-        "tags": [
-          "File Manager"
-        ],
+        "tags": ["File Manager"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11501,9 +12538,7 @@
       "post": {
         "summary": "Establish SSH session for Docker",
         "description": "Establishes an SSH session to a host for Docker operations.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11540,9 +12575,7 @@
       "post": {
         "summary": "Disconnect SSH session",
         "description": "Closes an active SSH session for Docker operations.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11572,9 +12605,7 @@
       "post": {
         "summary": "Verify TOTP and complete connection",
         "description": "Verifies the TOTP code and completes the SSH connection.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11613,18 +12644,14 @@
       "post": {
         "summary": "Complete Warpgate authentication",
         "description": "Submits empty response to complete Warpgate authentication after user completes browser auth.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "sessionId"
-                ],
+                "required": ["sessionId"],
                 "properties": {
                   "sessionId": {
                     "type": "string",
@@ -11652,9 +12679,7 @@
       "post": {
         "summary": "Keep SSH session alive",
         "description": "Keeps an active SSH session alive.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "requestBody": {
           "required": true,
           "content": {
@@ -11684,9 +12709,7 @@
       "get": {
         "summary": "Check SSH session status",
         "description": "Checks the status of an active SSH session.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "query",
@@ -11711,9 +12734,7 @@
       "get": {
         "summary": "Validate Docker availability",
         "description": "Validates if Docker is available on the host.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11741,9 +12762,7 @@
       "get": {
         "summary": "List all containers",
         "description": "Lists all Docker containers on the host.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11778,9 +12797,7 @@
       "get": {
         "summary": "Get container details",
         "description": "Retrieves detailed information about a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11819,9 +12836,7 @@
       "post": {
         "summary": "Start container",
         "description": "Starts a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11860,9 +12875,7 @@
       "post": {
         "summary": "Stop container",
         "description": "Stops a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11901,9 +12914,7 @@
       "post": {
         "summary": "Restart container",
         "description": "Restarts a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11942,9 +12953,7 @@
       "post": {
         "summary": "Pause container",
         "description": "Pauses a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -11983,9 +12992,7 @@
       "post": {
         "summary": "Unpause container",
         "description": "Unpauses a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -12024,9 +13031,7 @@
       "delete": {
         "summary": "Remove container",
         "description": "Removes a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -12072,9 +13077,7 @@
       "get": {
         "summary": "Get container logs",
         "description": "Retrieves logs for a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",
@@ -12141,9 +13144,7 @@
       "get": {
         "summary": "Get container stats",
         "description": "Retrieves stats for a specific container.",
-        "tags": [
-          "Docker"
-        ],
+        "tags": ["Docker"],
         "parameters": [
           {
             "in": "path",

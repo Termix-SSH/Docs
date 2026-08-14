@@ -5,7 +5,7 @@ description: "Admin-only. Updates guacd enabled status and/or host:port URL."
 sidebar_label: "Update Guacamole settings"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1P20AQ/SurOS+JW6CVfAu0lFZthSBRD1EOE3uIF+xdszumpFb+ezVrAwmOqhzqQ2J73zzPx3vTQk4h86Zm4yykMMkrY4+cLdcjNatzZApq1WCWK7K4LClXgZGboNDmY+dV4QKntfOsZtffR6CBcRUgncMskA+w0ODpoaHAZy5fQ9rGR+Mph5R9QxoyZ5ksyxHWdWkylEzGd0HSaSFkBVUod7yuCVJwyzvKGDTU3tXk2VCQ0z67LeDSuZLQwkZD48utg8De2BVs4iX5hdrZ0NG8TxL52+3JlwYzrFxJKhCzsaugmtiafCTsJ8nxMOanY4UNF86bPz3udB/3BRppKrueMjZ792MjkDQr4sLlkEKNnBVSP3IBKYwbafT4JezoOQw0BPKPMoV03nY9gIK5Tsfj0mVYxtEdJ0nyDvSbrH6gsSpHxiUGklHHWshyPx7VMcNG/5P4eEB8c3OpuLGWSlWhxRVVZPlAtpO9bLempJ7LH0h0OiSKcVHaJrDJorxV5axhJ2I5kPjDgPgThmLp0OcHMnwcMrjsnvy+bi1kwFnjDa/jhJeEnvykEVnMF9vHN2KiTuDboBdHSCoilwgT60QQ6P7mwvkKGVL49msatSjmvH619ecnrOqSdmzYmbur9NlwGoy9dfG7hgUPU/KVeVKTq6+gQaTa1ZyMklEy6EQPPsPsnmwuQeqabsmTzUjIaxe4wrg1LMY6ugWmhv59y92+rqH/sAG7pjI98bgu0WyvoM60c4imBQ17bLvQIJSCalvx38yXm428fmjIy6gXGh7RG0kmTlpDQZiTjyq4pzWkcN6VczSVXAReNpLTYMOKSl42y9Vken4pU+9XdeVyCfL4G3T8TQE0uNizKKb4roUS7arBlWA7Urn+AkhWMJs=
+api: eJytVE1P20AQ/SurOS+JKdBKvgVaSqu2QpCohyiHiT3EC/au2R1TUiv/vZq1gQSjKpXqQ2J73zzPx5vXQk4h86Zm4yykMMkrYw+cLdcjNatzZApq1WCWK7K4LClXgZGboNDmY+dV4QKntfOsZlffRqCBcRUgncMskA+w0ODpvqHApy5fQ9rGR+Mph5R9QxoyZ5ksyxHWdWkylEzGt0HSaSFkBVUod7yuCVJwy1vKGDTU3tXk2VCQ0z67LeDSuZLQwkZD48utg8De2BVs4iX5hdrZ0NG8SxL52+3J5wYzrFxJKhCzsaugmtiafCTsx8nRMOaHY4UNF86b3z3u5C3uczTSVHY9ZWz27sdGIGlWxIXLIYUaOSukfuQCUhg30ujxc9jBUxhoCOQfZArpvO16AAVznY7HpcuwjKM7SpLkEPSrrL6jsSpHxiUGklHHWshyPx7VMcNG/5X4aEB8fX2huLGWSlWhxRVVZHlPtuM32W5MST2X35PoZEgU46K0TWCTRXmrylnDTsSyJ/H7AfFHDMXSoc/3ZPgwZHDZHfl/7tbhcKjX5A2WKnPWUrYzxYVIJWu84XXUypLQk580IrD5Yvv4WtaxW5Vt0PNuSSoivAiTJYwg0P3NufMVMqTw9ec0qlrW/OrFID49YlWXtLPQnU10lT6trgZjb1z8rmHBw5R8ZR7V5PILaBDRdzUno2SUDDrRg08xuyObS5C6ohvyZDMS8toFrjD6j8VYR2eFaugEr7nbF0P7D17aNZXpkcd1iWbbzLr1n0Ncf9DwhgEsNAiloNpWNnnmy81GXt835GXUCw0P6I0kEyetoSDMyUcV3NEaUjjryjmYSi4CLxvJaeDVopJnj7qcTM8uZOq96VculyCPv0DH3xRAg4s9i2KK71oo0a4aXAm2I5XrD32iSh0=
 sidebar_class_name: "patch api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Admin-only. Updates guacd enabled status and/or host:port URL.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"},"url":{"type":"string"}}}}}}}
+  {...require("./update-guacamole-settings.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Guacamole settings updated."},"403":{"description":"Not authorized."},"500":{"description":"Failed to update guacamole settings."}}}
+  {...require("./update-guacamole-settings.StatusCodes.json")}
 >
   
 </StatusCodes>

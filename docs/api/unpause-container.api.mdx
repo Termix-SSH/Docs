@@ -5,7 +5,7 @@ description: "Unpauses a specific container."
 sidebar_label: "Unpause container"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9lMFu2zAMhl9F4GkDhNhb2w3wrVtRrAOGFU2LHYIcGIlphNqSK9FFA8PvPtB2srTJiuyyky2J/CTyJ9mCpWSiq9kFDwXc+RqbREmhSjUZt3RGmeAZnac4AQ2M9wmKGVwE80AR5hpqjFgRU5T9FpxgauQVaPBYERSQKCUX/JUFDZEeGxfJQsGxIQ3JrKhCKFrgdd0bc3T+HrpOH2RtH/OPtLkYpzr4REnOP+a5fF5G/3UDV82QB6tSYwyltGzKcj2BTsPpIcfp9Jsao1Q+sFqGxlsVYr8wwXsyTHb0P33r4q13b3x26LJLdCVZxWHzyl2Fuk5DRbwKVlIXEoMeMlhAZnvNsq11ytqtNF3W7qS2y0Y0aEgUnzbiNrGEAlbMdZFlZTBYrkLi4iTP8w+gX73zBzqvLDIuMJFCbxU2vCLPzqCYqIEMovQb4JM9sGSbG++pVBV6vKeKPB9JOz1IW7qSRlY8EnS2D+r9VGJkl9iZ1MdcBe84SBUeCf60B77AtFoEjPZIwud9Qq/8oWzNRWDTRMfrXuEFYaR43kjFzOa7x1PpraF5do22rSZPgbEFZT0YgR5/LkOskKGA779u+yp1fhl6d8el2N9SrNyzOr++Ag1SccPT80k+yfcCGo2/oHkgb8VJ3dCSInlD0jhS+RV64Y+D4+51r7xmtv1sIc9HjcEhZqZnzuoSnZdLe0nasd1mMLQb6D8zK4GGYncaFi/H2abp5hpETIG0rXTPXSy7TrYfG4oi1FzDE0aHC0ndrAXrkvxbKJZYJnojtHc348x8r/4Wx7iJfi1KYNnICjQ80PrFNJcy/I8X7+aqm+/OueufU6mp30qEVOs=
+api: eJy9VU1v2zAM/SsCTxsgxO7aboBv3YpiHTCsaFrsEOTAyEwj1JZciS4aGP7vA20nc5qsSC87WR/kE8nHRzeQUzTBVmy9gwzuXYV1pKhQxYqMXVqjjHeM1lGYgAbGhwjZDC69eaQAcw0VBiyJKch5A1ZgKuQVaHBYEmQQKUbr3XUOGgI91TZQDhmHmjREs6ISIWuA11VnzMG6B2hbfRBrG8w70eZiHCvvIkW5/5Sm8tnN/tsGXNV9HXIVa2MoxmVdFOsJtBrODjlOp9/VkKVyntXS1y5XPnQb450jw5QP/mdvPbz17ozPDz12hbagXLHfRDlmqG01lMQrn0vpfGTQfQUzSPKOs2RrHZNmS02bNKPStskADRoihecNuXUoIIMVc5UlSeENFisfOTtN0/QE9Ks4f6J1KkfGBUZS6HKFNa/IsTUoJqpHBmH6DeDTPWCpNtfOUaFKdPhAJTk+Eu3sINrSFjRghSOBzveBOj8VGdlGtiZ2OZfeWfbShUcCf94DvsS4WngM+ZEIX/YROubfXa2TfVKnFCwWm54esziXVjF1sLzuemVBGChc1NJ7s/n4eioq7WU4NtqKVkKBQcyy741AD4srH0pkyODH77uu361b+s7dciH2dxRK+6Iubq5Bg/RuH3o6SSfpXkKD8Vc0j+RycVK3tKRAzpBIUDRUohP8YQTdv1bda8ymm1Lk+KiB2ufM9MJJVaB18mhHSTMIdwa9cEH/nX4RNGTjuZrtDsaNfOcahEwBaRrR4X0o2laOn2oKQtRcwzMGiwsp3ayB3EZZ55AtsYj0Rmofbofp+1H9K4/hEN1amMCilh1oeKT1zn9B2vA/PjyuVTsfT8ybX1PpqT/FEW5t
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Unpauses a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+  {...require("./unpause-container.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./unpause-container.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container unpaused successfully."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to unpause container."}}}
+  {...require("./unpause-container.StatusCodes.json")}
 >
   
 </StatusCodes>

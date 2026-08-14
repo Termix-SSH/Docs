@@ -5,7 +5,7 @@ description: "Returns the configured log verbosity level."
 sidebar_label: "Get log level setting"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk9uK2zAQhl9FzLWauN0eQHfb07aFQtns0gvji4k8scXKkjsahw3G717kGJpulpJeWVi/vjn+I9SULLteXAxg4JZk4JCUtKRsDDvXDEy18rFRe+JtTE4OytOe/Ao0CDYJTAn3iThBpYEp9TEkSmBGeFUU+fN3gA8DMwWZiQtnmjR0JG2swUBDAhp6lBYMrIcMXvvYvJi1oCER73MwU44wsAcDrUhv1msfLfo2JjFXRVG8BP0k8Hd0QdUouMVECkOtcJCWgjiLWaKOZJj0P8FXZ+DN5ouSIQTyqsOADXW5vstor5+l7ZynhcUXgt6cg+Z3KgmKS+JsmmvuYnAS2YXmQvDbM/BHTO02ItcXEt6dE6J9IH6uW1UesB3YyWGe8JaQia+HvA1ldXq9sS11xz07FY0gh56WVPK6zDIwiwj0cvgcuUMBA99+3s0L6MIuzs+d+Ky/I+7co7r+8RU05I07pl6silVxVtAifo/2gUKdH6lb2hFTsASThj4m6TBkfsA5nRs6sYBKJOJC85Q7go1BKMj/G/PYBKFHWfceXchZzDMaF2+VMHsLNPxxV6UhTy1fjmO2yT37acq/fw3EeSKVhj2yw23uUVmdGvfmU27kb9eJexo=
+api: eJyVlNtq3DAQhl9FzLW66zQ9gO/SU9pCoWQTerH4YlaetUVkyR2NlwTjdy/SGrqJS9lc2Vi/vjn94xFqioZtLzZ4KOGGZGAflbSkTPB72wxMtXKhUQfiXYhWHpWjA7kVaBBsIpRbuIvEESoNTLEPPlKEcoTXRZEeTwN8HJjJSybOnGnS0JG0oYYSGhLQ0KO0UMJ6SOC1C82rrAUNkfiQgpXbEQZ2UEIr0pfrtQsGXRuilJdFUVyAfhb4B1qvahTcYSSFvlY4SEterMEkUUcyTPq/4MsFeLP5qmTwnpzq0GNDXarvPNqbf9L21tHM4jNBb5egfE9FQbFRrIm55i54K4Gtb84Ev1uAP2FsdwG5PpPwfkkI5p74xd26WA51Q2zRJad6Mk+mWCWrmIGtPGav7AiZ+GpIvtpWp8cb01J3dOypaAR57GlOJRkvy6CcRaDnly+BOxQo4fuv22xl6/chX7fikv6WuLMP6urnN9CQvHtMvVgVq2JR0Cz+gOaefJ0uqRvaE5M3BJOGPkTp0Ce+x5zONZ0sk4okYn3znDuCCV7Iy8tX/NgEoQdZ9w6tT1nkGY3zlm4hbylo+LunlYY0tXQ4jmnh7thNU/r8eyBOE6k0HJAt7lKPttXpL+D6c2rkH4QdlJw=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the configured log verbosity level.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-log-level-setting.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Current log level."}}}
+  {...require("./get-log-level-setting.StatusCodes.json")}
 >
   
 </StatusCodes>

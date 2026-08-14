@@ -5,7 +5,7 @@ description: "Renames a folder for SSH hosts and credentials."
 sidebar_label: "Rename folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVMFu2zAM/RWBZy/21nYDfGu3Fd2AbUWSYocgB8ZmYrWy5Ep008DIvw+U3TZtsiGYL4kt8pF6fI8dlBQKrxvWzkIOY7JYU1Cols6U5NXSeTWZXKnKBQ4KbakKTyVZ1mjCCBJgXAXIZzCZXME8AU/3LQW+cOUG8i6+ak8l5OxbSqBwlsmyHGHTGF2gFE5vg1TvIBQV1Sj/eNMQ5OAWt1QwJNB415BnTUFOnSl/Yk07gYG9tivYJmBp/Zez+EiLoXE29Egfskx+XrNw2d/dRzJKFdqioBCWrTGbkZQ4PZT0y5RK4iNJltbDiyf1RELMPTtYELWhUrEbag7sj0D6rYkrV0IOTRuZQK4ghzSEKu3DQtpnQQKB/AN5GUgHrTeQQ8Xc5GlqXIFGhpifZFn2HpI3HfxAbVWJjAsM/RWw5Urm3I9I9ciwTf4JfLIHLOLh1loyqkaLK6rJ8pFopwfRltrQgOWPBDrbB4p5KjCyDqyLXtu1s5qdqOVI4I97wF8wVAuHvjwS4dM+givuyB9iay4DLlqveRMnvCD05M9bEcRsvns8ESP1Ct8NeraEtCJyiWGQD0GQDH8una+RIYfvv6dRg2LQ8Yu1vz5i3Rh6ZcUnm+04cMeV2i5drK9Z8mBKvtaP6vz6GyQgku3vno2yUbbHyBB8gcUd2VKS1JiW5MkWJOCNC1xj3CC2LzzetdFbvO5lDf3PwusZZHrktDGorXQQB9wN3pxBCBUkMLgTZOXEvuYJCKxEdJ0Y7cab7VY+37fkZabzBB7Qa1wISbP5NoGKUK4g476jDeTwue/93VT6kHDTSj9761Tk8Lw6rm+mMtxhK9eulBSPa+kN15ADJOAiPVEz8VsHBu2qxZXE9pDy/AGrOR+7
+api: eJydVMFu2zAM/RWBZy9J13YDfGu3Fd2AbUWSYocgB0ZmYrWy5Ep008DIvw+U3TZtuiGbL4kt8pF6fI8tFBR1MDUb7yCHMTmsKCpUS28LCmrpg5pMLlXpI0eFrlA6UEGODdo4gAwYVxHyGUwmlzDPINBdQ5HPfbGBvE2vJlABOYeGMtDeMTmWI6xrazRK4eFNlOotRF1ShfKPNzVBDn5xQ5ohgzr4mgIbinLqbfEDK9oJjByMW8E2A0frP5ylR1qMtXexQ3o/GsnPSxYuuruHREahYqM1xbhsrN0MpMTJW0k/baEkPpHkaN2/BFKPJKTc0zcLorFUKPZ9zZ79AUi/FXHpC8ihbhITyCXkMJSJDLu4OOzSIINI4Z6CTKSFJljIoWSu8+HQeo1WcvLj0Wh0BNmrFr6jcapAxgXG7g7YcCmD7makOmTYZn8FPt4DFvVw4xxZVaHDFVXk+EC0kzfRlsZSjxUOBDrdB0p5KjKyiWx0J+7KO8Ne5HIg8Ic94M8Yy4XHUByI8HEfwetbCv/M1tH+UCcUDFqlvXOkX0xxLlLRTTC8SVpZEAYKZ41oazbfPZ6IJzuz7AY9uUtaEeGlMMj7IMj6Pxc+VMiQw7df0yRn8fr4eUt8ecCqtvTC1Y+O3THzjsGNW/pU37DkwZRCZR7U2dVXyEDE3919NBgNRnuM9MHnqG/JFZKkxrSkQE6TgNc+coVpGbmu8HjXka/x2ueN9j+7s2OQ6YGHtUXjpIM04La3+QwkGTLojQ6yvlJj86w7ymfQtuLZ62C3W/l811CQoc4zuMdgcCEszebbDEpCuYPM+5Y2kMOnrvl3U2lEwm0jDe2tZtHD0xq6up7KdPsNX/lCUgKupTdcQw6QgU/8JNGkby1YdKsGVxLbQcrzG4KYOh0=
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"put"}
-  path={"/ssh/folders/rename"}
+  path={"/host/folders/rename"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Renames a folder for SSH hosts and credentials.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"oldName":{"type":"string"},"newName":{"type":"string"}}}}}}}
+  {...require("./rename-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Folder renamed successfully."},"400":{"description":"Old name and new name are required."},"500":{"description":"Failed to rename folder."}}}
+  {...require("./rename-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

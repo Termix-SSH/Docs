@@ -5,7 +5,7 @@ description: "Revokes a user's or role's access to a host."
 sidebar_label: "Revoke host access"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VMFu00AQ/ZXVXArSKja0Bcm3lLYiCBBqizhEOUzsSbLKetfdHYdGlv8dje1GpQlV4MDJ3vWb55k386aBgmIeTMXGO8jghjZ+TVGhqiOFk6h8UMFbOokK85xiVOwVqpWPPAINjMsI2RRuLsYfYKahwoAlMQW5bcAIZYW8Ag0OS4IMTAEaAt3XJlABGYeaNMR8RSVC1gBvqw7lmJYUoG31QZY+l8lfcs0EHSvvIkUBvE1TefyuwLgvM3RCFCrW3XlRW7sdQavh7FDQxG3QmkJNLgfM6T7mq+dON+V/Ogod7vwQ1zUaS4Xo3OcwCD8SMaAkXvkCMijIEhPoXpgMkjDHPBH+pDFFm/RBSfOoVAsaIoXNY2vqYCGDFXOVJYn1OVqJzU7TNH0D+llKX9A4VSDjHCMpdIXCmlfk2OQoENUzg3TrBeLTPeLb24+Ka+fIqhIdLqkkx0eynR1kWxhLA1c4kuh8n6iLU5GRTWSTx67m0jvDPhi3PJL43R7xJcbV3GMojmR4v8/g8zWFQ2rNpMF5HQxvuw7PCQOFcS3jMZ09/XwrFukt8BS0c4ykAoOT5NyDQA8v1z6UyJDBpx933VAat/BduGEr+DsKpXlQ428T0CAT16eejtJRulfQAL7AfE2ukCB1QwsK5HISj1Q+colO+Afz9zuq91I/3s9JG8i9Y3L8Dxutl4DpgZPKonGSQ9ehZrDaFMRqoEFCQEPWrbRdItluN80GSDaFphHnfA+2beX6vqYgTZpp2GAwOBfZpg0UJsp7AdkCbaQXqnp1M6y91+pPSQ+X6LbSBbS1nEDDmrb9HpbZ+49/3OnSzp4ussurz1d3V9C2vwCEgjUO
+api: eJy9VE1r20AQ/SvLXNLCYjlN0oJuzhd1aaE4KT0YH8bS2Fq82nV2RyZG6L+XkRSTxG5weujJ0vrN0+x786aGnGIWzJqNd5DChDZ+RVGhqiKFk6h8UMFbOokKs4xiVOwVqsJHHoAGxmWEdAqTy9EVzDSsMWBJTEFOazBCuUYuQIPDkiAFk4OGQA+VCZRDyqEiDTErqERIa+DtukU5piUFaBp9kKXrZfxOrpmg49q7SFEAn4ZD+XmpwKi7ZmiFyFWs2vdFZe12AI2G80NFY7dBa3I1vu4xZ/uYK7SWgipxq5xnVaLDJalYYDBuqbxTXJjYK9touDj0nVs0lnLxoOuvN2UgQkFJXPgcUsjJEhPoTrQUkjDHLBHmpDZ5k3RFSf2kYgMaIoXNk21VsJBCwbxOk8T6DK3UpmfD4fAU9KuWfqBxKkfGOUZS6HKFFRfk2GQoENUxgzj5BvHZHvHd3VfFlXNke61Kcnwk2/lBtoWx1HOFI4ku9onaOhUZ2UQ2WWzvXHpn2LdOHkf8eY/4GmMx9xjyIxm+7DP4bNVO2PvUOt039Y6CQasy7xxlL1ycyahkVTC8bWdlThgojCoZtOns+d93EsQuaM9Bu1xKK9DnVd47EOj+4daHEhlS+Pb7vh1v4xa+LTdsBX9PoTSPavRzDBpkdrvWh4PhYLh3oR58idmKXC5FakILCuQykrStfeQSnfD3K6bbhG0e+5S9Jq0h847J8T/szU4CpkdO1haNkx5ah+o+tFOQ0IIGKQENabs4d42kuw046yHpFOpaMvgr2KaR44eKgpg007DBYHAusk1ryE2U5xzSBdpIb9zqw6Rfrh/V35ruD9FtxQW0lbyBhhVtu20vs/cfv7jTpZk9X4nXN99v7m+gaf4AU0pYqQ==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Revokes a user's or role's access to a host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+  {...require("./revoke-host-access.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./revoke-host-access.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Access revoked successfully."},"400":{"description":"Invalid ID."},"403":{"description":"Not host owner."},"500":{"description":"Failed to revoke access."}}}
+  {...require("./revoke-host-access.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Creates a new folder on the remote host."
 sidebar_label: "Create a folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVd9P20AM/ldOfs7absAm5Q22oTGJDQHTHqpqchO3ObjchbMDVFH/98mXUAqtJpaH/LizP/s+f3Y6KImLaBuxwUMOnyOhEBs0nh7MIriSogneSEUmUh2ETBVYRpCB4JIhn8KpdWTO0eOSIswyiHTXEstJKFeQd+nTRiohl9hSBkXwQl50C5vG2QI19PiGNX4HXFRUo77JqiHIIcxvqBDIoImhoSiWONkRsw3+rNwyZYnWL2GdQYNS7d3oT/QDa9qznS49ADfBcx/nw2Sij5csnfa8FIms0nBbFMS8aJ1bjTTK4T6nc8ts/dI8EWIajFiTUGQTorm6+maK4D0Vam98EEMsOHeWKyoH2INd2AuKtU1cmJK8HUyP9qaN1lFpJAyZD/UdgZ66JqlCCTk0gRPdiUIYM1fjhXX0p+5LnBZ6/54GyIAp3lNUNXTQRgc5VCJNPh67UKBTweQHk8nkPWSvOUHrTYmCc2Qy6EuDrVTkZZCF6ZFhnf0T+GAHWNmU1ntyps+7Ji9vRDvci6YcDFjxjUBHu0DJz7CgWBZbcDpzHbyVoBp8I/DHHeAvyNU8YCzfiPBpFyEUtxT3sTXTAhdttLJKFZ4TRorHrepjOtvevtLm7ftm22jTaJqKyiWZQT4YQTa8nIZYo0AO339fJ03qULh8HidfH7FuHL1q/6f23Uh2873d7FszwPpFSElZUTC41g56NMcXZ5CB6rgnZDKajCY7NA3GJ1jcki/VyVzSgiL5gtLkCSw1plHm+8D9SDU4dNtrxO55Iv7X9O0ZFXqUcePQeg2eCt4NPEyBuVIWtppXyU+LLxp4loHCqkvXaSf+im691uW7lqIWfZbBPUaLcyVsOltnUBGqq+rhllaae3+Kd9eamJq7VhPcmfGql82sufh5da3lH/4VdSjVJ+IDZOmeA2QQElNJVWmtA4d+2eJSbXtMvf4CbWpWdw==
+api: eJyVVe9P2zAQ/Ves+5y1ZcAm5RtsQ2MSG6JM+4Cq6ZpcG4NjB98FqKL+79M5AQqtJsiH/LDvns/P7146KImLaBuxwUMOXyKhEBs0nu7NIriSogneSEUmUh2ETBVYRpCB4JIhv4IT68icocclRZhlEOm2JZbjUK4g79KnjVRCLrGlDIrghbzoFDaNswXq0uNr1vU74KKiGvVNVg1BDmF+TYVABk0MDUWxxCmOmG3wp+VGKEu0fgnrDBqUaudEv6OfWNOO6XTpBrgJnvt1Pk4m+njJ0knPS5HIKg23RUHMi9a51UhXOdiVdGaZrV+aR0JMgxFrEopsQjTT6XdTBO+p0HjjgxhiwbmzXFE5wO5vw55TrG3iwpTk7RB6uLNstI5KI2GofDjfEeiua5IqlJBDEzjRnSiEMXM1XlhHf+v+iNNAn9/TABkwxTuKqoYO2uggh0qkycdjFwp0Kph8fzKZ7EH2mhO03pQoOEcmg7402EpFXgZZmB4Z1tl/gfe3gJVNab0nZ/q6a/LyRrSDnWjKwYAV3wh0uA2U8gwLimWxBac918FbCarBNwJ/2gL+ilzNA8byjQiftxFCcUPx3WztbR/qlKJFtynmR6SZSqVoo5VV0sqcMFI8alVpV7PN6anaQN+Bm0FPLaulqPBSGORDEGTDy0mINQrk8OPPZVK32svFszF9e8C6cfTKSB6N4En8T9+btrHhJtYvQirKioLBpfbigzk6P4UMtCN6QiajyWiyRdMQfIzFDflSk8wFLSiSLyh5WGCpMZmi7xfuzdng0LevEbtnb32Xj/eMCj3IuHFovS6eDrwbeLgC5kpZ2LABJT8NvrCCWQYKqyldpz39O7r1WodvW4p66LMM7jBanCthV7N1BhWhpqoebmiltfe7+HCphWm4a7XArb+F6uXJtc5/TS/1+Ie/Th1KzYl4D1m65wAZhMRUUlUa68ChX7a41NgeU69/Hqhv+Q==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Creates a new folder on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"folderName":{"type":"string"}}}}}}}
+  {...require("./create-a-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Folder created successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"403":{"description":"Permission denied."},"500":{"description":"Failed to create folder."}}}
+  {...require("./create-a-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

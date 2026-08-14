@@ -5,7 +5,7 @@ description: "Assigns a role to a user."
 sidebar_label: "Assign a role to a user"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVU1v1DAQ/SvWnEAyu4EWELm1fIgiIdBuEYdqD7Px7K6pYwd7Al1F+e9onLRbmrZqLknsN8/z+dyBoVRF27ANHko4SclufVKoYnCkOChUbaI4Aw2M2wTlBSxOT97DSkODEWtiirLagRX7BnkHGjzWBCWI5ZkBDZF+tzaSgZJjSxpStaMaoeyA940gE0frt9D3qwFMiU+D2Qvirm0VPJNn2cKmcbZC8X3+K0kA3ZQ6rH9RxaChiaGhyJZSpg2OzswtnPVMW4rQ50fcSE3waUC/Kgp5/Z+shaQIc8bIqNRWFaW0aZ3bz6DXcPygzdkHZZO6DmwEH03By31iqnMpkqrQ+8BqTapG36Jz+5uzR4bjKcOPRFGFOFRTzDeh9df4dw+F5CKhuUP/+r5oPqF1ZHKbZGw+ZwaSvpp4F4y0REg5+9IZJczjGqu5NEaad0N/9PMcIGhIFP9ct1MbHZSwY27K+dyFCt0uJC6PiqJ4CfqOH1/RemWQcY2JFHqjsOUdeR67Qw3M0OtHiY8mxMvlZ8Wt9+Qk67ilmjw/ke34XraNdTRyxScSvZ4SZTuVGNkmtlXKMdfBWw4ySE8kfjMh/oBptw4YzRMZ3k4ZQnVJ8b5sraTAVRst73OF14SR4kkrfXGxur29lBkeBu826GZUxRUYVUT+BxDo8eNTiDUylPDl53nuRdGGxUFVPl5h3Ti6rQJFr8H6TciHWJZNOKdY2yt18v0MNEhfDgEWs2JWTMIewadYXZI3YqQWtKFIviIZH5mCGrNCjeI4SO1Eae8ydwfBe1ydh9QwXfG8cWi9nJor142zdwEye6CzLMu4lQd9zgO40iCFFWTXyST9iK7vZfl3S1GKttLwB6PFtSToogNjk3wbKDfoEj3i+rPFqHbP1UPOjovo95JvdK38gYZL2h/ukn7Va9gRGorZg2Hz/XDOi3OhOBhP7gdpshth+v5teS49M94zdTBiE/GvJAT/DoeHHMtwY8haBw79tsWtYAdOef4BJoN6iw==
+api: eJyVVU1v1DAQ/SvWnEAyu4EWELm1fIgiIdBuEYdqD7PO7K6pYwd7Al1F+e9onLRbGlqVXJLYb57n87mDipKJtmEbPJRwkpLd+qRQxeBIcVCo2kRxBhoYtwnKC1icnryFlYYGI9bEFGW1Ayv2DfIONHisCUoQy7MKNET62dpIFZQcW9KQzI5qhLID3jeCTByt30LfrwYwJT4N1V4Qd21N8EyeZQubxlmD4vv8R5IAuil1WP8gw6ChiaGhyJZSpg2OzqpbOOuZthShz4+4kZrg04B+URTy+jtZC0kR5oxRpVJrDKW0aZ3bz6DXcHyvzdk7ZZO6DmwEH03By31iqnMpkjLofWC1JlWjb9G5/c3ZI8PxlOFboqhCHKop5pvQ+mv8m/tCcpGwukP/8l/RfEDrqMptkrH5nBlI+mriXaikJULK2ZfOKGEe12jm0hhp3g390c9zgKAhUfx13U5tdFDCjrkp53MXDLpdSFweFUXxHPQdPz6j9apCxjUmUugrhS3vyPPYHWpghl4/SHw0IV4uPypuvScnWcct1eT5kWzH/2TbWEcjV3wk0cspUbZTiZFtYmtSjrkO3nKQQXok8asJ8TtMu3XAWD2S4fWUIZhLiv+drefToi4pWnTKBO/J/FXFlbSKaaPlfe6VNWGkeNJKh12sbm8vRQ2GEb4Nuhl6cQVGPZL/AQR6/PgQYo0MJXz6fp67WlRmcdCn91dYN45u60nRa7B+E/IhlmUTzinW9kqdfD0DDdLhQ4DFrJgVk7BH8CmaS/KVGKkFbSiSNySDKPNUY9a6UWYH0Z5o9l3m7iCdD+v8kBqmK543Dq2XU3PlunGKL0CmGHQWeBnc8qD0eZRXGqSwguw6mclv0fW9LP9sKUrRVhp+YbS4lgRddFDZJN8VlBt0iR5w/cli1M2n6j5nx0X0e8k3ulb+QMMl7Q+3Ur/qNewIK4rZg2Hz7XDOs3OhOBhPbhppshuJ+/pleS49M95YdajEJuJvSQj+Hg4POZbh7pG1Dhz6bYtbwQ6c8vwBGOCUDQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Assigns a role to a user.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+  {...require("./assign-a-role-to-a-user.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"roleId":{"type":"integer"}}}}}}}
+  {...require("./assign-a-role-to-a-user.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Role assigned successfully."},"400":{"description":"Role ID is required."},"403":{"description":"System roles cannot be manually assigned."},"404":{"description":"User or role not found."},"409":{"description":"Role already assigned."},"500":{"description":"Failed to assign role."}}}
+  {...require("./assign-a-role-to-a-user.StatusCodes.json")}
 >
   
 </StatusCodes>

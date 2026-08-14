@@ -5,7 +5,7 @@ description: "Detects the type of an SSH private key."
 sidebar_label: "Detect SSH key type"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVE1v2zAM/SsCz27ire0G+NaPFduKYUGTYocgB8ZmYjW25Ep0WsPIfx8ou02aBEPmg79EPpKPfGwhI586XbG2BhK4JaaUveKcFDcVKbtQaNR4/F1VTq+RSa2oGUAEjEsPyRRuHGVkWGPhYRaBo+eaPF/brIGkDZ/aUQYJu5oiSK1hMixHWFWFTlECD5+8RG/BpzmVKG8SHBKw8ydKGSKonK3IsSYvp30u99Ts2Hp22ixhE8GKmhF6/2JdduQ8XJKpr6zxHeDnOJbHRzLuqelIyAIr2hrlyNcFDyTIxTGX0ZYkpb16Kz84XB5zuENdUKbY9kGCpwQdgCRZEuc2gwQq6wMNyDkkMEy3rA87x7MVNWeh0gg8uTU5aU8LtSsggZy5SobDwqZY5NZzch7H8SeI9rL5hdqoDBnn6EmhyRTWnEugrlGqQ4ZN9E/g8wNgGSCujaFClWhwSSUZPhHt4ijaQhfUY7kTgS4PgYKf8oysPevUh5pLazRbGZYTgb8cAN+iz+cWXXYiwtdDBJuuyB1jayYNTmunuQkdnhM6cle1TMZ0tns8Fjl1A75r9K4ISUXGJZhB0htB1L/cWVciQwI//0zCNIpMH7YC//aKZVXQviDfhLanwx19arOwIQ3N4g4TcqV+VVejHxCBTG5HQTyIB/EBMb3xNaYrMpk4qQdakCOTkoCLUkoM68RgKKtbamGJvalrH7Xdbqb/2YEdjUyvPKwK1Ebihy63vVKnsKPUEPSjVmcRyAyIYduK6B5dsdnI7+eanPR3FsEanca5MDWdbSLICTNyofWrwPdNl/rZpCtsjUUtaR0sWBmN94Uy+j2eSKf7RV3aTHwcvkAU7glABDbQEwYo/GuhQLOscSm2HaZcfwHJbSje
+api: eJyVVE1v2kAQ/SurOTvgNEkr+ZaPRm2jqqik6gFxGOwBb7B3nd0xiWXx36tZm0AAVYQDGO/Mm9k3700LGfnU6Yq1NZDAHTGl7BXnpLipSNm5QqPG42+qcnqFTGpJzQAiYFx4SCZw6ygjwxoLD9MIHD3X5PnGZg0kbfirHWWQsKspgtQaJsNyhFVV6BSl8PDJS/UWfJpTifIkxSEBO3uilCGCytmKHGvyctr38kDNTqxnp80C1hEsqRmh9y/WZUfOw0c69ZU1vgP8FMfy856MB2o6ErLAirZGOfJ1wQMpcnksZbQlSWmvNtcPCVfHEu5RF5Qptn2RkClFByBNlsS5zSCByvpAA3IOCQzTLevDLvFsSc1ZuGkEntyKnIynhdoVkEDOXCXDYWFTLHLrObmI4/gcor1ufqI2KkPGGXpSaDKFNedSqBuU6pBhHf0X+OIAWATEtTFUqBINLqgkwyeiXR5Fm+uCeix3ItDVIVDIU56RtWed+nDn0hrNVsRyIvDnA+A79PnMostORPhyiGDTJbkPs3V+ONQxOY2FSq0xvYo3SFORSlo7zU3QyozQkbuuRWOT6e7xWIzZWWU36M1b0ooIL4RB0gdB1D/cW1ciQwI//j4GXYvhf29XxddXLKuC9q29seyeo3ecrs3chjY0Szo8kiv1q7oefYcIxAMdBfEgHsQHxPTBN5guyWSSpH7TnByZlARcPFdiWEwGw7W69RjW4can+6jtdsd9ZJt2NDK98rAqUBupH6bc9p6fwI7nQ9H3rp9GIBqQwLYV+/5xxXotr59rcjLfaQQrdBpnwtRkuo4gJ8zIhdEvA9+3Xetnj93FVljU0tbBqhZpvK2m0a/xo0y6X/mlzSTH4QtE4TsBiMAGeoKAwrsWCjSLGhcS22HK5x8FaEJg
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Detects the type of an SSH private key.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+  {...require("./detect-ssh-key-type.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Private key is required."},"500":{"description":"Failed to detect key type."}}}
+  {...require("./detect-ssh-key-type.StatusCodes.json")}
 >
   
 </StatusCodes>
