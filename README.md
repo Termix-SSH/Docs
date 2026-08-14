@@ -25,7 +25,7 @@ This is the public documentation website for the project, [Termix](https://githu
 
 ## Planned Features
 
-See [Projects](https://github.com/orgs/Termix-SSH/projects/5) for all planned features. If you are looking to contribute, see [Contributing](https://github.com/Termix-SSH/Termix/blob/main/CONTRIBUTING.md).
+See [Projects](https://github.com/orgs/Termix-SSH/projects/5) for all planned features. If you are looking to contribute, see [Contributing](https://github.com/Termix-SSH/Docs/blob/main/CONTRIBUTING.md).
 
 <br />
 
