@@ -9,6 +9,7 @@
 | `DATA_DIR` | `./db/data` | Directory for persistent data (database, SSL certs, encryption keys, OPKSSH binary) |
 | `LOG_LEVEL` | `info` | Logging verbosity (`debug`, `info`, `warn`, `error`) |
 | `LOG_TIMESTAMP_FORMAT` | locale format | Timestamp format for log output: `24h` (e.g. `14:58:45`), `iso` (e.g. `2026-04-25T14:58:45.000Z`), or omit for locale format (e.g. `2:58:45 PM`) |
+| `SSH_AUTH_SOCK` | - | Default SSH agent socket used when a host enables SSH agent authentication without specifying its own socket path. Examples: `/run/user/1000/gnupg/S.gpg-agent.ssh` on Linux or `//./pipe/pageant.user.<id>` on Windows. The socket must be accessible inside the Termix process or container. |
 
 ## SSL/TLS Configuration
 
