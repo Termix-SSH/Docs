@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-Please report any vulnerabilities to [GitHub Security](https://github.com/Termix-SSH/docs/security/advisories).
+Please report any vulnerabilities to [GitHub Security](https://github.com/Termix-SSH/Docs/security/advisories).
