@@ -52,6 +52,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'setup/reverse-proxy',
         'setup/environment-variables',
+        'setup/database',
         'setup/remote-desktop',
         'setup/remote-sync',
       ],

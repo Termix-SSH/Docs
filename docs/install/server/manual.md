@@ -100,6 +100,21 @@ volumes:
 docker-compose up -d
 ```
 
+## Database
+
+Termix uses SQLite by default and creates it under `db/data` on first start. There is nothing to set up.
+
+To use PostgreSQL or MySQL instead, create the database and a user for it, then set these before starting Termix:
+
+```env
+DATABASE_DIALECT=postgres
+DATABASE_URL=postgres://termix:yourpassword@localhost:5432/termix
+```
+
+Termix creates and updates its own tables on start, so there are no migration commands to run.
+
+See [Database](/setup/database) for MySQL, TLS, and connection pool options.
+
 ## Environment Variables
 
 See [docs](/setup/environment-variables).
