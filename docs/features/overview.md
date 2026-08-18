@@ -12,7 +12,7 @@ Tunnels, host metrics, Docker management, SSL, Tailscale, port knocking, and Wak
 
 ## Terminal
 
-Tmux integration, the command palette, snippets, command history, session recording, split screen, and session sharing. See the Terminal pages in the sidebar for each one.
+Appearance and fonts, tmux integration, the command palette, snippets, macros, command history, a local terminal in the desktop app, split screen, session recording, and session sharing. See the Terminal pages in the sidebar for each one.
 
 ## Fleets
 
@@ -28,7 +28,7 @@ An assistant that can read your setup and propose changes for you to approve. Of
 
 ## Files & Hosts
 
-Proxmox guest import, credentials, and bulk importing hosts from JSON. See the Files & Hosts pages in the sidebar for each one.
+Proxmox guest import, credentials, connection defaults, file manager trash, and bulk importing hosts from JSON. See the Files & Hosts pages in the sidebar for each one.
 
 ## Dashboard
 

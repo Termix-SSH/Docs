@@ -104,10 +104,13 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Terminal',
           items: [
+            'features/terminal/appearance',
             'features/terminal/tmux',
             'features/terminal/command-palette',
             'features/terminal/snippets',
+            'features/terminal/macros',
             'features/terminal/command-history',
+            'features/terminal/local-terminal',
             'features/terminal/split-screen',
             'features/terminal/session-sharing',
             'features/terminal/session-recording',
@@ -146,6 +149,8 @@ const sidebars: SidebarsConfig = {
           items: [
             'features/files-and-hosts/proxmox-import',
             'features/files-and-hosts/credentials',
+            'features/files-and-hosts/connection-defaults',
+            'features/files-and-hosts/trash',
             'features/files-and-hosts/json-import',
           ],
         },

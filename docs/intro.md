@@ -6,11 +6,13 @@ It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyon
 
 ## What you can do with it
 
-**Terminal.** A full SSH terminal with split screen (up to 4 panels), a browser-like tab system, themes, fonts, and command history. Connect through jump hosts, use tmux sessions, and run the same command across every open terminal at once. Tabs and sessions persist across devices and refreshes if enabled.
+**Terminal.** A full SSH terminal with split screen (up to 6 panes), a browser-like tab system, themes, fonts, and command history. Connect through jump hosts, use tmux sessions, and run the same command across every open terminal at once. Pick a bundled font or use one you have installed, and turn on local echo so typing feels instant on slow links. Tabs and sessions persist across devices and refreshes if enabled.
+
+**Macros.** Record a set of steps that type into a terminal and wait for it to answer, with conditions and repeats. Good for logins and installers that ask questions partway through.
 
 **Remote desktop.** RDP, VNC, and Telnet right in the browser, powered by Guacamole, with split screen and full customization.
 
-**File manager.** Browse, edit, upload, and download files on your servers over SFTP. Supports code, images, audio, and video. Includes sudo support and the ability to move files between servers.
+**File manager.** Browse, edit, upload, and download files on your servers over SFTP. Supports code, images, audio, and video. Includes sudo support, a trash you can restore from, and the ability to move files between servers.
 
 **Tunnels.** Set up local, remote, and dynamic SOCKS5 SSH tunnels with automatic reconnection and health monitoring. Client-to-server preset snapshots can be saved, loaded, and shared across desktop installs.
 
@@ -61,7 +63,7 @@ See the [Features](/features/overview) section for the full list, with a dedicat
 Termix has a server you self-host, plus connector apps so you can reach it from anywhere:
 
 - A web app, served by your own Termix server (any modern browser, PWA support)
-- A desktop app for Windows, Linux, and macOS (can also run standalone without a separate backend)
+- A desktop app for Windows, Linux, and macOS (can also run standalone without a separate backend, and can open a terminal on your own machine)
 - Mobile apps for iOS and Android
 
 ## Get started
