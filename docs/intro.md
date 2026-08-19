@@ -6,11 +6,13 @@ It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyon
 
 ## What you can do with it
 
-**Terminal.** A full SSH terminal with split screen (up to 4 panels), a browser-like tab system, themes, fonts, and command history. Connect through jump hosts, use tmux sessions, and run the same command across every open terminal at once. Tabs and sessions persist across devices and refreshes if enabled.
+**Terminal.** A full SSH terminal with split screen (up to 6 panes), a browser-like tab system, themes, fonts, and command history. Connect through jump hosts, use tmux sessions, and run the same command across every open terminal at once. Pick a bundled font or use one you have installed, and turn on local echo so typing feels instant on slow links. Tabs and sessions persist across devices and refreshes if enabled.
+
+**Macros.** Record a set of steps that type into a terminal and wait for it to answer, with conditions and repeats. Good for logins and installers that ask questions partway through.
 
 **Remote desktop.** RDP, VNC, and Telnet right in the browser, powered by Guacamole, with split screen and full customization.
 
-**File manager.** Browse, edit, upload, and download files on your servers over SFTP. Supports code, images, audio, and video. Includes sudo support and the ability to move files between servers.
+**File manager.** Browse, edit, upload, and download files on your servers over SFTP. Supports code, images, audio, and video. Includes sudo support, a trash you can restore from, and the ability to move files between servers.
 
 **Tunnels.** Set up local, remote, and dynamic SOCKS5 SSH tunnels with automatic reconnection and health monitoring. Client-to-server preset snapshots can be saved, loaded, and shared across desktop installs.
 
@@ -18,7 +20,17 @@ It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyon
 
 **Host metrics.** See CPU, memory, disk, network, uptime, system info, firewall rules, open ports, log viewer, users, permissions, and SSL certificates for your Linux servers. Includes time-series history graphs and threshold-based alerts with ntfy and webhook support.
 
-**Alerts.** Set alert rules on any host metric and get notified via ntfy or webhooks when they fire or resolve. Full alert history log included.
+**Alerts.** Set alert rules on any host metric and get notified via ntfy, Discord, or webhooks when they fire or resolve. Full alert history log included.
+
+**Fleets.** Group your hosts into fleets, either by picking them or by tag, then run one command across the whole group, push and pull files to every host at once, install packages, and collect an inventory of what each machine is running.
+
+**Automations.** Pick a trigger, like a metric crossing a line, a schedule, a Docker event, or a webhook, then run a list of steps. Steps can run commands and snippets, restart containers, call an API, wake a machine, branch on a condition, and notify you. Dry run mode lets you test one safely first.
+
+**AI assistant.** Connect OpenAI, Anthropic, Gemini, Ollama, or any OpenAI-compatible endpoint and ask questions about your setup. It can read your configuration but cannot change anything without you approving it first, and it can never touch credentials. Off by default.
+
+**Workspaces.** Save a set of tabs and their split layout, then bring the whole thing back in one click. Termix also keeps your last session so you can pick up where you left off.
+
+**Session sharing.** Let someone else watch or join a terminal session you have open, read only or read and write, with a share link or a specific user.
 
 **Homepage.** A fully customizable homepage with a drag-and-drop widget grid. Add widgets for host status, service links, clocks, notes, RSS feeds, weather, Docker containers, host metrics charts, embedded terminals, iframes, and more.
 
@@ -40,7 +52,9 @@ It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyon
 
 **Advanced SSH.** Supports jump hosts, Warpgate, TOTP-based connections, SOCKS5, host key verification, password autofill, OPKSSH, tmux, port knocking, terminal logging, SSH agent forwarding, Bitwarden SSH agent, and HashiCorp Vault SSH certificate signing.
 
-**Data and security.** Databases are encrypted SQLite files at rest. Export and import SSH hosts, credentials, and file manager data. Automatic SSL certificate generation with HTTPS redirects. ~30 languages supported via Crowdin.
+**Command line.** A `termix` CLI for your shell and your scripts. Open a terminal, run a command on one host or a whole fleet, move files over SFTP, and manage hosts, snippets, and credentials without opening a browser. See [CLI](/cli).
+
+**Data and security.** Databases are encrypted at rest. Runs on SQLite out of the box, with PostgreSQL and MySQL also supported, see [Database](/setup/database). Export and import SSH hosts, credentials, and file manager data. Automatic SSL certificate generation with HTTPS redirects. ~30 languages supported via Crowdin.
 
 See the [Features](/features/overview) section for the full list, with a dedicated page for almost everything above.
 
@@ -49,7 +63,7 @@ See the [Features](/features/overview) section for the full list, with a dedicat
 Termix has a server you self-host, plus connector apps so you can reach it from anywhere:
 
 - A web app, served by your own Termix server (any modern browser, PWA support)
-- A desktop app for Windows, Linux, and macOS (can also run standalone without a separate backend)
+- A desktop app for Windows, Linux, and macOS (can also run standalone without a separate backend, and can open a terminal on your own machine)
 - Mobile apps for iOS and Android
 
 ## Get started

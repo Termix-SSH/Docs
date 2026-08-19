@@ -6,7 +6,7 @@ Termix can send you a notification when something happens on one of your servers
 
 There are three pieces:
 
-- Notification channels: where alerts get sent (a webhook URL or an ntfy topic)
+- Notification channels: where alerts get sent (a webhook URL, an ntfy topic, or a Discord channel)
 - Alert rules: what triggers an alert, and which channel to use
 - Alert firings: a log of alerts that have fired, visible in the alerts panel
 
@@ -16,7 +16,9 @@ The bell icon in the sidebar shows a count of unacknowledged alerts. Click it to
 
 A channel is a destination for alert messages. You can have as many channels as you want. Open the alerts panel, go to the Channels tab, and click "Add Channel".
 
-Two channel types are supported:
+Channels are shared with [Automations](/features/automations/overview), so a channel you set up here can also be used by an automation's notify step.
+
+Three channel types are supported:
 
 ### Webhook
 
@@ -48,6 +50,12 @@ You can point this at anything that accepts a POST: a self-hosted automation too
 - Access token (optional): if your ntfy server requires authentication
 
 Termix maps alert severity to ntfy priority: info sends priority 2, warning sends 3, critical sends 5.
+
+### Discord
+
+Termix posts the alert to a Discord channel using a webhook URL. To get one, open your Discord server settings, go to Integrations, create a webhook, pick the channel it should post to, and copy the URL.
+
+Alerts arrive as an embed, colored by severity so you can tell at a glance how bad it is.
 
 You can test a channel by clicking the test button next to it in the Channels tab.
 

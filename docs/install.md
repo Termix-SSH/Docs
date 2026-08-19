@@ -10,6 +10,8 @@ For running the required Termix backend and web-app front end:
 - **[Manual](./install/server/manual.md)** - Build and compile Termix from source code for custom deployments.
 - **[Proxmox](./install/server/proxmox.md)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts.
 
+All of these store data in SQLite by default, which needs no setup. PostgreSQL and MySQL are also supported if you would rather use a database server you already run. See [Database](/setup/database).
+
 ## Cloud Hosting
 
 For hosting the Termix server on a cloud provider. Running Termix outside the network it manages means an outage cannot take Termix with it, so your hosts and saved sessions stay reachable when you need them most. You also get a static IP and access from anywhere without a VPN or port forward.
