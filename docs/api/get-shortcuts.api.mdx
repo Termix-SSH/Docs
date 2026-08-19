@@ -5,7 +5,7 @@ description: "Retrieves a list of shortcuts for a specific host."
 sidebar_label: "Get shortcuts"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVFFr2zAQ/ivinjYQibe2G/itY2ubwWA0HXsoYVzkcywqS650Dg3G/32c7ZV0yUrYk235u0/f3X13HRSUTLQN2+Ahh1viaGlLSaFyNrEKpUpViGxaTqoMUaFKDRlbWqOqkHgGGhg3CfJ7WC5vYKWhwYg1MUU57MAK72NLcQcaPNYEOUjkogANkR5bG6mAnGNLGpKpqEbIO+BdI0jrmTYUoe9Xgk5N8ImSAN5nmTxe6r88VD2DXsP5MfDCb9HZQrWJ4qJQIapR1xBxcSziCq2jQnFQJbGpXlzSa6iJq1BADhtikEJwBTnMU6rmpXX0q0aPG4rz5zDQkChu/5SqjU6Kw9zk87kLBp0Iys+yLHsH+i8t39B6VSDjGhMp9IXClivybA0KRI3M0OtXic8OiJfLG8Wt9+TUKLgmzyeynR9lk+Qnrngi0cUh0RCnEiPbxNakIec6eMshWr85kfjDAfFnTNU6YCxOZPh4yBDMA8Vj1VpJg00bLe+GDq8JI8XLVoxxv9r/vRTnj87eBz0PgkiBaUDkewSBnl6uQqyRIYevP+8GL1pfhiHcshP8HcXaPqnL7wvQII4bpWezbJYdJDSBP6F5IF9IkLqlkiJ5QzIcTUhcoxf+aaKvidW+rV/wdWCCZ/L83xtmrAHTE88bh9aLiKFF3TRl95BSBRr250zK9SxppYetI8iuk5H5EV3fy/G4m6Q7hU24drKNSnSJXsnize20uN6qf8l7oN3+ptuiawU0eGKL0cpNgwn29sb1F2nebyxz6NE=
+api: eJydVF1r20AQ/CvHPrUgbKVJWtBbSpvEhUKJU/pgTFmfVtaR052ytzIxxv+9rOQGu06D2ydJp9m52Y/ZDZSULLtWXAxQwB0JO1pRMmi8S2JiZVIdWWwnyVSRDZrUknWVs6aOSUaQgeAyQTGD6fQW5hm0yNiQEOvhBpzyPnbEa8ggYENQgEZOSsiA6bFzTCUUwh1lkGxNDUKxAVm3inRBaEkM2+1c0amNIVFSwLs818eh/qtj1SPYZnDxEngSVuhdabpEPClNZDPo6iMuX4q4RuepNBJNRWLrg0u2GTQkdSyhgCUJaCGkhgLGyjqunKefDQZcEo+f4yCDRLz6XauOvVZHpC3GYx8teo0tzvM8P4PsDzFf0QVTouACExkMpcFOagriLCrEDMywzV4lPj8ink5vjXQhkDeD4IaCnMh28SKbJr/j4hOJLo+J+jiTBMUlcTb1OTcxOInswvJE4vdHxJ8w1YuIXJ7I8OGYIdoH4n+u1tlxU6fEDr2xMQSyB12c66jYjp2s+1lZEDLxVaczNpvv/56qiQaT7IOePaVSYOc1/R5AkO1eriM3KFDAlx/3/Vi7UMU+3IlX/D1x457M1bcJZKCzO0jPR/koP0poB/6I9oFCqUHmjipiCpbUZ21M0mBQ/t1yuCEx+wY54NuAjUEoyH8vq6EGQk8ybj26oCL6Fm12hp316wky2Les1utZ0zwbIMUMNht133f2260eD3tO21O6hAuvm61Cn+iVNN7c7ZbgW/M3fQ+03t+aK/SdgvqhWCE7vamfgr0ddPNZu/cLX4MDQg==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/ssh/file_manager/shortcuts"}
+  path={"/host/file_manager/shortcuts"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Retrieves a list of shortcuts for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  {...require("./get-shortcuts.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-shortcuts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of shortcuts."},"400":{"description":"Invalid userId or hostId."},"500":{"description":"Failed to fetch shortcuts."}}}
+  {...require("./get-shortcuts.StatusCodes.json")}
 >
   
 </StatusCodes>

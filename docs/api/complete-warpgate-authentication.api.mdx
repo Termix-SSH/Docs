@@ -5,7 +5,7 @@ description: "Submits empty response to complete Warpgate authentication after u
 sidebar_label: "Complete Warpgate authentication"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VU1v2zAM/SsCz27irt0G+NauG9YBw4qlQw9BDozNxGptyaXoJpmR/z5Qdj/TdbnMlzgS+UQ9vkd3UFDI2TZivYMMJu28thIM1Y1sDFNovAtkxJvc101FQuYKuVmikMFWSnJic9RkgwshNm0gfogNZs5+pSsaO4IEBJcBsimc+fyGGGYJMN22FOTUFxvIuvjXMhWQCbeUQO6dkBPdwqaphsPG10HL7SDkJdWob7JpCDLw82vKBZInQFMIFIL17rzQAxv2DbFYChHgYesRIwhbt4TkJTd9qDk/Mwv2tbHOisXK5N45ynsORJQ52MZHi+gJjEe9S1P9eQ76NzbvKSxMaPOcQli0VbUZwTaB4/RwF+fkefoCbUWF8Wxap8ie7W8qhvTjN8oY+DC0bpS9Eeg1apLSF5BB44Ny26CUkMG4iF0ch1COBxIOVgMQJBCI74i13R20XEEGpUiTjceVz7EqfZDsKE3Twx2iv6N1pkDBOQYy6IqX5PTIsE3eBD7a7eDkq5HWOapMjQ6XVJOTPdGOX0Vb2IoGLN4T6P0rwtI8EwTFBrF5iHeuvbPiVYl7An/YAT7DUM49crEnwsddhNjh19iaaYPzlq1sYofnhEysMoRsOnu6PVGP9hZ4GvRgNy1F5RLDIBuCIBlevniuUSCDb1eXUY3q/Z+PU+PzGtUqL8x8b+JtAtYtfDzOiobBJXFt1+bk4hwSUIX2V01H6SjdIWAIPsX8hlyhSeYnLYjJ5aTg6oga4yxyGMv/9I9B+fKI7nHG/f/x2zMutJZxU6F1eoUoiG4w9RR6U2tDQglxAD839iwBFYyGdp069BdX260u37bEKoZZAnfIFudK93S2TaAkLIijTm5oE0mKVz641II0vGq1sJ0Rrzp6mD4XPyaXKovhU1H7QnMYVzrucQUZQAI+0hrVFtc6qNAtW1xqbI+pzx+oOHGA
+api: eJy1VU1v1DAQ/SvWnNPdlJYP5VYoiCJVVGxRD6sVmk1mN6aJHcYT2iXa/47GST/YFFgO5JLEnnkeP7957qCgkLNtxHoHGczaZW0lGKob2Rim0HgXyIg3ua+bioTMFXKzRiGDrZTkxOaoyQZXQmzaQHwfG8yS/Y2OaOwEEhBcB8jm8M5WZM7R4ZoYFgkwfWspyGtfbCDr4q9lKiATbimB3DshJzqFTVMNS06/Bi26g5CXVKN+yaYhyMAvv1IukDwCmkOgEKx3Z4Uu2LBviMVSiAD3Uw8YQdi6NSS7DPWh5uzUrNjXxjorFiuTe+co75kQUf5gGx8toqcxLvUsTfX1K+jvOL0jsjChzXMKYdVW1WYC2wSO08Mxzsmv6Su0FRXGs2mdInu2P6gY0o//UMbAh6HbRtkbMl7tkSG2Jt/KBHTjNUnpC8ig8UFPo0EpIYNpCOV0ZSv6UvcKiAMDgQc3AyQkEIi/E6tgOmi5ggxKkSabTiufY1X6INlRmqaHo0M6R+tMgYJLDGTQFbvE9siwTf4IfDQ+/dl7I61zVJm+9pqc7Il2/CSa8jBg8Z5Az58QpeaZICg2iM1D3HPtnRWvKt4T+MUI+BRDufTIxZ4IL8cIPr8m/me2DseHOiPeabQ7pIVKJW/ZyiZqZUnIxNoMkM0Xj6dn6hR9Iz4Oum96LUWFF8MgG4IgGT7eea5RIIMPV5dR4epAnx686+0tasPuWMqdlWwTsG7l43JWNAwuiWt7a04uziAB1Xq/1XSSTtIRAUPwa8yvyRWaZD7RiphcTgquXVZjdESHsfw3fzHt3SW6B6f9/1dBz7jQrUybCq3TLURBdINRzCGEEhJ4bBV6OHFwZBeLBFQ8mtZ12vefudpudfhbS6zCWCTwHdniUqmfL7YJlIQFcdTMNW0iYXH7B5danIZXrRY5unRUU/fudvFxdqkSGS6v2heaw3ijFxDeQAaQgI8UR+XFsQ4qdOsW1xrbY+rzEw4eplw=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/docker/ssh/connect-warpgate"}
+  path={"/ssh/file_manager/ssh/connect-warpgate"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Submits empty response to complete Warpgate authentication after user completes 
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId"],"properties":{"sessionId":{"type":"string","description":"Session ID from initial connection attempt"}}}}}}}
+  {...require("./complete-warpgate-authentication.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Warpgate authentication completed successfully."},"401":{"description":"Authentication failed or unauthorized."},"404":{"description":"Warpgate session expired."}}}
+  {...require("./complete-warpgate-authentication.StatusCodes.json")}
 >
   
 </StatusCodes>

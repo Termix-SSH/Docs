@@ -5,7 +5,7 @@ description: "Retrieves a list of recent files for a specific host."
 sidebar_label: "Get recent files"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVF1r20AQ/CvHPrVw2GqTtKC3lDaJC4USp/QhmLI+rawjpzvlbmVihP57WUktTuwGQ58knWbnZj9mOygomWgbtsFDDrfE0dKWkkLlbGIVShXJkGdVWkdJlSEqVKkhY0trVBUSz0AD4yZBfg/L5Q2sNDQYsSamKIcdWKF+bCnuQIPHmiAHiVwUoCHSY2sjFZBzbElDMhXVCHkHvGsEaT3ThiL0/UrQqQk+URLA+yyTx/MULo8Kn0Gv4fwYfuG36Gyh2kRxUagQ1ShtiLg4FnGF1lGhOKiS2FQv7+k11MRVKCCHDTFIObiCHOYpVXNB/arR44bifIwEDYni9k+12uikPsxNPp+7YNCJoPwsy7J3oF9o+YbWqwIZ15hIoS8UtlyRZ2tQIGpkhl6/Snx2QLxc3ihuvSenRrW15Hga2/lRNsl84oonEl0cEg1xKjGyTWxNGnKug7ccovWbE4k/HBB/xlStA8biRIaPhwzBPFA8Vq2VNNi00fJu6PCaMFK8bGUq7lf7v5cy/ONw74P+ekGkwOQR+R5BoKeXqxBrZMjh68+7YRCtL8MQbtkJ/o5ibZ/U5fcFaJCJG6Vns2yWHSQ0gT+heSBfSJC6pZIieUNijiYkrtEL/2Tqa+JnbnhJ2YEJnmXk/2PVjJVgeuJ549B6kTI0qpuMdg8pVaBh32rDohnMttLD7hFY14lrfkTX93I8bihpUGETrp3spBJdoleyeHM7ra+36l/aHmi3v++26FoBDWOxxWjlpmEO9vbG9Rfp328t1enO
+api: eJylVF1r20AQ/CvHPrUgbKVJWtBbSpvEhUKJU/pgTFmfVvaR052ytzIxxv+9rKQWJ3aDS58knWbn9mtmCyUly64RFwMUcEfCjtaUDBrvkphYGSZLQUzlPCVTRTZoUkPWVc6aVUwyggwElwmKGUyntzDPoEHGmoRYD7fglPqxJd5ABgFrggI0clJCBkyPrWMqoRBuKYNkV1QjFFuQTaNIF4SWxLDbzRWdmhgSJQW8y3N9PC/h6mjiI9hlcHEMPwlr9K40bSKelCay6VPrIi6PRVyj81QaiaYisauX9+wyqElWsYQCliSg7ZAVFDBW4rHCftYYcEk87kMhg0S8/t2ulr02SKQpxmMfLXoNLM7zPD+D7EUyX9EFU6LgAhMZDKXBVlYUxFlUiOmZYZe9Snx+QDyd3hppQyBv+mxrLfI0toujbFr5wMUnEl0eEnVxJgmKS+Js6mquY3AS2YXlicTvD4g/YVotInJ5IsOHQ4ZoH4j/uVtnh0OdEjv0xsYQyD6b4lxXxbbsZNPtyoKQia9aXbDZfP/3VHXU62Qf9EdWmgoMctPvHgTZ8HIduUaBAr78uO922oUqduFOvOLviWv3ZK6+TSAD3d0+9XyUj/KDggbwR7QPFEoNMndUEVOwpDprYpIag/IP/nBD8kxYLym3YGMQFc9/uFbfCaEnGTceXdBUukFtB83OOp+CDPZV25lWp9t51v8vZrDdqgC/s9/t9Lh3O51Q6RIuvPpbhT7RK2W8uRus8K35W3IPtNn3zjX6VkHdXqyRnd7ULcKeB9181gH+AvHfBD8=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/ssh/file_manager/recent"}
+  path={"/host/file_manager/recent"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Retrieves a list of recent files for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  {...require("./get-recent-files.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-recent-files.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of recent files."},"400":{"description":"Invalid userId or hostId."},"500":{"description":"Failed to fetch recent files."}}}
+  {...require("./get-recent-files.StatusCodes.json")}
 >
   
 </StatusCodes>

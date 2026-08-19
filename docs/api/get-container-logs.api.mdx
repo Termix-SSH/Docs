@@ -5,7 +5,7 @@ description: "Retrieves logs for a specific container."
 sidebar_label: "Get container logs"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VU1v00AQ/SurOYG0qgNtQfKtUFqKhITaIg5VDhN7kqxq77q746qR5f+OZuM4buOUgMQp8fq9N7Pz8dxATiHzpmLjLKRwTewNPVJQhVsENXdeoQoVZWZuMpU5y2gs+SPQwLgIkN7BucvuycNUQ4UeS2Lyct6AEcEKeQkaLJYEKQQKwTh7lYMGTw+18ZRDyr4mDSFbUomQNsCrKoLZG7uAttWjWn0y/6j2UJNfbeUYTQEjPGOZFuRfIZqSAmNZhTH6zLmC0O6nB2MzGmP+KeHa8njGPXEqZQmVs4GCvH8/mcjP845/3pQxdvwIWg0nY7ibm6+qa5+yjtXc1TZXzseHzFlLGVPe8U9ei9OzI/h0LNgFmoJyxU4tiLdjt0mx1VASL10OKSyIQa9HI4Ukj8OY9IyQNP3MtUkzmJk2ETGpH/nHzcjWvoAUlsxVmiSFy7BYusDp8WQyeQf6RZLf0ViVI+MMAym0ucKal2TZZCgQtVYGaeArwsc7wlJqrq2lQpVocUElWT5Q7WRUbW4K6rT8gUKnu0KRpwIjm8AmC/HOpbOGnUzcgcIfdoTPMSxnDn1+oMLHXYXY9rFqTaXBWe0Nr2KHZ4Se/Fkt43I3Hb6+kT1aL8oQ1K+VpLJZt7jZEQS6+3PhfIkMKXz7dRsn1Ni5i3TDheBvyZfmSZ39uAINMnHr1CdHk6PJzoU68CfM7snmQlLXNCdPYhathsoFLtGKfmcHlzuL8lK0iZZJlv/S59fXZ3ripCrQWIkfu9N0a3cH67UDvTVliZ4O7T597tcxwakGaaooNI1s0U9ftK0cr71OGpabgLNCjH2ORSAN97Ta2vUjFrVkF0dmH3Ro0IcQNpZ8CHbjwlvsVB68EfD4BfY25c119xF7q/bVvTtEuxrG7BPv6z2a8f8LPOxtOx3a8+UX2YbfT9naCg==
+api: eJy1VcFu2zAM/RWBpw0QYndtN8C3bl27DhgwtB12KHJgbCYRKkuuRBcNDP/7IMVx3Mbp0gE7Jbb5Hiny8amBgnzuVMXKGsjgmtgpeiQvtF14MbdOoPAV5WqucpFbw6gMuQlIYFx4yO7g3Ob35GAqoUKHJTG58L4BFQgr5CVIMFgSZODJe2XNVQESHD3UylEBGbuaJPh8SSVC1gCvqhjMTpkFtK0c5eqL+Ue2h5rcakvHqDSM4JRhWpB7BahK8oxl5cfgM2s1odkP98rkNIb8W8G14fGKe+A0tMVX1njy4fuHNA0/zyf+ZdPGOPEJtBJOxuJubr6JbnzCWBZzW5tCWBcfcmsM5UxFhz95LU+PjsGnY8kuUGkqBFuxIN7KblNiK6EkXtoCMlgQg1xLI4OkiGJMeoRPml5zbdIMNNMmgSz0j9zjRrK105DBkrnKkkTbHPXSes6O0zQ9AvmiyB+ojCiQcYaeBJpCYM1LMqxyDCFizQxhgK8QH+8Qh1ZzbQxpUaLBBZVk+EC2k1G2udLUcbkDiU53iSJOeEZWnlXu45lLaxTboLgDiT/uEJ+jX84suuJAhk+7DHHsb+7W0e5Qb8gp1BtBD6c4DVLJa6d4FbUyI3TkzuogvLvp8PNN2Mj1yg2D+gUNpWwWN3pEDALZ/bmwrkSGDL7/vo1aV2ZuI1yxDvG35Er1JM5+XoGEoN116ekknaQ7B+qCP2N+T6YIIHFNc3IUbKeVUFnPJZrA3xnL5c7KvSRtovmS4TfeGOvjMz1xUmlUJuSP02m6Bb6D9QKD3Np7yJ4NL47sufPHAqcSwlADQ9OEffzldNuG12vXDAMrlMeZDlfEHLUnCfe02hr/I+o6VBclsy90aPWHADbmfkjsxs+3sdPw4FQIHj/A3qG8u+6uw/diX9+7l2hWw5x94X2/Ryv+f4mHs22nQ6O//Bq24Q9JVPOM
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieves logs for a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}},{"in":"query","name":"tail","schema":{"type":"integer"}},{"in":"query","name":"timestamps","schema":{"type":"boolean"}},{"in":"query","name":"since","schema":{"type":"string"}},{"in":"query","name":"until","schema":{"type":"string"}}]}
+  {...require("./get-container-logs.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-container-logs.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container logs."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container logs."}}}
+  {...require("./get-container-logs.StatusCodes.json")}
 >
   
 </StatusCodes>

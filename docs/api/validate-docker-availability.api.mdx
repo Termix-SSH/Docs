@@ -5,7 +5,7 @@ description: "Validates if Docker is available on the host."
 sidebar_label: "Validate Docker availability"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVNtq3DAQ/RUxTy2IXbdJWvBbSnpJoVCSXh6CH2at2bWILDnSOGQx/vcytpIm2W1Y+mRdzhwfzcyZAQylOtqObfBQwi901iBTUnatzkJ9TVHZpPAWrcOVIxW84oZUExIvQAPjJkF5BTMUKg0dRmyJKcr5AFZYO+QGNHhsCUpIlJIN/tyAhkg3vY1koOTYk4ZUN9QilAPwtpvAHK3fwDhWAk5d8ImS3L8tCvk8lZ8VZ7nWWd6qxMh9WsCo4XhfzOXlF5UlKR9YrUPvjQpx2tTBe6qZzBR/si8+p0zC12jdBB01tMRNMFDChhj0nIISlmZSuLzNeV4OD9kYQUOieHufuT46KKFh7srl0oUanSS9PCqK4g3oZyK+ofXKIOMKEyn0RmHPDXm29SxtZoZRv0h8tEMs2eHee3KqRY8basnzgWzHe9nW1lHmigcSnewSTXFTbW1iW6fpzW3wloM0zIHE73aIzzA1q4DRHMjwfpdh7sE92aqkwHUfLW+nCq8II8XTXjrjqnp8fSk2mPv8MejBFSIFsltkP4NA58WnEFtkKOHr7x9TM1q/DlO4ZSf4HxRbe6dOv5+DBum4WXqxKBbFzoMy+APW1+SNBKkLWlMkX5O4oguJW/TCnx1+P0XUHj8+px+gDp7J8/9MnzkbTHe87BxaL3KmYg3ZcFcwG06emclBQ/l3BFUahE2QwyDm+RndOMrxTU9R6lRJaLTy/6lqxiZZGyjX6BK98JxXF3m6vVb/EpsP0W9nhb3sQMM1bZ9MyrF6PFI+f5Sy/gF+wfYP
+api: eJydVE1v2zAM/SsCTxsgJO7aboBvHbqPDhgwNF13KHxgLCYWKkuuRBcNDP/3gbbbpU1WZDtZH4/PTyQfOzCUymgbtsFDDtforEGmpOxKnYfylqKySeE9WodLRyp4xRWpKiSegQbGdYL8BkYoFBoajFgTU5TzDqywNsgVaPBYE+SQKCUb/IUBDZHuWhvJQM6xJQ2prKhGyDvgTTOAOVq/hr4vBJya4BMluX+XZfJ5Ln9SPMm1zvJGJUZu0wx6DSf7YhaLr2qSpHxgtQqtNyrEYVMG76lkMkP86b74KWUSvkLrBmivoSaugoEc1sSgxxTkMDeDwvn9lOd595SNHjQkivePmWujgxwq5iafz10o0UnS8+Msy45AvxDxHa1XBhmXmEihNwpbrsizLUdpIzP0+lXi4x1iyQ633pNTNXpcU02eD2Q72cu2so4mrngg0eku0RA31NYmtmUa3lwHbzlIwxxI/H6H+BxTtQwYzYEMH3YZxh7812wd7RZ1QdGie+zB7SoW0iplGy1vhl5ZEkaKZ6302E2xfb0QQ42O2QY9+UukwOQ72Y8g0NPic4g1MuTw7dfV0NbWr8IQbtkJ/opibR/U2Y8L0CC9O0rPZtks23nQBP6I5S15I0HqklYUyZck/mpC4hq98E+z4nEeqT3OfknfQRk8k+f/mWNjNpgeeN44tF7kDMXqJuvewGhdeeZEDhryP8Os0CBsguw6seHP6Ppeju9ailKnQkKjlf8PVTM2ydpAvkKX6JXnvLmc5uRb9Tex0yH6zaiwlR1ouKXNs5nbF9vD6csnKetvQEcPoA==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Validates if Docker is available on the host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+  {...require("./validate-docker-availability.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./validate-docker-availability.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Docker availability status."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Validation failed."}}}
+  {...require("./validate-docker-availability.StatusCodes.json")}
 >
   
 </StatusCodes>

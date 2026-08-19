@@ -1,11 +1,11 @@
 ---
 id: write-to-a-file
 title: "Write to a file"
-description: "Writes content to a file on the remote host."
+description: "Writes content to a file on the remote host and preserves the existing permissions when the file already exists."
 sidebar_label: "Write to a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVF1P20AQ/CunfXYTt0Ar+Q3aolIJFREqHqKo2tib+MC+M7drSmTlv1d7NiFNoir1Q2Lfzc3Nzn50UBDnwTZivYMM7oMVYpN7J+TEiDdoFrYi452Rkkyg2guZ0rOMIAHBJUM2hUuFXKPDJQWYJRDoqSWWC1+sIOvipw1UQCahpQQGet3Cpqlsjnr9+IFVQwecl1SjvsmqIcjAzx8oF0igCb6hIJY44ojZendVbEFZgnVLWCfQoJQHN7Zu39mLj6rnxjvuL/mQpvr3t00x3t/BipAz3OY5MS/aqlqN9ILTQ0euLbN1S/PqhWkwYE1CgY0PZjL5pq47yhVvnBdDLDivLJdURNqzg0rQVlRoolQOxWSNQKOoSUpfQAaN5+hd9APGzOVYUb/qPl9xIR7WqCABpvBMQfPaQRsqyKAUabLxuPI5Vpr67CRN0/eQ7IaI1pkCBefIZNAVBlspycmQYNMzwzr5J/HJHrGaI61zVJledK3FeRzb6UG2WNODAUcSne0TxXOGBcWy2JxjzLV3VrwW1JHEH/eIvyCXc4+hOJLh0z6Dzx8pHHJrpgnO22BlFTM8JwwUzlstjulse3uibdg3wTZo0zUqRcslwiAbQJAML5c+1CiQwff7u1iQ2t63b4Ph6wvWTUU7jfzai5t63Xxv2narla1b+KjIijLBHYXavpjzmytIQIu4dyMdpaN0z6MBfIH5I7lCD5lbWlAgl1McIJ6lxjiRHMYI43R8G4q7jN2Wxv8dpL2lQi8ybiq0TgXEjHeDEVNgLiGB7dZV9+PiW/vOElBOxXed9uHPUK3XuvzUUtCUzxJ4xmBxro5NZ+sESsKCQqyGR1pBBp971e/uVJXCq1bV7c1qrZbNmLn5MbnT5A8zv/aFngn4G5L4mwEk4KNVsabiWgcVumWLS8X2nPr8AfIbRNo=
+api: eJzFVVFv00AM/isnP4e2YwykvDFgYkgIRId4mCrkJl5z7HIXbIetivrfkS9dV9YJjSfy0CZ3vi/2589fBqhJKvad+hShhG/slcRVKSpFdZocuisfyKXotCHH1CYl1yRRh7F2HZMQ/yLJu3TrRX1cuY649SI+RXE3DY1nMw4GJqzXY6hMoADFlUB5CWe2/REjrohhUQDTz55ET1O9hnLIj56phlK5pwK2KdoWdl3wFVoJ0x9idQwgVUMt2p2uO4IS0vIHVQoFdJw6YvUkOY5ymuf1Xqgo+7iCTQEdavPoxt7bH+zly7KXLkUZX/J8NrO/P6nO9d6wV6XopK8qErnqQ1hP7AUvHjvy0TiNK3fHheuQsSUlFpfYzefvrXORKot3MakjUVwGLw3VGfbk0UzQB6qt2ZbO2KgJWBUtaZNqKKFLkrnLfMBUpJla1Pd27FdeyIetKiggi4KtrwP0HKCERrUrp9OQKgwmn/J4NpsdQfGwRPTR1ai4RKEsMey1oajbBrsRGTbFX4GPD4CNHO1jpODGpFsT+NPQXjyKlvW8JeCJQCeHQPmcE0W12akk19ym6DWZoJ4I/PIA+C1Ks0zI9RMRXh0ipOqa+J/ZOjps6pzYY9jX5h3SwqRS9ex1nbWyJGTi173J7HKxvz23gR7HaT9oN3+Wigkvh0G5DYJie3OWuEWFEj58u8jSNqP4cm8x726x7QI9sIS7qd4pf/e8M4A9U/DxKuWMvBoSXJgL3rrXn8+hABuHkY3ZZDaZHXC0DT7F6ppibYfcF7oiplhRtqIk2mL2toi5wuzV9xb9EHHYy/F/2PrYFqVbnXYBfbQismqGLZmXINJAAftGYh3Mi/dmsijA8rL4YTBX+Mphs7Hlnz2xyWZRwC9kj0tj/XKxKaAhrImzoq5pDSW8GSt/dmFZWXjoLbuDL4cpbmd6nz/NL0xA2y9Qm2o7w3gDRf4tAQpIme6sy7w2QMC46nFlsSOmXb8BISGR+g==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,33 +37,28 @@ import Heading from "@theme/Heading";
 
 
 
-Writes content to a file on the remote host.
+Writes content to a file on the remote host and preserves the existing permissions when the file already exists.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"content":{"type":"string"}}}}}}}
+  {...require("./write-to-a-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"File written successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to write file."}}}
+  {...require("./write-to-a-file.StatusCodes.json")}
 >
   
 </StatusCodes>

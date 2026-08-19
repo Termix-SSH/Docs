@@ -5,7 +5,7 @@ description: "Establishes an SSH connection and starts collecting metrics for a 
 sidebar_label: "Start metrics collection"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VMFu2zAM/RWBpw3QEndtN8C3DlvRDRha1Bl2CHJgZDoWKkuuRBcNDP/7wNjtuqYtctnJtvT4TL5HsoeSkom2ZRs85PAtMa6dTTUlhV4VxYUywXsycq/QlyoxRk7KBOfk1G9UQxytSaoKUaFKLRlbWaPqkHgGGhg3CfIlFBTvKKqCkROsNLQYsSGmKLc9WPl9i1yDBo8NQQ62BA2RbjsbqYScY0cakqmpQch74G27Q3mmDUUYhpWgUxt8oiSAj1kmj38r/Dll+1BA8GNJVKrUGUMpVZ1zW61CVIvLxZV6SGAGg4aT7GifsqCUhIfuWwGqD6p1hImUCxtlvcINWj+Fn+yHX4TEygdWVej8+JvTlzI/R+uoVBzGhB91/1vJDIZBQ0Nch1LUDIlBj6LmMJ/w8130vLflABrSzpXRgi46yKFmbvP53AWDTjzMj7MsOwL9XEe0XpXIuJZKpTOw45o8W4OjqjtmGPSbxMd7xNJz3HlPTjXocUMNeT6Q7eRFtso6mrjigUSn+0Rj+yZGtolFd6m5Cd5yiDIGhxF/2iP+iqleB4zlgQyf9xmCuaH4klorMdh00fJ25/CaMFI866Qhlqun14WM1Tg2T0GPUyapwDR98j2CQE8v5yE2yJDDj9+LXRNaX4VduGUn+AXFxt6rs6vvoEE6bkw9m2WzbK+gCfwFzQ35UoLUNVUUyRuS8ZDGbtAL/7Qqilcm4jl1DyZ4Js//adeNYjHd87x1aL1ku/Oyn8ZwCROFiCn0oCG3pSxEIRFA38tI/YpuGOT4tqMo7q003GG0uBY9lz2UNsl7CXmFLtEbhb67nlbYe/VajtMh+q3Yg66TL9BwQ9txEQ+rp5vl6rIQm/8ADB0kjg==
+api: eJy1VMFu2zAM/RWBpw3QEnftNsC3DlvRDRhaNB12CHJgZDoWKkuuRBcNDP/7QNvtsqYtssNOtqXHZ/KRjx0UlEy0DdvgIYeviXHtbKooKfRqsThXJnhPRu4V+kIlxshJmeCcnPqNqomjNUmVISpUqSFjS2tUFRLPQAPjJkG+hPOQWP0YsbDS0GDEmpii3HZg5fcNcgUaPNYEOdgCNES6bW2kAnKOLWlIpqIaIe+At82A8kwbitD3K0GnJvhESQDvs0wef1c4ZfBYQPBjSVSo1BpDKZWtc1utQlTXF9eX6iGBGfQaTrKjfcoFpSQ8dN8IUL1TjSNMpFzYKOsVbtD6KfxkP3wQxgdWZWj9+JsPz2V+htZRoTiMCT/q/qeSGfS9hpq4CoWoGRKDHkXNYT7h50P0vLNFDxoSxbuHFrTRQQ4Vc5PP5y4YdNLD/DjLsiPQT3VE61WBjGupVCYDW67IszU4qjowQ69fJT7eI5aZ49Z7cqpGjxuqyfOBbCfPspXW0cQVDyT6sE80xIn0bBOL7lJzHbzlEMUGhxF/3CP+gqlaB4zFgQyf9hmCuaH4z2od7Td1QdGi27X8A9NKRsW00fJ2mJU1YaR42spoLVe71wsx6GjAXdCjXyUVmHws3yMI9PRyFmKNDDl8/3U9jLP1ZRjCLTvBX1Os7b06vfwGGmR2x9SzWTbL9gqawJ/R3JAvJEhdUUmRvCExmlikRi/809JZvOCtp9QdmOCZPP+nrTmKxXTP88ah9ZLt0MtuMvQSJgoRU+hBQ24LWa1CIoCuE3P+jK7v5fi2pSjdW2m4w2hxLXouOyhskvcC8hJdolcKfXM1LcO36qUcp0P0W2kPula+QMMNbceV3q92d9TlxULa/Bun+D3/
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Establishes an SSH connection and starts collecting metrics for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+  {...require("./start-metrics-collection.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./start-metrics-collection.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Metrics collection started successfully, or TOTP required."},"401":{"description":"Session expired - please log in again."},"404":{"description":"Host not found."},"500":{"description":"Failed to start metrics collection."}}}
+  {...require("./start-metrics-collection.StatusCodes.json")}
 >
   
 </StatusCodes>

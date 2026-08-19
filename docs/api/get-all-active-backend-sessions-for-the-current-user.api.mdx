@@ -1,11 +1,11 @@
 ---
 id: get-all-active-backend-sessions-for-the-current-user
 title: "Get all active backend sessions for the current user"
-description: "Returns live terminal sessions from the session manager. Used by the Active Connections panel and tab restore logic."
+description: "Returns live terminal sessions from the session manager, both sessions the caller owns and SSH sessions shared to the caller by another user (via an in-app session share). Used by the Active Connections panel and tab restore logic."
 sidebar_label: "Get all active backend sessions for the current user"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVNtu2zAM/RWBz27irbsAfstuXYfd0Av2EOSBlplYrSx5Eh00MPLvA2WnTZtuyNvyEkMkjyjynNNDRVEH07LxDgq4IO6Ci8qaNSmm0BiHVkWK0XgX1TL4RnFNuxPVoMMVhYm6jlSpcpOCM81S/t47R5pTYYuOrEJXKcZSBYrsAynrV0ZPIAPGVYRiDj9acuoKywiLDALF1rtIEYoeXua5/D3u9quJrPxS4XDhrk1B1N4xOZYabFtrNErN9CZKYQ9R19SgfPGmJSgAQ8ANZGCYmrh37ssb0gwZtMG3FNgM7YxXnVd7qZGDcSvYZlD7yI9CxjGtKOxi37GhZwsZy3MXGZ2mv0CbOI6V9uOl95bQSYIOhEzVjPfCrmtKuX38ZdAQ176CAlaU3oZcQwFT35I7YSzjdJjoyW6ikEGksKYgW+qhCxYKqJnbYjq1XqOVVxWneZ6/gOzJkr6hcapCxhIjJQpgxzU5HneiBmTYZv8EPj0Avrz8rLhzQqyBhg05PhLt1bNoS2NpR+kjgV4fAqU6FRnZRDY6pjc33hn2ssUjgd8cAH/AWJceQ3UkwttDBK9vKTw3rYUsWHfB8CZtuCQMFGad8GK+2A9finIGEewn3XNNWhG6pDShZkqCbPz45EODDAV8+XUFQkXjlj6VG7aSfyWmc6dmP88hA2Hc0Ho+ySf5wYPG5Heob8lVUqQuaEmBnCYRQ+sjN5gU75Lm4IxYobU7yyjHygeH8yF5mO5CkAF1MTX/6Nr+wV3+m2EOw2a642lr0STpJy70o5rncK9myOCpnheDEUla34swr4PdbuX4d0dBOLDIYI3BYClbmS/EuQgrCoket7SBAmZaUyv+sUbbJRN96rRCnHuvOfsoG/8DmSc8nA==
+api: eJzlVU2PGzcM/SsCTwkw/kjTD2BuTj/SLdKmiHfRw8YHjob2KKuRphTHG8Pwfy+osb3O2incc33xQHp8pKTHxy3UlCy7TlwMUMIHkp5DMt6tyQhx6wJ6kyglF0MyS46tkYYOK6bFgCviwlRRmiecQix6T2ziY0gGQ23m81+fAKlBptpIPIVWG4MhSkNs+kRsXqwdGgzGhRF23TFnjn05NneJao1RhpkVrfjHGAJZySk6DORzZsHKMCWJTMbHlbPjjwEKEFwlKO/hfUfB3GKVYFEAU+piSJSg3MI306n+fXlF71wSE5cGh5THI72IjyGnG842enTSjFp6OYYCbAxCQZQMu847i0o2+ZSUcQvJNtSifsmmIygBmXEDBTihNp2sx+oTWYECOo4dsbihzn0NN/UJNAm7sIJdAU1M8sWWC0Ir4sPeH9jSxUDB6iYkwWDpK9Qu7W+cTverGD1hUIBlQqF6JifboW+rIbtL7x/DfCj+cvxwl282d4k4XKyzgNB7j5UnKIV72hXQqW4z6Ttak78qJie6dMoz7P5XQEvSxBpKWFF+EpQGSpjEjsJIsEqTQSGjg0KggES8JlbVbaFnDyU0Il05mfho0etjlK+n0+krKJ6J7nd0wdQoWGGirDLspaEgeymZgRl2xb8Svz4j1q6UPmirDL3cUpAr2b69yLZ0ng6+cCXRd+dEOc4kQXFJnB0spI3BSdRnuZL4+zPinzA1VUSur2T44Zwh2gfi/3xbr84fdU7s0Bt7NK0j00KlYnt2sslaqQiZeNarwu4Xp9tztY7BBU5BRxVrKSq8DNPeyiAo9h+/RG5RoITf/roFFbULy5jDnaji4VZ76bOZ/XkDBah2h9Kn4+l4enagPfgN2gcKtQaZD7QkpmBJu7mLSVrMrT40M7wlMej9wUyrfeTTwIk8TIieWa9a58LztNsne/1/za/hhYU+y6Tz6LJhZgFu92Z0D0czggKe29FisH+FbbfqK3fsdztd/rsnVuEtClgju8H87hc6Lwhr4qzJB9pACTNrqVP7W6Pv8+h6Pt9UrUerfPuzyuwfn+zziA==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -37,7 +37,8 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns live terminal sessions from the session manager. Used by the Active Connections panel and tab restore logic.
+Returns live terminal sessions from the session manager, both sessions the caller owns and SSH sessions shared to the caller by another user (via an in-app session share). Used by the Active Connections panel and tab restore logic.
+
 
 <ParamsDetails>
   

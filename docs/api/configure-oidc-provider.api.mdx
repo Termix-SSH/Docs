@@ -5,7 +5,7 @@ description: "Creates or updates the OIDC provider configuration."
 sidebar_label: "Configure OIDC provider"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlE1v2zAMhv+KwLOWeEu7Ab51KYp1wNZiadFD4AMjM7FQW/IoOmhn+L8PUnxI42IIdrJhvXzEr9c9lBQM21asd5DDkgmFgvKsurZMr1KRuru9XqqW/d6WxMp4t7W7jjEGzUCD4C5AvobHQByg0MAUWu8CBch7+JRl8fH2okR8AxovLGcwaLjIFtOYn14UdlJ5tn9G3eV77Bu0NZVK/IhUR5fNYBg0NCSVLyGH1gcBDS1KBTnMu1jA3NvSfDjIQUMg3sey8nUPHdeQQyXS5vN57Q3WlQ+SL7Is+wj6JI0faJ0qUXCDgRS6MiVPTqw5FHwgw6D/CV5MwKvVNyWdc1SrBh3uqCEnZ9Iu3qVtbU0ji88EXU5BKU4FQbFBrAmp5sY7K56t250J/jwBX2OoNh65PJPwZUrw5pn4vW4VccCmYyuvacIbQia+6uI+rIvj45WpqDls9LGoB3ltaUwlrkuSQT6KQI8vN54bFMjh+9ND2kHrtj6FW6mj/oG4sS/q6v4WNMSNO6SezbJZNiloFH9F80yujEHqF22JyRmKvoh73aCLfIcpneXotRMzn5J7MN4JOfn/n8GhHUIvMm9rtC7mk6bVjz5bQ/IZaDh2WqEhTjAe9320zCPXwxA//+6I43QKDXtki5vYr3Vx7OP7u1Xs6l9GHaUF
+api: eJydlE1v2zAMhv+KwLOWuEu7Ab51KYp1wNZiadFD4AMjM7FQW/IoOmhn+L8Psn1I4mLIdrJgkQ8/X7WQUzBsa7HeQQpLJhQKyrNq6rw/SkHq/u5mqWr2e5sTK+Pd1u4axug0Aw2CuwDpGp4CcYBMA1OovQsUIG3hY5LEz3GgnngEGgPmM+g0XCaLqc8PLwobKTzb36Pd1XvsW7Ql5Ur8iFQHwWbQdRoqksLnkELtg4CGGqWAFOZNLGDubW4+DOagIRDvY1npuoWGS0ihEKnT+bz0BsvCB0kXSZJcgD5J4ztap3IU3GAghS7vkycn1gwFD2To9F/Biwl4tfqqpHGOSlWhwx1V5ORM2uW7tK0taWTxmaCrKaj3U0FQbBBrQl9z5Z0Vz9btzgR/moBvMBQbj5yfSfg8JXjzQvzP3bqYDnVFbLGMy+TIHE0xi6tiGrby1u/KhpCJr5u4Wevs8HplCqoGbRwatSBvNY2pxMXrzSAdjUCPh1vPFQqk8O35sd9m67a+d7dSRvtH4sq+quuHO9AQd3dIPZkls2RS0Gj8Bc0LuTw6qZ+0JSZnKCosKqRCF/kO+3SWo2pPnoVTcgvGOyEn//+sDO0QepV5XaJ1MZ9+Wu2o2DX0igUNh5rNNMQJxuu2jeJ74rLr4u9fDXGcTqZhj2xxE/u1zg5fhIf7VezqHy0fvoc=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Creates or updates the OIDC provider configuration.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./configure-oidc-provider.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"OIDC configuration updated."},"403":{"description":"Not authorized."},"500":{"description":"Failed to update OIDC config."}}}
+  {...require("./configure-oidc-provider.StatusCodes.json")}
 >
   
 </StatusCodes>

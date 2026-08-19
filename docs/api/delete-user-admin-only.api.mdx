@@ -5,7 +5,7 @@ description: "Allows an admin to delete another user and all related data."
 sidebar_label: "Delete user (admin only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVFFP2zAQ/ivWPW1SaLsBm5Q3GEXbtE3TKNpD1YdrfG0Mjh3sC9BF/e/TOQEKLVOl5aFN7M+fv7vv7lrQFItgajbeQQ4n1vq7qNAp1JVxir3SZIlJofNcUlBNpKDQaYXWqkAWmbTSyDiADBiXEfIpXEYKEWYZBLppKPKp1yvI2/RpAmnIOTSUQeEdk2PZwrq2pkDRMbyKIqaFWJRUobzxqibIwc+vqGDIoA6+psCGouyKJocVbSAjB+OWsE6P6Ii1d7GDvx+N5O955CK5j1Wr2BQFxbhorF0NYJ3B0WtH5FplonqITPmgCnTO80PiVr4Jkeyi5znc5vnhWWHDpQ/mzy4Gi5E7P3qOo1fky5mFb5xOuONdms/RWNIbvkruBiA5qohLryGHbkeyjFxCDkPBxGG3fCAfkEGkcCsm59MWmmAhh5K5zodD6wu0pY+cH45Go3eQvVDwHY1LBTPHSF0lNVyS49591THDOvsn8eEW8cXFZ8WNc2RVhQ6XVJHjPdmOdrItjKWeK+xJdLxNlM6pyMgmsiliirnyzrCXGt2T+MMW8RnGcu4x6D0ZPm4z+OKawq5szcTgogmGV8nhOWGgcNJIPUxnm9sX0qNdX22CHhtRpEi5JBjkPQiy/uXchwoZcvj6e5KqUHr/19PUGN9jVVt63uWP3Z2BcQufbjMsKJhQqMy9Ovn5BTKQAu0iHQ1Gg9FW/D34FItrcloOqV+0oECuICGvfeQK0yjqLz57ahr1phuR3tnV25fU7dNo+++Z2uWR6Z6HtUXjRFmyue0bdJpSE5OGpxadZSDWy3bbSq9dBrtey/JNQ0FsnWVwi8HgXDI3na0zKAk1heT4Na0gh09dFAcTESFw24iYrWEtFfE4P87G38aTsVjcj/3KazkV8A6y9JsDZOBTrlLlpLUWLLplg0vBdqzy/AXEhUjb
+api: eJylVcFO20AQ/ZXVnFrJJKZAK/kGJait2qpqgnqIcpjYk3hhvWt2x0Bq5d+rWRsSCFSp6kNie2ffvpn3ZtxCQSH3umbtLGRwaoy7CwqtwqLSVrFTBRliUmgdl+RVE8grtIVCY5Qng0yFKpBxAAkwLgNkU7gM5APMEvB001DgM1esIGvjo/ZUQMa+oQRyZ5ksyxLWtdE5Co/hVRAyLYS8pArljlc1QQZufkU5QwK1dzV51hRkVThZrGgrMrDXdgnreAmPUDsbuvB3aSp/TzMXyn2uhQpNnlMIi8aY1QDWCRy/tkWOVTqoh8yU8ypHax0/FG7lGh/ILHqco12c744VNlw6r3+/hGAwcKdHj3H8Cn3Zs3CNLWLcyUucL1AbKrZ0ldoNQGpUEZeugAy6FakycgkZDCUmDLvXB/IACQTytyJyNm2h8QYyKJnrbDg0LkdTusDZUZqmh5A8Y/ANtY2GmWOgzkkNl2S5V191yLBO/gp8tAM8Hn9S3FhLRlVocUkVWd4T7fhFtIU21GP5PYFOdoHiPhUYWQfWeYg5V85qduLRPYHf7wCfYyjnDn2xJ8KHXQSXX5P/52od7oo6Jq/RqNxZS/kTFWdilbzxmlfRK3NCT/60EWdNZ9vLY+n2rkO3gx5bWqiI8WIYZH0QJP3NhfMVMmTw5dck+lmmyM/N/BndY1UbejovHudEAtouXDxNs0TBhHyl79Xpj8+QgFi9yzQdpIN0J/8++Azza7KFbFI/aUGebE4CXrvAFcah1h98vmk/9aYbts6a1dvn0O1mSP73dO7qyHTPw9qgtsIsytz2rT6NpQmRw6bZZwmI9LLcttK1l96s1/L6piEvss4SuEWvcS6Vm87WCZSEBfmo+DWtIIOPXRYHEyEh4aYRMjtjXxzxOInOR19Hk5FI3H9AKlfILo93kMTfDCABF2sVnRPftWDQLhtcSmyHKtcfSA1iXQ==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Allows an admin to delete another user and all related data.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"}}}}}}}
+  {...require("./delete-user-admin-only.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"User deleted successfully."},"400":{"description":"Username is required or cannot delete yourself."},"403":{"description":"Not authorized or cannot delete last admin."},"404":{"description":"User not found."},"500":{"description":"Failed to delete user."}}}
+  {...require("./delete-user-admin-only.StatusCodes.json")}
 >
   
 </StatusCodes>

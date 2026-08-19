@@ -5,7 +5,7 @@ description: "Moves a file or directory on the remote host."
 sidebar_label: "Move a file or directory"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVcFu2zAM/RWBZy/J1nYbfGu3FeuAAkGbYocgGBiJidXakivRaQMj/z5QdtOsyYbMh8SWHp+px0e6BUNRB1uz9Q5yuPYrigrVwpakfFDGBtLsw1p5p7ggFajyTKrwkQeQAeMyQj6FS8Ffo8MlBZhlEOixocgX3qwhb9OjDWQg59BQBto7JseyhXVdWo3y/uF9lCRaiLqgCuWO1zVBDn5+T5ohgzr4mgJbiglHMVrvrswONHKwbgmbDHxpxsjFwT1HT3/ZS5ccINbexe49H0Yj+ftTqiumSlV+RUbFRmuKcdGU5Xog9KeHAq5tjNYt1YsYqsaAFTGFKFLf3n5X2jtHWvDKeVYUGeeljQWZnvZkn3ZMobJJB2XI2S3084EM/IqUCJjkVmwrMso3nCLODuV8ibYko9inkyrLVA1A9KmIC28gh7pJdUliwjDGYije+VV1XkgLEipqQQaRwoqCWKaFJpSQQ8Fc58Nh6TWW4qr8ZDQavYfsbeponTLIOMdICp1R2HBBjnvvqI4ZNtk/iU/2iEV2bpyjUnU5V+T4SLbTg2ypd/rzH0l0tk+U4lRkZBvZ6pjOXHln2YtRjyT+uEf8FWMx9xjMkQyf9hm8fqBwSK2ZFFg3wfI6VXhOGCicN+KN6Wx3+1Y6vGuuXdC2GyUVsUuCQd6DIOtvLn2okCGHHz8nyY4yOW5eZ863Z6zqkt7MiJce3xkNr0vbibAzJaxb+JSUZSGDibTaszofX0EG4uNOkNFgNBjtydSDL1A/kDMSpG5oQYGcJiGvfeQK07xzmA6Z2vPA7H1L3b7Oz/8f2J2+TM88rEu0TlJJ5W/7Jp5CjAVksNvGUoq0uG3lWQZCKfC2lZ68C+VmI8uPDQUp/yyDFQaLc5FuOttkUBAaCskZD7SGHL50x3g3kaQEXjaS3N4nQZyzHTjju4n4oP+yVN5ISMAnyNJvDlLfpFSyV1proUS3bHAp2I5Srt8U0mfP
+api: eJyVVVFv2jAQ/ivWPWdA13ab8tZuq9ZJlVCh2gNC0xEfxK1jp/aFFkX89+kcSllhE80DJPbdl7vP331pQVMsgqnZeAc53PglRYVqbiwpH5Q2gQr2YaW8U1ySClR5JlX6yD3IgHERIZ/AlcTfoMMFBZhmEOixociXXq8gb9OjCaQh59BQBoV3TI5lC+vamgLl/f37KEW0EIuSKpQ7XtUEOfjZPRUMGdTB1xTYUExxFKPx7lrvhEYOxi1gnYG3eohcHtxz9PSPvXRJA7H2Lnbv+TgYyN/fVF0zVaryS9IqNkVBMc4ba1c9gT87lHBjYjRuoV7IUDUGrIgpRKF6NPqhCu8cFRKvnGdFkXFmTSxJb2BP92GHFCqTeFCanNmGfjlQgV+SEgIT3YpNRVr5hlPG+aGar9BY0op96lQZpqoHwk9FXHoNOdRNOpdEJvRjLPuind9Vp4W0IKnCFmQQKSwpiGRaaIKFHErmOu/3rS/Qiqry08FgcALZ29LROKWRcYaRFDqtsOGSHG+0ozpkWGf/BT7dAxbauXGOrOpqrsjxkWhnB9HS7Gz6PxLofB8o5anIyCayKWLqufLOsBehHgn8aQ/4G8Zy5jHoIxE+7yP44oHCu9k62T/UEQWDdlf1L0hTkUrRBMOrpJUZYaBw0YjKJtPd7ZF4RTemu0HbuZZSRHgpDPJNEGSbmysfKmTI4eevcRK2eNDtq3t9f8aqtvTGbV7cYsdkXpe23rLjN8bNfSrKsIDBWIb2WV0MryEDmYiOkEFv0Bvs0bQJvsTigZyWJHVLcwrkChLw2keuMDmnw9RkGvQDLv4Wun114vdbf8cv0zP3a4vGSSnp+NuNHUwgxhIy2DUEOYq0uDWFaQYCKeFtK9N9F+x6LcuPDQU5/mkGSwwGZ0LdZLrOoCTUFJIyHmgFOXzt2vgwlqIk3DZS3N7HRZSzta7h3Vh0sPlGVV5LSsAnyNJvDnK+iakkr7TWgkW3aHAhsR2kXH8AsFqBUQ==
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Moves a file or directory on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"oldPath":{"type":"string"},"newPath":{"type":"string"}}}}}}}
+  {...require("./move-a-file-or-directory.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Item moved successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"403":{"description":"Permission denied."},"408":{"description":"Move operation timed out."},"500":{"description":"Failed to move item."}}}
+  {...require("./move-a-file-or-directory.StatusCodes.json")}
 >
   
 </StatusCodes>

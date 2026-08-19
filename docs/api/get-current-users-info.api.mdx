@@ -5,7 +5,7 @@ description: "Retrieves information about the currently authenticated user."
 sidebar_label: "Get current user's info"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1r20AQ/SvLXHoRttIkLewtpU3qQqHECT0YH8bS2Foizaq7IxMj9N/LrFxwI1N86EnL6s2br/e2h5JiEVwrzjNYeCQJjvYUjeOtDw3qvcGN78RIRaboQiCW+mCwk4pYXIFCpekihRlkILiLYFfwHClEWGcQKLaeI0WwPbzPc/38nVKhp9lmMGRwk19NkQveY+3GZIvS+JBOhr2Yre+4TJG353Lco6upNOLNjiRFMTY0g2HIoCGpfAkWdiSQQYtSgYW5guK8IcggUthrO3bVQxdqsFCJtHY+r32BdeWj2Os8z68ge5P2Ozo2JQpuMJJBLk+npoMdmWHI/kl8PSFeLr8a6ZipNg0y7qghlgvZbs6ybV1NR65wIdHtlCjFmSgoLoorYuq58ezEB8e7C4k/TIg/Y6w2HkN5IcPHKYMvXiicm9ZaF1x0wckhbXhDGCjcdSqD1fr097KoqBmVfArqQQ4tHUtRuSQY2CMIsuPhPikcLHz7+ZSUp6JP4U5qxT9RaNyrufuxgAxUcWPp+Syf5ZOGjuBPWLwQlxpkHmlLgbgg9UHrozTIyq9aBwsPJH/8myzwbjT5W+YeCs9CLP/jORgHI/Qq87ZGx1pZ2lt/NNoKktFAfajvha5Qb/tePfMc6mHQ618dBV3POoM9BocbHdhqfWrfhy861d8Weqh6
+api: eJytlFFr20AMx7/KoZe9mMRZ2w381rG1y2AwmpY9hDwoZyU+auu8Ozm0GH/3oXMGaV1GBnuKufz1052kv3ooKdrgWnGeoYA7kuDoQNE43vnQoJ4b3PpOjFRkbBcCsdTPBjupiMVZFCpNFynMIAPBfYRiDQ+RQoRNBoFi6zlShKKH93muPy9TqvQ02wyGDC7zxVS55APWbky2LI0P6cuwF7PzHZcp8uqtHDfoaiqNeLMnSVGMDc1gGDJoSCpfQgF7EsigRamggLmK4rwhyCBSOOhzinUPXaihgEqkLebz2lusKx+luMjzfAHZq7Tf0bEpUXCLkQxyeVo1LexIhiH7K/hiAl6tvhrpmKk2DTLuqSGWM2mXb9J2rqYjK5wJupqCUpyJguKiOBvTmxvPTnxwvD8T/GEC/oyx2noM5ZmEj1OCt48U/rlai2lTVxQc1sZ6ZrIvurjRUbFdcPKcZmVLGChcdzpQ683p3ytbUTN64lTUgzy3dLyKDl6SQXEUQXb8uElegQK+/bxPM6z2SeFOatXfU2jck7n+sYQMdHbHq+ezfJZPHnQUf0L7SFxqkLmjHQViS+qo1kdpkJWvroECbkn+bIJkpnfjunhN7sF6FmL5H4tlLIzQk8zbGh3rzVLf+qNl15AsC+po3TzaQj3te3XfQ6iHQY9/dRS0PZsMDhgcbrVg683pIrj9olX9Dacqwfw=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Retrieves information about the currently authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-current-users-info.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"User information."},"401":{"description":"Invalid userId or user not found."},"500":{"description":"Failed to get username."}}}
+  {...require("./get-current-users-info.StatusCodes.json")}
 >
   
 </StatusCodes>

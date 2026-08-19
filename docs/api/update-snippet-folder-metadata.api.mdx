@@ -5,7 +5,7 @@ description: "Updates the metadata (color, icon) of a snippet folder."
 sidebar_label: "Update snippet folder metadata"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVUtv2zAM/isCTyugJdnaboBv7bZiHTCgaFrsUOTAWEysVpZciW4bGPnvA22njzgrAswX2yL58flRDRhKebQV2+Ahg+vKIFNSXJAqidEgo/qQBxeiVjYP/kCFhUKVvK0qYrUIzlAcgQbGZYLsBqadJMFMQ4URS2KKImnAiocKuQANHkuCrHtpiHRf20gGMo41aUh5QSVC1gCvKtFLHK1fwno965Qp8WkwK9HYts2DZ/IsIqwqZ3OU3Ma3SRJshtBhfks5g4YqhooiW0oibXPeEYEGKcOu0OSR6FIVfOpAPk8m8npb4+mb2r2UuW5rb1Sq85xSWtTOrUbi8GgXyrl/QGeN6qvRKx4NFc86Nz6Ix9qbVvN4F+QZWkdGcehD2eryc6QjkERL4iIY6WjdVk/6msG4t0njziiNG+nxerwxBg2J4sNmJuroIIOCucrGYxdydEVInB1OJpNPoLcC/I3WKwGZYyKF3iisuSDPfZNVhwxr/S7w4QB4Ov2puPaenCrR45JK8rwn2tFOtIV11GPFPYGOh0CtnUqMbBPbPLU5l8FbDjJ0ewJ/GQB/x1TMA0azJ8LXIULI72QkhtWaSYPzOlpetR2eE0aKJ7WMx83stXgqVOyI8lrpmVkSCvTLQP47JdD9x1mIJTJk8OvPVTuRQvHLl+Xw4wnLytErMm+4uuHwa1L7RWhdWxYTuKJY2id1cnEOGmRau7Qno8loMihGr3yK+R15I0bqkhYUyeck4FVIXGK7NPq9d/0uwbYdNC9L7X82dFdVpiceVw6tl9Dapjc9e29gw17Q0PMXNGT9ln4Ob6ZBRkMMmka4eB3dei3H9zVFaftMwwNGi3Mp5k0Dxib5NpAt0CV6J78Pl/0+P1D/irk/RL+S3qCr5Q803NFqc6WsZ2sNBaGh2PrvRN86Lx+vBODFdHBNyJA+r7eL6ysZuf62KYMRk4iPcm3hY+c5tIm0k9yeNeDQL2tcim4HKc9f4U+NEw==
+api: eJylVUtv2zAM/isCTxugJdnaboBv3aNYBwwYmhY7FDkwEhNrlSVPotsGRv77QNvpy1nRYb7YFsmP708tWMomuZpdDFDARW2RKSsuSVXEaJFRvTLRx6SVMzG8VnGlUOXg6ppYraK3lCaggXGdobiEeS/JsNBQY8KKmJJIWnDioUYuQUPAiqDoXxoS/W5cIgsFp4Y0ZFNShVC0wJta9DInF9aw3S56Zcr8MdqNaDy1NTEwBRYR1rV3BiW36a8sCbZj6Lj8RYZBQ51iTYkdZZF2Oe+JQIOUYV9o8kh0uY4h9yDvZjN5Pa7x/FHt7svcdLW3KjfGUM6rxvvNRBwe7kM5DdfonVVDNQbFw7HiSe8mRPHYBNtpHu2DPEHnySqOQyhPunwX6QQk0Yq4jFY62nTVk74WMB1s8rQ3ytNWeryd7oxBQ6Z0vZuJJnkooGSui+nUR4O+jJmLg9ls9hb0kwC/owtKQJaYSWGwChsuKfDQZNUjw1Y/C3wwAp7PvypuQiCvKgy4pooCvxDtcC/aynkasNILgY7GQJ2dyozsMjuTu5yrGBxHGboXAr8fAX/GXC4jJvtChA9jhGiuZCT+sVpvx02dU3LolYkhkHnUxYWMimmS4003K0vCROm4kUG7XDwUz2Wp+5V7qHS3oxIKDLQi/70S6OHjJKYKGQr49vO8m20hi7N7mvlyi1Xt6QEt7LZ+xwYP6SGsYufasZjAOaXK3arjH6egQea+T3s2mU1mo2IMyh/RXFGwYqTOaEWJgiEBr2PmCjv6GRj04tlVfeqgvafH/+H6vqpMtzytPbogoXVNbwceuIQdD4CGgQlAQzHw/V14Cw0yGmLQtrLVF8lvt3L8u6EkbV9ouMbkcCnFvGzBuizfFooV+kzP5PfqbLgZXqu/xTwcYthIb9A38gcarmizu5y2i62GktBS6vz3ok+9lzfnAnBvOrpwZEjviPLHxbmM3HBvVdGKScIbuQDxpvccu0S6Se7OWvAY1g2uRbeHlOcPpAumlQ==
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Updates the metadata (color, icon) of a snippet folder.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+  {...require("./update-snippet-folder-metadata.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"color":{"type":"string"},"icon":{"type":"string"}}}}}}}
+  {...require("./update-snippet-folder-metadata.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Snippet folder metadata updated successfully."},"400":{"description":"Invalid request."},"404":{"description":"Folder not found."},"500":{"description":"Failed to update snippet folder metadata."}}}
+  {...require("./update-snippet-folder-metadata.StatusCodes.json")}
 >
   
 </StatusCodes>

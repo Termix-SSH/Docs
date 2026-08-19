@@ -5,7 +5,7 @@ description: "Deletes a specific snippet by its ID."
 sidebar_label: "Delete a snippet"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVlE1r20AQhv/KMqcWFlttkhZ0S3FCU1oocUoPxoexdmQtWe0qu6MQI/Tfy0hySWMnuCdLmncfvztfHRhKRbQN2+AhhwU5YkoKVWqosKUtVPK2aYjVZqcsJ3WzmIEGxm2CfAXLMZhgraHBiDUxRYl0YIXXIFegwWNNkIM1oCHSQ2sjGcg5tqQhFRXVCHkHvGsGlWfaUoS+X4s6NcEnSiL4mGXy86/lyYIyg3WjUlsUlFLZOrebQa/h/NipG/+IzholbijxJDx/He8DqzK03gzSi2PMa7SOjOIwedmnbgZ9r6EmroKBHMYg6DE5OcwnWZp31vSgIVF83GexjQ5yqJibfD53oUBXhcT5WZZlH0C/MPADrVcGGTeYSKE3CluuyLMtUCRqJEOv3wSfHYCXy6+KW+/JqRo9bqkmzyfSzo/SSutoYsUTQReHoOGcSoxsE9siDXeug7ccovXbE8GfDsALTNUmYDQnEj4fEkJxT/FYttZS4KKNlndDhTeEkeJlK72wWj8PL2Uyxs5/Lvo7KGIFpgGS91EEenq4DrFGhhy+/b4bOtD6MgzHLTvR31Gs7ZO6/HkDGqTjRuvZLJtlBxeaxF+wuCdv5JC6pZIi+YJkIpqQuEYv/Gnax10iq2Ts75fIDorgmTz/z94Zb870xPPGofXy10NhummcVrAfJ9CQWyObSeokka6TwfgVXd/L54eWotRgreERo8WNZGXVgbFJng3kJbpEb9h+dzsts/fqNXPTR/Q7STK6Vt5Awz3txo3Yr58vh8XV96u7K+j7P1/p51M=
+api: eJyVVFFP2zAQ/ivWPW2S1YYBm5Q3poLGtEkTZeKh6sPVvrYWjh3sC6KK8t+nS8IEFFB5iu37/OXz3X3XgqVskqvZxQAlzMgTU1aock3GrZ1RObi6JlarnXKc1eVsAhoYNxnKBcyHYIalhhoTVsSUJNKCE74aeQsaAlYEJTgLGhLdNS6RhZJTQxqy2VKFULbAu7pHBaYNJei6paBzHUOmLIAvRSGf55JHCcr20q3KjTGU87rxfjeBTsPJa7cuwz16Z5Woocwj8ORt+hBZrWMTbA89fY3zAp0nqziOWh5TN4Gu01ARb6OFEoYg6CE5JUxHWJ62znagIVO6f8xikzyUsGWuy+nUR4N+GzOXx0VRHIF+IeA3uqAsMq4wk8JgFTa8pcDOoEDUwAydfpf4eI94Pv+huAmBvKow4IYqCnwg28mrbGvnaeRKBxKd7hP191RmZJfZmdy/uYrBcUwubA4k/rpHPMO8XUVM9kCGb/sM0dxS+nC2jvaLOqfk0CsTQyDzrIpLaRXTJMe7vldWhInSWSNdtVg+Dc/FY4OHnoL+W06kwGhF2Q8g0OPiIqYKGUr4eXPd97IL69hfd+wFf02pcg/q7M8laJDeHaQXk2JS7D1oBH9Hc0vByiV1RWtKFAyJt+qYucIg/OPcGKaSDKXBKS8pWzAxMAX+yAQbXs70wNPaowvy674w7WjMBTwaEzSUzsqMkzpJpG3FYn+T7zo5vmsoSQ2WGu4xOVxJVhYtWJdlbaFco8/0juxPV+NY/KzeEjceYthJktE3sgMNt7QbZmu3fDpmZue/zq/Poev+AWEDAOQ=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Deletes a specific snippet by its ID.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+  {...require("./delete-a-snippet.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-a-snippet.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Snippet deleted successfully."},"400":{"description":"Invalid request."},"404":{"description":"Snippet not found."},"500":{"description":"Failed to delete snippet."}}}
+  {...require("./delete-a-snippet.StatusCodes.json")}
 >
   
 </StatusCodes>

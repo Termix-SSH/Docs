@@ -1,11 +1,11 @@
 ---
 id: update-folder-metadata
 title: "Update folder metadata"
-description: "Updates the metadata (color, icon) of a folder."
+description: "Updates the metadata (color, icon, assigned credential) of a folder."
 sidebar_label: "Update folder metadata"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVMFu2kAQ/ZXVnFppC7RJWsm3pG2UVqoUBVAPiMNgD3iT9a6zO06DLP69mrUDNKAI1QewvTNvn9+8ty0UFPNgajbeQQbTukCmqLgkVRFjgYzqXe6tD1qZ3Lv3yi8VqqW3BYUBaGBcRchmMB7fwFxDoMeGIl/5Yg1Zmx5NoAIyDg1pyL1jcixLWNfW5CgbD++j7N5CzEuqUO54XRNk4Bf3lDNoqIOvKbChKKsOK9qrihyMW8FG8K0PR1eE/JGFdAntWHsXO/RPo5H8/avMdfrinShNUqpQsclzinHZWLseyEbnb3QLb2WiepElNVwcbUBjqVDs+416xbf7D0BoV8SlLyCDukkiIZeQwTDGctjVx+FLA2iIFJ4oyLRaaIKFDErmOhsOrc/Rlj5ydjYajT6CfkXmFxqnBGSBkRS6QmHDJTnu56c6ZNjoN4HPDoDH4xvFjXNkVYUOV1SR4xPRzo+iLY2lHiucCHRxCJT6VGRkE9nkMX1z5Z1hL7Y5EfjzAfA3jOXCYyhORPhyiODzB7HBoVpzGXDeBMPrNOEFYaBw2YglZvP95bGkrLP6ftE2G0JF7JLKIOuLQPc31z5UyJDBz9+T5EJJ790u99+fsaot7XL6ErZtPHcvulTux9QtfaJiWCBgQqEyz+ry9gdoEPd2MowGo8HoQJy++ArzB3KFNKk7WlIgl5OA1z5yhW6P2fRouF4Dt7tz639OyE5Vpmce1haNEypp6G2f2BnEWIKGPrOQgt0xmWsQN0hN20r8psFuNvL6saEgk55reMJgcCF6zeYbDSVhQSGZ4IHWkMHXjv2HiTCRctsIo4MTWEyyPVJupxMZeX+QV76QloB/QKffDECDTwIlJ6V3LVh0qwZXUttByvUXmJMw8g==
+api: eJytVV2P0zoQ/SvWPHEl04ZvKW9w70WAhITornio+jC1p41Zxw72BLaK+t/RONm2Syu0SOShTeyZkzPjMycDWMomuY5dDFDDdWeRKStuSLXEaJFRPTLRx6SVMzFohTm7bSCrTCJLgR36f1TcKFSb6C2lGWhg3Gaol7BYvIOVhkTfesr8Jtod1EN5dIks1Jx60mBiYAosW9h13hkUNvOvWSgNkE1DLcod7zqCGuL6KxkGDV2KHSV2lGU3YEsnUZmTC1vYC76P6eKOVHQ55VDbe3sS4ALTlhJoCL33uPY01rAvlxSauxjyyOdpVcnf/Qa/LT069rYvDbcq98ZQzpve+91MGDz/TbZUqlxWd40sCS8uJqDzZBXH6UXTGR3ePwOh3RI30UINXV/aitxADfMmZp6PCXl+lwEaMqXvlOSAB+iThxoa5q6ez3006CWrflZV1RPQv7D5iC4oAVljJoXBKuy5kT6PR65GZNjr3wI/OwNeLN4p7kMgr1oMuKWWAj8Q7flFtI3zNGGlBwK9OAcqeSozssvsTC41tzE4jqK0BwK/PAP+D3OzjpjsAxFenSNEcyM6+MNuPTk/1AUlh16ZGAKZe6e4EqmYPjneFa2sCROl172oa7k63V7IiI9Tcxp0mDuhIsIrYVBPQaCnm7cxtchQw4cvV0XQYh2fj6bz/y22naejSdxN+sEbjgujJZwE3HOCSkwjbGLh5lgw4YpS627V60/vQYMMxtiXalbNqrNuTcFv0NxQsJKkPtOGEgVDMsVdzNxiOKF6fXFwfwUeji7610x87D3TLc87jy4IvyKNYbKIJYguQMNkElCsZOS30uNmvYRhkHm/Tn6/l+VvPSURxErDd0xudNHlaq+hIbSUilZuaAc1/DvW9PhKqEi474XS2VdCtHQwsU/XV6KM6WPTRispCX+ALr81gIZY2lYEV9YG8Bi2PW4ldoSU6yfR6nI1
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"put"}
-  path={"/ssh/folders/metadata"}
+  path={"/host/folders/metadata"}
   context={"endpoint"}
 >
   
@@ -36,33 +37,28 @@ import Heading from "@theme/Heading";
 
 
 
-Updates the metadata (color, icon) of a folder.
+Updates the metadata (color, icon, assigned credential) of a folder.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"color":{"type":"string"},"icon":{"type":"string"}}}}}}}
+  {...require("./update-folder-metadata.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Folder metadata updated successfully."},"400":{"description":"Folder name is required."},"500":{"description":"Failed to update folder metadata."}}}
+  {...require("./update-folder-metadata.StatusCodes.json")}
 >
   
 </StatusCodes>

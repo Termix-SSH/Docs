@@ -5,7 +5,7 @@ description: "Clears all recent activity for the authenticated user."
 sidebar_label: "Reset recent activity"
 hide_title: true
 hide_table_of_contents: true
-api: eJyllFGL2zAMx7+K0bNpc7u7DfJ22/XYxgajvbGHkgfVURtzjp3JSmkJ+e7DaW7r2jIKe0qIpZ9k6f9PByVFw7YRGzzk8MERclTonGIy5EWhEbu1slfrwEoqUthKRV6sQaFStZF4AhoENxHyJTxirFYBuYRCA1Nsgo8UIe/gTZalx9/15idFTKpP5QR6DXfZzXnCgmK0wSvaNfY18P4S+Qmto1JJUEyR/pSYQN9rqEmqUEIOJTkSAg0NSgU5TF/jpkMaaIjEW+J0uQ5adpBDJdLk06kLBl0VouS3WZbdgD7p4Ctar0oUXGEkhb48Hl26w4EMvf4n+PYMvFh8VNJ6T07V6HFDdZrhdbS7i7S1dTSy+ErQ/TloyFNRUGwUa+Jw5zp4K4Gt31wJfnsG/q2pKwnvzgnBvBBfmlaRFmxatrIfNrxK+uOHNolhWRwfL0xF9UHKx0EdyL6hsZUklyEM8jEI9PjyFLhGgRw+/3geJGj9OgzpVlyKfyau7U49fPsEGpLiDq1nk2ySnV1oDH6P5oV8mZLUnNbE5A0lSzQhSo0+8T0O7cwHF5yY+pTbgQleyMt//QoO8xDaybRxaH1qaFhXN7psCUcNHHxWaEj7S2ddlwzznV3fp88/W+K0m0LDFtniKk1rWRyb+HH2ZfY8g77/BUhip0E=
+api: eJyllE2P0zAQhv+KNeeoTdldkHJb2K4AgYTaIg5VDlNn2ljr2GE8qVpF+e/IaRa6zQoVcYoVzzzz9Y5bKChoNrUY7yCDD5aQg0JrFZMmJwq1mL2Ro9p6VlKSwkZKcmI0ChWqCcQTSEBwFyBbwwOGcuORC8gTYAq1d4ECZC28SdP4eRlvcRFEx/hUTKBL4DadjR2WFILxTtGhNs+Gd6+RH9FYKpR4xRToT4gJdF0CFUnpC8igIEtCkECNUkIG02e7ae8GCQTiPXEsroWGLWRQitTZdGq9Rlv6INlNmqYzSC4y+IrGqQIFNxhIoSvOWxdrOJGhS/4KvhmBl8uPShrnyKoKHe6oij28jnb7Km1rLA0svhJ0Nwb1fioIiglidOhrrrwz4tm43ZXgtyPwb01dSXg3Jnj9RPzP3ZqNh7okNmiV9s6RfjHFPEpFN2zk2GtlE5XM902U1To/v17qkqrTUpwbtSDHmoZUovB6M8gGI0iGw6PnCgUy+Pxj1YvZuK3v3Y3YaL8irsxB3X/7BAlE7Z5STyfpJB0VNBi/R/1ErohOakFbYnKa4nLVPkiFLvId9uks+n26eB4uuS1o74Sc/NejcuqH0EGmtUXjYkL9uNphX9dwlsBpY/ME4vziXdvG1fvOtuvi758NcZxNnsAe2eAmdmudnz8HD/Mv89Ucuu4Xn4zAww==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Clears all recent activity for the authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./reset-recent-activity.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Recent activity cleared."},"401":{"description":"Session expired."},"500":{"description":"Failed to reset activity."}}}
+  {...require("./reset-recent-activity.StatusCodes.json")}
 >
   
 </StatusCodes>

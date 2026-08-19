@@ -1,11 +1,11 @@
 ---
 id: keep-ssh-session-alive
 title: "Keep SSH session alive"
-description: "Keeps an active SSH session alive."
+description: "Keeps an active SSH session for file manager alive."
 sidebar_label: "Keep SSH session alive"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVMFu2zAM/RWBZy3x1m4DdGvXDeuGYUWTYYcgB8ZmYjW25Ep01sDIvw+UvbSriyI+2LL99EQ+8rGDgmIebMPWOzDwnaiJCp3CnO2O1Gz2VUWK0XqnsLI7moAGxk0Es4Arn28pwFJDoPuWIl/6Yg+mS682UAGGQ0sacu+YHMsvbJrK5ijHTe+inNlBzEuqUVa8bwgM+NUd5QwamuAbCmwpJlwfyHXxBBo5WLeBQ7okkNh4F3v8uyyTx/8ZzoZstkRNykjFNs8pxnVbTeCg4fy1XddXykb1Lz/lw1Ed51mtfeuKCUggNXHpCzDQ+JgyQS7BwLRImk1jLKfHCEBDpLCjIKp20IYKDJTMjZlOK59jVfrI5izLsregnwX2A61TBTKuMJJCVyhsuSTHg8iqZ4aDfpX4bEQslefWOapUjQ43VJPjE9nOX2Rb24oGrnAi0fsxUdqnIiPbyDaPKefaO8teOuFE4g8j4iuM5cpjKE5k+DhmSKV9Sa2lFDhvg+V9qvCKMFC4aKUlFsunv2dihb57n4KO7S6hSLskGJgBBHpYfPGhRgYD337PUxuKxW4fzfn5AeumomdmOppIg3Vrn46zLDCYU6jtg7q4uQYN0qF9qtkkm2QjAQbwJeZbcoVsUre0pkAuJyEXK9SYLO8whS/jZjxjnhN3jwPkxAHVi8X0wNOmQuvk9FTLbjDiAnojipaxBA2PZlxqkCILpuvEVb9CdTjI5/uWghRwqWGHweJKJFosDxpKwoJCqu2W9mDgUx/wm7lEIvCqlYhG009qfxwVNz9ncynlMEVrX8iegH9Ap7sB0OCTKKlD0rcOKnSbFjeC7Tnl+gvyKAK4
+api: eJydVGFv2jAQ/SvWffaArt0m5Vu7rlo3VatGp31AaDqcg7gkdmpfWFHEf5/OSSmUqWLLBwj28+Pd+b1rIadogq3ZegcZfCWqo0Kn0LBdkRqPP6tIMVrv1NwHNbclqQodLigoLO2KBqCBcREhm8CV7N50uzDVEOihocgXPl9D1qafNlAOGYeGNBjvmBzLFtZ1aQ2KiuF9FCktRFNQhfLG65ogAz+7J8OgoQ6+psCWYsJ1+q7zHWjkYN0CNukRIbH2Lnb4t6ORfO0XPu6LXBLVqS4VG2MoxnlTDmCj4ey1U9eXykb1VJ/yYds051nNfePyAYiQirjwOWRQ+5gqQS4gg2GMxVB6+6vvbVrYagENkcKKgnS5hSaUkEHBXGfDYekNloWPnJ2ORqMT0C8k3qB1KkfGGUZS6HKFDRfkuG+36phho18lPj0gFmtw4xyVvSEqcnwk29lf2fbMdRzRu0OidE5FRraRrYmp5so7y148cSTx+wPiS4zFzGPIj2T4cMjgzZLCP3fr5PBSxxQslsp458js3eJUrGKaYHmdvDIjDBTOG7HZZLq7PZZ4dYnYBW0jJFLEeAkGWQ8C3b9c+VAhQwZfft4la0tsvz8H/tMjVnVJLwK6DaYG6+Y+/Z1lgcEdhco+qvPba9AgXu9KHQ1Gg9FBA3rwBZoluVwOqe80p0DOkJBLvCpMY8Rhki+TbW+cPSVrj7h9Hkr/Owu77jE98rAu0TqRky637dM+gRgL0LCbd2l0WnzO/FSDOEDwbSvh/RHKzUaWHxoKcrtTDSsMFmfSv8l0o6EgzCmki1/SGjL42FXz5k5UCbxsRN3BuBVjbGfT7bfxndxzP7Yrn8uZgL9Bp88MQINPHUv2SWstlOgWDS4E23HK8wcbCDKA
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/docker/ssh/keepalive"}
+  path={"/ssh/file_manager/ssh/keepalive"}
   context={"endpoint"}
 >
   
@@ -36,33 +37,28 @@ import Heading from "@theme/Heading";
 
 
 
-Keeps an active SSH session alive.
+Keeps an active SSH session for file manager alive.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+  {...require("./keep-ssh-session-alive.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Session keepalive successful."},"400":{"description":"Session ID is required or session not found."}}}
+  {...require("./keep-ssh-session-alive.StatusCodes.json")}
 >
   
 </StatusCodes>

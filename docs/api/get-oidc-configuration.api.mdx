@@ -5,7 +5,7 @@ description: "Returns the public OIDC configuration."
 sidebar_label: "Get OIDC configuration"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk0FP3DAQhf+KNWd3Ny2llXyjUCiVqiIWxCHKYdaZTSyScWpPECjKf6+czWFht9VyihW/+fQ8M2+AkqINrhPnGQzckvSBo5KaVNevG2fV7+uLc2U9b1zVB0y6BWgQrCKYHO4jhQiFhkCx8xwpghngU5alz2v2zb95o4bTQyWX6BoqlXhVkexWLmAcNbQktS/BQEUCGjqUGgws++Rp6V1pP2zVoCFSeEpOTT5AHxowUIt0ZrlsvMWm9lHMSZZlH0G/sfALHasSBdcYSSGXCnupicXZybzakmHU/wWf7IFXqx9KemZqVIuMFbXEciTt80HaxjU0s8KRoNN90FSnoqC4KM7G6c2tZyc+OK6OBH/ZA19grNceQ3kk4es+wdtHCoe6VaQB2z44eZkmvCYMFM76tA95sXu9sjW12yXdFQ0gLx3NVtK6TDIwswj0fLj0oUUBAz8f7qYVdLzxU7mTJunvKLTuWZ3dXIOGtHFb69kiW2R7D5rF39A+EpepSN3ShgKxpZSJzkdpkROfcbJz9ToGc4DeggewnoVY3pXobQOEnmXZNeg4OZjmM8zJymFKFmjYzVahIc0sXQ9DCsl9aMYx/f7TU0jzKDQ8YXC4Th3Ki93gXn1PbfwLdUCKzg==
+api: eJyVlEFP3DAQhf+KNWd3N5TSSrnRUiiVqiIWxGGVw6wzm1g449SeIFCU/145m8MuodVyShS/+fQ88yY9lBRNsK1Yz5DDLUkXOCqpSbXdxlmjfl9ffFPG89ZWXcCkW4AGwSpCvob7SCFCoSFQbD1HipD38DHL0uOQffNv3qDh7K2SS7SOSiVeVST7lQsYBg0NSe1LyKEiAQ0tSg05LLvkaeltaT7s1KAhUnhKTvN1D11wkEMt0ubLpfMGXe2j5KdZlp2AfmXhF1pWJQpuMJJCLhV2UhOLNaN5tSPDoP8LPp2BV6sfSjpmcqpBxooaYjmS9ulN2tY6mljhSNDZHDTWqSgoNoo1cbxz49mKD5arI8GfZ+ALjPXGYyiPJHyZE7x5pPDubp3Mh7qiYNGlLDGZgykWKSqmC1ZexqxsCAOF8y4la13sH69MTc0u7vuiHuSlpclKCt4og3wSgZ5eLn1oUCCHnw93Y5gtb/1YbsUl/R2Fxj6r85tr0JCyu7OeLbJFNrvQJP6K5pG4TEXqlrYUiA2l7Wp9lAY58RlHO1eHCzWt4mtwD8azEMu7/g27Bgg9y7J1aDk5GOfTTzu6hnFHQcP+lhYa0szScd+ndbsPbhjS5z8dhTSPQsMTBoub1KF1sf8LuPqe2vgX7rqkUA==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the public OIDC configuration.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-oidc-configuration.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Public OIDC configuration."},"500":{"description":"Failed to get OIDC config."}}}
+  {...require("./get-oidc-configuration.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Saves session timeout and persistence enabled flag."
 sidebar_label: "Update session persistence settings"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVFFP2zAQ/ivWPXttNmCT8gbb0JiEhihoD6iarsk1MTh2sC8dVdT/Pp0ToKPVVC0PbWJ/9/nz3X3XQ0mxCKZl4x3kMMMVRRUpRuOdYtOQ71ihK1VLIZrI5ApS5HBhqVRLi9UENDBWEfI7uKHQGIcW5hoCPXYU+cyXa8j79GkClZBz6EhD4R2TY9nCtrWmQFEwvY8io4dY1NSgvPG6JcjBL+6pYNDQBt9SYEMx7Q4KL43reFwZ8MYxVRRgo2FUu7W58N4SOtikR7TG1rs4EHzIMvl7kxdiNq6KKuKKShW7oqAYl52164mccbwv6MKt0JpStRiwIaYQE/ZkH/YcjWSUfTpBxfG8CYi+hrj2JeTQ+phygFxDDlMe8z0dC/brOQw0RAorClKWHrpgIYeauc2nU+sLtLWPnB9lWfYe9Bsll2icKpFxgZFS6bHjmhyPNVIDM2z0P4mPdohns2+KO+fIqgYdVtSQ4wPZjveyLY2lkSscSHSyS5TiVGRkE9kUMd258c6wD8ZVBxJ/3CH+grFeeAzlgQyfdhl88UBhX7bmUuCiC4bXqcILwkDhtJO+uJtvb8/ESUNnb4NevCBSpF0STLyRQKDHl3MfGmTI4fvPm9SL4tDrV29/fcKmtbTPi9mW9cT0Gw3GLf0AZYkZBsaTOr26AA3SrsO9s0k2yXayMYLPsHggV0qQuqYlBRlJ4isxR4NpfDhMd7ltS2R6GWfbI2zLKX+d0r9Opv8dhkNemZ542lo0TrSlsvejce/g2bjJp2+sO9cgLSGwvhcP3ga72cjyY0dByj3XsMJg5NhUbQ01YUkhdcIDrSGHz8Ml3t2IGIHbTkTtjFrplJfpcvVjdiOFH0d240uJCfgbdPrNATT4lKjUT2mtB4uu6rAS7MApzx/5GjUn
+api: eJydVFFP2zAQ/ivWPXttGLBJeYNtaExCQ7TTHlA1XZNranDsYF86qqj/fTonQKHV1C0PbWJ/9/l8d9/XQUmxCKZh4x3kMMEVRRUpRuOdYlOTb1mhK1VDIZrI5ApS5HBuqVQLi9UINDBWEfJbmFKojUMLMw2BHlqKfO7LNeRd+jSBSsg5tKSh8I7JsWxh01hToGQwvouSRgexWFKN8sbrhiAHP7+jgkFDE3xDgQ3FtNtneGVcy8NKjzeOqaIAGw1Dtlubc+8toYNNeiTX2HgXe4L3WSZ/b+pCzMZVUUVcUaliWxQU46K1dj2SM072BV26FVpTqgYD1sQUYsKe7sNeoJGKsk8nqDicNwLJryZe+hJyaHxMNUBeQg5jHuo9Hhr26ykMNEQKKwrSlg7aYCGHJXOTj8fWF2iXPnJ+nGXZEeg3mVyhcapExjlGSq3HlpfkeOiR6plho/9KfLxDPJl8Vdw6R1bV6LCimhwfyHayl21hLA1c4UCi012iFKciI5vIpojpzrV3hn0wrjqQ+MMO8WeMy7nHUB7I8HGXwRf3FP65Wke7TZ1QMGhV4Z2j4lUXZzIqRRsMr9OszAkDhbNWJux2tr09EU32GtkGPatKUpHBSzBRWQKBHl4ufKiRIYdvP6dpqkXrNy8u8eUR68bSPlVnWyIW+9hoMG7heyhLTG89j+rs+hI0yOD3985G2SjbqcYAPsfinlwpQeqGFhTE3EShIrMakxE5THf50ZTI9GyM22a4pblXp3QvHve/ttrXlemRx41F4yS31PZusIBbeLKApPg3JjDTICMhsK4TNf8IdrOR5YeWgrR7pmGFwcixqdsaloQlhTQJ97SGHD71l3g3lWQEbltJase0ZVKefer6+2QqjR/Mv/alxAT8DTr95gAafCpUmqe01oFFV7VYCbbnlOcPwTlOqQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Saves session timeout and persistence enabled flag.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"timeoutMinutes":{"type":"integer"},"enabled":{"type":"boolean"}}}}}}}
+  {...require("./update-session-persistence-settings.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Settings saved successfully."},"400":{"description":"Invalid parameters."},"500":{"description":"Failed to save settings."}}}
+  {...require("./update-session-persistence-settings.StatusCodes.json")}
 >
   
 </StatusCodes>

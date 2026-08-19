@@ -5,7 +5,7 @@ description: "Checks the status of an SSH connection for file manager."
 sidebar_label: "Get SSH connection status"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVNtq20AQ/ZVlnlpYbLXpBfSWXpKmEChJSh+MKePVyFos7Sq7IxMj9O9lVmpw7DQY+iRpdvbonJkz00NB0QTbsvUOcvhckdlExRWpyMhdVL5U6NTt7TdlvHNkJFGVPqjS1qQadLimMAMNjOsI+QIuJH49xmGpocWADTEFOe3Bym/uOwo70OCwIcghUozWu6sCNAS672ygAnIOHWmIpqIGIe+Bd21K5mDdGoZhKcmx9S5SlPO3WSaPp4IOiI+iZjAMGhriyheQw5oYhCdXkMM8xmou2n5P2lJgvAcaIoXtXyldqCGHirnN5/PaG6wrHzk/y7LsDegDItdonSqQcYWRFLpCYccVObYGR2oJGQb9IvDZEbAo5M45qqduNOT4RLR3z6Ltd/ZEoPfHQOleKriNbE1MmhvvLHtp4InAH46Av2CsVh5DcSLCx2MEbzYUnqvWUhpsumB5lzq8IgwUzjtxxmK5f3wrthx9t5/06FKhApN75XtMAj29XPjQIEMO33/dJTNaV/p03XIt+XcUGvugzn9cgQZx3Eg9m2Wz7EjQlPwJzYZcIZfUDZUUyBmCQUPrIzfoBH+auEviw5l+tPgT7B6Md0yO/3M5jFVheuB5W6N1Qis1rZ8GbwExVqBhf/SkgCk4cVtqkLZKct/LHP0M9TBIeFwo0rLCRlzVsj9KrCO9IOfVzbRqXqt/MdzQ7mA9bbHuJC95ZYvBys+SOfYWyuVXaeofE+fVPw==
+api: eJylVNtq20AQ/ZVlnlpYbKXpBfSWXpKmEChxQh+MKePV2Fos7Sq7oxAj9O9lVmrwpQ0ufZI0e/bozMyZ6aCgaIJt2HoHOXwqyWyi4pJUZOQ2Kr9S6NRs9lUZ7xwZAaqVD2plK1I1OlxTmIAGxnWEfA6XEr8Z4rDQ0GDAmpiCnHZg5TcPLYUtaHBYE+QQKUbr3XUBGgI9tDZQATmHljREU1KNkHfA2yaBOVi3hr5fCDg23kWKcv4my+Sxn9CB8CGpCfS9hpq49AXksCYG0ckl5DCNsZxKbj/H3FJguAcaIoXH36m0oYIcSuYmn04rb7AqfeT8PMuyM9AHQm7QOlUg4xIjKXSFwpZLcmwNDtISM/T6ReLzI2LJkFvnqBq7UZPjE9ne/pFtt7MnEr07Jkr3UsFtZGtiyrn2zrKXBp5I/P6I+DPGcukxFCcyfDhm8GZD4Z+rdXbc1BkFi9WewUamhVjFtMHyNnllSRgoXLTisfli93gmBh8cvAt69rtIgXEO5HsAgR5fLn2okSGHbz/ukq2tW/l03XIl+DsKtX1SF9+vQYN4d5CeTbJJdpTQCP6IZkOukEvqllYUyBmCXkPjI9fohH+c3Sviw+3wPCx73B0Y75gc/+eaGarC9MTTpkLrRFZqWjeO8BxiLEHD7hBLAVNw1LbQIG0VcNfJRN6Hqu8lPKwmaVlhIy4r2UQrrCK9kM6r23FpvVZ/U7ih7cGie8SqFVzyyiMGKz9L5thZTVdfpKm/AFst7sE=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Checks the status of an SSH connection for file manager.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-ssh-connection-status.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-ssh-connection-status.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"SSH connection status."}}}
+  {...require("./get-ssh-connection-status.StatusCodes.json")}
 >
   
 </StatusCodes>

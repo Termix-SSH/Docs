@@ -5,7 +5,7 @@ description: "Sets the session timeout in hours."
 sidebar_label: "Update session timeout setting (admin only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNlE2P0zAQhv+KNSeQTBPoAlJuBYR2kUAr2moPVQ7TZNpYm4yDPam2RPnvyG4O3aZCPTlK3nk8X296KMkXzrRiLEMGSxKvpCLlyXtjWYlpyHaiDKvKds7PQIPg3kO2gbUn5yHX4Mi3lj15yHr4kKbhuOS+xnVtiULlDAYNd9cCHviAtSnVAeuORtl8KvtlRWEnlXXmb8QNGhqSypaQQYtSVKDDWUEGSRfyTcbK3o2pgAZP7hAqyTY9dK6GDCqRNkuS2hZYV9ZLNk/T9D3oi9t/omFVouAWPSnkMuZCLKbAIFEnMgz6v+D5BLxc3ivpmKlWDTLuqSGWG2l3V2k7U9PIcjeCPk5BMU55QTFeTOFjzY1lI9YZ3t8I/jQBf0NfbS268kbC5ynBFs/krnUrDwMuOmfkGCe8JXTkFl3YiU1+/nlZVNSclvhc1IMcWxpTCesSZZCNItDjw3frGhTI4MfTKi6i4Z2N4UbqoF+Ra8yLWjw+gIawcafU01k6SycFjeIvWDwTlyFI/aYdOeKCgh1a66VBDnzGmM46emriXE8iYTZvsGwMK8v18e3lbT0UloVYbv4FnDoi9CJJW6PhkFIcWD/abQPRbtFerw2XawiDDJK+D85Zu3oYwus/HbkwpFzDAZ3BbWjbJj/39ONi9fUehuEfFSGfnA==
+api: eJyVlMFu2zAMhl9F4GkDtMRdug3wLdswtAM2FEuDHoIcGJmJhdqUJ9FBM8PvPkjxIYmLITvJsH5+IkX+6qCgYLxtxDqGHBYkQUlJKlAI1rESW5NrRVlWpWt9mIAGwV2AfAXLQD7AWoOn0DgOFCDv4H2WxeWSe45rmwKFign0Gm5fC7jnPVa2UHusWhpks7HspxOFrZTO2z8J12uoSUpXQA4NiilBx7WEHKZtzHc6VPZuSAU0BPL7WEm+6qD1FeRQijT5dFo5g1XpguSzLMtuQF+c/gMtqwIFNxhIIRcpF2KxBqNEHcnQ63+CZyPwYnGnpGWmStXIuKOaWK6k3b5K29qKBpa/EvRhDEpxKgiKDWJNSDXXjq04b3l3JfjjCPwVQ7lx6IsrCZ/GBGeeyf/3bd2Mm7ogb7FSxjGTOeviOo6Kab2VQ5qVDaEnP2/jdK3Wp9sLU1J9tMOpqAM5NDSkEgcvySAfRKCHj2/O1yiQw/enxzTSlrcuhVupov6RfG1f1PzhHjTE2T2mnk2ySTYqaBB/RvNMXMQg9Yu25IkNRWM1LkiNHPmMKZ1lcufoDQgkErv8BovasnJcHd5entaBcSzEcvVjcrwRoReZNhVajimlhnWDcVeQjJuMem7dtYbYyCjpuujBpa/6Pv7+3ZKPTVpr2KO3uInXtlqfvg4P88cvd9D3fwEeL7ke
 sidebar_class_name: "patch api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Sets the session timeout in hours.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./update-session-timeout-setting-admin-only.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Session timeout updated."},"400":{"description":"Invalid value."},"403":{"description":"Not authorized."}}}
+  {...require("./update-session-timeout-setting-admin-only.StatusCodes.json")}
 >
   
 </StatusCodes>

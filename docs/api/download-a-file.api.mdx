@@ -1,11 +1,11 @@
 ---
 id: download-a-file
 title: "Download a file"
-description: "Downloads a file from the remote host."
+description: "Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP."
 sidebar_label: "Download a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVdtu2zAM/RWBz17ire0G+K1dV6wDihVthj0EwcDYTKzWllyK7gVG/n2g7KRpEwyZH3yRDo/Iw4s7KCjkbBux3kEG5/7JVR6LYNAsbEVmwb42UpJhqr2QKX2QESQguAyQTeFCQVfocEkMswSYHloKcuaLF8i6+GmZCsiEW0og907IiW5h01Q2Rz14fBf09A5CXlKN+iYvDUEGfn5HuUACDfuGWCyFiKMQrHeXxRY0CFu3hFUCDUq5d0Odf2NjnZA6vkqgDcR7+eKlgYXGu9Cf/ylN9fFWu0lJvWZDkCOlPd6HvLIhWLc0a3VMg4w1CXEwnnsS8d5UyEuKNCf7aC7QVlQY8aYY0hZNR6D+1iSlLyCDxocoYBQFxiGUY0X9qfukxYW1vWYTEgjEj8Sa3w5ariCDUqTJxuPK51ipitlRmqYfIXkfGFpnChScYyCDrjDYSklOhkSbnhlWyT+Jj3aIb2+/G2mdo8r0ftfk5EC2471sUeRBgwOJTnaJop0JgmKD2DzEmGvvrHitngOJP+8Qn2Mo5x65OJDhyy6Dz++J96k10wTnLVt5iRmeEzLxaav1MZ1tb99qO/YVvw3atIi6ouUSYZANIEiGlwvPNQpk8OP3JNaktvnN64D49ox1U9G7hl433qZkN9/r9k1fu3Wrua1b+OibFeWECXFtn83p9SUkoOXc65KO0lG6o9YAPsP8nlyhRuaGFsTkcoojxQepMc4ohzHW9aQcBuV7xu511P3HUO1lFXqWcVOhdXEwada7QYwphFBCAtsdrBmIi2+6eNbrpSZdp+34i6vVSpcfWmLN/CyBR2SLc5VrOtP5SFgQx6K4pxfI4Gsfw4eJOqbwqlUHd0a3Fs1m4Fz/vJ1oDQy/gNoXasP4BEm8ZwAJ+KhTLK241kGFbtniUrE9p15/Aey1Re0=
+api: eJzNVU1v2zgQ/SvEnLYA11a/toBu/digXWyxQe2ih8BYjKWJxYYi1eEoiSH4vxdDyYkTG4v0tjrYEjnzNPPm8WmAmlLFrhMXA5TwId4EH7FOBs2l82QuObZGGjJMbRQyTUwyM18TJbN4f248bbDamjbWZH6rUEy8JjZ0S9Uzc9NQyKmaYxpMJlXd32MCBVx7qq2J0hDfuESmz5hny/MZWBDcJCgv4Exr+IwBN8SwssD0o6ck72K9hXLIj46phlK4JwtVDEJBdAu7zrsKta/596TNDZCqhlrUO9l2BCXE9XeqBCx0HDticZRyHKXkYvhUH4QmYRc2sLPQoTQnN7TPBzkuCGnhOwt9Ij6Jly9tLHUxpPH9L4pC/x6OZtnQOJKpyZnCvjoV+dml5MLG7NkxHTK2JMTJRB5BJEbjkTeUYV6fgjlD56k2Ek09qSKnzkDrbUmaWEMJXUyZwEwKzFNq5hr1bzsOLS/s83WaYCERXxPrfAfo2UMJjUhXzuc+VuiVxfJlURTPwT5uDF0wNQquMZHBUBvspaEg06DNiAw7+5/AL4+AF4uPRvoQyJux7paCPBHt1Um0TPLEwROBXh8D5TyTBMUlcVXKPbcxOImqnicC/3EE/AFTs47I9RMR3hwjxOqK+JfZen481AWxQ6+qDlQ9mOJKpVL17GSbtbImZOK3vSrtYnW4vdCDPZ6dw6C7w6alqPByGJRTENjp5ixyiwIl/PVtmdWthvHl3mr+vMW28/TIGvZH+E78d897Iyjuz/2BTbhwGXNtThQTlsStuzVvzz+BBT0YIy/FrJgVR2xNwe+wuqJQa5L5QpfEFCrK5hSTtJjdLmDudW/pk6M/RhzuTfP/4/7j1IRuZd55dCE7qIpqmLi+gJQasHBoNTrgvPjAblbjODRlGNQ3vrLf7XT5R0+swlpZuEZ2WlLWlYWGsCbOmruiLZTwfqTo96UWpuG+1wKPvjGqyTtnPP9nsVSJTd8qZQlKYLwBm39LAAsxjyErN68N4DFsetxo7Iip1084vKGL
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,33 +37,28 @@ import Heading from "@theme/Heading";
 
 
 
-Downloads a file from the remote host.
+Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"hostId":{"type":"integer"},"userId":{"type":"string"}}}}}}}
+  {...require("./download-a-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"The file content."},"400":{"description":"Missing required parameters or file too large."},"500":{"description":"Failed to download file."}}}
+  {...require("./download-a-file.StatusCodes.json")}
 >
   
 </StatusCodes>

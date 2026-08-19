@@ -5,7 +5,7 @@ description: "Restarts a specific container."
 sidebar_label: "Restart container"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9lMFu2zAMhl9F4GkDhNhb2w3wrVtRrAOGFcmGHYIcGIlphNqSK9FFA8PvPtB2szTJiuyyky2J/CTyJ9mCpWSiq9kFDwVMKTFGTgpVqsm4lTPKBM/oPMUJaGC8S1DM4SqYe4qw0FBjxIqYouy34ARTI69Bg8eKoIBEKbngbyxoiPTQuEgWCo4NaUhmTRVC0QJv6t6Yo/N30HX6KGv7mH+kLcQ41cEnSnL+Ps/l8zL6z89wFYc8kFWpMYZSWjVluZlAp+H8mOds9kWNYSofWK1C460KsV+Y4D0ZJjv6n79289a7N744dtk1upKs4vD8zF2Juk5DRbwOVnIXEoMeUlhAZnvRsq11ytqtNl3W7uS2y0Y0aEgUH5/VbWIJBayZ6yLLymCwXIfExVme5+9A773zGzqvLDIuMZFCbxU2vCbPzqCYqIEMIvUr4LMDsGSbG++pVBV6vKOKPJ9IOz9KW7mSRlY8EXRxCOr9VGJkl9iZ1MdcBe84SBmeCP5wAL7CtF4GjPZEwsdDQq/8sWwtRGDTRMebXuElYaR42UjFzBe7xzNprqF7do22vSZPgbEHZT0YgR5/rkOskKGAr79+9FXq/Cr07o5Lsf9BsXJP6vL2BjRIxQ1Pzyf5JD8IaDT+hOaevBUnNaUVRfKGpHGk8iv0wh8nx3S/V/aZbT9cyPNJc3CImemJs7pE5+XSXpJ2bLc5DO0G+s/QSqCh2B2Hxf48G5puoUHEFEjbSvf8jGXXyfZDQ1GEWmh4xOhwKambt2Bdkn8LxQrLRK+E9mY6Ds236m9xjJvoN6IElo2sQMM9bV6McynD/3jxbq66xe6cu/0+k5r6DVY/VWw=
+api: eJy9VU1v2zAM/SsCTxsgxO7aboBv3YpiHTCsSDrsEOTAyEwj1JZciS4aGP7vA20nc5OsyC47WR/kE8nHRzeQUzTBVmy9gwymFBkDR4UqVmTsyhplvGO0jsIENDA+RMjmcO3NIwVYaKgwYElMQc4bsAJTIa9Bg8OSIINIMVrvbnPQEOiptoFyyDjUpCGaNZUIWQO8qTpjDtY9QNvqo1i7YP4RbSHGsfIuUpT7D2kqn9fZf9mCq9DXgXIVa2MoxlVdFJsJtBoujnnOZl/VkKZyntXK1y5XPnQb450jw5QP/hdvvbzz7owvjz12g7agXLHfhjmmqG01lMRrn0vtfGTQfQkzSPKOtGRnHZNmx02bNKPatskADRoihectu3UoIIM1c5UlSeENFmsfOTtP0/QM9F6c39E6lSPjEiMpdLnCmtfk2BoUE9Ujg1D9BvD5AbBUm2vnqFAlOnygkhyfiHZxFG1lCxqwwolAl4dAnZ+KjGwjWxO7nEvvLHtpwxOBPx4AX2NcLz2G/ESET4cIHfP/XK2zQ1JnFCwW254es7iQVjF1sLzpemVJGChc1dJ788X4eiYy7XU4NtqpVkKBQc2y741AD4sbH0pkyODbr/uu361b+c7dciH29xRK+6Ku7m5Bg/RuH3o6SSfpQUKD8Wc0j+RycVJTWlEgZ0gkKBoq0Qn+MIOm+6rbx2y6MUWOT5qofc5ML5xUBVonj3aUNINw59ALF/Sf8RdBQzYerNn+ZOzlu9AgZApI04gOf4aibeX4qaYgRC00PGOwuJTSzRvIbZR1DtkKi0hvpPZuOozf9+pveQyH6DbCBBa17EDDI21e/RikDf/jw+NatYvxxLz7MZOe+g3ynm7u
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Restarts a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+  {...require("./restart-container.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./restart-container.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container restarted successfully."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to restart container."}}}
+  {...require("./restart-container.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Enables TOTP after verifying the initial code."
 sidebar_label: "Enable TOTP"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVF1P20AQ/CunfXYTU6CV/AYtqFSqQCSoD1FUbexNfOR8Z+7WgcjKf6/2bALFtIrqh8T2jWc/ZmdbKCjkXtesnYUMLiwuDAU1vZ7eKFwyebUhr5dbbVeKS1LaatZoVO4KGkECjKsA2QzuAvkA8wQ8PTQU+NwVW8ja+Kg9FZCxbyiB3Fkmy3KEdW10jhJ5fB8kfAshL6lCueNtTZCBW9xTzpBA7V1NnjWFeOq4/iU5vIIG9tquYBcvSSTUzoYO/zFN5e/PYmORFCsuVGjynEJYNsZs1aPmUi0wXzd1rDSMYJfAyV9JBKN0UM/VKuf7FhpPWGyfo/Q0R0OaK7tBowu1p+uhJ0OotFpZx2rpGttRnr6X2SVqKYxdHz1yj0B6UxGXroAMahdic5FLyGDciIpjae64+wYSCOQ3om02a6HxBjIometsPDYuR1O6wNlxmqZHkLyJ/wO1VQUyLjCQQlsobLgky73oqmOGXfJP4uMB8WTyTXFjLRlVocUVVWT5QLaTd9mW2lDP5Q8kOh0Sxe9UYGQdWOch1lw5q9nJZB5I/GlA/BVDuXDoiwMZPg8ZXL4m/1635iJw3njN26jwgtCTP2tkHmbz18cTsWbnptegvf0kFRmXCIOsB0HS31w6XyFDBt9/TuMMiuVvX5bFxRNWtaE35t6bOgFtly6eahYYTMlX+kmd3VxBAjKhXanpKB2lgwb04HPM12QL+Ujd0pI82ZyEXHxQYVxBFmP6Fy+eecvWvmyx/1iYXbeYnnhcG9RWwkcx296GM4g2FKyLLe2tOE9AJBZA24qn7rzZ7eT1Q0Ne5JsnsEGvI1rUS6AkLMhHZde0hQy+dJl/mEoaAjeNpDPYxaL8fkvcXE+mImS/06tOGo+PkMTfDCABF7sT5yO+a8GgXTW4EmzHKddvbooz7A==
+api: eJydVdtO20AQ/ZXVPLuJKdBKfoMWVCpVIBLUhyiqJvYkXrLeNbtjILLy79WsTbiYVmn9kDje4zOXM2fSQkEh97pm7SxkcGZxYSio6eX0SuGSyat78nq50XaluCSlrWaNRuWuoBEkwLgKkM3gJpAPME/A011DgU9dsYGsjT+1pwIy9g0lkDvLZFmOsK6NzlEij2+DhG8h5CVVKHe8qQkycItbyhkSqL2rybOmEE8d178khxfQwF7bFWzjJYmE2tnQ4T+mqXy9LjYWSbHiQoUmzymEZWPMRj1oLtUC83VTx0rDCLYJHP2RRDBKB/VUrXK+b6HxhMXmKUpPczCkubD3aHShdnQ99GgIlVYr61gtXWM7yuP3MjtHLYWx66NH7hFIbyri0hWQQe1CbC5yCRmMG1FxLM0dd+9AAoH8vWibzVpovIEMSuY6G4+Ny9GULnB2mKbpASRv4v9AbVWBjAsMpNAWChsuyXIvuuqYYZv8lfhwQDyZfFPcWEtGVWhxRRVZ3pPt6F22pTbUc/k9iY6HRPE9FRhZB9Z5iDVXzmp2Mpl7En8aEH/FUC4c+mJPhs9DBpevyf9ztw6Gok7Id/a3lvJXKs5lVPLGa97EWVkQevInjUzWbP7yeCIm73z5ErQzsqQigxdhkPUgSPqbc+crZMjg+89pnGZZHtfPa+fsEava0Js1sVsPCWi7dPFUs8BgSr7Sj+rk6gISkFnvSk1H6SgdNKAHn2K+JlvIS+qaluTJ5iTk4qgK4zKzGNM/e3bfW7b2eR/+x+rtusX0yOPaoLYSPorZ9oaeQTS0YF1saW/qeQIisQDaVtx54812K4/vGvIi3zyBe/Q6okW9BErCgnxUdk0byOBLl/mHqaQhcNNIOoOtLsrv9s3V5WQqQvb/DlUnjccHSOJnBpCAi92J8xGftWDQrhpcCbbjlOs3HJ5Nbg==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Enables TOTP after verifying the initial code.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+  {...require("./enable-totp.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"TOTP enabled successfully with backup codes."},"400":{"description":"TOTP code is required or TOTP already enabled."},"401":{"description":"Invalid TOTP code."},"404":{"description":"User not found."},"500":{"description":"Failed to enable TOTP."}}}
+  {...require("./enable-totp.StatusCodes.json")}
 >
   
 </StatusCodes>

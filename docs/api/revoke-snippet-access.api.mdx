@@ -5,7 +5,7 @@ description: "Revokes a user's or role's access to a snippet."
 sidebar_label: "Revoke snippet access"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk19r2zAUxb+KuC99EbFL9wf0lq4Z69hgJBl7CH64kW9iEVvypOvQYvTdh2x3dHUZoU829jk/ju7V6aGkoL1p2TgLCtZ0dicKAkUXyF8F4bzwrqarIFBrCkGwEyiCNW1LvAAJjMcAagfr2+UnKCQ0xJUrQUFJNTGBhBa5AgWZ36POJmfWmzJmIzLrx+d9GUFCIH8mn5A9dL4GBRVzq7KsdhrrygVWN3meX4N8Ef07GitKZNxjIIG2FNhxRZaNxiQRIxmi/C/4ZgbebL4I7qylWjRo8UgNWb6Q9u5V2sHUNLH8haD3c9DgE4GRTWCjw3DmxlnDzht7vBD8YQa+w1DtHfryQsLHOcHpE/nXplWkBevOG34cNrwn9OSXXbohu+L5742uqKEA6l9RD/zY0hQlXZdBBmoSgZxePjvfIIOCr7+2EKMEYw9usBuuk35LvjEPYvnjHiSkGzdGzxf5Ip8daBLfoj6RLZNJrOlAnqwmiBJaF7hBm/gWhzhjkZ6KMpXnJbcH7SyT5bc1bxwE0wNnbY3GpiTDnvqpcztInUtTGl0gQZkSJPyNo56ql6qbNppMfZ8q9NPXMabPvzvyaVuFhDN6g/s0v10Rn3X9bvVttV1BjH8Acx14Gw==
+api: eJydlE+L2zAQxb+KmMteROxl+wd0y3ZTuqWFkqT0EHIYy5NYRJZcaRx2Mf7uRba37K5LSXuysef9eJqZpw5KijqYho13oGBNZ3+iKFC0kcJVFD6I4C1dRYFaU4yCvUARnWka4gVIYDxGUDtY3y4/wF5CTVz5EhSUZIkJJDTIFSjIQoE6m5RZZ8o+G5FZNz7vyx4kRApnCgnZQRssKKiYG5Vl1mu0lY+sbvI8vwb5yvpXNE6UyFhgJIGuFNhyRY6NxlQiRjL08q/gmxl4s/kkuHWOrKjR4ZFqcnwh7c0faQdjaWKFC0Fv56BBJyIjm8hGx+HMtXeGfTDueCH43Qx8h7EqPIbyQsL7OcHrE4V/7tb1fKgbCgat0N450i+muE+rottg+HHYlYIwUFi2add2++e/N7qimiKol0Ud8GNDk5W0eEMZqKkI5PTy0YcaGRR8/rGFvpdg3MEPcsM21W8p1OZBLL/dg4S0u6P1fJEv8tmBpuJb1CdyZRKJNR0okNMEvYTGR67RJb7Dwc4YyafITTF8ze1Ae8fk+P8yPDaC6YGzxqJxyckwp25K7w5SelOXRhVIUKYECb/tqKcQp0sgTTSJui6F8XuwfZ8+/2wppGntJZwxGCxS/3b7/tmtcbf6stquoO9/AevCkZ0=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,24 +39,17 @@ import Heading from "@theme/Heading";
 
 Revokes a user's or role's access to a snippet.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./revoke-snippet-access.RequestSchema.json")}
 >
   
 </RequestSchema>
 
-<StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={undefined}
->
+<StatusCodes>
   
 </StatusCodes>
 

@@ -5,7 +5,7 @@ description: "Bulk imports multiple SSH hosts."
 sidebar_label: "Bulk import SSH hosts"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVE1v2zAM/SsCz2rird0G+NbuA+2AYUWTYYcgB9pmYzWy5Ep018Dwfx8oG03WFEN88BepR/LxkT1UFMtgWjbeQQ5Xnd0q07Q+cFRNZ9m0ltRica1qHznOQAPjJkK+gsXiGtYaAj12FPnKVzvI+/RpAlWQc+hIQ+kdk2MxYdtaU6JEmj9ECddDLGtqUN541xLk4IsHKhk0tMG3FNhQFGuKfuCGIeAONBimJh4fH8ZLsoutd3EEeZ9l8vi34ptUrCp901piqmYwaLh409M9oTWVmipWha92M5AoDXHtK8ih9THljlxDDvMY63nR2e3ZyChoiBSeKAh/PXTBQg41c5vP59aXaKXK/DzLsnegXwX/gcapChkLjKTQVQo7rsnxxKgakWHQ/wU+PwKW3nLnHFnVoMMNNeT4RLSLN9HujaUJK5wI9OEYKJ1TkZFNZFPGVHPjnWEfjNucCPzxCPgLxrrwGKoTET4dI/hyS+EtttbS4LILhnepwwVhoHDZiRpW60PzQnQ/qvLQ6UXHkorIJblBPjmBnl6++dAgQw7ffy+TAmWe7vaT+PUZRc4Hk7Pqh/Wgwbh7n8IYFjMsKTTmWV3e3oAGUeZYYjbLZtlR4ZPzFZZbcpUcUnd0T4FcSTI1ov4G01w7TGkfrJP9EnmN2++XxEn7Z2SI6ZnnrUXjJHRqYD8N3gpirIWrg9Fb68SEGPteZuhXsMMgvx87CtKutYYnDAYLIWYlZNWEFYXUyS3tIIfPY55nS0lB3G2XltHrxSadftkJtz8XS0lmWpCNr+RMwD+g0z0H0OATF0kP6V8PFt2mw434jphy/QWVGvOq
+api: eJyVVE1v2zAM/SsCz2rirt0G6NbuA+2AYcWSYYcgB8ZmYzWy5Ep018DIfx8oG23aFEPmQ2JL5CP5yMceKkpltC3b4MHAZec2yjZtiJxU0zm2rSM1m12pOiROE9DAuE5gFjCbXcFSQ6T7jhJfhmoLps+fNlIFhmNHGsrgmTzLFbatsyVKpOldknA9pLKmBuWNty2BgbC6o5JBQxtDS5EtJbnN0ffMMEbcggbL1KRD993wSHapDT4NIO+KQv5eVnydi1VlaFpHTNUEdhrO37T0D+hspcaK1SpU2wlIlIa4DhUYaEPKuSPXYGAqWU9XnducDJSChkTxgaIQ2EMXHRiomVsznbpQohMHc1YUxSnoV9G/o/WqQsYVJlLoK4Ud1+R5pFQNyLDT/wQ+OwCW5nLnPTnVoMc1NeT5SLTzN9FuraMRKx4J9P4QKPupxMg2sS1TrrkJ3nKI1q+PBP5wAPwZU70KGKsjET4eIoRyQ/G/2To9bOqMokWnyuA9lS+6uJRRKbtoeZtnZUUYKV50MliL5f71TCQ0DPi+0ZMkJBUZvGwGZjQCPb58DbFBBgPffs/zMIs0fz6L+ssjijL2RLjod8udButvQw5jWa5hTrGxj+ri5ho0yIwPJRaTYlIcFD4aX2K5IV+Jk/pJtxTJlyQCFCE1mFeEx5z23mZ63kevcfvnfXPUKhsYYnrkaevQegmdG9iPGl7kooWsPRUv9XBqFtD3Isdf0e12cnzfUZR+LTU8YLS4EmYWwlZNWFHMrdzQFgx8GhI9mUsOYu66vNheL0lp9dN+ufkxm0sy47JtQiU+Ef+Azr8GQEPIZOSByGc9OPTrDtdiO2DK8xcOoA4b
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ssh/bulk-import"}
+  path={"/host/bulk-import"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Bulk imports multiple SSH hosts.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hosts":{"type":"array","items":{"type":"object"}}}}}}}}
+  {...require("./bulk-import-ssh-hosts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Import completed."},"400":{"description":"Invalid request body."}}}
+  {...require("./bulk-import-ssh-hosts.StatusCodes.json")}
 >
   
 </StatusCodes>

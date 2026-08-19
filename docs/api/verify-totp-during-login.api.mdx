@@ -5,7 +5,7 @@ description: "Verifies the TOTP code during login."
 sidebar_label: "Verify TOTP during login"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVV1v2zAM/CsCn9XEXdsN8Fu7D6wDhhZNtj0EQcHYTKzGllyJzhoY+e8DZbdN62CIHxLHJk/HI49pIaeQeVOzcRZS+E3eLA0FxQWp6c30VmUuJ5U33tiVKt3K2BFoYFwFSGfwK5APMNfg6bGhwFcu30Laxp/GUw4p+4Y0ZM4yWZZXWNelyVDOGz8EObSFkBVUodzxtiZIwS0eKGPQUHtXk2dDIb6lqr5ntya7FxtYuMFOAzuu74XvgbfxEp6hdjZ0cB+SRL7eKhCL3kQZOpYqNFlGISybciSnnB/MElIKbb4nGnpSz0L0mafDzGu7wdLkSmpzHv1WxQKV869Qffb5MFsaoKxjtXSN7U65OK6qJZoy8tppqIgLl0MKtQtRdeQCUhg30t6xyDqOuduTOAGgIZDfSOvTWQuNLyGFgrlOx+PSZVgWLnB6liTJKeh3RH6isSpHxgUGioJhwwVZflE7IsNO/xf4bAA8mXxX3FhLparQ4ooqsnwk2vlBtKUpqcfyRwJdDIFingqMbAKbLMSaK2cNu+ip44A/DoC/YCgWDn1+JMKnIYLL1uQPqTWXBmeNN7yNHV4QevKXjUzFbL7/eiLO7dy0H/RiP6Ei4xLDIO2DQPc335yvkCGFH3+mcRJlI9y97pKvT1jVJb33/rOr31h+bxEYu3Qxx7Akw5R8ZZ7U5e01aJC57QRIRskoGcjSB19htiabS5K6oyV5shkJuHikwriBLMai4tLcdnbd35TvodvXPXj0ou1kZHricV2iscIgdrntXTqD6NJei66+V6fONcgESFjbiuV++XK3k8ePDXnp7lzDBr3BhSg1m+80FIQ5+dj4NW0hhc8d65OpkJHwshFSg00ug/GySm5vJlPpc/+PUHU98vgXdPxMATS4qEwcn/ishRLtqsGVxHaYcv0DwvZIKg==
+api: eJyVVV1P20AQ/CunfT4SU6CV/Ab9UKlUgUhoH6IIbexNfMS+M3drSmTlv1d7NiRgVKV+SGzf7tzc7O64hZxC5k3NxllI4Rd5szQUFBekplfTa5W5nFTeeGNXqnQrY0eggXEVIJ3BbSAfYK7B00NDgS9cvoG0jY/GUw4p+4Y0ZM4yWZYlrOvSZCj7je+DbNpCyAqqUO54UxOk4Bb3lDFoqL2rybOhEFepqu/YrcnuxQYWbrDVwI7rO+H7zmq8hGeonQ0d3Ickkb/XCsRDP0YZOpYqNFlGISybciS7nL6bJaQU2nxPNPSknoXoM4+HmZf2EUuTKzmb8+g3Kh5QOb+D6rNPh9lSAGUdq6VrbLfL2WGnWqIpI6+thoq4cDmkULsQVUcuIIVxI+Udi6zjmLs5ih0AGgL5Ryl9Omuh8SWkUDDX6XhcugzLwgVOT5IkOQb9hshPNFblyLjAQFEwbLggyy9qR2TY6n8CnwyAJ5PvihtrqVQVWlxRRZYPRDt9F21pSuqx/IFAZ0OgmKcCI5vAJgvxzJWzhl2cqcOAPw6Av2AoFg59fiDCpyGCy9bk/1ut42FRJ+QNlipz1lL2qopzaZWs8YY3sVcWhJ78eSP9NZvvL0/EA7q53A96GWShIo0XwyDtg0D3N9+cr5AhhR+/p7GnxVtudq709QmruqS3LvLsD6/MY89SjF26mGNYkmFKvjJP6vz6EjTIBHQCJKNklAxk6YMvMFuTzSVJ3dCSPNmMBFymrcLoZRbjoaL9brrB3/fct9DtzlEPtuxORqYnHtclGisMYpXbft5nEOe916I7327m5xqkAySsbWV4b3253crrh4a8VHeu4RG9wYUoNZtvNRSEOflY+DVtIIXPHeujqZCR8LIRUoNvgjTGiyldX02mUuf+21J1NfL4B3T8TQE0uKhMbJ/4roUS7arBlcR2mHL9BRI8Yaw=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Verifies the TOTP code during login.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"temp_token":{"type":"string"},"totp_code":{"type":"string"}}}}}}}
+  {...require("./verify-totp-during-login.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"TOTP verification successful."},"400":{"description":"Token and TOTP code are required."},"401":{"description":"Invalid temporary token or TOTP code."},"404":{"description":"User not found."},"500":{"description":"TOTP verification failed."}}}
+  {...require("./verify-totp-during-login.StatusCodes.json")}
 >
   
 </StatusCodes>

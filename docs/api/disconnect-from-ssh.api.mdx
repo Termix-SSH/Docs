@@ -5,7 +5,7 @@ description: "Closes an active SSH connection for file manager."
 sidebar_label: "Disconnect from SSH"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk29r20AMxr/KoddH4q37A37XrZRtUFaWjr0IZihnJT5q67w7ubSYfPehi+m8pIywV7Zl6XfPSY9GqCm56HvxgaGEj21IlAyyQSf+gcxq9cm4wExOM8w2RLP1LZkOGXcUF2BBcJegXMO1xm8OcagsREp94EQJyhFeF4U+/j7tCF77NH1RvYD93kJH0oQaSuhDErDQozRQwjKlZqkyfk4ycuBPOVhIFB8oqq4RhthCCY1IXy6XbXDYNiFJeVEUxSuwR5pu0LOpUXCDiQxybXCQhli8w6zyQIa9/Sf44gSsl5WBmdqpeR2xnEl78yJtPogzQW9PQbnOJEHxSbxL+c5dYC8het6dCX53Ar7C1GwCxvpMwvtTQnD3FF/qVqUDdkP08pQnvCGMFC8Hdce6mv9euYa6gwXnSSPIU0+TFLVLToNySgI7vVyH2KFACV9+3GVHet6GXO6l1fw7ip1/NJe3n8GCOu4gvVgUi+LkQlPyB3T3xLUWmW+0pUjsCPY2u7xDVj5jlnP17GmzjaHTdTymjuACC7H87/oeGiH0KMu+Rc+qJM9pnPZtDSk1YGG+cdqzHJxtXWVBp6kF46jr8z22+72Gfw0UdVKVhQeMHjfau3U13/Dbryvt8G9bfpC1
+api: eJydlN1u1EAMhV9l5OvRbkr5kXJXqCpAqqjYIi5WEfJOnM2oyUyYcVatorw78mwKYYPQwlUSx/5yxj7OACVFE2zH1jvI4V3jI0WFTqFheyC12bxXxjtHRjJU5YOqbEOqRYd7CivQwLiPkG/hRuK3xzgUGgLFzrtIEfIBXmSZXH7/2gm8tHF6onIF46ihJa59CTl0PjJo6JBryGEdY70WGd8mGSnwqxw0RAoHCqJrgD40kEPN3OXrdeMNNrWPnF9mWXYB+kTTLVqnSmTcYSSFrlTYc02OrcGk8kiGUf8VfLkAy2G5d46aqXktOT6T9vKPtPkgzgS9WoJSnYqMbCNbE9OZW+8s+2Dd/kzw6wX4GmO98xjKMwlvlgRvHij8c7culkPdULDYzL32TCrEKqYPlp+SV3aEgcJVLz7bFvPXG1NTezTzPGkAfupokiLGS2mQT0mgp5sbH1pkyOHj1/vkbesqn8otN5J/T6G1j+rq7gNoEO8epWerbJUtDjQlv0XzQK6UIvWZKgrkDMGo07606ITvMMm5/rkdqgq+lcU+pQ5gvGNy/L8/gmMjmB553TVonShJcxqmzd1CjDVomO+u9CwFZ/tbaJBpSsEwyCJ+Cc04Svh7T0EmVWg4YLC4k95ti/m/4u7TRjr8A5uoqjc=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Closes an active SSH connection for file manager.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./disconnect-from-ssh.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"SSH connection disconnected."}}}
+  {...require("./disconnect-from-ssh.StatusCodes.json")}
 >
   
 </StatusCodes>

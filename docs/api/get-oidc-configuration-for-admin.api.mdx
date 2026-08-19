@@ -5,7 +5,7 @@ description: "Returns the full OIDC configuration for an admin."
 sidebar_label: "Get OIDC configuration for admin"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk0FvnDAQhf+KNWd3oU3TStzSpklTqWqVTdTDisOsGcAKjKk9RIkQ/70ycGC7q2rVEwjmfX6emTdAQcF424l1DBnck/Seg5KaVNk3jfpxd/1ZGcelrXqPsUqVzitkhUVreQMaBKsA2Q4eA/kAuQZPoXMcKEA2wLs0jY/DY25Oozcwarg8KUDbUKHEqYpkrZzdzFbGUUNLUrsCMqhIQEOHUkMGSR+9Jc4W5s2sSyYNaAjkn6PvbDdA7xvIoBbpsiRpnMGmdkGyizRN34L+y9J3tKwKFNxjIIVcKOylJhZr5j7NZBj1P8EXR+Dt9quSnpka1SJjRS2xnEl7f5JW2oYWlj8TdHkMmnQqCIoNYk2Y7tw6tuK85epM8Icj8DWGeu/QF2cSPh4TnHkif6pbeRyw6b2V12nCe0JP/qqPW7HL17+3pqZ2Xtl10QDy2tFiJa7LVAbZUgR6eblxvkWBDL79epgW0XLpJrmVJtY/kG/ti7r6eQca4sbN1tNNukmPLrQUf0LzRFxEkbqnkjyxoZiRzgVpkSOfcbJzexiLg6wum35wxADGsRDL/4Z+7orQiyRdg5ajrWlowxK6HUyhAw2r2IGG2U6uIQ40lg1DTNCjb8Yxfv7dk4/DyjU8o7e4j+3b5ets336JPf4DV2GdOQ==
+api: eJydVMFunDAQ/RVrzu5CmqaVuKVNk6ZS1SqbqIcVh1kzgBUYU3uIEiH+vTJw2C1Rte0JBO89P2beY4CCgvG2E+sYMrgj6T0HJTWpsm8a9f326pMyjktb9R4jSpXOK2SFRWt5AxoEqwDZDh4C+QC5Bk+hcxwoQDbA2zSNl+Njrl+X3sCo4eJVAtqGCiVOVSSHzNnNbGUcNbQktSsgg4oENHQoNWSQ9NFb4mxh3sy8ZOKAhkD+KfrOdgP0voEMapEuS5LGGWxqFyQ7T9P0DPQflr6hZVWg4B4DKeRCYS81sVgzz2lWhlH/Vfh8JbzdflHSM1OjWmSsqCWWE9XevapW2oYWLX+i0MVaaOKpICg2iDVh+ubWsRXnLVcnCr9fCV9hqPcOfXGiwoe1gjOP5P95WmfrpW7JW2xitpjM0RbzGBXTeysvU1b2hJ78ZR/ztcsPX29NTe0c/kPQAPLS0WIlBm+CQbaAQC831863KJDB15/3U6Qtl26iW2ki/p58a5/V5Y9b0BCzO1tPN+kmXX3QAv6I5pG4iCR1RyV5YkOxbZ0L0iJHfcbJzs1xwY5av3Tm6IgBjGMhlv/9fcxTEXqWpGvQcrQ1LW1Y6ruDqb6g4aDAoGG2k2uIC42wYYhdfPDNOMbHv3rycVm5hif0FvdxfLv88C9x8znO+Dc3hba7
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns the full OIDC configuration for an admin.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-oidc-configuration-for-admin.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Full OIDC configuration."},"500":{"description":"Failed to get OIDC config for admin."}}}
+  {...require("./get-oidc-configuration-for-admin.StatusCodes.json")}
 >
   
 </StatusCodes>

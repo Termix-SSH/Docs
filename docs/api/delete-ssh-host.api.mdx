@@ -5,7 +5,7 @@ description: "Deletes an SSH host by its ID."
 sidebar_label: "Delete SSH host"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVMFu2zAM/RWBpw0QEm9tN8C3DmnRDBswNB12CHKgLSYWKkuuRBcNDP/7QNsr2iYrcrIlPT49knrswFAqo23YBg85LMgRU1Lo1Wp1o6qQWBV7ZTmp5WIGGhh3CfI1rFY3sNHQYMSamKJsdmCFo0GuQIPHmiAHa0BDpIfWRjKQc2xJQyorqhHyDnjfDCjPtKMIfb8RdGqCT5QE8DnL5PNa5rM2M+g1KrVlSSltW+f2M+g1nB8LW/pHdNaoNlFcGhWismZCn79ziQ+stqH1I/biGPM1WkdGcZgUPVdvBn2voSaugoEcxlPQY5FymKdUzU0xF+i8s6YHDYni47+CttFBDhVzk8/nLpToBJmfZVn2CfQbET/RemWQscBECr1R2HJFnm2JAlEjM/T6XeKzA2JJhlvvyakaPe6oJs8nsp0fZdtaRxNXPJHo4pBoiFOJkW1iW6Yh5zp4yyFavzuR+MsB8QJTVQSM5kSGr4cMobyneKxaG2lw2UbL+6HDBWGkeNnKc1hvXh6vxCSjCV6Cnj0jUmDykqxHEOjp5zrEGhly+P7nbniE1m/DEG7ZCf6OYm2f1OWvJWiQFzdKz2bZLDtIaAJ/w/KevJEgdUtbiuRLElc0IXGNXvgn4y9eG+EtYwdl8EyeT5o6Y8ZMTzxvHFovVw4N6SYnrSElmTqmAA3Tfbk1MqOGVb6GrhNf/I6u72X7oaUoLdhoeMRosZCirDswNsm/gXyLLtE7sj/cTmPto/qfxmkT/V5qjK6VFWi4p/04G/vNy/GwuPpxdXcFff8X2Vfgtw==
+api: eJyVVE1rGzEQ/StiTi0Ie9MkLeiW4oS4tFDqlB6MD7PS2CuilTbSbIhZ9r8X7W5CEqfBPenrzdObzw4MJR1twzZ4ULAgR0xJoBer1bWoQmJR7oXlJJaLGUhg3CVQa1itrmEjocGINTHFfNmBzRwNcgUSPNYECqwBCZHuWhvJgOLYkoSkK6oRVAe8bwaUZ9pRhL7fZHRqgk+UMuBTUeTlpcwnbWbQa0RqtaaUtq1z+xn0Es7eMlv6e3TWiDZRXBoRorBmQp+984kPLLah9SP2/C3mK7SOjOAwKXqK3gz6XkJNXAUDCsZXkGOQFMwzZm7Kce2s6UFConj/GNE2OlBQMTdqPndBo8tIdVoUxQnIVyp+oPXCIGOJiQR6I7DlijxbjRkiRmbo5bvEpwfE2RtuvScnavS4o5o8H8l29ibb1jqauOKRROeHRIOdSIxsE1udBp/r4C2HaP3uSOLPB8QLTFUZMJojGb4cMgR9S/G/o3VymNQVRYtO6OA96RdZ3ORS0W20vB9qpSSMFC/aXFnrzfPnVe63sZ+eg57aL0uBqS3zeQSBnDZXIdbIoODbn5uhnq3fhsHcssv4G4q1fRAXP5cgIdfuKL2YFbPiwKEJ/BX1LXmTjcQv2lIkryk3WBMS1+gz/zRDFi976jVjBzp4Js9HDbDRY6YHnjcOrc9fDgnppqZcw+MnJcjHvbImz7vhpNbQdbnFfkfX9/n6rqWYc7CRcI/RYpmjsu7A2JT3BtQWXaJ3dH/4NY3Ij+JfIqdL9PscZHRtPoGEW9qPc7bfPB81i8vvlzeX0Pd/ARkt+xk=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/ssh/db/host/{id}"}
+  path={"/host/db/host/{id}"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Deletes an SSH host by its ID.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+  {...require("./delete-ssh-host.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-ssh-host.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"SSH host deleted successfully."},"400":{"description":"Invalid userId or id."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to delete SSH host."}}}
+  {...require("./delete-ssh-host.StatusCodes.json")}
 >
   
 </StatusCodes>

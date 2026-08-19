@@ -5,7 +5,7 @@ description: "Uploads a file to the remote host."
 sidebar_label: "Upload a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVVFv2kAM/isnP2eQre0m5a3dVq2TulWFag8ITSYx5NrkLj07XVHEf598SSkraIIHSO7sz/bnz6aDgjgPthHrHWRw11QeCzZolrYiI95ISSZQ7YVM6VlGkIDgiiGbwaWaXKPDFQWYJxDosSWWC1+sIeviqw1UQCahpQRy74Sc6BU2TWVz1KDje9bIHXBeUo36JOuGIAO/uKdcIIEm+IaCWOJoR8zWu6tix5QlWLeCTQINSnnwYif63p3W+gNrOnAZP1oaN95xn8GHNNWff5mLZLSRPioMt3lOzMu2qtYjDXF6yOfaMlu3Mi9MmQYD1iQU2PhgJpNvJvfOUa72xnkxxIKLynJJRYQ9O5gK2ooKbV6fT+zlCLSOmqT0BWTQeI7URrpgzFyO1ep33bczHvTeWhgkwBSeKGjfO2hDBRmUIk02Hlc+x0qlkZ2kafoekrdFonWmQMEFMhl0hcFWSnIyCMD0yLBJ/gt8sges9EjrHFWmz7omJ0einR5Ei5ofGDgS6GwfKPoZFhTLYnOONdfeWfGqqSOBP+4Bf0EuFx5DcSTCp30Enz9QOMTWXBuct8HKOnZ4QRgonLeqjtl893qiY9rPwa7RdnA0FZVLNINsMIJkeLj0oUaBDL7/mkZF6vjfvi6Or89YNxW9GfSXcdwKdvu+HevXo9dp3hlx65Y+ZmlF0WFKobbP5vzmChJQYfcMpaN0lO7xNhhfYP5ArlAnc0tLCuRyikvHs9QYt5jrA/d7dFijb/G6nayPW7g9tULPMm4qtE6Dxs53AyEzYC6H2l9mWLsQD3fmeJ6AgqpD1+lA3oVqs9Hjx5aC9n6ewBMGiwulaTbfJFASFhSiLB5oDRl87rN/N9W01LxqNb29pa6y2S6cm5+Tqapg+HOofaE+Af9AEr8zgAR8ZCiKK551UKFbtbhS2x5TP38BjhpOiA==
+api: eJyVVe9P2zAQ/Ves+5y1ZcAm5RtsQ2MSG6KgfUDVdE2OxuDYwXdhVFH/9+mcUDpaTV0+5Id9fr579/zSQUlcRNuIDR5yuGlcwJINmjvryEgwUpGJVAchUwWWEWQguGDIb+FMQy7Q44IizDKI9NgSy2kol5B36dNGKiGX2FIGRfBCXnQKm8bZAnXT8T3rzh1wUVGN+ibLhiCHML+nQiCDJoaGoljiFEfMNvjzciOUJVq/gFUGDUq1c2Jj9605rfU71rRjMl1aGjfBc5/B+8lEH38zl8hoE31UGm6LgpjvWueWI93iaNeaC8ts/cK8MGUajFiTUGQToplOv5oieE+FxhsfxBALzp3lisoEe7wzFbSOSm1en0/q5Qi0jpqkCiXk0ARO1Ca6YMxcjTXqV923Mw30q7UwyIApPlHUvnfQRgc5VCJNPh67UKBTaeSHk8nkALK3RaL1pkTBOTIZ9KXBViryMgjA9Miwyv4JfLgFrPRI6z0502ddk5c90Y52oiXNDwzsCXS8DZTWGRYUy2ILTjXXwVsJqqk9gT9sAX9GruYBY7knwsdthFA8UPxvtg62mzqlaNFtqvMFaaZSKdpoZZm0MieMFE9a1dntbHN6qge+P1GbQesjqKmo8FIY5EMQZMPLWYg1CuTw7ed10rYaydWrBX15xrpx9MYyXg72Wvrr77VBvA69+sKGWVh/F1KWVhQdrinW9tmcXJ5DBnpEeoYmo8lossXbEHyKxQP5UheZK7qjSL6gZF+Bpcbkh77fuHfkwZDf4nUbWe9n3T21Qs8ybhxar5umzncDIbfAXA21v7iBdiENbjjCLAMF1QVdp0f7JrrVSocfW4ra+1kGTxgtzpWm29kqg4qwpJhk8UBLyOFTn/27a01Lw12r6W39HlQ2a+u6/DG9VhUMv5k6lLom4m/I0j0HyCAkhpK40lgHDv2ixYXG9ph6/QEcPGgK
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Uploads a file to the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"content":{"type":"string"},"fileName":{"type":"string"}}}}}}}
+  {...require("./upload-a-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"File uploaded successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to upload file."}}}
+  {...require("./upload-a-file.StatusCodes.json")}
 >
   
 </StatusCodes>

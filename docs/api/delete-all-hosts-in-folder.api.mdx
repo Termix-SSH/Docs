@@ -5,7 +5,7 @@ description: "Deletes all SSH hosts within a specific folder."
 sidebar_label: "Delete all hosts in folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1r3DAQ/StiTi2IXbdJWvAtJQlJaaFkU3pYfJiVx7GILDnSOM1i/N/L2E5Is9uw9KQPPz2/+XjTQ0nJRNuyDR5yOCNHTEmhc2q1ulR1SJzUb8u19QpVasnYyhpVBVdSXIAGxtsE+RpWq0soNLQYsSGmKJc9WCFtkWvQ4LEhyKdFQ6T7zkYqIefYkYZkamoQ8h542woucbT+FoahEHBqg0+U5PvHLJPlb+GXo9BylF+q1BlDKVWdc9sFDBqO97258g/obDkHo0TYCD7ZB75A66hUHOafzKmx/jkXw6ChIa5DCTlMINBT8DksU6qXEzIte/nVsBwZQEOi+PCUsC46yKFmbvPl0gWDTlD5UZZlH0C/0vQdrVclMm4wkUJfKuy4Js/WoEDUxAyDfpP4aIdYSs+d9+RUgx5vqSHPB7Id72WrrKOZKx5IdLJLNL5TiZFtYmvSGHMTvOUgzXIg8acd4jNM9SZgLA9k+LzLEMwdxX3ZKqTApouWt2OFN4SR4mknbbEuXn5eiQWmHn8JenaESIHZKXKeQKDnzUWIDTLk8PXXzdiM1ldhfG7ZCf6GYmMf1emPK9AgHTdJzxbZItsJaAZ/QXNHvpRH6poqiuQNiUnakLhBL/yzsafZMY6OV954Td6DCZ7J8/9NnCkbTI+8bB1aL3LGYvWz29aQkkyc2W+gIZ+nzmS5YtoIsO/FOz+jGwa5vu8oSpkKDQ8YLW4kceseSptkX0JeoUv0RjzvrufB9l79S+t8iX4rdUDXyQk03NH2aT4Oxcthcnb+7fzmHIbhDwZX7wg=
+api: eJydVE1P3DAQ/SvWnFrJ2g0FWik3KkBQtVLFUvWwymHWmRALxw72hHYV5b9XkwQELEXbnvyR55c3H296KCmZaFu2wUMOp+SIKSl0Tq1WF6oOiZP6Zbm2XqFKLRlbWaOq4EqKC9DAeJMgX8NqdQGFhhYjNsQU5bIHK6Qtcg0aPDYE+bRoiHTX2Ugl5Bw70pBMTQ1C3gNvW8EljtbfwDAUAk5t8ImSfP+QZbI8F34xCi1H+aVKnTGUUtU5t13AoOHotTeX/h6dLedglAgbwcevgc/ROioVh/knc2qsf8zFMGhoiOtQQg4TCPQUfA5LgS8naFr28q9hvEugIVG8f8hYFx3kUDO3+XLpgkEnqPwwy7ID0C9EfUPrVYmMG0yk0JcKO67JszUoEDUxw6DfJD7cIZbac+c9OdWgxxtqyPOebEevslXW0cwV9yQ63iUa36nEyDaxNWmMuQnecpBu2ZP44w7xKaZ6EzCWezJ82mUI5pbiP2frYLeoK4oWnTLBezLPqlhIq5guWt6OvbIhjBRPOumwdfH080rcNNnlKejRXCIFZtPJeQKBnjfnITbIkMOXn9djX1tfhfG5ZSf4a4qN/a1Ovl+CBundSXq2yBbZTkAz+DOaW/KlPFJXVFEkb0j81obEDXrhn2fENIbGKfTCZi/JezDBM3n+v+E1ZYPpNy9bh9aLnLFY/WzcNQgLaJitCxryeYJN7i2mjSD7Xmz4I7phkOu7jqLUqdBwj9HiRjK37qG0SfYl5BW6RG8E9O5qHpLv1d/Ezpfot1IIdJ2cQMMtbR9m7VA8HUynZ1/Prs9gGP4A0T8JeQ==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/ssh/folders/{name}/hosts"}
+  path={"/host/folders/{name}/hosts"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,24 @@ Deletes all SSH hosts within a specific folder.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+  {...require("./delete-all-hosts-in-folder.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-all-hosts-in-folder.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Hosts deleted successfully."},"400":{"description":"Invalid folder name."},"500":{"description":"Failed to delete hosts in folder."}}}
+  {...require("./delete-all-hosts-in-folder.StatusCodes.json")}
 >
   
 </StatusCodes>

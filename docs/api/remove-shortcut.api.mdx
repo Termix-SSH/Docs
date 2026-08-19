@@ -5,7 +5,7 @@ description: "Removes a shortcut for a specific host."
 sidebar_label: "Remove shortcut"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVF1v2zAM/CsGn7XEW9sN8Fu7pmiHDRiSDHsIgoGxmFitLXkSnTUw8t8Hyk6aNsGQ+cFfOp3II48taAq5NzUbZyGDMVVuTSHBJBTOc95wsnRePmvKzdLkSeECD0AB4ypANoPJ5B7mCjz9bijwjdMbyNr4aTxpyNg3pCB3lsmyLGFdlyZHOXD4GOTUFkJeUIXyxpuaIAO3eKScQUHtXU2eDQVZlcMf9AHOWKYVedgqqJGLg5XA3tgVbOMl8YXa2dDRfEhTebxOfbJL2EcN9EBIL08hH+waS6MTjYwRdXUKdYemJJ2w6wn3ig5AAqqIC6chA00lMcEuARiGUAyXpqRfFVpckR/uNgZQEMivyYvyLTS+hAwK5jobDkuXYyn6ZBdpmr4H9Sacb2hsjHiBgRK0OsGGC7Lc1yLpmGGr/kl8cUQ8mdwn3FhLZdIFXJHlM9kuT7JJ8j2XP5Po6pgo7ksCI5vAJg8x58pZw04640zij0fEtxiKhUOvz2T4dMzg8ifyp9SaS4HzxhvexAovCD3560YaYzY/XJ6IY7puPgTt219CkXaJMMh6EKj+5c75Chky+PJzGttRnDh+8fDoGau6pEPPpfsO3VlLgbFLFw81LGCYkq/Mc3L9/QEUSJ92CaeDdJAeydCDbzB/IqtlUzKmJXmyOUVDu8AVxvlgMSYxfm2kt4zty5j5n0HWCcb0zMO6RGPl7FjPtk94BiEUoODQlKLt3pZzFVUSZNuKv374cruV378b8lLKuYI1eoMLkWk23yooCDX5WOUn2kAGn7vY300lHoGXjcR1NC6lC/bD43b0dTQdSVn7wVs5Lbs8/gEV7xmAAhcVit0S/7VQol01uBJsxyrXXzm9FFY=
+api: eJyVVNtu2kAQ/RVrnrfgNEkr+S1piJKqlSqg6gNC1bAe8Cb2rrs7pkEW/17N2hASoor4wbc9c+Z6poWcgvamZuMsZDCmyq0pJJiEwnnWDSdL5+WzJm2WRieFCzwABYyrANkMJpM7mCvw9KehwNcu30DWxk/jKYeMfUMKtLNMluUI67o0GsXh8CGI1xaCLqhCeeNNTZCBWzyQZlBQe1eTZ0NBTsX5fX6AM5ZpRR62Cmrk4uAksDd2Bdt4SXyhdjZ0NB/TVB4vU5/sEvaxBvlASC/eQt7bNZYmT3JkjKjLt1C3aErKE3Y94b6iA5CAKuLC5ZBBTiUxwS4BGEqSw6Up6XeFFlfkhzvLAAoC+TV5KX0LjS8hg4K5zobD0mksxTY7T9P0DNSreL6jsTHkBQZK0OYJNlyQ5b4ZSccMW/Vf4vMj4snkLuHGWiqTLuCKLJ/IdvEmmyTfc/kTiS6PiaJdEhjZBDY6xJwrZw07GY0TiT8dEd9gKBYOfX4iw+djBqcfyb+7WmfHTZ2QN1gm2llL+kUX5zIquvGGN3FWFoSe/FUjMzabHx5PRHydMA5BeyVJKDJ4EQZZDwLVv9w6XyFDBl9/TeNki6jHz+tg9IRVXdKhfNP9sO9UqsDYpYtODQsYpuQr85Rc/bgHBTLxXcLpIB2kR2XowdeoH8nmYpSMaUmerKa4G1zgCuOqsRiTGL/U5GvG9nljvWcndgVjeuJhXaKx4jv2s+0TnsUagIJDfUtx9wqfqw6SzaBtRao/fbndyu8/DXnp5VzBGr3BhdRpNt8qKAhz8rHNj7SBDL50wX+YSkACLxsJ7Gj1yhjsF9HN6NtoOpK+9ku8crlYefwLKt4zAAUuliiOS/zXQol21eBKsB2rXP8AgCUuuA==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/ssh/file_manager/shortcuts"}
+  path={"/host/file_manager/shortcuts"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Removes a shortcut for a specific host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"path":{"type":"string"}}}}}}}
+  {...require("./remove-shortcut.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Shortcut removed."},"400":{"description":"Invalid data."},"500":{"description":"Failed to remove shortcut."}}}
+  {...require("./remove-shortcut.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Returns all internal SSH host data. Requires internal auth token."
 sidebar_label: "Get all internal SSH host data"
 hide_title: true
 hide_table_of_contents: true
-api: eJytlE1r20AQhv/KMufFUpqkBd1S2nwUCsVO6cHoMJLG1uLVrrI7MgnC/72MrFDbMsGHniS07z7zzpd6qCiWwbRsvIMM5sRdcFGhtco4puDQqsXiUdU+sqqQcabm9NKZQPGfADuuFfsNuRloYFxHyJawWDxCriFQbL2LFCHr4VOayuM46J2yJrLyqyGsRIoz2Gm4Sa+m4ie3RWsq5YNqTIzGrY99kGNToojfHe003J4Le4/GUqXYqxVxWR8F32loiGtfQQZrYtDQIteQQRJjnVRFIsLkPXCC1oKGSGFLQXLvoQsWMqiZ2yxJrC/Ryo3sOk3TK9AnTn6icUNxC4yk0FWnmezJsNMfgq8nYOkcd86RVQ06XFNDji+k3ZylrYylkRUuBN1OQcM9FRnZRDZlHHJuvDPsg3T0MvDnCfgbxrrwGKoLCV+mBF9uKJyrVi4NLrtg+G3ocEEYKNx1MhbL/PB4UdbU7Of9UNQDv7U0WpFxGWSQjSLQ48u9Dw0yZPDjz/Mwicat/HDdsBX9M4XGvKq7X0+gQSZubz2dpbN0ktAo/orlhlwll9ScVhTIlSSr0frIDTrhOxzsPBB/sP+nAXoovWNy/L/+HvsaMb1y0lo0TkwOLezHHVxCjLXYKECDkEFKtIeBBtnFfDzIltD3slS/g93t5PNLR0H6l2vYYjBYSEWX+eG+P3yXsv8Fj9y+Sg==
+api: eJytVE2L2zAQ/StiziLxdndb8C2l3Y9CoSRbegg5TORJLCKPvNI47GLy34sch03iZUmhJwvrzXtvvtRCQdEEW4v1DDlMSZrAUaFzyrJQYHRqNntQpY+iChQcqSk9NzZQfANgI6USvyEegQbBdYR8DrPZAyw0BIq150gR8hY+ZVn6nIpOlLNRlF91skkpjmCn4Sa7GoIfeYvOFsoHVdkYLa9PfRCLNZjAB0c7Dbfvyd6hdVQo8WpFYsoT8Z2GiqT0BeSwJgENNUoJOYwTYlws99+D8hidAw2RwpZCSr6FJjjIoRSp8/HYeYMuReTXWZZdgT6z8hMtd9VdYiSFXJynsmeGnf6Q+HpAnFonDTM5VSHjmipiuZDt5l22lXXUc4ULiW6HRF2cioJio1gTu5wrz1Z8SC29jPjzgPgbxnLpMRQXMnwZMnizofDP1boaNnVGwaJTxjOTOeniIo2KaYKV125WloSBwqRJEzZfHF/PTEnVfnWOQS3Ia029lTR4HQzyHgS6P9z5UKFADj/+PHVDbXnlu3ArLuGfKFT2RU1+PYKGNLt769koG2WDhHrwVzQb4iIFqSmtKBAbSltW+ygVcuJn7Ozck3zwlJwLtGA8C7H8r4doXyOhFxnXDi0nk10L236d55Doko8l6MP5wAYa0lov+ot8Dm2b9vN3cLtd+v3cUEgNXGjYYrC4TCWdL47fjvvvqe5/AUp12Kw=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/ssh/db/host/internal/all"}
+  path={"/host/db/host/internal/all"}
   context={"endpoint"}
 >
   
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Returns all internal SSH host data. Requires internal auth token.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-all-internal-ssh-host-data.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A list of all hosts."},"401":{"description":"Invalid or missing internal authentication token."},"500":{"description":"Failed to fetch all hosts."}}}
+  {...require("./get-all-internal-ssh-host-data.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Reads the content of a file from the remote host."
 sidebar_label: "Read a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VNtq20AQ/ZVlnlpYbLVJWtBbSps2hUBJUvoQTBlLY2uJtKvsjEKM8L+XWcmNE7vBLfRJlz175npODyVxEV0rLnjI4ZKwZCMVmSJ4IS8mLAyahavJLGJo0lGkJgiZKrBMwILgkiG/gTMFXaDHJUWYWWgxYkNCUU97cMp/11FcgQWPDUEOTMwu+PMSLES661ykEnKJHVngoqIGIe9BVm0CS3R+Ceu13U/WolR/xTNTMLfBM7Gev80yfTztyPXTXmj92o0JrC0c77tw4ZidX5pNHuaxDybEoZUSgqkxLjc0x7s0qZs+iFmEzpcJd7Iv3Bm6mkojwUTCcpPb2kJDUoUScliSgB26k8OUuZoq6GczTCr90KsaECwwxfvNyLpYQw6VSJtPp3UosNaZ50dZlr0B+7xudN6UKDhHJoO+NNhJRV5cgQoxAzPo+F4gPtohvrr6YqTznmoz5NzoLA5jO97LlmYw1n8g0ckuUbpnWFAciys41dwE7yTogh1I/G6H+CNyNQ8YywMZ3u8yhOKW4r5uzXTARRedrNKE54SR4mmnu3Ez2z6+UtkMutgG/VaRpgKjuvR7AIEdX85CbFAgh68/rtM6Or8I6bqTWvHXFBv3YE6/nYMF3bgh9WySTbKdgkbwByxuyZd6yVzSgiL5glQZbWBp0Cv/aAZqZKNxPWfrYdTzv/rd0AChB5m2NTqvGaT59KPKboBZrWhbZ9orHvxp1NrMglIqvO9VNN9jvV7r78HYdD6lY5zXamYLrJleqOTV5eg3r82fcryl1TPPvce6U1xasf8Qa7TkxzAz/YhO46SF27Kpz590UX4BcGQ63w==
+api: eJy1VF1r2zAU/SviPm0gEndtN/Bbx9atg8JoOvZQwrixr2NRWXKl69IQ8t/HlZ01rbOSDvbkDx2d+3nOGkqKRTAtG+8ghyvCMiquSRXeMTlWvlKoKmNJVcE36ShQ45lU7SNPQAPjMkJ+A+cCukSHSwow19BiwIaYgpyuwQj/XUdhBRocNgQ5RIrReHdRgoZAd50JVELOoSMNsaipQcjXwKs2gTkYt4TNRu8na5HrV/HMBRxb7yJFOX+XZfJ42pHrp72Q+qUbE9hoONl34dLEaNxSbfNQj31QPvStZO+VxbDc0pyMaVI3nWdV+c6VCXe6L9w5GkulYq8CYbnNbaOhIa59CTksiUH33clhGmM9FdCvpp9U+iFXJSBoiBTutyPrgoUcauY2n06tL9DKzPPjLMuOQD+vG41TJTIuMJJCVyrsuCbHpkCBqJ4ZZHwvEB+PiGezr4o758iqPudGZnEY28letjSDof4DiU7HROmeioxsIpsippob7wx7WbADid+PiD9hrBceQ3kgw4cxgy9uKby6W0fjoc4oGLQiAEfFkynOZVWKLhhepV1ZEAYKZ51s2c1893gmAuwVtgv6o0dJBQadyncPAj28nPvQIEMO335ep8U2rvLpumEr+GsKjXlQZ98vQIPsbp96Nskm2aigAfwRi1typVxSV1RRIFeQaKz1kRt0wj/YiljiYIHP2dYwOMO/OmffAKYHnrYWjZMM0nzWg15vIEYxtV3FSq9i73SDaucahFLg67XI70ewm4387i1S5lOaiAsrtlihjfRCJW+uBud6q/6W4y2tnrn3PdpOcGnF/kOswdwfw8zlIxiJkxZux/C+fJZF+Q26OlRh
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Reads the content of a file from the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+  {...require("./read-a-file.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./read-a-file.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"The content of the file."},"400":{"description":"Missing required parameters or file too large."},"404":{"description":"File not found."},"500":{"description":"Failed to read file."}}}
+  {...require("./read-a-file.StatusCodes.json")}
 >
   
 </StatusCodes>

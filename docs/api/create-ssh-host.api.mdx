@@ -5,7 +5,7 @@ description: "Creates a new SSH host configuration."
 sidebar_label: "Create SSH host"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk01r3DAQhv+KmLNYu03Sgm5pS9gUSkOd0sPiw1ieXYvIkiuNtwlm/3uRbMo2u5TtSUZ+55kPzTtBS1EHM7DxDhR8DIRMUaBw9EtU1Vp0PrLQ3m3NbgyYZCuQwLiLoDZQVWuoJQSKg3eRIqgJ3pZlOv4GrzMm01sRR60pxu1o7csKDhKuz4Xcuz1a0+YqWmTMyptzyjs0llrBXkTc03HAQUJP3PkWFAw+MkgYkDtQUMTYFW1TdPNtpLCnkHqaYAwWFHTMgyoK6zXaJFJXZVm+Afkq9xc0LmdrMJJA1wocuSPHRudpiZkMB/lP8NUJOHXBo3NkRY8Od9ST4wtp12dpW2NpYYULQTenoBwnIiObyEbH3HPvnWEfjNtdCH53Av6EsWs8hvZCwvtTgtdPFM5Nq04PrMdg+CW/cEMYKNyOaRM29fHvSnfUz3t8LJqAXwZaSknrkmWgFhHI5ePOhx4ZFHz+8Zi3z7itz+GGbdI/UujNs7h9uAcJaePm0stVuSpPGlrEH1A/kWtTkPhGWwrkNCUzpI3u0SW+w1zO7N8/xn1NnEB7x+T4f6w+N870zMVg0biUOb/LtHhpAzF2KVUDEnLaejnVBqYpGeN7sIdDuv45UkhvUEvYYzDYpKls6mOfPnyt0ux+A8d3j3I=
+api: eJyVlN9r2zAQx/8Vcc8icdd2A791KyUtjJW5Yw/BD2f5EovKkiedswaT/31I9kZah5E+Sdjf+9xvDVBTUF53rJ2FHL54QqYgUFj6LYpiJRoXWChnN3rbe4yyBUhg3AbI11AUKygleAqds4EC5AN8yLJ4vAavEibRaxF6pSiETW/MfgEHCVenTO7tDo2uUxQ1Mibl9SnlHWpDtWAnAu7o2OAgoSVuXA05dC4wSOiQG8hhGRNb1lU6QUIgvyMfkxqg9wZyaJi7fLk0TqGJovwyy7ILkG+cf0Vtk7sKAwm0tcCeG7KsVSqXGMlwkP8FX87AMQ3urSUjWrS4pZYsn0m7OknbaEMTy58Jup6Dkp0IjKwDaxVSzq2zmp3Xdnsm+OMMfIuhqRz6+kzCpznBqWfy767WxbypBXmNJs69JfWqi2UcFdV7zfs0KxWhJ3/Tx6Fal8e/C9VQO67EsWgA3nc0hRIHL8kgn0Qgp8ud8y0y5PDw8ykNsrYbl8w1m6h/It/qF3HzeA8S4uyOoWeLbJHNEprEn1E9k62jkfhOG/JkFcW9isvRoo18iymc8Sn49wa8JQ6gnGWy/J5XY0yc6YWXnUFto+fUl2FayzX89VWBHO/ldOZrGIa4Yz+8ORzi5189+diEUsIOvcYqlmVdHu/847ciFu8PtX2p1A==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ssh/db/host"}
+  path={"/host/db/host"}
   context={"endpoint"}
 >
   
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Creates a new SSH host configuration.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./create-ssh-host.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Host created successfully."},"400":{"description":"Invalid SSH data."},"500":{"description":"Failed to save SSH data."}}}
+  {...require("./create-ssh-host.StatusCodes.json")}
 >
   
 </StatusCodes>

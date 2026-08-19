@@ -5,7 +5,7 @@ description: "Enables autostart for a specific SSH configuration."
 sidebar_label: "Enable autostart for SSH configuration"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVNtu00AQ/ZXVPC+JoS1IfmtLUYuEqEiAhyoPk/Uk3na96+6lNLLy72jWJg11hCL8kPhy5uyZy5kOKgrK6zZqZ6GEK4tLQ0Fgii5E9FGsnBcoQktKr7QSs9m1UM6u9Dp55KAJSIi4DlDewWx2DQsJnh4ThXjhqg2UXX7Uniooo08kQTkbyUb+hG1rtMo80/vACjoIqqYG+S5uWoIS3PKeVAQJrXct+agpZFyoL7OQm2oPbFOzJA/bfLGU0Dob+oh3RcF/f2d8nqKb5Uwp516JkJSiEFbJmM0EthJOD8X9QKMrsSdC6CD+pDqEnY7DRvUT1nGRk+2Dzg6ddWMjeYtGBPJP5AV57/wEOMGGYu0qKKF1IdcIYw0lTEOop7smTvvUQEJPwM3qIHkDJdQxtuV0apxCU7sQy5OiKN6CfCXhC2orKoy4xEACbcUjUpONQ/sGabCV/yQ+GRFzQWKyloxo0OKaGrLxSLbTg2wrbWjg8kcSnY2J+kqHiFGHqFXIOTfO6ui8tusjid+PiD9iqJcOfXUkw4cxg1MP5A9Va8ENVsnruMkdXhJ68ueJR+Jusf95xibrXbEP2tmIpfC4ZBiUAwjkcPPJ+QYjlPD55zyPIZv324vtr56xaQ2NbFpsJWi7cvkkHRkBc/KNfhbntzcggYezz7KYFJNilPsAvkD1QLbiIPGNVuTJKmL7sAsazHvEYlbeb7RXC23kwtcHdS9b6n93Yl/ISM9x2hrUluXlPneDSe+4NiBhxwsSBqMuJPAAMKbr2HHfvdlu+fVjIs/NXUh4Qq8zmnsroSasyOe+P9AGSrjsM3gzZyUMN4kVjXYuz8Vujdx+nc25zcPublzFMR5/gcy/JYAEl6uUpye/68CgXSdcM7bn5Os3Y6Ex6w==
+api: eJydVU1v00AQ/SurOS+JS1uQfCulqEVCIFLgEOUwWU/ibde7ZnYNjaz8dzRrU9q6QgEfEsd+8/bNx5v0UFE0bNtkg4cSLjyuHUWFXQoxISe1CaxQxZaM3VijFotLZYLf2G3HKEEz0JBwG6FcwmJxCSsNTN87iulNqHZQ9vmnZaqgTNyRBhN8Ip/kFbatsybzzG+iKOghmpoalLu0awlKCOsbMgk0tBxa4mQpZlysz7OQq+oB2HfNmhj2+RIpsQ0+DhEvi0K+Hmd81qWwyJlSzr1SsTOGYtx0zu1msNdw8lzcV3S2Ug9EKBvV71THsJNp2KR+ygcpcueHoNPnzrryidijU5H4B7Ei5sAzkAQbSnWooIQ2xFwjTDWUMK9DTPP7Ls6H3EDDwCDd6qFjByXUKbXlfO6CQSdR5XFRFEegn2j4gNarChOuMZJCX8mM1OTT2L9RG+z1X4mPJ8RSkdR5T0416HFLDfl0INvJs2wb62jk4gOJTqdEQ6ljwmRjsibmnJvgbQps/fZA4lcT4rcY63VArg5keD1lCOaW+J+rdTRt6oLYopOB9GQedXElo2I6tmmXZ2VNyMRnnUzXcvXw9UL8OhjsIejekSJFBi/DoBxBoMebd4EbTFDC+2/XeaJlD3z+s0Eu7rBpHU0cX+w1WL8J+SSbBAHXxI29U2efrkCDjPmQZTErZsUk9xH8Bs0t+UqC1GfaEJM3JE4UQzWYV5LHrHxYjk9248TQTw/q/yy8/12vQyET3aV569B6kZf73I9+X0I92P+eGDSMnl/p4WW5hL4X835ht9/L4+8dsXR3peEHss1oaa6GmrAizo2/pR2UcD6k8OJapAjcdSJpsr9lMO5X0qePi2vp8/g/0IRKYhh/gs6fJYCGkMuUxyc/68Gh33a4FezAKdcvHfdMTQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ssh/autostart/enable"}
+  path={"/host/autostart/enable"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Enables autostart for a specific SSH configuration.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sshConfigId":{"type":"number"}}}}}}}
+  {...require("./enable-autostart-for-ssh-configuration.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"AutoStart enabled successfully."},"400":{"description":"Valid sshConfigId is required."},"404":{"description":"SSH configuration not found."},"500":{"description":"Internal server error."}}}
+  {...require("./enable-autostart-for-ssh-configuration.StatusCodes.json")}
 >
   
 </StatusCodes>

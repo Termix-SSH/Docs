@@ -5,7 +5,7 @@ description: "Generates a new SSH key pair."
 sidebar_label: "Generate new SSH key pair"
 hide_title: true
 hide_table_of_contents: true
-api: eJyNVE1v2zAM/SsCz2rjresG+NZ26z6AYcWSYYcgB8ZmbTW25Ep0W8/Ifx8op61bB1t8sAWLfCQf+dhDTiHzpmHjLKTwmSx5ZAoKlaV7NZ9/URvqVIPGH4MGxiJAuoQLTzlZNlgFWGnwdNtS4HOXd5D2kDnLZFmO2DSVyVDgZzdBYvQQspJqlBN3DUEKbn1DGYOGxruGPBsKcruhbhENngwDe2ML2Gq5m5s/4ztjmQryctlgCE3pMezzjY+kHBpnwxDpbZLI5yUXi5IiB8/1bzWc7rO8RFNRrtipYsffK+IkYE1cuhxSaFyItSKXkMIse6Zy9uh+tKHuSFxBQyB/R15Y76H1FaRQMjfpbFa5DKvSBU5PkiR5A/pVVt/RWJUj4xoDKbS5wpZLCTX0Qw3IsNX/BD6ZAEtt3FpLlarRYkE1WT4Q7d1etGtT0Q7LHwh0OgWKfiowsglsshBrrp017KT1BwK/nwB/xFCuHfr8QIQPUwSXbcjvY2slDc5ab7iLHV4TevJnrczGcjW+notqhnEdGz3Nt6Qi4xLNIN0Zgd4dLp2vkSGFb78XcR5FjT+fdfvpAeumohe6e9TMSG7JS3WNFGnstYvpGBYYWJCvzYM6u/oKGmSCByqS4+Q4mRC0Mz7HbEM2Fyf1k67Jk80oKtoFrjFuD4uxvMdNNVlTr7FH6+j/620om+mBZ02Fxkrs2Ol+p9cljPQKGqaKXWmQSRDTvhfp/fLVdiu/b1vy0uWVhjv0BtfC03K11VAS5uTjAGyogxQuhpSPYh/EvGolsck2lQF5WixXP+YL6fduC9cuFx+P96DjOwXQ4CItcYzivx4qtEWLhdgOmPL8BRy4FxU=
+api: eJyVVN9P20AM/ldOfj5oGGOT8gZs7Ic0DdFOe6j64CYmOZrchTsHyKL+78iXAi1BW5eH5JSzP9uf/bmHnELmTcPGWUjhC1nyyBQUKkv3ajr9qlbUqQaNPwQNjEWAdA7nnnKybLAKsNDg6balwGcu7yDtIXOWybIcsWkqk6HAT26CxOghZCXVKCfuGoIU3PKGMgYNjXcNeTYU5HZF3SwaPBsG9sYWsNZyNzV/tu+MZSrIy2WDITSlx/CWb3wk5dA4G4ZI75JEPrtczEqKHLzUv9Zw8pblBZqKcsVOFRv+XhEnAWvi0uWQQuNCrBW5hBQm2QuVkyf3gxV1B+IKGgL5O/LCeg+tryCFkrlJJ5PKZViVLnB6nCTJEehXWf1AY1WOjEsMpNDmClsuJdTQDzUgw1r/Ffh4BCy1cWstVapGiwXVZHlPtPdvol2bijZYfk+gkzFQ9FOBkU1gk4VYc+2sYSet3xP4wwj4E4Zy6dDneyJ8HCO4bEX+v9k6Gjd1St5gpTJnLWU7XVzIqGStN9zFWVkSevKnrUzZfLF9PRX9DYO/bfSsFElFBi+aQboxAr05XDhfI0MK33/P4mSLrq9eNsDnB6ybinYU/KS+LeEmuzrd0rax1y6mY1hgYEa+Ng/q9PIbaBAtDFQkh8lhMiJoY3yG2YpsLk7qiq7Jk80o7gYXuMa4hyzG8p523mjhvcbeWmz/XpRD2UwPPGkqNFZix073G+XPYUv5oGGs/YUGmQQx7XsR8S9frdfy+7YlL11eaLhDb3ApPM0Xaw0lYU4+DsCKOkjhfEj5IPZBzKtWEhvtZRmQ5xV1+XM6k35v9nntcvHxeA86vlMADS7SEsco/uuhQlu0WIjtgCnPI21TMJc=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Generates a new SSH key pair.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"keyType":{"type":"string"},"keySize":{"type":"integer"},"passphrase":{"type":"string"}}}}}}}
+  {...require("./generate-new-ssh-key-pair.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"The new key pair."},"500":{"description":"Failed to generate SSH key pair."}}}
+  {...require("./generate-new-ssh-key-pair.StatusCodes.json")}
 >
   
 </StatusCodes>

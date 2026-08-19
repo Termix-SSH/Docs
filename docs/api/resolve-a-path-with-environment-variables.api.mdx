@@ -5,7 +5,7 @@ description: "Expands environment variables and ~ in a path via the SSH session.
 sidebar_label: "Resolve a path with environment variables"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VO9r20AM/VcOfdrAJN7abuBvHWu3Dgql7eiHEIZiK/HR8517krMGk/3tQ7azZk1WMtg++cdJT7qn99RCQZxHW4sNHjI4e6zRF2zIL20MviIvZonR4swRG/SF+WGsN2hqlNIsLRopydzcfDZMzDb4ESQguGDIJnBuHZlL9LigCNMEaoxYkVDU0xasFnxoKK4gAY8VQQYDykUBCUR6aGykAjKJDSXAeUkVQtaCrOouWKL1C1ivk/1g2uNf4Uw1mOvgmVjP36apPn6n6LYkE4mDW1JhcMbBNUIdHyNYJ3C8L+fSMlu/MJtWzBMVXdLJvqRztI4KI2FTblNknUBFUoYCMliQQNLfNIMxczmeW0ffqp717seQfdWzwRSXmwk00UEGpUidjccu5OjKwJIdpWn6BpLnd0DrTYGCM2TqpICNlOTF5qghpkcGncYLwEc7wKoeabwnZ/q2O9Udhna8F00pGLDigUAnu0BdnmFBsSw27+VfBW8lqF4OBH63A/wRuZwFjMWBCO93EUJ+T3EfW1MdcN5EK6tuwjPCSPG0UXlMptvHN+qCXubbQb9Moa3AYBb97oMgGV7OQ6xQIIMvd7edIq2fhy7ditP4W4qVfTSnVxeQgCqubz0dpaN050JD8AfM78kXmmSuaU6RfE7qjzqwVOgVf/D29WCJYRN9t1LuX1rPa7WQBy/k5Z9tu54voUcZ1w6t14a7cbaDLyfArNbbdqZSy/12enLnNAGduma0rdrsa3Trtf7uN5tOtLCs7RWQzdExvXC7V9fDtnlt/tTmPa2eLd0lukbjOlH+h1rDTn4qM9WPnvJOolu77dOZSusnIoZGBw==
+api: eJy1VO9r20AM/VcOfdrAJO7abuBvHWu3Dgql6diHEIZiK/HR8517krOGkP3tQ7azpk1WUtg++cdJTzrpvbeCgjiPthYbPGRw/lCjL9iQX9gYfEVezAKjxakjNugL88tYb9DUKKVZWDRSkhmNvhgmZhv8ABIQnDNkY7iwjswVepxThEkCNUasSCjq6QqsFrxvKC4hAY8VQQY9ymUBCUS6b2ykAjKJDSXAeUkVQrYCWdZtsETr57BeJ/vBtMdX4Uw0mOvgmVjP36WpPp6O6LYkE4mDW1BhcMrBNULtPAawTuBkX86VZbZ+bjatmMdRtEmn+5Iu0DoqjIRNuU2RdQIVSRkKyGBOAkl30wyGzOVwZh39qLqptz/67OtuGkxxsdlAEx1kUIrU2XDoQo6uDCzZcZqmR5A8vwNabwoUnCJTSwVspCQvNkcNMR0y6DZeAD7eAVb2SOM9OdO13bLuMLSTvWg6gh4rHgh0ugvU5hkWFMti847+VfBWgvLlQOD3O8CfkMtpwFgciPBhFyHkdxRfPa2j3aWOKFp0Jg/eU/5kixOlSt5EK8uWK1PCSPGsUaKNJ9vHI9VTJ5jtoD/y0lagl51+d0GQ9C8XIVYokMHX77ctt62fhTbditP4W4qVfTBn15eQgHK3az0dpIN050J98EfM78gXmmRuaEaRfE6qtDqwVOgVv3eJm15cvaf9tFLut7/ntVaQBy/k5Z/5ZjcvoQcZ1g6t14bbda56hY+BWUW8rXEdLXc+96jzSQK6dc1YrVSw36Jbr/V355G60cKytldANkPH9MLt3tz0vvXW/K3NO1o+s+8FukbjWlL+h1q9uz+WmehHN/KWolsu+flcqfUb7tJfiQ==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Expands environment variables and ~ in a path via the SSH session.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+  {...require("./resolve-a-path-with-environment-variables.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./resolve-a-path-with-environment-variables.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"The resolved absolute path."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to resolve path."}}}
+  {...require("./resolve-a-path-with-environment-variables.StatusCodes.json")}
 >
   
 </StatusCodes>

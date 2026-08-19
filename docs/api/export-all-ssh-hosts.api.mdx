@@ -1,11 +1,11 @@
 ---
 id: export-all-ssh-hosts
 title: "Export all SSH hosts"
-description: "Exports all SSH hosts for the current user with decrypted credentials."
+description: "Exports all SSH hosts for the current user. By default credentials are decrypted and embedded. With `share=1`, secrets are omitted and credential-authenticated hosts instead reference a scrubbed `credentials` array by alias, suitable for handing off to another user."
 sidebar_label: "Export all SSH hosts"
 hide_title: true
 hide_table_of_contents: true
-api: eJytlE2P0zAQhv+KNeeoCewuSLktYpctEhKiizhUOUztaWOtY4fxpLSK+t+RkyDabYV64JTIeefxO1/pwVDUbFuxwUMJD7s2sESFzqnF4knVIUpU68BKalK6YyYvqovE6peVWhnSvG+FjNJMhrxYdHEGGQhuIpRLWCyeoMqAKbbBR4pQ9vC2KNLj9OZ75xQNt5P5e/UMDhncXtLP/RadNYOXuRl0d5d0j2gdGSVhop+wDxk0JHUwUMKGBDJoUWooIY+xzs0qH4T5GAkZROItcUqsh44dlFCLtGWeu6DRJXF5UxTFG8heufiC1iuDgiuMpNAbhZ3UqV4ak0SNZDhk/wTfnIFTNtJ5T0416HFDTWrQdbTbi7S1dTSx+ErQ3TloiFNRUGwUq+OQcxO8lcDWb64EvzsDf8RYrwKyuZLw/pwQ9AvxpWpVqcG6Yyv7ocMrQia+79JELKvjzwtdUzMO87GoB9m3NFlJ4zLIoJxEkE0vj4EbFCjh84/nYQitX4ch3IpL+mfixu7U/dc5ZJAmbrRezIpZcZbQJP6A+oW8SUHqG62JyWtKa9GGKA36xPc42Bm3/HTJX2N70MELefmvf4WxPEI7yVuH1id/Q/f6afOWEGOdvKwggz/Gpv2rxpMk6vu0SN/ZHQ7p+GdHnHpWZbBFtrhKVVxWx+v96SGV+jeM9LAd
+api: eJztVU1v20YQ/SuDObOS3CQtQKAHB00aFyhQVClycAR4uDsSF17uMrND14Kg/14MKcWy5RTOvSdSyzdv5+PN0w49Fyeh15AT1vjuvs+iBShGWC4/QJuLFlhnAW0Z3CDCSWEoLDN4uwXPaxqighP2nDRQLEDC4NnJtlf2QMkDdw17z34Gn4K2cFNaEv7l4qaCwk5Yp5jcBT1GPPD9QIO29urIPk75hFSUyYPwmoWTYyAoToamYQ83J8ncAInQFpotUAxUKihDUGoijzW1lHxIG8jrNWgGSllblqk8rFBpU7C+xuXyA64q7EmoY2Wxwx0G69eXgWWLFSbqGGscK8MKhb8MQdhjvaZYuMLiWu4I6x3qth+RKiFtcF89GcCS1VL5jBef0V54HAj8E7TNg35t5bFzM9yv7LrS51S42AU/Lhb2eEx7GeOBiv3DYGd2/+vn8FfpjmLwYyuu/Ih78xzuPYXI/iTRU+59hR1rmz3WuGFFa6G2WOPcEHPfjM8yn0KxwsJyd2zvIBFrbFX7ej6P2VE0cP1qsVhc4NOu/UEhgSelhgqPCjqRTcgJJmbcV/9J/OqM2MrRISWO0FGiDXem/5exvX6WbR0iH7jkhURvzonGOChKGooGV8aau5yCZtPVC4l/OiP+lUrbZBL/Qoafzxmyu2X57m5dnA91yRIogsspsXs0xZVJxQ0SdDtqpWESlsvBxHW9Ov28tL2b9uIU9HUNLRU8rKf9nkBYHV7eZ+lIscbfP30c9RzSOo/hQaPhP7J04R4u/7zCCk27U+qL2WK2OCvoAH5L7paTtyD46+hgtmF9LtpRMv6Dn0x2/NiNn9Lu0OWknPR/+35i39OIle913kcKyXo8KnB3MKJrtISsoQ1WeOzuwY5W04mhdjvzlb8l7vd2PJm+Cc+HYtk8+Pw3J/Pdvv6N/G95e/I/c0dxMMy4EnckwbIZd+DEen97Z9r9F1KDvi4=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/ssh/db/hosts/export"}
+  path={"/host/db/hosts/export"}
   context={"endpoint"}
 >
   
@@ -36,25 +37,30 @@ import Heading from "@theme/Heading";
 
 
 
-Exports all SSH hosts for the current user with decrypted credentials.
+Exports all SSH hosts for the current user. By default credentials are decrypted and embedded. With `share=1`, secrets are omitted and credential-authenticated hosts instead reference a scrubbed `credentials` array by alias, suitable for handing off to another user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
 
 <ParamsDetails
-  parameters={undefined}
+  {...require("./export-all-ssh-hosts.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./export-all-ssh-hosts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"All exported SSH hosts."},"400":{"description":"Invalid userId."},"500":{"description":"Failed to export SSH hosts."}}}
+  {...require("./export-all-ssh-hosts.StatusCodes.json")}
 >
   
 </StatusCodes>

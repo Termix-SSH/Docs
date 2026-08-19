@@ -1,11 +1,11 @@
 ---
 id: reorder-snippets
 title: "Reorder snippets"
-description: "Bulk updates the order and folder of snippets."
+description: "Bulk updates the order and folder of snippets. Accepts `snippets` and the legacy `updates` payload key."
 sidebar_label: "Reorder snippets"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1v2zAM/SsCz17ire0G+NZuK9YBA4omxQ5BDozNxGpkyZXotoGR/z5Qdj6aBFswX6JIT4/UIx9bKCjkXtesnYUMbhqzVE1dIFNQXJJyviCv0BZq7ows3VwFq+uaOAwgAcZFgGwCo34Ppgl4em4o8I0rVpC18a/2VEDGvqEEcmeZLMsR1rXROUrw4VOQDFoIeUkVyopXNUEGbvZEOUMCtXc1edYUIm4TcYdE73EFCWimKvybQRd7GG2ZFuRhnUB88+mjToS9s8Be2wWsN5+8PtTOhi7EpzSVn/cib7RSnmIoKlRo8pxCmDfGrAYS6PLUxTv7gkYXqhc4Aq9OAW9RGyoUu02IvZpJjhVx6QrIoG6iLMglZDDcgIb9LUggkH8hLyVuofEGMiiZ62w4NC5HU7rA2UWaph8hOUjhF2qrCmScYaDYQNhwSZb7equOGdbJX4kvjohHox+KG2vJqAotLqgiy2eyXZ5km2tDPZc/k+jqmCjeU4GRdWCdh/jmylnNTlrkTOLPR8TfMJQzh744k+HLMYPLl+RPqTWVAueN17yKFZ4RevLXjbTDZLp/PBJXdj29D9r6QFKRdokwyHoQJP3i1vkKGTL4+XscO1Dc/rCbE9/fsKoNvff1pLNounVkujPg1njTdQLazl3MRbNwwJh8pd/U9f0dJCDt2+mQDtJBeqROD77BfEm2kEvqgebkyeYkBqtd4ArjaLIY3/Zw4KlDynY34v5joHZ6Mr3xsDaoreQQy932Pp3AXuCNU6cJSAfIaduK5R69Wa9l+7khL9WdJvCCXuNMJJqIbCVh1HLSwpJWkMHXLu0PY8lB4KaJY/VwSktjbEfI/eNYytwP+8oVcsXjqySHr5ABJOCiMrF74l4LBu2iwYVgO0r5/gDhlkKw
+api: eJy9VU1v2zgQ/SvEnLW2sv0CdEu6W2wXKFDEKfZgGMiYGlusKZIlR2kEwf99MZQcO3HQppfqYpl88ziceW80QE1JRxPYeAcVXHV2p7pQI1NS3JDysaao0NVq4628+o1KzoRAnGbqUmsKnNTtYek2QyXQ0hZ1r24nslsVsLcea7WjfgYFMG4TVEtYTJGwKiDSt44SX/m6h2rIf02kGiqOHRWgvWNyLFsYgjUaJev51ySpD5B0Qy3KG/eBoAK//kqaoYAQfaDIhlLGHU48IjFG7KEAw9SmnzOY+gRjHNOWIuwLyMV6fmus3sle4mjcFvaHR26fgndpPOLPspSfx9051EpFykdRrVKnNaW06aztZ3LQ6+cCP7o7tKZWU4Ez8M1zwA9oLNWK/eGIY7NBcmyJG19DBaHLZUFuoIL5ATSfoqCARPGOorR4gC5aqKBhDtV8br1G2/jE1auyLC+geJLCJzRO1ci4xkRZTthxQ46nfquRGfbFD4lfnREvFv8o7pwjq1p0uKWWHL+Q7fWzbBtjaeKKLyR6c06U41RiZJPY6JTv3Hpn2ItEXkj89oz4L0zN2mOsX8jw7pzB6x3FX67WxXlTFxQNWqW9c6QfdXElUtFdNNxnrawJI8XLToS1XJ1uL8TfoztOQQ+OklREeBkG1QSCYnr54GOLDBX8+99N1rLMjevjxPn7Httg6fGEWI5mLx+8XR6t/GDh1b4A4zY+52JYOOCGYmvu1eXnj1CAGGGsQzkrZ+VZdSbwFeoduVqC1DVtKJLTJFYNPnGLecg5zHe7fuLOp5TDcVj+zpk+NoLpnufBonGSfNbJMI2KJZxkfBgWqwJEOrI7DOL6L9Hu97L8raMoslgVcIfR4Fpqu5R6N4S5CcsBdtRDBe/H+/5xIzkI3HZ5sj/9UIiiHqbY5y83oo/pe9P6WkIifpfk8DtUAAX4XNIsu7w2gEW37XAr2JFSnv8B38OGJA==
 sidebar_class_name: "put api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,33 +37,28 @@ import Heading from "@theme/Heading";
 
 
 
-Bulk updates the order and folder of snippets.
+Bulk updates the order and folder of snippets. Accepts `snippets` and the legacy `updates` payload key.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"snippets":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer"},"order":{"type":"integer"},"folder":{"type":"string"}}}}}}}}}}
+  {...require("./reorder-snippets.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Snippets reordered successfully."},"400":{"description":"Invalid request."},"500":{"description":"Failed to reorder snippets."}}}
+  {...require("./reorder-snippets.StatusCodes.json")}
 >
   
 </StatusCodes>

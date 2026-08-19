@@ -5,7 +5,7 @@ description: "Changes the permissions of a file on the remote host."
 sidebar_label: "Change file permissions"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVVFP2zAQ/ivWPXttN2Cb8gbb0JiEhminPaBqujrXxpDYwb4wqqj/fTon0EArVC0PbWLfffnu83eXFnKKJtiarXeQwZcC3Yqi4oJUTaGyMVrvovJLhWppS1Lepc1AlWdShY88Ag2MqwjZDZxLyCU6XFGAuYZA9w1FPvP5GrI2PdpAOWQcGtJgvGNyLFtY16U1KDzGt1HItBBNQRXKHa9rggz84pYMg4Y6+JoCW4opjhLNi3wQGjlYt4KNhhq52L+xLXDPfrqkglh7F7sXfZhM5O+lZlcDnUzSL1exMYZiXDZluR7Ju473ZV5KmlupJ1lUjQErYgpR+aCm0+/KeOfISLxynhU+oC1xUVIP+vktOj0bxbaiXPmGU9LJPibnaEvKFfunnIE2IxAdKuLC55BB7WM6gaQqjGMsxmKMP1V36mmhAxkIAxoihQcK4pIWmlBCBgVznY3HpTdYipGyo8lk8h70a5XQOpUj4wIjKXS5woYLctzbRXXIsNFvAh/tAIu+3DhHperIV+T4QLTjvWipQ3ohDgQ62QVKeSoyso1sTUw1V95Z9mLNA4E/7gB/xVgsPIb8QIRPuwje3FHYp9ZcDtg0wfI6nfCCMFA4bcQkN/Ph9lSaumunYdBz/wkVsUsKg6wPAt3fnPtQIUMGP37PkjFlWFxvx8y3R6zqkl6Nhaeufvbt9nk4BAbDwbqlT6wsCxrMJO5RnV5dgAYxcqfIZDQZTXZ06oPP0NyRyyVJXdOSAjlDafL4yBWmGecwVdkN3s5A9Yu+eYHcbkfm/8/qTmemRx7XJVonjJIN2l6dG4ixAA3DvpYjSYu7vT3XINiS17bSpL9CudnI8n1DQfww1/CAwcrgSnbQUBDmFJJV7mgt1XR1vZsJOwkvG2G581kQKz3Poquf05k4o/+8VD6XnIB/QaffDECDT9olw6W1Fkp0qwZXEtthyvUPlqhwsA==
+api: eJydVVFP2zAQ/ivWPWdtGbBNeYNtaExCQ7TTHlA1XZNrY3DsYF8YVdT/Pp2T0kAq1C0PbWLffbn7/N2XBnIKmdcVa2chhc8F2hUFxQWpinypQ9DOBuWWCtVSG1LOxk1PpWNShQs8ggQYVwHSW7iQkCu0uCIP8wQ8PdQU+Nzla0ib+Kg95ZCyrymBzFkmy7KFVWV0hlLH+C5IMQ2ErKAS5Y7XFUEKbnFHGUMClXcVedYUYhzFMi/zXmhgr+0KNglUyMX+jV2De/bjJR2EytnQvuj9ZCJ/Lzm77vGURf5yFeosoxCWtTHrkbzrZF/mlaTZldrSoir0WBKTD8p5NZ1+U5mzljKJV9axwkfUBheGOtBPb5XTVaNYl5QrV3NMOt1XyQVqQ7lit83pcTMC4aEkLlwOKVQuxBOIrMI4hGIswvhdtqceF1qQHjGQQCD/SF5U0kDtDaRQMFfpeGxchkaElB5PJpMjSF6zhNqqHBkXGEihzRXWXJDlTi6qRYZN8ibw8QBY+OXaWjKqLb4kyweinexFixPSEXEg0OkQKOapwMg6sM5C7Ll0VrMTaR4I/GEA/AVDsXDo8wMRPg4RXHZP/p/ZOhoe6pS8RtOX9xZpLlLJaq95HbWyIPTkz2qR2+28vz0Ve2gHsx/0PMlSiggvhkHaBUHS3Vw4XyJDCt9/zaLExXZudob19QnLytArg9n6w/ME7J77dtKzGW2XLlalWdBgJnFP6uz6EhKQkWgZmYwmo8mApy74HLN7srkkqRtakiebUfQwF7jE6JYWY5ethbdSrF5M4AvkZme+/+/6Lc9MTzyuDGorFUUZNB07txBCAQn0HUKOJC4OXWKegGBLXtPIuP/0ZrOR5YeavOhhnsAjei0WGOWQQEGYk49Suae1dNP29W4m1Um4qaXKwQdGpPTsatc/pjNRRvehKl0uOR7/QBJ/U4AEXOQuCi6uNWDQrmpcSWyLKddfTP+KMg==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Changes the permissions of a file on the remote host.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"permissions":{"type":"string"}}}}}}}
+  {...require("./change-file-permissions.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Permissions changed successfully."},"400":{"description":"Missing required parameters or SSH connection not available."},"408":{"description":"Permission change timed out."},"500":{"description":"Failed to change permissions."}}}
+  {...require("./change-file-permissions.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Authenticates a user and returns a JWT."
 sidebar_label: "User login"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVdtu2zAM/RWBz1ri3jbMb+0uWIsNK9YUfQjywNhMrNaWXIluGxj594Gy06Z1NmTzQ+JI5OHlkCct5BQyb2o2zkIKpw0XZNlkyBQUqiaQV2hz5Ykbb+Xo4mYyAg2MywDpFK4D+QAzDZ7uGwp85vIVpG38aTzlkLJvSEPmLJNlucK6LiWCcXZ8GyRuCyErqEJ541VNkIKb31LGoKH2ribPhoLcSkIWK9qyDOyNXcJaQ40hPDqf77iMjyQZamdDh3WYJPL1ugPf3dJYFZosoxAWTTkS4ONdluf2AUuTq01Kynm1yaD3Ovgvr6Oh12VvofCFIOOsMkFljfdkuVyp3AScl9TDHH4cwkycUxXalSpjlchMVc0hOpz8uRsLNB3sWkNFXLgcUqhdiPQgF5DCWOoJ44gLGgL5B5mLdNpC40tIoWCu0/G4dBmWhQucHiVJcgD6TcAfaKzKkXGOgeLkvam4Q4a1/ivw0QD46uqb4sZaKqUDuKSKLO+JdrwTbWFK6rH8nkAnQ6DopwIjm8AmC7HmylnDTiZ3T+D3A+DPGIq5Q5/vifBhiOCyO/K7ujUTgrPGG15FhueEnrxoB6TT2fb1lax1t23bRs/rKanIuEQzSHsj0P3LV+crZEjh4mYSp0/k4teL0Hx5wqou6bUwbHZ+Ww+2RMLYhYsZGBZPmJCvzJM6vTwHDTK0XfXJKBklg570xmeY3ZHNxUn9ogV5shlFBXKBK4yK1icj+qg2a/EKrH3RxH/R3a5xTE88rks0VsJGXtt+F6exFwE0dGFnGoRluWhbWatrX67XcnzfkBcGZxoe0BsRj0ighoIwJx/JvaMVpPCpS/XdRMKLedlIGgMpF/KfJeLy59VEuOz/EiqXi4/HR9DxMwXQ4GI74ojEsxZKtMsGl2LbYcrzG+PwSwM=
+api: eJydVdtu2zAM/RWBz1qT3jbMb+0uWIsNK5oUfQjywNhMolaWXIluGxj594Gy0yZ1N7Tzgy8SeUjxkMcNFBTzYCo23kEGJzUvybHJkSkqVHWkoNAVKhDXwcnS+fV4DzQwLiJkE7iKFCJMNQS6qynyqS9WkDXp0wQqIONQk4bcOybHsoVVZSWC8W5wEyVuAzFfUonyxquKIAM/u6GcQUMVfEWBDUXZlYQclrRlGTkYt4C1hgpjfPCheGUzXZJkrLyLLdbBcCiP3Qr89AvjVKzznGKc13ZPgI9eszxz92hNoTYpKR/UJoPOa/+/vA77XhedhcJngox3ykSV1yGQY7tShYk4s9TBHHzuw4y9VyW6lbLplMhMZcUxORz/vRpzNC3sWkNJvPQFZFD5mOhBXkIGAzlPHCRc0BAp3EtfZJMG6mAhgyVzlQ0G1udolz5ydjgcDvdBvwj4C41TBTLOMFLqvBcnbpFhrf8JfNgDHo1+KK6dIysVwAWV5PiNaEevos2NpQ4rvBHouA+U/FRkZBPZ5DGdufTOsJfOfSPwxx7wV4zLmcdQvBHhUx/B57cU3l2t/T6pIwoGrcq9c5TvsDiVVsnrYHiVemVGGCiICkE2mW5vj0Qg2rndNnoadElFGi+ZQdYZge5evvtQIkMG59fj1MciPJfPkvXtEcvK0q7EbNRjW1m25Ma4uU8ZGBZPGFMozaM6uTgDDdL+7emHe8O9Ya8mnfEp5rfkCnFSlzSnQC6npGU+colJG7tkRGnVZsB2wJpndX2PgreFY3rkQWXROAmbeG26qZ6kWkTQ0IadahCWZaNpZECvgl2vZfmupiAMTjXcYzAiQ4lADUvCgkIi95ZWkMGXNtUPYwkv5raWNHo/BSH/SWwufo/GwmX3cyl9IT4BH0CnewagwadypBZJaw1YdIsaF2LbYsr1BxPtZIU=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Authenticates a user and returns a JWT.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+  {...require("./user-login.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Login successful."},"400":{"description":"Invalid username or password."},"401":{"description":"Invalid username or password."},"403":{"description":"Password authentication is currently disabled."},"429":{"description":"Too many login attempts."},"500":{"description":"Login failed."}}}
+  {...require("./user-login.StatusCodes.json")}
 >
   
 </StatusCodes>

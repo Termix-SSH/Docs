@@ -5,7 +5,7 @@ description: "Static OAuth callback from OIDC provider for OPKSSH authentication
 sidebar_label: "Static OAuth callback from OIDC provider for OPKSSH authentication"
 hide_title: true
 hide_table_of_contents: true
-api: eJytk01v00AQhv/Kas6mMTQFybfSAi0IUuEiDpEPk/U4XmW9a3bHUSvL/x2Nm1ZpHKEcOHnlfefZd756YFxHyJaQ5zdQJBAott5FipD18C5N5VNS1MG0bLyDDK7Q2hXqjWqD1xQjlSp2Wk5VZ+0jDAnM0/k07odXqNlsSWHHNTk2GuVKRYpRvpXvXCnhF8eevXwdVKGxVMIwJAe6nJGNVgvRK/3stQq+UYvb6ytxvTUlBVX5oBZ33/L85sAQJNAQ176EDNbEkECLXEMGM99uYqzfPFMhgUhhS0EK2EMXLGRQM7fZbGa9Rlv7yNl5mqZv4dDmdzROlci4wkgKXTmtipBhSP4JPp+AJR/unCOrGnS4poYcn0ibH6VVxtKOFU4EXUxBY5yK0p3IRscx58Y7wz4Ytz4R/H4CvsZYrzyG8kTChynB6w2FY9UqpMG6C4Yfxw6vCAMFmSzIlsX+da5rap6WZl/UAz+2tLMi4zLKINuJINkdPvvQIEMGX3/fjzNtXOXHcMNW9PcUGvOgLu9uIQGZuCfr6Vl6lk4S2ok/ot6QKyVI/aSKAjlNsl+tj9ygE77D0c5/WZpXJl4yZ3rgWWvROHl6bEy/W6glHC5UkYA0Sq76XjbjV7DDIL//dBSkCUUCWwwGV1KWZTHs7eqXT1K7v6sZqGY=
+api: eJytVE1v00AQ/SurOZvGpSlIvpUWaEGQChdxiHKYrMfxKutdszuOWln+72ictEriCgWJ064877198+UOGFcRsjnk+S0sEggUG+8iRcg6eJumchQUdTANG+8gg2u0dol6rZrgNcVIhYqtllvZWvsEfQLTdDrmffcKNZsNKWy5IsdGo4RUpBjlLH3rCqFfvvbs1SGpRGOpgL5PjnA5IxutZoJX+tlrGXytZnc31+J6YwoKqvRBze6/5vntkSFIoCaufAEZrIghgQa5ggwmlY888c06xurNszQkEClsKEgVO2iDhQwq5iabTKzXaIWUXaRpeg7HXr+hcapAxiVGUuiKcWlEGfrkr8IXI2FJilvnyKoaHa6oJscnqk1fVSuNpZ1WOFHociw08FSUFkU2Og45194Z9sG41YnC70bCNxirpcdQnKjwfqzg9ZrCP1frfNzUnIJBq7R3jvRBFxcyKroNhp+GWVkSBgoyqJDNF/vhXFdUb3dwH9QBPzW0syKDN8Ag24Eg2V0++VAjQwZffj0MK2Jc6Qe6YSv4Bwq1eVRX93eQgMzu1np6lp6lo4R24A+o1+QKIakfVFIgp0nWtfGRa3Si73Cw81928MDES+ZMjzxpLBonTw+N6Xb7OQfpCiRwvKGLZBvJ5tB1smo/g+17+fy7pSC9WCSwwWBwKdWZL/q9P8Dnj1LCP3RixgM=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"get"}
-  path={"/opkssh-callback"}
+  path={"/host/opkssh-callback"}
   context={"endpoint"}
 >
   
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Static OAuth callback from OIDC provider for OPKSSH authentication
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./static-o-auth-callback-from-oidc-provider-for-opkssh-authentication.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Callback processed successfully"},"404":{"description":"No active authentication session found"},"500":{"description":"Authentication failed"}}}
+  {...require("./static-o-auth-callback-from-oidc-provider-for-opkssh-authentication.StatusCodes.json")}
 >
   
 </StatusCodes>

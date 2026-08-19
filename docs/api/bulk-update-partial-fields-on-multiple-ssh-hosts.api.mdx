@@ -5,7 +5,7 @@ description: "Bulk update partial fields on multiple SSH hosts"
 sidebar_label: "Bulk update partial fields on multiple SSH hosts"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVMtu2zAQ/BViz4ytNmkL6Jb0gaRAgSB20YPhw0paW4wpUiFXaQxB/14spaZOnBZBfZAlcjjcx8z2wLiNkK9gsbiEtYZIZRcM7yFf9VAQBgrnHdeQr9bDWkOgu44iX/hqD3mfPk2gCnIOHWkovWNyLFvYttaUyMa7+W30TtZiWVOD8sb7liAHX9xSyaChDb6lwIai7NY+8lUVD4AYAu5Bg2FqDtdd1xQUYBg0dG2FTPGYfUg/iT223sUR8jbL5K+iWAbTSpSQw0Vnd2rkUaVvWktM1QwGDWcvwa/cPVpTqakoqvDVfpZi+Ttti4ENWrUxZKuovFNNZ9m0ltRicakk8wgaGuLaV5BDi1zWUiCUJsA8xnpedHZ3MvKBdCzcU4ipYV2wkEPN3ObzufUlWiHMT7MsewPPw/qGxqkKGQuMpNBVCjuuyfHUNjUyw6D/SXx6RCyJcOccWdWgwy015PiVbGcvsm2MpYkrvJLo3TFROqciI5vIpowp58Y7wz4Yt30l8fsj4k8Y68JjqF7J8OGYwZc7Ci9V68CSC3HPqN5DYz7KXe4SPSQY5BMI9PTyxYcGGXL4+mOZRCquvPnj588PKIp/4r9Vtj40lpwybuPTpYYFDEsKjXlQ59dXoEGEOGaUzbJZdpTnBL7AckeukkPqhjYUyJUkNmt95AbTrHCYkvgP7zy58rE6TA88by0aJxel7vSTq1YQo3js0Fdrnaogm30vBvke7DDI8l1HQcbjWsM9BoOFlGG1HjTUhBWFZMQd7SGHj+M4PFlKCAK3XRpmz0ejdPnR8dfny4+XEs00YxtfyaGAP0GnZw6gwaf8khjSWg8W3bbDrWBHUukWPpXIM0mkUH9PWLc/CLHvR8TS78gNA+gpI5ZvGNbDMPwC5K0jZg==
+api: eJydVUtv4zYQ/ivEnLm29tEuoFuy3SIpUCBYu+jB8GFMjS2uKVJLjtIYgv77YiglleN0ka0PskjNfPP6ZqYHxkOCcgOr1Q1sNSQyXbR8gnLTw44wUrzquIZysx22GiJ96yjxdahOUPb5aCNVUHLsSIMJnsmzfMK2ddYg2+CXX1PwcpdMTQ3KG59aghLC7isZBg1tDC1FtpTkax0S31ZpJogx4gk0WKZmfu+7ZkcRhkFD11bIlF5CryiZaFvxBUq4w8gWndpbclVSHJT4elqoFTFbf1D74CqKyjjCmFSLkTzfZJcU+krdW0PqnmJCrZL1hhQq8VjZpMhyTVFZr/ARJkTlKTFVqvNyxgkx6ywuYh+1ZlEkjtYfYNAw92QmYD3TgSJo8J1zuHM0lmOYflK11AafRgPvikL+znNy3bmjGjOoTGhaR0zVQox+eEn81t+js5Wa6KB2oTotchX+G7Y9T3vwqukc29aRWq1ucjYSaGiI61BBCS2yqSU9KPSDpQgsd507vhkBQcgapQ6Zq110UELN3JbLpQsGnSiU74uieHtBgT/RelUh4w4T5aJixzV5nhirRmQY9A+B318ASyTceU9ONejxQI1U+nVoH15E21tHE1Z8JdAvl0BZTyVGtomtSTnmJnjLQdj1SuBfL4B/w1TvAsbqlQgfLxGCOVL86Wy9vSzqiqLwywTvyZxVcTbXVjKCxkaYT7enZhJbwqwsBuUkBHp6+T3EBhlK+OPvdea7jLYv/w7Fzw8ozXM2xDbF9mw6PXb4Y2c/b+xCcK3fh+yWZYGDNcXGPqiru1vQIKQfYy4WxaK4yMQkfI3mSL4SJfWF9hTJG8qDJCRuMI9kjznM/9GoZyaf8sf0wMvWofViKNevn1p4k1MiqZw18VaPt+UG+l668a/ohkGuv3UUZQ1tNdxjtONc22wHDTVhTuCmhyOdoIRP49p5sxYfRNx1eWk8X0FChKf5cne1/nQj3ky7rAmVKEX8B3R+lgAaQg4w1y3f9eDQHzo8iOwIKuXCcxY9Y0129XGT+dPMxb4fJdbhSH4YQE8RsZxh2A7D8B1l0KJi
 sidebar_class_name: "patch api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"patch"}
-  path={"/ssh/bulk-update"}
+  path={"/host/bulk-update"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Bulk update partial fields on multiple SSH hosts
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostIds":{"type":"array","items":{"type":"number"}},"updates":{"type":"object"}}}}}}}
+  {...require("./bulk-update-partial-fields-on-multiple-ssh-hosts.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Bulk update completed."},"400":{"description":"Invalid request body."}}}
+  {...require("./bulk-update-partial-fields-on-multiple-ssh-hosts.StatusCodes.json")}
 >
   
 </StatusCodes>

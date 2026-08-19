@@ -5,7 +5,7 @@ description: "Retrieves stats for a specific container."
 sidebar_label: "Get container stats"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9lMFu2zAMhl9F4GkDhNhb2w3QrVvXrgMGDG2HHYIcGJuOhdqSK9FFA8PvPtB207TJivSyky2J/ETxJ9lBTjELtmHrHRi4Ig6W7imqyMhRFT4oVLGhzBY2U5l3jNZRmIEGxlUEM4czn91SgIWGBgPWxBRkvwMrxAa5BA0OawIDkWK03l3moCHQXWsD5WA4tKQhZiXVCKYDXjeDMQfrVtD3ei9rE8wbaQsxjo13kaKcf0xT+TxPxNdH+JiIGfQajvcZXl9/V9OrlPOsCt+6XPkwLDLvHGVM+eR//NpFG+/B+GTfZedoK8oVe7UiflJjE2OvoSYufQ4GVsSgx5QZSPJBpGTjEpNuo0WfdFu57JOBBhoihftHLdtQgYGSuTFJUvkMq9JHNkdpmn4A/SLMn2idypFxiZEUulxhyyU5thmKiRrJIMK+Aj7aAUuyuXWOKlWjwxXV5PhA2vFeWmErmljhQNDJLmjwG1SwkW0WhzfX3ln2UnQHgj/tgM8wlkuPIT+Q8HmXMOi+L1sLEThrg+X1oPCSMFA4baVe5ovt42tppbFXto02nSWhwNRxsh6NQE8/5z7UyGDgx5+boUStK/zgbrkS+xsKtX1Qp78uQYNU3Bh6Oktn6c6DJuMvmN2Sy8VJXVFBgVxG0jeNj1yjE/40Jy52W+UltRuGCTl+6wgcE8D0wElToXUSwaBPN3XeHMbOA/00r+R6sz0JzfNRNoa40CC6CqLrpJF+h6rvZfuupSCaLTTcY7C4lCzOO8htlP8cTIFVpFfe+O5qmpbv1b9eMW2iW4soWLWyAg23tH42x6Ui/+PF25nqF9vz7uKbVNdfQxpVMg==
+api: eJy9lVFP3DAMx79K5KdNiq5lwCb1jY3BmDRp4kB7OPXB1/ruItqkJC7iVPW7T27LUegNHS97apPavzj+224DOYXMm4qNs5DANbE39EBBBUYOauW8QhUqyszKZCpzltFY8jPQwLgOkCzg3GV35CHVUKHHkpi87DdghFghb0CDxZIggUAhGGevctDg6b42nnJI2NekIWQbKhGSBnhbdcbsjV1D2+q9rF0w76SlYhwqZwMF+f4pjuXxMhHfnuB9ImbQajjZZzif/1DDrZR1rFautrlyvltkzlrKmPLB/+Stg3benfHpvsMu0BSUK3ZqTfysxi7GVkNJvHE5JLAmBt2nLIEo70SKdi4hanZatFEzymUbdTTQEMg/PGlZ+wIS2DBXSRQVLsNi4wInx3EcH4F+FeYvNFblyLjEQAptrrDmDVk2GYqJ6skgwr4BPp6AJdlcW0uFKtHimkqyfCDtZC9tZQoaWP5A0OkU1Pl1KpjAJgvdnUtnDTspugPBnyfgcwybpUOfH0j4MiV0ur87W0dTUefkDRZPJT1WMZVSyWpveNvVypLQkz+rpfIW6fjzXJqy77qx0a5HJRQYelfWvRHo4eXC+RIZEvj556YrdmNXrnM3XIj9DfnSPKqz31egQWq3Dz2exbN4cqHB+Ctmd2RzcVLXtCJPNiPpwMoFLtEKf5g4l9Ome01turFElt87TPsEMD1yVBVorETQ6dMMPbyAvodBP08+OT4Zz9Tk5VDsQ0w1iK6CaBppyVtftK1s39fkRbNUwwN6g0vJ4qKB3AR5zyFZYRHojTt+uB7m7kf1r1sMm2i3IgoWtaxAwx1tX/wRpCL/48HjTLXpeHJefpfq+gvSl260
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,24 @@ Retrieves stats for a specific container.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-container-stats.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-container-stats.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Container stats."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container stats."}}}
+  {...require("./get-container-stats.StatusCodes.json")}
 >
   
 </StatusCodes>

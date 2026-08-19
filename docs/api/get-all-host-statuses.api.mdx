@@ -5,7 +5,7 @@ description: "Retrieves the status of all hosts for the authenticated user."
 sidebar_label: "Get all host statuses"
 hide_title: true
 hide_table_of_contents: true
-api: eJytk01r3DAQhv+KmLO66zRpC75tSZqmUChxSg+LD7P2rC0iS640XjYY//cytlO2cSh7yMlGGj3zzsfbQ0mxCKZl4x2kcE8cDB0oKq5JRUbuovJ7hdaq2keOau/DeIcd1+TYFMhUqi5SWIEGxipCuoWMwoGCyhg5Qq4hUGy9ixQh7eF9ksjn38wb1WArqSSNuruOir0kMuFZBjnRFlcwaLhKLpaIjGI03ik6tiZQqd6p1hJGUtZXyjiFFRq3gmHQ0BDXvoQUKmLQ0CLXkMJ6ygQa4qhfSumhCxZSqJnbdL22vkArEtPLJEkuQL/Q8B2NUyUy7iQxuvK0USJuIsOg/wu+XICz7KvizjmyqkGHFTXk+Eza1au0vbE0s8KZoA9L0DRoaZyJbIo41tx4Z9gH46ozwR8X4GuM9c5jKM8kfFoSfPFI4bVu5TLgoguGn8YJ7wgDhU0nS7DNT6+zoqZm2trToB74qaVZiqzLGAbpHAR6/vniQ4MMKXz79TDunXF7Pz43bCX+gUJjjmrz4w40yMZN0pNVskoWBc3Bn7F4JFfKI3VPewrkChJTtD5yg074Dkc5t8R/rTvbiOJLbg+Fd0yO38L/U1uYjrxuLRonusap9bPJtjCbLNcgRDnpe3HLz2CHQY5/dxRkMLmGAwaDO2nVNj+17e2N9PMPovShKg==
+api: eJytlFFr2zAQx7+KuGcvcdZuA79ldGs7KIymYw8hDxf5YovKJ086hxaT7z7O8UZaj5HBnmyk0+/+uvufeigp2ehacYGhgHuS6GhPyUhNJglKl0zYGfTe1CFJMrsQhz3spCYWZ1GoNF2iOIMMBKsExRpuQhJzpzCbYJNBpNQGTpSg6OFtnuvnZealabDVVJrG3F4lI0ETufhLBrFqSzM4ZHCZL6aIFaXkAht6al2k0rwxrSdMZHyojGODFTqeweGQQUNShxIKqEgggxalhgLmx0yQQaK4p6hX6aGLHgqoRdpiPvfBoleJxUWe5wvIXmm4Q8emRMGtJkYuTwul4o5kOGR/BV9MwKvVjZGOmbxpkLGihljOpF3+kbZznkZWPBP0bgoazg0tckmcTcOdm8BOQnRcnQl+PwFfYaq3AWN5JuHDlBDsI8V/rtZi2tQVRYfe2MBM9kUXN2oV20Unz4NXtoSR4rJTO603p9srW1Nz9P9pUA/y3NIoRY03hEExBkE2/nwOsUGBAr58fxgc7HgXhuNOvMY/UGzck1l+vYUM1LtH6fksn+WTC43BH9E+Epd6yNzTjiKxJR2vNiRpkJXPOMi5Jvn9CIwDSek1twcbWIjlf7wkx7IIPcm89ehYdQ1d68dxXcM4rpsMlKgrfa9z9y36w0GXf3QUtTGbDPYYHW61VOvN6QNw/Unr+RPUvLqb
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Retrieves the status of all hosts for the authenticated user.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-all-host-statuses.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"A map of host IDs to their status entries."},"401":{"description":"Session expired - please log in again."}}}
+  {...require("./get-all-host-statuses.StatusCodes.json")}
 >
   
 </StatusCodes>

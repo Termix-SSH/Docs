@@ -5,7 +5,7 @@ description: "Initiates TOTP setup by generating a secret and QR code."
 sidebar_label: "Setup TOTP"
 hide_title: true
 hide_table_of_contents: true
-api: eJyllFFr20AMx7/Koecj9tZ0A791jLIORrMmZQ8hD8pZiY/ad96d3DUYf/ehiylZnY3Anmx8f/2kk/R3DyVFE2zL1jso4M5ZtsgU1ep+tVCRuGvV9qD25CggW7dXqCKZQKzQler7gzK+pBloYNxHKNbwGClE2GgIFFvvIkUoenif5/L4M9tJDjsmLtUvy9XZFIOG+V8pNiqsA2F5UORwW1M5BsynAVKhcp7VznfuqLs+B75FW1Op2I81SqIZDIOGhrjyJRTQ+sigoUWuoICsk7tn7LnNUghoiBSepSHFuocu1FBAxdwWWVZ7g3XlIxdXeZ6/A/0m+ze0TpXIuMVIqRPYcUWOrUGRqCMZBv1P8NUEvFx+Udw5R7Vq0OGeGnJ8IW1+lrazNY2scCHoegpKcSoyso1sTUx3bryz7IMs3mXgDxPwZ4zV1mMoLyR8nBK8eaJwrlsbGbDpguVDmvCWMFC46WQd1pvT46WpqDl64VTUAx9aGkuRdUkyKEYR6PHl1ocGGQr4+mOVVtC6nU/hlmvRryg09kXdLO5Ag2zcsfR8ls/yyYVG8Sc0T+RKCVIPtKNAzpDYQda6QSd8h6mc5asD3sJ6MN4xOf7P38exDUwvnLU1Wid1pCn1o73WkOwlWn/sVbLYRoOMTs77XrzyGOphkM8/Owoylo2GZwxW/gppKif+XdwvpZ2/AVUEtQs=
+api: eJyllFFr20AMx7/KoWeTuGu6gd86RlkHo12TsoeQB+WsxEdtnXcndw0m333oYkZaZyNjTzb2Xz/pJP2vh5KiDa4V5xkKuGUnDoWiWdwt7k0k6Vqz3pktMQUUx1uDJpINJAa5NN8ejPUlTSADwW2EYgmPkUKEVQaBYus5UoSih3d5ro/X2Y5yuCFxaX46qU6m2Gcw+yPFRYN1ICx3hhjXNZVDwGwcoBUa9mI2vuOD7uoU+AZdTaURP9SoiSaw32fQkFS+hAJaHwUyaFEqKGDa6dmn4qWdphDIIFJ41oYUyx66UEMBlUhbTKe1t1hXPkpxmef5BWRvsn9Fx6ZEwTVGSp3ATipicRZVYg5k2Gd/BV+OwPP5ZyMdM9WmQcYtNcRyJm12krZxNQ2scCboagxKcSYKiovibExnbjw78UEX7zzw+xH4E8Zq7TGUZxI+jAnePlH4525djIc6p+CwNtYzk301xZWuiu2Ck13alTVhoHDd6WItV8e/57ai5uCqY1EPsmtpKEUXL8mgGESQDS83PjQoUMCX74u0zI43PoU7qVW/oNC4F3N9fwsZ6O4eSs8n+SQfHWgQf0T7RFxqkHmgDQViS2osNUiDrHzGVM78t5fewnqwnoVY/vMiOrRB6EWmbY2OtY40pX4w6hKSUVXrD71KZl1loKPT/32vrnsM9X6vn390FHQsqwyeMTi9X9JUjm6C+7u5tvMXR1vOjQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Initiates TOTP setup by generating a secret and QR code.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./setup-totp.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"TOTP setup initiated with secret and QR code."},"400":{"description":"TOTP is already enabled."},"404":{"description":"User not found."},"500":{"description":"Failed to setup TOTP."}}}
+  {...require("./setup-totp.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -5,7 +5,7 @@ description: "Logs out the user and clears the JWT cookie."
 sidebar_label: "User logout"
 hide_title: true
 hide_table_of_contents: true
-api: eJydk1Fr2zAQx7+KuGeReO26gd86xtjKxsqS0ofgh4t8iUVkyZPOpcH4u49TzMjmboQ+2Uj/+93p7n8D1JRMtB3b4KGEr2GfVOhZcUOqTxQV+loZRxhTPrt7XCsTwsHSAjQw7hOUG3hIFBNUGiKlLvhECcoBropCPrMMe6pzjtQbQynteueOCxg13PwjQMQ7tI7qBYyjhpa4CTWU0IXEoKFDbqCEpRScli4HgIZE8UnqKjcD9NFBCQ1zVy6XLhh0TUhcXhdF8Qb0Xym/ofWqRsYtJsodwJ4b8mwNikSdyDDq/4KvZ+DV6rPi3ntyqkWPe2rJ84W0ty/SdtbRxIoXgm7moBynEiPbxNak/OY2eMshWr+/EPxuBv6IqdkGjPWFhPdzQjAHii91q5IBmz5aPuYJbwkjxdterLCpzq9XpqH2ZMlz0QB87GgqReySZVBOItDTz6cQW2Qo4e5xne1n/S7kcMtO9GuKrX1Wt/dfQIM47lR6sSgWxexBk/gDmgP5WoLUD9pRJG9IdkAs3aIXvsdcjiyX+m3qP2gDmOCZPL9idU9vZ3rmZefQekmeRzNM+7SBvE+gYUpeaZBJyc0wyGo8RDeOcvyzpyhTqDQ8YbS4lb5sqvNVvf++ku79AiP8hCc=
+api: eJydlFFv0zAQx7+Kdc9WmzEGUt6GEIIJxEQ77aHKw9W5NlYdO9iXaVWU747OjVBHABWeEsV3vzvf/f8ZoKZkou3YBg8lfA77pELPihtSfaKo0NfKOMKY8re7x7UyIRwsLUAD4z5BuYGHRDFBpSFS6oJPlKAc4FVRyGNWYU91rpF6YyilXe/ccQGjhps/JEjwDq2jegHjqKElbkINJXQhMWjokBsoYSkNp6XLCaAhUXySvsrNAH10UELD3JXLpQsGXRMSl9dFUVyB/qXkF7Re1ci4xUR5AthzQ56tQQlRJzKM+q/g6xl4tfqouPeenGrR455a8nwh7fVvaTvraGLFC0E3c1DOU4mRbWJrUr5zG7zlEK3fXwh+MwO/x9RsA8b6QsLbOSGYA8V/ntbVfKkrihadMsF7Mi+2WIlUTB8tH7NWtoSR4m0votpU58cr01B7Evd50AB87GhqRYSXw6CcgkBPLx9CbJGhhLvHdRay9buQ0y07iV9TbO2zur3/BBpEu6fWi0WxKGYXmoLfoTmQryVJfaMdRfKGxE1ijha98D3mdsSm6qc9XtAGMMEzef6Pn8Dp7kzPvOwcWi/F82qGyZkbyM4EDVPxSoNsSk6GQUz2EN04yufvPUXZQqXhCaPFrcxlU52b/v7rSqb3A8VAnak=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -38,23 +39,18 @@ import Heading from "@theme/Heading";
 
 Logs out the user and clears the JWT cookie.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./user-logout.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Logged out successfully."},"500":{"description":"Logout failed."}}}
+  {...require("./user-logout.StatusCodes.json")}
 >
   
 </StatusCodes>

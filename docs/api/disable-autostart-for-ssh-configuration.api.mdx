@@ -5,7 +5,7 @@ description: "Disables autostart for a specific SSH configuration."
 sidebar_label: "Disable autostart for SSH configuration"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1v2zAM/SsCz1rire0G+NaPDO2wAcPSbYciB8ZmYrWy5Ep018DIfx8oe2lWB0MwH/z5+PzIR7KDkmIRTMPGO8jhykRcWooKW/aRMbBa+aBQxYYKszKFms+vVeHdyqzbgBI1AQ2M6wj5Hczn17DQEOixpcgXvtxA3qVHE6iEnENLGgrvmBzLJ2waa4rEM72PIqGDWFRUo9zxpiHIwS/vqWDQ0ATfUGBDMeFidZmE3JR7YNfWSwqwTYdIiY13sY94l2Vy+Tvl85b9PGVa9smXKrZFQTGuWms3E9hqOD0U+AOtKdWeCmWi+pNrCjs7FHbjmIJDqyKFJwqKQvBhAiK2Jq58CTmUZIlJMkauIIdpjNV0Z8l0EAoaeg6pfQdtsJBDxdzk06n1BdrKR85Psix7C/qVii9onCqRcYmRFLpSHK/I8eDGoA62+p/EJyNi6Q9unSOranS4ppocH8l2epBtZSwNXOFIorMxUV/syMgmsiliyrn2zrAPxq2PJH4/Ir7CWC09hvJIhg9jBl88UDhUrYUYXLTB8CY5vCQMFM5b6Ym7xf7nucxM3+T7oN1UiBRplwSDfACBHm4++lAjQw6fft6mTpRZ/PYyxbNnrBtLo6nLthqMW/n0J8OCgFsKtXlW519vQIM0Z59lNskm2Sj3AXyBxQO5UoLUN1pRIFeQTFDjI9eY1oLDpHzYUK8W1Ggrvf5T97J1/nvJ9aVkeuZpY9E4EZic7oY5vZPqgIYdr6gYZnWhQXpAQF0nQ/c92O1WXj+2FMTfhYYnDCahxV4NFWFJIVn/QBvI4bLP4c2tSBG4bUXSaItKa+yWydXs8+x2Jl4P+7j2pUQF/AU6nXMADT5VKrVQeteBRbducS3YnlWO35GgI5I=
+api: eJydVE1v20gM/SsDnqe2+rUL6JY2WTSLFljU6e4h8IEe0dY0oxmVQ3VjCP7vBUfaNI2CRVodbEnz+PTIR3KEhrJj34tPEWo49xl3gbLBQVIWZDH7xAZN7sn5vXdms3lnXIp7fxgYNWoFFgQPGepr2GzewdYC05eBsrxJzRHqsTx6pgZq4YEsuBSFougR9n3wrvCsP2eVMEJ2LXWod3LsCWpIu8/kBCz0nHpi8ZQLLrdvi5DL5h44Dt2OGE7lUim5TzFPES+qSv9+TPlskLQpmTZT8o3Jg3OU834I4biCk4VXjwX+jcE35p4K47P5L9cS9vqxsMsoxBGDycRfiQ0xJ16Biu1I2tRADQ0FEtKMUVqoYd2mLOs7T9azUrAwkWjxRxg4QA2tSF+v1yE5DBpWv6yq6jnYBzI+oI+mQcEdZjIYG7W8pSizHbM8ONn/JX65INYGkSFGCqbDiAfqKMoT2V49yrb3gWYufiLR6yXRVO0sKD6Ld7nk3KXoJbGPhycS/7YgPsfc7hJy80SG35cMyd0Q/3S1ni9N3RB7DDqfkdwPLm61VdzAXo6lV3aETHw2aHtdb+8fb3T8pnm5D7obMJWijVdgUM8gsPPNH4k7FKjhz3+uSlPrWH/8vhAubrHrAy0GuDpZ8HGfype8KAKuiDt/a87+ugQL2uZTltWqWlWL3GfwG3Q3FBsNMh9pT0zRkQ5jn7J0WDZMxKJ8XnYPdt1iwT380vh9gf3yvpxKKXQr6z6gjyqwOD3OI38NajNYuCNWGfPYb+10Wl/DOOr8fuJwOunrLwOxGry18BXZF7T6a6ElbIiL9zd0hBreTkk8u1ItCg+DalpsZO2Nu8V0fvH+4upCzZ53e5cajWL8F2z5rQEspFKq0kPl3QgB42HAg2InVr2+AQvFPfQ=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -28,7 +29,7 @@ import Heading from "@theme/Heading";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/ssh/autostart/disable"}
+  path={"/host/autostart/disable"}
   context={"endpoint"}
 >
   
@@ -42,27 +43,22 @@ Disables autostart for a specific SSH configuration.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sshConfigId":{"type":"number"}}}}}}}
+  {...require("./disable-autostart-for-ssh-configuration.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"AutoStart disabled successfully."},"400":{"description":"Valid sshConfigId is required."},"500":{"description":"Internal server error."}}}
+  {...require("./disable-autostart-for-ssh-configuration.StatusCodes.json")}
 >
   
 </StatusCodes>

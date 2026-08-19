@@ -5,7 +5,7 @@ description: "Enables or disables user registration."
 sidebar_label: "Set registration status"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVMFO20AQ/ZXVnE3iFmgl34CCoFIrRFL1EOUwsSfxwnrX7I4DqZV/r2ZtIOCoSn2JY795fjNv37RQUMi9rlk7CxlcWlwYCsp5VejQ3TeBvPK00oE9Cm4ECTCuAmQz+BXIB5gn4OmxocDnrthA1sa/2lMBGfuGEsidZbIsr7Cujc4j0/g+yGdbCHlJFcodb2qCDNzinnKGBGrvavKsKcRaY9yTsL4CF84ZQgvbeImOUDsbOvjnNJWf9z3e7bSiAiM3QTV1gUzFCLYJnOwrurFrNLpQazQNqaXzqpfSlxwPS346Vthw6bz+0+NO91FfoTZUKHYqEL8b9Ms3epUjkAYr4tIVkEGNnJcyIeQSMhiLT2G8W3/0Mq4EAvm1OJXNWmi8gQxK5jobj43L0ZQucHacpuknSD6o+4HaqgIZFxhIoS1iT2S5t1B1zLBN/kl8PCCeTK4VN9aSURVaXFFFlg9kO9nLttSGei5/INHpkCjWxYnrwDoPsefKWc3Oa7s6kPjLgPgbhnLh0BcHMnwdMrj8gfy+ac3F4LzxmjfR4QWhJ3/WyMGYzXdfTyRoXTh2Qa9xEilyXCJM4hVBkPQ3V85XyJDB99/TeBolwHdv0b98xqo29C6qsgC2CWi7dPFDmgUAU/KVflZntzeQgJzNrsl0lI7SQes9+BzzB7KFFKk7WpInm5MEq3aBK4yrxGIUPvmYpS5DH5nbt830H8uvmxXTM49rg9qKhGhl26dxBjGNIPtoTx7nCYjPgmtbCdYvb7ZbefzYkBcP5wms0WsRES1MoCQsyEd7H2gDGVx0wo+mokbgphFVg/Uq9r8ujduz6cW12Nnv6coVUuTxSbTiE2QACbg4nXhK4rMWDNpVgyvBdqRy/QWciynA
+api: eJyVVMFO20AQ/ZXVnE0SCrSSb0BBUKkVIql6iHKY2JN4Yb1rdseB1Mq/V7M2kOCoCr5kY795OzNv3jSQU8i8rlg7CylcWZwbCsp5levQnutAXnla6sAeBTeABBiXAdIp/A7kA8wS8PRUU+ALl68hbeJf7SmHlH1NCWTOMlmWT1hVRmeRafgQ5NoGQlZQiXLidUWQgps/UMaQQOVdRZ41hRhrjHsW1jfg3DlDaGETH8kjVM6GFv5lNJKf3Rrvt0pRgZHroOoqR6Z8AJsETvcF3doVGp2rFZqa1MJ51aXShZz0Q345Vlhz4bz+2+HO9lFfozaUK3YqEO80+vWOLssBSIElceFySKFCzgrpEHIBKQxFpzDcjj96bVcCgfxKlEqnDdTeQAoFc5UOh8ZlaAoXOD0ZjUbHkHzI7idqq3JknGMghTaPNZHlTkLVMsMm+S/xSY94PL5RXFtLRpVocUklWT6Q7XQv20Ib6rj8gURnfaIYFzuuA+ssxJpLZzU7r+3yQOKvPeLvGIq5Q58fyPCtz+CyR/Kf7tZxX9QxeY1GZc5aynZUnMmoZLXXvI6zMif05M9rGbHpbPvzWCzb2mwb9GZMSUUGL8LEqBEESXe4dr5EhhR+/JnEuZZVcP++RK5esKwM7ZheVskmAW0XLl6kWQAwIV/qF3V+dwsJyJS3RY4Go8GoV3oHvsDskWwuQeqeFuTJZiQWrVzgEuNSshgTH390ZevGj8zN+477xBpte8X0wsPKoLaSQpSy6Xw9hehrkM22x9mzBERnwTWNWPS3N5uNvH6qyYuGswRW6LUkESVMoCDMyUd5H2kNKVy2iR9NJBuBm1qy6i1qkf9t/dydTy5vRM5u45culyCPz5IrPkMKkICL3YlTEt81YNAua1wKtiWV5x96pUNC
 sidebar_class_name: "patch api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -42,27 +43,22 @@ Enables or disables user registration.
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"allowed":{"type":"boolean"}}}}}}}
+  {...require("./set-registration-status.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"Registration status updated."},"400":{"description":"Invalid value for allowed."},"403":{"description":"Not authorized."},"500":{"description":"Failed to set registration allowed status."}}}
+  {...require("./set-registration-status.StatusCodes.json")}
 >
   
 </StatusCodes>
