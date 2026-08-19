@@ -36,10 +36,6 @@ Type `@` to mention one of your hosts, snippets, or automations, which saves des
 
 As the assistant works you can see each tool it calls and what came back, so there is no mystery about where an answer came from.
 
-## Conversations
-
-Chats are saved so you can come back to them. Each conversation remembers which provider and model it used.
-
 ## Everything is logged
 
 Adding, changing, or removing a provider is written to the audit log, and so is every proposal created, approved, or rejected. If you run Termix for a team, the audit log shows who asked for what and who approved it. See [Audit Logs](/features/authentication/security).
