@@ -64,6 +64,10 @@
   ],
   "tags": [
     {
+      "name": "AI",
+      "description": "AI assistant providers, conversations and proposals"
+    },
+    {
       "name": "Alerts",
       "description": "System alerts and notifications management"
     },
@@ -113,6 +117,324 @@
     }
   ],
   "paths": {
+    "/workspaces": {
+      "get": {
+        "summary": "List the current user's saved workspaces",
+        "description": "Returns every manual workspace plus the single auto-maintained \"Last Session\" workspace, each with a computed tabCount.",
+        "tags": [
+          "Workspaces"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of workspaces."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the current tab arrangement as a new named workspace",
+        "tags": [
+          "Workspaces"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/workspaces/last-session": {
+      "get": {
+        "summary": "Fetch the auto-maintained \"Last Session\" workspace",
+        "description": "Returns null if the current session has never been auto-saved yet.",
+        "tags": [
+          "Workspaces"
+        ],
+        "responses": {
+          "200": {
+            "description": "The Last Session workspace, or null."
+          }
+        }
+      },
+      "put": {
+        "summary": "Upsert the auto-maintained \"Last Session\" workspace",
+        "description": "Always overwrites the single Last Session row for the caller - never creates a second one. Called by the frontend's debounced auto-save effect.",
+        "tags": [
+          "Workspaces"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Last Session workspace saved."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}": {
+      "patch": {
+        "summary": "Rename or recolor a workspace",
+        "description": "Does not accept a payload - use PUT /workspaces/{id}/content to overwrite a workspace's saved tab arrangement. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace updated."
+          },
+          "400": {
+            "description": "Invalid request, or target is the Last Session workspace."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a workspace",
+        "description": "Rejects the Last Session workspace, which is not user-deletable.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace deleted."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/content": {
+      "put": {
+        "summary": "Overwrite a workspace's saved tab arrangement with a new payload",
+        "description": "Used by \"Update with current\" in the Workspaces panel. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace content updated."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a workspace's content and color/icon under a new name",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New workspace created from the duplicate."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/set-default": {
+      "post": {
+        "summary": "Mark a workspace as the restore-on-login default",
+        "description": "Clears isDefault on any other workspace for the caller. Idempotent if the target is already the default. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace set as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/unset-default": {
+      "post": {
+        "summary": "Remove a workspace as the restore-on-login default",
+        "description": "Idempotent if the target is not currently the default. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace unset as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/workspaces/{id}/apply": {
+      "post": {
+        "summary": "Fetch a workspace to apply and mark it as just used",
+        "description": "Returns the full workspace with its payload parsed, and touches lastUsedAt server-side so the caller does not need a second round trip.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The workspace to apply."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
     "/vault/oidc/callback": {
       "get": {
         "summary": "Vault OIDC callback",
@@ -1495,6 +1817,10 @@
                     },
                     "hasApiKey": {
                       "type": "boolean"
+                    },
+                    "apiBaseUrl": {
+                      "type": "string",
+                      "description": "Custom control-plane API base URL (e.g. a Headscale instance), or empty string for the Tailscale default."
                     }
                   }
                 }
@@ -1518,6 +1844,10 @@
                 "properties": {
                   "apiKey": {
                     "type": "string"
+                  },
+                  "apiBaseUrl": {
+                    "type": "string",
+                    "description": "Optional custom control-plane API base URL (e.g. a Headscale instance). Leave empty to use the Tailscale default."
                   }
                 }
               }
@@ -1720,6 +2050,107 @@
         }
       }
     },
+    "/users/ai-enabled": {
+      "get": {
+        "summary": "Get whether the AI assistant is enabled instance-wide",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "AI enabled status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update the instance-wide AI assistant setting (admin only)",
+        "description": "Turning this off hides and blocks the assistant for every user, whatever their own preference says.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
+    "/users/ai-private-endpoints": {
+      "get": {
+        "summary": "Get the allowlist of private AI endpoint hosts",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Allowed hosts."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Replace the allowlist of private AI endpoint hosts (admin only)",
+        "description": "Providers on private or loopback addresses, such as a self-hosted Ollama, are refused unless their host appears here. Without this an ordinary user could point a provider at an internal service and use the server as a probe of its own network.\n",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Allowlist updated."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
     "/users/host-defaults": {
       "get": {
         "summary": "Get host creation defaults",
@@ -1866,6 +2297,7 @@
     "/user-preferences": {
       "get": {
         "summary": "Get preferences for the current user",
+        "description": "showHostTags, hostTrayOnClick, compactHostView, statusColorScheme and foldersCollapsed are legacy fields, kept here read-only for backward compatibility. The authoritative copy is GET /host-sidebar/preferences.",
         "tags": [
           "User Preferences"
         ],
@@ -1971,6 +2403,7 @@
       },
       "put": {
         "summary": "Update preferences for the current user",
+        "description": "showHostTags, hostTrayOnClick, compactHostView, statusColorScheme and foldersCollapsed are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign.",
         "tags": [
           "User Preferences"
         ],
@@ -2005,19 +2438,10 @@
                   "commandPaletteEnabled": {
                     "type": "boolean"
                   },
-                  "showHostTags": {
-                    "type": "boolean"
-                  },
-                  "hostTrayOnClick": {
-                    "type": "boolean"
-                  },
                   "pinAppRail": {
                     "type": "boolean"
                   },
                   "expandAppRailOnHover": {
-                    "type": "boolean"
-                  },
-                  "foldersCollapsed": {
                     "type": "boolean"
                   },
                   "confirmSnippetExecution": {
@@ -2030,12 +2454,6 @@
                     "type": "boolean"
                   },
                   "hiddenRailTabs": {
-                    "type": "string"
-                  },
-                  "compactHostView": {
-                    "type": "boolean"
-                  },
-                  "statusColorScheme": {
                     "type": "string"
                   },
                   "customThemes": {
@@ -2266,6 +2684,79 @@
         }
       }
     },
+    "/users/terminal-image-storage-settings": {
+      "get": {
+        "summary": "Get terminal image storage settings (admin only)",
+        "description": "Returns the effective terminal image storage settings. The backend-internal localDir is never exposed; only the agent-visible hostPath is returned.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Effective image storage settings."
+          },
+          "401": {
+            "description": "Not authenticated."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to load settings."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update terminal image storage settings (admin only)",
+        "description": "Persists a partial update. Accepts only mode (auto, local, remote-sftp), localDir, hostPath, ttlMs, maxCount and maxBytes; invalid values are rejected with a 400.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated effective settings."
+          },
+          "400": {
+            "description": "Invalid or unknown setting field."
+          },
+          "401": {
+            "description": "Not authenticated."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to save settings."
+          }
+        }
+      }
+    },
+    "/users/terminal-image-storage-settings/test": {
+      "post": {
+        "summary": "Test image storage visibility (admin only)",
+        "description": "Reports which storage mode an upload would take for one of the caller's already-connected terminal sessions. Uses the bounded local-mapping probe only; it never opens new connections.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Visibility test result."
+          },
+          "400": {
+            "description": "Missing terminal session instanceId."
+          },
+          "401": {
+            "description": "Not authenticated."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to run the test."
+          }
+        }
+      }
+    },
     "/users/unlock-data": {
       "post": {
         "summary": "Unlock user data",
@@ -2430,14 +2921,44 @@
     },
     "/users/list": {
       "get": {
-        "summary": "List all users",
-        "description": "Retrieves a list of all users in the system.",
+        "summary": "List users",
+        "description": "Retrieves users in the system. Without `limit` the full list is returned, which is what the sharing pickers rely on. Pass `limit` (and optionally `offset`/`search`) to page through large directories.\n",
         "tags": [
           "Users"
         ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive username substring filter."
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500
+            },
+            "description": "Page size. Omit to return every user."
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of users to skip. Requires `limit`."
+          }
+        ],
         "responses": {
           "200": {
-            "description": "A list of users."
+            "description": "A list of users, with the total matching count."
           },
           "403": {
             "description": "Not authorized."
@@ -2713,6 +3234,45 @@
           },
           "500": {
             "description": "Failed to export user data."
+          }
+        }
+      }
+    },
+    "/ui-preferences": {
+      "get": {
+        "summary": "Get the UI complexity preferences for the current user",
+        "description": "Returns the current user's interface preset (simple, balanced, advanced or custom), their per-area overrides, and their onboarding state. A first-time GET returns defaults without writing a row; a row is only created once the user actually changes something via PUT. Users who registered before this feature existed are returned an already-completed onboarding state so they are never shown the first-run flow.",
+        "tags": [
+          "UI Preferences"
+        ],
+        "responses": {
+          "200": {
+            "description": "The current user's UI preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the UI complexity preferences for the current user",
+        "description": "Persists the current user's interface preset, per-area overrides and onboarding state as a single JSON document. Overrides are merged two levels deep, so a request only has to send the keys it changes. A null at a key clears that single override; a null at an area clears every override for that area; a null at overrides clears all of them.",
+        "tags": [
+          "UI Preferences"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
           }
         }
       }
@@ -3874,6 +4434,13 @@
                   },
                   "hostId": {
                     "type": "integer"
+                  },
+                  "inputValues": {
+                    "type": "object",
+                    "description": "Optional resolved values for $INPUT_n placeholders in the snippet content, keyed by \"INPUT_n\". Host variables ($HOST, $USER, $PORT, $NAME) are resolved server-side per target host and do not need to be passed here.\n",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -4003,6 +4570,10 @@
                   },
                   "order": {
                     "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean",
+                    "description": "When true, the snippet is a note (copy/paste only, not directly executable on a host)."
                   }
                 }
               }
@@ -4091,6 +4662,10 @@
                   },
                   "order": {
                     "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean",
+                    "description": "When true, the snippet is a note (copy/paste only, not directly executable on a host)."
                   }
                 }
               }
@@ -5953,6 +6528,45 @@
         }
       }
     },
+    "/host-sidebar/preferences": {
+      "get": {
+        "summary": "Get the host sidebar preferences for the current user",
+        "description": "Returns the current user's saved sidebar preferences (sort, group, filters, open folders, display settings). On first access, seeds the preferences from the legacy per-column user-preferences fields (showHostTags, hostTrayOnClick, compactHostView, statusColorScheme) so existing settings are not lost.",
+        "tags": [
+          "Host Sidebar"
+        ],
+        "responses": {
+          "200": {
+            "description": "The current user's sidebar preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the host sidebar preferences for the current user",
+        "description": "Persists the current user's sidebar preferences (sort, group, filters, open folders, display settings) as a single JSON document.",
+        "tags": [
+          "Host Sidebar"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
+          }
+        }
+      }
+    },
     "/host/opkssh-chooser/{requestId}": {
       "get": {
         "summary": "Proxy OPKSSH provider chooser page and all related resources",
@@ -6237,6 +6851,52 @@
           },
           "500": {
             "description": "Failed to update folder metadata."
+          }
+        }
+      }
+    },
+    "/host/folders/reorder": {
+      "put": {
+        "summary": "Reorder folders",
+        "description": "Sets a manual sortOrder for multiple sibling folders, used by drag-to-reorder in the sidebar's manual sort mode. Folders with no existing metadata row are created.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folders reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder folders."
           }
         }
       }
@@ -6720,7 +7380,17 @@
                     }
                   },
                   "updates": {
-                    "type": "object"
+                    "type": "object",
+                    "description": "Partial fields to apply. Setting folder clears parentHostId and vice versa, since a host is either in a folder or nested under a parent host.",
+                    "properties": {
+                      "folder": {
+                        "type": "string"
+                      },
+                      "parentHostId": {
+                        "type": "integer",
+                        "nullable": true
+                      }
+                    }
                   }
                 }
               }
@@ -6733,6 +7403,52 @@
           },
           "400": {
             "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/host/reorder": {
+      "put": {
+        "summary": "Reorder hosts",
+        "description": "Sets a manual sortOrder for multiple hosts within the same folder, used by drag-to-reorder in the sidebar's manual sort mode.",
+        "tags": [
+          "SSH"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hosts reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder hosts."
           }
         }
       }
@@ -7194,6 +7910,500 @@
           },
           "500": {
             "description": "Failed to fetch favicon."
+          }
+        }
+      }
+    },
+    "/fleets": {
+      "get": {
+        "summary": "List the current user's fleets",
+        "tags": [
+          "Fleets"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of fleets with member counts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "tagRules": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/fleets/{id}": {
+      "patch": {
+        "summary": "Update a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet updated."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet deleted."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/members": {
+      "get": {
+        "summary": "List the resolved effective members of a fleet",
+        "description": "Returns the union of statically-added hosts and hosts matched by the fleet's tag rules, each annotated with the caller's permission level on that host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resolved member hosts."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a host to a fleet's static membership",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host added."
+          },
+          "404": {
+            "description": "Fleet or host not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/members/{hostId}": {
+      "delete": {
+        "summary": "Remove a host from a fleet's static membership",
+        "description": "Only removes the static membership row - a host still matched by the fleet's tag rules remains an effective member.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host removed."
+          },
+          "404": {
+            "description": "Fleet or membership not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/share": {
+      "post": {
+        "summary": "Share a fleet's current member hosts with users or roles",
+        "description": "Snapshot at share time - grants hostAccess for every current member host to each target. Hosts added to the fleet later are not automatically shared; re-run this route to extend sharing to new members.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "permissionLevel": {
+                    "type": "string"
+                  },
+                  "durationHours": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet shared."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/execute": {
+      "post": {
+        "summary": "Run a command across every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  },
+                  "inputValues": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host execution results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/transfer/push": {
+      "post": {
+        "summary": "Push an uploaded file to the same remote path on every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host push results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/transfer/pull": {
+      "post": {
+        "summary": "Pull the same remote path from every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host (<hostName>/<filename>). Single file only (v1).",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zip archive containing the per-host pulled files, plus an X-Fleet-Transfer-Results header with the per-host JSON result summary."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/inventory": {
+      "get": {
+        "summary": "Read the last-known inventory snapshot for a fleet's members",
+        "description": "No live connection - reads back whatever the most recent POST refresh stored. Latest-only per host, no history.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stored inventory rows for current members."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Refresh the inventory snapshot for every host in a fleet",
+        "description": "Connects to every effective member host the caller has view-level access to, collects OS/kernel/arch/hostname/uptime, and overwrites the stored latest-only snapshot per host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-host refresh results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/fleets/{id}/packages": {
+      "post": {
+        "summary": "Run a package action across every host in a fleet",
+        "description": "Auto-detects each host's package manager (apt/dnf/yum/pacman) and runs install/remove/upgrade-all, elevating with the host's stored sudo password. Requires manage-level access per host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "install",
+                      "remove",
+                      "upgrade-all"
+                    ]
+                  },
+                  "package": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host package action results."
+          },
+          "404": {
+            "description": "Fleet not found."
           }
         }
       }
@@ -7666,6 +8876,45 @@
         }
       }
     },
+    "/credential-sidebar/preferences": {
+      "get": {
+        "summary": "Get the credential sidebar preferences for the current user",
+        "description": "Returns the current user's saved credential sidebar preferences (sort, filters, open folders, display settings). Unlike /host-sidebar/preferences, there is no legacy-column migration to perform here — credentials never had exploded preference columns on userPreferences — so a first-time GET simply returns the defaults without writing a row; a row is only created once the user actually changes something via PUT.",
+        "tags": [
+          "Credential Sidebar"
+        ],
+        "responses": {
+          "200": {
+            "description": "The current user's credential sidebar preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the credential sidebar preferences for the current user",
+        "description": "Persists the current user's credential sidebar preferences (sort, filters, open folders, display settings) as a single JSON document.",
+        "tags": [
+          "Credential Sidebar"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferences updated successfully."
+          },
+          "400": {
+            "description": "Invalid preferences payload."
+          }
+        }
+      }
+    },
     "/credentials/detect-key-type": {
       "post": {
         "summary": "Detect SSH key type",
@@ -7906,6 +9155,52 @@
         }
       }
     },
+    "/credentials/reorder": {
+      "put": {
+        "summary": "Reorder credentials",
+        "description": "Sets a manual sortOrder for multiple credentials within the same folder, used by drag-to-reorder in the sidebar's manual sort mode.",
+        "tags": [
+          "Credentials"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "positions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "sortOrder": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credentials reordered successfully."
+          },
+          "400": {
+            "description": "Invalid positions array."
+          },
+          "500": {
+            "description": "Failed to reorder credentials."
+          }
+        }
+      }
+    },
     "/c2s-tunnel-presets": {
       "get": {
         "summary": "List client tunnel presets",
@@ -8025,6 +9320,256 @@
           },
           "500": {
             "description": "Failed to delete preset."
+          }
+        }
+      }
+    },
+    "/automations": {
+      "get": {
+        "summary": "List the current user's automations",
+        "description": "Returns every automation the caller owns, with its parsed definition and linked notification channels.",
+        "tags": [
+          "Automations"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of automations."
+          },
+          "403": {
+            "description": "Missing the automations.view permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an automation",
+        "description": "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time.",
+        "tags": [
+          "Automations"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "definition": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/automations/{id}": {
+      "get": {
+        "summary": "Fetch a single automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The automation."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/automations/{id}/run": {
+      "post": {
+        "summary": "Run an automation now",
+        "description": "Runs immediately, as the automation's owner. Pass dryRun to record what each step would do without touching anything outside Termix.",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dryRun": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run outcome."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/automations/runs": {
+      "get": {
+        "summary": "List automation runs",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "automationId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recent runs, newest first."
+          }
+        }
+      }
+    },
+    "/automations/runs/{runId}/steps": {
+      "get": {
+        "summary": "Step-by-step results for a run",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run's steps in order."
+          },
+          "404": {
+            "description": "Run not found."
+          }
+        }
+      }
+    },
+    "/automations/webhook/{token}": {
+      "post": {
+        "summary": "Trigger an automation from an external system",
+        "description": "Unauthenticated by design; the 32-byte token in the path is the credential and is compared against a stored hash in constant time.",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The run was accepted."
+          },
+          "404": {
+            "description": "No automation matches that token."
           }
         }
       }
@@ -8546,6 +10091,354 @@
           },
           "500": {
             "description": "Certificate installation failed."
+          }
+        }
+      }
+    },
+    "/ai/status": {
+      "get": {
+        "summary": "Whether the AI assistant is available to this user",
+        "description": "Deliberately not behind the AI gate: the frontend calls this to decide whether to render any AI surface at all, and needs a plain answer rather than a 403 when the feature is off.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The effective enablement state."
+          }
+        }
+      }
+    },
+    "/ai/providers": {
+      "get": {
+        "summary": "List the user's configured AI providers",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Providers, with API keys masked."
+          },
+          "403": {
+            "description": "The AI assistant is not enabled."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "defaultModel": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Provider created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ai/providers/{id}": {
+      "patch": {
+        "summary": "Update an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider updated."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider deleted."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      }
+    },
+    "/ai/probe-models": {
+      "post": {
+        "summary": "List models for a provider that has not been saved yet",
+        "description": "Lets the add-provider form fill its model picker before the provider exists, so nobody has to go and look up model names by hand.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Model ids, possibly a curated fallback list."
+          },
+          "400": {
+            "description": "Unknown provider type."
+          }
+        }
+      }
+    },
+    "/ai/providers/{id}/models": {
+      "get": {
+        "summary": "List models available from a provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ids."
+          },
+          "502": {
+            "description": "The provider could not be reached."
+          }
+        }
+      }
+    },
+    "/ai/conversations": {
+      "get": {
+        "summary": "List the user's AI conversations",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversations, newest first."
+          }
+        }
+      }
+    },
+    "/ai/conversations/{id}": {
+      "get": {
+        "summary": "Get one conversation with its messages and proposals",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a conversation",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation deleted."
+          }
+        }
+      }
+    },
+    "/ai/chat/stream": {
+      "post": {
+        "summary": "Send a message and stream the assistant's reply",
+        "description": "Server-sent events. Emits token, tool_call, tool_result, proposal, done and error frames.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "type": "integer"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "activeTab": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/ai/proposals/{id}/apply": {
+      "post": {
+        "summary": "Apply a pending proposal",
+        "description": "Re-validates the stored payload and dispatches it through the same repository logic a manual action uses.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal applied."
+          },
+          "400": {
+            "description": "The proposal could not be applied."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    },
+    "/ai/proposals/{id}/reject": {
+      "post": {
+        "summary": "Reject a pending proposal",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal rejected."
+          },
+          "404": {
+            "description": "Proposal not found."
           }
         }
       }
@@ -9308,6 +11201,167 @@
           },
           "403": {
             "description": "Requires admin privileges."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/{id}": {
+      "get": {
+        "summary": "Get cached Proxmox node stats for a host",
+        "description": "Returns the most recently polled Proxmox Stats snapshot for a host, or an empty skeleton if none has been collected yet.",
+        "tags": [
+          "Proxmox Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proxmox stats snapshot."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "404": {
+            "description": "Stats not available yet."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/start/{id}": {
+      "post": {
+        "summary": "Start Proxmox stats collection",
+        "description": "Registers a viewer and starts (or reuses) polling for a host's Proxmox node stats.",
+        "tags": [
+          "Proxmox Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Polling started, snapshot returned if already available."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          },
+          "403": {
+            "description": "Proxmox Stats is not enabled for this host."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/stop/{id}": {
+      "post": {
+        "summary": "Stop Proxmox stats collection",
+        "description": "Unregisters a viewer session for a host's Proxmox node stats polling.",
+        "tags": [
+          "Proxmox Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Polling stopped successfully."
+          },
+          "401": {
+            "description": "Session expired - please log in again."
+          }
+        }
+      }
+    },
+    "/proxmox-stats/history/{hostId}": {
+      "get": {
+        "summary": "Get historical Proxmox node stats for a host",
+        "tags": [
+          "Proxmox Stats"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1h",
+                "6h",
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of node history rows."
+          },
+          "403": {
+            "description": "Access denied."
           }
         }
       }
