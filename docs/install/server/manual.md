@@ -2,6 +2,8 @@
 
 If you prefer to manually compile Termix from source, follow these steps.
 
+Termix is light. It idles at about 118 MB of RAM, and 1 core with 1 GB covers most setups. See [Benchmarks](/benchmarks) for measured usage and how much to allocate for larger fleets.
+
 ## Prerequisites
 
 - Git

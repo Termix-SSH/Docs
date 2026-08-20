@@ -12,6 +12,8 @@ For running the required Termix backend and web-app front end:
 
 All of these store data in SQLite by default, which needs no setup. PostgreSQL and MySQL are also supported if you would rather use a database server you already run. See [Database](/setup/database).
 
+Not sure how much CPU, memory, or disk to give it? See [Benchmarks](/benchmarks) for measured usage and minimum specs. For most people, 1 core and 1 GB of RAM is plenty.
+
 ## Cloud Hosting
 
 For hosting the Termix server on a cloud provider. Running Termix outside the network it manages means an outage cannot take Termix with it, so your hosts and saved sessions stay reachable when you need them most. You also get a static IP and access from anywhere without a VPN or port forward.

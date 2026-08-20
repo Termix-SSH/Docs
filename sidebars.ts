@@ -47,6 +47,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: 'doc',
+      id: 'benchmarks',
+      label: 'Benchmarks',
+    },
+    {
       type: 'category',
       label: 'Setup',
       items: [

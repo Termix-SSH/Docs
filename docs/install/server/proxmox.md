@@ -1,5 +1,7 @@
 # Proxmox
 
+Termix is light. It idles at about 118 MB of RAM, and 1 core with 1 GB covers most setups. See [Benchmarks](/benchmarks) if you are picking container resources or running a larger fleet.
+
 ## Proxmox VE Helper-Scripts
 
 [Link](https://community-scripts.github.io/ProxmoxVE/scripts?id=termix)
