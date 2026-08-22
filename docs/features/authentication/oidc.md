@@ -18,26 +18,26 @@ This page covers setting up a generic OIDC provider in Termix. Use this for any 
 
 ## Required fields
 
-| Field | What it is |
-|---|---|
-| Client ID | The ID your provider issued when you registered the application |
-| Client Secret | The secret your provider issued alongside the client ID |
-| Issuer URL | The base URL that identifies your provider |
-| Authorization URL | Where users are sent to log in |
-| Token URL | Where Termix exchanges the login code for tokens |
-| Identifier Path | The path in the token to the user's unique ID. Defaults to `sub` |
-| Name Path | The path in the token to the user's display name. Defaults to `name` |
-| Scopes | Space separated scopes to request. Defaults to `openid email profile` |
+| Field             | What it is                                                            |
+| ----------------- | --------------------------------------------------------------------- |
+| Client ID         | The ID your provider issued when you registered the application       |
+| Client Secret     | The secret your provider issued alongside the client ID               |
+| Issuer URL        | The base URL that identifies your provider                            |
+| Authorization URL | Where users are sent to log in                                        |
+| Token URL         | Where Termix exchanges the login code for tokens                      |
+| Identifier Path   | The path in the token to the user's unique ID. Defaults to `sub`      |
+| Name Path         | The path in the token to the user's display name. Defaults to `name`  |
+| Scopes            | Space separated scopes to request. Defaults to `openid email profile` |
 
 ## Optional fields
 
-| Field | What it is |
-|---|---|
-| Userinfo URL | Override this if Termix can't fetch user info automatically and you see "Failed to get user information" |
-| Allowed Users | A comma separated list of usernames or email patterns allowed to sign in. Leave empty to allow anyone who can log in to the provider |
-| Admin Group | If set, users in this group are made admins. This is checked on login, using the value of Group Claim |
-| Group Claim | The path in the token where group membership lives. Your provider must include this in the token, which usually means requesting a `groups` scope |
-| CA Certificate | Optional. A PEM-encoded CA certificate, for providers using a private or self-signed CA. Leave empty to use the system trust store |
+| Field          | What it is                                                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Userinfo URL   | Override this if Termix can't fetch user info automatically and you see "Failed to get user information"                                          |
+| Allowed Users  | A comma separated list of usernames or email patterns allowed to sign in. Leave empty to allow anyone who can log in to the provider              |
+| Admin Group    | If set, users in this group are made admins. This is checked on login, using the value of Group Claim                                             |
+| Group Claim    | The path in the token where group membership lives. Your provider must include this in the token, which usually means requesting a `groups` scope |
+| CA Certificate | Optional. A PEM-encoded CA certificate, for providers using a private or self-signed CA. Leave empty to use the system trust store                |
 
 ## Mapping groups to roles
 
@@ -138,26 +138,44 @@ identity_providers:
 
 Admin Settings is the normal way to add a provider, but Termix also supports configuring one generic OIDC provider through environment variables, as a fallback for setups that prefer config files over a UI. This only covers a single OIDC provider, not GitHub, Google, or LDAP, and it's only used when no OIDC provider has been added in Admin Settings yet.
 
-| Variable | Required | What it is |
-|---|---|---|
-| `OIDC_CLIENT_ID` | Yes | Same as Client ID above |
-| `OIDC_CLIENT_SECRET` | Yes | Same as Client Secret above |
-| `OIDC_ISSUER_URL` | Yes | Same as Issuer URL above |
-| `OIDC_AUTHORIZATION_URL` | Yes | Same as Authorization URL above |
-| `OIDC_TOKEN_URL` | Yes | Same as Token URL above |
-| `OIDC_USERINFO_URL` | No | Same as Userinfo URL above |
-| `OIDC_IDENTIFIER_PATH` | No | Defaults to `sub` |
-| `OIDC_NAME_PATH` | No | Defaults to `name` |
-| `OIDC_SCOPES` | No | Defaults to `openid email profile` |
-| `OIDC_ALLOWED_USERS` | No | Same as Allowed Users above |
-| `OIDC_ADMIN_GROUP` | No | Same as Admin Group above |
-| `OIDC_GROUP_CLAIM` | No | Same as Group Claim above |
-| `OIDC_ROLE_MAP` | No | Same as the group-to-role mapping described above |
+| Variable                 | Required | What it is                                        |
+| ------------------------ | -------- | ------------------------------------------------- |
+| `OIDC_CLIENT_ID`         | Yes      | Same as Client ID above                           |
+| `OIDC_CLIENT_SECRET`     | Yes      | Same as Client Secret above                       |
+| `OIDC_ISSUER_URL`        | Yes      | Same as Issuer URL above                          |
+| `OIDC_AUTHORIZATION_URL` | Yes      | Same as Authorization URL above                   |
+| `OIDC_TOKEN_URL`         | Yes      | Same as Token URL above                           |
+| `OIDC_USERINFO_URL`      | No       | Same as Userinfo URL above                        |
+| `OIDC_IDENTIFIER_PATH`   | No       | Defaults to `sub`                                 |
+| `OIDC_NAME_PATH`         | No       | Defaults to `name`                                |
+| `OIDC_SCOPES`            | No       | Defaults to `openid email profile`                |
+| `OIDC_ALLOWED_USERS`     | No       | Same as Allowed Users above                       |
+| `OIDC_ADMIN_GROUP`       | No       | Same as Admin Group above                         |
+| `OIDC_GROUP_CLAIM`       | No       | Same as Group Claim above                         |
+| `OIDC_ROLE_MAP`          | No       | Same as the group-to-role mapping described above |
 
 Two more environment variables apply no matter how a provider was set up:
 
 - `OIDC_ALLOW_REGISTRATION`, when set to `true`, lets new accounts be created through OIDC, GitHub, or LDAP sign in even when general registration is turned off, while still respecting each provider's Allowed Users list.
 - `OIDC_FORCE_HTTPS`, when set to `true`, forces the callback URL Termix builds to use `https://`, which is useful if Termix sits behind a reverse proxy that terminates SSL before traffic reaches it.
+- `OIDC_SILENT_LOGIN_DEFAULT` pins the silent login setting described below, so it cannot be changed in Admin Settings.
+
+## Silent login
+
+Silent login skips the Termix login screen. Instead of showing the sign-in form, Termix sends people straight to your identity provider, and if they already have a session there they come back signed in without typing anything.
+
+There are two ways it happens:
+
+- Add `?silentSignin` to the Termix URL. This works whether or not the setting below is on, so you can hand out a link that goes straight to your provider while everyone else still sees the normal form.
+- Turn on the silent login default in Admin Settings, which makes it happen for every visit. This is off by default.
+
+To pin the default, set `OIDC_SILENT_LOGIN_DEFAULT` to `true` or `false`. The environment variable wins over the toggle, and the toggle is disabled in Admin Settings with a note saying the value is locked. Useful if you deploy Termix from a config file and do not want the setting drifting.
+
+Silent login only redirects when an OIDC, GitHub, or Google provider is set up, and it is skipped in the desktop app.
+
+:::warning
+With the default turned on there is no login form to fall back to, so keep a way back in if your identity provider goes down. An admin can turn it off again in Admin Settings, or you can set `OIDC_SILENT_LOGIN_DEFAULT=false` and restart to force the form back.
+:::
 
 ## Linking a local account
 
