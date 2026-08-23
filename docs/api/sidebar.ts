@@ -234,6 +234,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/duplicate-a-credential",
+          label: "Duplicate a credential",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/apply-a-credential-to-a-host",
           label: "Apply a credential to a host",
           className: "api-method post",
