@@ -7,6 +7,7 @@ Choose the installation method that works best for your platform and use case.
 For running the required Termix backend and web-app front end:
 
 - **[Docker](./install/server/docker.mdx)** - The simplest way to get Termix server up and running with Docker.
+- **[Kubernetes](./install/server/kubernetes.md)** - Deploy to a cluster with the official Helm chart.
 - **[Manual](./install/server/manual.md)** - Build and compile Termix from source code for custom deployments.
 - **[Proxmox](./install/server/proxmox.md)** - Install to Proxmox as a container via Proxmox VE Helper-Scripts.
 

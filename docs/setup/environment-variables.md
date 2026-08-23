@@ -43,10 +43,11 @@ The normal way to add login providers is through Admin Settings, which supports 
 
 Two more variables apply no matter which provider type or setup method you use:
 
-| Variable                  | Default | Description                                                                                                                                                 |
-| ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OIDC_FORCE_HTTPS`        | `false` | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                       |
-| `OIDC_ALLOW_REGISTRATION` | `false` | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list |
+| Variable                    | Default               | Description                                                                                                                                                                                                                         |
+| --------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OIDC_FORCE_HTTPS`          | `false`               | Force HTTPS for OIDC callback URLs (required if behind reverse proxy)                                                                                                                                                               |
+| `OIDC_ALLOW_REGISTRATION`   | `false`               | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list                                                                         |
+| `OIDC_SILENT_LOGIN_DEFAULT` | (from Admin Settings) | Override the Admin Settings toggle for silent OIDC login, which sends people straight to your provider instead of showing the Termix login screen. Set to `true` or `false` to lock the value. Defaults to off when neither is set. |
 
 ## Authentication Configuration
 

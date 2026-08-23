@@ -1165,7 +1165,7 @@
     "/users/oidc-silent-login-default": {
       "get": {
         "summary": "Get OIDC silent login default setting",
-        "description": "Returns whether silent OIDC login is enabled as the default behavior.",
+        "description": "Returns whether silent OIDC login is enabled as the default behavior. Can be pinned via the OIDC_SILENT_LOGIN_DEFAULT env var.",
         "tags": [
           "Users"
         ],
@@ -1208,6 +1208,9 @@
           },
           "403": {
             "description": "Not authorized."
+          },
+          "409": {
+            "description": "Setting is pinned by the OIDC_SILENT_LOGIN_DEFAULT env var."
           },
           "500": {
             "description": "Failed to update setting."
@@ -8863,6 +8866,66 @@
           },
           "500": {
             "description": "Failed to delete credential."
+          }
+        }
+      }
+    },
+    "/credentials/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a credential",
+        "description": "Creates a new credential from an existing one, optionally overriding fields (e.g. password), leaving the original credential untouched.",
+        "tags": [
+          "Credentials"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "keyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "New credential created from the duplicate."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Credential not found."
+          },
+          "500": {
+            "description": "Failed to duplicate credential."
           }
         }
       }

@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
           label: 'Server',
           items: [
             'install/server/docker',
+            'install/server/kubernetes',
             'install/server/manual',
             'install/server/proxmox',
             'install/ginernet',
