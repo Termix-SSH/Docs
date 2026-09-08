@@ -50,6 +50,11 @@ const SponsorList: Sponsor[] = [
     href: 'https://ginernet.com/',
     logo: 'https://ginernet.com/img/logo-web.png',
   },
+  {
+    name: 'Hetzner',
+    href: 'https://www.hetzner.com/?mtm_campaign=termix&mtm_medium=referral&mtm_content=sponsoring_link',
+    logo: 'https://www.plesk.com/wp-content/uploads/2016/08/hetzner-logo-clear-space.png',
+  },
 ];
 
 export default function Sponsors(): ReactNode {
