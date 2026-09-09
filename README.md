@@ -99,8 +99,17 @@ The list is also published at [termix.site/sponsors.json](https://termix.site/sp
 `npm run sponsors:check` verifies every sponsor site and logo still resolves. It runs weekly in CI
 and opens an issue when something breaks, so a dead logo does not sit unnoticed.
 
-The GitHub org profile and the personal `LukeGus` profile readmes cannot pull automatically. Paste
-`sponsors-section.md` into those, replacing the old sponsors section.
+Every readme is synced by the **Sync Sponsors** workflow, which runs automatically whenever
+`sponsors.json` or a logo changes on `main`. It clones each target repo, rewrites the sponsor block,
+and pushes only the repos that actually changed. Run it by hand from the Actions tab (tick
+`dry_run` to preview without pushing).
+
+Targets live in `scripts/sponsor-targets.json`, and include the org profile readme
+(`Termix-SSH/.github` at `profile/README.md`) and the personal `LukeGus/LukeGus` readme. To add a
+repo, add it there. A readme with a normal sponsors section is picked up automatically, the markers
+get added on the first sync.
+
+`sponsors-section.md` is still generated for pasting anywhere that is not synced.
 
 <br />
 

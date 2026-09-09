@@ -1,0 +1,89 @@
+name: Sync Sponsors
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static/sponsors.json'
+      - 'static/img/sponsors/**'
+      - 'scripts/sync-sponsors.mjs'
+      - 'scripts/sponsor-targets.json'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Show what would change without pushing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: sync-sponsors
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs
+        uses: actions/checkout@v4
+        with:
+          path: docs
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone every target repo
+        env:
+          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+        run: |
+          set -euo pipefail
+          mkdir -p repos
+          for r in $(jq -r '.repos[].repo' docs/scripts/sponsor-targets.json); do
+            dir="repos/${r/\//__}"
+            echo "cloning $r"
+            git clone --depth 1 --quiet \
+              "https://x-access-token:${GH_TOKEN}@github.com/${r}.git" "$dir"
+          done
+
+      - name: Rewrite sponsor blocks
+        id: sync
+        working-directory: docs
+        run: node scripts/sync-sponsors.mjs --root ../repos --by-repo
+
+      - name: Commit and push each changed repo
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+          CHANGED: ${{ steps.sync.outputs.changed_repos }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${CHANGED// /}" ]; then
+            echo "Nothing to push, every readme is already current."
+            exit 0
+          fi
+
+          for r in $CHANGED; do
+            dir="repos/${r/\//__}"
+            echo "::group::$r"
+            cd "$dir"
+            git config user.name "LukeGus"
+            git config user.email "bugattiguy527@gmail.com"
+            git add -A
+            git commit -m "chore: pull sponsor logos from the docs site"
+            git push origin HEAD:main
+            cd - >/dev/null
+            echo "::endgroup::"
+          done
+
+      - name: Report
+        run: |
+          echo "### Sponsor sync" >> "$GITHUB_STEP_SUMMARY"
+          if [ -z "${{ steps.sync.outputs.changed_repos }}" ]; then
+            echo "All readmes already up to date." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Updated ${{ steps.sync.outputs.changed_count }} file(s) in:" >> "$GITHUB_STEP_SUMMARY"
+            for r in ${{ steps.sync.outputs.changed_repos }}; do
+              echo "- $r" >> "$GITHUB_STEP_SUMMARY"
+            done
+          fi
