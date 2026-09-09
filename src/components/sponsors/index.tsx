@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
+import sponsorsData from '../../../static/sponsors.json';
 import styles from './styles.module.css';
 
 type Sponsor = {
@@ -9,53 +10,7 @@ type Sponsor = {
   logo: string;
 };
 
-const SponsorList: Sponsor[] = [
-  {
-    name: 'DigitalOcean',
-    href: 'https://www.digitalocean.com/',
-    logo: 'https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg',
-  },
-  {
-    name: 'Crowdin',
-    href: 'https://crowdin.com/',
-    logo: 'https://support.crowdin.com/assets/logos/core-logo/svg/crowdin-core-logo-cDark.svg',
-  },
-  {
-    name: 'Blacksmith',
-    href: 'https://www.blacksmith.sh/',
-    logo: 'https://cdn.prod.website-files.com/681bfb0c9a4601bc6e288ec4/683ca9e2c5186757092611b8_e8cb22127df4da0811c4120a523722d2_logo-backsmith-wordmark-light.svg',
-  },
-  {
-    name: 'Cloudflare',
-    href: 'https://www.cloudflare.com/',
-    logo: 'https://sirv.sirv.com/website/screenshots/cloudflare/cloudflare-logo.png?w=300',
-  },
-  {
-    name: 'Akamai',
-    href: 'https://akamai.com/',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Akamai_logo.svg',
-  },
-  {
-    name: 'AWS',
-    href: 'https://aws.amazon.com/',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/960px-Amazon_Web_Services_Logo.svg.png',
-  },
-  {
-    name: 'Rack Genius',
-    href: 'https://rackgenius.com/',
-    logo: 'https://rackgenius.com/rackgenius-logo.png',
-  },
-  {
-    name: 'Ginernet',
-    href: 'https://ginernet.com/',
-    logo: 'https://ginernet.com/img/logo-web.png',
-  },
-  {
-    name: 'Hetzner',
-    href: 'https://www.hetzner.com/?mtm_campaign=termix&mtm_medium=referral&mtm_content=sponsoring_link',
-    logo: 'https://www.plesk.com/wp-content/uploads/2016/08/hetzner-logo-clear-space.png',
-  },
-];
+const SponsorList: Sponsor[] = sponsorsData.sponsors;
 
 export default function Sponsors(): ReactNode {
   return (
