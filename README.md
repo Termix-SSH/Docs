@@ -81,38 +81,6 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 <br />
 
-## Managing Sponsors
-
-All sponsors live in one place: `static/sponsors.json`. The docs homepage reads it directly, and
-every README pulls from it, so a new sponsor is a single edit.
-
-To add or change one:
-
-1. Save the logo to `static/img/sponsors/` so it stays available even if the sponsor moves theirs.
-2. Add an entry to `static/sponsors.json`. Set `logo` to the local path and `source` to the
-   original url the logo came from, so we can tell when the upstream one changes.
-3. Run `npm run sponsors:sync` to rewrite the sponsor block in every README.
-4. Commit the docs repo and the other repos it touched.
-
-The list is also published at [termix.site/sponsors.json](https://termix.site/sponsors.json).
-
-`npm run sponsors:check` verifies every sponsor site and logo still resolves. It runs weekly in CI
-and opens an issue when something breaks, so a dead logo does not sit unnoticed.
-
-Every readme is synced by the **Sync Sponsors** workflow, which runs automatically whenever
-`sponsors.json` or a logo changes on `main`. It clones each target repo, rewrites the sponsor block,
-and pushes only the repos that actually changed. Run it by hand from the Actions tab (tick
-`dry_run` to preview without pushing).
-
-Targets live in `scripts/sponsor-targets.json`, and include the org profile readme
-(`Termix-SSH/.github` at `profile/README.md`) and the personal `LukeGus/LukeGus` readme. To add a
-repo, add it there. A readme with a normal sponsors section is picked up automatically, the markers
-get added on the first sync.
-
-`sponsors-section.md` is still generated for pasting anywhere that is not synced.
-
-<br />
-
 ## Support
 
 If you need help or want to report an issue with the Termix documentation, visit the [Support](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`. Please be as detailed as possible in your report, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support channel, however, response times may be longer.
