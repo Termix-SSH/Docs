@@ -75,12 +75,14 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
           target: '_self',
+          className: 'navbar__link--no-external-icon',
         },
         {
           href: 'https://docs.termix.site/api/termix-api',
           position: 'left',
           label: 'API',
           target: '_self',
+          className: 'navbar__link--no-external-icon',
         },
         {
           to: '/contact',
@@ -93,6 +95,7 @@ const config: Config = {
           position: 'left',
           label: 'Donate',
           target: '_self',
+          className: 'navbar__link--no-external-icon',
         },
       ],
     },
