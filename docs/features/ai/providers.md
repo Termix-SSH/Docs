@@ -50,9 +50,3 @@ Running Termix in Docker and Ollama on the host machine? Use `http://host.docker
 Bigger models follow multi-step instructions better and are less likely to misread your setup. Small local models are fine for simple questions but tend to struggle with longer tool use.
 
 Whatever you choose, the assistant still cannot change anything without your approval, so a weaker model means worse suggestions rather than a safety problem.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

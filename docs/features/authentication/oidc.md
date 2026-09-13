@@ -180,9 +180,3 @@ With the default turned on there is no login form to fall back to, so keep a way
 ## Linking a local account
 
 An admin can link an existing local account to an OIDC identity from Admin Settings, using the chain icon next to a user. Once linked, that user can sign in either way. The link can be removed the same way.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

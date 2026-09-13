@@ -33,9 +33,3 @@ Read and write means exactly that. The other person is typing into your real ses
 ## Turning it off
 
 Sharing can be switched off for the whole instance in **Admin Settings**, and per host in the host's settings. The instance setting wins, so with it off nobody can share anything regardless of individual host settings.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

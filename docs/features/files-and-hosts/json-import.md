@@ -60,6 +60,7 @@ These fields only apply to `rdp`, `vnc`, and `telnet` connection types:
 The `guacamoleConfig` object accepts Guacamole connection parameters specific to each protocol.
 
 **RDP parameters:**
+
 - `"enable-drive"` - Enable file sharing (boolean)
 - `"drive-path"` - Shared drive path on Termix server (string)
 - `"create-drive-path"` - Auto-create drive path (boolean)
@@ -68,6 +69,7 @@ The `guacamoleConfig` object accepts Guacamole connection parameters specific to
 - `"console"` - Connect to admin console session (boolean)
 
 **VNC parameters:**
+
 - `"color-depth"` - Color depth in bits: `8`, `16`, `24`, or `32` (number)
 - `"cursor"` - Cursor rendering: `"local"` or `"remote"` (string)
 - `"read-only"` - Read-only session (boolean)
@@ -75,6 +77,7 @@ The `guacamoleConfig` object accepts Guacamole connection parameters specific to
 - `"swap-red-blue"` - Fix incorrect colors (boolean)
 
 **Telnet parameters:**
+
 - `"color-scheme"` - Terminal color scheme, e.g. `"green-black"` (string)
 - `"font-name"` - Font name, e.g. `"monospace"` (string)
 - `"font-size"` - Font size in points (number)
@@ -486,9 +489,3 @@ The import file must be a JSON object containing a `"hosts"` array, or the file 
   ]
 }
 ```
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

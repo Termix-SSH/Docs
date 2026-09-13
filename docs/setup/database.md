@@ -156,9 +156,3 @@ Your credentials, passwords, and SSH keys are encrypted before they are written,
 ## The desktop app
 
 The desktop app always uses SQLite. It runs its own backend and cannot ship a database server, so these settings do not apply to it. It can still sync with a server that uses PostgreSQL or MySQL, see [Remote Sync](/setup/remote-sync).
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

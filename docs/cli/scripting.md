@@ -112,9 +112,3 @@ termix fleets exec 2 "uptime" --json | jq '.results[] | select(.success == false
 - `files` commands move text. Do not use them for binaries like images or archives.
 - `hosts export` writes real passwords and keys into the file. Do not commit it.
 - `hosts import` takes at most 100 hosts at a time.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

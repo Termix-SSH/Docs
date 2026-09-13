@@ -35,9 +35,3 @@ That also means splits can be saved. Store one in a [workspace](/features/worksp
 With several terminals open you can send the same command to all of them at once, which is useful for the same change across a few machines. See [Snippets](./snippets) for saved commands you can fire at every open terminal.
 
 For running something across many servers you do not have open, [Fleets](/features/fleets/overview) is the better tool.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

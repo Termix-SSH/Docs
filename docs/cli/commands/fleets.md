@@ -94,9 +94,3 @@ JSON output gives you `count` and a `results` array, with `hostId`, `hostName`, 
 - Each host gets 60 seconds.
 - You need edit access to a host for it to be included, and hosts you cannot edit are skipped.
 - Being in a fleet is not permission. Termix checks your access to every host separately.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

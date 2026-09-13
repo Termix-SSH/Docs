@@ -13,9 +13,3 @@ The Dashboard is the home screen you land on after logging in. It's made of card
 ## Editing the layout
 
 Turn on edit mode to drag cards into a new order or resize them. Cards you don't want can be turned off entirely, and added back later from the same menu.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

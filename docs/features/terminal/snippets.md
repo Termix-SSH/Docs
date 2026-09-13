@@ -54,10 +54,3 @@ The JSON file has two top-level arrays:
 ```
 
 `name` and `content` are required for each snippet. All other fields are optional. Folders are matched by name, so importing a file where a folder already exists will skip that folder rather than create a duplicate.
-
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

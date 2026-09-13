@@ -81,9 +81,3 @@ It consists of two main parts:
 - **`.env` File Security**: The `JWT_SECRET` and `DATABASE_KEY` are stored in the `.env` file within the application's data directory. Filesystem access to this file could compromise the security of the database file and all sessions.
 - **In-Memory Data**: Because the database is decrypted and held in memory, an attacker with the ability to dump the application's process memory could potentially access sensitive data.
 - **Data Export**: The data export feature decrypts user data and provides it as an unencrypted SQLite file. This exported file is highly sensitive and must be stored securely.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

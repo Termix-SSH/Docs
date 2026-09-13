@@ -63,9 +63,3 @@ You can send a test message to a channel to check it works before relying on it.
 A step can run another automation. This lets you write one automation that does a common job, like "notify everyone on call", and reuse it from several others.
 
 Chains are limited to 5 levels deep, which stops an automation from calling itself forever.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

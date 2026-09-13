@@ -72,15 +72,15 @@ Each rule has:
 
 ### Trigger types
 
-| Trigger | Description |
-| ------- | ----------- |
-| Host Offline | Fires when Termix loses contact with the host |
-| Host Online | Fires when a host that was offline comes back |
-| CPU Usage Threshold | Fires when CPU percent exceeds a value |
-| Memory Usage Threshold | Fires when memory percent exceeds a value |
-| Disk Usage Threshold | Fires when disk percent exceeds a value |
-| Health Check Failure | Fires when a configured health check fails |
-| User SSH Login | Fires when someone connects to the host over SSH through Termix |
+| Trigger                | Description                                                     |
+| ---------------------- | --------------------------------------------------------------- |
+| Host Offline           | Fires when Termix loses contact with the host                   |
+| Host Online            | Fires when a host that was offline comes back                   |
+| CPU Usage Threshold    | Fires when CPU percent exceeds a value                          |
+| Memory Usage Threshold | Fires when memory percent exceeds a value                       |
+| Disk Usage Threshold   | Fires when disk percent exceeds a value                         |
+| Health Check Failure   | Fires when a configured health check fails                      |
+| User SSH Login         | Fires when someone connects to the host over SSH through Termix |
 
 For threshold triggers (CPU, memory, disk), you can also set a duration in seconds. If set, the metric has to stay above the threshold for that many seconds before the alert fires. This prevents alerts from firing on short spikes.
 
@@ -95,9 +95,3 @@ Severity levels:
 - Critical: host going offline or health check failures
 
 You can acknowledge individual alerts or acknowledge all at once. Acknowledged alerts still stay in the list but no longer count toward the bell badge.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

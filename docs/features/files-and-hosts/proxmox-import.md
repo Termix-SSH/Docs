@@ -21,9 +21,3 @@ Termix doesn't talk to the Proxmox API directly. Instead, it connects over SSH t
 3. Select the guests you want, then import them.
 
 Imported guests are grouped into a folder named after the Proxmox node they came from. Termix tries to guess whether each guest should connect over SSH or RDP based on its name, looking for things like "windows" or "docker," and you can adjust this for any guest before importing.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

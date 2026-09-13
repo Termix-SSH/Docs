@@ -107,9 +107,3 @@ Backup codes are one-time use codes that allow you to access your account if you
 
 1. During login, when prompted for a TOTP code
 2. Enter one of your backup codes instead of a regular TOTP code
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

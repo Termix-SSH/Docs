@@ -101,9 +101,3 @@ Anyone holding the token can start the automation, so treat it like a password.
 ## Cooldowns survive restarts
 
 Hold timers and cooldowns are saved, so restarting Termix does not reset them. An automation part way through a hold window picks up where it left off instead of starting over or firing twice.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

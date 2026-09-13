@@ -42,9 +42,3 @@ If the same item changes in both places between syncs, the most recent change wi
 ## Credentials stay encrypted
 
 Credentials keep their encryption while syncing. Passwords and keys are not sent in the clear between the desktop app and the server. Use HTTPS on your server, as you should anyway.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

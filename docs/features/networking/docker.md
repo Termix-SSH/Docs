@@ -18,9 +18,3 @@ Your user will now be inside the Docker group and should now also connect proper
 
 - Make sure the user can run `docker --version` without error or without being prompted for any form of password
 - Confirm that your credentials are correct by trying a terminal or file manager session
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

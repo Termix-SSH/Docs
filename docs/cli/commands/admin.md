@@ -111,9 +111,3 @@ See [API Keys](/features/api/api-keys).
 | 5         | Check the id is right                                      |
 | 6         | Check the server address with `termix version`             |
 | 7         | Unlock your data in the web app                            |
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

@@ -50,9 +50,3 @@ If Termix rejects logins, the trusted list is nearly always the reason. Turn the
 ## Using it with other login methods
 
 Trusted proxy auth works alongside local accounts, OIDC, and LDAP. You can leave normal password login on for admins so there is still a way in if the proxy has a problem.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

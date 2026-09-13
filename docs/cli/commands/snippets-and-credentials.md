@@ -122,9 +122,3 @@ termix hosts create --ip 10.0.0.5 --username deploy --credential-id 4
 ```
 
 Better than putting the password on each host, since changing it once updates every host that uses it.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

@@ -25,9 +25,3 @@ Each field has an Inherit option, which clears your default and falls back to Te
 Open the host and set the value there. That host stops following the default for that setting, and everything else it leaves unset still inherits.
 
 This is the usual reason to override: one server you want in a different colour so you notice when you are on it.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

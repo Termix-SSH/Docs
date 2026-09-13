@@ -79,9 +79,3 @@ This option is off unless you turn it on. With it off, the assistant can still r
 ## Audit trail
 
 Every proposal created, approved, or rejected is written to the audit log, along with any change to a provider. You can see who asked for what, what was suggested, and who approved it.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

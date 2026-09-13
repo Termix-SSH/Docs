@@ -33,9 +33,3 @@ Inventory is a snapshot, not a history. Each refresh replaces the previous resul
 Opening the tab does not connect to anything. It reads what was stored last time, so it loads instantly and works even if a host is currently offline. Press refresh when you want fresh numbers.
 
 Hosts that are offline or unreachable during a refresh keep their old snapshot, and the rest of the fleet still updates.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

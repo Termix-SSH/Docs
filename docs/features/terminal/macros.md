@@ -65,9 +65,3 @@ Both save you typing, and they are good at different things.
 | Run on many hosts at once | Yes         | No, one terminal at a time |
 
 For one command across many servers, use a snippet or a [fleet](/features/fleets/overview). For a back and forth with one machine, use a macro.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

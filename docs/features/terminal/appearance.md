@@ -54,9 +54,3 @@ Automatic is the sensible choice. On a fast local connection prediction is not n
 Only ordinary printable characters are predicted. Password prompts and control keys never are, so your password cannot appear on screen because of this setting.
 
 There is a global preference in your user profile, and each host can override it or leave it on **Use global setting**.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

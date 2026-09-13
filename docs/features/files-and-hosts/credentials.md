@@ -17,9 +17,3 @@ For key based credentials, Termix can copy the public key to a server for you in
 ## Sharing credentials
 
 Credentials use the same sharing system as hosts. You can share one with a specific user or a role, which is how [RBAC](../authentication/rbac) sharing for hosts without exposed passwords works, since the shared user gets to use the credential without ever seeing the secret behind it.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

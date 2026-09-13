@@ -31,9 +31,3 @@ Set **Last Session** as your default if you want to carry on exactly where you l
 From the panel you can rename a workspace, change its color and icon, overwrite it with your current tabs, duplicate it, or delete it.
 
 Overwriting is the one to use when a workspace is nearly right. Fix the tabs, then overwrite, rather than deleting and starting again.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

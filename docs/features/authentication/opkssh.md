@@ -16,6 +16,7 @@ Start an SSH terminal connection on that host. This will generate the OPKSSH con
 
 **Step 3:**
 Edit the generated `config.yml` file. The config location depends on your deployment:
+
 - **Development/Manual Compile**: `db/data/.opk/config.yml`
 - **Docker**: `/app/data/.opk/config.yml` (mounted volume)
 
@@ -40,6 +41,7 @@ See [OPKSSH config docs](https://github.com/openpubkey/opkssh/blob/main/docs/con
 Configure OAuth credentials with your identity provider (Google, GitHub, Microsoft, etc.).
 
 **Authorized JavaScript Origins:**
+
 - Development/Manual Compile: `http://localhost:5173`
 - Docker: `http://localhost:8080` (or your mapped port)
 - Reverse Proxy: `https://termix.yourdomain.com`
@@ -54,9 +56,3 @@ Register the public Termix callback URL(s) matching your deployment(s) with your
 These URLs are what the OAuth provider redirects the browser back to after sign-in. They do NOT go in `config.yml`, Termix supplies them automatically.
 
 Copy the Client ID and Client Secret from your OAuth provider into your `config.yml`.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

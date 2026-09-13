@@ -23,9 +23,3 @@ To use something else, set `TERMIX_LOCAL_SHELL` to the shell you want before sta
 ## Desktop only
 
 This needs the desktop app, because it runs a shell on your own machine. The web app cannot do it, and would not be safe if it could, since that would mean a browser page starting programs on the server.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

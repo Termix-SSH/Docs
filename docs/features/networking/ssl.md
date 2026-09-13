@@ -18,13 +18,13 @@ Set `ENABLE_SSL=true` in your environment and Termix will generate a self-signed
 
 ### Environment Variables
 
-| Variable        | Default                    | Description                                             |
-| --------------- | -------------------------- | ------------------------------------------------------- |
-| `ENABLE_SSL`    | `false`                    | Enable/disable HTTPS                                    |
-| `SSL_PORT`      | `8443`                     | Port for HTTPS connections                              |
-| `SSL_DOMAIN`    | `localhost`                | Domain name used in the certificate CN                  |
-| `SSL_CERT_PATH` | `/app/data/ssl/termix.crt` | Path to SSL certificate file                            |
-| `SSL_KEY_PATH`  | `/app/data/ssl/termix.key` | Path to SSL private key file                            |
+| Variable        | Default                    | Description                            |
+| --------------- | -------------------------- | -------------------------------------- |
+| `ENABLE_SSL`    | `false`                    | Enable/disable HTTPS                   |
+| `SSL_PORT`      | `8443`                     | Port for HTTPS connections             |
+| `SSL_DOMAIN`    | `localhost`                | Domain name used in the certificate CN |
+| `SSL_CERT_PATH` | `/app/data/ssl/termix.crt` | Path to SSL certificate file           |
+| `SSL_KEY_PATH`  | `/app/data/ssl/termix.key` | Path to SSL private key file           |
 
 ### Docker Compose with SSL
 
@@ -35,16 +35,16 @@ services:
     container_name: termix
     restart: unless-stopped
     ports:
-      - "8080:8080"
-      - "8443:8443"
+      - '8080:8080'
+      - '8443:8443'
     volumes:
       - termix-data:/app/data
     environment:
-      PORT: "8080"
-      ENABLE_SSL: "true"
-      SSL_PORT: "8443"
-      SSL_DOMAIN: "termix.example.com"
-      GUACD_HOST: "guacd"
+      PORT: '8080'
+      ENABLE_SSL: 'true'
+      SSL_PORT: '8443'
+      SSL_DOMAIN: 'termix.example.com'
+      GUACD_HOST: 'guacd'
     depends_on:
       - guacd
 
@@ -112,9 +112,9 @@ These are the same paths that `ENABLE_SSL=true` reads from. To activate HTTPS:
 
 ```yaml
 environment:
-  ENABLE_SSL: "true"
-  SSL_PORT: "8443"
-  SSL_DOMAIN: "termix.example.com"
+  ENABLE_SSL: 'true'
+  SSL_PORT: '8443'
+  SSL_DOMAIN: 'termix.example.com'
 ```
 
 Then restart your container. The certificate will be served immediately.
@@ -171,14 +171,9 @@ If you already have a reverse proxy (nginx, Caddy, Traefik) handling TLS termina
 
 ## Security Variables
 
-| Variable       | Default        | Description                                              |
-| -------------- | -------------- | -------------------------------------------------------- |
-| `JWT_SECRET`   | Auto-generated | Secret key for JWT token signing - do not overwrite      |
+| Variable       | Default        | Description                                               |
+| -------------- | -------------- | --------------------------------------------------------- |
+| `JWT_SECRET`   | Auto-generated | Secret key for JWT token signing - do not overwrite       |
 | `DATABASE_KEY` | Auto-generated | Encryption key for the SQLite database - do not overwrite |
 
 ---
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page.
-You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server for community support.

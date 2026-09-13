@@ -33,9 +33,3 @@ Deleting only works within one filesystem. Termix moves the file rather than cop
 The trash folder itself is protected. You cannot delete `.termix-trash` through the file manager, which stops the trash being thrown away with everything in it.
 
 Deleting a folder moves the whole thing, contents included, and restoring brings all of it back.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

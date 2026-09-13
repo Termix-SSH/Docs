@@ -41,9 +41,3 @@ Either as an admin or a user, visit the Host Manager and either edit a host.
 Then, visit the `Sharing` tab. From there, you are able to either share a host with a specific user and set a duration. Or, you can share a host with an entire Role.
 
 In this menu, you can also set the permission level (only one available currently) and the duration. In the table below, you can manage all the shared users/roles.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

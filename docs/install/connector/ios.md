@@ -17,9 +17,3 @@ Click on [this link](https://github.com/Termix-SSH/Mobile/releases/latest/downlo
 You can then sideload the app as usual. I recommend you use [AltStore](https://faq.altstore.io/) for sideloading.
 
 Once installed and opened, follow the on-screen guide to connect to your existing Termix instance.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.

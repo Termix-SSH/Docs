@@ -84,9 +84,3 @@ Fleet transfers in the web app push and pull a file across a whole fleet at once
 ## Hosts that need 2FA
 
 If a host asks for a TOTP code, these commands cannot prompt for it. Connect once through the web app or `termix ssh` instead.
-
-## Support
-
-If you need help or want to request a feature with Termix, visit the [Issues](https://github.com/Termix-SSH/Support/issues) page, log in, and press `New Issue`.
-Please be as detailed as possible in your issue, preferably written in English. You can also join the [Discord](https://discord.gg/jVQGdvHDrf) server and visit the support
-channel, however, response times may be longer.
