@@ -84,6 +84,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/record-that-a-run-command-proposal-was-executed-in-an-open-terminal",
+          label: "Record that a run_command proposal was executed in an open terminal",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "api/reject-a-pending-proposal",
           label: "Reject a pending proposal",
           className: "api-method post",
@@ -348,6 +354,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/standing-shares-on-one-of-your-folders-inherited-by-hosts-added-later",
+          label: "Standing shares on one of your folders (inherited by hosts added later)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/stop-a-folder-share-from-applying-to-hosts-added-later",
+          label: "Stop a folder share from applying to hosts added later",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/get-host-access-list",
           label: "Get host access list",
           className: "api-method get",
@@ -390,6 +408,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/list-the-users-holding-a-role",
+          label: "List the users holding a role",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/assign-a-role-to-a-user",
           label: "Assign a role to a user",
           className: "api-method post",
@@ -408,6 +432,24 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/share-a-credential-with-users-or-roles",
+          label: "Share a credential with users or roles",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/list-who-a-credential-is-shared-with",
+          label: "List who a credential is shared with",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/revoke-a-credential-share-recipients-copies-are-removed-with-it",
+          label: "Revoke a credential share (recipients' copies are removed with it)",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/share-a-snippet",
           label: "Share a snippet",
           className: "api-method post",
@@ -417,6 +459,12 @@ const sidebar: SidebarsConfig = {
           id: "api/revoke-snippet-access",
           label: "Revoke snippet access",
           className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/share-every-snippet-in-a-folder",
+          label: "Share every snippet in a folder",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -858,6 +906,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/get-audit-log-forwarding-settings-admin-only",
+          label: "Get audit log forwarding settings (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/update-audit-log-forwarding-settings-admin-only",
+          label: "Update audit log forwarding settings (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
           id: "api/get-whether-the-ai-assistant-is-enabled-instance-wide",
           label: "Get whether the AI assistant is enabled instance-wide",
           className: "api-method get",
@@ -878,6 +938,54 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/replace-the-allowlist-of-private-ai-endpoint-hosts-admin-only",
           label: "Replace the allowlist of private AI endpoint hosts (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "api/get-the-private-hosts-notification-channels-may-contact-admin-only",
+          label: "Get the private hosts notification channels may contact (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/replace-that-allowlist-admin-only",
+          label: "Replace that allowlist (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "api/get-the-private-hosts-the-step-ca-certificate-flow-may-contact-admin-only",
+          label: "Get the private hosts the Step CA certificate flow may contact (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/replace-that-allowlist-admin-only",
+          label: "Replace that allowlist (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "api/get-the-private-hosts-secret-sources-1-password-connect-may-contact-admin-only",
+          label: "Get the private hosts secret sources (1Password Connect) may contact (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/replace-that-allowlist-admin-only",
+          label: "Replace that allowlist (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "api/step-ca-settings-admins-get-the-values-everyone-else-only-whether-it-is-configured",
+          label: "Step CA settings. Admins get the values; everyone else only whether it is configured.",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/set-the-step-ca-url-root-fingerprint-and-oidc-provisioner-admin-only-empty-values-clear-the-configuration",
+          label: "Set the Step CA URL, root fingerprint and OIDC provisioner (admin only). Empty values clear the configuration.",
           className: "api-method patch",
         },
         {
@@ -1011,6 +1119,18 @@ const sidebar: SidebarsConfig = {
           id: "api/export-a-users-data-admin-only",
           label: "Export a user's data (admin only)",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/get-white-label-branding",
+          label: "Get white-label branding",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/update-white-label-branding-admin-only",
+          label: "Update white-label branding (admin only)",
+          className: "api-method patch",
         },
         {
           type: "doc",
@@ -2709,6 +2829,156 @@ const sidebar: SidebarsConfig = {
           id: "api/update-the-credential-sidebar-preferences-for-the-current-user",
           label: "Update the credential sidebar preferences for the current user",
           className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Secret Sources",
+      items: [
+        {
+          type: "doc",
+          id: "api/list-secret-sources-visible-to-the-caller-own-shared",
+          label: "List secret sources visible to the caller (own + shared)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/create-a-secret-source-1-password-connect",
+          label: "Create a secret source (1Password Connect)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/update-a-secret-source-owner-only-omit-token-to-keep-it",
+          label: "Update a secret source (owner only; omit token to keep it)",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "api/delete-a-secret-source-owner-only",
+          label: "Delete a secret source (owner only)",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/check-that-the-source-is-reachable-and-the-token-is-accepted",
+          label: "Check that the source is reachable and the token is accepted",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Plugins",
+      items: [
+        {
+          type: "doc",
+          id: "api/dispatch-a-request-to-an-installed-plugins-backend-router",
+          label: "Dispatch a request to an installed plugin's backend router",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Hosts",
+      items: [
+        {
+          type: "doc",
+          id: "api/update-a-hosts-terminal-behaviour-flags",
+          label: "Update a host's terminal behaviour flags",
+          className: "api-method patch",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Collab",
+      items: [
+        {
+          type: "doc",
+          id: "api/create-a-collaboration-room",
+          label: "Create a collaboration room",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/list-rooms-the-caller-belongs-to",
+          label: "List rooms the caller belongs to",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/get-a-room-with-members-online-users-and-stage-state",
+          label: "Get a room with members, online users and stage state",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/permanently-delete-a-room-host-only",
+          label: "Permanently delete a room (host only)",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/invite-users-to-a-room-host-only",
+          label: "Invite users to a room (host only)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/remove-a-member-host-or-leave-the-room-self",
+          label: "Remove a member (host), or leave the room (self)",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "api/take-the-stage-with-one-of-your-live-sessions",
+          label: "Take the stage with one of your live sessions",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/stop-presenting-presenter-or-host",
+          label: "Stop presenting (presenter or host)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/get-connect-info-for-the-current-stage-members-only",
+          label: "Get connect info for the current stage (members only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/grant-or-revoke-stage-control-presenter-or-host",
+          label: "Grant or revoke stage control (presenter or host)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/ask-the-presenter-for-stage-control-hand-raise",
+          label: "Ask the presenter for stage control (hand raise)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/enable-rotate-or-disable-the-rooms-anonymous-guest-link-host-only",
+          label: "Enable, rotate or disable the room's anonymous guest link (host only)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/resolve-a-rooms-current-stage-for-an-anonymous-guest",
+          label: "Resolve a room's current stage for an anonymous guest",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/end-the-meeting-host-only",
+          label: "End the meeting (host only)",
+          className: "api-method post",
         },
       ],
     },

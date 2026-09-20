@@ -1,11 +1,11 @@
 ---
 id: finish-passkey-login
 title: "Finish passkey login"
-description: "Verifies the WebAuthn assertion and issues a session token (or a TOTP challenge)."
+description: "Verifies the WebAuthn assertion and issues a session token. Verified WebAuthn user verification satisfies 2FA; possession-only keys retain the configured TOTP challenge."
 sidebar_label: "Finish passkey login"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lEFv00AQhf/Kak4grWKXFpB8K6AKEKgRCfQQ5TBZT+JV7Fl3dxwarPz3am1HSusKhQMnW/abT29n5m0LOQXjbS3WMWTwi7xdWwpKClJ3tLpupGCFIZCPCoWcKxtCQ0GhChRC/ChuS6xeOa9QzW/nU2UKLEviDb2egAbBTYBsAUccLDV4CrXjQAGyFt6kaXw8dfLNbSyr0BhDlFOunO/Zu86hwc6Op/vGesoncNBw9RLm49GKooc6SiPI8g5Lm6uji6H8Ylw+xRC2tFfsRHkybsP2T8/ARgpiOTpZoy07HwcNFUnhcsigdkFAQ41SQAZJE8iH5DetYi0nJwRKumPtQUMgvyMfG9ZC40vIoBCpsyQpncGycEGyyzRNL0A/s/odLascBVcYqBvUM4s9GQ76r+DLEXg2+6ykYaZSVci4oYpYzqRdvUhb25IGlj8T9HYM6upUEBQbxJrQnblybMV5y5szwe9G4E8YipVDn59JeD8mOLMl/8/duhgPdUbeYqmMYybzZIrLuCqm8Vb23a6sCD35GDDIFsvT3zNTUNUn7VTUguxrGqzExetkkA0i0MPLjfMVCmTw9W7erbfltevKrZRRPydf2Qd1Pf0CGuLu9tbTSTpJRwcaxB/QbInzWKR+0Jo8saGYwhiZCjnyGTs7N5ZtKFQ9JLGM98JzbAvGsRDL/7rC+k4JPUhSl2g5Wu0G2Q7pXkCXbtBwzDdoOE1435uY8aWGOPFY07YxrD99eTjEz/cN+TjNpYYdeour2N/F8vRKmd7O4hQeAeF5+c4=
+api: eJzVlE2P0zAQhv+KNefQZj8AKZwW0AoQaCta2EPVw9SZJladcfA4ZUvU/47spqK7XaFy5NTKmffxeOad6aEk0d60wTiGAr6TNytDokJN6p6WN12oWaEI+RihkEtlRDoShUpIJB4GtyYeqUFb/tF1Ql5t0rHGpBcMRtIFl7c3b1TrZIC8cGy3ak1bUZ4CGk4ZaMcrU3WeSjW7m02UrtFa4opGkEHASqCYw+E6WGTgSVrHQgJFD5d5Hn8ev/Czqwwr6bQmKqkcwS6D6+cC3x3uUvTQmpiC88rwBq0p1eGeQX5xKp+gyJq2il1QnrSr2PzaM7ALNXE4lGSFxqY8dhk0FGpXQgGtkwAZtBhqKGAcCynjn7SMWh4fEWic6ruFDIT8hnwsSQ+dt1BAHUJbjMfWabS1k1Bc5Xl+AdmTVL/EcpcYcIlCqcVPUtyTYZf9FXx1Ap5OP6jQMZNVDTJW1BCHM2nXz9JWxtLA8meCXp6Ckk5JiGYMRkt6c+PYBOcNV2eCX52A36PUS4e+PJPw+pTg9Jr8P1fr4rSpU/IGbZwgJv2oi4toFd15E7bJK0tCTz6OEBTzxfHnqa6p2c/ScVAPYdvSkEo0XgqDYgiCbPhz63yDAQr4dD9L9ja8cklugo3xM/KNeVA3k4+QQfTuPvV8lI/ykwcNwW9Rr4nLKFJfaUWeWFOcwjgyDXLkM6Z0bg0bqVU7TKKNk/8U24N2HIjD/7b89h0I9BDGrUXDsQTJIP2wNeaQtgZkcNgbkMHx5tjXPO6ORQbRSVHT93EJfPN2t4vHPzry0SWLDDboDS5j3+aL41U1uZvG7v4GXH0xtw==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Verifies the WebAuthn assertion and issues a session token (or a TOTP challenge).
+Verifies the WebAuthn assertion and issues a session token. Verified WebAuthn user verification satisfies 2FA; possession-only keys retain the configured TOTP challenge.
 
 <ParamsDetails>
   
