@@ -1,11 +1,11 @@
 ---
 id: validate-docker-availability
 title: "Validate Docker availability"
-description: "Validates if Docker is available on the host."
+description: "Checks that the container runtime is installed and its daemon answers."
 sidebar_label: "Validate Docker availability"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1v2zAM/SsCTxsgJO7aboBvHbqPDhgwNF13KHxgLCYWKkuuRBcNDP/3gbbbpU1WZDtZH4/PTyQfOzCUymgbtsFDDtforEGmpOxKnYfylqKySeE9WodLRyp4xRWpKiSegQbGdYL8BkYoFBoajFgTU5TzDqywNsgVaPBYE+SQKCUb/IUBDZHuWhvJQM6xJQ2prKhGyDvgTTOAOVq/hr4vBJya4BMluX+XZfJ5Ln9SPMm1zvJGJUZu0wx6DSf7YhaLr2qSpHxgtQqtNyrEYVMG76lkMkP86b74KWUSvkLrBmivoSaugoEc1sSgxxTkMDeDwvn9lOd595SNHjQkivePmWujgxwq5iafz10o0UnS8+Msy45AvxDxHa1XBhmXmEihNwpbrsizLUdpIzP0+lXi4x1iyQ633pNTNXpcU02eD2Q72cu2so4mrngg0eku0RA31NYmtmUa3lwHbzlIwxxI/H6H+BxTtQwYzYEMH3YZxh7812wd7RZ1QdGie+zB7SoW0iplGy1vhl5ZEkaKZ6302E2xfb0QQ42O2QY9+UukwOQ72Y8g0NPic4g1MuTw7dfV0NbWr8IQbtkJ/opibR/U2Y8L0CC9O0rPZtks23nQBP6I5S15I0HqklYUyZck/mpC4hq98E+z4nEeqT3OfknfQRk8k+f/mWNjNpgeeN44tF7kDMXqJuvewGhdeeZEDhryP8Os0CBsguw6seHP6Ppeju9ailKnQkKjlf8PVTM2ydpAvkKX6JXnvLmc5uRb9Tex0yH6zaiwlR1ouKXNs5nbF9vD6csnKetvQEcPoA==
+api: eJytVE1v3EYM/SsEL02Bye6m7UkNAuSrbVwUCOJtfDAWBVfDXU1XmlGGlG11of9eUJLtdZymKNCTNBzOm8fH4TuiZylzaDWkiAW+rrg8CGhFCloxlCkqhcgZchc1NAxBIERRqmv2QNFDUAFP3KQIFOWasyzQodJesLjEN6k8cMaNw5YyNaycLX7EYNe1pBU6jNQwFigsElJ859Fh5k9dyOyx0NyxQykrbgiLI2rfjsmaQ9zjMGwsWdoUhcX2v1ut7POwrokG0BWFmrahDtqDKGknCxwc/vClM+fnv8BMCWJS2KUuekh5XJQpRi6V/QKHwWHDWiWPBe5Z0U11Fbhs624f4lNqw9KPDJZXVAdPysvjXbUDOhTOV7fKdLnGAivVtlgu61RSXSXR4vvVavUM3Wckf6MQwZPSloTHflCnFUcNJVkKTMhoMgmXXQ7aj7dsmTLnl50RvdwM7ohlSofApxFqw6/c30VOIM6tHZPep0B33TH2OHfN1lMSuvnnp5QbUizw7GL9qKTzWfOzizUIRwUSMPiUw19jTQW8GlHg+dnF+sXYwFPudyQm+uimtzal3L+2P6/1q1dP+SCsQAoS9vFpiAu4qDhCm9mYOQgKSgcWi5TsOZYM6YrzODwPSEPF5DmPbE91/c+SaXPzx3NqAxy4f/Gogpfv39nGvwj3AGMB7zk3YaxcYJfqOl2P/A0nXUfO3whQWaYu6o/Ascx9q+zHVwdNJwpbhi7W9sA9CNugK9f9AmYyAiVFG5rQtJwlRVJ7qkkrztDJKMpgXdqlUY+gtQmwNlY3BoIObTqmCleL1WL1qO45+RWVB45+vPkD7zhbR0zyNok2FA1/7v/HeRLhC97wObwNR1SO+r9a5NR35RtdtjWFaDzH4T/OBnKJ9wZilCYvdXhrIuiwuDfNjUMzCjt2PJod/J7rYbDwp46zTf3GjuZAW9P38og+iP17LHZUC3+l6CcfZj/+Fv6J+e3QxX5i2NkKHR64f+Dtw+bUL39+u8Zh+BvSZUNf
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/docker/validate/{sessionId}"}
+  path={"/plugin-api/docker/validate/{sessionId}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Validates if Docker is available on the host.
+Checks that the container runtime is installed and its daemon answers.
 
 <Heading
   id={"request"}

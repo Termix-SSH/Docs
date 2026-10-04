@@ -49,7 +49,7 @@ Termix Backend API Reference
     >
       
       
-      
+      Session JWT sent as Authorization: Bearer &lt;JWT&gt;.
       
       <div>
         <table>
@@ -71,6 +71,66 @@ Termix Backend API Reference
                 Bearer format:
               </th><td>
                 JWT
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"API Key: cookieAuth"}
+      value={"cookieAuth"}
+    >
+      
+      
+      Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header.
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                apiKey
+              </td>
+            </tr><tr>
+              <th>
+                Cookie parameter name:
+              </th><td>
+                jwt
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem><TabItem
+      label={"HTTP: Bearer Auth"}
+      value={"apiKeyAuth"}
+    >
+      
+      
+      API key sent as Authorization: Bearer tmx_<api key&gt;. Permissions follow the key owner's account; encrypted data must be unlocked separately. API keys cannot impersonate another user.
+      
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>
+                Security Scheme Type:
+              </th><td>
+                http
+              </td>
+            </tr><tr>
+              <th>
+                HTTP Authorization Scheme:
+              </th><td>
+                bearer
+              </td>
+            </tr><tr>
+              <th>
+                Bearer format:
+              </th><td>
+                tmx_<api key>
               </td>
             </tr>
           </tbody>

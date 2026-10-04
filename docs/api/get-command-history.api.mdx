@@ -1,11 +1,11 @@
 ---
 id: get-command-history
 title: "Get command history"
-description: "Retrieves the command history for a specific host."
+description: "The caller's distinct commands on a host, most recently used first, for autocomplete."
 sidebar_label: "Get command history"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVO9r2zAQ/VfEfdpAJO7abuBvHVu7Dgaj6diHEMZFPseisuRK59Bg/L+Pc5y1TbqS7ZNl6d3j3Y93HRSUTLQN2+AhhxviaGlNSXFFyoS6Rl+oyiYOcaPKEBWq1JCxpTWqCoknoIFxlSCfwy3F2np0sNDQYMSamKK8dGCFvEGuQIPHmiAHib4uQEOk+9ZGKiDn2JKGZCqqEfIOeNMI0nqmFUXo+4WgUxN8oiSAd1kmn+c5XChnE6tQ7vSnCfQazl7CXvs1Olso0UCJ1aPsIeb8pZhLtI4KxUGVxKbaVWcCfa+hJq5CATmsiEFvU85hymNppqOkX2PQtNuWoQcNieJ6V682OikRc5NPpy4YdILLT7MsOwG9J+gbWq8KZFxiIiUNw5Yr8mwNCkRtmaHXrxKfHhDPZl8Ut96TUzV6XFFNno9kO3uRrbSORq54JNH5IdEQpxIj28TWpCHnOnjLIVq/OpL4/QHxJ0zVMmAsjmT4cMgQzB3Ff67WyWFTZxQtOmWC92SedXEho2LaaHkzzMqSMFK8aGXS5ounzzNx0tYpT0F/jCVSYDSc/G9BoMfDZYg1MuTw9eftMNzWl2EIt+wEPxj+QV18vwYNMrtb6dkkm2QHCY3gj2juyBcSpG6opEjekHitCYlr9MI/bogr4v0VtM/agQmeyfN/765tJZgeeNo4tF6kDI3qRvPOYWde0LBnX9CQj3tsoYeNJviuEyP+iK7v5fq+pSidWmhYY7S4lNrNOyhsknMBeYku0SuZvbkZV+Rb9TfJ4yV60bRG18ofaLijzeOu7RdPN9TVZ+nqb86nD8A=
+api: eJy1VU1v20gM/SsEL9sCE9vdj4u2KJACbZEsFihaL3IIjAUzoq2pRzPqDOVEK+i/F5QUx2m6LfawJ0sz1OPjI/ncY8nZJteIiwELXFcMlrzn9FOG0mVxwQrYWNcUygwxAEEVsxioYxZIbDmI76DNXMLWJb3ZxgTUSrSxbjwLL9Cg0C5jcY1rTrUL5HFjsKFENQsnvenRaf6GpEKDgWrGAjXTRYkGE39uXeISC0ktG8y24pqw6FG6RiNdEN5xwmHYaHRuYsicNeDn1Up/Hpd5Dt5lgbg9lrbAweCv34q9CAfyrgTlwFnggfb4zW/f+uYtOc8lSIQti62gclli6hY4DAZrliqWWOCOBc1UcoHLxrc7F86occucqzOZlVrODM9mjGU/qTKgwczpcC9fm7wqJtIUy6WPlrzGFb+sVqsXaL7i9ye5ACUJ3VBmoFBqwyoO4ixpCEzIqGpmtm1y0o1ZbpgSp/NWKV9vBtOjjXHv+PSEGvcHd8eTE4iP2rapLadAxy4qe5y7q+9TEJr54W1MNQkWeHm1flLSR85ZmV9erSFzEKAMCh+T+2esqYDXIwq8vLxavxp7d8r9SGKij2YayCnkYSQ/3cp3U0/xkFmABLLbhTMXFnBVcYAmsTIz4ASE9pz1xHLJwTLEAyeQih+Thoqp5DSyPdX1P0sm9d3fL6lxsOfu1ZMKzt9f6MUPhHuEsYD3OqFj5Rm20ft4O/JXnHgbRgcha2Mb5HfgYFPXCJfj1EHdZoEbhjb4aPdcQmZdK2HfLWAmk8FSCFHA1Q2nHAOJjmqUipP6TZq2yYVtHPVw4lWA0WHuFAQN6nZMFa4Wq8XqSd1z8Guyew7lmPkDbzlpR1TyJmapKSj+3P93fLTD+63+GlV3IggH+T/9dOq+8J0sG08uKNvRAvrZUK7xwVB0QE4sBXXyH5kKGixms92Y0XYVoO/VHv5Kfhj0+HPLSV1gY/BAydGN6n3dY+myPpdYbMln/o4azz7MPv4c/q2G+yUMyulAvtU3NLjn7uEPYdic2ui7N2schi+ejVna
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/terminal/command_history/{hostId}"}
+  path={"/plugin-api/ssh-terminal/command-history/{hostId}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Retrieves the command history for a specific host.
+The caller's distinct commands on a host, most recently used first, for autocomplete.
 
 <Heading
   id={"request"}

@@ -1,0 +1,69 @@
+---
+id: delete-everything-a-plugin-stores
+title: "Delete everything a plugin stores"
+description: "Drops every table under the plugin's prefix and clears its key/value state, settings and secrets, capability grants and migration ledger. Role permissions stay. Disabling a plugin never touches its data; this is the explicit uninstall path, and it cannot be undone. The plugin is deactivated first so nothing is writing while its tables go."
+sidebar_label: "Delete everything a plugin stores"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU1vG0cM/SsEL2mBraS26WUTBEhgB6j7AcNR4YMhFNQupZ1qdmYz5EpWhf3vBWfXrhy3KXrorSdJM9Tj4+Pw8YQ1S5Vcpy4GLPEixU6A95yOoLT2DH2oOYE2DJ3vty68EOgSb9w9UKih8kxJwKnAjo/zPfmeQZSUCxBWdWErOVC4SqxSQEUdrZ13eoRtoqDjdeu2iYwDeK63nGZwEz1Dx6l1Ii4GMdTjDC6c0Nq7sAWaCEEwuqCxrxoeqdSk9Aq0cQJOMne+77yrnEIfXBAl76EjbYqc3ClUFEJUWOd6Y+AZLB8rNoyaqVK3J+UaNi6JgkQIURtj4gQOyVmtcGic58whqyewjTMsUGkrWN7hdQYUXBXYUaKWlZNdnNCZ+kYJCwzUMpboaiww8cfeJa6x1NRzgVI13BKWJ9RjZ1GiyYUtDsPKgqWLQVjs/pvFwj6e9ve2IYUDCSRu457rGQ4Fvly8fB75cwTpq2bSIMd991eI78l5rkHjBPn0qVgnZjgMBbasTayxxJo9K2MxVlvifAyW+cnVw9z+gAUKp/2DNH3yWGKj2pXzuY8V+SaKlt8uFouvsfiEzk/kQs66JuHcXeq14aCuGt/XiIwml3DVJ6fHnGXNlDi97Y3T3WooTljFuHN8fkKd+4GPjydnEB+sLaPu50CPXTL2OHXPfo9BWExf3sfUkmKJV7fLZyV94DwBcHW7BOGgQAIGH5P7PddUwruMAq+vbpdvcqvOuT+SGOljMT62MeTP5/bbQT+beoy3qQZSELcNX7kwg9uGgzmCMStslJR2nD2i4ppDxRD3k4E8IQ0NU80psz3X9V9Lpu39r6+pc2ZAb55V8Pb6e7v4B+GeYMzg+sx2NtH7eMj8DSceAqcXAlRVsQ/6CjhU6diZL9irg7aXyUZ8rHZsxmeTruyPM5jIyIPduLbjJDGQ2lON2nCCXrIog3VpE7MeTr0JsDRW9waCBdp0jBUuZovZ4lndU/A7qnYc6pz5hjecrCMmeRdFWwqGP/X/Is/l6P2jrz06rGhMLJ/msAkJykH/3xv/2d4YR0H5XuedJxesddkPT5N93uFkn1hgmTdGdtBVgWaSdn86mRX+kvww2PHHnpM53qrAPSVn2bL/1VkgWzQb8sKf6fUXN9NO+hL+juKD4QRzm9xcLBEL3PFxXGzD6nwlXFz+eLm8xGH4A1It/fU=
+sidebar_class_name: "delete api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete everything a plugin stores"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugins/{id}/data"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Drops every table under the plugin's prefix and clears its key/value state, settings and secrets, capability grants and migration ledger. Role permissions stay. Disabling a plugin never touches its data; this is the explicit uninstall path, and it cannot be undone. The plugin is deactivated first so nothing is writing while its tables go.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-everything-a-plugin-stores.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-everything-a-plugin-stores.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-everything-a-plugin-stores.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

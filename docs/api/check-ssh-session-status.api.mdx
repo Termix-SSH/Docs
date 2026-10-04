@@ -1,11 +1,11 @@
 ---
 id: check-ssh-session-status
 title: "Check SSH session status"
-description: "Checks the status of an active SSH session."
+description: "Whether the caller's Docker SSH session is connected."
 sidebar_label: "Check SSH session status"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVMtu2zAQ/BViTy1A2EqTtoBuad2HCxQo4hQ9GD6sqbVFWCIVcmXEEPTvxVJK4MRt4Fz0HA5nObPbQUHRBNuw9Q5y+FyS2UXFJanIyG1UfqPQKTRs96QWi+8qUozWuwloYNxGyJcw82ZHAVYaGgxYE1OQ7x1Y4bxrKRxAg8OaIIdx/bwADYHuWhuogJxDSxqiKalGyDvgQ5PAHKzbQt+vBBwb7yJF+f8uy+T2VP1ioB6lT6DXcPUSbj5TNqoHERPoew01cekLyGFLDFIQl5DDtEglTmMspwM7aIgU9g+VtqGCHErmJp9OK2+wKn3k/DLLsgvQz/b/idapAhnXGEmhKxS2XJJja5BTAYkZev0i8eUJsfjDrXNUqRodbqkmx2eyXf2TbWMrGrnCmUTvT4nSumSLjWxNTDXX3ln24u+ZxB9OiGcYy7XHUJzJ8PGUIfn66tO6ODV1QcFipYx3jswTF1cSFdMGy4eUlTVhoHDdSrKWq+PfC8n/EPBj0GM7iBQY20TeBxDo8eGrDzUy5PDjz20Ks3Ubn5ZbrgR/S6G29+r61xw0SHYH6dkkm2QnBY3gT2h25ApZpG5oQ4GcIWmtxkeu0Qn/2NppehwPCfXYK0+oOzDeMTl+/cQZzoHpnqdNhdaJkGRTN7bqEoZWlWOKpVwHCSsNYp4Auk767neo+l4+D/NJjClsxHUl42iDVaQXVL+5GYfGW/U/VTs6PJt2e6xawaVE7DFY2SxF4GjsfPsi1v0FXKHoaw==
+api: eJylVNFu20YQ/JXFvjQFaElN88QGAZy6Te2ggBGr0INhBOvjWryKvGNul7ZVgf9e7JG2pRhxUPSFoo6L2ZnZ29lhxeKS79THgCWuataaE2jN4KhpOP0gcBLdhhNcXPwBwiI+BvACLobATrmaYYFKa8HyEsdSvCqwo0QtKyc736E39C89py0WGKhlLHECO62wwMRfep+4wlJTzwWKq7klLHeo2y4Xa/JhjcNwZcXSxSAs9v31YmE/hzouJp6ipL3McCjwzUt1pycm6YHEDIehwJa1jhWWuGZFE6Q1ljjvmn7twxF1fl5ltXORej42wgKF0+2D6D41WGKt2pXzeRMdNXUULX9eLBY/YfEVlT/JB6hI6ZqEgUIF1GvNQb0jzVoyMpoBwq5PXre5yzVT4nTcG73Lq6HYoYtx43n/hDr/kbePJ3sQF2b06OQ+0KPvxh6nedj/sQiL6eX3mFpSLPFstXwm6cHds9UShIMCCRh8TP6frKmE9xkF3p6tlu/ymPa5P5IY6WMxXqOx5Oke/X2nL7Ye60FYgRTEr8ORDzNY1RygS2zMCvAKShsWO3FccXAM8XZahQPSUDNVnDLbfV//s2Xa3n9+S52HDW/fPVNwfH5qH75j3AHGDM45tT4rF7iJTRPvMn/DiXchbzM5F/ugvwAHl7adcpVvHbS9KFwz9KGxa12BsO2wcrOdwURGwFEIUcG3HSeJgdSuasyZ0Us2ZbAp3cTsh9fGDFgaq3sDwQJtO0aFi9litnimeyp+T27DocqdP/ENJ5uIWd5F0ZaC4U/z/7VmtzmIp8dtPIC2xQjKQf9P0I0jVr7XedeQD0Yp7/luSohLfEoIYzAmYoEitT1HZlcFWhRY9W5nC/9XaobBjseMtL2uvNB1Y5F4Q43wC2JefZqC60f4FsUNb79K3FtqeqvLgXJLyVuzMS+eou/Db0schn8B2sIeOg==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/docker/ssh/status"}
+  path={"/plugin-api/docker/ssh/status"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Checks the status of an active SSH session.
+Whether the caller's Docker SSH session is connected.
 
 <Heading
   id={"request"}

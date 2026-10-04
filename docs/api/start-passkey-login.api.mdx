@@ -1,11 +1,11 @@
 ---
 id: start-passkey-login
 title: "Start passkey login"
-description: "Generates WebAuthn authentication options, optionally scoped to a username."
+description: "Public. Authentication options, optionally scoped to a username. The assertion is then sent to /users/auth/passkey/verify."
 sidebar_label: "Start passkey login"
 hide_title: true
 hide_table_of_contents: true
-api: eJytlE2L2zAQhv+KmLOIvd20Bd9SSr+g7dJs2UPwYSJPYhF55Erj7QaT/17kOJCNl5JCTxb2O4/n61UPFUUTbCvWMxTwkZgCCkX1QOtFJzUr7KQmFmswaZQfpFGPB3Rur6LxLVVKvELVRQqMDc1Ag+A2QrGCEwtKDYFi6zlShKKHV3meHs9zWLz4Q4VcKVOjc8RbUraawUHDPJ9PAd+8ajHGHe2j2viOK7XxQUlNQ3IzOBw0NCS1r6CA1kcBDS1KDQVkSRGz37ROZXN2VjxlYyagIVJ4pJBq66ELDgqoRdoiy5w36GofpbjN8/wG9EVqX9GyqlBwjZGGki7aeyTDQf8VfDsBL5eflHTM5FSDjFtqiOVK2vxF2sY6GlnhStDrKWiIU1FQbBRrjmNsPFvxwfL2SvCbCfg9xnrtMVRXEt5OCd7sKPxzt26mQ11SsOiU8cxknk2xTKtiumBlP+zKmjBQSAsOxao8/7w0NTVHU5yLepB9S2MqafEGGRSjCPR4+OBDgwIFfHm4H/bb8sYP4VZc0t9TaOyTWtx9Bg1pd4+p57N8lk8KGsXv0OyIqxSkftCGArGh5LrkmQY58ZPVUwsEg5xcp5zfWr6k9mA8C7H8/2vm2CKhJ8lah5ZTjsME+9HXKxh8DRpOzgYN594GDSd3lxrSrFNQ3yeb/gzucEivf3UU0hxLDY8YLK5TZ1fl+W1y932Z+v8HTB/apA==
+api: eJzFVMGO2zYQ/ZXBXHphJKXNSQ0CJIcA3aKt0XWxh4URjKWxxVoiWXK0u6qhfy+G0iZ2tmjRU08iyNHje8M374wtpybaINY7rHEz7nvbFPB+lI6d2Ib0AHw+T2ZdUN9PkBofuAXxQDAmjo4GLmDbMVBKHPN/NoHiQGInWllqYSpplK4MlNKJp/KBoz1MBRoUOias73GznCTcGYycgneJE9Zn/Laq9HNN+e+pArkWmo76nt2RwbYFzgbfVG9eAvzsYeWS4OBH18LBR+WdZRU4zwYHls63WGPwSdBgIOmwxjL049G6VxRs+ch71eWyupUQlysdNJg4PnBUgWccY481diKhLsveN9R3Pkn9XVVVr9F8xe8nsg5aEtpT4qyLriUvyDjv9JJmjFamfMueKXLU/mB9v5vNGRvvT5YvdyjYH3n6vHMBcdt0PCx9vwQ6o0yBV/YqK5dhvRahWRcffRxIsMabu+0LSbeckjK/udsu3qCULeej/TNrquFDRoG3N3fbd/ntLrl/JrHQR4NWYZcSNKhexBp/f5R/vHqph8QCJJDs0b2yroA7tWyIrMwMWAGhEyfdabhl1zD4B14cckUaOqY2O8Zc9fU/t0yGp09vKVg48fTuhYL3mx/04F8ad4VRwIbjYLNyNXnf+8fMX3H8o+P4TQJqGj86+R7YNXEKwm12HQxjEtgzjK73zYlbSBwoknA/FbCSSdCQc17ADoFj8o5Ereql43gxRtYdfO6HlV4bsFVWTwqCBnU6FoVVURXVC91r8QdqTuzafPOvfOCoL6It19EcyCn++v63QlGehxt6f7Tua1SdCSfs5H8Pv8Uiwk9Shp6sU0k5J85r2tzjl7RBg895gwYvEwcNPmfOzqDGiv55Pmt4/Bb7edbtP0aOmhE7gw8ULe31NTQQvgTd5pfbLc7zXzaHJiM=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/users/webauthn/authenticate/options"}
+  path={"/plugin-api/webauthn/authenticate/options"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Generates WebAuthn authentication options, optionally scoped to a username.
+Public. Authentication options, optionally scoped to a username. The assertion is then sent to /users/auth/passkey/verify.
 
 <ParamsDetails>
   

@@ -1,11 +1,11 @@
 ---
 id: list-vault-profiles
 title: "List Vault profiles"
-description: "Returns all Vault signer profiles owned by the authenticated user or marked as shared."
+description: "The caller's own Vault signer profiles and every shared one. Needs vault.use."
 sidebar_label: "List Vault profiles"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lE9v00AQxb/KaM5W4lIKkm9BUP4IJNQUOEQ+TNaTeMl618yOQyMr3x2t40pJU6Fw4GTL++antzPz3GPF0Yht1QaPBd6xduIjkHPwnTqnEO3as0ArYWUdRwi/PVew3IHWDNRpzV6tIeUKusgCQaAh2XAFFCHWJFxNMEOldcRigQMUywyFYxt85IhFjy/yPD1OvcxEaAdhNRoZHUBY/mSjcYL7DG+eq7sl67gCDeBsVNgeV6eyfYYNax0qLHDNihm2pDUWOB2k00cpZhhZtizJeI+dOCywVm2L6dQFQ64OUYvrPM+vMHvi4QtZDxUpLSkykK+OW2WDhwMZ99lfwddn4Pn8A2jnPTtoyNOaG/Z6Ie3ls7ShqQeWXAi6OQcNdRCV1Ea1Jg53boK3GsT69YXgV2fgtxTrZSCpLiS8PicEs2H5525dnQ91zmLJgQneszmZYplWxXRidTfsypJJWGZdWqtFeXw8NzU3h6U/FvWou5ZHK2nxBhkWowiz8eU2SEOKBX76cT9ssvWrMJRbdUl/z9LYB5h9/YgZpt09WM8n+SQ/u9AofkNmw75KRXDHKxb2hlO82hC1IZ/4ngY7n1OiTvIYn1J7NMEre/2vv5NDt5QfdNo6sj7ZHYbZj2le4JDmlO5Ho2WGabrprO9TML+J2+/T518dS5pcmeGWxNIy9XJRHv8p3r9LDf8DAMjKPQ==
+api: eJyVk0Fr20AQhf/KMJdeFFltelJDIDkUmtISGlMfginj1djaWNoVOyM7qtF/L7tWg1NDS08Sq9n3vvd2dcCKxQTbqfUOS5zXDIaahsMbAb938J36RkHsxnGALvi1bViAXAW84zCA1BS4Au84h6/MlcAu7sh74RwzVNoIlo+YZHCZYWDpvBMWLA/4riji4zXCTQg0gF9P1pMn+NUTG5UcxwzfF5fn+75YEes2p/7jmGHLWvsKS9ywYoYdaY0lzrqm31h3QZ2dpQ2z39kwQ+Gw4xC5D9iHBkusVbtyNmu8oab2ouVlURRvMfsTgayDipRWJJxKol5rdmoNxRE4KuO4jCamD1aH5LJiChxu+sj2uByzAxrvt5ZPV6izn3l4WTmReDA1t8dGT4UOqEPHE32MlcawnIYwm14++tCSYol3i/lZpAcWieR3izkIOwUSiPI+2J8pUwm3SQWu7hbz63Q8p+wvEEd8zNBG2eMIZugoIT3t9a/Wx3kQVqDjdbywLodFzQ66wJEsA6ugtGWJK4YrdobB7ziA1vwaGmqmikOiPe31vyvT9vnHFXUWtjxcnyW4uf8UP/yjuFcaOdxzaG1KLrD2TeP3iT/q+L1LPyYZ43unH4CdCUOnXKVbB20vCiuG3jXebLkC4Y4CKTdDDhOMgCHnvIJtOw7iHWm8ql5rDtBLKmWMp7T2qQ+rTSxgHqmeowhmGP+OY8IiL/LiLPc0fEtmy65Kzt94zSGeCI7jL9IxjAg=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/vault/profiles"}
+  path={"/plugin-api/vault/profiles"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns all Vault signer profiles owned by the authenticated user or marked as shared.
+The caller's own Vault signer profiles and every shared one. Needs vault.use.
 
 <ParamsDetails>
   

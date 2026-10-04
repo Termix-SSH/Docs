@@ -1,11 +1,11 @@
 ---
 id: apply-a-pending-proposal
 title: "Apply a pending proposal"
-description: "Re-validates the stored payload and dispatches it through the same repository logic a manual action uses."
+description: "Re-validates the stored payload and applies it as the approving user, through the same core APIs and plugin services a manual action uses."
 sidebar_label: "Apply a pending proposal"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VE1v00AQ/SurOYG0xC4tIPkWhBBFQlRNEYeQw8Q7iVdd77q746iR5f+OxnZQ25QqXDjZXr95Ox/vTQeGUhltwzZ4KOCa3uzQWYNMSXFFKnGIZFSDexfQKPRGGZsa5LKipCwrrmJot9UIxppUpCYkyyHulQtbWypUNfoWncJSblFtojT75UED4zZBsYT5Jaw0NBixJqYoZx1YyadBrkCDx5qgAGtAQ6S71kYyUHBsSUMqK6oRig543wwoz7SlCH2/EnRqgk+UBPA2z+XxuOSrGJqQJL2mcZbMDHoNF88hbypSzQFdhtYZ5QOrNT0JvXjhEgnYhNYLttdQE1fBSKEhMeix3gIytNnhppR11vSZXLEHDYni7tCiNjoooGJuiixzoURXhcTFeZ7nZ6CfpPANrVcGGdeYaBgktlyRZ1viMJeRGXr9IvH5EfFi8UVx6z05GTRuqSbPJ7JdPMu2sY4mrngi0btjoiFOJUa2iW2Zhprr4EWb1m9PJH5/RPwJU7UOGM2JDB+OGUJ5S/Gfu3V2PNQFRTuI0XsqH01xJVIp22h5P2hlTRgpzlvR13L18PdCDDQa5CHoj58kFZh8Jt8jCPT08jnEGhkK+PrzZtC09ZswhFt2gr+hWNt7Nb+6BA2i3TH1fJbP8qOCJvBHLG/JGwlS17ShSL4kcZf4pEYv/NNSmIsxFKqGvJGxHnzzlLqDMngmz/9/zY19ZLrnrHFovRQyjLmbDL8EtOL+g+VBQzEsu9H1Kw2iAcF1ndj3R3R9L8d3LUWZ70rDDqPFtXR82YGxSd4NFBt0iV5oxavraZ++Vn9LdTpEL/tnh66VL9BwS/txKferh6vs6vtChPAb3/0u0g==
+api: eJzNVU1v4zYQ/SuDubQFGNtt96QuFvAeCiRFUSNxkUNqFBNxbLGWSC45cuIa+u/FUHbWSXZT9NaLLdHDN28+3vMBLec6uSgueKzwmi921DpLwhmkYcgSEluItG8DWSBvgWJsHWdwAjQGUYwp7JzfQJ85GZAmhX7TjADUMdQhMcwXl7kAxLbfOA+Z087VnIGgI99TC1QrDQXJkz88GhTaZKzucH6JK4OREnUsnPTsgE4JR5IGDXrqGCt0Fg0m/tS7xBYrST0bzHXDHWF1QNnHEuWFN5xwGFYanWPwmbMG/DCb6dfznixSiCErvVK4neBg8N2XIpcNQzxF16FvLfggcM8vrr57I4leWIfea+xgsGNpgtVCQxY0Y70VTsceXlB0U3LTU9I8PTg7TDXbHg1qh0/d6lOLFTYisZpO21BT24Qs1Y+z2ex7NC/Y/ErOgyWhe8o8Dr2Xhr24msqIRmTUBmau++RkX7LcMyVO815J3q0Gc8A6hK3j8xOK7hfeP52cQdzopMZJnAM9DU7Z43Gg+j4GoTk+/BxSR4IVXt0uX5V0wzkr86vbJWT2ZXcVPiT3d6mpgo8FBd5f3S4/lEmdc38iMdJHM+7fGPJ5A/96kDdTj/GQWYAEstv4C+cncNuwh5hYmRlVltCWs57UbNnXDGHHqQjqGWlomCynwva8r/+5ZdI9/vmeooMt7z+8qmC+uNQf/qVxzzAmsODUuVJ5hnVo2/BQ+CtOePCcvslAdR16Lz8B+zrto7AtWwddn4tset+GessWMqv4hdv9BI5kMtTkVS2ui5xy8CS6qkEaTsWHRgE5vw6lH05abcBSWT0qCBpUdYwVziazyexV3cfgj1Rv2duS+ZrXnHQi2nIVZUde8Y/zn6v0gCCyt2qIJ2W+hFZheGEv/0PTHTdH+FGmsSXntdJiH4ej/dzhZ/tBg6QfTxaEBqviw6MLrQyq0eilw0Ht5PfUDoMef+o5qWusDO4oObrX+dwd0LqszxarNbWZ32jct9dHq/8Ovsb7JFqvit1R2+sbGtzyfvy/GFbnLrv47WaJw/APVdtzeg==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/ai/proposals/{id}/apply"}
+  path={"/plugin-api/ai/proposals/{id}/apply"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Re-validates the stored payload and dispatches it through the same repository logic a manual action uses.
+Re-validates the stored payload and applies it as the approving user, through the same core APIs and plugin services a manual action uses.
 
 
 <Heading

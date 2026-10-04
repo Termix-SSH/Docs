@@ -5,7 +5,7 @@ description: "Revokes the active stage and removes the room and its membership. 
 sidebar_label: "Permanently delete a room (host only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lE2L2zAQhv+KmFMLIsmy/QDftt2UtrSwbFJ6CDmM5UksVhq50jhsMP7vRbYPu+tS0kNvQnr1aL5edVBRMtE2YgNDAfd0Cg+UlNSk0Ig9kUqCR1LIlYrkw2k6jCH4YdNKUp58STHVtlmobW2TMsgcRJWkWq4C0wI0CB4TFDv4GJzDEvYaPEkdKiigIkdCoKFBqaGApRk0y/xIWna26kFDoniimBEdtNFBAbVIUyyXLhh0dUhSXK9WqyvQL3L6jpZVhYIlpjERbKUmFmswS9RIhl7/FXw9A282n5W0zOSUR8YjeWK5kPbmj7SDdTSx4oWgt3PQcC/3TWwSa9KQsw9sJUTLxwvB72bgW0x1GTBWFxLezwnBPFD852pdzZu6oWjRKROYyTzr4j6PimmjlfMwKyVhpHjT5sna7Z8eb0xNnhIUz0UdyLmhKZQ8eIMMikkEelp8CtGjQAFff26h7zVYPoThuhWX9VuK3j6qm7svoCHP7hj6arFarGYJTeIPaB6Iq3xJ3dOBIrEh6DU0IYlHznzGIZw7ih6ZWNxZjQ5SOPryVS6cCuzOr1++04EJLMTyn80+VlDoUZaNQ8s5haHB3WTyHYwmBw2DzUFDYav8LeTg83nXZcP+iK7v8/avlmLu6F7DCaPFMtd4t++f/CO362/r7Rr6/jeYSamK
+api: eJy1VNtu3EYM/RWCL02A8e6m6ZMaBMjFBepeEDhb+GGxCLgSvZruaEaZodZWBf17wZHieO0kBQrkSRoNRR4e8pwBK05ltK3Y4LHASz6GAyeQmoFKsUeGJLRnIF9B5CYc58sYQpM/WknQcLPjmGrbLmBd2wQleR8Edgydr4LnBRoU2icsNvgmOEc73BpMXHbRSo/FZsAdU+T4qpMai8123BpsKVLDwjHlAKv4WpIaDXpqGAu0FRqM/LGzkSssJHZsMJU1N4TFgNK3GpUkWr/HUXNGTm3wiZPe/7ha6eOUgbfsWLjC0eBPq+eP7/8MkgmoQxIcR4MNSx0qLLDKf6KZQBa4bF23t/6MWrtMnJIN/izVpGCWSl9aDrYaUXmIx09ddtFhgbVIWyyXLpTktFDxfLVaPUPzAMsfZD1UJLSjNI2IOqnZiy1JQ2DKjOM9st8rPVP/9ym/Y0tL48yinqcgNPPLLyE2JFjgxdX6EZ73U5dwcbWGxF6AEmj6EO0/GVABr3MWeHFxtX65UJLLEA6WH4Cg1v7GPZpp6FPI57H/fSPfLD3FQ2IBEkh278+sX8BVzR7ayIrMgBUQ0lVvI5dcsS8ZwpFjHu4JaKiZKo4Z7QTsf1Imze2HF9RaOHD/8lEHr979qhf/QdxJjgW849jY3HmC6+BcuMn4NU+48Rx/SEBlGTovPwP7MvatcJVXBpouzQp1oTxwBYlVccKuX8AM5k7Jtmk5puBJdM+C1ByhS5mUUad0HTIfVpwSsFZUt5oEDepqTx2uFqvF6lHfc/BrKg/sq1z5kq856kSU8jYkachr/nn+2jR59uJ6mEQHNBnSExULBO/6pw/rDFgGL+zlO7vctBLCt7JsHVmvLWRRD7MvbPCzL2TxnziDGpp6AxosbKUumY2m2OAwqMr/im4c9fPHjqM659bgkaKlnTK/GbCySd8rLK7JJf4GC08uZ+d8Cl8D/kmOXrV4JNfpCQ0euJ/sd9zed8C357+fr8/RIJ0K5IEgMs4vph6GKWIdDuzH8a6S6FmLjeO/iS9OSw==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/collab/rooms/{id}"}
+  path={"/plugin-api/session-sharing/rooms/{id}"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Revokes the active stage and removes the room and its membership. This cannot be undone.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./permanently-delete-a-room-host-only.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Revokes the active stage and removes the room and its membership. This cannot be
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./permanently-delete-a-room-host-only.StatusCodes.json")}
+>
   
 </StatusCodes>
 

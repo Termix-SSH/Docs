@@ -1,11 +1,11 @@
 ---
 id: list-the-current-users-automations
 title: "List the current user's automations"
-description: "Returns every automation the caller owns, with its parsed definition and linked notification channels."
+description: "Returns every automation the caller owns, with its parsed definition, linked notification channels and the plugins it needs that are not running."
 sidebar_label: "List the current user's automations"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VE2P00AM/SsjX7hEbZYuIOVWxLdAQttFe6h6cCduM2riCR6n3VXU/45mGlBLECoXTonGz2/e2M/uoaRgxbXqPEMBd6SdcDC0J3ky2KlvMIaMVmQs1jWJ8QcOmTk4rYzTYFqUQKUpaePYJSxyaWrHOyoNe3UbZ08ctkJmqsMEMlDcBiiWMP91RYBVBkKh9RwoQNHD8zyPn0uFn11Q4zdn2sIEjhnc5rMx+IsLwfE2qT9P2Ds6mJakiXHPEzgeM2hIK19CAVtSyKBFraCA6VkeZBBI9iRReg+d1FBApdoW02ntLdaVD1rM8jy/gex3KejYlKi4xkCpRNhpRaw/q3NihmP2V+LZiHix+GC0i4U1DTJuqSHWK9lu/8i2cTUNXHIl0YsxUcozQVFdUGdDenPj2amX2JPriF+OiN9gqNYepbyS4dWYwdsdyT9X62bc1AWJw9pYz0z2oouraBXbidOn5JU1oZDMu+ip5eo8vLAVNSfDn4N60KeWBinReAkGxQCCbPh556VBhQI+PdwnGzve+JTutI74+2jzRzP/+hEyiN49Sc8n+SQfPWgAv0a7Iy5jkrmjDQmxpThlrQ/aIEd+xiQnzWPaDp1IrGUXSJ4Fczk2F7f0YD0rsf7XhXOqptKjTtsaHcfnpGb3w6gvAS+XUWx8PO77OLPfpD4e4/H3jiQ2dZXBHsXhOpZ5uTrfIO/fxl78ADXP3lg=
+api: eJzNVMGO20YM/RWCl14mtpr0pAQBNkAadNsAQeJiD4tFwZVoa2qJM5mh7HUM/XvBkbuxu0CD3HKyMUM9vvc4fEdsOTfJR/VBsMaPrGOSDLzjdAAaNQxkV6AdQ0N9zwnCXrKDvdcOvGaIlDK30PLai7daB72XLbcgQf3aNzNA05EI9xlI2oIW+3HjJYNXEOY2g3akQIntO0ijiJfNAh0qbTLWt3j1yCbjncPEOQbJnLE+4vOqsp9LMX/4rBDWZzLyAieHv1Qvnha/9zl72RRq5x/sPO8hchrsPsgCp8nhwNqFFmvcsKLDSNphjctZ0jOKfnkGgQ4zpx0nU3HEMfVYY6ca6+WyDw31Xchav6iq6md0/2VFXqAlpXvKXKyjUTsW/dfWGRmnO2vSjMnroXS5Z0qcrkYjdns3uSM2IWw9n59Q9L/z4fHkDOJT0/EwO3sOdEQ9RD6xN1mlDOtTEbrTn19DGkixxuub1RNJn7gYCdc3K8gsCpTB4EPyX4qmGt4UFHh1fbN6XSZ2zv2RxEwfHXqDnUvQoVCh9Pde/7f1XA+ZFUgh+40887KAm44FYmJj5uxtKm0520nDLUvDEHacyiu5IA0dU8upsD339bst0+Hhr1cUPWz58PqJgqsPv9nFN4y7wFjAh8fXm2Ed+j7sC3/DCXvh9FMGapowir4EliYdotpCkxIMY1a4ZxilD43tdOZIiZT7wwJOZDI0JLazfoicchBSe6pBO04w5mLKZFNah+KH194MWBmrBwNBh7Yds8JqUS2qJ7pPxW+o2bK0pfNHXnOyiZjlMWQdSAz/NP+y/CW1xpTMLWNiSi8W86KL7Ygoi/6oQTi/JOUHXcaevJjyEifHUwTd4tcIQod0mZiWM1ZzPFqa/Jn6abLjzyMnC407hztKnu5tPJYQX2Pu3dsVTtM/+bkr5w==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/automations"}
+  path={"/plugin-api/automations"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns every automation the caller owns, with its parsed definition and linked notification channels.
+Returns every automation the caller owns, with its parsed definition, linked notification channels and the plugins it needs that are not running.
 
 <ParamsDetails>
   

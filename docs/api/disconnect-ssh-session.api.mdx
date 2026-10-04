@@ -1,11 +1,11 @@
 ---
 id: disconnect-ssh-session
 title: "Disconnect SSH session"
-description: "Closes an active SSH session for Docker operations."
+description: "Closes the caller's Docker SSH session."
 sidebar_label: "Disconnect SSH session"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVE1v00AQ/SurOS+xSwtIvrUERJEQVRPUQ5TDxJ7E29q77u64NLLy39GsTRLqCgV88Ne+ffvm400HBYXcm4aNs5DBx8oFCgqtwpzNE6nZ7IsKFIJxVq2dV1OXP5BXriGPsidMQAPjJkC2gH4Rlho8PbYU+MoVW8i6+Gk8FZCxb0lD7iyTZVnCpqlMHrmS+yAiOgh5STXKG28bggzc6p5yBg2Nl5PZUIi4Xth1cQQN7I3dwC5eIiQ0zoYe/zZN5fFnyMcRFibkzlrKmYoJ7DRcvLpjQF9PlQnqd2wTkPNq4tIVkEHjQhSMXEIGSRFTk4RQJodDQEMg/0RestdB6yvIoGRusiSpXI5V6QJn52manoF+IeIbGqsKZFxhIIW2UNhySZaHZKqeGXb6r8TnI2LJB7fWUqVqtLihmiyfyHbxKtvaVDRw+ROJ3o2J4j4VGNkENnmIMdfOGnZS8ROJ34+IpxjKlUNfnMjwYczQe+Jfs3U2LuqMvMFKDe1xXMWltEreesPb2CsrQk/+spXuWiyPl2dinr7fj0F7g4gUabwIg2wAgR5ePjtfI0MGX+/msaPFlLcHO396xrqp6IX99rbTYOzaxeMMCwzm5GvzrC5vrkGD9HofajpJJ+koAQP4CvMHsoVsUre0Jk82JyEXV9UYh4TFKH+6d9PxrHpJ3B1Gzv/OuD57TM+cNBUaK3JicbvB5AvoTS7JDaUoOBh9qUHKLqCuE8f+8NVuJ78fW/JS0qWGJ/QGV5K0xXKnoSQsyMdqP9BWhPchvJmLFIFXrUgaTVDphv0cuvk+m0txh0lcu0L2ePwJOt4zAA0upin2TPzXQYV20+JGsD2nXL8AgDcgtQ==
+api: eJyVVE1v4zYQ/SuDufTC2O7HSV0ssNm0aFIUDTYucgiMYkxNLMYSySVHSVzB/70YSms7SbHF6mBL5HDmzeO8N2DN2SYXxQWPFX5sQ+YM0jBYaltO32W4CHbLCW5ufoPMObvgZ2hQaJOxusNxF1cGE3/uOct5qHdYDeXTJa6xktSzQRu8sBfdohhbZ0lrzh+yFh4w24Y70jfZRcYKw/qBraDBmELkJI5ziRshXNYnoVmS8xvcl0eB5Bh8HuN/WCz072WbJ71A7bIN3rMVrme4N/jTf56Yoi8vwGX40tsMtV7H0oQaK4whF8AkDVY4j22/cf6MopvXhaV5zs38WA8NZk6PnJTIAfvUYoWNSKzm8zZYapuQpfpxsVh8j+YVnj/IeahJaE2ZgXwN1EvDXiZeYcyM+5UWsX1ysitV1kyJ04deId6t9mZAG8LW8ekKRfc77w4rJylu9JZGYk8THW5C0WtbJQyrKQjN9PJrSB0JVnh1u3zT0heKr26XkNkLUAZNH5L7p/RUwXnJAu+ubpfvy12dYj+AGOGjQadpxxA06KlAeniSr5Ye4yGzAAlkt/Fnzs/gtmEPMbEiM+AEhLacdcVyzd4yhEdORTkvQEPDVHMqaE95/WbKpHv++x1FB1vevX/TwYfrS934H+Je5JjBNafOlc4z3Ie2DU8Fv+YJT76In6wNvZefgb1Nuyhcl6mDrs8Ca4betzraNWSOlEi43c1gApPBkvdBwHWRUw6eREc1SMMJ+lxI2RtUB/h09I5fnqmLLb/S+kHjeqv3ofDnRMNwqV08a1E0qGoaGVnMFrPFG56m4HOyW/Z1QfqJ7znpDWpylXBHxZGmebk46PXUAl8nHo7+9i0mOo6A8LPMY0vOK4TiA8PkInd4dBGtObqtwZwb/Tx6ycqg2oWeGAY1hb9Su9/r8ueek2p/ZfCRkqO1sqZCx3E0iy1seafIxx7OlopLw9t+FNQrv1ZLOLje9Z83Kub15PtdqPVMoic05bdCNBgKT8U4ytqALflNT5siyZJTn38BwiZFeQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/docker/ssh/disconnect"}
+  path={"/plugin-api/docker/ssh/disconnect"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Closes an active SSH session for Docker operations.
+Closes the caller's Docker SSH session.
 
 <Heading
   id={"request"}

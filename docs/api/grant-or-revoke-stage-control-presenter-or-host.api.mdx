@@ -1,11 +1,11 @@
 ---
 id: grant-or-revoke-stage-control-presenter-or-host
 title: "Grant or revoke stage control (presenter or host)"
-description: "Grants a member write access to the current stage, or revokes it with a null userId. The controller may also release control themselves."
+description: "Grants a member write access to the current SSH stage, or revokes it with a null userId. The controller may also release control themselves."
 sidebar_label: "Grant or revoke stage control (presenter or host)"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNlE1v00AQhv/Kak4greJU5UPyrYCAIiEqEsQhymGynsar7oeZHaeNLP93tBtT2gahcONm2e88no93ZoCGkmHbiY0BavjAGCQpVJ78hljdshVSaAylpCQqaUmZnpmCqCS4Ja0iK6ZdvKGkrKhbK61CFXrnVJ+IL5uZWuagGISjc8TK416hS1ExOcJ0/y3DfSK3ozQDDYLbBPUK3kbncANrDZ6kjQ3U0MUkoKFDaaGGyhRFxTH6VA22GauJCBoS8Y44gwbo2UENrUhXV5WLBl0bk9Tn8/n8DPSTTnxGG1SDgpucIoZGYS8tBbEGs0QdyDDqv4LPj8CLxUclfQjklMeAW/KlmSfRXvyRdm0dTSw+EfTyGFTi8lDFJrEmlZp9DFYi27A9EfzqCPwOU7uJyM2JhNfHhGhuim/+rVtnx0NdEFt02XCBzKMprrNVTM9W9sUrG0Imvuizw1brh58XpiVPCerHogFk39GUSjZekUE9iUBPD+8jexSo4dP3JYyjBhuuYwm34rJ+Seztnbq4ugQN2buH1Oez+Wx+VNAkfoPmhkKTg9RXuiamYAhGXTbFY8j8gCWdsuG/l/awxfcr+KxjShSEOEtyJ58//ecAWUxB/rNzcei+0J1UnUMbcvnFHMN0KFZwOBSgoZwK0FDbBjT8uhZrDbnirByGvPbf2I1jfv2jJ86+WGvYIVvc5Emt1uODm3T1ZZHn+RPhU9dC
+api: eJzNVd9v20YM/lcIvqwFFNtb96QVBZpiP9phW5B4yINhDLTEWBef7tQ7Ko4r6H8feOfYSZx1wJ7mF0s6HvnxI/lxwJpjFUwnxjss8edATiIQtNyuOMA2GGGgquIYQTxIw1D1IbATuLr6BaLQmgvwAQLf+Q1HMAJbIw0QuN5a6COHj/UE5nrROwneWg7Q0g7IRg+BLVM8nGmANrK94zjBAoXWEcsFfvDW0gqXBUau+mBkh+ViwBVT4PC+lwbLxXJcFthRoJaFQ0wGRnPqSBos0FHLWKKpscDAn3sTuMZSQs8FxqrhlrAcUHadWkUJxq1xVJ9qzFHOfb1Ti+d3FTk70SPqOmsqUi6nt1EJHU5d+9UtV4IFdsF3HMRw1NNM1CmEApVHWlnOAcf0U1Sx8y7my9/NZvr3tJZKuePtI9pxLPD7l0x/99IYt4YucGQnXKeSEgRuvTDUHDfiu1zt7OTNi05Sfzw4Ceqj8VFQ8bYsja+1HPqlyFUpcdrZfm3cGXVmGjlG491ZbEhTnwbv2zgdTD1O9zmgNkC4eyhvHyyW2Ih05XRqfUVWw5VvZrPZt1g8g/cbGQc1Ca2038jVQL007GRfMciecXzUZVdavEzx41471EhD47599D0bYbF/+MmHlgRL/HQ9P8FzlbOFT9dzUL6AIqh7H8yXBKiE8+QF3n66nr+bKO+V9xvDz0BQZ37lHRa527PJsd9vt/LV0NkeIguQQDRrd2bcBK4bdg+VLHSohXS6u8AV1+wqBn/HIdX7CWhomGoOCW0G9h8pk/b+r7fUGdjw7t1JBu8vPurBvxD3xMcELji0JmUe4cZb67cJv/rxW8fhm6hK53snPwC7Kuw64Tq1DLR9FFgx9M76asM1RFapEba7CezBRKjIOS9g2o5D9I5UOp2XhkPSwUkaBBWGy6Ok/HhPbafDfZSAg/poSW98Is+I2uBcU7jXiFigzkGmYzaZTWYnJO2Nz6nasKsTzEu+4aDlU+c6iS0lldo3S5L/o5rngT9o86uTyX79POZwlMP/3S7J/Sd8L9POknFKQVKQYS9GCzyKUVKaJ3Kka0MFCQss0xJ50KRlgUnlygUOg4rLn8GOo37+3HPQTbUs8I6CySK+GLA2UZ9rLG/IRv4Kh68u99vmNfxTCg8q4FQC7sj2+oYFbniX1924HAvMY5mi54MPOcbZXK8fL56sMJXDg3Zf/HGlQrbar8LW13on0FbJoW0O7FMeSTTTtwEtuXWvq6PE7FPngJ7qwjMdSEhfTG0YssXcb9iN4yFT0XdNdhz/BiBeER4=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms/{id}/control"}
+  path={"/plugin-api/session-sharing/rooms/{id}/control"}
   context={"endpoint"}
 >
   
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Grants a member write access to the current stage, or revokes it with a null userId. The controller may also release control themselves.
+Grants a member write access to the current SSH stage, or revokes it with a null userId. The controller may also release control themselves.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./grant-or-revoke-stage-control-presenter-or-host.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Grants a member write access to the current stage, or revokes it with a null use
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./grant-or-revoke-stage-control-presenter-or-host.StatusCodes.json")}
+>
   
 </StatusCodes>
 

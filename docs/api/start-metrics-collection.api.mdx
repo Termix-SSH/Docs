@@ -1,11 +1,11 @@
 ---
 id: start-metrics-collection
 title: "Start metrics collection"
-description: "Establishes an SSH connection and starts collecting metrics for a specific host."
+description: "Opens an SSH connection from the tab, where a TOTP prompt can be answered, and starts collecting metrics for the host."
 sidebar_label: "Start metrics collection"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VMFu2zAM/RWBpw3QEnftNsC3DlvRDRhaNB12CHJgZDoWKkuuRBcNDP/7QNvtsqYtssNOtqXHZ/KRjx0UlEy0DdvgIYeviXHtbKooKfRqsThXJnhPRu4V+kIlxshJmeCcnPqNqomjNUmVISpUqSFjS2tUFRLPQAPjJkG+hPOQWP0YsbDS0GDEmpii3HZg5fcNcgUaPNYEOdgCNES6bW2kAnKOLWlIpqIaIe+At82A8kwbitD3K0GnJvhESQDvs0wef1c4ZfBYQPBjSVSo1BpDKZWtc1utQlTXF9eX6iGBGfQaTrKjfcoFpSQ8dN8IUL1TjSNMpFzYKOsVbtD6KfxkP3wQxgdWZWj9+JsPz2V+htZRoTiMCT/q/qeSGfS9hpq4CoWoGRKDHkXNYT7h50P0vLNFDxoSxbuHFrTRQQ4Vc5PP5y4YdNLD/DjLsiPQT3VE61WBjGupVCYDW67IszU4qjowQ69fJT7eI5aZ49Z7cqpGjxuqyfOBbCfPspXW0cQVDyT6sE80xIn0bBOL7lJzHbzlEMUGhxF/3CP+gqlaB4zFgQyf9hmCuaH4z2od7Td1QdGi27X8A9NKRsW00fJ2mJU1YaR42spoLVe71wsx6GjAXdCjXyUVmHws3yMI9PRyFmKNDDl8/3U9jLP1ZRjCLTvBX1Os7b06vfwGGmR2x9SzWTbL9gqawJ/R3JAvJEhdUUmRvCExmlikRi/809JZvOCtp9QdmOCZPP+nrTmKxXTP88ah9ZLt0MtuMvQSJgoRU+hBQ24LWa1CIoCuE3P+jK7v5fi2pSjdW2m4w2hxLXouOyhskvcC8hJdolcKfXM1LcO36qUcp0P0W2kPula+QMMNbceV3q92d9TlxULa/Bun+D3/
+api: eJzFVcGO2zYQ/ZXBXJoCXNtp04saBEgOQbpFsYvYxR4WRjGmxhZriVTI0XpdQ/8eDCV7vXGToKeeRFHDxzdvZp4OWHKy0bXigscCb1r2CcjDfP4BbPCerX6BdQwNSMUgtDKwqzgyECxuFrfQxtC0ApY8rBjIpx1HLg2QLyEJRUlgQ10rkN9AwxKdTbAOMeNVIckEDQptEhb3+CEkgT+GIFwabClSw8JRvx7QKcmWpEKDnhrGAl2JBiN/6lzkEguJHRtMtuKGsDig7Nsc5YU3HLHvlxqd2uATJw34aTbTx3MdRgYn5sEPuWhiIR5Tt6FkcAmOt0+wN/hq9vISbzGmCp65TECQ3MZfOUXlFtYuqgr58KvLw1kTHwTWofPDJb/8G+n35GouQcLA9aT1UxIT7HuDDUsVShUyJEEz6FngtK27jfNX1Lqpcr0az0+Pz4w6PbiyR4OJ48OxKl2sscBKpC2m0zpYqvV88fNsNnuJ5ktpyXkoSWhFiXOXUCcVe3GWBqEzMmqhEtsuOtnnW1ZMkePbTsneL3tzQBvC1vH5DrXud96fds4g5toRQ8XPgU4NouxxbBx9H4LQjIv3ITYkWOD13eIipTmnpMyv7xaQ2AtQAoUP0f2TcyrgXUaB19d3ize5gufcTyQG+miGPh9Cnjr975188+ohHhILkBw7bAJ3FXtoIyszA05AaMtJdyyX7C1DeOBhGp+Rhoqp5JjZnuv6nyWT5vGv19Q62PL+zUUGb29/0w/fEe4ZxgRuOTYuZ65WUtdhl/krTth5jj8kIGtD5+VXYG/jvhUuc9dB0yVRp+p8HeyWS0isJiNc7ycwkklqZzpxrmk5puBJtFWDVByhS1mUXqu0DlkPJ7UKsFBWjwqCBnU6hgxnk9lkdpH3GPyO7JZ9mW/+yGuOWhGVXIezIa/4Y/3nX5nqL6F1MLywl//V0IceEX6UaVuT85pTNorDaDj3+GQ4aPDccjCb1LjKd6LBwpX6R9A4PXw4qIH8Geu+1+1PHUf1iaXBB4qOVlqR+wOWLum6xGJNdeJvSPXi42jjP8LX+B/H1OuMPlDd6Rsa3PJ++BP1y3N/vb2ZL7DvPwMDm40C
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/metrics/start/{id}"}
+  path={"/plugin-api/host-metrics/metrics/start/{id}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Establishes an SSH connection and starts collecting metrics for a specific host.
+Opens an SSH connection from the tab, where a TOTP prompt can be answered, and starts collecting metrics for the host.
 
 <Heading
   id={"request"}

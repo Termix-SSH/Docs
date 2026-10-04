@@ -1,11 +1,11 @@
 ---
 id: list-tailscale-devices
 title: "List Tailscale devices"
-description: "Returns the list of devices in the configured tailnet using the stored API key."
+description: "Returns the devices in the configured tailnet using the stored admin API key. Requires the tailscale.devices.view permission, because the response is a full inventory of the tailnet."
 sidebar_label: "List Tailscale devices"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VE1v2zAM/SsCz0LjresG+NZh6z6wAUPTYYcgB0ZmYjWy5El00MDIfx8ou+mHiyE7zBcLEvn0RD6+HipKJtqWbfBQwjVxF31SXJNyNrEKa1XRzhpKyvq8bYJf200XqVKM1nli1SXrN/kwcZCDyx9f1Jb2Z6CBcZOgXMANWpcMOoKlhkipDT5RgrKH10Uhv6dEvo2X318xkhBEEzyTZ8nBtnXWoOTMbpMk9pBMTQ3KivctQQlhdUuGQUMbQ0uR7XDtiPgoEGPEPWiwTE2aAhyGT8PFS4Sv0DopSVBrYlOr43sfqEtuQ1yHCkrYUKaEXEMJM76Pnt3T0pAo7ihK8XroooMSaua2nM1cMOjqkLg8L4riFehnVL6j9apCxhUmUugrhR3X5HkslRqQ4aD/Cnw+AZ7PPyvuvCenGvS4oYY8n4j25kW0tXU0YsUTgS6mQDlPJUa2ia1J+c1N8JZDFGWeBvx2AvwBU70KGKsTEd5NEYLZUvznar2aNnVO0aKT6fNknnRxKVIxXbS8z1pZEUaKl50oa7F8fDyX0Rgk/zjoKHShIsLLYVCOQaDHxVWIDTKU8PXXTRaz9euQ0y07ib+h2Ng7mX7QINodqBdnxVkxedAY/B7NlvxgGde0pkjeEBw0tCFxg3mkPWY62RMmc/UcuH8wiP9hZ0OlmO541jq0XqjmRvbjMC/gOMyZ2kByqUGaK8d9L3P5M7rDQbZ/dxSlcUsNO4wWV1LKxfKgoSasKOaebmkPJVwaQ63Yxg5dlx3ruf9Jt48W8+mjtOkPoUoG5g==
+api: eJyVlFuP0zAQhf/KaF54CWm4vYQVEjwgsYCElkr7ACs0daaNt45tPJMupep/R3YvdCkX0ZcmzuSbc8443mDHYpKNaoPHFq9Yx+QFtGfoeGUNC1hfbk3wc7sYE3egZJ1nhVGsX5SHoiE/oG6wHl5+eANLXtdwxV9Hm3iHyy+JIcf1HlyvLN9B5DRYERt8BTM2NAqX8sQSgxcGK0AwH50D61fsNaQ1hPkR6Vnrzx4rVFoItp9weuiDNxUeKILtBh83Tf677/idFS28vaeDONxW+LR5cv7CNGdBznECR2YpfzBWY4UmeGWvmUExOmsoMya3kkEbFNPzQPlK15GxxTC7ZaNYYUwhclK7073HnhRSSrTGCq3yIOeA7e5X4bPfOX5N1uUhBpizmh6OgZ1431Y4sPahwxYXXCSR9tjiJLpxYf1DinZyND45KKxQOK045UFscEwOW+xVYzuZuGDI9UG0fdI0zSOsflH1nqyHjpRmJAzkO6BRe/a6Tw12ZNze5CZmTFbXpcuMKXF6OWZ5n2621QZNCEvLpysU7VteH1dOEB/zDHbZnoKOiWb12VYpw3ZfhNX+4nVIAym2eHk9PbP0kcu+hsvrKQh7BRLI+JDs9+KphVeFAheX19MXZcudav857iI/zztjdyVYoaci6fZO/9p6Vw/CCqQgduEfWl/Ddc8eYuKsrAKroLRkySuGO/aGIaw4le/snmjomTpORe1prv8dmQ7fvlxQtPmseHHmYH+I/CO4e4waPhwPE4F5cC7cFf2ZE+48pwcCZEwYvT4H9iato3JXdh0MoyjMGEbvgllyB8KREim7dX040QQMeR8U7BA5SfCkeasG7TnBKCWUbZ7SPJQ8rLocwDSr+pYhWGH+OnYOm7qpmzPf++JXZJbsu9L5iuec8kRwu/0BmSb9JA==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/tailscale/devices"}
+  path={"/plugin-api/tailscale/devices"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,8 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns the list of devices in the configured tailnet using the stored API key.
+Returns the devices in the configured tailnet using the stored admin API key. Requires the tailscale.devices.view permission, because the response is a full inventory of the tailnet.
+
 
 <ParamsDetails>
   

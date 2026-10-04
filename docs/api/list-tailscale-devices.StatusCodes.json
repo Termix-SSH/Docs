@@ -1,1 +1,1 @@
-{"responses":{"200":{"description":"List of tailnet devices.","content":{"application/json":{"schema":{"type":"object","properties":{"devices":{"type":"array","items":{"type":"object"}}}}}}},"500":{"description":"Failed to fetch Tailscale devices."}}}
+{"responses":{"200":{"description":"List of tailnet devices."},"403":{"description":"The caller lacks tailscale.devices.view.","content":{"application/json":{"schema":{"type":"object","properties":{"devices":{"type":"array","items":{"type":"object"}}}}}}},"500":{"description":"Failed to fetch Tailscale devices."}}}

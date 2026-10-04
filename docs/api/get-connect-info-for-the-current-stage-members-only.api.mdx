@@ -1,11 +1,11 @@
 ---
 id: get-connect-info-for-the-current-stage-members-only
 title: "Get connect info for the current stage (members only)"
-description: "SSH stages are joined over the terminal WS by shareId; guac stages get a freshly minted read-only join token."
+description: "SSH stages are joined over the terminal socket by shareId; remote desktop stages get a freshly minted read-only viewer token."
 sidebar_label: "Get connect info for the current stage (members only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFlE1v2zAMhv8KwdMGaHWK7gPwTt1X1wEDhqVDD0EOtMzYWmQpo+iggeH/PshJgbYZhuy0myG/fCTyJTlgzcmK26iLAUuczz9DUmo4AQnDz+gC1xC3LKAtg7J0LpCH2zlUO0gtCV/Xb6Hpyd7HNaxAsBJOrd9B54JyDcJUv4jB7yYkaFxzOEODSk3CcoHvo/dU4dJgx9rGGktsWNHghrTFEgs7CQqJsUvF4OqxmK5Dg4lly5IpA/biscRWdVMWhY+WfBuTlhez2ewczZNcv5ILUJNSRYmBQg3Ua8tBnaUsgT0ZR/NX8MUROBdR+xDYQ0eBGu446Im0l3+krZznA0tOBL06Bk1x2SZ1SZ1NU85dDE6juNCcCH59BP5Aqa0iSX0i4c0xIdo1yz9X6/zY1DmLIw82hsD2kYvL3Cq2F6e7qVcqJmG57HN/LZYPf89tyx0nLB+LBtTdhg9PyY03ybA8iNAcPj5F6UixxC+3NziOBl1YxSncqc/6mzxFd3D57RoN5t7dP312NjubHSV0EL8ju+ZQ5yD4zisWDpZxNLiJSTsKmR9oes4V633+kK+GVdxPr+1FptrmyYFnHXcVS4I8ls+f3jugjUE56P9YCvsyK99psfHkQs5z6oLhsA8WuN8HaHDaCGiwdHX2ZFoKS4O5RbJuGPJ0/xA/jvn4V8+S7V8a3JI4qrIhi+X4YO9cfcyu/QY+U7/7
+api: eJzNVE2P20YM/SsEL02AWdttb0oQICnaNFsUCLIu9mAYBS3R1sSjGYVDedcV9N8DSt7sejdJgZ560hf1+N7j8PVYcS7Ft+pTxAKvrn6HrLTjDCQMH5OPXEE6sIDWDMrS+EgBcir3rLA5Qq5J+F31AoSbpAwV572m9g5lxwoEW+FchyM0PipXIEzVRYrhCAfPN4ad9hxn6FBpl7FY4S8pBNrg2mHmshOvRyxWPW6YhOV1pzUWq/WwdtiSUMPKkscCbyJa0hodRmoYC/QVOhT+1HnhCguVjh3msuaGsOhRj61VZRUfdzgYpnBuU8yc7ftPi4Vdzm1a1jwJdJAEYhcCDoPDhrVOFRa4Y0U38Shw3oZu5+MFtX6eOWef4oW55uNuLik1ed77apiPeGiC5XAnp5OABdaqbTGfh1RSqFPW4ufFYvEjukek/iQfoSKlDWUGihVQpzVH9SVZCUzIODxw9cp8mIQ+9PaLLdYaT3bZ81SE7nTzW5KGFAu8vF4+4XM1aYXL6yVkjgqUweCT+H9GQgW8GVHg5eX18tUMB4dlSnvPj0hQ6//gI7ppulPJ/Xw/3uh3W0/1kO0gKmS/ixc+zuC65gitsDFz4BWU9pztTckVx5LvT/0ZaaiZKpaR7UTsP1qmze3fL6n1sOfjqycKXr9/Zx/+xbgzjBm8t/UclWfYphDSzcjfcNJNZPkhA5Vl6qK+AI6lHFvbRjsy0HRZYcPQxWCrXUFmWy3lcJzBiUyGkmJMCr5pWXKKpHbOktYs0OXRlMGmtE2jH16DGbA0VrcGgg7taE8KF7PFbPFE96n4DZV7jtXY+QNvWWwiZnmbsjYUDf80/7esUKYYuVSw1rBN09jKTsTcGxcLnjXcbFgyWO48f9y3xzJF5aj/hwyczpHyrc7bQD6a7jEJ+lOkrPA+UsbEOAsVizuLFXRYjOE3JcvaoYWH/d33FhF/SRgGe/2pY7F8XTs8kHja2NhWPVY+232FxZZC5u9Y9uzDKV+fw7cE3O1ytEU+UOjsCR3u+TiF9LB+mKBvf7VAofPVerRKI8mv4vb9VLE0T4fhS5vRY+s0DJ8BoEhp4Q==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/collab/rooms/{id}/stage"}
+  path={"/plugin-api/session-sharing/rooms/{id}/stage"}
   context={"endpoint"}
 >
   
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-SSH stages are joined over the terminal WS by shareId; guac stages get a freshly minted read-only join token.
+SSH stages are joined over the terminal socket by shareId; remote desktop stages get a freshly minted read-only viewer token.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-connect-info-for-the-current-stage-members-only.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ SSH stages are joined over the terminal WS by shareId; guac stages get a freshly
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./get-connect-info-for-the-current-stage-members-only.StatusCodes.json")}
+>
   
 </StatusCodes>
 

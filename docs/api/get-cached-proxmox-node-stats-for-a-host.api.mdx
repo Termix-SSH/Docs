@@ -1,11 +1,11 @@
 ---
 id: get-cached-proxmox-node-stats-for-a-host
 title: "Get cached Proxmox node stats for a host"
-description: "Returns the most recently polled Proxmox Stats snapshot for a host, or an empty skeleton if none has been collected yet."
+description: "Returns the most recently polled Proxmox stats snapshot for a host, or an empty skeleton if none has been collected yet."
 sidebar_label: "Get cached Proxmox node stats for a host"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVE1v00AQ/SujOYG0NC4tIPlWBBSQkFBTxKHKYbKexKuuZ93dcZUo8n9Ha7vQNKUqJ05e22/evvl6O6w42ehadUGwxAvWLkoCrRmakBQiWxb1W2iD91zB9xg2TdjAXEkTJKE21UFhFSIQ1CGpgXwU4KbVLaRr9qxBwK1AgjDUlGDJLGAzn1WuYMt6hAaV1gnLK9y7ARcGW4rUsHLMv3foss6WtEaDQg1jia5Cg5FvOhe5wlJjxwaTrbkhLHeo23ZAifKaI/b9IqNTGyRxyoDXRZEf+6W405H2Mj3C3uBpcXyIn3NKLgjwps0y4BW0nikx+LAGJ0BrcjKFnz4SPlwjQYFuyXlaeh4r0/cGG9Y6VFjimhXNmH2Js3aU+GqQONu5qkeDiePtXa266LHEWrUtZzMfLPncovKkKIpjNA8UfCMnUJHSMqsmqYA6rVnUWcoQGJmxN08SnxwQz+efQTsR9tCQ0JobFn0m2+mjbCvneeKKzyR6c0g0xA39dUmdTUPOTRCnITpZP5P47QHxB0r1MlCsnsnw7pAh2GuO/1yt48Omzjk68mCDCNu9Li7yqNguOt0Os7JkihzPujxaV4v7v+d5k8ZNuQ/6vVhZCk4Ll99HEJrp8CnEhhRL/PrzcphmJ6swhDv1GX/JsXEbOPv+BQ3m2R2lF0fFUXGQ0AR+T/aapcpBcMErjiyW83K1IWlDkvkndzhnBUu2vudeEiqeFvuPcz28aoc2iLLof/bFscjKG521npzkLIcZ2E1GcIV7RoAGS1dl5xyyKq9wt8sr/SP6vs+fbzqOuecLg7cUXbaaYQIql/K5wnJFPvET5XhxMZntS/ibwukjyTY3lXyX39DgNW9Hx+4X943t/GOejV/AakIK
+api: eJzFVMGO4zYM/RWCl7aANknbPbmLBXaBdtEpCgxmUsxhEBSMzMRqZEkr0Zm4gf+9oO2dyey0W/TUk2WJIN97JN8Zay42uyQuBqzwhqXLoYA0DG0sApktB/E9pOg913Cd46mNJyhCUqAESqWJAruYgaCJRQzoMQC3SXooB/YsMYDbQYiBoaECW+YAVvNZ4Rp6lgUaFNoXrO5xroAbg4kytSyc9eGMThEmkgYNBmoZK3Q1Gsz8sXOZa6wkd2yw2IZbwuqM0qcxKgjvOeMwbDS6pBgKFw34brXSz3MR/p7jAgeDr1evX8bfjnEhCtCRnKet54nUMBhsWZpYY4V7FjQT/AqXyXd7F15Rcss0lVuO5ZZnVw9osHA+fuLdZY8VNiKpWi59tORV6Or71Wr1LZrPwPxKLkBNQlsqDBRqoE4aDuIsaQhMmVGlKGy77KQfq2yZMud3neK73wzmjDbGg+PLG0ruF+4fby5S3Krmk6aXiR5boOhxbo3+T0Fo5sNPMbckWOHV3foFpVsuRZFf3a2hcBCgApo+ZvfnyKmC92MWeHN1t347NuoS+yOICT6aaZKmkKdZ+uNBvlh6iofCAiRQ3D68cmEBdw0HSJkVmQEnIHTgojeWaw6WIR45jxv1DDQ0TDXnEe2lrv9ZMmlPv7+h5ODA/dsXDN5d/6wP/yLcsxwLuObcupF5gV30Pj6M+DVPfAicvypA1sYuyA/AweY+6SLr1EHbFYEtQxd8tAeuobCusbDvFzCDKWAp6L64NnEuMZDoqEZpOENXRlEG7dIujno48SrAWlGdNAka1O2YGK4Wq8XqBe85+D3ZA4d6rHzDO87aEZU8xSItBc0/9/8DC1iyzYXLhVjzbANPDvd5KV2UIBzkf/bPaWqET7JMnlxQlqN1nGfXuccn11Ermo3W4AgGDVauVtsdSVb3eD6rh/yW/TDo9ceOs1rFxuCRslObG42jdkXPNVY78oW/oM7XN7NTfwP/BPjTpgZd0yP5Tv/Q4IH7ye6HzaWpfvhxjcPwFwsoWZQ=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/proxmox-stats/{id}"}
+  path={"/plugin-api/proxmox/stats/{id}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns the most recently polled Proxmox Stats snapshot for a host, or an empty skeleton if none has been collected yet.
+Returns the most recently polled Proxmox stats snapshot for a host, or an empty skeleton if none has been collected yet.
 
 <Heading
   id={"request"}

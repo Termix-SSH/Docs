@@ -5,7 +5,7 @@ description: "Create a collaboration room"
 sidebar_label: "Create a collaboration room"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk01r3DAQhv+KmLOIHdIP0C1NKW2hNHRTelh8GMuzaxFZckfjkGD834tsU7JxCdub8bzzaL7eEQSPCcwebqL3WEOloaFk2fXiYgADN0wopFDZWRAZc0BxjB1o6Eja2ICBPiYBDT1KCwaKRVxkVQINifiBOL8zwsAeDLQivSkKHy36NiYxV2VZXsLL17+hC6pBwRoTKQyNwkFaCuLsUsdChkm/Cr7agHe7z0qGEMirDgMeqaMgZ9Le/JN2cJ5WFp8JersFzXkqCYpL4myae+5icBLZheOZ4Hcb8EdMbR2RmzMJ77eEaO+J/3tal9ul7ogdemVjCGRPtljlU7EDO3mab6UmZOLrIR/Vvnoe3tmWOkpgTkUjyFNPayn58GYZmFUEev34FLlDAQNff93BNGlw4RDndCc+6++IO/eorm+/gIZ8u0vp5UV5UW4aWsUf0N5TaHKS+kEHYgqWYNKzOToMmR9wLud1V53Q/7Yk9ChF79GFzJwnPq6G28PCAQ2L5SoNeQE5Mo7ZOz/ZT1P+/XsgzsOtNDwgO6xzu/tqeubl2++7PJQ/EC9n0Q==
+api: eJydVMFu40YM/RWCl14U29v2pC4W2CxaoCkWDTYucjCMgpYYa2JpODtDxXEN/XvBkZLYSbEFVhdJM5w3j498PKLSNmG5wk/StrTBdYGJqz46PWC5OuKGKXL82GuD5Wo9rAuM/LXnpJdSH7A85l8XucZSY88FVuKVvdoWhdC6itSJn98n8baWqoY7si89BMYSZXPPlWJxArRCTx0blRAlcFTHyU7k1ZeTSaPzWxwKDByTS0/XTtsbkZbJ45Afw09BfBqhflws7FVzqqILxhBLXDYMnvcQRTqD/fm/gj67lJzfgkRQEWjFbyETszvOQz9FJmUgqLK2ErMUI3yBHWsjNZYYJFn+gUxjnIe23zp/QcHNE6fkxF+khizVuZ1MaBWKDxxTLlAfWyyxUQ3lfN5KRW0jScufFovFO3zN6DM5DzUpbSgxkK+Bem3Y61QmGJFxOGmDG6vYqNppMzzrbFcbpxxmuucgLKaP3yR2pFji1e3yDZ+bMUG4ul1CYq9ACQxeovsnEyrhMqPA+6vb5YeZVaUS2Tl+RYKC+4MPWKAz2DEEi6lj8H6v37x6jIfECqSQ3NZfOD+D24Y9hMjGrACnoLTjZCsV1+wrBnngCNrwOWlomGqOme1I7Dsl0+7x7/cUHOz48OFNBh+vf7eN/xHuDGMG1xw7lzNPcCdtK/vM33Bk7zn+kICqSnqvvwD7Kh6Ccp1bBro+KWwYet9KteMaEgeKpNweZjCRSVCR96LgOjOl+GwAL9pwhD5lUYYCbRp8eZkjvz5SF1p+8fiTt8+tbQNmsBLfSRbTqZ3BpaX0aAywQPPFKM9itpgt3og2BV9StWNfZ9pf+I6jlTOPEknakT+h8m0Xn6E/F1j5UeehJecNM1v0OBl8hS8Gz1Y+s7jNwWzydYHmY4s/Hs2tf8V2GGz5a8/RZvO6wAeKjjYmwmo9FDi2XZ4KOz4Y9XEWXyyNlYW3/WiWV3PZ7P48jq7/vDGjbqb53kltZyLtjRvtsUQsUHLGeSjktSO25Lc9bbPdMqbVmc77/lWfZ6ZPBvaHE4bH4xixlB37YcBiSkjtH4f1MAz/AncfVH0=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms"}
+  path={"/plugin-api/session-sharing/rooms"}
   context={"endpoint"}
 >
   
@@ -38,6 +38,14 @@ import Translate from "@docusaurus/Translate";
 
 
 Create a collaboration room
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
 
 <ParamsDetails>
   
@@ -49,7 +57,9 @@ Create a collaboration room
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./create-a-collaboration-room.StatusCodes.json")}
+>
   
 </StatusCodes>
 

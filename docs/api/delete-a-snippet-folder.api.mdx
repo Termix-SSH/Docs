@@ -1,11 +1,11 @@
 ---
 id: delete-a-snippet-folder
 title: "Delete a snippet folder"
-description: "Deletes a snippet folder and moves its snippets to the root."
+description: "Moves the folder's snippets to the root instead of deleting them."
 sidebar_label: "Delete a snippet folder"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVN9r2zAQ/lfEPW0gEndtN/BbR1vWscFoOvYQ/HCRL7WoLLnSOTQY/+/jbGekTVcy2JMs33ef7r770UFJyUTbsA0ecrgkR0xJoUreNg2xWgdXUlToS1WHDSVlOe2MSXFQXJGKIfAMNDDeJ8iXsJjsUGhoMGJNTFEsHVh5pkGuQIPHmiAfDw2RHlsbqYScY0sakqmoRsg74G0juMTR+nvo+0LAqQk+URL7hyyT43kqi+cJlENmpUqtMZTSunVuO4New9lrzjd+g86WSmKixAPw/DXgNVpHpegwPvBCtxn0vYaauAol5DBiQI8C5DDfCTkf4WneiRg9aEgUNzvN2uggh4q5yedzFwy6KiTOT7MsOwH9IqLvaL0qkXGFiYa6YcsVebYGBaJGZuj1m8SnB8SLxRfFrffkVI0e76kmz0eynb3KtraOJq54JNH5IdHgpxIj28TWpKlXveUg/XIk8ccD4ktM1SpgLI9k+HTIEMwDxX9W6+SwqAuKFp0ywXsyz6pYSKuYNlreDr2yIowUL1rpr2Wxb17IPI0Dsw/6M14SCkxjJ/cRBHr6uA6xRoYcvv66G7ra+nUY3C07wd9RrO2TuvhxAxqkd8fQs1k2yw4SmsCf0TyQL8VJ3dKaInlDMmxNSFyjF/5pS4yr6WAzvWTuwATP5Pk/bLNRF6YnnjcOrZfAhrJ10wAvYecLGqYRBg35EHKhQSoqqK6TYfwZXd/L78eWolSr0LDBaHEl+i07KG2S7xLyNbpEb2T27nZalu/V3wKdfqLfSjnQtXIDDQ+03e3cvthfTpdX367urqDvfwM8wBXi
+api: eJytVNGO2zYQ/JXFvrQBGNtp+6QGARLkAuTaAkHOxT0cjGJPXFuMJZIhV75zBf17sZR88eXaFAX6JIlcLWdmOTOg5VwnF8UFjxX+Fg6cQRqGbWgtp+8yZO9iZMkgoWykEAScz8JkIWzBcsvi/E43uwUaFNplrG7wav4RNwYjJepYOOnOgE7PiiQNGvTUMVbTw2Diz71LbLGS1LPBXDfcEVYDyjFqXZbk/A7HcaPFOQafOev+D6uVPh7zmTHMbCasbBc4Gvzp7+rf+wO1zoLC4CwLHEeDHUsTLFY4/Y5mgl7hMrb9zvnnFN3yJNNyOiovB2U0osHM6XAi3qcWK2xEYrVctqGmtglZqh9Xq9ULNF8Pg5wHS0K3lBnIW6BeGvbiatISmDqjSpG57pOTYznllilxet0ryJvNaAasQ9g7Pl+h6H7h48PKWYsrlXzS9LzRwwQUPc6T0e+pCM388i6kjgQrvLxeP6F0xTkr8svrNWT2ApRB24fk/iycKnhTusDLy+v1qzKoc+wPICb4aKarNJV8uUyf7uSbR0/1kFmABLLb+efOL+C6YQ8xsSIz4ASE9px1pWbLvmYIB07FBY9AQ8NkORW057r+Z8mku//jJUUHez6+esLg9Yf3uvEvwj3qsYAPnDpXmGd1QRvuCn7tE+58cTjVdei9/Azs63SMwrbcOuj6LHDL0Ps21Hu2kFl9LNweFzCDyVCT95oIXeSUgyfRqxqk4QR9LqKMOqVtKHo4aVWAtaK61yZoUN0xMVwtVovVE95z8Ruq9+xtOfkjbznpRFTyGLJ05LX/PP+3xahAp/Ca/f91Z/WFF/byfyXfNG3he1nGlpxXdMXywxwZN/glMvRCnCLS4BwbaLAqJDYGNRr0l2HQAPg9teOoy597TurzjcEDJUe3qujNgNZlfbdYbanN/A2u33+cU/YZ/BPqk828euxAba9faHDPx1NYj5vzbHx78evF+gLH8S/3Ty8W
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/snippets/folders/{name}"}
+  path={"/plugin-api/snippets/folders/{name}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Deletes a snippet folder and moves its snippets to the root.
+Moves the folder's snippets to the root instead of deleting them.
 
 <Heading
   id={"request"}

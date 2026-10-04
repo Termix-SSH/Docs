@@ -1,11 +1,11 @@
 ---
 id: invite-users-to-a-room-host-only
 title: "Invite users to a room (host only)"
-description: "Invite users to a room (host only)"
+description: "Roles expand to their current members, a snapshot."
 sidebar_label: "Invite users to a room (host only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk1tr3DAQhf+KmKcWROyQXkBvaUtpCqWhm9KHxQ9jeXYtoosrjZcsxv+9SGtKti5l+ybsM59mjuZMwLhPoLbwPliLLTQSOko6moFN8KDgzh8MkxgTxSQ4CBQxBCde9CGxCN4eX4IER9yHDhQMITFIGJB7UFDpAq1yRaom082VI9dSTCAhUTzkk9pOMEYLCnrmQVWVDRptxqubuq6v4c+OvqDxokPGFhMJ9J3AkXvybDRmiTiRYZb/BN+swJvNJ8Gj92SFQ497cuT5Qtqrv9J2xtLCiheCXq9BpU4kRjaJjU5lZhe84RCN318IfrMCf8DUtwFjdyHh7ZoQ9CPF/3brev2oG4oGrdDBe9Jnr9jkVdFjNHwsu9ISRoq3Y96wbfP890b35CiBOhdNwMeBllby4hUZqEUEcjl8DNEhg4LPPx5gniUYvwul3LDN+geKzjyJ2/s7kJB399R6fVVf1auBFvE71I/ku1wkvtGOInlNMMuSFIc+8z2Wdi5K2tklvydjeuJqsGh8RhfjpyWEWziFECSUGIIEZbqS2VMSGwn5hqycphyp79HOc/78c6SYPW8kHDAabLML22Z+lvf7r5vs1S/6dHWh
+api: eJydVdtu20YQ/ZXBvDQB1pLa5IkNAsRBC9hFW8NW4QdBKEbkWFyL3N3sDm0rBP+9mKV8kZRLEb2I5M7OnjMz52yPFacy2iDWOyzw0jecgB8CuQrEg9RsI5RdjOwEWm5XHJMBguQopNrLBA0KrRMWC/zom4ZWuDSYuOyilS0Wix5XTJHjh05qLBbLYWkwUKSWhWPKAVZPDiQ1GnTUMhZoKzQY+VNnI1dYSOzYYCprbgmLHmUbNCpJtG6Ng+bUYE5y6qutRhzuLb0TdqJLFEJjS1LG09uktPvj1H51y6WgwRB94CiWk652ieNZlV4EUoy0RYNWuE1fwmYw+ob/3ybrhNcccRh/yioF79J4+C+zmf7td+zM3VnhCgeDb2dvjtf/8qJdhNonGYPeHgddet8aUHLgIyhecF7gxneuyhRaltpX2iZNY8ZuFTgNTbe27oSCnSZOyXp3kmpS5tPofZumva2G6W5uUAcj3j22vYsNFliLhGI6bXxJjWIs3sxms5/RHCD8k6yDioRWlBh0OqmTmp3sOgljZhxeTN+VNnUs3csZfKq2Ho27sdL3MQjN7uF3H1sSLPD8en6E52pkC+fXc0iqDUqg6X20nzOgAk5zFnh3fj1/P9HSl95vLB+AoGD/4DwLmnYMedbB7b188+gxHhILkECya3di3QSua3YQIisyA1ZAaMNJv5RcsSsZ/B3HPBd7oKFmqjhmtCOwHyyZtA//vqNgYcPb90cMPlyc6cJ3CreXYwIXHFubmSe48U3j7zN+zePvHcefElBZ+s7Jr8CujNsgXOWRgbZLAiuGzjW+3HAFidWChJvtBHZgEpTkdOhtGzgm70h0zrzUHLMyJlkIahiXz1bz2wO1oeE9a1g8an/5QvqL2XLQHt/4XE0rugnnyulBIaBBFcZYn9lkNpkdVW0XfErlhl2VcV/yDUftpzZMpdlStrPd9IzekNEndXMCFSW8Up2Bd8329eEh/bNR/uBdMM6J8INMQ0PWKbKs9H5nGgt8No3sCHu2obavxoEGi3wJPHrH0mC2sGKBfa8m8E9shkE/f+o46k2zNHhH0dJKS7vosbJJnyssbqhJ/A2mry53t8Vr+BqFR7U6leodNZ2+ocENb8fratD+jvLJp48LH8czTua6/Xnj0RWktvXksRd/X6nhrHZXWesr3RPpXotD9+PBPvPI5pa/9diQW3e0zraRc+q80r5+D/SakX6RWt+PEXO/YTcMT0xF35XsMPwH2CrVrQ==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms/{id}/members"}
+  path={"/plugin-api/session-sharing/rooms/{id}/members"}
   context={"endpoint"}
 >
   
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Invite users to a room (host only)
+Roles expand to their current members, a snapshot.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./invite-users-to-a-room-host-only.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Invite users to a room (host only)
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./invite-users-to-a-room-host-only.StatusCodes.json")}
+>
   
 </StatusCodes>
 

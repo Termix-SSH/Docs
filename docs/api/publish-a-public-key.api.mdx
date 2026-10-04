@@ -1,11 +1,11 @@
 ---
 id: publish-a-public-key
 title: "Publish a public key"
-description: "Publish a public key"
+description: "Publishes a pasted key, or the public half of one of the user's saved SSH key credentials."
 sidebar_label: "Publish a public key"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVE1v2zAM/SsGz27jrvsAfGvXDeuGYcWSYYcgB0ZmYzWy5Ep0V8Pwfx8ou1kad0OWQ6JIT0/kIx87YNwEyJewIF/px+T6ClYpBFKN19xCvuxgTejJXzRcQr5c9asUPN03FPjSFS3kHShnmSzLEuvaaIWsnZ3dBWdlL6iSKpQVtzVBDm59R4ohhdq7mjxrCnJaN2uj1Rdq96CBvbYb6FNQngqyrNFcF3sAbZk25AVhcE3mhbvxI0GH2tkwvPUqO5OfgoLyupZwIYcbCSCUVCRbakHuvHieYDKEGmEpVMSlKyCH2oWYFYpSMOOo6IkuZltqA4iq/oF8iKI23kAOJXOdz2bGKTSlC5yfZ1l2BocPf0VtkwIZ1xgoQVsk2HApagxSJwMz9Ok/ic8nxPP5p4Qba8kkFVrcUEWWj2R7/SLbrTY0cvkjid5MieK9JDCyDqxViDlXzmp2UtMjid9OiK8wlGuHvjiS4d2Uwakt+f9W62xa1Dl5jSZRzlpSz6q4Z8C5eGdo2X0b7npc3pLOijDIRxCk4+Kj8xUy5PD55yI2tHjy+x/3fnjEqjZ04L4n5xyaLtt5bM+X2t66GJBmIXqaIxc315CCtPuQbXaanWYTDUbwJaot2UIuJd/pljxZRUIujqowThGLMcG/ePAZ7U4dpkee1Qa1FbJYnW605xJ29oQUokFXKUi55KzrxGk/vOl72b5vyMssXKXwgF7jWjJdrvoUSsKCfHT0Nkr3fpiFJwuJQOCmkUgmc1GKvBscN9/mC6nZOE8rV8gdj78gjd85QAouZhdbIe51YNBuGtwIduCUCuPzBjloiBjpeIS23Yuw6wbEwm3J9v0gimgo/6Ff9X3/G4gbHXY=
+api: eJy1lU1v20YQhv/KYC690BLT5lI2CGAnLWoXbY1IhQ+CUIzIkbjWcnezu5TNEPzvxSxlWR9BDgWig0SRs7PvzrzzsMeKQ+mVi8oaLPC+XWkVag5A4ChErmDLXQbWQ6wZnDwuoSa9BrsGa1h+5Ekb2P8QINCOK5jNfpdlUHqu2ERFOkwww0ibgMUC5+wb9Qy3H3GZYeCy9Sp2WCx6XDF59tdtrLFYLIdlhp4/txzija06LHosrYlsolySc1qVJMKnj0HU9xjKmhuSq9g5xgLt6pHLiBk6bx37qDjI0/Ecf3B3FBqiV2aDQ4avsm+rowBlIm/YS4SmFeuvrE0fER2cNWHc68f8jfx8vc6pvJLxbZ5fRv1lQSUl8bUFUlcVQJkdaVWNS99eLv1wOAMYG2FtW7MP/vky+Fp7pqob2yuqUE7RcKxthQU6G1IJSdqCU6fbjTJX5NQ0pk5evYicbrkLKD31O/YhtbT1GgusY3TFdKptSbq2IRY/5Xn+BrMzIX+SMlBRpBUFBjIVUBtrST42GsbMOBwZZyY9H0t9bJ9Db2Rr0ZTCsNgHYba/+M36hiIWePcwv9Az4xBk27uHOQQ2ESiApLdefUmCCrhJWeDd3cP8/SS5x9qt4jMR5JS4LUMlaccQzNBQkvT4FL+59RgPgSNQhKA25kqZCTzUbMB5FmUZqAiRthzkTinNLxnsjkfXnIiGmqlin9SOwv5nyWLz/O87ckpM+f7iBNf3t8mt3y7cSY4J3Iuj0skDrK3W9ungevtkEmOoLG1r4i/ApvSdE0aJZaBpQ4QVQ2u0LbdcQWBHniLrbgJ7MQFKMjIQqnHsgzUUxWc21uwTwybJ+sKTT6/k+fWZGqf5jBwvU38OjPzAhyOmKLO2qcIqSqIXBl7f32KGMixjzfJJPskvKrkPvqFyy6ZKZ/nEa/bSY0kuA9pQIuDeUXu+CMVHZG+T+07SHtH0O3N/dFXk5zh1mpQRzYkL/R4qC3yFiiw4xQpmmMCyzFDYIeF9L4T4x+thkNufW/byBllmuCOvaCU1XiyHDEerJxJtU9M+jGe+mosoCdftOKBnbxNBzIGA93/PBA6r/VuosZWs8fSEWfouEDO0qa4JROlej5rMpqVNGvGUU7xFp7N2NltJ6Qs0THeksO/HiLndshmGsShSVvmPw3IYhv8AFzyx4A==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/termix-id/keys"}
+  path={"/plugin-api/termix-identity/keys"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Publish a public key
+Publishes a pasted key, or the public half of one of the user's saved SSH key credentials.
 
 <Heading
   id={"request"}

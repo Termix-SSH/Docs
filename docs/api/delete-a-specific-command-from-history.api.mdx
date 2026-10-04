@@ -1,11 +1,11 @@
 ---
 id: delete-a-specific-command-from-history
 title: "Delete a specific command from history"
-description: "Deletes a specific command from the history of a host."
+description: "Deletes one command from the caller's history for a host."
 sidebar_label: "Delete a specific command from history"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVVFP20AM/isnP2dtGLBJeYMxNCZNQ5RpD1WF3IvbHFzuwp3DqKL+98mXUAplU6flIUlz9mf7s/21g5KiDqZh4x0UcEaWmKJCFRvSZmG00r6u0ZVqEXytuCJVmcg+rJRfKFSVjzyCDBiXEYopXFOojUMLswwC3bcU+dSXKyi69NMEKqHg0FIG2jsmx3KETWONRklifBslkw6irqhGeeNVQ1CAn9+SZsigCb6hwIainEoGF+WWnXFMSwqwlhAp963DyMG4JazTJSnGxrvYI73Pc3m8ZOTTUH6ZmClVbLWmGBettauRxDh6y+ubidG4pXqqWTUYsCamEJPT8VtO52gslYr9EOyJ+hFIqjVx5UsooPExsYBcQQFjHhgfD9Y3Q3/GPQhkECk8UJD2dNAGCwVUzE0xHluv0Qp/xWGe5weQva4CjVMlMs4xkhIWsOWKHA+9Uj0yrLO/Ah/uAE8mXxS3zpFVNTpcUk2O90Q7ehNtYSwNWGFPoONdoOSnIiObyEbHVHPtnWEvY7Mn8Icd4DOM1dxjKPdE+LiL4PUdhX9m62C3qRMKBq3S3jnSL7o4k1HRbTC8SrMyJwwUTlqZs+ls+3giu9kvzbbRZsskFRm8ZAbFYATZ8HLuQ40MBXz9eZ1mW3b+6lktPj9i3Vja3u58a5k3S5yBcQuf4hoW+15+HtXJ5QVkIEPf15yP8lG+w8RgfIr6jlwpTuqKFhTIaRJwWbQakxg5THX08vhHdRw273Wg7lnq/kNge2aZHnncWDROMkyN7wYpmMKTFMCGrJvtlJIczLLEqZh3nez1j2DXa/l831KQxs8yeMBgcC6MTmfrDCrCkkKaiTtaJVFM9by7lqTE3LaS3I6My8xsdOvy++RaRmD4O6h9KT4Bf0GW7gVABj5xliYrfevAolu2uBTbHlOu36I8UjI=
+api: eJylVdtu40YM/RWCL32RL729qIsFNm0X2BRFg42LPARGQY9oa+LRjHaGSqIK/vcFR1pHSRYtivrBlmd4OTwkjwasOJloW7HBY4m/sGPhBMEzmNA05CvYx9CA1AyGnOP4TYLaJgmxh32IQFCHJEssUOiQsLzFDcfGenK4LTDyp46TXISqx3LIf23kCkuJHRdoghf2olfUts4aUhyru6RgBkym5ob0SfqWscSwu2MjWGAbQ8tRLCe9VQQfqpmd9cIHjnjSFLmK2WWSaP0BT/mjEFMbfBojfbde689zUn6eiKgyORWkzhhOad851y81xw9f8/rdpmT9Ab7UDC1Falg4puz049ec3pN1XIGEKdmXJixRoTYsdaiwxDakzAJJjSWuWtcdrF9Qa1cp1QuZGrCanBdTv1ZjTCwwcbznqN0asIsOS6xF2nK1csGQUzrL79fr9bdYvCyKrIeKhHaUGJQU6qRmL1PrYIyMp60mMV200ucsO6bI8V2ngG+3p2JAE8LR8vyEWvsb9+eTWYhrHYSxQ/NA55Yqei0rm2E5GWExPbwPsSHBEi9vNq9KuuaUFPnlzQYSewFKoOFDtH/nmkq4yFHgzeXN5u1yHKon7GcQI3ws0GrY0QQL9JQh3T3IP6Ye7SGxAAkke/AL65dwU7OHNrIiK8AKCB056Ynhir1hCPcc83o+Aw01U8Uxo53z+p8pk+bxrzfUWjhy//ZVBe+uPujFvxD3LMYSrnQ+c+UJ9sG58JDxa5zw4LPCkDGh8/ITsDexb3XrdOqg6ZLAjqHzLpij7iLrWgm7fgkTmASGvA8Ctmk5puBJdFSD1ByhS5mUU4EqMh+f5OnXR2pax3M5Wc/U46wa2t59yERaUftR7x41OxaoazVSs16ul+tXhE3GF2SO7KsM+SPvOWorNbhudkNZ/abBGSUZCFLLxu6teS7M026/TDQ8aev/E/VxWoQfZdU6sl5BZskYJvm5xSf50YGaCRCeCVzMYWYR2haZZ/UfBlWTP6M7nfT4U8dRRWNb4D1FSztlWRUCx5nOenLkPitzrnGxUZRq7rpxE1+8S1RLzuJ59ce1qsBueic1oVKfSA9Y5O8SscCQecyKk88GdOQPHR3yLueY+vkMyeWFTA==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/terminal/command_history/delete"}
+  path={"/plugin-api/ssh-terminal/command-history/delete"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Deletes a specific command from the history of a host.
+Deletes one command from the caller's history for a host.
 
 <Heading
   id={"request"}

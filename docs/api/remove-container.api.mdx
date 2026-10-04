@@ -1,11 +1,11 @@
 ---
 id: remove-container
 title: "Remove container"
-description: "Removes a specific container."
+description: "Removes a container, optionally by force."
 sidebar_label: "Remove container"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VU1v2zAM/SsCTxtgxN7aboBv3dpiHTZgSDrsUOTAyHQiVJZciQ4aGP7vg2Qn9ZK0yHbYyTFDPn48PrqFgrx0qmZlDeQwpcquyQsUviapSiWFtIZRGXITSIBx6SG/hysrH8jBPIEaHVbE5IK9BRVQauQVJGCwIsjBk/fKmtsCEnD02ChHBeTsGkrAyxVVCHkLvKmjMztlltB1yVGsXTH/iPbYkNs8w5XWSYIjgQtrNaGBrpuHNL62xpMPDu+zLDz+HNvnbVnCxQEWwjdSkvdlo/VmAl0C58fiZrMvYhiPMJZFaRtTCOvii7TGkGQqkmCRaIKxxxcoXGOMMssxPTHL+WvV7XJE54tjJd2g0lQItttU4wRdAhXxyhaQQ0GaOAwvMpRDWsSdSHf+Pm131HdpO6KuS3vsMHly6+3uNE5DDivmOk9TbSXqlfWcn2VZ9g6SvTq/ozKiQMYFehJoCoENr8iwkhhcRI8MgfpXgM8OgAMn3BhDWlRocEkVGT4R7fwoWqk0DVjuRKCLQ6AYJzwjK89K+thzZY1iG5b8ROAPB8BX6FcLi644EeHjIUIk/q+n9e6Q1Bk5hXq7+WMW52FVZOMUb+KuLAgducsmrN79fPz3LGi51+rYaSftUMpW8lHq0QmS4ceNdRUy5PD1111ceGVKG8MV6+B/R65ST+Lyxy0kEHa3Lz2bZJPsoKHB+RPKBzJFCBJTKsmRkRQkWFvPFZqAP5yk6Z7q9iHbeAPJ8CnXuu+Y6YnTWqMyIWUkpB1Uew+9aiF5Pq0eEsjHRzvfv7pRu/MEApMBo22DCH863XXB3B/ZwFKhPC50ONAlak8JPNBmdHbXqJtQYKR3jU4F5+OBL87gzXT4CLwVL3U8GNFsxjm3xTx3Gtb1PyYeT7Wbj0/r1fW367tr6Lrfjgybdw==
+api: eJy9VU2P20YM/SsEL02Aie2k6UUNAiTNBsi2BYKNiz0sjICWaGtiaUaZobyrGvrvBUf+0O46KdJDTzZGnMfHx0fODguOebCNWO8wwyuu/ZYjEOTeCVnHwYBPX6mqOlh2sPIh5wkaFFpHzG7wnc83HHBhsKFANQsHPd+hVcSGpESDjmrGDCPHaL37UKDBwF9bG7jATELLBmNeck2Y7VC6JgVLsG6NfW/OYh0Z/ke0ry2H7gSX6sIzF5feV0wO+36haWLjXeSoAS9mM/25L+FvB1oQkpjFBHuDL8+FfhrUAOcFVr51hQEfQEo+qQ82Qmids24N5IpBfbilmC5Flj36y+8ROeKn4F/OUXlPtuICxO9ZnxhMVDKsWUpfYIYFVyyqU2pGhtOmatfWPaPGTovkhOnxapzujg3vp7tRw/rpkEb15rA9OKYNFWZYijTZdFr5nKrSR8l+ns1mz9E8oPwnWQcFCS0pchKHWinZic1JQ2BARm1b5LwNVrqUZckUOLxplf/NQv2Qe7+xPD6hxv7O3fFkBPFJ/TH0fwx0tIuyP9go2ScFodn/ee9DTYIZXl7PH5V0MMTl9RwiOwGKoPA+2L9TTRm8TSjw6vJ6/jq1c8z9SGKgj2Zw+hBysvqXW/lu6iFe3QUkEO3aPbNuAtclO2gCKzMDVkBow1FPci7Y5Qx+y4N/75GGkqlIRjL3dP1hyaS++/yKGgsb7l4/quDNxw/64V+Eu4cxgY8capsqj7DyVeVvE3/F8beOw08RKM996+RXYJeHrhEukuugbqPAkqF1lfq+gMi6AIWrbgJ7MhFycjp+tm44RO9I1KpeSg7QxsN0WbfySQ8rlQowV1Z3CoIGdTqGCmeT2WT2qO598FvKN+yKlPmKVxy0Iyp546PU5BR/3/+rByP+EHKXdis7+dEXYWin8J1Mm4qs0/Rppnf7dXGDp3WhWYenw5x2eUSD2fiVyB6u+bQ2FgZ1Myjgbqfz/1eo+l6Ph62uY17YSMtKX4QVVZENbrgb7fktVa2yTfthS8Fq8PmL3xTnydX+1XkK3yr/MJCuG+c8kDlVqkvnf0w8VrVfjBf8u4s/LuYX2Pf/ANyzyh4=
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/docker/containers/{sessionId}/{containerId}/remove"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/remove"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Removes a specific container.
+Removes a container, optionally by force.
 
 <Heading
   id={"request"}

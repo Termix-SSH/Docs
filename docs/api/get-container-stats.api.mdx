@@ -1,11 +1,11 @@
 ---
 id: get-container-stats
 title: "Get container stats"
-description: "Retrieves stats for a specific container."
+description: "One sample of the container's CPU, memory, network and block IO."
 sidebar_label: "Get container stats"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9lVFP3DAMx79K5KdNiq5lwCb1jY3BmDRp4kB7OPXB1/ruItqkJC7iVPW7T27LUegNHS97apPavzj+224DOYXMm4qNs5DANbE39EBBBUYOauW8QhUqyszKZCpzltFY8jPQwLgOkCzg3GV35CHVUKHHkpi87DdghFghb0CDxZIggUAhGGevctDg6b42nnJI2NekIWQbKhGSBnhbdcbsjV1D2+q9rF0w76SlYhwqZwMF+f4pjuXxMhHfnuB9ImbQajjZZzif/1DDrZR1rFautrlyvltkzlrKmPLB/+Stg3benfHpvsMu0BSUK3ZqTfysxi7GVkNJvHE5JLAmBt2nLIEo70SKdi4hanZatFEzymUbdTTQEMg/PGlZ+wIS2DBXSRQVLsNi4wInx3EcH4F+FeYvNFblyLjEQAptrrDmDVk2GYqJ6skgwr4BPp6AJdlcW0uFKtHimkqyfCDtZC9tZQoaWP5A0OkU1Pl1KpjAJgvdnUtnDTspugPBnyfgcwybpUOfH0j4MiV0ur87W0dTUefkDRZPJT1WMZVSyWpveNvVypLQkz+rpfIW6fjzXJqy77qx0a5HJRQYelfWvRHo4eXC+RIZEvj556YrdmNXrnM3XIj9DfnSPKqz31egQWq3Dz2exbN4cqHB+Ctmd2RzcVLXtCJPNiPpwMoFLtEKf5g4l9Ome01turFElt87TPsEMD1yVBVorETQ6dMMPbyAvodBP08+OT4Zz9Tk5VDsQ0w1iK6CaBppyVtftK1s39fkRbNUwwN6g0vJ4qKB3AR5zyFZYRHojTt+uB7m7kf1r1sMm2i3IgoWtaxAwx1tX/wRpCL/48HjTLXpeHJefpfq+gvSl260
+api: eJy9Vd9v20YM/lcIvmwDrpa7dS9aUaA/1i4ZhgaNizwExkBLtHWzdKfeUUlcQf/7wJPi2E2WoUDRJ0kn6uNHfuSnHkuORbCtWO8wx/eOIVLT1gx+DVIxFN4JWcfhhwivzz4aaLjxYWfAsVz7sAVyJaxqX2zh5P0MDQptIuaX+MYXWw64NNhSoIaFg573aDVRS1KhQUcNY46RY7TenZRoMPCnzgYuMZfQscFYVNwQ5j3Krk3BEqzb4DCYB7H2hL8SbanBsfUuctT3P8/nejnuz+tbcIhCEmc4GHz2UOD5+R8wVQXOC6x950rwIT0U3jkuhMvp+2ePJdp/nYJ/fSjZW7I1lyAeNix3iu05DgYblsqXmOOGBc3Yshyztu421j2h1mZl0ivbfx2zfi/LkPUHbR2yBIwGI4erW1m7UGOOlUibZ1ntC6orHyX/ZT6fP0XzBeO/yDooSWhFkdMIUScVO7EFaQiMyKiqRC66YGWXsqyYAoeXndK/XOoIFN5vLR+eUGv/5N3+5ADiXNUf5T0E2g+DssdpSPR5DEIz3bz1oSHBHE8vFvdKOp/UPr1YQGQnQBEU3gf7OdWUw6uEAs9PLxYvkpqH3PckRvpoxuEeQ+7G+59reTT1GA+RBUgg2o17Yt0MLip20AZWZgasgNCWo54UXLIrGPwVh7TxR6ShYio5JLaHff3qlklz8/dzai1seffiXgUvz070xf807ghjBmccGpsqj7D2de2vE3/F8dejY1FR+M7Jb8CuCLtWuExTB00XBVYMnVPn4hIiq0sJ17sZTGQiFOR0+2zTcojekeioeqk4QBdTUwZVae1TP6zU2oCFsrpREDSo2zFWOJ/NZ/N7dU/Br6jYsitT5g+85qCKaMtbH6Uhp/iT/u/ub/iXqH3yQHbyjQx9FFr4RrK2JuuUWNr2fvKRS7zzESUzOr+5s2KlmB+afH7s0mMZS4NqGYrX92oMH0M9DHr8qeOg+780eEXB0ko7fdljaaPel5ivqY78SB9+/DD9CH6C/yrpdv2c7t4V1Z0+ocEt745+UWox3zHxYaeG5aGVv/t9gcPwL1aAqrY=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/docker/containers/{sessionId}/{containerId}/stats"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/stats"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Retrieves stats for a specific container.
+One sample of the container's CPU, memory, network and block IO.
 
 <Heading
   id={"request"}

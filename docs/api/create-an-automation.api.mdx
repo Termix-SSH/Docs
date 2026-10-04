@@ -1,11 +1,11 @@
 ---
 id: create-an-automation
 title: "Create an automation"
-description: "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time."
+description: "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time, and a webhook trigger returns its token once."
 sidebar_label: "Create an automation"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVE1v00AQ/SurOZvEpQUk31I+BEiIqglwiHKYeCfxtutdd3dcGln572jWpklrhMIJHxJ7d+bN13vTgaZYBtOw8Q4K+I7WaGSKiitSHMx2S0Gh04ruKexUZGrUmjY+kIrsg3HbZKlpY5wRkImaqVhWpFt7BGCjV4G2JjKFqAxH5eiBlW5JsalpAhkwbiMUS5i17GsUqAirDALdtRT50usdFF36NIE0FBxayqD0jsmxXGHTWFMmz+lNlHI6kExqlDfeNQQF+PUNlQwZNME3FNhQlFuHNR1ZRZbKYJ/BobAxyD49kmJsvIs90sv8TP6etnVRkSoDIZNW+FjfRAJc5PnYfhiD8U5t0FjSE5BANXHlNRTQ+JhqQK6ggCketSyDSOGegvSygzZYKKBiborp1PoSbeUjF+d5np9B9izqFzROaWRcY6Q0dGy5IsdDV1WPDPvsr8DnI+D5/KPi1jmyqkaHW6rJ8YloF39E2xhLA1Y4EejVGCj5qcjIJrIpY6q59s4MzD4N+PUI+B3Gau0x6BMR3owRfHlL4Z+7dTYe6pyCQatK7xyVT6a4EqqUbTC8S1xZEwYKs1Y4tVwdX89FRT29j40e9SCpCPGSGRSDEWTDywcfamQo4POPReKxqPP6oOv3D1g3lg46/K2/Z/ITV+M2PkU2LB6woFCbBzW7+gQZCO37qvNJPslHvRiML7G8JafFSV3ThgK5kkSLIqsa3VEib5NoFboj2T6H7Q5L6L/uz34WTA88bSwaJxUlqnTDolgCPt2tQhs57jpR/Ldg93s5vmspCCVWGdxjMLiWTi9X+wwqQk0hseWWdtKfvvIXCwku5raVJEarWNj0uL2uvs4XQo5hpddei0/An5Cl3wIgA9/0acrOl7MOLLpti1ux7THl+QX0RVie
+api: eJzVVcFu40YM/RWCl14U29v2pC4WSIoWaIqiwcZtDkFQ0BJtTSzNzHKoOK7gfy84cm0lBlr0WB9secR5fHwcvhmw5lSJi+qCxxJ/p9bVpJxAGwYVt9mwAPka+IVlD0k5worXQRiSBnF+kyNrXjvvDGQG15Cqhuu+nQC0KYDwxiVlSeA0gedXhbpnUNdxkVMQ7HjVhLA97RPWXvy4QcOWPQRf8QwLVNokLB/xutfQkSVO+FSg8Jeek96Eeo/lkP864RpLlZ4LrIJX9mqvKMbWVXnn/DlZ8QMa747sSfeRscSweuZKscAoIbKo42RvPXU8iUpqOuChwLMMlyCH/DGKKQafRqSvFx/s520Tlg1DJUzKNdCpvpkl+HaxuIw/Ns0FD2tyLdcztEQdaxNqLDGGlGsgbbDEeWz7jfNXFN2cJuoVmFheWEzWAXtpscRGNZbzeRsqapuQtPxmsVh8wOIdgV/IeahJaUWJx1b22rDXo8AwIuPhyZJUvTjd5ywrJmG57o3Y49OhGLAKYet4ukLR/cz708oE4t7aNeo4BToJb+ytrByG5TEIi+PDj0E6Uizx9mF5UdI9p2TMbx+WkNgrUAKDD+L+zDWVcJNR4OPtw/JTbs6U+4nESB8LdAY7hmBxPEL4vNN/TD3GQ2IFUkhu46+cn8FDwx6isDErwCkobTnZSsU1+4ohvLDkyXxDGhqmmiWzner6nyXT7vWPjxQdbHn/6aKC67uf7MW/CPcGYwZ3LJ3LlSdYh7YNu8zfcMLOs3yVgKoq9F6/A/aV7KPNh5066PqksGLofRuqLdeQOJKQcrufwZFMgoq8DwquiywpeFI7qkEbFuhTFuVQoFnB57OJ/PBKXWz5PPR/D/u7Wbetzq9DltKp7cClFfRq+bFAG6xRnMVsMVtcSHYMvqFqy77OpD/zmsWaad2yGe7IT4h8nx0CyE884j3scHa8/5G1j0dR+VXnsSXnrf7sR8PRwx7x7GFYIL29A8yoLGYYzI5+k/ZwsOUvPYu5zlOBLySOVtYksxgchyIb0pb3Ju0o2tXSmFh424+j/O7KMDM6uezdr/dmI6vj1dOF2vYI7bDI3yVigSGONO1usrUBW/KbnjbZDDKmff4Czx6oig==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/automations"}
+  path={"/plugin-api/automations"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time.
+Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time, and a webhook trigger returns its token once.
 
 <Heading
   id={"request"}

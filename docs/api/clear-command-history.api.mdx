@@ -1,11 +1,11 @@
 ---
 id: clear-command-history
 title: "Clear command history"
-description: "Clears the entire command history for a specific host."
+description: "Clears the caller's whole command history for a host."
 sidebar_label: "Clear command history"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVF1v00AQ/CunfQLplLi0BclvhbaiCCTUFPEQRWhz3sSnnu/cu3XUyPJ/R2s7UJJSBfFk+zw7t18zLRSUTLQ12+Ahhw+OMCbFJSnybCMpE6oKfaFKmzjErVqFqFClmoxdWaPKkHgCGhjXCfI53FGsrEcHCw01RqyIKcqfFqxcUCOXoMFjRZCDRN8UoCHSQ2MjFZBzbEhDMiVVCHkLvK0FaT3TmiJ03ULQqQ4+URLAmyyTx14de1kbqYsKlRpjKKVV49x2Ap2Gs+eib/wGnS2UZEVSX6fh/DngNVpHheIwXLC7bgJdp6EiLkMBORTkiAn0UHwOUx6bNB2b+2OMm7ZDQzrQkChudp1ropNmMdf5dOqCQSe4/DTLshPQezl9QetVgYxLTKSkCdhwKdM0KBA1MEOnXyQ+PSCezT4qbrwnpyr0uKaKPB/JdvYs28o6GrnikUTnh0R9nEqMbBNbk/qaq+Ath2j9+kjitwfEl5jKZcBYHMnw7pAhmHuK/9ytk8OhzihadMoE78n8McWFrIppouVtvytLWfR40cimzRdPf89EU4NmnoJ+SUxSgVF68j2AQI8v1yFWyJDDp+93/X5bvwp9uGUn+F76j+ri6w1okN0dUs8m2SQ7KGgEv0dzT76QIHVLK4rkDYnc6pC4Qi/8o1f01rRvR/u8LZjgmTz/l5cN/WB65Gnt0HpJqB9XO0p4DjsJg4Y9EYOGfPS1he4dTvBtK3L8Fl3XyfFDQ1HmtdCwwWhxKR2ct1DYJO8F5Ct0iV6o7tXtaJmv1d9SHg/RS04bdI18gYZ72v723m7x1Kourz5f3V1B1/0EoW0YaA==
+api: eJylVF1v20YQ/CuLfWkLnCWlHy9MECBpHMBuCwSJAj8YQrA+rsyrjnfM3VI2Q/C/B0vStiynKYo+iTou52Zmd6fHkrNNrhEXAxb4u2dKGaRisOQ9px8y3FTRM9hY1xRKqFyWmDrYxgQEVcyyQINC1xmLS1xzql0gjxuDDSWqWTjpmx6d4jckFRoMVDMWqF+flWgw8efWJS6xkNSywWwrrgmLHqVrtNIF4WtOOAwbrc5NDJmzFvy8WunPkYwjslZlcQm5tZZz3rbedwscDP76ra/Pwp68K0FZseobDP72rcK35DyXIHG64O66BQ6DwZqliiUWWLJnYTST+AKXjW+vXTihxi1zrk5k9mw5W3wywyz7yZ8BDWZO+zsj2+TVO5GmWC59tOS1rvhltVo9Q3NE8S9yAUoSuqLMoJ5QKxUHcZa0BCZkVF8z2zY56cZbrtSx9KpVypebwfRoY9w5Pjyhxv3B3f3JAcQHbeDUoEOg+34qe5z7rP+nIjTzw9uYahIs8Pxi/UTSB85ZmZ9frCFzEKAMCh+T+zJqKuD1iAIvzi/WL8f2HXK/JzHRRzON5lTyMJx/38h3r57qIbMACWR3HU5cWMBFxQGaxMrMgBMQ2nHWE8slB8sQ95zGDXtEGiqmktPI9tDX/2yZ1LefXlDjYMfdyycKXr070xf/YtwjjAW80wkdlWfYRu/jzchfceJNGEOCrI1tkOfAwaauES7HqYO6zQJXDG3w0e50BVlzQdh3C5jJZLAUQhRwdcMpx0Cioxql4gRtHk0ZtEvbOPrhxKsBY9bcKgga1O2YFK4Wq8Xqie65+DXZHYdyvPk9bzlpR9TyJmapKSj+3P8xCo9j7xhXtyIIB/k/2Tn1V/hWlo0nF5TPuOT9HBmX+BAZOgIHoYE6249iAw0Wc7BuzBixCtD3GgAfkx8GPf7cctI93xjcU3J0pY5e9li6rM8lFlvymb+j9sf3c2b/BP+k4W7NgnLak2/1HxrccfcQ/sPmMCvfnP55uj7FYfgKGJBIDA==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/terminal/command_history/{hostId}"}
+  path={"/plugin-api/ssh-terminal/command-history/{hostId}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Clears the entire command history for a specific host.
+Clears the caller's whole command history for a host.
 
 <Heading
   id={"request"}

@@ -5,7 +5,7 @@ description: "Get a room with members, online users and stage state"
 sidebar_label: "Get a room with members, online users and stage state"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlNtq3EAMhl9l0PUQO6QHmLv0lLZQKN2UXix7IY+16yFzcDVymmD87mW8pmTrUra9McYjffpH0u8RBA8ZzBZeJ++xgZ2GlrJl14tLEQzckChUnFJQP5x0KlBoiLNWKXoXSQ2ZOCuMrcqCBypPIdAQSLrUgoEDCWjoUTowUNm5TFV4uRpdO4GGTHxPXFSMMLAHA51Ib6rKJ4u+S1nMVV3Xl/C7tk/oompRsMFMswYcpKMozmIJUUcyTPqv4KsVeLN5r2SIkbwKGPFAgaKcSXv2R9reeVpYfCbo+Ro0580tdlmcPfY9pOgksYuHM8EvVuA3mLsmIbdnEl6uCcneEf9zty7XQ90QO/TKphjJnkxxV1bFDuzkcd6VhpCJr4eyWdvd0+ON7ShQBnMaNII89rRIKYs3h4FZgkAvL+8SBxQw8PHbLUyTBhf3aU534kv8LXFwD+r68wfQUHb3KL2+qC/q1YWW4Fdo7yi2JUl9oT0xRUswaehTloCx8CPOcv7Xcyd1f11W6EGq3qOLpdo8i3Hx4xaOfgQNsyNBg3Ft+QmUAZXzcSze+sp+msrn7wNxaf5Owz2yw6a0Y7ubnvj95m3p2U9PEXx6
+api: eJydVFGP00gM/iuWXw6k2TZwPAWEBCdALLoTYnvah6o6uYm3GZrMhLGzuyXKf0dOwrLdIk7ipc0k39ifP/tzj0o7wXyNf8W6pi1uHAoXXfJ6wHzd45YpcXrVaYX5ejNsHLaUqGHlJCPAB8yxJa3QYaCGMUdfosPEXzqfuMRcU8cOpai4Icx71ENrKNHkww4Hi5lY2hiExb4/zTL7K1mK5Fv10TKsKoYUY4ODw2fZs1PAP1GBoOFmy8lBTBAiSFdU863BPcC/Y8PbR7jxWs03xUEMtQ8MnXASoFCCKO3YfpXRYcNaxRJz3LGimyrPcdnW3c6HM2r9UljEx3AmFVmFS8shy96XA5q46fq7dF2qMcdKtc2XyzoWVFdRNP8zy7In+JDv3+QDlKS0JeGRF3VacVBfkEFgiozDvQ5emOaTqPf7eNcCS41za+w8gdDND29jakgxx/PL1Qmfi6lKOL9cgXBQIAELH5P/OhLK4fUYBV6cX65eLqxxRYx7zw9IUOs/8AHdNEkT5Mcsfb7RX6ae8CDWTQXxu3DmwwIuKw7QJjZmDryC0p7F3hRccigY4jUn0IqPSUPFVHIa2U7EflMybW7/e0Gthz0fXp5U8Orje/vwP8IdxVjAR06NHysXuIp1HW9G/hYn3gROfwhQUcQu6HPgUKRDq1yOIwNNJwpbhi7UsdhzCcJmY+X6sICZjEBBIUQF37ScJAZSm7OoFafRDYvRRT5cxVEPr7UJsDJWtxYEHdpoTxVmi2yRndQ9g19TsedQjpk/8RUn64hJ3kbRhoLFn/v/uzY9ynvXPeVbXbY1+WDZRv/1s4XX+MPCo0+PTGwLzWyMDnNf2pY0q9qtvjdD/pvqYbDXXzpOtjk3Dq8pedqaSOseSy/2XGJ+RbXwCcEiBuVgk/Po07w5HwO6nxP/7pxgtrmmurMTOtzzYVq/w2a4t6nevTH70vEgPxjckeRP4/b9hFjFPYdhuEujdrZMw/ANz9gnNw==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/collab/rooms/{id}"}
+  path={"/plugin-api/session-sharing/rooms/{id}"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Get a room with members, online users and stage state
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-a-room-with-members-online-users-and-stage-state.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Get a room with members, online users and stage state
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./get-a-room-with-members-online-users-and-stage-state.StatusCodes.json")}
+>
   
 </StatusCodes>
 
