@@ -1,11 +1,11 @@
 ---
 id: get-container-logs
 title: "Get container logs"
-description: "Retrieves logs for a specific container."
+description: "The container's log output."
 sidebar_label: "Get container logs"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1VcFu2zAM/RWBpw0QYndtN8C3bl27DhgwtB12KHJgbCYRKkuuRBcNDP/7IMVx3Mbp0gE7Jbb5Hiny8amBgnzuVMXKGsjgmtgpeiQvtF14MbdOoPAV5WqucpFbw6gMuQlIYFx4yO7g3Ob35GAqoUKHJTG58L4BFQgr5CVIMFgSZODJe2XNVQESHD3UylEBGbuaJPh8SSVC1gCvqhjMTpkFtK0c5eqL+Ue2h5rcakvHqDSM4JRhWpB7BahK8oxl5cfgM2s1odkP98rkNIb8W8G14fGKe+A0tMVX1njy4fuHNA0/zyf+ZdPGOPEJtBJOxuJubr6JbnzCWBZzW5tCWBcfcmsM5UxFhz95LU+PjsGnY8kuUGkqBFuxIN7KblNiK6EkXtoCMlgQg1xLI4OkiGJMeoRPml5zbdIMNNMmgSz0j9zjRrK105DBkrnKkkTbHPXSes6O0zQ9AvmiyB+ojCiQcYaeBJpCYM1LMqxyDCFizQxhgK8QH+8Qh1ZzbQxpUaLBBZVk+EC2k1G2udLUcbkDiU53iSJOeEZWnlXu45lLaxTboLgDiT/uEJ+jX84suuJAhk+7DHHsb+7W0e5Qb8gp1BtBD6c4DVLJa6d4FbUyI3TkzuogvLvp8PNN2Mj1yg2D+gUNpWwWN3pEDALZ/bmwrkSGDL7/vo1aV2ZuI1yxDvG35Er1JM5+XoGEoN116ekknaQ7B+qCP2N+T6YIIHFNc3IUbKeVUFnPJZrA3xnL5c7KvSRtovmS4TfeGOvjMz1xUmlUJuSP02m6Bb6D9QKD3Np7yJ4NL47sufPHAqcSwlADQ9OEffzldNuG12vXDAMrlMeZDlfEHLUnCfe02hr/I+o6VBclsy90aPWHADbmfkjsxs+3sdPw4FQIHj/A3qG8u+6uw/diX9+7l2hWw5x94X2/Ryv+f4mHs22nQ6O//Bq24Q9JVPOM
+api: eJy1VV1v21YM/SsEX9YBqu1u3YtWFOjH2jXDgKLxkIfAKGiJtu4s3aveSyXxDP33gVeyrDRK0g3ok+1r8vCQhx8HzDlk3tRinMUUlwVD5qyQsex/CFC6LbhG6kZmmKDQNmB6iW9dtmOPqwRr8lSxsNf3AxrFqEkKTNBSxZhi4BCMsx9yTNDzl8Z4zjEV33CCISu4IkwPKPs6Gos3dottm0xiDcz+J9qXhv3+BCdkSpzwM1Z4y/4BR1NxEKrqMOW+dq5ksve7B2MznvJ8jHBjZZrx4LjSsoTa2cBB//9psdCP2yK/OZZR5Q0zbBN8PmV3fv479PKBdQIb19gcnI8/MmctZ8J57//8oTiDdzT+ZSrYOzIl5yAOtiynHjxSbBOsWAqXY4pbFky61khxXpfN1tinVJt5HvtyPjiH+WFov3Z+GLVPO1dcLSX7q2P3Nr7EFAuROp3PS5dRWbgg6c+LxeIZJl/x/ZOMhZyE1hQYyOZAjRRsxWSkJtAho0oSOGu8kX2Msmby7F81yv5ypVJnzu0Mj1+oNn/wfngZQZyr9J22Y6ChE5T9sUNiM0YjTPov75yvSDDFs4vlnZTOe63PLpYQ2ApQAIV33vwTc0rhdUSBF2cXy5dRyzH3gURHH5OuiTuTUxf/fS0Phu7sIbAACQSztU+NncFFwRZqz8osASMgtOOgLxnnbDMGd8UepODbpKFgytlHtuO6/ueSSXXz+QXVBna8f3kng1cfP+gfjxTuFsYMPrKvTMw8wMaVpbuO/BXHXXcbmLLMNVZ+BbaZ39fCeew6qJogsGZobKldn0NgXcbC5X4GPZkAGVmdPVPV7IOzJNqqTgr20IRYlFZV2rhYDyOlFmCprG4UBBPU6egyXMwWs8WdvHvj15Tt2OYx8ifesFdFtOS1C1KRVfxe//d35vtr0EPc9Gzl8YvUSSh8I/O6JGM1ZJzjQ78gLvG0IDROd7qS0y3R6On4SqW3z0wkuEpQd4HCHQ468X/5sm31uVvROti5CbQu9R5tqAyc4I73pytzRWWjVFHn+z7T8V35FofjJfkW2+PxONmu9Ic3ajydwL2iPPnU394f4T4RjqvA7scxB+JDvScZf7/AY23b1fiqvP9tiW37L9M8GBM=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/docker/containers/{sessionId}/{containerId}/logs"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/logs"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Retrieves logs for a specific container.
+The container's log output.
 
 <Heading
   id={"request"}

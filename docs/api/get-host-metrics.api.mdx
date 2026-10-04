@@ -1,11 +1,11 @@
 ---
 id: get-host-metrics
 title: "Get host metrics"
-description: "Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information."
+description: "Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information."
 sidebar_label: "Get host metrics"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVE1v2zAM/SsCTxugJe7abYBv3Ve7AQOKpsUORQ6MzDhCZMmV6KyB4f8+0Ha3tt6K7LSTZYl6euTjYwsFJRNtzTZ4yOGSOFraUVKmiZE8q0p2TFLrEBWqVJOxa2vUJiRW1hvXFNaX6sPFtVYVVSHutSps2mrliX+EuNWqjsFQSpS0Ql+otE9MlbJ+HWKF8u4MNDCWCfIbOBfcb8ObsNRQY8SKmKKctmCFZI28AQ0eK4IcbAEaIt02NlIBOceGNCSzoQohb4H3dR/lmUqK0HVLiU518ImSBLzOMvk8rkNP4z71Ahln0Gk4yY6moQtKyQav6K4WBuqVqh1hIuVCqaxXWKL14/WT6fUxV+UDK9yhdbhyNIOu01ARb0IBOZTEoIe0c5iPtOatLTrQkCju7svTRAc5bJjrfD53waATnfLjLMuOQD99Ga3vc1sJW5EGG96QZ2t6WdSADJ1+Fvh4ArxYnCtuvCenKvRYUiWNdBjayR/R1tbRiBUPBHozBervqcTINrHUXHKugrccojTxYcBvJ8AfMW1WAWNxIMK7KUIwW4r/XK2jqagLihadMsF7Mo9UXEqrmCZa3ve9siKMFE8baaqb5cPjhZhnMMfDoF9eEiowekz+hyDQ4+Jz72vI4ev3q76Pxer9dctO4q8oVvZOnV58AQ3SuwP1bJbNsklCY/B7NFvyhVxSl7SmSN6QmKoOiSv0gj8OhDPiYTyNRnkK2YIJnsnzf513QymZ7nheO7RecumVbkej38Bv/rktZBgKCTloW7HsdXRdJ9u3DUXRdKlhh9HKAOkVLmySdQH5Gl2iZ8rw4nKcny/V37iNm+j3Ihq6Rv5Aw5b2wxDulg9H1tkn0f4nLfMvmQ==
+api: eJzFVU1v20YQ/SuDubQF1hLb5MQGAZKiTeuiheEo8MEQijE5Ercid5mdoWxV4H8vZkk7coSm6KknLneHb9+bj8cj1ixV8r36GLDEa9YhBQFtGFpSFgWhrm8ZNjEBQRNFHfhQtUPtwxZ+uPrgoOMupoOD2svOQWC9j2nnoE+xYhEWoFCDHES5Ax82MXVk1y3QodJWsLzFn6Mo/MaafCW4dthToo6Vk50e0Ru3nrRBh4E6xhJ9jQ4Tfxx84hpLTQM7lKrhjrA8oh76HBWUt5xwHNcWLX0MwmIB3xWFPZ7LzzS6iQbUpLTA0eHL4sV56O8RqDJ9oBG08ZJzM8e/PI+fxUGICrQn39JdywscR4cdaxNrLHHLim7SWeKyb4etDxfU+6VBX8y8lo/Po69HdCic9o95GlKLJTaqfblctrGi1r4sXxRF8S26zxmRD1nkHQnnGtGgDQf1Va4PTMhoqROuhuT1kG+5Y0qc3gxG83Y9uiNWMe48n+5Q73/lw9POCcR7q9FUg1Ogp5IZe5xLae9TELp58VNuHyzx8mZ1Juk9ixjzy5sVCAcFEjD4mPxfWVMJbzMKvLq8Wb3O1Trl/kRioo9u6rwp5FPv/XmvX7x6igdhBVIQvw0XPizgpuEAfWJj5sArKO1YbKfimkPFEPec8uw9Iw0NU80psz3N639OmXYPf7yi3sOOD6/PFLy5+sUO/iVxzzAWcMWp81m5wCa2bbzP/A0n3gdOX4mNSRyCfg8cqnTolevcddANonDHMIQ2VjuuQdjGXrk9LGAmI1BRsJHxXc9JYiC1Vo3acIJBclJGq9Im5nx4bS0BK2P1YCDo0KZjUlgsikVxpnsOfkvVjkOdb77mDSeriKW8j6IdBcOf6/+ONU/7o1V8DmkDEZSD/h+OOrWE8oMu+5Z8MAnZF46zs9ziJ2dBh6fegtmM5lXpa7NiO7ePjkfziQ+pHUfb/jhwMjtYO9xT8uZm2RxqL7ausdxQK/yFzHx9Pbv3N/BPvB+nMdgo7qkd7A0d7vgw/QLG9al/vvtxheP4N9DMW5k=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/metrics/{id}"}
+  path={"/plugin-api/host-metrics/metrics/{id}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Retrieves current metrics for a specific host including CPU, memory, disk, network, processes, and system information.
+Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information.
 
 <Heading
   id={"request"}

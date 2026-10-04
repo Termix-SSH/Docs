@@ -5,7 +5,7 @@ description: "Clears the stage. One-off rooms are ended for good; persistent roo
 sidebar_label: "End the meeting (host only)"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1lE9r3DAQxb+KmFML6toh/QPuKU1b2kJJ6Cb0sOxhVh6vRWTJlcYhi/F3L6P1IYlL2R56M/LTj5l58zRCTclE27MNHiq4dIQxKW5JJcY9rdSVp1ehaVQMoUsKIynyNdWqCVHtQ6jfq55isonJ8yxKjAfl5OgoizQkWoEGxn2CagOXwTncwVZDR9yGGiroQ2LQ0CO3UEFhsqLIvGK09VSQr0FDonhPUSAjDNFBBS1zXxWFCwZdGxJX52VZnoF+1th3tF7VyLjDRAp9rXDgljxbgyJRRzJM+q/g8wV4vf6iePCenOrQ4546GcRptNd/pDXW0cyKJ4LeLEH5nljBNrE1KffcBW85ROv3J4LfLsAfMbW7gLE+kfBuSQjmjuI/T+tsaeqaokWnTPCezBMXt7IqZoiWD3lXdoSR4sUg27XZPv69Ni11lKB6KhqBDz3NpcjiZRlUswj0/PE5xA4ZKvj28wamSYP1TcjXLTvR31Ds7IO6uP4KGmR3j6WXq3JVLhqaxR/Q3JGv5ZL6QQ1F8oZg0jklHXrhe8zlfPJ1TmtHxGLrCxmXCt4dXj6nj2CCl5j+/5wfR8f0wEXv0HqpPTs7zgnfwDHhoCGzQENlJeAS860G6UJU4yh5vY1umuT410BRDN1quMdocScj3mynRw/J9dVajPgNBkipgg==
+api: eJy1VFGP1EYM/iuWXwrS3G4ofQoICRBIvarlxG11D6tV5U28m+lOZsKMc3chyn+vPFng9q6AhMRTMjOW/fmzv2/EmlMVbSc2eCzxtWOKCaRhSEJ7XsA7z2dht4MYQpuAIgP7mmvYhQj7EOpn0HFMNgl7OQYloQGcXs1hkfvECzQotE9YrvF1cI62uDGYuOqjlQHL9YhbpsjxZS8NluvNtDHYUaSWhWPKAVYhdiQNGvTUMpZoazQY+UNvI9dYSuzZYKoabgnLEWXoNCpJtH6Pk+aMnLrgEyd9/7Uo9HNKwhttECeDvxVPH77+FSTz04QkOE0GW5Ym1IpMb8wMsMRl5/q99WfU2WXilGzwZ6khBbLMPC1HW09L9tpB4nj9qcs+OiyxEenK5dKFipyWKp8WRfEEzT00f5L1UJPQlhID+Rqol4a92Io0BObMON0h+1Lpmfu/S/lntrQ0HlnU8xyE5vjzNsSWBEs8v1o9wHM5dwrnVytIuhKUQNOHaD9mQCW8ylng+fnV6sVCaa5COFi+B4I6+wcPaOahzyFfxv7vjXyz9BwPiQVIINm9P7N+AVcNe+giKzIDVkDowElvKq7ZVwzhmmMe7wloaJhqjhntDOwHKZP29p/n1Fk48PDiQQcvL37Xh+8Qd5JjARccW5s7T7ALzoWbjF/zhBvP8ZcEVFWh9/IM2Fdx6FSXujLQ9klgy9B7F6oD15BYFSfshgUcwSSoyPsgYFsVevAkumdBGo7Qp0zKpFPahcyHFacErBTVrSZBg7rac4fFolgUD/o+Br+i6sC+zpXf846jTkQpV2G15DX/cf5vfJ27bJnF+j08UolA8G54fD/7iFXw6k4/397mXRC+lWXnyHrFntU8Hk1hjV9MIav+xBbUybQCGiyzr6k3bAxmpynXOI4q8r+jmya9/tBzVOPcGLymaGmrxK9HrG3S/xrLHbnE36Dj0fujcT6Gr8H/pEavUrwm1+sJDR54mN132ty1wIt3l+oJdKqOe2rIKP838TjOEatwYD9Nn+uInrXUNP0HApRNbA==
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms/{id}/end"}
+  path={"/plugin-api/session-sharing/rooms/{id}/end"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Clears the stage. One-off rooms are ended for good; persistent rooms stay listed for reuse.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./end-the-meeting-host-only.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Clears the stage. One-off rooms are ended for good; persistent rooms stay listed
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./end-the-meeting-host-only.StatusCodes.json")}
+>
   
 </StatusCodes>
 

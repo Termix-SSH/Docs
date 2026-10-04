@@ -1,11 +1,11 @@
 ---
 id: list-all-containers
 title: "List all containers"
-description: "Lists all Docker containers on the host."
+description: "Lists the containers on the session's host."
 sidebar_label: "List all containers"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVE1r20AQ/SvLnFpYbKVJWtAtJU2b0kKJU3oIPoylsbVktavsjkKM0H8vs5JjJ3aLc5K0evN2vt7roKRYBNOw8Q5y+GEiR4XWqktf3FNQhXeMxlGIyjvFFanKR56ABsZVhPwOBiDMNTQYsCamIOcdGCFskCvQ4LAmyCFSjMa76xI0BHpoTaAScg4taYhFRTVC3gGvmwTmYNwK+l6PXA8thfWWDK2FA2EL7y2hg76fyyWx8S5SFMCHLJPHy4ovlDWRlV/ulDqBXsPZIfRs9k2NRSjnWS1960rlQ/oovHNUMJUp/vxQ/BUaS6ViP9z64speQ01c+RJyWBGDHpqXw7RMLZ5u0dPuuZO99IDC46brbbCQQ8Xc5NOp9QVaGVh+mmXZCehX6fxE41SJjAuMpNCVCluuyLEpUCBqYAYZwX+IT/eIpU/cOkdW1ehwRTU5PpLt7CDb0lgaucKRROf7RClORUY2kU0RU821d4a9LNuRxB/3iC8xVguPoTyS4dM+w6C3t3brZH+oMwoG7WYbd6c4l1Up2mB4nXZlQRgoXLSyZXfz3d8zUdWgml3Qs8gklY34kugSCPT4cuVDjQw5fP9zmxbbuKVP4Yat4G8p1OZJXfy6Bg2yu0Pq2SSbZHsFjeDPWNyTKyVI3dCSArmCRGmNj1yjE/7RGsTGkottJfOatQP5R47f6HpD/UxPPG0sGicJpPF0o1zvYJAraHhxe741v7kG4RNs14n0fgfb93I8WJzMpjQRF1bscYk2koZ7Wj+b3iPaVtJII33EYAR6OOyfRb+7GQ34vfpXXeMhuvXunZtUtvX0813v+vpFZv4XQpwqcQ==
+api: eJyVVF2P2zYQ/CuLfUkLKLabjxc1CHBBmyaXBAhyLu7hYBRraW2xpkiFXN2daui/F0vJtpy7tMiTbXo5OzvDnT2WHItgGjHeYY4fTZQIUjEU3gkZxyGCd+kkcozGuycRKh9lhhkKbSPmN/ibL3YccJVhQ4FqFg56vkejmA1JhRk6qhlzHFHel5hh4K+tCVxiLqHlDGNRcU2Y71G6JhVLMG6LfZ+NWF9bDt0JjKzFR66tvbdMDvt+pU1i413kqAXPFgv9OB/6AqyJAn4zGXqGfYYvHqu+unp3kAKcF9j41pXgQ/pReOe4EC7T/ZeP3X9LxnIJ4oeuZy37DGuWypeY45YFs0G8HOeNbbfGPaXGzMuk9vx0cb4/itqrHBxuDwa0wWKOlUiTz+fWF2TVu/z5YrH4BbNvmH0i46AkoTVFBnIlUCsVOzEFaQkMyKiqRi7aYKRLXdZMgcNFq1RvVmpW4f3O8PSEGvOBu+PJBOJK7RvsmQId3VT2B5eTu6kIs/HLWx9qEszx8nr5YKSr0ajL6yVEdgIUQeF9MP+kmXJ4k1Dg1eX18nVybcr9SGKgj9nwDIeS0zv8+07+s/VQD5EFSCCarXtq3AyuK3bQBFZmGRgBoR1HPSm4ZFcw+FsOafnOSEPFVHJIbKe6/rBkUt//9YoaAzvuXj+Y4OLze/3jf4Q7w5jBZw61SZNH2Hhr/V3irzj+znF4EoGKwrdOfgV2Rega4TK9OqjbKLBmaJ3VJ15CZM0TYdvNYCQToSCnm2bqhkP0jkSfqpeKA7QxidKrSxuf9DBiVYClsrpXEMxQt2OYcDFbzBYP5h6L31CxY1emzl94w0EdUckbH6Ump/ij/xqbQNZOtvlbVN0JJ+zkx1N28FT4XuaNJeOUQ1rs/RgPN3iKB+07xHGGZ2zyU/KuMlRwvbjf67L/GWzf6/GQr7rTpYm0tprNG7KRM9xxd0zcW7KtckpRcEvBaOnj174rwk9fxvT/Gb435GH3XDfteaBymqdfTYPzj9+X2Pf/ArbjW2E=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/docker/containers/{sessionId}"}
+  path={"/plugin-api/docker/containers/{sessionId}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Lists all Docker containers on the host.
+Lists the containers on the session's host.
 
 <Heading
   id={"request"}

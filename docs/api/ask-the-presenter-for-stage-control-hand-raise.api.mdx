@@ -5,7 +5,7 @@ description: "Ask the presenter for stage control (hand raise)"
 sidebar_label: "Ask the presenter for stage control (hand raise)"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlE1r3DAQhv+KmFMLInZIP0C3bUppC6Whm9LD4sOsPLsWK0vOaBwSjP97kdeEbF3KNjcjv/PMjGZeDSC4T2A2cB29xy1UGmpKll0nLgYwsEoHJQ2pjilREGK1i6yS4J6UjUE4evWqwVArRpfoNWhoSZpYg4EuJgENHUoDBgo7pSg4xjYVg6vHYgYUTHc9TdpEfE+cKxqgZw8GGpHOFIWPFn0Tk5irsiwv4c86v6ELqkbBLSZSuR7spaEgzmKWqCMZRv1P8NUCvF5/VtKHQF61GHBPLQU5k/bmr7Sd8zSz+EzQ2yVoisuDEJfE2TT13MbgJLIL+zPB7xbgj5iabUSuzyS8XxKiPRD/921dLoe6Jnbo854FsidTrPKq2J6dPE67siVk4lWfN21TPf+9tg21lMCcigaQx47mUvLiTTIwswj0/PEpcosCBr7+uoVx1ODCLk7hTnzW3xK37kGtbr6Ahry7x9LLi/KiXDQ0iz+gPVCoc5D6QTtiCpZg1JNjWgyZH3Aq5wX+O0n51KfQgxSdRxdyomkMw2zNDRytCRomc4IG42rQMCfI57NDKw15XjlmGLLVfrIfx3x81xPnWVQa7pEdbvPtbKrx2Xtw832d7/A3T8eHAA==
+api: eJydVFFv20YM/isEX9YCF8vr9jKtKJAWGLAMw4LGQx4MY6Al2rpZulOPVBJP0H8vKClpHBcr0Cfp7oiPHz/yY49Ke8F8jR9iXdMWNw6Fiy55PWK+7nHLlDhddlphvt4MG4ctJWpYOckY4APm2JJW6DBQw5ijL9Fh4k+dT1xirqljh1JU3BDmPeqxtSjR5MMeB8NMLG0MwmLvb5ZL+5QsRfKt+mgZVhWDQbIoDg5/fvPLecylHLgEjRESFxy0PuIwuPMg0IqhTSwclBPsYgJR2jMUMWiKNbyqKJSQyAu/RocNaxVLKzOKopuqzTFr627vwwW1PhMW8TFcSEVWVZZibCTrfTlkM2j2yN4ETneP8nWpxhwr1TbPsjoWVFdRNP9puVz+iC+5/0k+QElKWxIG40idVhzUF2QhMCHj8KyLN6b7JOzzXj61wVLj3B47T0Ho5p/fYmpIMcer29UZn5upari6XYGJCSRg8DH5/0ZCObwfUeDt1e3q3cI6V8R48PyCBLX+Dz6im6ZpCvkyT//e6/+mnuJBWIEUxO/DhQ8LuK04PLbZgVdQOrDYTcElh4Ih3nEah+GENFRMJaeR7UTsOyXT5uGft9R6OPDx3VkFl9e/28M3hDvBWMA1p8aPlQvsYl3H+5G/4cT7wOkHASqK2AX9FTgU6dgql+PIQNOJwpahC3UszCjCZmXl+riAmYxAQSFEBd+0nCQGUpuzqBUn6GQUZbAu7eKoh9faBFgZqwcDQYc22lOFy8VysTyrew5+T8WBQzlm/sg7TtYRk9xM1lAw/Ln/32HZk5RPjVN+0KytyQdLNFqvn928xi9uHi164mfbZ+ZodJiP221OO+85s/XGoTnXkPre/Pl3qofBrj91nGyZbhzeUfK0Nc3WPZZe7L/EfEe18Blpy8HBBunVx3mZvgZ0Xy/m0UjBXHRHdWcndHjg47SRh83wbJNd/3VjdqbTwX4xyCPLrwL3/RSxigcOw/CUR+1sqYbhM4HnL8w=
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms/{id}/control/request"}
+  path={"/plugin-api/session-sharing/rooms/{id}/control/request"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Ask the presenter for stage control (hand raise)
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./ask-the-presenter-for-stage-control-hand-raise.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Ask the presenter for stage control (hand raise)
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./ask-the-presenter-for-stage-control-hand-raise.StatusCodes.json")}
+>
   
 </StatusCodes>
 

@@ -5,7 +5,7 @@ description: "Stop presenting (presenter or host)"
 sidebar_label: "Stop presenting (presenter or host)"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk09r3DAQxb+KmFMLInZI/4BuaUtpC6WhTulh8WFWnl2LyJI7GocE4+9e5DUhW5fi3oT99NPMm3kjCB4TmB28j97jHmoNDSXLrhcXAxioJPaqZ0oUxIWjerGciVVk1cYkL0FDR9LGBgz0MQlo6FFaMFDYmVpwjF0qRtdMRZLYg4ZEfE+cXx5hYA8GWpHeFIWPFn3GmquyLC/hz3q+oguqQcE9JlIYGoWDtLk4i1miTmSY9D/BVytwVX1SMoRAXnUY8EgdBdlIe/VX2sF5Wli8EfR6DZrvqSQoLomzae65i8FJ5DyQbeA3K/AHTO0+IjcbCW/XhGjviP/brcv1UCtih17ZGALZsynWeVXswE4e513ZEzLx9ZDXa1c//13ZljpKYM5FI8hjT0spefFmGZhFBHo5fIzcoYCBLz9vYZo0uHCI83UnPutviTv3oK5vPoOGvLun0suL8qJcNbSI36G9o9DkS+o7HYgpWIJJzzHpMGR+wLmcbTk7e+WpNaEHKXqPLmT27Py4RHAHpwiChjmEoMG4JvuQc1hryOQsG8ccqB/spyl//jUQZ8drDffIDvfZg109PYv6zbcqO/Ubp6V1Sw==
+api: eJydVO9v00AM/Vcsf2FItzYwPoVpEiAhMQRMrGgfqgq5idccTe6yO2dbifK/I1+6H10RID4ld3Gen5/93KPQKmI+x3e+rmmJC4ORiy5Y2WA+73HJFDi86aTCfL4YFgZbCtSwcIgpwDrMsSWp0KCjhjFHW6LBwFedDVxiLqFjg7GouCHMe5RNq1FRgnUrHBQzcGy9ixz1+8ss00fJsQi2Fes1w7nQiqGolU6Jg8FX2dF+1GcvIBVDGziyEw7gA1Q+Cg6D2UP07V2gdSs42PvpORpsWCpfaomKYsZKc5y2dbey7pBaO40co/XuMFakFU2D902c9rYcplF8i6pouL7Tqws15liJtPl0WvuCak2VH2VZ9gKfcvxE1kFJQkuKDORKoE4qJVyQhsCIjMOjtp2r0KOSj5t3r7umxm0/9DwGodm+vPehIcEcTy9me3zOx1Lh9GIGqhVQBIX3wf5MhHJ4m1Dg+PRidjLRRhXery0/IUGt/cgbNOP4jCEPA/TjRv6YeoyHyAIkEO3KHVo3gYuK3V1HDVgBoTVHvSm4ZFcw+GsOaUB2SEPFVHJIbEdi/ymZNLffj6m1sObNyV4Fb84+6Ie/CLeDMYEzDo1NlUe49HXtbxJ/xfE3jsOzCFQUvnPyGtgVYdMKl2lkoOmiwJKhc7Uv1lxCZPWucL2ZwJZMhIKc8wK2aTlE70h0zrxUHKCLSZRBu3Tpkx5WahVgpqxuFQQN6miPFWaTbJLt1b0NfkvFml2ZMn/lSw7aEZVcndWQU/xt///NmjtZ7nslfCvTtibrFDu5rd+6do4Prk2u3PGt7ix1LhrM0wZL5l0YTPsjn2Pfqwu/hXoY9Pqq46A7cmHwmoKlpSoz77G0Ud9LzC+pjrzHs/BO2Om4HHzd7sjngOb3/O/s4tQr11R3ekKDa96Mi3ZYDI+W1NmXczUt7Y7vk3FNLH8L3PdjxMyv2Q3DfR7Rs6Yahl+ETSEy
 sidebar_class_name: "post api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"post"}
-  path={"/collab/rooms/{id}/stop"}
+  path={"/plugin-api/session-sharing/rooms/{id}/stop"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Stop presenting (presenter or host)
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./stop-presenting-presenter-or-host.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Stop presenting (presenter or host)
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./stop-presenting-presenter-or-host.StatusCodes.json")}
+>
   
 </StatusCodes>
 

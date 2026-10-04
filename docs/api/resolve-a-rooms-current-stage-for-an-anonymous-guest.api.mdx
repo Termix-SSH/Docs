@@ -1,11 +1,11 @@
 ---
 id: resolve-a-rooms-current-stage-for-an-anonymous-guest
 title: "Resolve a room's current stage for an anonymous guest"
-description: "Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal WS with roomGuestToken, guac stages get a read-only join token."
+description: "Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal socket with roomGuestToken, remote desktop stages get a read-only viewer token."
 sidebar_label: "Resolve a room's current stage for an anonymous guest"
 hide_title: true
 hide_table_of_contents: true
-api: eJzdlE1v2zAMhv8KwcsuapKi+wC8U/fVdcCGYunQQ5ADIzO2VlnyKDptYPi/D3JSoG2GIbvuZsgvH1HkS/ZYcrLiWnUxYIFX3co7a0BI+cS7ximX0LLA5dUELjpOmqCN3oPWLoFGWEfv4x20womDskC6c2prThP4xhsWENZOQoI6JoWSlZxPb2E+/wxJqeIEJAw/owtcQswBWjMoS+MCebiZw53TGiTGZrz+Ot5yMFB1ZB8AFSsQCFN5EoPfjjDQrJugQaUqYbHA99F7WuHSYMNaxxILrFjRYEtaY4FTOwqmVb5l2o/xAxpMLBuWjOixE48F1qptMZ36aMnnVxVns9nsFM2zUn4lF6AkpRUlBgolUKc1B3WWsgR2ZBzMX8FnB+BcO+1CYA8NBaq44aBH0l7+kbZ2nvcsORL06hA0xuWmqEvqbBrf3MTgNIoL1ZHg1wfgD5TqVSQpjyS8OSREe8vyz9U6PWzqnMWRBxtDYPuki8tsFduJ0+3olRWTsJx32VyL5ePfc1tzwwmLp6IeddvyPpVsvFGGxV6EZv/xKUpDigV+ubnGYTDowjqO4U591l/n4bmH86tLNJi9u0t9NplNZgcP2ovfkb3lUOYg+M5rFg6WcTDYxqQNhcwPNKbznVP0G84jF2PzIoHtRMaa5nGEdRSgABRi2DaxSzAO1PN7e7QxKAf9P3fOrpHK9zptPbmQKzn6rN+vmwXu1g0afKhPMYbnBZXTzpK+z6vjh/hhyMe/OpbsraXBDYmjVe72Yjk82mgXH7MlfgO3UAaK
+api: eJzlVcGO20YM/RWCl7TArO2muVQJAiRFmyZtg8Wuiz0sjIKWaGvi0YwypOx1Df17Qcne9WbRFD33JInicN57HL45YMVSZt+qTxELvOyWwZcOMilfBN945QpazvD+cgLvOhYVaFMIoLUX0ASrFELaQZtZOCpnkJ3XsmaZwEfecobM2uUoUCdRqFjJB3kJ19e/gCitWYAyw6fkI1eQbIHWDMq58ZECSCo3rLDzWkNOqRkgzNOGo4PMTVKGimWjqT2VW7MCQWaqLlIMe9h63llVWzNBh0prweIWf0wh0BIXDlvK1LBytvgBvenQktboMFLDWOCwGB1m/tz5zBUWmjt2KGXNDWFxQN23liiafVxj3y8sWdoUhcX+P5/N7PFY7KuUGrAtgGI18B44OEgZCGIXwhjA3uGL2YunBX7zcQMxKaxSF6sh7fkPT9PmKUFDcQ+G31qIfe+wYa1ThQWuWdGNjAuctqFb+3hBrZ8Ki/gUL6QmozVd2+LpYVCjR4fCeXtSrcsBC6xV22I6DamkYA0vvp/NZt+h+wLQ7+QjVKS0JBnJU6c1R/UlWQqMldFkFC677HU/7LJkypzfdAb1dtG7A5YpbTyfR6j1v/L+PnJW4traNfbjvNB99ww9Hrtq32MSuuPLzyk3pFjgh5v5E0rXo1bw4WYONglAAlY+Zf/XwKmAt0MVePXhZv56Ys06x34PYoSPbjyHY8rDSfy0069uPeaD2BAoiF/HCx8ncFNzPM2oA6+gtGGxSMkVx5IfRu8RaKiZKs4D2nNd/7Nk2tz9+YpaDxvev37C4M3le/vxL8I9qjGBS/OIgbmcXMjwW520i5yfCVBZpi7qS+BY5n1rXmanDppOFJYMXQzmLxUImwkoh/0EjmAESoo2W75pOUuKpHZUk9acoZNBlN66tEqDHl6DCTA3VHdWBB3adIwMZ5PZZPaE9zH5LZUbjtWw8xWvOFtHTPI2iTYUrf6x/1csKWzZHC6l5plA2eVsqg1GAStzjmgw475JncAwsl/ua1MTlaP+Pwx/PKnKdzptA/loyg52dTia3i0+mN5ga49sDx2eVCzGi2Dh0MjZwsPBLOyPHPrewp87zuZUC4dbyp6WdiZuD1h5sfcKixUF4a/045ur4x3zLfwT9pNRRHOJLYXOvtDhhvf3d1W/OHf4dz/Nse//Bo51w+Q=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/collab/guest/{token}"}
+  path={"/plugin-api/session-sharing/guest/{token}"}
   context={"endpoint"}
 >
   
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal WS with roomGuestToken, guac stages get a read-only join token.
+Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal socket with roomGuestToken, remote desktop stages get a read-only viewer token.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./resolve-a-rooms-current-stage-for-an-anonymous-guest.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Public, rate-limited per IP. Guests poll this to follow presenter switches. Neve
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./resolve-a-rooms-current-stage-for-an-anonymous-guest.StatusCodes.json")}
+>
   
 </StatusCodes>
 

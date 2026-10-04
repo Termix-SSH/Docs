@@ -1,11 +1,11 @@
 ---
 id: delete-a-vault-profile
 title: "Delete a Vault profile"
-description: "Permanently deletes a Vault signer profile. Only the owner may delete it."
+description: "Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use."
 sidebar_label: "Delete a Vault profile"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v2zAM/SsCTxvgJe7aboBvHdpiHfZRNN12CHJgLCYWKlOuRGcNDP/3QbYzpHVXZMBOtuXHJ5KPjw1oCrk3lRjHkME1+RKZWOxWabIkFBSqH1hbUcGsmbyqvFsZSxP1je1WSUHK/YrnJe5ClJEJJCC4DpDNoYuGRQIVeixJyMfjBky8sEIpIAHGkiADoyEBT/e18aQhE19TAiEvqETIGpBt1aFYaE0e2nYR0aFyHChEwNs0jY/HNZ3HpIxjlTteGV+SnkCbwMlz2CveoDV6V6QyO+zxGPvV8Zu+dBShshLSStzQgyHsZBx2PVCzE7VyNfc3nD6XzSUau0+qNp0QOwWgbRMoSQqnIYMeAknf0gymHXg6gMO0MbqFBAL5zU6B2lvIoBCpsunUuhxt4YJkx2maHkHyJJkvaFhpFFxiIIWsFdZSEIvJsWtvzwxt8iLx8Yh4NvuopGYmq0pkXFNJLAeynTzL1vW35/IHEp2Oibo4FQTFBDF56GouHRtx3vD6QOJ3I+JzDMXSodcHMrwfM7j8rnPcv3XraCzqjLxBG53BlD9ScRFHJa+9kW03K0tCT/6sjrM1X+z/nkV/9v7bB/2xa0wFBhvH7x4EyfBy6XyJAhl8+nnbTbThlevCjdiIvyVfmgd1dn0FCcTZ7VNPJ+kkHRU0gD9gfkesY5C6oRV54pyizyoXpESO/MPOOe+ttdtyg1+eEjeQOxZi+d9Lsu+R0INMK4uGY5KdhM1g5Dl0Ro7GHqwMCWRGx40alY2Ipomm/O5t28bj+5p8VG2RwAa9wWXs47wBbUJ815Ct0AZ6ocRXN8MSfq3+luRwiLyNsqCt4xckcEfbfpO3i/31dH7x+eL2Atr2N1A6M4o=
+api: eJy9VcFu20YQ/ZXBXNoADKU0ObFBgARxgLhtaiRqfTCEYswdmRstd5ndoWxG4L8Xs6RsJUpT9NKTyOHT45s3s497NJzqaDuxwWOFr9mxcAKCLoaNdQzkDfCO4wA1R7EbW5Mw1FQ3bGATIlgp4XfvBpCGIdx6jtDSACYz5afvmE2CHfVOyj5xiQUK3SSsrvBPLeK6wI4itSwctbxHq2I6kgYL9NQyVmgNFhj5U28jG6wk9lxgqhtuCas9ytBllBe+4YjjuFZ06oJPnBTw03KpP9/q15Q4FvjsW4C3fkfOmns77AH79BT7LsiDCTPs2SnsYqbyQWATeq+MY4EtSxMMVjg5h8XUf4WLzvU31j+mzi6yiYtZTFrsrRmxwMRxd3Cujw4rbES6arFwoSbXhCTV0+Vy+QSLr6T8RtaDIaFrStOoqZeGveiUbfAwMaOambjuo5Uhv+WaKXJ82avAq/VY7LEOYWv5uEKd/YWH+8oRxQed2jSVY6L7Iap6nIer9xMIi/niTYgtCVZ4frk6aekDp6TKzy9XkNgLUAKlD9F+zj1V8CqzwPPzy9WLPKZj7fciJvlYTLs4QR628eOtfPfVEx4SC5BAsjf+sfUlXDbsoYusygqwAkJbTlqp2bCvGcKOY96iL0RDw2TmpTr29T9bJu3dX8+ps7Dl4cVJBy8v3uqDfzHuC44SLji2NneeYBOcC7dZv/Lkk/BDAqrr0Hv5GdjXceiETd46aPskcM3QexfqLRtIrEEg7IYSZjEJavJ6VmzbcUzBa/6QD9JwhD5lU0ad0iZkP6w4NWClqu6UBAvU0zF1uCyX5fKk7xn8iuote5Pf/J43HHUiankXkrTklX+e/xQcQJAT7BAPXxPrsfDCXv7PaJ0WQvhOFp0j67WBnAr7OVGu8CFR1JycwQUeUgULrKzRUNbkUPh+r/nwR3TjqOVPPUeNgbX+N1q6VsOv9mhs0muD1YZc4u948eP7OccfwT8pPpxCP2SJrtc7LHDLw/QxGNfHofn67Nez1RmO49/QUVdf
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/vault/profiles/{id}"}
+  path={"/plugin-api/vault/profiles/{id}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Permanently deletes a Vault signer profile. Only the owner may delete it.
+Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use.
 
 <Heading
   id={"request"}

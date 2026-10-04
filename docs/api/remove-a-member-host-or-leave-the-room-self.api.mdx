@@ -5,7 +5,7 @@ description: "Remove a member (host), or leave the room (self)"
 sidebar_label: "Remove a member (host), or leave the room (self)"
 hide_title: true
 hide_table_of_contents: true
-api: eJydlNtq3DAQhl9FzFUCInZID+C7tNnSlBZKdksvFl+M5dm1iA6uNF4SjN69yGtKti5l2zsf/vlmRjO/RmDcR6i28N4bgw3UElqKKuietXdQwQNZfyCBwpJtKIiLzke+lMIHYQgPJLgjEby34iKS2V2CBEvc+RYqaMkQE0jokTuooFBTkiLLYzHqNhVHaizGIVK4bxNIiBQOFHJRIwzBQAUdc18VhfEKTU5f3ZRleQ2/l/oFtRMtMjYYSaBrBQ7ckWOtMEvEkQxJ/hV8swCv1x8FD86RERYd7smS4zNpr/5I22lDMyucCXq9BE1xIjKyjqxVnHq23mn2Qbv9meA3C/Adxq7xGNozCW+XBK8eKfzzaV0vh7qmoNEI5Z0jdTLFOq+KGoLm52lXGsJA4XbIq7atX/5eq44sRahORSPwc09zKXnxJhlUswjk/PDBB4sMFXz6voGUJGi381O4ZpP1GwpWP4nbr/cgIe/usfTyqrwqFw3N4neoHsm1OUg80I4COUWQJPQ+skWX+Q6ncv7Dgicpf/XJ9MRFb1C7nGgawzh7cwtHb4KEyZ0godLtZObJoPn9aNF8ReQCcsw4Zqt9Cyal/PnHQCHPopZwwKCxyaezrdOLK+Fu9Xm1WUFKPwFK7IXQ
+api: eJy9VVFv20YM/isEX5YAF9tb96QVBdotA5ptWJF6yENgDLRERzef7tQ7yokr6L8PPClpHBsb1oc9WSfxPn78yI/uUeguYXGLPwbnaI0rg4nLLlrZY3Hb45opcnzbSY3F7WpYGWwpUsPCMeUA67HAlqRGg54axgJthQYjf+ps5AoLiR0bTGXNDWHRo+xbjUoSrb/DYTAnQbrE8f1/A1ppcGqDT5z0+3eLhf5UnMpoW7FBs1xzE3Zc4WDw+1PflzVDuPccoSTvg8CaIT6/8+r4zu/e7UFqhjok0XvTDQhSq07DYE6yAIKGmzVHONOb5wZCBMe044wWQ2jgLLHbnKPBhqUOFRZYsWNhNKNgBc5b191Zf0GtnSdOyQZ/kWpSUeYKkea9rYb5mCnN+1HZAbXTcffYxy46LLAWaYv53IWSnFIqXi0Wi2/xJf3fyHqoSGhNiYF8BdRJzV5sSRoCIzIOz8bpo/ZtbMzzoXpqo6bGqb16HoPQTA8/h9iQYIFXN8sjPh/HsuHqZgmJvQAlUPgQ7edMqIB3GQVeX90s38y0k2UIW8svSFBrf+E9mnEix5AvM/nXvfxj6jEeEguQQLJ3/sL6GdzU7KGNrMwMWAGhLSd9U3LFvmQIO4655QekoWaqOGa2I7GvlEyahz9fU2thy/s3RxW8/fBeP/yLcAcYM/jAsbG58gSb4Fy4z/wVJ7vnmwRUlqHz8gOwL+O+Fa7yyEDTpeyqzrtQbrmCxLpThN1+BhOZ9Og+27QcU/AkOmfZT6ADPMumsn4Tsh5WnAqwVFYPCoIGdbTHChezxWxxVPcU/I7KLfsqZ77mDUftiErehiQNecWf+v8Vrj1I+dQ44QeZt46s10TZev1k51v8Yuds0QND6z5US6PBIq/ZydV6njbmyqDSUqS+V3/+Ed0w6OtPHUfd6iuDO4qW1qrZbY+VTfpcYbEhl/iIdBm8sNdBOruelvE5oDldzKORvLpoR67TExrc8n78a9B9/z9mnFQZVsOzFfrT5a+Xy0s0SIeGemGgrM5J+L4fI5Zhy34YnrKJnjXZMPwNei2CzA==
 sidebar_class_name: "delete api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"delete"}
-  path={"/collab/rooms/{id}/members/{userId}"}
+  path={"/plugin-api/session-sharing/rooms/{id}/members/{userId}"}
   context={"endpoint"}
 >
   
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Remove a member (host), or leave the room (self)
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./remove-a-member-host-or-leave-the-room-self.ParamsDetails.json")}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Remove a member (host), or leave the room (self)
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./remove-a-member-host-or-leave-the-room-self.StatusCodes.json")}
+>
   
 </StatusCodes>
 

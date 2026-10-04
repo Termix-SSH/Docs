@@ -1,11 +1,11 @@
 ---
 id: get-the-host-metrics-layout-for-a-host
 title: "Get the Host Metrics layout for a host"
-description: "Returns the current user's saved card layout for the host, or a default layout derived from the host's enabled widgets when none is saved."
+description: "Returns the current user's saved card layout for the host, or a default layout from the host's enabled widgets when none is saved."
 sidebar_label: "Get the Host Metrics layout for a host"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVE1v1DAQ/SvWXADJ7Ka0gJRbEdCCVIS6RRxWe5jasxuriZ2OJ21XUf47cpKWbQPVcuOUrzcvM+P3XguWomFXiwsecjgnadhHJQUp0zCTF9VE4hdRRbwhqwyyVSVuQyNqHbgHFiGKVoEVKktrbEq5R1hil6rWHKoH6IuoyONlSVbdOrshieq2IK988KTc+KMZaBDcRMiXcBqiqDMSdibCSkONjBUJcfragkuN1ygFaPBYEeTgLGhgum4ck4VcuCEN0RRUIeQtyLbuUV5oQwxdt0roWAcfKSbAmyxLl8e7uSjo8eQu9vPMoNNwlB1OK74FhcZQjErCBH80xfeD+pD4G29n0HUaKpIiWMhhQwJ6mDOHeSJ6XQ07mddMa2LyhuK8dbYDDZH45n5BDZeQQyFS5/N5GQyWqTo/zLLsAPSTHs7QeWVR8BIjKfRWYSMFeXEGE0QNzNDpZ4kPJ8SLxamSxnsqVYUeN1Qlce3HdvRHtrUraeTiPYneTon6OhUFxUVxJvYzV8E7Cez8Zk/idxPijxiLy5Dssh/D+ylDMFfE/7ytg+mhLogdlsoE78k8OsVVkopp2Mm218olIRMfN0lly9Xu50Wyz2CPXdCDm1IrMLosPQ8g0OPN58AVCuTw9edFL2zn16Evd1Im/AVx5e7U8fcvoCFpd2g9m2WzbDLQCP6A5oq8TUXq/N4DyV51iFKhT/xjJJyQ9Am0Gya7dsbem09/1IIJXsjLf5eNw9KF7mRel+h8mrrXRDtmxBJ2MyJFx++UAA25sylL+6HzJbRt8vsPLrsuvb5uiJMgVhpukF3qqJeHdbHvDvI1lpGe2dbL8zF+X6m/tTu+RL9NJ45lk55AwxVthwzvVrsBePIpCecXYCxM/w==
+api: eJzNVcGO2zYQ/ZXBXJICXNttelKDAAnQpt0iRbBxsYeFUcySY4u1RCrkyLuOoX8vhvI6coyk6K0nm9TT8L3HmacDOs42+U58DFjhDUufQgapGWyfEgeBPnN6liHTjh1YSg4a2sdeYB1TAdYxi4GYgMDxmvpGTogU2xPkWQYOdN+wgwfvNiwZHmoOEGJg8McDZmhQaJOxusNfYxZ4x5K8zbgy2FGiloWTPj2gV8IdSY0GA7WMFXqHBhN/7H1ih5Wkng1mW3NLWB1Q9l1BBeENJxyGlaJzF0PmrIAfFgv9OfdkWfO5Yp+LnhkOBn9cvLh8448IZC3nDBLP8IPBlqWODivcsKAZ+Vc475p+48MVdX6u2Kt2lH2+6BKvOXGwnOcH7wY0mDntngzpU4MV1iJdNZ830VKjb1cvFovF92i+4PiOfABHQveUGSg4oF5qDuItKQTGyqgeZbZ98rIvp9wzJU6ve+V9txrMAW2MW8/THer877w/7UxKfNDLGM2eFjrdjbLH453pegShOf75JaaWBCu8vl1eSPrAOSvz69slZO1cyqDlY/KfiqYK3pQq8PL6dvmq3N+U+4nESB/N2GIj5HOT/f0g3zx6xENmARLIfhOufJjBrfZ6l1iZGfACQlvOumPZ6Z1C3PE4UGekoWZynArbqa//2TJpH/96SZ2HLe9fXSh4/f43ffAvxp3VmMF7Tq0vyjOsY9PEh8Jf68SHUGKDrI19kJ+Ag037TtiVroO2zwL3DH1oot2yg8w638LNfgZHMhkshRAFfNtxyjGQaKtGqTmVWBpHyod1LH54adSApbJ61CJoUKdjVLiYLWaLC91H8BuyWw6unHzzNGVqeReztBS0/vH+37IUldN4mgYElWn/8iAdkyAc5H+TsmP3CD/KvGvIB1VbIuRwTKU7/JxKaHAaRZfLSTahwco7TexiRHWHh4OmzJ+pGQbd/thz0jBZGdxR8sq2RIvzuTDHak1N5m84+PzmGPLfwdekPM1y0EHeUdPrCg1ueT9+KYbVNI7f/rzEYfgHqhZylw==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/host-metrics/preferences/{id}"}
+  path={"/plugin-api/host-metrics/host-metrics/preferences/{id}"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns the current user's saved card layout for the host, or a default layout derived from the host's enabled widgets when none is saved.
+Returns the current user's saved card layout for the host, or a default layout from the host's enabled widgets when none is saved.
 
 <Heading
   id={"request"}

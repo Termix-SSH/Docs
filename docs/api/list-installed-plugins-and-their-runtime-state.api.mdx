@@ -1,0 +1,62 @@
+---
+id: list-installed-plugins-and-their-runtime-state
+title: "List installed plugins and their runtime state"
+description: "Returns every plugin known to the database, merged with the loader's live state so the UI can tell 'enabled but failed' from 'disabled'. Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users."
+sidebar_label: "List installed plugins and their runtime state"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SsDXtoCitZtb24QIEHTNunXInG6COJFPCLHFmOKVDmj9TqG/3sxlJx4k6JFD73tyTLJefPBN49zMI7YZt+LT9HMzQuSIUcGuqG8hz4MGx9hG9MugiSQlsChYINMFXSUN+Rg56UtOyGho/wFQ/A3BCwoBDwavXoGFiMIhQBLQxGbQA6aQWCNPpBbGljn1MHSOM9lc2lq+L2n4hbjHnCQlqJ4i0IOBqZcQUwC7wYWQNf5yPPiCvseuFVHFkNgkNYzpDhlxMTsU0F1ZL0j2LXetlOmD2yKkn0zqA/BhgGjg4w+gBfqWM0ybTyLuucEGxQfN+AFGmp9dGMk9YjGdYcRNwS7NAQHTSbclhDH8NYpQ0zxQTEpGXG9jL+dVhg2JJBi2MOuRTkzjESOa7jSVTzdkWfAENJOA0/gUjVatcjQEEXYZIwybnopae3avX6OFwCYCVJPGZUIGMCRoA9csrTYY+ODF09cjUhcQUCWpzmnXND6oQnevkiDEBcwH20YHLkxBU22TcFRZkjrvy1TfRcjeBYuWf+0WFxCj9KO18HJbklOC5CHGPUOpjow5RviQso0CNiUSRmZdM+2ZLf1Mi5aUrpFoehg7Sk4BpeVtOquyWnHhccT5MjrOaxONitg3JfYNE8NohmiCwQocDExCZlJ+OKhd48uTnb1O65gVXb+oKw8XKm5FwaLtiXY0r6ClWWePCCw7ANxSyTAeq4hVtJ6qUotViFZDMSrs3IFjJsBN6TAwK3vGb7UnluaYnJ7+/b1669qWDnqKTqK1qt9QUv9ePvf39kKJGf9DWjF32hvn9Ji8HGkJ3YEKeuh8levIoNLpMQ2lRHcsJm/MZfjvZvrymTiPkUmNvOD+WY205+7ivSLZ1HKnMhijsfKdCRtcmZuNiSmMsoFMzdT7dlUZvSt3g5myMHMTSvSzy8uSsHaxDL/djabfW2qT9z9ij5+0LhSlTPlUeUYkc3xWp3YIXvZFy8NYab8eNBI3lwfq4OxKW09na9g73+m/YeVM4iXtqVurMI50MHIvqcpek2rHDPz6ZCppo8fUu5QzNw8v1p8ltLLSfOeXy2AKQogg8Kn7N+XnObwpKDAw+dXi0e1OVZ3Yv8QxBi+qYxX2PGIqUzEEtK7nfyj6/E8MIn2CftNfOCjyhhF6DNpZJVSVnBLrCuWlIIE6WYi1J2goSWlY4n2vK7/uWTS3b59iL3X7nv0WQaPL5/pxr8U7g5GDZeUO18yZ1gnleUSv+KkXSzagtamIcp3QNHmfa/SrKyDTt+zhmCIQXXOAVOPGYXCvoYpGJWLqI+f73rKnKJ2I8akglQekrFJfFynUg8vQQuw0KhuFcRU5mYUIDM3s3pWzz7Lezr8BO1WVVI9v6A1Zb0RLXmfWDqMij/df2lUH1kw6IMy9WJpIWnJZ1Vq8d00GXzqUNtF1UTuh5D7IeR+CLkfQv63IWR8HYRu5aIP6KOqWRkRDtMc8cb0HwcUHRV06XBQvXmVw/Goy38OlPXdv67MDWavajE+8h9Hkx+fLszx+Bc8v8bf
+sidebar_class_name: "get api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List installed plugins and their runtime state"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every plugin known to the database, merged with the loader's live state so the UI can tell "enabled but failed" from "disabled". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.
+Non-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.
+The frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at /plugin-assets/<id&gt;/frontend.js, `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships ("en" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.
+
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./list-installed-plugins-and-their-runtime-state.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./list-installed-plugins-and-their-runtime-state.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

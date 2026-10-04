@@ -5,7 +5,7 @@ description: "List rooms the caller belongs to"
 sidebar_label: "List rooms the caller belongs to"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVk9tq3DAQhl9FzLWIHdID6C5t0xMtlG5KLxZfjOVZW0SW3NE4JBi/e5HXlGxdyuZOSP98mtM/gWCbwOzhbfQea6g0NJQsu0FcDGDgi0uiOMY+KelIWfSeWNXkY2iTkggaepIuNmCgJQENA0oHBgq7EIslFjQk4nvi/NcEI3sw0IkMpih8tOi7mMRclWV5CX9n8BVdUA0K1phIYWgUjtJREGcxS9SRDLP+L/hqA97tPioZQyCvegzYUk9BzqS9+Cft4DytLD4T9HILWuJUEhSXxNm01NzH4CSyC+2Z4Fcb8DtMXR2RmzMJr7eEaO+In92ty+1Qd8QOvbIxBLInU6zyqtiRnTwuu1ITMvH1mJdqXz193tmOekpgTkUTyONAayp58RYZmFUEej28j9yjgIHPP29hnjW4cIhLuBOf9bfEvXtQ198+gYa8u8fUy4vyotwUtIrfoL2j0OQg9Z0OxBQswaxhiEl6DJkfcEnnDGedfPGnLqEHKQaPLmTw0vZpdd0ejq4DDUffVRryFPLLNGUD/WA/z/n610icO1xpuEd2WOea99X8xM8fbnJjfgOghGpJ
+api: eJydkk9r3DAQxb/KMJdenF23vbkhkBQKTVsIycIeQiiz8qytriwJzTib7eLvXiTvIX+ghZ5s7Kc3v/dGR1TqBJt7/Bycow0+VChsxmT1gM39ETdMidPlqD029w/TQ4WJJQYvLNgc8UNd50fLYpKNaoPHBm9DGKSCvdU+jAras03QjSwKGnbsBaepenXmuxWFlA9mPRhyjhNs2AXfCWjACgfWPrTYYMeKFUbKTLiMbuysP6Nol8IiNvgz6SlZ3y2LH+ZE6ZGTlEBjcthgrxqb5dIFQ64Pos3Huq7f42uqH2Q9tKS0IWEg3wKN2rNXayhLYHbG6Vltd6bnYW7neXlH1EPk0+jMVGTYnERYnV6+hDSQYoPX69Ubnrs5IFyvVyDsFUgg24dkfxegBq6KC5xfr1cXC5wqNCHsLL+CoGi/8QErtNl2lmCFngrSr73+dfSsB2EFUhDb+TPrF7Du2UNMnMkqsApKO5b8xXDL3jCER05lvy+goWdqORXaGew/K9Ph6ec5RQs7Ply8SXB58zX/+EdxLzwWcMNpsCW5wDY4F/aFP/uEvef0ToCMCaPXT8DepENUbsuVgWEUhQ3D6F0wO25BOFIiZXdYwAlGwJD3QcEOkZMET5rvWdCeE4xSSpnylrah9GHV5QJWmeopm2CF+WrPCetFvajf5D6Jr8js2Ldl8i1vOeWN4DT9AWXKZSw=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/collab/rooms"}
+  path={"/plugin-api/session-sharing/rooms"}
   context={"endpoint"}
 >
   
@@ -49,7 +49,9 @@ List rooms the caller belongs to
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  {...require("./list-rooms-the-caller-belongs-to.StatusCodes.json")}
+>
   
 </StatusCodes>
 

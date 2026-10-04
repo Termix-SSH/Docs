@@ -1,11 +1,11 @@
 ---
 id: dispatch-a-request-to-an-installed-plugins-backend-router
 title: "Dispatch a request to an installed plugin's backend router"
-description: "Forwards the request to the sub-router registered by the plugin with the given id. Returns 404 if the plugin is not installed or not currently running. All HTTP methods are dispatched the same way."
+description: "Forwards the request to the router the plugin with the given id registered through ctx.http.router(). Returns 404 if the plugin is not installed or serves no routes, and 503 if it is installed but not currently running. All HTTP methods are dispatched the same way."
 sidebar_label: "Dispatch a request to an installed plugin's backend router"
 hide_title: true
 hide_table_of_contents: true
-api: eJzdVU1v1DAQ/SujuQCSuxtgASm3Ir4lpKot4lD2MJvMbqw6dhhP2q6i/HfkJC0pC6hcOW3seX6eGb9522HJsRDbqA0ec3wX5JqkjKAVg/D3lqOChmEZ282RhFZZQHhno7JwCZv9EGxcu7Merq1Ww3pnr9iDLRdwytqKj7DKVmC3c7CN4IOC9VHJOS4hyLBRtCLs1e1BWu+t3y3g2Dn4cH5+AjVrFcoIJAyljQ1pUXE55kc1wzXtF988GlTaRcwv8GS4K+LaYENCNStLCnRoU8ENaYUGPdWcVgP4Y4kGU/FWuMRcpWWDsai4Jsw71H2TsFHF+h32/TqBYxN85Jjiz7Is/dxv7OmEgK2EetaERxHGni6wN7jKVodHxwp+36rbBmHfGxx7gznuWNGMpeW4HC86osYuu9sC+2WXwj0ajCxXty1pxWGOlWqTL5cuFOSqEDV/nmXZUzS/5PWZrIeSlDYUGciXQK1W7NUWlCAwMmNv/kr8/ID47OwDaOs9O6jJ045r9vpAttVv2bbW8cQlDyR6cUg0nIOopDaqLeJQcx281ZCk8EDilwfEbyhWm0BSPpDh1SFDKC5Z/rlbTw8f9YzFkoMieM/FvVdcJ6kUrVjdD1rZMAnLcZtEdrGeh8/SqIyzMAfdTU5KBaeJSusRhGb6eBekJsUcP309H3Rt/TYMx626hD9nqe0NHJ98RINJu2Pq2SJbZAcFTeDXVFyyL9MhOOUtC/uC08g1IWpNPvFPJvBmshWguQOSn03f3exuJtpxhn+9vMMieGWv/5ezjq+ofKPLxpH1qY2DyLrJcy7wp+egwXxmq/mAWBtMGkzIrkv28UVc36ft7y1L0tfa4BWJpU168YsOSxvTd4n5llzkvzT68enk3E/gT8lOm+T3SUDk2rRCg5e8n/8J9Ou5qb5/m9T4A462fTA=
+api: eJyVVd9v2zYQ/lcO99INUGR1SV+0okA6tFszdDBSD3nIjIGmzhYXiVR5pzieof99OEpJ7HjYjyeb5N3H777veNpjRWyj68QFjyV+DHFrYsUgNUGkrz2xgIRxGXqhmP52Tb9xHrZO6rTeuHvy4CqItHEsFKkCqWPoNzVYechrkS4f87/5Nodrkj56hoviAtz6ENEx+CDgPItpGqogRGCK96T7IwPOwPgK3hTnmutEc57jV70kBNvHSF6aHcTee+c3OVw2Dfy0WMyhJalDxWAiQeW4M2LrRJiATUuwNbv8N48Zitkwlrc4T+QYlxl2JpqWhKIe7NGpaJ2RGjP0piVdpeBPFWaoArpIFZYSe8qQbU2twXKPsus0liU6v8FhyP4ealz9d5ilBnMXPBPr+XdFoT/HHl9PEbCOoT0Q/xVPFuc4ZHhRvD5NveylJi/OGt2AR2JTwsVpwi/hRa+oWdWRZSn5TXF+mjx/6olTfx9dVe1wNBRL3JBgNspW4my8+cx0brZ/dGWY7fV4wAxTX00+9rHBErVNy9msCdY0dWApz4uieI3ZC16fjfNQGTErw5Sa0RzrMiKj2sFk++hkl25ZkYkUVUQsb5dqug3hztHhjuncz7R72jmA+KK2j74eAj11gbLHqTt0PQZhNv35GGJrBEu8ulmclPSFmJX51c0CmLyAYVD4EN2fqaYS3icUeHt1s3iXPDvk/kRipI/Z2M5jyHND/7GVf7x6jAcmASPAbuPPnM/hpiYPXSRllumTF3NHrDuWKvKWINxPk+mINNRkqqmfD3X935JJ+/D7W9M5uKPdu5MKLuef9OBfhDvCyGFOsXWpcoZ1aJqwTfwVJ2w9xVcMxtrQe/keyNu464Sq1HXQ9iywIuh9E+wdVcCkY0mo2eUwkWGwxqdR2nYUOXgj2qpBaorQcxJlUJfWIenhpFEBFsrqQUEwQ30dY4VFXuTFSd1T8Htj78hX6eZrWlNUR1TyLrC0xiv+5P/lD58/gKUobq1vhYDFSM8vkfVdeCGv0i9qOsqwIdL0SchgW1MqKOE6Bhv82m36SNX4kVBFG8P6jeCewIhQ20muo31sAKEHmXWNcV4Jpymwn+bHLT7PD8zQ2JbOmBttl5H0MkMdEhq53+so+DU2w6DbX3uK+uKXGd6b6MxKtdXn/TypfvywwGH4C4VKmkA=
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Forwards the request to the sub-router registered by the plugin with the given id. Returns 404 if the plugin is not installed or not currently running. All HTTP methods are dispatched the same way.
+Forwards the request to the router the plugin with the given id registered through ctx.http.router(). Returns 404 if the plugin is not installed or serves no routes, and 503 if it is installed but not currently running. All HTTP methods are dispatched the same way.
 
 
 <Heading

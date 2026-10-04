@@ -1,11 +1,11 @@
 ---
 id: vault-oidc-callback
 title: "Vault OIDC callback"
-description: "Unauthenticated endpoint the IdP redirects to after login. Correlates the authorization code to a pending session via the Vault-issued state parameter."
+description: "Public. The redirect URI a Vault OIDC role allows. Matches the sign-in by the state Vault issued, has Vault sign the ephemeral key and tells the terminal to reconnect. The 2.8 URI /vault/oidc/callback redirects here."
 sidebar_label: "Vault OIDC callback"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNlU1PGzEQhv+KNadWWpJQaCvtjUJbqIqK+GgPKIeJd5JY8drLeBZBo/z3arwBAqERlVqpp2TX7zw79rwznkNFybJrxMUAJVwEbGVKQZxFocpQqJroghiZkjmqTgxT5ZisJCPR4FiIjY8TF3pmPzKTR6GUxcqJ7H6iko2NFeUI01CoXJiYRCnpyrXDrP+OrZctl1JLlUmCQqZBxpqEuAcFCE4SlJeQdTAs4H5VX8/BafpXLfEtFBCwJighY6AApqvWMVVQCrdUQLJTqhHKOcht0wnZhQksFsXzIE3/b3CIOTJsChzqV1ITQ6Kk628GA/15XKXD8+OvpsEJGRvD2HGdD9RNwpYLJrXWUkomshmj8y1TDxYF7D4HOnYpaezDWWrYigW0Qg+URQE1yTRWUMKEBLQIMoUS+tdalX50le1b9H6EdqbbJL6+q0/LHkqYijRlv++jRT+NScqdwWCwDcXTvNAFU6HgCBMZDNXTnDoy6DlvAO+sgc/ODo20IZA3NQacUE1BXkjbfZY2dp6WLH4h6O06KMdl27skzqa85zoGJ5G7bnkJ+N0a+ADTdBSRqxcS3q8Top0R//Fpba8X9YzYoVfLBrKPqjhUq9iWndxmr4wImXivVW9dDleXz7Rxus5YFd33kaZy11/63ImgWP75FLlGgRK+/DjPdnZhHHO4E6/6c+La3Zi9kyMoQL3bpT7oDXqDtQ0txR/QzihUGmROaUxMwZK2XBOT1BiUv+z/PLzMt6ODfbPSJo+oc7AxCAX5v6dxd9xCN9JvPLqg+81umC9nwiXkmQAF6FSAAu43PCxAXaKS+Vwb/IL9YqGvu2mpDqhcwpHXSTtGn2jDGb06XQ7l1+Z3ec3oduUyuEbfqiYb+B98Z3lXbP5MJ727Dh60Q31gp+Js/ZWB+/mjWvYXHNOl/g==
+api: eJzdVU1v4zYQ/SuDufSild1tD4V2scBuP5M2aLDxNofAKMbU2GJNkSo5cqIa/u/FUI6jNGnQ9tiTzdHw8c284eMea04m2k5s8FjhZb9y1pSwaBgi1zayEfj08QwIfqHeCfx89s3XEINjIOfCbSrhgsQ0nEAahmQ3/pX1sBrGpZDwcaNNqee6gIbSMaLJOY27hluO5GDLA5CvQdi5EVE4ttaTAwkQ2QTv2cjI73X5VaY22yncLNjazAw5tyKzPZFP0HDkEgsU2iSsbjAfjssCO4rUsnDU8B6t1v97z3HAAj21jBXmArDAZBpuCas9ytCNH6L1Gzwciuc3mlD/p30cY4gvblwWGDl1wSdO+v31fK4/j2W8shvPNVj/BsjDD4uLn6CjDYM0JGBcSJzASmK3LvFQ4JfPYSwmeq7JOq4hRLAJfAAX/IYjkBG741LLwZalCTVWuGFBba40WOGsc/3G+lfU2edk0ko57u4l6KPDChuRrprNXDDkmpCk+mI+n3+OxV/4XZD1UJPQihLnqaFeGvZiDWkKjMioHUts+mhlyKesmCLH970SvFmqEiaEreVphDr7Iw+nyATiSpUZWz8FOgml7O8F1PWYhMXxz3chtiRY4fn14klJV5ySMj+/XkBiL0AJFD5E+0euqYIPGQXenl8v3mXtptxPJEb6WIwzNqY8DNlvt/Li0WM+JBYguZ+BEq4b9tBFVmYFWAGhLSeNGK7ZG4aw45hv7SPS0DDVHDPbaV//dcukvfv1LXVWbeLdkwreX55l/3i5cY8wSrhUe8mVJ1gHdbTMX3HCref4WQIyJvRe3gB7E4dOuM5TB22fBFYMvXfBbLmGxOoowm4o4UgmgSHvg4BtO44pePVD8kEajtCn3JSDqrQOuR9WnDZgoazuFAQL1NsxVjgv5+X8Sd3H5A9ktuzrfPJHXnNURbTlXUjSklf8o/4TJ59cxEeoeie8sJf/+ZswDqDwncw6R9Zrw7IL7Y8OdoMPDqZi5MejQAXGAk/tWxaoVqX5+70a0qfoDgcNjwavvlPbRCvHNVZrcokL3PIweWN25Holg+o/f5N7fFb+Ser9S/KQu9RFtJo82tyDZ3//7QIPhz8BiRfBng==
 sidebar_class_name: "get api-method"
 info_path: api/termix-api
 custom_edit_url: null
@@ -29,7 +29,7 @@ import Translate from "@docusaurus/Translate";
 
 <MethodEndpoint
   method={"get"}
-  path={"/vault/oidc/callback"}
+  path={"/plugin-api/vault/oidc/callback"}
   context={"endpoint"}
 >
   
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Unauthenticated endpoint the IdP redirects to after login. Correlates the authorization code to a pending session via the Vault-issued state parameter.
+Public. The redirect URI a Vault OIDC role allows. Matches the sign-in by the state Vault issued, has Vault sign the ephemeral key and tells the terminal to reconnect. The 2.8 URI /vault/oidc/callback redirects here.
 
 <Heading
   id={"request"}

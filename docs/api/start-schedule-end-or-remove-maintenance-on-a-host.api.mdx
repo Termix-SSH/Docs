@@ -1,0 +1,69 @@
+---
+id: start-schedule-end-or-remove-maintenance-on-a-host
+title: "Start, schedule, end or remove maintenance on a host"
+description: "While a host is in maintenance, automations with host status, health check, metric, Docker or tunnel triggers do not fire for it. Manual, scheduled, webhook and login triggers still run. Past the estimated end plus the grace period, an optional overdue alert is sent."
+sidebar_label: "Start, schedule, end or remove maintenance on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVm1v2zYQ/isHftkGMLaStuimFgXSrQPaIViQeAiwIBjO0lliTZEqeYrjGf7vw1FKLMduh32fP9gydXzu/bnbqJJiEUzLxjuVq5vaWAKE2kcGE8E4aNA4JoeuIA3YsW9QhCOsDNe9YGTkLmqoCS3XUNRULDU0xMEUGn7xxZIC+ADcOUcWOJiqohCh9OA8w8IEgoUPYHgCF+g6tBpiUVPZWSo1rGhee78EdCVYXxm3Q4hsrIXQuQlcYmTgmoAimwaZSiBXQmu7mI6rgAVBS8H4UgM68MlptODvKZQdAVoKyetIjidKK8YqqvxWne+8VndatRiwIaYgLzfKSOBa5Fpp5bAhlSuJysdSaRXoS2cClSrn0JFW4lWDKt8oXrciKbGtKKjt9q6XpsjvfbkWkeeXCy+JYHmFbWtNkUyafo6Sus0htp9/poL3rLhVWKRUixvBtxTYUEyI/fnuduRgXKW0Itc1cjMyBkF7zEx61TvZ+HtSd1t5xHgMZauH60fwFz40yCpXJTKdsGkE+XlZkgPc1QSsjCv9CuZUGRcnAl92IYXjwriOe5eehfg56IenOrHkKq4TTKqSr2MkF4suBHIFHXNmX8UVtYR8xHKJ3aSawIpoadfSG413XNv1ROWus3abPqIstt7F3pazLJOffRWzmsDRatymqR8pufPy2JWP7h6tKaFPuShvLbpB/sVxFanPVxgh1hiSG1yntirQWgpvwDu7BsMR/MpRgAIdFDW6isaWDTpeHuo47zXsEAVByCGS3Npq1RDXvpRW81HKMHVcrqat7SrjTrA10xE7TUdap5u+H7dSvBTuHxu3C1Z6lbnNp1PrC7Qil7/Isuz0IJUXaByUyDjHSImKsOOaHA9tCD2ykj6OUiKG10nLnDBQOO/E2tu7rd6owvulofEJtuY3Wj+djCCupan79I+BngpPrB96MjFPL6T08PDrY299upkduHRNMYrln25mifIAIwi8D+bv5FMO7xMKvP10M3uXkje2/cmI3nyleyrsRXZk+HnF31Tdy0MkBmSIpnInxk0g9XwbSCzTYBgYlxTlpKBS2i/xdqqYPaNlCpUUkrXjuP7nkHHz8NdbbA0saf3uwIPzy4/y4l8Ct4cxgUsKjUmeR1h4a/0q2S84qW2+i4BF4TvHb4BcEdat0JNUHTRdZJgTdM7KPC0hkswhJruewGBMfGwa07QUonfIUqqeawrQxRSUrVYyMK52o+bDAzatpfEQeOL6Rz7fEdxA4+osO3t5kr0+Oftpdvoqf3Wan/04yV6f/qmOUHH2nFezfRodTQnjFj7lyrCYpGYSsQdxUGklndvbl02ySXaQk0H4PRZLGf0SlStaUK9lqxNzNJjG01Cb1+LNbtnQaWXwAfqRtkeq3g170XO1m91g/n9/2t+f+oZjeuBpa9E4SUJi3c1A37dqR99Kq1F4lFajyCmt8mGputNpvZK7m42Q8R/Bbrdy/KWjIJx7p9U9BoNzqaDbjSpNlOdS5Qu0kb6Rvu+vhk3pB/ia+Y+U54Tv7tF28k9ptaT1bvHbyi7U81CyoH/5c6/nZCYQu8sHu5zw/9O0u/z9Wph7PuyEjS/lTkBZIeQ7Ke9TkaZEOtsoi67qsEr8mzDl8w9V5SRz
+sidebar_class_name: "post api-method"
+info_path: api/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start, schedule, end or remove maintenance on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/automations/maintenance/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+While a host is in maintenance, automations with host status, health check, metric, Docker or tunnel triggers do not fire for it. Manual, scheduled, webhook and login triggers still run. Past the estimated end plus the grace period, an optional overdue alert is sent.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./start-schedule-end-or-remove-maintenance-on-a-host.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./start-schedule-end-or-remove-maintenance-on-a-host.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./start-schedule-end-or-remove-maintenance-on-a-host.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
