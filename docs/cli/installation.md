@@ -5,7 +5,7 @@ There are two ways to install: through npm, or by downloading a single file that
 ## With npm
 
 ```bash
-npm install -g @termix-cli/cli
+npm install -g @termix-ssh/cli
 ```
 
 This needs Node.js 20.11 or newer. Check what you have with `node --version`.
@@ -19,14 +19,25 @@ termix version
 To update later:
 
 ```bash
-npm update -g @termix-cli/cli
+npm update -g @termix-ssh/cli
 ```
 
 To remove it:
 
 ```bash
-npm uninstall -g @termix-cli/cli
+npm uninstall -g @termix-ssh/cli
 ```
+
+:::note
+The CLI used to be published as `@termix-cli/cli`. That package no longer gets updates. If you have it, swap it out:
+
+```bash
+npm uninstall -g @termix-cli/cli
+npm install -g @termix-ssh/cli
+```
+
+Your login is kept, so you do not need to sign in again.
+:::
 
 ## Standalone download
 

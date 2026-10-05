@@ -87,7 +87,7 @@ esac
     TERMIX_URL: ${{ secrets.TERMIX_URL }}
     TERMIX_API_KEY: ${{ secrets.TERMIX_API_KEY }}
   run: |
-    npm install -g @termix-cli/cli
+    npm install -g @termix-ssh/cli
     termix files put ./build.tar.gz 3:/tmp/build.tar.gz
     termix exec 3 "cd /opt/app && tar xzf /tmp/build.tar.gz && systemctl restart app"
 ```

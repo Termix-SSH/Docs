@@ -11,7 +11,7 @@ It is good for the things a browser is slow at. Opening a server you use twenty 
 ## Install it
 
 ```bash
-npm install -g @termix-cli/cli
+npm install -g @termix-ssh/cli
 ```
 
 You need Node.js 20.11 or newer. There are also standalone downloads for Windows, Linux, and macOS that do not need Node at all. See [Installation](/cli/installation).
