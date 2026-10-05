@@ -156,8 +156,8 @@ Admin Settings is the normal way to add a provider, but Termix also supports con
 
 Two more environment variables apply no matter how a provider was set up:
 
-- `OIDC_ALLOW_REGISTRATION`, when set to `true`, lets new accounts be created through OIDC, GitHub, or LDAP sign in even when general registration is turned off, while still respecting each provider's Allowed Users list.
-- `OIDC_FORCE_HTTPS`, when set to `true`, forces the callback URL Termix builds to use `https://`, which is useful if Termix sits behind a reverse proxy that terminates SSL before traffic reaches it.
+- `EXTERNAL_ALLOW_REGISTRATION` (`OIDC_ALLOW_REGISTRATION` before 26.10.0), when set to `true`, lets new accounts be created through OIDC, GitHub, or LDAP sign in even when general registration is turned off, while still respecting each provider's Allowed Users list.
+- `EXTERNAL_FORCE_HTTPS` (`OIDC_FORCE_HTTPS` before 26.10.0), when set to `true`, forces the callback URL Termix builds to use `https://`, which is useful if Termix sits behind a reverse proxy that terminates SSL before traffic reaches it.
 - `OIDC_SILENT_LOGIN_DEFAULT` pins the silent login setting described below, so it cannot be changed in Admin Settings.
 
 ## Silent login
