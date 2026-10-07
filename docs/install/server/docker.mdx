@@ -116,26 +116,32 @@ Both formats point to the same image for a given version, so use whichever you p
 ## Beta Builds
 
 :::info Want to try what's coming next?
-Termix publishes an automated weekly beta build from active development, tagged `:beta`. It's a great way to try upcoming features early and help catch issues before they reach stable.
+Betas are early builds of the next Termix version. They come out on Tuesdays and Fridays when there is something new, and your feedback is what makes the stable release better.
 :::
 
-To opt in, replace `:latest` with `:beta` in any of the configurations above, for example:
+To join, replace `:latest` with `:beta` in any of the configurations above and restart the container:
 
 ```
-ghcr.io/lukegus/termix:beta
+ghcr.io/termix-ssh/termix:beta
 ```
+
+`:beta` always follows the newest beta. Each beta also has its own tag, like `:26.11.0-beta.2`, if you want to stay on one. Desktop betas are on the [releases page](https://github.com/Termix-SSH/Termix/releases), marked as pre-releases.
+
+In Termix, an admin can open **Settings > Updates** and turn on **Termix betas** to be told about new betas. The same page lists the newest stable and beta releases.
 
 :::warning
-The `:beta` tag is a rolling, unstable channel:
-
-- It is overwritten every week with a fresh snapshot of in-progress development, it is not a fixed version.
-- It may contain incomplete features, regressions, or breaking changes without notice.
-- Do not run it in production or on data you can't afford to lose.
-
-If you need to reference an exact beta snapshot later, each weekly build is also pushed as a dated tag, `:beta-x.x.x-beta.YYYYMMDD`, and published as a [pre-release on GitHub](https://github.com/Termix-SSH/Termix/releases/tag/beta).
+Betas can have bugs, and a beta can change the database. Keep a backup of the `termix-data` volume before you switch. To go back, switch to `:latest` once a stable release newer than your beta is out.
 :::
 
-Found something broken on a beta build? [Open a Beta Feedback report](https://github.com/Termix-SSH/Support/issues/new?template=beta_feedback.yml) on the Support page, or mention it in the [Discord](https://discord.gg/jVQGdvHDrf) server in the meantime. Be sure to include the exact beta build tag you're running.
+### Plugin betas
+
+Each plugin can use betas on its own, so you can try a fix for one plugin without changing anything else. Open the plugin in **Plugins** and press **Try beta**, or turn on **Beta versions** on its page. **Settings > Updates** lists every plugin on a beta and can move them all at once.
+
+Turning **Beta versions** off keeps the beta you have until a newer stable release of that plugin comes out, then it updates as normal.
+
+### Feedback
+
+Use **Send beta feedback** in **Settings > Updates**, on a plugin's page, or in the command palette. It opens a short form with your versions already filled in. You can also talk about betas in the [Discord](https://discord.gg/jVQGdvHDrf) server.
 
 ## Database
 
