@@ -1,8 +1,12 @@
 # Introduction
 
-Termix is a free, self-hosted server management platform. It's an all-in-one place for SSH, remote desktop, file management, tunneling, and more, so you don't need a pile of separate tools to manage your servers.
+Termix is free, self-hosted, plugin-based server management. It puts SSH, remote desktop, file management, tunnels and more in one place, so you don't need a pile of separate tools to manage your servers.
 
-It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyone running their own infrastructure. If you're tired of juggling a terminal app, a separate RDP client, an SFTP client, and a tunnel manager, Termix puts all of that in one web app, desktop app, or mobile app.
+It's built for people who SSH into things a lot: homelabbers, sysadmins, anyone running their own infrastructure. If you're tired of juggling a terminal app, a separate RDP client, an SFTP client, and a tunnel manager, Termix puts all of that in one web app, desktop app, or mobile app.
+
+The core is small. It keeps your hosts, credentials, users, sharing and sessions. Everything else on this page is a plugin. The official plugins ship with Termix, and admins can turn them on or off from the Plugins tab.
+
+Want to try it first? Use the [demo](https://demo.termix.site/). Any username and password works.
 
 ## What you can do with it
 
@@ -48,7 +52,7 @@ It's built for people who SSH into things a lot -- homelabbers, sysadmins, anyon
 
 **Serial connections.** Connect to serial devices (routers, switches, microcontrollers) directly from the browser or desktop app, with configurable baud rate, data bits, stop bits, and parity.
 
-**Termix ID.** Claim a handle, publish your public SSH keys at a resolver URL, and use a built-in CA to issue SSH certificates -- a self-hosted alternative to sshid.io built right in.
+**Termix ID.** Claim a handle, publish your public SSH keys at a resolver URL, and use a built-in CA to issue SSH certificates. A self-hosted alternative to sshid.io, built right in.
 
 **Advanced SSH.** Supports jump hosts, Warpgate, TOTP-based connections, SOCKS5, host key verification, password autofill, OPKSSH, tmux, port knocking, terminal logging, SSH agent forwarding, Bitwarden SSH agent, and HashiCorp Vault SSH certificate signing.
 

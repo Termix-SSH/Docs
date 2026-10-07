@@ -4,7 +4,7 @@
 
 <h1>Termix Docs</h1>
 
-<p>Public documentation website for Termix</p>
+<p>Guides and reference docs for Termix</p>
 
 <p>
   <img src="https://img.shields.io/github/stars/Termix-SSH/Docs?style=flat&label=Stars&color=F39044&labelColor=1a1a1a" />
@@ -19,13 +19,9 @@
 
 ## Overview
 
-This is the public documentation website for the project, [Termix](https://github.com/Termix-SSH/Termix).
+This is the source for [docs.termix.site](https://docs.termix.site/), the docs for [Termix](https://github.com/Termix-SSH/Termix). Termix is self-hosted, plugin-based server management.
 
-<br />
-
-## Planned Features
-
-See [Projects](https://github.com/orgs/Termix-SSH/projects/5) for all planned features. If you are looking to contribute, see [Contributing](https://docs.termix.site/contributing).
+Want to try Termix first? Use the [demo](https://demo.termix.site/), any username and password works.
 
 <br />
 

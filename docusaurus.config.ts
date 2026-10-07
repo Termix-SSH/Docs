@@ -6,7 +6,7 @@ import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
 
 const config: Config = {
   title: 'Termix',
-  tagline: 'Self-hosted SSH and remote desktop management.',
+  tagline: 'Self-hosted, plugin-based server management.',
   favicon: 'img/favicon.ico',
 
   url: 'https://termix.site',
