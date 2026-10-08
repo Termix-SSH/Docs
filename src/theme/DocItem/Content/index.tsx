@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { type ReactNode } from 'react';
-import clsx from 'clsx';
-import { ThemeClassNames } from '@docusaurus/theme-common';
-import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import Heading from '@theme/Heading';
-import MDXContent from '@theme/MDXContent';
-import type { Props } from '@theme/DocItem/Content';
+import React, { type ReactNode } from "react";
+import clsx from "clsx";
+import { ThemeClassNames } from "@docusaurus/theme-common";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import Heading from "@theme/Heading";
+import MDXContent from "@theme/MDXContent";
+import type { Props } from "@theme/DocItem/Content";
 
-import SupportFooter from '@site/src/components/SupportFooter';
+import SupportFooter from "@site/src/components/SupportFooter";
 
 /**
  Title can be declared inside md content or declared through
@@ -27,7 +27,8 @@ import SupportFooter from '@site/src/components/SupportFooter';
 */
 function useSyntheticTitle(): string | null {
   const { metadata, frontMatter, contentTitle } = useDoc();
-  const shouldRender = !frontMatter.hide_title && typeof contentTitle === 'undefined';
+  const shouldRender =
+    !frontMatter.hide_title && typeof contentTitle === "undefined";
   if (!shouldRender) {
     return null;
   }
@@ -38,9 +39,10 @@ export default function DocItemContent({ children }: Props): ReactNode {
   const syntheticTitle = useSyntheticTitle();
   const { frontMatter } = useDoc();
   // Opt a page out with hide_support: true in its front matter.
-  const hideSupport = (frontMatter as { hide_support?: boolean }).hide_support === true;
+  const hideSupport =
+    (frontMatter as { hide_support?: boolean }).hide_support === true;
   return (
-    <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>
+    <div className={clsx(ThemeClassNames.docs.docMarkdown, "markdown")}>
       {syntheticTitle && (
         <header>
           <Heading as="h1">{syntheticTitle}</Heading>

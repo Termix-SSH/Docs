@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import Link from '@docusaurus/Link';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
+import type { ReactNode } from "react";
+import Link from "@docusaurus/Link";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
 
 export default function Contact(): ReactNode {
   return (
@@ -12,7 +12,7 @@ export default function Contact(): ReactNode {
             <div className="col col--8 col--offset-2 text--center">
               <Heading as="h1">Contact</Heading>
               <p>
-                For all inquiries, including business and support, reach out at{' '}
+                For all inquiries, including business and support, reach out at{" "}
                 <Link href="mailto:mail@termix.site">mail@termix.site</Link>.
               </p>
             </div>

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import type { ReactNode } from 'react';
-import styles from './styles.module.css';
+import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 type Snapshot = {
   currency: string;
@@ -16,19 +16,19 @@ type Milestone = {
 
 const MILESTONES: Milestone[] = [
   {
-    name: 'SAML',
+    name: "SAML",
     cost: 1000,
     description:
       "Lets companies log into Termix using their existing corporate sign-in system.",
   },
   {
-    name: 'Kubernetes',
+    name: "Kubernetes",
     cost: 2500,
     description:
-      'Adds a way to manage and view Kubernetes clusters directly inside Termix, like you already can with Docker.',
+      "Adds a way to manage and view Kubernetes clusters directly inside Termix, like you already can with Docker.",
   },
   {
-    name: 'Agent',
+    name: "Agent",
     cost: 5000,
     description:
       "A small program you install on a server that lets Termix reach it securely without opening any ports or setting up jump hosts.",
@@ -37,8 +37,8 @@ const MILESTONES: Milestone[] = [
 
 function formatFiat(value: number, currency: string): string {
   try {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
       currency: currency.toUpperCase(),
       maximumFractionDigits: 0,
     }).format(value);
@@ -53,7 +53,7 @@ export default function DonationMilestones(): ReactNode {
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/donation-total.json', { cache: 'no-store' })
+    fetch("/donation-total.json", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -72,14 +72,15 @@ export default function DonationMilestones(): ReactNode {
   if (failed) return null;
 
   const total = snapshot?.total ?? 0;
-  const currency = snapshot?.currency ?? 'usd';
+  const currency = snapshot?.currency ?? "usd";
 
   return (
     <div className={styles.wrapper}>
       <span className={styles.label}>Milestones</span>
       <p className={styles.sub}>
-        Funded by all donations to date.{snapshot ? ` ${formatFiat(total, currency)} raised.` : ''}
-        {' '}Each milestone funds the research needed to learn and implement that protocol
+        Funded by all donations to date.
+        {snapshot ? ` ${formatFiat(total, currency)} raised.` : ""} Each
+        milestone funds the research needed to learn and implement that protocol
         correctly, since it isn't something we know how to build yet.
       </p>
       <div className={styles.list}>
@@ -90,17 +91,25 @@ export default function DonationMilestones(): ReactNode {
             <div key={m.name} className={styles.milestone}>
               <div className={styles.milestoneHeader}>
                 <span className={styles.milestoneName}>
-                  {m.name}{' '}
-                  <span className={styles.milestoneCost}>({formatFiat(m.cost, currency)})</span>
+                  {m.name}{" "}
+                  <span className={styles.milestoneCost}>
+                    ({formatFiat(m.cost, currency)})
+                  </span>
                 </span>
-                <span className={`${styles.status} ${reached ? styles.statusDone : ''}`}>
-                  {reached ? 'Unlocked' : snapshot ? `${Math.floor(progress)}%` : '—'}
+                <span
+                  className={`${styles.status} ${reached ? styles.statusDone : ""}`}
+                >
+                  {reached
+                    ? "Unlocked"
+                    : snapshot
+                      ? `${Math.floor(progress)}%`
+                      : "—"}
                 </span>
               </div>
               <p className={styles.milestoneDescription}>{m.description}</p>
               <div className={styles.progressTrack}>
                 <div
-                  className={`${styles.progressFill} ${reached ? styles.progressFillDone : ''}`}
+                  className={`${styles.progressFill} ${reached ? styles.progressFillDone : ""}`}
                   style={{ width: `${progress}%` }}
                 />
               </div>

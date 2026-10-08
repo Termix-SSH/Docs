@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import type { ReactNode } from 'react';
-import styles from './styles.module.css';
+import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 type Snapshot = {
   month: string;
@@ -12,17 +12,17 @@ type Snapshot = {
 function formatMonth(month: string): string {
   const date = new Date(`${month}-01T00:00:00Z`);
   if (Number.isNaN(date.getTime())) return month;
-  return date.toLocaleString('en-US', {
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
+  return date.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
   });
 }
 
 function formatFiat(value: number, currency: string): string {
   try {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
       currency: currency.toUpperCase(),
     }).format(value);
   } catch {
@@ -36,7 +36,7 @@ export default function MonthlyDonations(): ReactNode {
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/donation-snapshot.json', { cache: 'no-store' })
+    fetch("/donation-snapshot.json", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -58,7 +58,8 @@ export default function MonthlyDonations(): ReactNode {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <span className={styles.label}>
-          Donations received{snapshot ? ` — ${formatMonth(snapshot.month)}` : ''}
+          Donations received
+          {snapshot ? ` — ${formatMonth(snapshot.month)}` : ""}
         </span>
         <span className={styles.amount}>
           {snapshot ? (

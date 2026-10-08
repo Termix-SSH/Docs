@@ -2,13 +2,13 @@ name: Check Sponsor Links
 
 on:
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: "0 6 * * 1"
   workflow_dispatch:
   pull_request:
     paths:
-      - 'static/sponsors.json'
-      - 'static/img/sponsors/**'
-      - 'scripts/check-sponsors.mjs'
+      - "static/sponsors.json"
+      - "static/img/sponsors/**"
+      - "scripts/check-sponsors.mjs"
 
 jobs:
   check:

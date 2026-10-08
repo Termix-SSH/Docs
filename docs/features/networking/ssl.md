@@ -35,16 +35,16 @@ services:
     container_name: termix
     restart: unless-stopped
     ports:
-      - '8080:8080'
-      - '8443:8443'
+      - "8080:8080"
+      - "8443:8443"
     volumes:
       - termix-data:/app/data
     environment:
-      PORT: '8080'
-      ENABLE_SSL: 'true'
-      SSL_PORT: '8443'
-      SSL_DOMAIN: 'termix.example.com'
-      GUACD_HOST: 'guacd'
+      PORT: "8080"
+      ENABLE_SSL: "true"
+      SSL_PORT: "8443"
+      SSL_DOMAIN: "termix.example.com"
+      GUACD_HOST: "guacd"
     depends_on:
       - guacd
 
@@ -112,9 +112,9 @@ These are the same paths that `ENABLE_SSL=true` reads from. To activate HTTPS:
 
 ```yaml
 environment:
-  ENABLE_SSL: 'true'
-  SSL_PORT: '8443'
-  SSL_DOMAIN: 'termix.example.com'
+  ENABLE_SSL: "true"
+  SSL_PORT: "8443"
+  SSL_DOMAIN: "termix.example.com"
 ```
 
 Then restart your container. The certificate will be served immediately.

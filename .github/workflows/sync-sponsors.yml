@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - 'static/sponsors.json'
-      - 'static/img/sponsors/**'
-      - 'scripts/sync-sponsors.mjs'
-      - 'scripts/sponsor-targets.json'
+      - "static/sponsors.json"
+      - "static/img/sponsors/**"
+      - "scripts/sync-sponsors.mjs"
+      - "scripts/sponsor-targets.json"
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Show what would change without pushing'
+        description: "Show what would change without pushing"
         type: boolean
         default: false
 

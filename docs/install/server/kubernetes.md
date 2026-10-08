@@ -75,8 +75,8 @@ Termix keeps its database, encryption keys, and session recordings in a volume m
 persistence:
   enabled: true
   size: 10Gi
-  storageClass: ''
-  existingClaim: ''
+  storageClass: ""
+  existingClaim: ""
 ```
 
 Set `storageClass` if your cluster has no default, or `existingClaim` to reuse a volume you already made.

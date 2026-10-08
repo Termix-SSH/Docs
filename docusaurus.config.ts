@@ -1,36 +1,36 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-import type * as Plugin from '@docusaurus/types/src/plugin';
-import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  title: 'Termix',
-  tagline: 'Self-hosted, plugin-based server management.',
-  favicon: 'img/favicon.ico',
+  title: "Termix",
+  tagline: "Self-hosted, plugin-based server management.",
+  favicon: "img/favicon.ico",
 
-  url: 'https://termix.site',
-  baseUrl: '/',
+  url: "https://termix.site",
+  baseUrl: "/",
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   plugins: [
     [
-      'docusaurus-plugin-openapi-docs',
+      "docusaurus-plugin-openapi-docs",
       {
-        id: 'api',
-        docsPluginId: 'classic',
+        id: "api",
+        docsPluginId: "classic",
         config: {
           termix: {
-            specPath: 'static/openapi.json',
-            outputDir: 'docs/api',
+            specPath: "static/openapi.json",
+            outputDir: "docs/api",
             sidebarOptions: {
-              groupPathsBy: 'tag',
+              groupPathsBy: "tag",
             },
           } satisfies OpenApiPlugin.Options,
         },
@@ -40,108 +40,108 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          routeBasePath: '/',
-          docItemComponent: '@theme/ApiItem',
+          sidebarPath: "./sidebars.ts",
+          routeBasePath: "/",
+          docItemComponent: "@theme/ApiItem",
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
   ],
 
-  themes: ['docusaurus-theme-openapi-docs'],
+  themes: ["docusaurus-theme-openapi-docs"],
 
   themeConfig: {
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Termix',
+      title: "Termix",
       logo: {
-        alt: 'Termix Logo',
-        src: 'img/logo.svg',
-        href: 'https://termix.site',
-        target: '_self',
+        alt: "Termix Logo",
+        src: "img/logo.svg",
+        href: "https://termix.site",
+        target: "_self",
       },
       items: [
         {
-          href: 'https://docs.termix.site',
-          position: 'left',
-          label: 'Docs',
-          target: '_self',
-          className: 'navbar__link--no-external-icon',
+          href: "https://docs.termix.site",
+          position: "left",
+          label: "Docs",
+          target: "_self",
+          className: "navbar__link--no-external-icon",
         },
         {
-          href: 'https://docs.termix.site/api/termix-api',
-          position: 'left',
-          label: 'API',
-          target: '_self',
-          className: 'navbar__link--no-external-icon',
+          href: "https://docs.termix.site/api/termix-api",
+          position: "left",
+          label: "API",
+          target: "_self",
+          className: "navbar__link--no-external-icon",
         },
         {
-          to: '/contact',
-          position: 'left',
-          label: 'Contact',
-          target: '_self',
+          to: "/contact",
+          position: "left",
+          label: "Contact",
+          target: "_self",
         },
         {
-          href: 'https://donate.termix.site',
-          position: 'left',
-          label: 'Donate',
-          target: '_self',
-          className: 'navbar__link--no-external-icon',
+          href: "https://donate.termix.site",
+          position: "left",
+          label: "Donate",
+          target: "_self",
+          className: "navbar__link--no-external-icon",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'GitHub',
+          title: "GitHub",
           items: [
             {
-              label: 'Termix',
-              href: 'https://github.com/Termix-SSH/Termix',
+              label: "Termix",
+              href: "https://github.com/Termix-SSH/Termix",
             },
             {
-              label: 'Mobile',
-              href: 'https://github.com/Termix-SSH/Mobile',
+              label: "Mobile",
+              href: "https://github.com/Termix-SSH/Mobile",
             },
             {
-              label: 'Docs',
-              href: 'https://github.com/Termix-SSH/Docs',
+              label: "Docs",
+              href: "https://github.com/Termix-SSH/Docs",
             },
             {
-              label: 'Support',
-              href: 'https://github.com/Termix-SSH/Support',
+              label: "Support",
+              href: "https://github.com/Termix-SSH/Support",
             },
           ],
         },
         {
-          title: 'Support',
+          title: "Support",
           items: [
             {
-              label: 'Request Feature',
-              href: 'https://github.com/Termix-SSH/Support/issues/new?template=feature_request.yml',
+              label: "Request Feature",
+              href: "https://github.com/Termix-SSH/Support/issues/new?template=feature_request.yml",
             },
             {
-              label: 'Report Bug',
-              href: 'https://github.com/Termix-SSH/Support/issues/new?template=bug_report.yml',
+              label: "Report Bug",
+              href: "https://github.com/Termix-SSH/Support/issues/new?template=bug_report.yml",
             },
             {
-              label: 'Email',
-              href: 'mailto:mail@termix.site',
+              label: "Email",
+              href: "mailto:mail@termix.site",
             },
             {
-              label: 'Donate',
-              href: 'https://donate.termix.site',
-            }
+              label: "Donate",
+              href: "https://donate.termix.site",
+            },
           ],
         },
       ],

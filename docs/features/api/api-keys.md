@@ -31,8 +31,8 @@ Invoke-RestMethod -Uri "http://your-termix-url/host/db/hosts" `
 **JavaScript / fetch:**
 
 ```js
-fetch('http://your-termix-url/host/db/hosts', {
-  headers: { Authorization: 'Bearer tmx_your_token_here' },
+fetch("http://your-termix-url/host/db/hosts", {
+  headers: { Authorization: "Bearer tmx_your_token_here" },
 });
 ```
 

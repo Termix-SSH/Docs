@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import type { ReactNode } from 'react';
-import styles from './styles.module.css';
+import { useState } from "react";
+import type { ReactNode } from "react";
+import styles from "./styles.module.css";
 
-const BASE_ADDRESS = '0x67e0C779119D9BcC2187564A66B80a58767d05d1';
+const BASE_ADDRESS = "0x67e0C779119D9BcC2187564A66B80a58767d05d1";
 
 function useCopy(): [string | null, (label: string, value: string) => void] {
   const [copied, setCopied] = useState<string | null>(null);
@@ -10,7 +10,10 @@ function useCopy(): [string | null, (label: string, value: string) => void] {
   const copy = (label: string, value: string) => {
     navigator.clipboard?.writeText(value).then(() => {
       setCopied(label);
-      window.setTimeout(() => setCopied((cur) => (cur === label ? null : cur)), 1800);
+      window.setTimeout(
+        () => setCopied((cur) => (cur === label ? null : cur)),
+        1800,
+      );
     });
   };
 
@@ -23,10 +26,11 @@ export default function DonatePage(): ReactNode {
   return (
     <div className={styles.page}>
       <p className={styles.lede}>
-        Termix is free and open source, no paywalled features and no "pro" tier. It's built and
-        maintained by a two-person team in our spare time, and hosting it for everyone using it
-        costs real money every month. If Termix has replaced a commercial tool you'd otherwise be
-        paying for, a donation helps cover that and keeps development going.
+        Termix is free and open source, no paywalled features and no "pro" tier.
+        It's built and maintained by a two-person team in our spare time, and
+        hosting it for everyone using it costs real money every month. If Termix
+        has replaced a commercial tool you'd otherwise be paying for, a donation
+        helps cover that and keeps development going.
       </p>
 
       <div className={styles.preferredCoin}>
@@ -35,8 +39,9 @@ export default function DonatePage(): ReactNode {
           <span className={styles.badge}>preferred due to lowest fees</span>
         </div>
         <p className={styles.preferredSub}>
-          Stable, cheap, and fast to confirm. If you don't already hold crypto, Base is the
-          easiest network to buy into and send from most exchanges and wallets.
+          Stable, cheap, and fast to confirm. If you don't already hold crypto,
+          Base is the easiest network to buy into and send from most exchanges
+          and wallets.
         </p>
         <div className={styles.addressRow}>
           <img
@@ -51,9 +56,9 @@ export default function DonatePage(): ReactNode {
             <button
               type="button"
               className={styles.copyButton}
-              onClick={() => copy('base-main', BASE_ADDRESS)}
+              onClick={() => copy("base-main", BASE_ADDRESS)}
             >
-              {copied === 'base-main' ? 'copied ✓' : 'copy'}
+              {copied === "base-main" ? "copied ✓" : "copy"}
             </button>
           </div>
         </div>
@@ -65,8 +70,8 @@ export default function DonatePage(): ReactNode {
           <span className={styles.badge}>recurring or one-time</span>
         </div>
         <p className={styles.preferredSub}>
-          Support Termix's GitHub repo directly through Drips, a crypto-based funding platform for open source
-          projects.
+          Support Termix's GitHub repo directly through Drips, a crypto-based
+          funding platform for open source projects.
         </p>
         <a
           href="https://www.drips.network/app/projects/github/Termix-SSH/Termix"
@@ -80,10 +85,17 @@ export default function DonatePage(): ReactNode {
 
       <details className={styles.otherCoins}>
         <summary className={styles.otherCoinsSummary}>
-          Prefer a different coin? Ethereum, Bitcoin, Bitcoin Cash, Solana, Litecoin, Monero
+          Prefer a different coin? Ethereum, Bitcoin, Bitcoin Cash, Solana,
+          Litecoin, Monero
         </summary>
         <div className={styles.otherCoinsGrid}>
-          <CoinRow name="Ethereum" ticker="ETH" img="qr-eth.png" address={BASE_ADDRESS} copy={copy} />
+          <CoinRow
+            name="Ethereum"
+            ticker="ETH"
+            img="qr-eth.png"
+            address={BASE_ADDRESS}
+            copy={copy}
+          />
           <CoinRow
             name="Bitcoin"
             ticker="BTC"
@@ -121,13 +133,17 @@ export default function DonatePage(): ReactNode {
           />
         </div>
         <p className={styles.requestCoin}>
-          Need a coin that isn't listed?{' '}
-          <a href="https://github.com/Termix-SSH/Support/issues/new/choose">Open a request</a>.
+          Need a coin that isn't listed?{" "}
+          <a href="https://github.com/Termix-SSH/Support/issues/new/choose">
+            Open a request
+          </a>
+          .
         </p>
       </details>
 
       <p className={styles.lede}>
-        Company interested in a paid placement in the README to support development? Email{' '}
+        Company interested in a paid placement in the README to support
+        development? Email{" "}
         <a href="mailto:mail@termix.site">mail@termix.site</a>.
       </p>
     </div>
@@ -157,7 +173,13 @@ function CoinRow({
 
   return (
     <div className={styles.coinRow}>
-      <img src={`/img/${img}`} alt={`${name} donation address QR code`} className={styles.coinQr} width={72} height={72} />
+      <img
+        src={`/img/${img}`}
+        alt={`${name} donation address QR code`}
+        className={styles.coinQr}
+        width={72}
+        height={72}
+      />
       <div className={styles.coinInfo}>
         <span className={styles.coinName}>
           {name} <span className={styles.coinTicker}>({ticker})</span>
@@ -165,7 +187,7 @@ function CoinRow({
         <code className={styles.coinAddress}>{address}</code>
       </div>
       <button type="button" className={styles.copyButton} onClick={handleCopy}>
-        {localCopied ? 'copied ✓' : 'copy'}
+        {localCopied ? "copied ✓" : "copy"}
       </button>
     </div>
   );

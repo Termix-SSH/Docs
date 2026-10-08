@@ -171,6 +171,19 @@ These variables control internal key derivation for OIDC token and WebAuthn cred
 | `OIDC_SYSTEM_SECRET`     | (internal default)                   | Secret used to derive per-user encryption keys for stored OIDC tokens. Set a strong random value if deploying multiple instances sharing the same database. |
 | `WEBAUTHN_SYSTEM_SECRET` | (falls back to `OIDC_SYSTEM_SECRET`) | Secret used to derive per-user encryption keys for stored WebAuthn credentials. Defaults to `OIDC_SYSTEM_SECRET` if not set separately.                     |
 
+## External Secrets
+
+By default Termix generates its keys on first start and keeps them in `{DATA_DIR}/.env`, which makes recovery easy. If your backups or database files can end up outside a trusted encrypted volume, keep the keys somewhere else: set `TERMIX_REQUIRE_EXTERNAL_SECRETS=true` and pass all four keys from a secret manager.
+
+| Variable              | Format                    |
+| --------------------- | ------------------------- |
+| `JWT_SECRET`          | At least 64 characters    |
+| `DATABASE_KEY`        | 64 hexadecimal characters |
+| `ENCRYPTION_KEY`      | 64 hexadecimal characters |
+| `INTERNAL_AUTH_TOKEN` | At least 32 characters    |
+
+Any of them can also be mounted as a Docker or Kubernetes secret and passed with a `_FILE` variable, such as `ENCRYPTION_KEY_FILE`. With `TERMIX_REQUIRE_EXTERNAL_SECRETS=true`, Termix refuses to start if a key is missing instead of writing a new one next to the encrypted database.
+
 ## Notes
 
 - **Auto-Generated Secrets**: Security keys (`JWT_SECRET`, `DATABASE_KEY`, `INTERNAL_AUTH_TOKEN`, `ENCRYPTION_KEY`) are automatically generated on first startup and stored in `{DATA_DIR}/.env`. Do not manually set these unless restoring from backup.

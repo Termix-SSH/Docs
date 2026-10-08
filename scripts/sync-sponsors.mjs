@@ -12,68 +12,80 @@
 // Usage:
 //   node scripts/sync-sponsors.mjs [--check] [--root <dir>] [--by-repo]
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const docsRoot = resolve(here, '..');
+const docsRoot = resolve(here, "..");
 
-const SITE = 'https://termix.site';
-const START = '<!-- SPONSORS:START -->';
-const END = '<!-- SPONSORS:END -->';
+const SITE = "https://termix.site";
+const START = "<!-- SPONSORS:START -->";
+const END = "<!-- SPONSORS:END -->";
 
 const argv = process.argv.slice(2);
-const CHECK = argv.includes('--check');
-const BY_REPO = argv.includes('--by-repo');
-const rootFlag = argv.indexOf('--root');
-const ROOT = rootFlag === -1 ? resolve(docsRoot, '..') : resolve(argv[rootFlag + 1]);
+const CHECK = argv.includes("--check");
+const BY_REPO = argv.includes("--by-repo");
+const rootFlag = argv.indexOf("--root");
+const ROOT =
+  rootFlag === -1 ? resolve(docsRoot, "..") : resolve(argv[rootFlag + 1]);
 
-const { sponsors } = JSON.parse(readFileSync(join(docsRoot, 'static/sponsors.json'), 'utf8'));
-const { repos } = JSON.parse(readFileSync(join(here, 'sponsor-targets.json'), 'utf8'));
+const { sponsors } = JSON.parse(
+  readFileSync(join(docsRoot, "static/sponsors.json"), "utf8"),
+);
+const { repos } = JSON.parse(
+  readFileSync(join(here, "sponsor-targets.json"), "utf8"),
+);
 
 const block = [
   START,
-  '',
+  "",
   '<div align="center">',
-  '',
-  '<br />',
-  '',
+  "",
+  "<br />",
+  "",
   sponsors
     .map(
       (s) =>
         `<a href="${s.href}">\n  <img src="${SITE}${s.logo}" height="40" alt="${s.name}" />\n</a>`,
     )
-    .join('\n&nbsp;&nbsp;&nbsp;\n'),
-  '',
-  '</div>',
-  '',
+    .join("\n&nbsp;&nbsp;&nbsp;\n"),
+  "",
+  "</div>",
+  "",
   END,
-].join('\n');
+].join("\n");
 
 // Wraps markers around the sponsor logos a readme already has, so we can adopt
 // a readme that has never been synced without hand editing it first.
 function addMarkers(text) {
   const anchor = text.indexOf(`<img src="${SITE}/img/sponsors/`);
   const legacy = text.search(/<a href="https?:\/\/(www\.)?digitalocean\.com\//);
-  const at = anchor === -1 ? legacy : Math.min(anchor, legacy === -1 ? anchor : legacy);
+  const at =
+    anchor === -1 ? legacy : Math.min(anchor, legacy === -1 ? anchor : legacy);
   if (at === -1) return null;
 
   const open = text.lastIndexOf('<div align="center">', at);
   if (open === -1) return null;
 
-  const close = text.indexOf('</div>', at);
+  const close = text.indexOf("</div>", at);
   if (close === -1) return null;
 
   const region = text.slice(open, close);
   // Refuse anything with a nested div, we would swallow more than the logos.
-  if (region.split('<div').length !== 2) return null;
+  if (region.split("<div").length !== 2) return null;
 
-  return text.slice(0, open) + START + '\n' + END + text.slice(close + '</div>'.length);
+  return (
+    text.slice(0, open) +
+    START +
+    "\n" +
+    END +
+    text.slice(close + "</div>".length)
+  );
 }
 
 function targetPath(entry, file) {
-  if (BY_REPO) return join(ROOT, entry.repo.replace('/', '__'), file);
+  if (BY_REPO) return join(ROOT, entry.repo.replace("/", "__"), file);
   if (!entry.localDir) return null;
   return join(ROOT, entry.localDir, file);
 }
@@ -96,7 +108,7 @@ for (const entry of repos) {
       continue;
     }
 
-    const original = readFileSync(path, 'utf8');
+    const original = readFileSync(path, "utf8");
     let text = original;
 
     if (!text.includes(START)) {
@@ -138,9 +150,11 @@ for (const entry of repos) {
 // Standalone section, kept for pasting anywhere that is not synced automatically.
 // In CI it is written into the Docs clone so it rides along with that repo's commit,
 // rather than racing a second push against the same branch.
-const docsEntry = repos.find((r) => r.repo === 'Termix-SSH/Docs');
-const sectionDir = BY_REPO ? join(ROOT, docsEntry.repo.replace('/', '__')) : docsRoot;
-const sectionPath = join(sectionDir, 'sponsors-section.md');
+const docsEntry = repos.find((r) => r.repo === "Termix-SSH/Docs");
+const sectionDir = BY_REPO
+  ? join(ROOT, docsEntry.repo.replace("/", "__"))
+  : docsRoot;
+const sectionPath = join(sectionDir, "sponsors-section.md");
 const section = `## Sponsors
 
 Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
@@ -151,22 +165,28 @@ ${block}
 `;
 
 if (CHECK) {
-  if (!existsSync(sectionPath) || readFileSync(sectionPath, 'utf8') !== section) {
-    console.error('out of date: sponsors-section.md');
+  if (
+    !existsSync(sectionPath) ||
+    readFileSync(sectionPath, "utf8") !== section
+  ) {
+    console.error("out of date: sponsors-section.md");
     changed++;
   }
-} else if (!existsSync(sectionPath) || readFileSync(sectionPath, 'utf8') !== section) {
+} else if (
+  !existsSync(sectionPath) ||
+  readFileSync(sectionPath, "utf8") !== section
+) {
   writeFileSync(sectionPath, section);
-  changedRepos.add('Termix-SSH/Docs');
-  console.log('updated: sponsors-section.md');
+  changedRepos.add("Termix-SSH/Docs");
+  console.log("updated: sponsors-section.md");
 }
 
 // Let the workflow know which repos actually need a commit.
 if (process.env.GITHUB_OUTPUT) {
   writeFileSync(
     process.env.GITHUB_OUTPUT,
-    `changed_repos=${[...changedRepos].join(' ')}\nchanged_count=${changed}\n`,
-    { flag: 'a' },
+    `changed_repos=${[...changedRepos].join(" ")}\nchanged_count=${changed}\n`,
+    { flag: "a" },
   );
 }
 
@@ -180,4 +200,4 @@ if (CHECK && changed > 0) {
   process.exit(1);
 }
 
-console.log(`\ndone, ${changed} file(s) ${CHECK ? 'out of date' : 'changed'}`);
+console.log(`\ndone, ${changed} file(s) ${CHECK ? "out of date" : "changed"}`);
