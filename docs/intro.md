@@ -58,7 +58,7 @@ Want to try it first? Use the [demo](https://demo.termix.site/). Any username an
 
 **Command line.** A `termix` CLI for your shell and your scripts. Open a terminal, run a command on one host or a whole fleet, move files over SFTP, and manage hosts, snippets, and credentials without opening a browser. See [CLI](/cli).
 
-**Data and security.** Databases are encrypted at rest. Runs on SQLite out of the box, with PostgreSQL and MySQL also supported, see [Database](/setup/database). Export and import SSH hosts, credentials, and file manager data. Automatic SSL certificate generation with HTTPS redirects. ~30 languages supported via Crowdin.
+**Data and security.** Databases are encrypted at rest. Runs on SQLite out of the box, with PostgreSQL and MySQL also supported, see [Database](/setup/database). Export and import SSH hosts, credentials, and file manager data. Automatic SSL certificate generation with HTTPS redirects. ~30 languages supported.
 
 See the [Features](/features/overview) section for the full list, with a dedicated page for almost everything above.
 

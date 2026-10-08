@@ -1,9 +1,11 @@
 # Translations
 
-Termix uses Crowdin to manage its translations. Most text is auto-translated in bulk using Google Translate. However, it's possible for volunteers to fix incorrect translations.
+Termix and its plugins are written in English. Every other language is translated automatically.
 
-Please do not create a direct GitHub PR to update a translation as they are all managed by Crowdin.
+## Adding or changing text
 
-## Volunteering
+Only update the English `en.json` file (`src/ui/locales/en.json` in Termix, `locales/en.json` in a plugin). Any string that doesn't have a translation yet is translated into every other language for you.
 
-[Here](https://crowdin.com/project/termix-ssh) is the link to the Termix Crowdin project. If your not familiar with using Crowdin, view [this guide](https://support.crowdin.com/for-translators/).
+## Fixing a translation
+
+If an automatic translation is wrong, open a pull request that fixes it in that language's file (`src/ui/locales/translated/<language>.json` in Termix, `locales/translated/<language>.json` in a plugin). Strings that already have a translation are never overwritten, so your fix stays.
