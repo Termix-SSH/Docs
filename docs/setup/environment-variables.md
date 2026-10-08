@@ -43,11 +43,11 @@ The normal way to add login providers is through Admin Settings, which supports 
 
 Two more variables apply no matter which provider type or setup method you use:
 
-| Variable                    | Default               | Description                                                                                                                                                                                                                         |
-| --------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EXTERNAL_FORCE_HTTPS`      | `false`               | Force HTTPS for external sign-in callback URLs (required if behind reverse proxy). Before 26.10.0 this was `OIDC_FORCE_HTTPS`, which still works                                                                                   |
-| `EXTERNAL_ALLOW_REGISTRATION` | `false`             | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list. Before 26.10.0 this was `OIDC_ALLOW_REGISTRATION`, which still works |
-| `OIDC_SILENT_LOGIN_DEFAULT` | (from Admin Settings) | Override the Admin Settings toggle for silent OIDC login, which sends people straight to your provider instead of showing the Termix login screen. Set to `true` or `false` to lock the value. Defaults to off when neither is set. |
+| Variable                      | Default               | Description                                                                                                                                                                                                                         |
+| ----------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EXTERNAL_FORCE_HTTPS`        | `false`               | Force HTTPS for external sign-in callback URLs (required if behind reverse proxy). Before 26.10.0 this was `OIDC_FORCE_HTTPS`, which still works                                                                                    |
+| `EXTERNAL_ALLOW_REGISTRATION` | `false`               | Allows user creation via OIDC, GitHub, or LDAP sign in even when general registration is disabled, while still enforcing each provider's allowed-users list. Before 26.10.0 this was `OIDC_ALLOW_REGISTRATION`, which still works   |
+| `OIDC_SILENT_LOGIN_DEFAULT`   | (from Admin Settings) | Override the Admin Settings toggle for silent OIDC login, which sends people straight to your provider instead of showing the Termix login screen. Set to `true` or `false` to lock the value. Defaults to off when neither is set. |
 
 ## Authentication Configuration
 
@@ -134,6 +134,12 @@ The desktop app always uses SQLite, because it runs its own backend and cannot s
 | `http_proxy` / `HTTP_PROXY`   | -       | HTTP proxy URL for outbound HTTP connections                                              |
 | `https_proxy` / `HTTPS_PROXY` | -       | HTTPS proxy URL for outbound HTTPS connections                                            |
 | `no_proxy` / `NO_PROXY`       | `""`    | Comma-separated hosts that should bypass proxy (e.g., `localhost,127.0.0.1,.example.com`) |
+
+## Reverse Proxy
+
+| Variable          | Default                                             | Description                                                                                                                                                                                                                                   |
+| ----------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TRUSTED_PROXIES` | `127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16` | Docker image only. Comma-separated IPs or CIDRs whose `X-Forwarded-For` header is trusted for the client IP (login rate limits, audit logs). Set it to your reverse proxy's address so other clients on your network can't pick their own IP. |
 
 ## CORS Configuration
 
