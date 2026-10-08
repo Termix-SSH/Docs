@@ -166,6 +166,8 @@ const config: Config = {
           position: "left",
           label: "CLI",
         },
+        { to: "/contact", position: "left", label: "Contact" },
+        { to: "/donate", position: "left", label: "Donate" },
         { type: "search", position: "right" },
         {
           href: "https://github.com/Termix-SSH/Termix",
@@ -208,6 +210,7 @@ const config: Config = {
             },
             { label: "Discord", href: "https://discord.gg/jVQGdvHDrf" },
             { label: "Email", href: "mailto:mail@termix.site" },
+            { label: "Contact", to: "/contact" },
             { label: "Donate", to: "/donate" },
           ],
         },

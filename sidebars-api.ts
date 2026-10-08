@@ -25,13 +25,18 @@ const sections = [{ id: "core", name: "Termix core" }, ...specs].flatMap(
     const items = generated(spec.id);
     const info = items[0]?.type === "doc" ? items[0].id : null;
     if (!info) return [];
+    let routes = items.slice(1) as (Item & { items?: Item[] })[];
+    // A spec with one tag would nest its routes twice, so list them directly.
+    if (routes.length === 1 && routes[0].type === "category") {
+      routes = routes[0].items ?? [];
+    }
     return [
       {
         type: "category" as const,
         label: spec.name,
         collapsed: true,
         link: { type: "doc" as const, id: info },
-        items: items.slice(1) as never,
+        items: routes as never,
       },
     ];
   },

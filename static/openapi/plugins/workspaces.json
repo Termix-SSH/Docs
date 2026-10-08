@@ -7,8 +7,13 @@
   },
   "servers": [
     {
-      "url": "/",
-      "description": "Your Termix server"
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
     }
   ],
   "components": {

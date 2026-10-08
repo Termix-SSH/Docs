@@ -482,3 +482,28 @@ div[class*="codeBlockContainer"] {
   --prism-background-color: var(--surface) !important;
   background: var(--surface) !important;
 }
+
+div[class*="codeBlockTitle"] {
+  border-bottom: 1px solid var(--border) !important;
+  background: var(--surface) !important;
+}
+
+/* The Ctrl K hint in the search box. */
+[class*="searchHint"] {
+  color: var(--muted-foreground) !important;
+  background: var(--surface-dim) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* API pages split into a request and a response column, so give them the full width. */
+html.plugin-id-api .theme-doc-markdown {
+  max-width: none;
+}
+
+@media (min-width: 997px) {
+  html.plugin-id-api [class*="docItemCol"] {
+    max-width: 100% !important;
+  }
+}

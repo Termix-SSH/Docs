@@ -225,8 +225,19 @@ function mdxSafeSpec(spec) {
   return walk(spec);
 }
 
+// The spec's "/" server is right inside Termix, but here it would show as
+// "//path", so readers fill in their own server instead.
+const DOCS_SERVERS = [
+  {
+    url: "{server}",
+    description: "Your Termix server",
+    variables: { server: { default: "https://termix.example.com" } },
+  },
+];
+
 function writeSpec(file, spec) {
-  write(file, JSON.stringify(mdxSafeSpec(spec), null, 2));
+  const out = { ...mdxSafeSpec(spec), servers: DOCS_SERVERS };
+  write(file, JSON.stringify(out, null, 2));
 }
 
 // --- core ---------------------------------------------------------------
