@@ -1,0 +1,68 @@
+---
+id: create-a-delivery-rule
+title: "Create a delivery rule"
+description: "Sends every alert whose category matches and whose severity is at least minSeverity to the listed channels."
+sidebar_label: "Create a delivery rule"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3DYQ/SuDOQb0elP0tDcnbQGnhxi1C6NYL4JZaryiVyIVcuRdVdj/XgylrGQ7OeRSXSQNH+fjceaxx4KTja4RFzyu8JZ9kYCfOXZAFUeBQxkSgyXhXYgd1CS25ATki3EpKdpJBy4BCVRMSaB2/vabXQJIyVC5JFyALcl7rtICDQrtEq7WeKWREm4MRv7acpIPoehw1edfF7nAlcSWDdrghb3oEjVN5Sxp3pdPSZPvMdmSa9Iv6RrGFYbtE1tBM3O0Rk81o8ExkesiB25iaDiK46TbM2RykyQ6v8OTwVz+2xXzisYHfPeABh6QWgl1TjIt3j0ghAjkgY9k5czpIjueCPuee/Ztrbk7/xjQYGqt5ZTQ4IGiHyA2OnGWKtycXhQ3eaMYqUODTrie250X3nHE00kD0bZSns6r2xAqJo+n/CiVqQk+DUT9snyvr5fV35UMng8Q24pzcb8ul99HKUL7xgeBZ6pcschJ1CxlKHCFTUh6eg1JiSu8bKp25/wFNe4yN2e6VAdKQ+L4zFGbqcc2Vgp+cyj/hDbCHcfaHWHA42mjW2070L7uccsUOV61Gm+9OZkebQh7x3MLNe5P7s6WmYtb7b+BmLmjM5WlSKPJZphSm0Foxo8/QqxJcIWf7u/eZH/LKbngQcKePST2As7nwdIgIbp/c5tByVRwBErwITvNk6qwvDEfx7ykqTlyVdodGm2AoBknAZ8O8sOMPt3fwYCHxKIakNzOXzi/gPuSPTSRNV0DTkBoz0ktlgv2liE8c/xhFTnbOd0/zeTVzTXsuYMkFMX5HRyclCD18cubcs7Qn6d2z52BQ+lsOQRKU5gFXAuQlaTbRiyEgx93W/La+yoHpKLaBc/AVeJhEFTY/pok8fcj1U3Fk0JNAjEK08wwF5RvujGXhfVyMxt31deTGXBKsxONMyozXN1co0GdsIGr94vlYvmGwc+ewfltOMJjiC8uEefHwTMDMwVXLi9LgANvyxD2yYCXx87Aby7ZEItMD9fkqtwFqgQ1+VnpHyOTMNDkTMXgdVL9dGf835fb0KnCR7lsKnJey8ja1I+CtsZJ0NDgIGl6WWVR2xgsVf5Wa+z7LSX+O1ank5q/thxVrjYGnyk6PcFBm3Do0Kxke9Zz/zgUf3GnySi8aodhf3V5qoqdVffm863qz3a8hOtQ6J5IB82NDrhCNBgywVnrsq3HivyupV2Wi+xTn/8Ae9Pmng==
+sidebar_class_name: "post api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a delivery rule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/alerts/rules"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sends every alert whose category matches and whose severity is at least minSeverity to the listed channels.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","channelIds"],"properties":{"name":{"type":"string"},"match":{"type":"string","description":"\"*\", \"automations.*\" or an exact category."},"minSeverity":{"type":"string","enum":["info","success","warning","critical"]},"channelIds":{"type":"array","items":{"type":"integer"}},"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The new rule."},"400":{"description":"The rule is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: send-a-test-alert-to-a-channel
+title: "Send a test alert to a channel"
+description: "Takes the same path a real alert does, private network opt-in included."
+sidebar_label: "Send a test alert to a channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v20YQ/SuDOSXAWlKLnHhzUBRwAjRGrcIoBKEYccfiRuQsszuUzBL878UuaVm1kwABchK5fDvz3nw8DWg5lsG16rxggWs6cAStGCI1DC1pBQSBqQaqOShYz9FAG9yRlEFYTz4cwLd65QSclHVn2S7QoNI+YrHB63Qt4tZgS4EaVg7pfECX8qUEaFCoYSzQWTQY+EvnAlssNHRsMJYVN4TFgNq3GSXKew44jtuEjq2XyDEBfl2t0s//Jd1XrBWHLKqsSIRroLLkVtmCUwMnp1X+yiH4AKeKBZyCdRbE6wJHg+9W714H/sND7MrqHPTBz0morjkscBwNNqyVt0moj4pm0lvgsq27vZMrat0y1zUu5yhxOTg7LpUzPHI4PtWrC3W6ieYFjb99F2DNoXGPMOExFSZy2QWnfb67YwocrruUfLMdzYCl9wfHlyfUuo/cn08uQtylDkwVvgx0bkil2uLcqPQ+gdDMD7/70JBigR/u16/Y33GMzguoP7BAZFFwksuYkvjg/qWEhIrJcgCK8D4HBRKbYflibtKlpDO3SRWaadwmyPPAfT7pNxl9uF/DhIfICqQQ3V6unCzgPo1IGzjRNWlWNK9NG7hky1Iy+OM8cV9TkdlelvuHK3l9ewMH7iEqBXWyn2e4efznlZwz9MdLe+DewKlyZTUlis9pFnCjQKXGdG3Ggj/JfLskEZ8B6TtJ74WB68jTVjh58Fm10zrJnDwCrm9v0GAa+In6L4vVYvVK0CdhcLLzj3nh+Mihn73JybwH805brl3+rB5OvKu8P0QDog+9gd9cLH2wmS035OrclLSlDUniNk/IHYsFgrSPcxb1QE87/5Jc2itRFv25VjoNh/KjLtuanCSq2Q6G2VA2+GwoaHCyFDT4ZCposMjmmn1la7BKdlRscBh2FPmvUI9jOv7ScUiOsTV4pOBol9qzGdC6mJ4tFg9UR/6O6jd/zvb9Fr7F/GkzJa3lkeouvaHBA/fTf8C4vXTO2093axzH/wBTRkqx
+sidebar_class_name: "post api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a test alert to a channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/alerts/channels/{id}/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Takes the same path a real alert does, private network opt-in included.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether the channel accepted it, with the error when it did not."},"404":{"description":"No such channel for the caller."}}}
+>
+  
+</StatusCodes>
+
+
+      

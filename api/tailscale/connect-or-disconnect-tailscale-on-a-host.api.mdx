@@ -1,0 +1,70 @@
+---
+id: connect-or-disconnect-tailscale-on-a-host
+title: "Connect or disconnect Tailscale on a host"
+description: "Connect or disconnect Tailscale on a host"
+sidebar_label: "Connect or disconnect Tailscale on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcGO2zgM/RWCp11ASaY95jYtdrHTPXTQpBgsBsGCsVlbE1tyJTqZrOF/X1DyJJmmPYwviaRH8pEUnwYUqiIuH3FNtokFNYwbgx0Falk46NGA1uESO5IaDTpqGZdoSzQY+HtvA5e4lNCzwVjU3BIuB5Rjl1BOuOKA47jJaI7ywZdHhfxoXHgn7ESPqOsaW5BY7xZP0Tvdu/Ltt09cCBrsgu84iOWYbAs1u8BFCdZVaJBd32qmfYcGS39wuBnTp9Ri513MHt7f3OhPybEItsve8Da5hcCxb2SOavQa8NE7x4WAD1DaWEyrU1XBOyCofVTGLUvtS61pXqfSLnHRNX1l3Yw6u5AXw4XazFqWYIs4a8lRxWEx2HJcTKkajBz2L73qQ6Ou8Ed+//g+wJpDa58h41GbErnog5Vjst0yBQ63vbJ53IxmwML7neXLHers33w87Vy4WGmHcgkvHZ0aUYto5VMjdZ1BaKY/f/rQkuASPz2sr9ivOEatv/gdO4jsBKwDqRk0iA/2v3RboGYqOQBF+JCcArkywZLhHEfzKqUTt5wVmnzVM+R82Z8O8ktGnx7WkPEQWYAEoq3czLo5PNTsoAusdA1YAaEdR90puGRXMPg9h19mkdhelvvNlby9v4MdHyEKBbGugoOVGqR9/vcqnRP07aXd8dHAobZFnQPFc5g53AlQIVHNJiz4g5usC3LOJ4Cekzt6x8BN5DxgOvpfzqLxxzO1XcOXQ66zPGrTvvlUHit6ftYyuL2/Q4M6HBn/bn4zv7lOvixBB86xQMl7W3AirJMXM9FpnFNiZ++r1V+pSTrGLSXRmW7MW9TgFZdTj4WfZdE1ZJ1GSFM9TELxiGehQIMnqUCDPxMLNLhMcj1VbZNh6mcYthT5a2jGUbe/9xxUCTYG9xQsbbWajwOWNur/EpffqIl8Rfkk3fjbl0nVfwdl9rNUXibO6bjtqel1hQZ3fMzvyrgZDebblqLng485xmyt5mfDq6dCFemkr/efV6ol2+nJaX2pNoEO+njRIQf2KY+kW2lvwIZc1VOVRj/51O9/mdx4qw==
+sidebar_class_name: "post api-method"
+info_path: api/tailscale/tailscale-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Connect or disconnect Tailscale on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tailscale/host-metrics-manager/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Connect or disconnect Tailscale on a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","enum":["up","down"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Action result."}}}
+>
+  
+</StatusCodes>
+
+
+      

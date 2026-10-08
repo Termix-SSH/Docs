@@ -1,0 +1,168 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Session Recording API",
+    "version": "1.0.0",
+    "description": "Record terminal and remote desktop sessions and play them back or download them later."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/session-recording/": {
+      "get": {
+        "summary": "List session recordings",
+        "description": "Returns every terminal session recording for the authenticated user.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of session recordings."
+          },
+          "500": {
+            "description": "Failed to fetch session recordings."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/{id}": {
+      "get": {
+        "summary": "Get session recording metadata",
+        "description": "Returns metadata for a single session recording.",
+        "tags": [
+          "Session Recording"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session recording metadata."
+          },
+          "404": {
+            "description": "Session recording not found."
+          },
+          "500": {
+            "description": "Failed to fetch session recording."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete session recording",
+        "description": "Deletes a session recording and its file.",
+        "tags": [
+          "Session Recording"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session recording deleted."
+          },
+          "404": {
+            "description": "Session recording not found."
+          },
+          "500": {
+            "description": "Failed to delete session recording."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/{id}/content": {
+      "get": {
+        "summary": "Get session recording content",
+        "description": "Returns the raw content of a session recording file.",
+        "tags": [
+          "Session Recording"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Raw recording content."
+          },
+          "404": {
+            "description": "Session recording or file not found."
+          },
+          "500": {
+            "description": "Failed to read session recording."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

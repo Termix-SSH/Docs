@@ -1,0 +1,70 @@
+---
+id: grant-or-revoke-stage-control-presenter-or-host
+title: "Grant or revoke stage control (presenter or host)"
+description: "Grants a member write access to the current SSH stage, or revokes it with a null userId. The controller may also release control themselves."
+sidebar_label: "Grant or revoke stage control (presenter or host)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtu40YM/RWCT7vAxE4vT3rLLnrJFmiDtYugMIyClrjWxNKMdoay4wr694IzviRxUqB9ql8saQ455CF5OGDFsQy2E+sdFvhTICcRCFpuVxxgF6wwUFlyjCAepGYo+xDYCcxmP0MUWrMBHyDw1m84ghXYWamBwPVNA33kcFtNYK6G3knwTcMBWtoDNdFD4IYpns70gjZys+U4QYNC64jFAj/6pqEVLg1GLvtgZY/FYsAVU+Bw00uNxWI5Lg12FKhl4RATwGpOHUmNBh21jAXaCg0G/trbwBUWEno2GMuaW8JiQNl3iooSrFvjqD4VzFE++GqviJe2Gjk70SPqusaWpFxOH6ISOly69qsHLgUNdsF3HMRy1NNM1GUIBpVHWjWcLxzTT6OKnXcxG397fa1/z2uplDvePaEdR4Pfvwb91Utt3Rq6wJGdcJVKShC49cJQcdyI73K1s5PvXnWS+uPoJKiP2kdBjbdlqX2l5dAvJlelwGnX9Gvrrqiz08gxWu+uYk2a+jR438bpYKtxesgBtQHC9ljePjTqAs2LSP7wfYA5h9Y+Qsbj+KR3ZlqSTNzTDjoxX4t0eGgKfc8gNIeHH31oSbDAT/fzi6tnOQcQv2EHygNYl2jRS3ywf6X2gJqp4gAU4UNyCuSqBEuGEyW59H5j+UVs1NlfeI8mt3aGnJv7YSdvRvTpfg4ZD5EFSCDatbuybgL3Nbtj2YxOsJCOche45IpdyeC3HN7MIkWbA/uPTN7c3cKG99pgQbQRk4RI+/jnRTon6L+ndsN7A7valnW+KJ6vmcCtAJUqffGIBb9zB+uSnPMJoOfk9t4xcBN5knpbZ/3zWSV+eKS203k9T/VJULRwX3yiyIpiTvWZ5a6Hm7tbNKg9nhP+ZnI9ub6sak2BobFbrWZyEGG1h8a6jY5dlmDnpeaQNNikPA41PpuIB4J18H2nXLbMif00eKmqOqwtJSE7tFjaEGfBz5pwku93F8P//mXow1kx/3frJnet8KNMu4asUwqSyAwHvVrgWa+SGD1TLN0sSh0aLNKeOcrW0mASwmKBw7CiyL+HZhz189eegy6zpcEtBZt1fjFgZaM+V1h8oSbyP3D47vNhIb2Ht1I4aodT4dhS0+sbGtzwPm/EcTkazHOTbs8HH/MdV3M1PxtebDnV1pO83/02U1VcHbZl6yu1CbRTcmiXL/Ypj6TA6duADbl1r9ulwOxT54qeq8kL9UiRvpraMGTEXLV0HE+ZJm3VZMfxb7b/HeI=
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Grant or revoke stage control (presenter or host)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/control"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Grants a member write access to the current SSH stage, or revokes it with a null userId. The controller may also release control themselves.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"userId":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new controller"},"400":{"description":"Nothing presented, or a remote desktop stage"},"403":{"description":"Not the presenter or host"}}}
+>
+  
+</StatusCodes>
+
+
+      

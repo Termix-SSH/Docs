@@ -1,0 +1,668 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Termix Identity API",
+    "version": "1.0.0",
+    "description": "Publish your SSH public keys under a public handle and run your own SSH certificate authority."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/termix-identity/u/{handle}/ca": {
+      "get": {
+        "summary": "Public CA key for a handle",
+        "description": "Public. The certificate authority's public key, for TrustedUserCAKeys or an @cert-authority line.",
+        "tags": [
+          "Termix ID"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "handle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The CA public key as text."
+          },
+          "404": {
+            "description": "No such handle, or it has no CA."
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/u/{handle}": {
+      "get": {
+        "summary": "Published keys for a handle",
+        "description": "Public. authorized_keys lines for every enabled key, or an HTML viewer when the client accepts text/html. Never cached.",
+        "tags": [
+          "Termix ID"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "handle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The keys as text or HTML."
+          },
+          "404": {
+            "description": "No such handle."
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/u/{handle}/{algo}": {
+      "get": {
+        "summary": "Published keys of one algorithm for a handle",
+        "description": "Public. Like /u/{handle}, keeping only keys whose algorithm group matches (RSA, ED25519, ECDSA and so on).",
+        "tags": [
+          "Termix ID"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "handle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "algo",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The matching keys as text or HTML."
+          },
+          "404": {
+            "description": "No such handle."
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/me": {
+      "get": {
+        "summary": "Get the current user's Termix ID and keys",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity and keys (identity may be null)"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/check/{handle}": {
+      "get": {
+        "summary": "Check if a handle is available",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "handle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability and validity status"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity": {
+      "post": {
+        "summary": "Create a Termix ID",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "handle"
+                ],
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created identity"
+          },
+          "400": {
+            "description": "Invalid handle"
+          },
+          "409": {
+            "description": "Handle taken or user already has an identity"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Termix ID handle or description",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated identity"
+          },
+          "404": {
+            "description": "No Termix ID"
+          },
+          "409": {
+            "description": "Handle taken"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Termix ID with its keys and CA",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "No Termix ID"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/keys": {
+      "post": {
+        "summary": "Publish a public key",
+        "description": "Publishes a pasted key, or the public half of one of the user's saved SSH key credentials.",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "publicKey": {
+                    "type": "string"
+                  },
+                  "credentialId": {
+                    "type": "integer"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Published key"
+          },
+          "400": {
+            "description": "No identity, or the key is invalid"
+          },
+          "404": {
+            "description": "Credential not found"
+          },
+          "409": {
+            "description": "Already published"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/keys/generate": {
+      "post": {
+        "summary": "Generate a new key pair and publish the public key",
+        "description": "The private key is returned once. With saveCredential (the default) the pair is also saved as an SSH key credential.",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "ed25519",
+                      "rsa"
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "saveCredential": {
+                    "type": "boolean"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Generated key info with the private key (shown once)"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/keys/{id}": {
+      "patch": {
+        "summary": "Update key metadata (enabled state or label)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated key"
+          },
+          "404": {
+            "description": "Key not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Revoke and delete a published key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "Key not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/ca": {
+      "get": {
+        "summary": "Get the current user's certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CA info or null"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created CA"
+          },
+          "409": {
+            "description": "CA already exists"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete the certificate authority",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "No Termix ID or no CA"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/ca/rotate": {
+      "post": {
+        "summary": "Rotate the certificate authority (revokes all issued certificates)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New CA public key"
+          },
+          "404": {
+            "description": "No Termix ID or no CA"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/keys/{id}/certificate": {
+      "post": {
+        "summary": "Issue an SSH certificate for a key (Ed25519 only)",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "validityDays": {
+                    "type": "integer"
+                  },
+                  "principals": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Issued certificate"
+          },
+          "400": {
+            "description": "Not an Ed25519 key, or no CA"
+          },
+          "404": {
+            "description": "Key not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/linked-credentials": {
+      "get": {
+        "summary": "Credential ids with at least one enabled published key",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of credential ids"
+          }
+        }
+      }
+    },
+    "/plugin-api/termix-identity/credentials": {
+      "get": {
+        "summary": "The user's SSH key credentials that can be published",
+        "description": "Id and name of each saved SSH key credential, for the import picker. No key material.",
+        "tags": [
+          "Termix ID"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of key credentials"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

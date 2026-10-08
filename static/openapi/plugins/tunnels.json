@@ -1,0 +1,361 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Tunnels API",
+    "version": "1.0.0",
+    "description": "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/tunnels/status": {
+      "get": {
+        "summary": "Get tunnel statuses",
+        "description": "Returns the status of every tunnel whose source host the caller can reach.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tunnel statuses keyed by tunnel name."
+          },
+          "403": {
+            "description": "Missing the tunnels.use permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/status/stream": {
+      "get": {
+        "summary": "Stream tunnel statuses",
+        "description": "Server-sent events. Sends a \"statuses\" event with the full snapshot the caller can see on connect and after every change.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "403": {
+            "description": "Missing the tunnels.use permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/status/{tunnelName}": {
+      "get": {
+        "summary": "Get one tunnel's status",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tunnelName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tunnel's status."
+          },
+          "404": {
+            "description": "No such tunnel, or the caller cannot see it."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/connect": {
+      "post": {
+        "summary": "Connect a tunnel",
+        "description": "Starts a server tunnel from one of the caller's hosts. Credentials are resolved on the server. The result arrives over the status stream.",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sourceHostId": {
+                    "type": "integer"
+                  },
+                  "tunnelIndex": {
+                    "type": "integer"
+                  },
+                  "mode": {
+                    "type": "string"
+                  },
+                  "endpointHost": {
+                    "type": "string"
+                  },
+                  "sourcePort": {
+                    "type": "integer"
+                  },
+                  "endpointPort": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connection request received."
+          },
+          "400": {
+            "description": "Invalid tunnel configuration."
+          },
+          "403": {
+            "description": "Access denied to this host."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/disconnect": {
+      "post": {
+        "summary": "Disconnect a tunnel",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tunnelName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Disconnect request received."
+          },
+          "400": {
+            "description": "Tunnel name required."
+          },
+          "403": {
+            "description": "Access denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/cancel": {
+      "post": {
+        "summary": "Cancel a tunnel's connect or retry",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tunnelName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cancel request received."
+          },
+          "400": {
+            "description": "Tunnel name required."
+          },
+          "403": {
+            "description": "Access denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/presets": {
+      "get": {
+        "summary": "List client tunnel presets",
+        "description": "Returns the caller's saved client-to-server tunnel presets.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of tunnel presets."
+          },
+          "403": {
+            "description": "Missing the tunnels.use permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a client tunnel preset",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "platform": {
+                    "type": "string"
+                  },
+                  "computerName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Preset created."
+          },
+          "400": {
+            "description": "Invalid name or config."
+          },
+          "409": {
+            "description": "A preset with that name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/presets/{id}": {
+      "put": {
+        "summary": "Update a client tunnel preset",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Preset updated."
+          },
+          "400": {
+            "description": "Invalid name or config."
+          },
+          "404": {
+            "description": "Preset not found."
+          },
+          "409": {
+            "description": "A preset with that name already exists."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a client tunnel preset",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Preset deleted."
+          },
+          "404": {
+            "description": "Preset not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,58 @@
+---
+title: Install
+description: Pick how to run Termix.
+---
+
+import Link from "@docusaurus/Link";
+
+# Install
+
+Termix has two parts you can install:
+
+- **The server.** It holds your hosts and does the connecting. You need one.
+- **The apps.** The desktop and mobile apps sign in to a server. You can also use any browser instead.
+
+The desktop app can also run a server of its own, so you can use it with no server at all. See [linking the desktop app](/configure/desktop-sync).
+
+## Server {#server}
+
+| Method | Use it when |
+| --- | --- |
+| [Docker](/install/server/docker) | You want the easy, supported way. Start here. |
+| [Kubernetes](/install/server/kubernetes) | You already run a cluster. |
+| [Proxmox](/install/server/proxmox) | You want an LXC container made for you. |
+| [From source](/install/server/source) | You want to build it yourself. |
+| [GINERNET](/install/ginernet) | You want a VPS, so Termix stays up when your own network is down. |
+
+### What it needs
+
+Termix is light. For most installs, 1 CPU core and 1 GB of RAM is plenty.
+
+| Hosts | CPU | RAM | Disk |
+| --- | --- | --- | --- |
+| Up to 100 | 1 core | 1 GB | 2 GB |
+| Up to 500 | 2 cores | 1 GB | 5 GB |
+| Up to 2,000 | 2 cores | 2 GB | 10 GB |
+| More | 4 cores | 4 GB | 40 GB |
+
+Add a core and 1 GB if you use remote desktop, since guacd runs next to Termix. Plugins that keep history, like Host Metrics and Session Recording, use more disk the longer you keep data.
+
+The image runs on `linux/amd64` and `linux/arm64`.
+
+## Apps {#apps}
+
+| App | Get it |
+| --- | --- |
+| [Windows](/install/apps/windows) | Chocolatey, installer or portable |
+| [macOS](/install/apps/macos) | App Store, Homebrew or disk image |
+| [Linux](/install/apps/linux) | Flatpak, AppImage, deb, AUR or portable |
+| [iOS](/install/apps/ios) | App Store |
+| [Android](/install/apps/android) | Google Play or APK |
+
+The [CLI](/cli) runs commands against your server from a terminal.
+
+## After you install
+
+1. [First run](/install/first-run): make the admin account and pick plugins.
+2. [Put it behind a reverse proxy](/configure/reverse-proxy) or [turn on HTTPS](/configure/https) before you open it to the internet.
+3. Set up [backups](/install/backup).

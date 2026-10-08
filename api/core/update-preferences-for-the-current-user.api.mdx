@@ -1,0 +1,68 @@
+---
+id: update-preferences-for-the-current-user
+title: "Update preferences for the current user"
+description: "showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign. Values that moved into a feature's own user settings are ignored too."
+sidebar_label: "Update preferences for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVktz2zgM/isYXnqRnWwPe/AtyXSnj92Np3Ha2elkdmAKlhhLJEtCcVxP/vsOSNVSYuXQ8/qQ2HgRBPB94EGVFHUwno2zaqFi7XbvXeQVVrGAWr4F3F/bq8bobQHatR41i8UXQztAW0Jk5C5eucaFG11TS4CBwDponK0oAGpNnqmEmgLBbAZc0x5a90AlsIPl7QrO5KBZNCWtMZz5QBsKZDVFwAgeA4PbiBv0JhCopGgqO4cv2HQUgWvkPqax7ABhQ8hdoDcR3M5CFylAJGZjq5gSNJV1IaXg5qpQjFVUi2/qVgyXQwbqrlCBvncU+dKVe7U4pJ8mUKkWHDoqlHaWybKo0PvGaJRint1HqehBRSkKyjfee1IL5db3pFkVygfnKbChmMM6T3aF63ht/3SVsSOXtXMNoVVPhWIp8UgVORhbiWbjLN+YH9NK6YLl1KVJfYO26rCado7sAlb0lyun9dq1LdpyiQ0x0zuL60bKM5W+N/bC+89ommk9PXq0ZW9ybd+7BwrTljKqy2O0y47ZvVKy0kTJ6NaXyHRVk95O22lnNya0K1xfNS7StFFtypKsHCmtmi5HF9m1n2i/NraUgTu1Kl7g7uPN9d8zstqVVAKGgPufIy+T+yZCjgnbIegc3qGuAbWEABNBy83EvUJjI2fA1NQ0PQYkg5ggKxqPAVtiChEQfNNVxkJJusFAETYugOGYXObqKX0EB9E7G/O4vj0/l3/PrzECDnSp3CXETmuKcdM1zV5iFaolrl2pFsp3CQbItVqoM7npbAR+VahI4YGCAPOgutCI1Unp/nFdgBWF1jxCtldPd+Kqu2B4n3zXhIHCRScHfbt7Kg5KO7c1NJagN59of5SMQmRaS7ceBzr2tGb2kqzO0OyNVNF/+cOFFlma/HV1kv0NxSj9Y7clC5Esg7GpQXKIC+ZHYhOoCUsh0wiXKeixj8lxnsd3uNIxt3wrVSjhk95EFcpiyvR+x69m9PHrCrK9ECcggzDuzNg5fK3Jgg8k6RZgGBi3FEWiqZTegcD21VukbMfl/uVKXiw/CBRk9wShdNgZroHbx39PrnM0/fXSbmlfwK42us4HxeGYOXxggV7aUL2tgKz31mitSwaiR7t3loCaSBkAsho+D0vl3SO2vqFXlkBeMj3tD/wxsP0ge0byg3jg9kH2jNIH8StMnnMYc3eWTLN11k3zc9ZNMfJxmT7n4Cx+ybqjjE/JdkTFxm5cmi/DUmDV88TF8oMqlFBLHpK3v89/O5+fnwzPqibQLhAMfj3t/mRMp7uWLMdEl8KywXVMMY24d5FbTEupx1u+MIxfOEK1MkC6C0FGVFjwZR6H4Y3xP36hZYpgeuQz36BJ2zgthUO/Qr6pkxVyVyjJXHSHwxoj3Ybm6UnE3zsKshzuCvWAwcg45k2gMh+kvbGlvVqoq1z82UoyEPOmy9T64rEnO+O425a3Qvbr/s3YZpwF3Kki/V0oVSiX+ptffyI7jKGaQ8rnPxKaG2c=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update preferences for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user-preferences"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign. Values that moved into a feature's own user settings are ignored too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"reopenTabsOnLogin":{"type":"boolean"},"theme":{"type":"string"},"fontSize":{"type":"string"},"accentColor":{"type":"string"},"language":{"type":"string"},"storageMode":{"type":"string"},"commandPaletteEnabled":{"type":"boolean"},"pinAppRail":{"type":"boolean"},"expandAppRailOnHover":{"type":"boolean"},"showPinAppRailButton":{"type":"boolean"},"disableUpdateCheck":{"type":"boolean"},"confirmTabClose":{"type":"boolean"},"hiddenRailTabs":{"type":"string"},"customKeybindings":{"type":"string","description":"JSON-encoded array of the user's custom keybindings. Each action is checked against the shell's own types and the parameters a plugin declares for its type."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Preferences updated successfully."}}}
+>
+  
+</StatusCodes>
+
+
+      

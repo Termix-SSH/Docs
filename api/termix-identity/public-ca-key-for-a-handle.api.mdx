@@ -1,0 +1,69 @@
+---
+id: public-ca-key-for-a-handle
+title: "Public CA key for a handle"
+description: "Public. The certificate authority's public key, for TrustedUserCAKeys or an @cert-authority line."
+sidebar_label: "Public CA key for a handle"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDubQF1pJa5MRTFfcjToDCqBUYgSEUY3IsbkTtMruzllmC/z2YXVmW67pALj2JnH2zfG8+nkZsONbB9mK9wwov021n6xmsWoaag9g7W5MwUJLWByvDdxH6jIEtDwbufIBVSFG4+Rg5nC8/8BDBByAHP+sFZ8dM6KzjGRoU2kSsbnDFYWcf4OIXXBvsKdCOhYMejWiVTE/SokFHO8YKW3JNx2gw8JdkAzdYSUhsMNYt7wirEWXoFRklWLfBaVorOPbeRY56/tNioT/PJavU8+WJKqAIwg8yw8ngm8Wblyl/eIipbqFQMqrXCrQUwXk4X85wmgzuWFrfYIUbFjRFTIXzvksb686ot3PJBTizDTuxMszTfCw3TvOa0GDkcP9YkBQ6zUbzDyqffApwqGTBo8qOXCctes69ZQoclkkJ3KwnM2Lt/dbyaYR6+4GHY+Tkiistb6nf6UXHarciPR66oO8FhObw8JsPOxKs8P316gX7K47Regfit+wgshOwDqRlWJax+ZsUCS1Tw0Eb8zZfCuSaDMuJuVGnko7ciio0ZZ4K5GmiPu/lVUbvr1dQ8BBZgASi3bgz62Zw3bKDPrDSNdp4oS1HjdTcsKsZ/D2HV1Vktqfl/uZKLi8v8pxGoSDWbWBvpQXZPfz1Qs4R+u2lzfu9b23dlg/Fp8/M4EKAaol5VQoW/N4dsmtyzmeAnpMbvGPgLnJZDOvufFZtpVOZjz5wWANYXl6gQZ38ouHH2WK2eKEsO1VsYdAFuLp6d7LAEZLLmh5jZasyt5BcSfF7l9P+1eVyj3ofZUdOqR4GprijuoUKVu8jONrSM3q6Yk7Yyf/lqWWC1LbmfUfWqYDsGePBeW7wyXk04bn3oMGEBqujmprUlVsfRVPH8ZYifwzdNGn4S+Kg1rI2eE/B0q328WbExkZ9brC6oy7yf9Tk+z8PJv4DvMb+cYWdkrunLukbGtzy8PRvMK1Pnfb3X1c4TV8B8jtZcg==
+sidebar_class_name: "get api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Public CA key for a handle"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/termix-identity/u/{handle}/ca"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The certificate authority's public key, for TrustedUserCAKeys or an @cert-authority line.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"handle","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The CA public key as text."},"404":{"description":"No such handle, or it has no CA."}}}
+>
+  
+</StatusCodes>
+
+
+      

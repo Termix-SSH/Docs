@@ -1,0 +1,69 @@
+---
+id: published-keys-for-a-handle
+title: "Published keys for a handle"
+description: "Public. authorized_keys lines for every enabled key, or an HTML viewer when the client accepts text/html. Never cached."
+sidebar_label: "Published keys for a handle"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu4zYQ/ZXBnFqAkd3FnnRLsW032+0iaFwEi8BYMNTEZC2RWnJkRzX074shZcdpkAJ76skW+YZ8b/Tm6YANJRNdzy54rPF6uG+dqUAPbEN0/1DzZUtjgtZ5SvAQItCO4gjk9X1LDWxpVBAiaA/vV398hJ2jPUXYW/LAlsC0jjyDNoZ6TsD0yAvLXVvBJzkIjDaWmgoVst4krO9wRbFzj3D1DtcKex11R0xRtg7ohGKv2aJCrzvCGq32TUuoMNLXwUVqsOY4kMJkLHUa6wPy2AsycXR+g9O0FnDqg0+UZP/Ncik/zxuxsgRZuS6sRaQorHBS+Hb59mXFpwBpMBYKowqnSWFHbEODNW6IURXqNS76dtg4f6F7t+As98I15NnxuBgWh3LAhAoTxd1R+xBbKUX1r2s/hyHC3LSCR1GYyAzR8Zhr70lHipeD3H63ntQBTQhbR+crune/03haOTviRjpZWnV+0KmxlrnHueHyXECo5j+/hthpxho/3K5esL+hlFzwwGFLHpJ4xRXnXM4O1IIES7qhKC/j53woaN9kWC7ML+Vc0olbUYWqWKdAnszz955fZfThdgUFD4kYNENyG3/hfAW34u4+ktBV4BhYbynJiqGGvCEI4u3XVGS25+3+7k5eXl+JOSGxjuz8BvaOLXD3+OWFnBP0+1ubZ3tvnbHlovR0TQVXMtRcxqNgIez9XG209yEDZF/7MXgCatM8Fc4/hKzacSsyjyM/zwBcXl+hQnF+0fBTtayWL5TlqEoWRhmAm5v30OfsKlM7+KzpuFZGKnOLgy8lYe9zmaHI7sEZzXSMPR7zO+pD4k57oTobZr6zBF/JQw2nCHrGT2bMM3n+f1O1GCsj+lY7L7pylBzmNLrDpzSSgud5hAoHVFjPGtcKbUgsVYfDvU70V2ynSZa/DhQlbNYKdzo60ZGjp3Epa8L6QbeJ/qNJP/w5J/iP8Brx41B74bXT7SBPqHBL49OnYFqfB+9vv6xwmr4B5K5hrg==
+sidebar_class_name: "get api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Published keys for a handle"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/termix-identity/u/{handle}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. authorized_keys lines for every enabled key, or an HTML viewer when the client accepts text/html. Never cached.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"handle","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The keys as text or HTML."},"404":{"description":"No such handle."}}}
+>
+  
+</StatusCodes>
+
+
+      

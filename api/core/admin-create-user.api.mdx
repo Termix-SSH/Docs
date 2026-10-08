@@ -1,0 +1,68 @@
+---
+id: admin-create-user
+title: "Admin create user"
+description: "Allows an admin to create a new user regardless of whether public registration is enabled."
+sidebar_label: "Admin create user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vdtu20YQ/ZXBPK9lN70A5ZtSJIBToDVqBUYhCMVqORbXIneZnaEllvC/B7OkZdqOC+ShepCo3TMzZ26HA5bELvlWfAxY4LKu44HBBrBl4wNIBJfICoGFQAfomBIk2tlU1sQM8RYOFUlFCdpuW3unl54lWXUInoGC3dZULtCg2B1jscbPTIlxYzDRl45Y3seyx2LIf32iEgtJHRl0MQgF0SvbtrV32en5HSvVAdlV1Fh9kr4lLDBu78gJGmxTbCmJJ9Zb5RxsQzMkS/Jhhw8GW8t8iKn8xmX+KEluY+DR17uLC/15XjTNZypTCdw5R8y3XV33C43w01smyglsKOGRA9hE8FiEyfbH17Z/RAHbSRWT//eE+/W/YtSJbNkDHT0LZ4Ofv0Xqo/U1lbOea+UWqEVoSKpYYoFt5FxhKxUWeK4IPs+zcjYaoUGmdK8dLtYDdqlWHJoXsf6OXYIVpcYfYcTjw0ZNXZe89Nl2SzZRWnYaar15MAO6GPee5ie29b9TfzqZubjW8Ri7Nnd0anMl0irZDMNiAqGZHj7G1FjBAj/drF6xvyZmnW+JewrAFAR0WSqC5dSYcf4rsiUlsAzvs9PcboVlw9yJeUonbmNWaNBrtBGCBscpxruDvMno080KRjwwCVgB9rtw5sMCbioK0CZSuga8gNg9sZ44Kik4gnhP6c0sMtt5ub+7ksurS9hTDyw2iQ87OHipQJrjP6/SOUG/v7R76g0cKu+qMRA/hVnApYB1wmo2YSEewmTtbAgxA/Tehj4GAqqZxh1Q3fnrSbE+HG3T1vRcYR7FYy4sM7Xx4TbmwnlRS5wWYHl1iQZ1Z8bs3/2y+OFicfGqKquKwMVE8GS3gA/WVdDW3c4HKKPrGgrC4IU1M0ixExp3Xle3sVk6J7LLrPGzZX8ZcXjS4P/51TBOktBRztva+qCEs3YMk9asc5UZDT5Tm43BSiWpWOMwbC3T51Q/POjxl46S6sjG4L1NXkONooHj6GSJ2VOPBf42Jnm2UhYKr7txC1+8dFReTkp49ee1CsN2enk1sVSbZA9o8neBaDDmQmYRymcD1jbsOrvLe5x96ucrob+cvQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Admin create user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/admin-create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Allows an admin to create a new user regardless of whether public registration is enabled.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User created successfully."},"400":{"description":"Username and password are required."},"403":{"description":"Not authorized."},"409":{"description":"Username already exists."},"500":{"description":"Failed to create user."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -14,7 +14,7 @@ It is good for the things a browser is slow at. Opening a server you use twenty 
 npm install -g @termix-ssh/cli
 ```
 
-You need Node.js 20.11 or newer. There are also standalone downloads for Windows, Linux, and macOS that do not need Node at all. See [Installation](/cli/installation).
+You need Node.js 22.12 or newer. There are also standalone downloads for Windows, Linux, and macOS that do not need Node at all. See [Installation](/cli/installation).
 
 ## Log in
 
@@ -50,6 +50,8 @@ termix exec 3 uptime   # run one command and come back
 | Alerts and sessions      | `alerts`, `sessions`              |
 | Admin                    | `users`, `audit-logs`, `api-keys` |
 | Info                     | `version`, `status`, `whoami`     |
+
+Commands for plugin features need that plugin on the server. `files` needs [File Manager](/plugins/file-manager), `fleets` needs [Fleets](/plugins/fleets), `tunnel` needs [Tunnels](/plugins/tunnels), `docker` needs [Docker](/plugins/docker), `snippets` needs [Snippets](/plugins/snippets) and `alerts` needs [Alerts](/plugins/alerts).
 
 Every command has built-in help:
 

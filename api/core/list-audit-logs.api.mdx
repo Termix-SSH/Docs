@@ -1,0 +1,69 @@
+---
+id: list-audit-logs
+title: "List audit logs"
+description: "Returns paginated, filterable audit log entries. Admin only."
+sidebar_label: "List audit logs"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu20YQ/ZXBPK8VxW3ywDcVTQonRWEkKozCEIoxOSInInfZ3aFtVdC/F0NKohJbgWL0ieTwnLlfNlhwyqO0KsFjhp9Yu+gTtFSKJ+XCwVJq5Uh3NQN1hSjUoQT2GoXTBGZFIx6Cr9cTdKhUJsxucWZAXDhsKVLDytHEGxSz8U/HcY0OPTWMGbZUMjpMecUNYbZBXbcmF69cckSHBS+pqxWz19ute15JLY3omVreTB029ChN12B2OZ2eVNoljlfFc1qTRvElnmRS3ufzBczIKXQx57nBX8BPXZ5zSt+hOmRvkd9q7NgtqU68OK1OKeqvpN/zxeEyxIYUMyxI+UKl4dMOsi9epm/hLDlt8ImTkS6nU3t83b/X+76FWpJCWI49mya4dfjz9KenrD+CAnVahSj/ctHj3jyn/T1JzQVogCVrXn2te+uwYa1CgRmWbM3YklaY4asedmEwi5rj/X4culjb/745j+38FboIc46NPMKARws/cd5F0XXPvWOKHGedmbhdWLbzEFbCxxJq5SOvD5IjFZ8t90MejxUdSlGptvsS2fcAQrd7eb8v0Ieb+RPvP3NKEjxoWLGHxF5BPGjFMNvlmAwJFVPBESjBL71SIF/0sJ7YV+E4pINvQ1TohvYaIGN/fXnQkx59uJnDgIfECqSQpPQX4idwU7GHNrK560AUlFacTJJzwT5nCPccT0bRe3uc7h/O5Oz6Cla8hn7ixJfwIFqBNo9/PwnnAP3x1K547eChkrwaDKXRzASuFCjXZLQdFsKD37Fz8j70APtPfh08A9eJh9YXvwx91KK1hbnr3tn1FTq0hh9cv3w7eT2dTJ+ENK8Y8hAZRt4E3lFeQVt3pXgoQt417DWBaDK3IIZOeRjqNiRtyJv9XRf8btM/jue39mxYvLLX/+HkDWVWftRXbU3izaF+sDe7BXCLRwtg4bAKSU262dxR4j9jvd2aeNiTNtqFJLNdYNZvZ4crXo+H8p7qziyiTfgJ6P4cnoM9XLlzwIfDdg74m1t2DmU8X2ehj67TOfjx9ozohX1EMfiwNsct/tu7OW63/wHi0hfA
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List audit logs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/audit-logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns paginated, filterable audit log entries. Admin only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"page","schema":{"type":"integer","default":1}},{"in":"query","name":"limit","schema":{"type":"integer","default":50,"maximum":200}},{"in":"query","name":"userId","schema":{"type":"string"}},{"in":"query","name":"action","schema":{"type":"string"}},{"in":"query","name":"resourceType","schema":{"type":"string"}},{"in":"query","name":"success","schema":{"type":"string","enum":[true,false]}},{"in":"query","name":"startDate","schema":{"type":"string","format":"date-time"}},{"in":"query","name":"endDate","schema":{"type":"string","format":"date-time"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Paginated list of audit logs."},"403":{"description":"Not authorized."},"500":{"description":"Failed to fetch audit logs."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: remove-a-workspace-as-the-restore-on-login-default
+title: "Remove a workspace as the restore-on-login default"
+description: "Idempotent if the target is not currently the default. Rejects the Last Session workspace."
+sidebar_label: "Remove a workspace as the restore-on-login default"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMtu1EAQ/JVWn0CafYA4+RYOSAEkoiQoQqsV6ti968naM85MezfG8r+jHu8rREHiwMl2u2a6qh/VY8ExD7YR6x1meFlw3XhhJ2BXICWDUFizgI3gvEDehsBOqi79K3hFbSVTuOYHziWm4FeKAjcco/UOdj5sYkM5T9Gg0DpitsC7QzDi0mBDgWoWDvqvR6s0GpISDTqqGTO0BRoM/NjawAVmElo2GPOSa8KsR+mahHLCaw44DEtFx8a7yFEB7+dzfTxXeiQBrYssQPEoBweDH+Yf/nZGa7HyrSumOAwGa5bSF0rcR0Ez8s9w1lTt2roJNXZ2rESc9bYYZinrZJ8SDUYO20MN2lDpaTR/5P/h2wC3HGr7BCMeVWzkvA1WunT2nilwuGiVwGI5mB5z7zeWzyPU2C/cHSNnV9xoVceqnV90LHIp0uC++Po9gtDsXz75UJNghp/vbl+wP8yE+A07iGnGXBoZTeKD/UWKhJKp4KAN+ZguBXLFOIp6MHXnXNKR26gKzThCI+Q0RA87eZXR57tbGPGQRkEg2rWbWDeFu5IdNIGVrgErILThqJGcC3Y5g99yeFVFYnte7n+u5MXVJWy4gygUxLo17KyUIPXTzxdyjtB/L+2GOwO70ublmCie0kzhUoB0uykesOB3bn86J6fLQHlaIXKddwxcRR43w7qVT6qtVHy+QhEuri7RoA79SP/ddD6dv+wRbRk6HXzfsAOh+5jyxqayAhV1vpUxEnhElFyreuWRVzbfpB7oYtbklMp+IK659lsGOnnUQWDgKD7wxLtJ5dfWwWlLn3HT1XLqlf/dOMeREX6SWVORdaoomUS/t5oFnqwGDZ7MBg1myT+f+83SYKlWlS2w7+8p8vdQDYOGH1sO6iRLg1sKlu61bYseCxv1vcBsRVXkv5TizfXeqt/Ca9wPG+t0XbdUtfqFBjfcjX4/LM9d9erbzS0Ow289nFDM
+sidebar_class_name: "post api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a workspace as the restore-on-login default"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/workspaces/{id}/unset-default"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Idempotent if the target is not currently the default. Rejects the Last Session workspace.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Workspace unset as default."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

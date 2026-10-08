@@ -1,0 +1,69 @@
+---
+id: trigger-an-automation-from-an-external-system
+title: "Trigger an automation from an external system"
+description: "Unauthenticated by design; the 32-byte token in the path is the credential and is compared against a stored hash in constant time."
+sidebar_label: "Trigger an automation from an external system"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu3DgM/RWCp11AmcmmPXlP2UOBdIE2aKYIFsGg4NjMSDu25Ip0Jq7hf1/QnkymDbJAbz1ZokjqvSeSHrBiKXNoNaSIBX6O1KnnqKEk5Qo2PVQsYRv/BPUMby7ONr0yaNpxhBAnY0vqIci0LjNXFk01UKzMWqampcwV0JZCFAUC0WQGT+ItR5miKEUFDQ0v0KHSVrC4w8tOU0OGTHDtsKVMDStnOxwwGF67Gx1GahgLnGChw8xfu5C5wkJzxw6l9NwQFgNq35qjaA5xi+O4NmdpUxQWO784v7DP96KsPEPuIuxJgMqSW+VqgaPDt+dvX3p/SEBH4NCQlp5NHNJZtgWOo8OG1afKGCRRdDORApdt3W1DPKM2LJ+zyHLPG5/SbjlMKUZ0KJwfnqTocm2x6H6A8k/qMqw4N+ERZn80xsJll4P2U+yGKXO+7Oz6u/XoBixT2gU+tVAb/ub+aDlJcWPKztKdJjoK7VVbPDyA7WcndIfFu5QbUizw/e3qBfobFjEJ52ITjvpUcXZJyuHbLLFnqjgDCfw1JZ0qz9ye5HbfUTpim1mhmytpdnmupX/3+iqi97crmP1BWIEUrEXOQlzArecIbWaD6yAoKO1YzFJaZ5QM6YHzqywmtKdy/7SSl9dXsOMeRClriFvYB/WgzeOXF3SOrj8v7Y57B3sfSj9fJM/XLOBKgUoVCzv4QtrHQ3RJMabJwc4p9ikycC0890WI92liHbQ2miczAC6vr9ChVf2M/4/F+eL8BatPXQRRbgVShN46wCfRaUdg8lVdzZAy7O2pJFknmk6e2pajTC9gTdlQNCCHcljlsN1OFE67+z6nxkz8qJwj1SC9KDc/YrKeispRf5kJO9eU8qMu25pCNNLTFBkOk+gOnycROjyZRejwMI3QYTGP3LVDE9nChmFDwp9zPY5m/tpxtkGzdvhAOdDGXvVuwCqIrSss7qkW/h/Bfvt0mOa/w2vInxo6Wjc/UN3ZDh3uuD/+Fcb16dS9/nizwnH8D10RblU=
+sidebar_class_name: "post api-method"
+info_path: api/automations/automations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Trigger an automation from an external system"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/automations/webhook/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Unauthenticated by design; the 32-byte token in the path is the credential and is compared against a stored hash in constant time.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"202":{"description":"The run was accepted."},"404":{"description":"No automation matches that token."}}}
+>
+  
+</StatusCodes>
+
+
+      

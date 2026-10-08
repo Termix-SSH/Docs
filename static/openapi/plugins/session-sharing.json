@@ -1,0 +1,1010 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Session Sharing API",
+    "version": "1.0.0",
+    "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/session-sharing/resolve/{linkToken}": {
+      "get": {
+        "summary": "Resolve a guest share link",
+        "description": "Public, unauthenticated endpoint for anonymous share-link guests. Never returns host name, IP, username, or hostId. Rate-limited per IP.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "linkToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resolved share connection info"
+          },
+          "404": {
+            "description": "Link not found, expired, revoked, or sharing disabled"
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/create": {
+      "post": {
+        "summary": "Create a session share (link or targeted user)",
+        "description": "Mints a share grant for a live terminal/RDP/VNC/Telnet session. Caller must own the live session.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "sessionId",
+                  "protocol",
+                  "shareType",
+                  "permissionLevel"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "tabInstanceId": {
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "ssh",
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "shareType": {
+                    "type": "string",
+                    "enum": [
+                      "link",
+                      "user"
+                    ]
+                  },
+                  "targetUserId": {
+                    "type": "string"
+                  },
+                  "permissionLevel": {
+                    "type": "string",
+                    "enum": [
+                      "read-only",
+                      "read-write"
+                    ]
+                  },
+                  "expiryHours": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Share created"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Sharing disabled, or caller does not own the session"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/host/{hostId}/active": {
+      "get": {
+        "summary": "List active session shares for a host",
+        "description": "Returns active (non-revoked, non-expired) shares owned by the caller for the given host.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of active shares"
+          },
+          "400": {
+            "description": "Invalid host id"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/shared-with-me": {
+      "get": {
+        "summary": "List live SSH sessions other users shared with the caller",
+        "description": "Active user shares aimed at the caller whose session is still live, in the shape of /open-tabs/active-sessions.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Shared sessions"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/directory": {
+      "get": {
+        "summary": "Users and roles to share with or invite",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users (id, username) and roles (id, name, displayName)"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/{shareId}": {
+      "delete": {
+        "summary": "Revoke a session share",
+        "description": "Revokes a share. Owner or admin only. Best-effort kick of live SSH participants; remote desktop viewers are not force-disconnected.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "shareId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Share revoked"
+          },
+          "403": {
+            "description": "Not authorized to revoke this share"
+          },
+          "404": {
+            "description": "Share not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/{shareId}/end": {
+      "post": {
+        "summary": "End a shared session for all participants",
+        "description": "Owner-only. Terminates the underlying session and notifies joined participants. Remote desktop viewers are not force-disconnected.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "shareId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session ended"
+          },
+          "403": {
+            "description": "Not the owner of this share"
+          },
+          "404": {
+            "description": "Share not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/meeting-host/{syncId}": {
+      "get": {
+        "summary": "Find this server's id for a synced host",
+        "description": "A desktop presents a host by its sync id; this returns the matching host the caller may connect to.",
+        "tags": [
+          "Collab"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "syncId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The host id."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "404": {
+            "description": "No reachable host with that sync id."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms": {
+      "post": {
+        "summary": "Create a collaboration room",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "persistent": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new room"
+          },
+          "400": {
+            "description": "Missing or too long name"
+          }
+        }
+      },
+      "get": {
+        "summary": "List rooms the caller belongs to",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rooms, without their guest tokens"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}": {
+      "get": {
+        "summary": "Get a room with members, online users and stage state",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The room"
+          },
+          "404": {
+            "description": "Not a member, or no such room"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Permanently delete a room (host only)",
+        "description": "Revokes the active stage and removes the room and its membership. This cannot be undone.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "403": {
+            "description": "Not the host"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/members": {
+      "post": {
+        "summary": "Invite users to a room (host only)",
+        "description": "Roles expand to their current members, a snapshot.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "roleIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Invited"
+          },
+          "403": {
+            "description": "Not the host"
+          },
+          "404": {
+            "description": "Room, user or role not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/members/{userId}": {
+      "delete": {
+        "summary": "Remove a member (host), or leave the room (self)",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed"
+          },
+          "400": {
+            "description": "The owner cannot be removed"
+          },
+          "403": {
+            "description": "Only the host can remove others"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/present": {
+      "post": {
+        "summary": "Take the stage with one of your live sessions",
+        "description": "Any member may take over the stage; the previous stage share is revoked. The caller must own the live session and sharing must be enabled for the host.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "protocol",
+                  "sessionId",
+                  "hostId"
+                ],
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "ssh",
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new stage"
+          },
+          "403": {
+            "description": "Sharing disabled, or not the session's owner"
+          },
+          "409": {
+            "description": "The stage changed meanwhile"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/stop": {
+      "post": {
+        "summary": "Stop presenting (presenter or host)",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stage cleared"
+          },
+          "403": {
+            "description": "Not the presenter or host"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/stage": {
+      "get": {
+        "summary": "Get connect info for the current stage (members only)",
+        "description": "SSH stages are joined over the terminal socket by shareId; remote desktop stages get a freshly minted read-only viewer token.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The stage, or null"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/control": {
+      "post": {
+        "summary": "Grant or revoke stage control (presenter or host)",
+        "description": "Grants a member write access to the current SSH stage, or revokes it with a null userId. The controller may also release control themselves.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new controller"
+          },
+          "400": {
+            "description": "Nothing presented, or a remote desktop stage"
+          },
+          "403": {
+            "description": "Not the presenter or host"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/control/request": {
+      "post": {
+        "summary": "Ask the presenter for stage control (hand raise)",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request"
+          },
+          "429": {
+            "description": "Asked too recently"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/control/requests": {
+      "get": {
+        "summary": "List pending control requests (presenter or host)",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pending requests"
+          },
+          "403": {
+            "description": "Not the presenter or host"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/control/requests/{userId}": {
+      "delete": {
+        "summary": "Dismiss a control request (presenter or host), or cancel your own",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dismissed"
+          },
+          "403": {
+            "description": "Not allowed to dismiss it"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/guests/remove": {
+      "post": {
+        "summary": "Disconnect every anonymous guest watching the stage (host only)",
+        "description": "The guest link stays valid, so a guest may open it again.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Guests disconnected"
+          },
+          "403": {
+            "description": "Not the host"
+          },
+          "404": {
+            "description": "Not a member, or no such room"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/guest-link": {
+      "post": {
+        "summary": "Enable, rotate or disable the room's anonymous guest link (host only)",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new token, or null when disabled"
+          },
+          "403": {
+            "description": "Not the host"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/guest/{token}": {
+      "get": {
+        "summary": "Resolve a room's current stage for an anonymous guest",
+        "description": "Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal socket with roomGuestToken, remote desktop stages get a read-only viewer token.",
+        "tags": [
+          "Collab"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Room name and the stage, or a null stage"
+          },
+          "404": {
+            "description": "Link not found"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/rooms/{id}/end": {
+      "post": {
+        "summary": "End the meeting (host only)",
+        "description": "Clears the stage. One-off rooms are ended for good; persistent rooms stay listed for reuse.",
+        "tags": [
+          "Collab"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ended"
+          },
+          "403": {
+            "description": "Not the host"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

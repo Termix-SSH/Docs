@@ -1,0 +1,69 @@
+---
+id: get-users-roles
+title: "Get user's roles"
+description: "Retrieves a list of roles for a specific user."
+sidebar_label: "Get user's roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVN9v00AM/lcsvwDS0ZafD3kraEODFzSKJjRV6HZxm6PJXTg73UqU/x05ydqObUjwlIvvs/19Ptst5sQu+Vp8DJjhOUnytCUGC6VngbiCFEtiWMUEFrgm51feQcOUJmhQ7Joxu8Tzd/P3uDRY22QrEkpqbdFr0NpKgQaDrQgzVM+zHA0m+tn4RDlmkhoyyK6gymLWouxqRbIkH9bYdUsFcx0DE+v9y9lMP3epz+8SnmBn8PXs1QNA54gZcgqe8h725qF4p9aXlINEWJP0eveBO4MVSRFzzHBNgmaQmOE0XVk3VSxP20FoN+290CBT2t7WpUmlwtH8kfRbbBIsKFX+BgY8qnom1yQvu973imyiNG804+WyMy26GDeeji229p9ot7cchfiiVR7KeBxoX/RCpMbxMfR/AKEZD6cxVVYww48Xi3vsvxCzjwEkbigAUxDwAaQg0CQx+V9WkVCQzSmBZXjXBwUb8h7WO/ZPcixpz21QhWZoqwFyaKwf1/Ioo48XCxjwwCRgBdivw3MfJnBRUIA6kdI14AXEbojV4iin4AjiltKjKnq2x+X+50rOP5/BhnbAYpP4sIZrLwVIdfP9npw99N9Lu6GdgevCu2JIxIc0EzgTsE5Y3UYsxOswejsbQuwBem/DLgYCKpmGSfBhFXvVXkqVOXbv/PMZGtSGH6i/fDt5MZvM7klaFAQuJoKD3wROrCugLpu1D5BH11QUhMELKy1IsZFxwOvIUtmg+ccu+DAO6xOG28G7k1CnJQgF+a9tN7ys0I1M69L6oBz6WW7HFXCJugLQ9GtOk2eHfdfTWRosIosi2/bKMn1NZdep+WdDSSd8aXBrk7dXWs7LFnPPes4xW9mS6S96np6PK/UZPEb2dpKCjtHWlo3+ocEN7Q67uVseb7gPJwvsut8vuxp1
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get user's roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rbac/users/{userId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a list of roles for a specific user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of roles."},"403":{"description":"Access denied."},"500":{"description":"Failed to get user roles."}}}
+>
+  
+</StatusCodes>
+
+
+      

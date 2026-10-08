@@ -1,0 +1,45 @@
+---
+title: Linux
+description: Install the Termix desktop app on Linux.
+---
+
+import Downloads from "@site/src/components/install/Downloads";
+
+# Linux
+
+The desktop app works two ways. It can sign in to your Termix server, or it can run on its own with everything stored on your computer. You pick when you first open it. See [desktop sync](/configure/desktop-sync).
+
+## Flatpak
+
+```bash
+wget https://github.com/Termix-SSH/Termix/releases/latest/download/termix_linux_flatpak.flatpak
+flatpak install --user termix_linux_flatpak.flatpak
+flatpak run com.karmaa.termix
+```
+
+Update with `flatpak update com.karmaa.termix`.
+
+## AUR
+
+```bash
+yay -S termix-bin
+```
+
+The [AUR package](https://aur.archlinux.org/packages/termix-bin) is kept by the community and can be a little behind.
+
+## Download
+
+<Downloads platform="linux" />
+
+### Portable build
+
+The portable build needs the Chromium sandbox set up once. Run this in the folder you unpacked:
+
+```bash
+chmod +x termix
+sudo chown root:root chrome-sandbox
+sudo chmod 4755 chrome-sandbox
+./termix
+```
+
+Don't run Termix itself with `sudo`.

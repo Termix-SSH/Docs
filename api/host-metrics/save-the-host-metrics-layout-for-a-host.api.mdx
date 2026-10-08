@@ -1,0 +1,70 @@
+---
+id: save-the-host-metrics-layout-for-a-host
+title: "Save the Host Metrics layout for a host"
+description: "Saves the current user's card layout for the host. For the host's owner it also updates the host's enabled widgets."
+sidebar_label: "Save the Host Metrics layout for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsEL9sCEyf9OPmWXXTbbLdtsEkQFIFRMBJjTSzNaIeUHa3h/15wpMRKvCmwp+piz8wj55EcPm6xZCmSb9XHgHO8oDULaMVQdClxUOiE0xuBglIJNfWxU7iLKUOqKDqD95PVG4G4CZzAK1AtEbq2JB09jgAOdFtzCRtfLlllhg6VloLzG/wtisIfrMkXgguHLSVqWDnZ6Ra9MWxJK3QYqGGcoy/RYeLPnU9c4lxTxw6lqLghnG9R+zajgvKSE+52iwHNom9j2RvkpXERg3JQO6K2rX1Blprje7H8bA99x9t7LhQdtim2nNSzZFwdVSYwSol63Jn/umuCfJWdfUZQ2hhk8PPjyYn9PK/Sx6EOQmsuZ+b056+hzsKaav9YtRH30yHuzwhUFCwCGkErL0Nh0bg0rFUsLe1RcpCW/Tket3W39OGIWn9s4KNmKNrzRZv4jhOHguV468sdOhRO68dydqk2V+he8Pk7dgkuOTX+AQY8Wt2Eiy557bPtLVPidNoZm5vFzm2xiHHlebpDrf+d+6ediYsLK+KQ36mjp4pUqi2O78jWAwjd+Od9TA0pzvHD9eUB+wsW8TGAxhUHEGshH/L7t0ti8l/yg4KKqeQEJPA2OwUKZYZlw9nwVPYh7R9Sjgrd0A0DZN8P9xt9ldGH60sY8CCsQAril+HIhxlcVxygTWx0nTWv0orFdgourYAQ15xejSKznab7mzN5en4GK+5BlJL6sISN1wq0efjnIJwn6LendsW9g03li2q4SPbXzOBMgQoVMxuxo5aZdUEhxAywcwp9DAxcCw9tYurwaa8rvzxQ09Y80YGb0NX1YtL9Jzur4F3MufJq4GfyB6fnZ+jQmmUI+4fZyezkIBkf/Zrh3fmVg4abmHoHpZeVg8C6iWmVuf96fmXhqjho6866PNa51xsKtGTord+scSXX0Tq9oSx246OyoZBz8ozgZBhQNn9JbrvX0v9rrgyPUPlBj9uafLD4suxsRyW7wb2SocOpfB0uJ3qGDue+tBmVI5/f4HZ7S8JXqd7tbPtzx8mkauFwTckbtSxcpZdME+d3VAv/R8q++zROpu/htVAeJSGYHqyp7myFDlfcD7Nxt9g5HNoh3z4cvBvuOLo0873hwbgzyXwaAOd/XZjY3Y5js4ml2STa2ACmzXBxzHFkYc17W6wpLDtaZm3KPu37Fyrz7QE=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the Host Metrics layout for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/preferences/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves the current user's card layout for the host. For the host's owner it also updates the host's enabled widgets.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"slots":{"type":"array"},"columns":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Layout saved."},"400":{"description":"Invalid layout."},"403":{"description":"No access to this host."}}}
+>
+  
+</StatusCodes>
+
+
+      

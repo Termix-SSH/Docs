@@ -1,0 +1,69 @@
+---
+id: list-systemd-timers
+title: "List systemd timers"
+description: "List systemd timers"
+sidebar_label: "List systemd timers"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVV1v21YM/SsEnzbgxk738aK3tNjadN0QrA6CwjCGG4mxOEv3qpeUHU3Qfx8oqY5bJw99snR1LnkOyUP3qH4rmK3xXRSFP0kT54Ibh41PvialZF975IAZNl5LdBh8TZghF+gw0eeWExWYaWrJoeQl1R6zHrVrRlRQ2lLCYdgYWpoYhMQAP11e2k9BkidulKOlWJUEyjUlgQNrCVoSJwj0qOBDAZUXhdQGWeDg8JfnIlyHva+4AA5NqzPs53PYXxF8npMIaLQsUEZRdBgTUEV7bzAoKDAVC8xCW1WDw19fopzHujZ+D54rKiCGY8gFDoP75sYHFgXpRKkuZrXosCYtY4EZbsmIjMXOcNlU7ZbDhW94afEu6qlHy9oHv6UkyynAsudiQIdCaf+laW2qLAJ+m/9TbBOsKNX8CBMerTtCeZtYu/HuPflE6ao1EuvN4HrMY9wxnZ74hv+g7nhyEuKjjcHU5tNAx6koVRucp8XeJxC6+eH3mGqvmOH7u9UZ+48kYs3RuKMAQkGBp3pbkpj4v6l5JfmCEniB12PQcYAMNl4cJ+NU0pHbpArdNPMT5Gnq/z3oi4ze361gwoOQglcQ3oYLDgu4KylAk8joOmAF9TsSO8mpoJATxD2lF1WMbE/L/d2VvLq5hh11IOqTctjO9qof/zmTc4R+f2l31Dk4lJyXUyJ5SrOAawWfq9i1GQvxEObbuQ8hjgD77kMXAwFVQpOBODzEUTVrZTJP1xVc3VyjQxv7ScCrxeXi8kzWB94TvLm5dVBTHVPnoGDZOQikh5h2I4u3N7dGXMVBU7W2G2I1bojJbdCZc8yG0wJqomjtgxGbx+N5a39F5Ng6pUddNpXnYLFGs/az7df4ZHt0eGp82xSz9dHhMUXGha3tcYtla+z7ey90m6phsOPPLSXz9cbh3if291bEdY8Fiz0XmD34SuiMaR6DUrD5+eHvedP/CJb2OQVf/BPMPHtftfaGDnfUTX8Xw2Y4WXNvf1vhMPwP6z07kw==
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List systemd timers"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/timers/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List systemd timers
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The timers with their next and last runs."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

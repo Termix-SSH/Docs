@@ -1,0 +1,69 @@
+---
+id: get-host-access-list
+title: "Get host access list"
+description: "Retrieves the list of users and roles that have access to a host."
+sidebar_label: "Get host access list"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v20gM/SsEL90CUzvtbnvQLf2E20uRehEUhrFgJEaaWppRh5QTV9B/X1BSHW/TLFCgJ0vUI/kev9xjwZIn36qPATO8YE2e9yygFUPtRSFeQyecBCgUkGI9fiOFivYMlOcsAhqBoIqiC3SoVApmG7x4ef4Ktw5bStSwcjJrj97ytKQVOgzUMGboC3SY+GvnExeYaerYoeQVN4RZj3poR1RQLjnhMGwNLW0MwmKAZ2dn9vNfKevqSG/UcR3TKMpoOvAhr7vChxKY8grKREEfCbScGi/iY4Ca91wvcHD418/Cr8Keal+M4WD1egb+eR/4iuqaEzR0gBAVGgpUMkhFybLHAFp5mYs3OHz+s2RvyddcWJlL1lNVCxwGhw1rFQvMsGRFNxU3w2W6onxpgZe9L4bl5IYOhdP+eze6VBsU3Q8ZP8cuwdqqcQsTHq3swnmXvB5G3yumxOm8s2yb7eB6zGPceT61UOs/8OFoOQnxyfo79e800LHdlWqL8xjY+wRCNz+8jakhxQzfX67vsf/EUw817jiAcFDwYey+JYnJfyNDQsVUcAISeDkGHWfcYKPj2I9TSUdukyp00zBPkLtx/nKjDzJ6f7mGCQ9irVQQX4YnPizgsuIAbWKj68ArKO1YzJJzwSFniHtOD6oY2Z6W+5cref5xBTs+gCglteG88VqBNrf/3JNzhP56aXd8cHBT+byaEsldmgWsbLpVzG3GQrwJs3dOwTaIcrXvFA4xMHAtPG2BD9dxVO21Npnz9J5/XKFDG/iJ+rMXi6dni7N7kuxe5DEx3Pkt4I0dh7buSh+giHnXcFABr2K0IMVOWcbCt1G0oWD55yl4xzodh5N1/TGpbUxQDvq7Tu/UcOVbXbY1+WDUxhXv56uwQbsK6NBc0GE23t75NGxnc7bBvr8i4b9TPQxm/tpxsqXfOtxT8nRlFd70WHix5wKza6qF/0feHxfzfX8MDxH9vlzBNmtPdWdv6HDHh+lPYtieHrt3b9Y4DP8CqTFPXw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get host access list"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rbac/host/{id}/access"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves the list of users and roles that have access to a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The access list for the host, including each grant's permission level."},"400":{"description":"Invalid host ID."},"403":{"description":"Caller may not manage sharing on this host."},"500":{"description":"Failed to get access list."}}}
+>
+  
+</StatusCodes>
+
+
+      

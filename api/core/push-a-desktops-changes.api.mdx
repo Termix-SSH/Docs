@@ -1,0 +1,68 @@
+---
+id: push-a-desktops-changes
+title: "Push a desktop's changes"
+description: "Each op carries the revision the desktop last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason."
+sidebar_label: "Push a desktop's changes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1vGzcQ/SuDueTCSIrR9LA3p0gAJyhs1CqMQhCKMXespbVLMhyu5K2g/14MdyOrdnLItXuQdsn54nszjwesWWxyMbvgscKPZBsIESyl5FggNwyJd05c8OWjZtnmEKElySC0n8F1FKDEQDG2jmtwHmqO7Gv2doCQak5AvgbW0BvOAi4LhL2HxNK32UDYwt7lpsT3vD8lNGCDf2idzc/7wmnH6Y3AjtNoExIkfmSbuR7NCBKTBD9Dg5k2gtUKbwdvcW0w8deeJX8I9YDVAW3wmX3W11K+JcVh/igKxgHFNtyRvuUhMlYY7jURGowpRE7ZsehuiHJmRCnRgAZd5k5eOx/HR2uRGLyMIS4WC/37LxvXnieQIHKCEI2iqzCMsAr7PMOjwV++5/07tQ8hdVxDiFJw6kJiyA15eL9YFMf333P8RK7lGnIonA5gG/Iblhlq1R3nJtRYYQxSkKDcYIVzGbyd7y7msZcGDY48KfYH7FOrFmhe5Pkr9AmWnDr3NPGKx7W62j65PBTfe6bE6bLXJKv10ShnYev4fIWi+8LDaeUsxK0SOAJ8HuhESZNz1GKLGVaTEZrp5VNIHWWs8PPd8lX1tyzjVIQt+0LFN3I0SUjun9JM0DCVERD4UIKWYVCz4lhYOD/ScxuVU2kfabbRBA16KpU+7vMPK/p8t4TRHoQzUAZxG//W+RncNewhJtZyDbgMmbYsumJZB5Yh7Dj98BSl2nO4fxrJy5sr2PIAkill5zfTZHdPf786zsn056Hd8mBg3zjbjInkOc0MrjKQzaJuk62q0eRtyftQDHSf/BA8A7fCY/erMvzxrCEfn6iLLZ80YHU4ro/K2EMo2Lismzj1+OXNFRqchAsrvPh19m4xW7w6+LJhsDqqz34zKMoc236j+hps37E/l9LQ5zKhpsxlR0W/pl656UVVcZLuN/JtoF8mPtPD/99FMLZp5qc8jy05r1AVYTpMErZClTAl6EJlTWVsbbBRlatWeDjck/CfqT0edflrz0kFam1wR8nRvfKsaoRjTxbt2vKAFf42Yvp2qRWoeduP4/3ivlHdOonrzfWtKs79dE91oVafRHs05bdCNBgKb0XdytoBW/KbnjZFIEpMff4Fdiy7cQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Push a desktop's changes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/push"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Each op carries the revision the desktop last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"ops":{"type":"array","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One result per op, in the order sent."},"400":{"description":"Malformed ops, or more than 500."},"500":{"description":"Failed to apply changes."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: set-how-long-trashed-items-are-kept-admin-only
+title: "Set how long trashed items are kept (admin only)"
+description: "Set how long trashed items are kept (admin only)"
+sidebar_label: "Set how long trashed items are kept (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVd9v4zYM/lcIPm2A8uN22x781m4r0BuGFWsOxVAEA2Ozthpb0kl0Ey/I/36g7KVpe/dw80sU6SP5kRQ/HVCoTljc45VtGf4gRzVHXBuM/KnnJJe+GrA45L82coWFxJ4Nlt4JO9EjCqG1JYn1bvGYvNO9VDbcka5kCIwF+s0jl4LmzNE9RlYf1rtfaUgaNEQfOIrlNMY8P372ZZ2wsjTYWWe7vsPincGO9uP6/c8/LY/502gpeJdGfz8sl/pTcSqjDeoYC1w1DI53cAo2x6PBH78E/bMX8A8QydU8od6/RV1UnXVAZckpwX/ZzlHZvATeskDjd9B6V4NESg1XYIW7BBQZthwEvqPszbt2+F7zZWl8hQWGXmsZSBoscBHavrZuRsEuHmzLs25s4yI7nZ0yQ4OJ4xNHbfgB+9iqMb7m9bfvI6w4dnYPIx6PazUt+2hlyLYbpsjxotf49+ujOWDp/dby+Q4F+zsPp50zF7d6O8aenDs6NbgRCUo2w7CYQGimxZWPHQkW+OFu9Yb9LadkvQPxW3aQ2AlYB9IwaBAf7b/5pkLDVHEESnCZnQK5KsOyYW7veUonbmNWaNBqtBGCBh1lpo87+SqjD3crGPGQWIAEkq3dzLo53DXsIERWugasgNCWk+6UXLErGfwTx69mkdmel/ubK3lxcw1bHiAJRbGuhp2VBqTb//MmnRP020u75cHArrFlMwZKz2HmcC1ApSQ1m7Dgd26yLsk5nwF6Tm7wjoHbxONgqez89SxYv+2pCy1/QUOWR23cg88lsqKYF8oHFzfXaFBnZMz23Xw5X76pwWX0u8QGuLKS+XX+iUFnL42dur1a3Riwrmz7SsuZJJKtG4GH6DtQ8uNkgXgg56WZmhh8ko6yhE436n+oxAuup6sgvJdFaMk6DZSH/zApyD0+KwgaPNcQNPhaRdYGG59EzQ6HDSX+GNvjUbc/9RxVH9YGnyha2mh9VQxwvBJZOrY8YIG/jO/HbKXkFN7243S9ektUNk6qd/NR530zPUmdr9Qk0k6fFdphgWjQ57zH90P3DtiSq3uq83hml/p9Bg3WaXk=
+sidebar_class_name: "put api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set how long trashed items are kept (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/file-manager/trash-retention"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Set how long trashed items are kept (admin only)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["retentionDays"],"properties":{"retentionDays":{"type":"integer","minimum":1,"maximum":3650}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new retention."},"400":{"description":"Out of range."},"403":{"description":"Admin access required."}}}
+>
+  
+</StatusCodes>
+
+
+      

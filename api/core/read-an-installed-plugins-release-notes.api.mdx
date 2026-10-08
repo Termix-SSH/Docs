@@ -1,0 +1,69 @@
+---
+id: read-an-installed-plugins-release-notes
+title: "Read an installed plugin's release notes"
+description: "The releases in the plugin's CHANGELOG.md, newest first, each with its date, summary and changes. Empty when the plugin ships no changelog."
+sidebar_label: "Read an installed plugin's release notes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu3EYM/RWCl7bAVN6mQQ+6OYXrOi1SI9nCCIxFQUv0aroSRxlSXiuC/r0YSd5dxHWB3HqSNPM45HtDPg1YshbRt+aDYI7riiFyzaSs4AWsYmjrbuvlG4Wffz1/d3nx+x+XWVM6EN6zGtz7qOaAqahg760CbwolGTvQrmko9kBSQlGRbFkzuGha62Ff8enhoJVvFSQsuDpsM3RotFXMb/F6AiluHLYUqWHjmDYG9KnolqxCh0INY46+RIeRP3U+com5xY4dalFxQ5gPaH2bUGrRyxbHcZPA2gZR1rT/arVKj5dlyXB0+Hr147+jCqprjlBTsVOgsvGSzRQ1a0hoy0v46+fh7wJoV1SLJBmOo8OGrQol5rhlQzczzfFsOfJs8OV4dpAMHSrHhydtulgnLLov8nwMXYQ1x8Y/wozHpIJy0UVv/RR7xxQ5nncp3e1mdAMWIew8n65Q63/j/rBycsSHpPYs5+lBB/ErsxaXS0nfMwjd8vJLiA0Z5vj2Zv2s+g+s6oOAhR0LKIs99WlKEqL/TAkJFVPJEUjhzXTo1IUJNgVOt3BK6VDbzArd3Foz5Nhcf+/txYre3qxhxoOyARmo38r3XjK4Se3eRk7lOvAGRjvWtFJwyVIwhAeOL7KYqj2V+6uVPL++gh33oEbRvGznUbXm8a9ndA7Qr5d2x72DfeWLak6kxzQZXBlQYZrCFiyEvSzRBYmECZD2SfogDFwrz2Pg5T5MrL3ViebSvefXV+gwNfxc+qufsh9W2eoZpWkwQ2Q4xmVwQYdZgzIUXcNiOrlX2AvE0Nky621Qa0hS/qUL3jOVQAJe1NK8l0ePXFwCJBjrl4WkKRJjsf+f087tZPxoZ21NXhLxyUCGxXRucTEddJhPHnv0nY3DKqgl0DDckfKfsR7HtPyp45gcZePwgaKnu3R9twOWXtN7ifk91cr/odO37xcr/w5eqvNpciWN7QPVXfpChzvu5//BuDm10suLNY7jP3vnZQk=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read an installed plugin's release notes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/changelog"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The releases in the plugin's CHANGELOG.md, newest first, each with its date, summary and changes. Empty when the plugin ships no changelog.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The releases."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

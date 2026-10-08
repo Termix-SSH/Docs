@@ -1,0 +1,355 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Remote Desktop API",
+    "version": "1.0.0",
+    "description": "RDP, VNC and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/remote-desktop/connection/{connectId}": {
+      "get": {
+        "summary": "Look up guacd's id for a session",
+        "description": "Returns the guacamole connection id for a connect request, once guacd has opened it. Only the session's owner gets an answer.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "connectId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The id, or null while guacd has not opened the session."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/token": {
+      "post": {
+        "summary": "Mint a connection token for an address",
+        "description": "Creates an encrypted guacamole-lite token for connection details the caller supplies, used by Quick Connect. No saved host is involved.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "type",
+                  "hostname"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "hostname": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The encrypted token."
+          },
+          "400": {
+            "description": "Missing or invalid fields."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off."
+          },
+          "500": {
+            "description": "Server error."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/connect-host/{hostId}": {
+      "post": {
+        "summary": "Mint a connection token for a saved host",
+        "description": "Resolves the host's RDP, VNC or Telnet login for the caller (a shared recipient gets only what was shared with them), opens a jump tunnel when the host has jump hosts, and returns an encrypted guacamole-lite token.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "rdp",
+                      "vnc",
+                      "telnet"
+                    ]
+                  },
+                  "promptedUsername": {
+                    "type": "string"
+                  },
+                  "promptedPassword": {
+                    "type": "string"
+                  },
+                  "promptedDomain": {
+                    "type": "string"
+                  },
+                  "tabInstanceId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The token and the id to look the session up by."
+          },
+          "400": {
+            "description": "Invalid host id, or the protocol is off for this host."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off."
+          },
+          "404": {
+            "description": "Host not found or no access."
+          },
+          "500": {
+            "description": "The tunnel or the token could not be set up."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/status": {
+      "get": {
+        "summary": "Remote Desktop status",
+        "description": "Whether Remote Desktop is turned on, and whether guacd answers at the configured address.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "probe",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Set to 0 to skip dialing guacd."
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Saved host whose guacd settings should be checked; requires protocol and access to that host."
+          },
+          {
+            "in": "query",
+            "name": "protocol",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "rdp",
+                "vnc",
+                "telnet"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "500": {
+            "description": "The check failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/native-rdp": {
+      "get": {
+        "summary": "Whether the native RDP client can be opened",
+        "description": "True only in the Windows desktop app.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability."
+          }
+        }
+      },
+      "post": {
+        "summary": "Open the native RDP client",
+        "description": "Opens the operating system's own RDP client (mstsc) for an address. The password is never passed; the client asks for it. Windows desktop app only.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "host"
+                ],
+                "properties": {
+                  "host": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "domain": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Whether the client opened."
+          },
+          "400": {
+            "description": "Missing host."
+          },
+          "404": {
+            "description": "Not running in the desktop app."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

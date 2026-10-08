@@ -1,0 +1,68 @@
+---
+id: add-an-ldap-directory
+title: "Add an LDAP directory"
+description: "Needs ldap.manage."
+sidebar_label: "Add an LDAP directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P2zYQ/SuDOXNtp81JN6dpgU2bZNHdYlEYRjEWZyWuJZIhKXtVwf+9GNKx3TX2EB0kmnzzyXnPE2qOdTA+GWexwi/MOkKnyc96stTwDBUmaiJWK/zj4/IO1woDfxs4pg9Oj1hN+acJrLFKYWCFtbOJbZIj8r4zNYnz+XOUCBPGuuWeZJVGz1ih2zxznVChD85zSIajnFrq+QIVUzC2wYNCtrTpJNzpbONcx2TlsHb2yTTX3g/5kdyjdzaWED8t3snn/y34aALXyYURSGvWM/H6frG4Bn42MRrbwJPhTscj7ue3cZ5DL0tnZyip9Jxap7FC72Iun1KLFc59NzTG3pA3c7mIuQ9uZzSHiAojh52sqtWEQ+gEjupVvL/dEOBBgr1AweNhLab1EEwas+2GKXBYDhJxtT6oCWvntoYvd8ib33k87Vy4uJcrLC28dHTqeZuSl2QzTO4ng1AdF7+50FPCCj89Plxlf8+5RZDcli1EtgmMhdQySBAXzL95nKBl0hyAInzIToGszrBsOCuzcC7plFupChUaiVYgqI7Ths/79GZGnx4foOAhcgJKEE1jb4ydwWPLFnxgSVeBSZBoy1F2atZsawa34/BmFTnby3b/cCeXd7ew5RFiopBk2PYmtZD6l3+uyjlBf7y1Wx4V7FtTtyVQPIeZwW0CqlMUsyMW3N4erWuy1mWAnJMdnWXgLnKhgmjDn2dV+fWFet/xWQW+s/+C/CetKXQXL8Y+udw7k8Q46xUs725RoZCmlP9utpgtru/YNFaakesZhUDZ2AVY1snsGM6qMEQOklWuy1OMexeKSgiPe7IXaS+1BrLFl/7u4XXw6ayYb+hvmYXEL2nuOzJZ6DL7p6NorPAsGqhQ7IueHoVjrbAVkalWOE0bivxX6A4H2f42cBBJWCvcUTDS3MJ/LFOQ1WLLI1b4S8ny5kHSEXg3FEK90nhRipO23X29F45vjv8VvdNiE2iPKr8rRIUudyLrSd6bsCPbDNRkSmaf8vwH2nBLPw==
+sidebar_class_name: "post api-method"
+info_path: api/ldap/ldap-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add an LDAP directory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ldap/providers"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs ldap.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"enabled":{"type":"boolean"},"config":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Directory added."},"400":{"description":"Missing fields."},"403":{"description":"Missing permission."}}}
+>
+  
+</StatusCodes>
+
+
+      

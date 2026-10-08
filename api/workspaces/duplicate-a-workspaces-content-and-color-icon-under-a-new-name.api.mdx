@@ -1,0 +1,70 @@
+---
+id: duplicate-a-workspaces-content-and-color-icon-under-a-new-name
+title: "Duplicate a workspace's content and color/icon under a new name"
+description: "Duplicate a workspace's content and color/icon under a new name"
+sidebar_label: "Duplicate a workspace's content and color/icon under a new name"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVd+P2zYM/lcIvmwDdEk29Mlv1/0ArgO2Q++GwxAEA2PzYl1syZXoy3mG//eCUs5Jm/ahqF9sUx/JT6T4aUShXcRijQ8+7GNHJUfcGOwoUMvCQddGtA4L7EhqNOioZSzQVmgw8IfeBq6wkNCzwVjW3BIWI8rQJZQT3nHAadpkNEd566tBIZ87l94JO9El6rrGliTWu+VT9E5tF7H99olLQYNd8B0HsRx1NfObUVGCdTuc0qMcYuddzNBfVit9VRzLYDvNhgX+xQc4vBYDysAkXMFj8C1IzVD1mRovcDL4ZvXmMsJcSnBe4NH3rlqgJv8U9ttrJKBTwh8iHOsA5CoofePD0pbeQe8qDkDg+ABpjwZbltpX2hofUyG0QwUuu6bfWXdFnV3OgeNytNW0nOmjwcjh+bXDfWjUEz8n+a/vA9xzaO0LZDxqKyOXfbAyJN8tU+Bw3Wvy9WYyI5be7y2fW6izf/IwW85C3Glfcz/OA80NrEU6PB4t/c8gNMePP3xoSbDAdw/3F+zvOEbrHYjfs4OoVbUutVGT+GD/T2cMaqZU3AhvU9BUe4Ulx9Tp8y3N3PKu0OQByZDTiDwd5KuM3j3cQ8ZDZAESiHbnrqxbwEPNDrrASteAFRDac1RLyRW7ksE/c/jqLhLb83J/cyWvb29gzwNEoSDW7eBgpQZpX/672M4M/fbS7nkwcKhtWedE8ZRmATcCVEpUtyMW/MEdvUtyOlhUiq6TG7xj4CZynjIVjPcnqfn9hdqu4ZM0zJKgbXv0qUBWFHEmgnB9e4MGdT7yTn9erBary3bSM8OgM+I7diC0jYli7Bor0NDge8mWwBlRc6uFUsplY8t9apfOb0vujOP3i8MnROczIPwiy64h6zRvmvrxqBtrPOkGGjwpBxosktyfxGNjsFbNKdY4jluK/E9opknNH3oOKgsbg88ULG21sOsRKxv1u8LikZrIF/xm9ccf3x8vhp8AzZd5v46f09l7pqbXPzS45yFfTdNmMpiPXsqeF37NOa7u1f3keHHbqDzN2nr7950Ky/Z4a7W+Up9AB73/6JAT+7SPJGLJNmJDbtfTLulAiqnPR0B4kmo=
+sidebar_class_name: "post api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Duplicate a workspace's content and color/icon under a new name"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/workspaces/{id}/duplicate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Duplicate a workspace's content and color/icon under a new name
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"New workspace created from the duplicate."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: unregister-a-metrics-viewer
+title: "Unregister a metrics viewer"
+description: "Drops a viewer. Polling stops with the last one."
+sidebar_label: "Unregister a metrics viewer"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v4zYQ/SuDOdMfW/SkW3bb7jptUaNJGhSBsaClqcRYIrnkyI4q+L8vhlRtJ9k9pDpIFPVm+GbI9zRiRbEMxrNxFgv8KTgfQcPe0IHCHNaubY2tIbLMHww3wA1BqyODszRHhazriMUDfnKR4XfiYMqIG4WBvvQU+b2rBizG9GoCVVhw6Elh6SyTZfmkvW9NqYXC4jEKjxFj2VCnZcSDJyzQbR+pZFTog/MU2FCUr42LvKoucMYy1RTwqDAXcUMxGmefgSIHY2s8pkuoRu9szBl/WC7l8bwvf6VU0NtAtYlMgaq5LPHjt8Aru9etqSBzAxfgBZM5yqodceMqLNC7mArT3GCBC9/2tbEz7c1CMsy63NPFf88ziVnOiwojhT0F2YcR+9BKGlQvaP3t+gC3FDrzBBmPx42Eln0wPKTYLelA4aoXJg+boxqxdG5n6HJGe/MrDaeZixQ3smm5i5eJTm1vmL2QTTAsJhCqafCLC51mLPD6/vYV+6l5wG5HFiJZBmPTYZRFXDD/pgMEDemKAugI71NS0LZKsBSYNu2ypBO3XBUqNLJahqBCqxPTxwN/l9H1/S1kPERi0AzR1HZm7BzuG7LgAwldBYaB9Y6izJRUkS0J3J7Cd6tIbC/b/eZOXq1XsKMBIuvAIuQs4e7p86tyTtC3t3ZHg4JDY8omLxTPy8xhxaBLjhI2YcEd7BRdamtdAsh3bQdnCaiNlCUibvDn2Ud+ftKdb+lS98tvyPwkb9nMf1xqm2GJe2ZScLVeoULRTe7Au/lyvnzVl9/MnuDD+k5BR50Lg4LKxJ0CS3xwYZfK+Li+k8o5KvBtH4Gda+UOnba6JhhEekI5pi0VwXc6+dx0vu5OmgYNk9DhpO5nhMazdf4vu84HiOmJF77VxgqhZBnj5EAPeHYgVHjpQZhcaxq99qFNRkuKcdzqSHehPR5l+ktPQRxmo3Cvg9Fb2Q2xE8yHKpnPjgYs8EOubnYrRAXe9lmfL34SYjwnC13/cSOWsZ1+Np2rJCboA6p0LxAVutTBZE9pbsRW27rXdVJ4yinXV+CQdnI=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unregister a metrics viewer"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/unregister-viewer"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Drops a viewer. Polling stops with the last one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Viewer unregistered."},"400":{"description":"Invalid hostId or viewerSessionId."}}}
+>
+  
+</StatusCodes>
+
+
+      

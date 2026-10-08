@@ -1,0 +1,103 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ACME Certificates API",
+    "version": "1.0.0",
+    "description": "Gets the Termix HTTPS certificate from Let's Encrypt or any ACME provider and renews it for you."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/acme-ssl/status": {
+      "get": {
+        "summary": "ACME certificate status",
+        "description": "The certificate core serves, whether ACME is configured, and the last issue attempt.",
+        "tags": [
+          "ACME Certificates"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status."
+          },
+          "403": {
+            "description": "Missing the acme-ssl.manage permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/acme-ssl/request": {
+      "post": {
+        "summary": "Request a certificate now",
+        "description": "Runs an ACME order for the configured domain, installs the certificate and reloads HTTPS.",
+        "tags": [
+          "ACME Certificates"
+        ],
+        "responses": {
+          "200": {
+            "description": "Certificate issued and installed."
+          },
+          "400": {
+            "description": "A required setting is missing."
+          },
+          "403": {
+            "description": "Missing the acme-ssl.manage permission."
+          },
+          "500": {
+            "description": "The ACME order failed."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

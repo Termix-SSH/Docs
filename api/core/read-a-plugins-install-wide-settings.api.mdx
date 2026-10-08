@@ -1,0 +1,70 @@
+---
+id: read-a-plugins-install-wide-settings
+title: "Read a plugin's install-wide settings"
+description: "Returns every admin-scope field the plugin declares, with stored values over declared defaults. Secret fields come back as { set: boolean } and never carry their value, so a browser can render 'configured' without ever holding the secret."
+sidebar_label: "Read a plugin's install-wide settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVcFu4zYQ/ZXBXNoCjOxuFz3olgLbIlugCJIUQZEYxVgcW6wlUssZ2XEF/fuCouK4m6bAnnuSRL7hvHkzfBrQslTRdeqCxxJvWPvoBXjP8QhkW+cvpAodw8ZxY0Frhq7pt86D5aqhyGLg4LQG0RDZwp6angXCnuMzwoLlDfWNSgG3XEXWfJhAFVqGNVU7IIEBhLWEdQgNk4cRyFvwiQhUFOMx5XYxJzAgAQjWMRxk2vcQ2VuO8IhV8Bu37SPbR5yohV6neqAOjXV+OxUhE5Hi0aNBpa1g+YDXU2GCK4MdRWpZOaaNAV3SpiOt0aCnlrFEZ9Fg5E+9i2yx1NizQalqbgnLAfXYJZRodH6L47hKYOmCF5a0/265TI9/qn93UvcbyeInTdT5rRQ4Gny//OHfgypqGo7QULWbA4t8jhQtedryHP7+dfhvAaSv6jlvgeNosGWtg8USt6xocuElLuYjF4Oz4+KZ2GJKhwaF4/5Zrz42KQDNF8n+CH2EO46te4KMx6SMcNVHp8cpds0UOV72KefDajQDViHsHJ+vUOd+5eNp5eyI29SBLPH5QaeG1Kodzo1K3xmEZn75OcSWFEv8eH/3iv0ti7jgQcOOU2e8gvPTNKUkIbq/KSGhZkqjSAI/TYdOk5xgU+DUivOSTtxyVWjyuGXIy8D9ddA3GX28v4OMTwMDpCBu6y+cL+C+Zg9d5ETXgFNQ2rGklYot+4rzXX2riontudxfreTl9RXs+AiiFNPEZLvQ9unPV+WcoF8v7Y6PBg61q+qcSF7SFHClQJVKCpuxEA5+jq7I+zAB0j75Y/AM3Ajnu+D8JkxVO21SmfP0Xl5focE08Jn6ux+L75fF8lVJ0+0MkeElroAPdLpwYEPVt+xVwKkkWhBDr5wvfBdEW/Ip/zwFN0wW6MUlnBelprk4OMsns/iSRbpCXtnr/9bh88gqP+mia8j5JO5kUsPsbg84uxsaLCdvPxMzW9zKYB1EE3YY1iT8e2zGMS1/6jkm81oZ3FN0tE6T8jCgdZLeLZYbaoT/oyvf3sx/ku/gLbrPJuGTQ0waYYlocMfH/DsaV+fW/cuHOxzHzzJnvDM=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a plugin's install-wide settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/settings/admin"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every admin-scope field the plugin declares, with stored values over declared defaults. Secret fields come back as \{ set: boolean \} and never carry their value, so a browser can render "configured" without ever holding the secret.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugin's admin settings."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

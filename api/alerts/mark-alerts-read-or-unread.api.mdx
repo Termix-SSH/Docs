@@ -1,0 +1,68 @@
+---
+id: mark-alerts-read-or-unread
+title: "Mark alerts read or unread"
+description: "Mark alerts read or unread"
+sidebar_label: "Mark alerts read or unread"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zgQ/SuDOTO2u0fd0u0WSItFg40XQWEYi7E0sRhRpEqOYmsN/fdiKNVxmrZAfTExfDN88/V0QqF9wmKD146jJNwajPyl5yRvQzVgccIyeGEveqSuc7YkscEvH1PwaktlzS3pSYaOscCwe+RS0GAXQ8dRLCe9tVW6AFGMNKBBK9xe2q0X3nPEcTRIzl3c7EJwTB5HJUjVD24MVpzKaDvlhwW+J5cYWopNAqm5hd6r5wLe8QP1ThJIAIk9L3DMP42cuuDTxPiP1Ur/XgZd1wyeD3MsKEPvZZHpvsT9TbEByjWFjAxx9kGDLUsdKiywCylXiqTGAped6/fWX1Fnl5PrMtdnObsljk8ctVsn7KNTj1dJfw59hDXH1h5hwuO4Vdeyj1aG7Ltjihyve310sx2N9jg0li8t1NmPPJwtFyHutOFThS4DndtRi3RKNsO0PRmEZj68D7ElwQI/3K9fsb/jlGzwIKFhD4m9gPXaPNBHQrT/5+GDmqniCJTgbQ4K5KsMy44LHZLLlJ7HLmelc6evTRA06CkzfTzITxl9uF/DhIfEAiSQ7N5fWb+A+5o9dJGVrgErINRwUkvJFfuSITxx/GkWme1luX+7kte3N9DwAEkoivV7OFipQdrjf6/SOUN/v7QNDwYOtS3r6aH0/MwCbgSolKRuMxbCwc/eJXkfMkDvyQ/BM7BLPC2OKsk/z5rz15HazvFZMzar7awFuqvftl/Po/bxIeSKWVGXWcXg+vYGDeqyTGm/WawWq1fF+OQZrN+FIzyECPzEcZhWVisz7ZCZkqzY2XwtAQ68q0NokgEvD4OBdzaVIVY5U27JutxQ3eyWskLO0/VLRXhB7DwAwkdZdo5slr288qdZLDb4LBao9cnq/U1Q5yptDdaqMMUGT6cdJf43unFU85eeo4rB1uATRUs7rZ5uPk79zzrR8IAF/jnp/9VaOSnc9dMqffctUI04C9vtpzvd7t38DWlDpT6RDkqNDlggGgw536wk2XZCR37f0z4vY46pv6+X40oc
+sidebar_class_name: "post api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mark alerts read or unread"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/alerts/items/read"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Mark alerts read or unread
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"ids":{"type":"array","items":{"type":"integer"}},"all":{"type":"boolean"},"read":{"type":"boolean","description":"False marks them unread. Defaults to true."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new unread count."}}}
+>
+  
+</StatusCodes>
+
+
+      

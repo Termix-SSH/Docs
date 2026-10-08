@@ -1,0 +1,69 @@
+---
+id: discover-proxmox-guests-on-a-node
+title: "Discover Proxmox guests on a node"
+description: "Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required."
+sidebar_label: "Discover Proxmox guests on a node"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SuDOSUAIztpetEtsVPEadMatZu0UIWC2h1rGe2Sa86sJVXY/14MuZJlS0mQ9lpdtCDffM+84QZL4iK6VlzwOMaz4D0VwiABrAdaORbn53B19RaqwAJPLFzGsGrCCnwo6Sl0rPdOGFhCpBKKSCV5cbZmA7HzDO0dcaUayXcNRSsEtq5h3hELw5MP7xmsL+Gn38+gCF6s8xT5KTgPUhEUdcdC0SRMJOmiZ71oIJIt16p3RuCaNkShEizDNcXGrZK/PIKfAzC1Npnduv7q8gIkLMiDY4h027lI5ehPjwbFzhnHExygODXIVHTRyRrHkw3OyEaKrzqpcDyZ9lODKk8sr0O5xvEGt+pwLLEjgxoSedEr27a1K6zm+uQTa8I3yEVFjdUvWbeEYwyzT1QImj1FE9RYLkp1po2hpSiOWGWG83tp3zUzimge1fXiHMJNSueuklJZ0fAfFnSEffqpeW6D52znxemp/j1Ueu64CHekRc+1HOF/CPdhYFnhHs7GaNdo0Ak1/HV5bxvaQ7FE5+fYG7xr3JF89WY4eCxhUJtWS3BLTYcG61WB096gJuuoARYrHR+9cu0xA76razurKTdMn1KoQ+iCv/6KT8yVNkrZJpfIq5rzUCwo7knNQqjJesxlvR/P431z4E1JN7ar5ezb5IYmenmsb947TqQRIjh/Z2tXQu7jESaR54ciOm9qPXfTbmRVBROzntGqTVOcdXx3REdREDOU5B2VShs6Dmp4EHl5KPJWB8UHgZvQ+UH1ixefwTlO0IfzlIJk6HwkW1SaoKTl+y/N0xpurKtTKL3BhqQKJY6xDZz63Cr14EmbrZyUgxQqUcU7ipx4qou1og6Y4I/QxS1DZjz2exx3pfOZR2if6Xb1rkRatZRg2lwJhGb4+CHExgqO8d3H6wPTV0OlMvMyedlyvBoJ0f2dq1uRLSkqk79OShPzKywJpvwVISwcPfLNtu5HShyh1jJEOzNRAX5aymc9evfxGjIemASsALu5f+b8CD5W5KGNpO4acAJiF8R6UuhAFASa/M9GkbzNjv3LTOquWtAaWGxMu3jppAJpVn8dhLODfntqF7Q2sKxcUWVDfG9mBBcCVh8FlrdYCEs/SBfWp7YvRO+tXwdPQDVTbl8l/l/vN+SblW3amvZ316kyo78JKTdO9BL3FjUa1KbOET4fnY5OD7dbWv67ufvwZvu2sJxfAQYWRG1+NTgPvPZF8n1ppajynCptc6qWzllj/f0W2Q3mzsKgPniwSfqxR5v7Nfj/k2rb8EIrOWlr67xmOfHTZmCzCQ5sponc8tnUpBbR281mZpl+i3Xf6/FtR1FfY1ODdza6vHYmugJzfycCXNA6Z1/r8CxtUoXXXaaKR0+T3mwldE208kXsdI+VL3+5UqabDa+/Jj0LMNqlLma7xDGiwZD6IrFqOttgbf28s/NETEmnzop9yBCPGCFFtaU6v97zcLPJiGvNf9+jGUJJ9cB+2vf9Pw4yIe8=
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Discover Proxmox guests on a node"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/proxmox/discover"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId"],"properties":{"hostId":{"type":"number","description":"ID of the SSH host that is a Proxmox node."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Discovered guests.","content":{"application/json":{"schema":{"type":"object","properties":{"guests":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"vmid":{"type":"number"},"type":{"type":"string","enum":["qemu","lxc"]},"node":{"type":"string"},"status":{"type":"string"},"ip":{"type":"string","nullable":true},"connectionType":{"type":"string","enum":["ssh","rdp"]},"enableDocker":{"type":"boolean"}}}},"credentialId":{"type":"number","nullable":true},"defaultCredentialId":{"type":"number","nullable":true}}}}}},"400":{"description":"Missing or invalid hostId."},"401":{"description":"Authentication required or session expired."},"403":{"description":"Access denied to the host."},"404":{"description":"Host not found."},"422":{"description":"Host is not a Proxmox node or is unreachable."},"500":{"description":"Discovery failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,289 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Single sign-on API",
+    "version": "1.0.0",
+    "description": "Sign in with any OpenID Connect provider, GitHub or Google."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/sso/start": {
+      "get": {
+        "summary": "Start an SSO login in the browser",
+        "description": "Public. Sends the browser straight to the provider, so a link can start a login. The provider is picked by the provider query parameter, or the default one.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "provider",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirect to the identity provider."
+          },
+          "404": {
+            "description": "SSO is not configured."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/callback": {
+      "get": {
+        "summary": "SSO callback",
+        "description": "Public. The redirect URI to register with an identity provider. Exchanges the code and redirects back to the app with a session, a second-factor step or an error.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "302": {
+            "description": "Back to the app."
+          }
+        }
+      },
+      "post": {
+        "summary": "SSO callback (form post)",
+        "description": "Same as the GET form, for providers that post their answer.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "302": {
+            "description": "Back to the app."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/backchannel-logout": {
+      "post": {
+        "summary": "OIDC back-channel logout",
+        "description": "Public. Where an identity provider sends a signed logout token. Ends the Termix sessions that came from the matching provider login.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "logout_token": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Logout processed."
+          },
+          "400": {
+            "description": "Missing, invalid or unknown logout token."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/config": {
+      "get": {
+        "summary": "Default provider's public configuration",
+        "description": "Public, for 2.8 clients. The client id, issuer, authorization URL and scopes of the default provider, or null.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Public configuration, or null."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/providers": {
+      "get": {
+        "summary": "List SSO providers",
+        "description": "Every OIDC, GitHub and Google provider with its redirect URI. Secrets are never sent, only whether one is set. Needs sso.manage.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "200": {
+            "description": "Providers."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an SSO provider",
+        "description": "Adds an OIDC, GitHub or Google provider. GitHub and Google fill in their own endpoints. Needs sso.manage.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "oidc",
+                      "github",
+                      "google"
+                    ]
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Provider added."
+          },
+          "400": {
+            "description": "Missing or invalid fields."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/providers/{id}": {
+      "put": {
+        "summary": "Update an SSO provider",
+        "description": "Changes a provider. Config fields are merged over the stored ones; an empty client secret keeps the stored secret. Needs sso.manage.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider updated."
+          },
+          "400": {
+            "description": "Invalid fields."
+          },
+          "403": {
+            "description": "Missing permission."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an SSO provider",
+        "description": "Refused while users still sign in with it. Needs sso.manage.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider deleted."
+          },
+          "403": {
+            "description": "Missing permission."
+          },
+          "404": {
+            "description": "Provider not found."
+          },
+          "409": {
+            "description": "Users are still linked to it."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,68 @@
+---
+id: bulk-import-ssh-hosts
+title: "Bulk import SSH hosts"
+description: "Bulk imports multiple SSH hosts."
+sidebar_label: "Bulk import SSH hosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVMtu2zAQ/JXFnhnbDYoedEuKFHF6aFC7CArDKGhpazGSSIVc2VYF/3uxlGCrcQO0OtgSOcvZB2c6zCik3tRsnMUEb5uyAFPVznOAqinZ1CXBYnEPuQscJqiQ9TZgssLF4h7XCj29NBT41mUtJl38NJ4yTNg3pDB1lsmybOm6Lk2qhWn6HISuw5DmVGl547YmTNBtnillVFh7V5NnQ0F2I/sIpr3XLSo0TFW4DD/2j2QXamdDf8j1bCZ/f1Y8j8VC6qq6JKZsgkeF7/+KtDtdmgyGimHjsnaCwlIR5y7DBGsXYu6ac0xwKllPN01ZXPUtRYWB/I68NLDDxpeCQvWK6LtrPCzJV+YAPR6PawlNG2+4jbEb0p78TSNEq/VRdZg6Vxgar+jafKb2tDI6YiFt75syPujUxpy5lmQjDJMBhGp4+eR8pRkTfHhaXmS/oBCMs8CuIAuBLIOxwDmBkDhvfsUrADnpjDzoALfxUNA2i7AYGMcwLuk8+liVzF7YeggqtDpm+rznNzN6eFpCj4dADJohmK29MnYCTzlZqD1JugoMA+uCgqyklJFNCdyO/JtVxGzH7f7vTt48zqGgFgJrz8ZuYW84B64OPy7KOUH/v7UFtQr2uUnzniicaSYwZ9ApBwkbsOD2dohOtbUuAmRf29ZZAioD9QoQPX89O8HdQYucRspddcf1UWb208XuGJZtHG75zeMcFYow+hKvP0zezSazi9KXOUHqPME5bgJ3Os2hLputsZC5tKnIcgDDQdIH7xqmEAck6qx09J3htozs7mxyr1m7s4n9kz/2g2c68LQutbFCHaXeDcawik2ROzCyhrXqV5MVdt1GB/rmy+NRll8a8iL6tcKd9kZvpHOicOznHP2goBYT/NgnerWUHAReNr1kXjmveMHJtB6/LETFm8HBK5dJjNd7VPE3QVToYjOiY8S1Dkttt43eRtHFM+X5DclaLfQ=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Bulk import SSH hosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/bulk-import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Bulk imports multiple SSH hosts.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hosts":{"type":"array","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Import completed."},"400":{"description":"Invalid request body."}}}
+>
+  
+</StatusCodes>
+
+
+      

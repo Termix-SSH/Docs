@@ -1,0 +1,69 @@
+---
+id: list-readable-log-files-under-var-log
+title: "List readable log files under /var/log"
+description: "List readable log files under /var/log"
+sidebar_label: "List readable log files under /var/log"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv20YM/isEnzbgYmfd9qK3rFi7dN0QrA6CITCKi0RLV5/u1CNlRzP03weeVMetU6B9snz6SH488vt0QLE1Y3GPf0QW+IskuZJxbbCzybYklPTtAV3AAjsrDRoMtiUs0FVoMNHH3iWqsJDUk0EuG2otFgeUocuoIFRTwnFcK5q7GJhYAS8uL/WnIi6T68RFLfEytm0M4GPNYEMF0hBsnCeGTexDtcDR4C/PBV6HnfWuAhe6XmbYz+ewvyPYsiRmkJiTN5EFDcYE5GlnFQYVBUfVAovQez8a/PW5gquGoIxtqyw31nmqIIZjygWOo/ki4q1jgUS2sg+etMW5sz5UlGC5s2npY40GW5ImVlhgTcotX3uBy873tQsXtnNLLXHRTtNatjbYmhJrNC8PrhqXOTEaZEq7TyPsk9cs+CWtf2OfYEWpdY8w4VFnxVT2ycmQYx/IJkpXvRK5X4/mgGWMW0enJ7Zzf9JwPDlJ8U6XYhr6aaLjjjQiHc67o/8nEJr54VVMrRUs8M3d6oz9O2LWmUncUgCmIOCmMWiRmNx/00wbsnrLluG3nPS4XTkwL8xpS0duU1doJgVMkCcNfNjLVxm9uVvBhAcmASvArg4XLizgrqEAXSKla8AJiN0S60lJFYWSIO4ofbWLzPb0ur/7Jq9urmFLA7DYJC7UsHfSgLSP78/aOUK//2q3NBjYN65spkL8VGYB1wK2FNawGQtxH+bo0oYQM0Df2zDEQECeadKVC5uYu3bitc1T84Krm2s0qGs/NfDT4nJxedbWW7cjeHlza6ClNqbBQOV4ayCQ7GPaZhavb26VuLCBzvdqGdFn45gUB4MqR6XIeSJdZGltUGLzenyz4j/jdpym0KMsO29d0PRZv4fZDe7xyQ3Q4KkfqIHMjoAG1RPQYJHderKF9YTXJIfDg2W6TX4c9fhjT0kFvza4s8kp6yz/yrE+V1hsrGc641vGIBR0sX74Z/4g/Ahonu/jk7CCqmpnfa//0OCWhumrMq7HEw98/fsKx/F/SeNHvg==
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List readable log files under /var/log"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/logs/{id}/files"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List readable log files under /var/log
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Common logs and the files found."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

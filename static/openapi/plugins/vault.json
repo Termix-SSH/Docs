@@ -1,0 +1,258 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "HashiCorp Vault API",
+    "version": "1.0.0",
+    "description": "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/vault/oidc/callback": {
+      "get": {
+        "summary": "Vault OIDC callback",
+        "description": "Public. The redirect URI a Vault OIDC role allows. Matches the sign-in by the state Vault issued, has Vault sign the ephemeral key and tells the terminal to reconnect.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "state",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signed in; an HTML page that closes itself."
+          },
+          "400": {
+            "description": "The sign-in failed or is no longer active."
+          }
+        }
+      }
+    },
+    "/plugin-api/vault/profiles": {
+      "get": {
+        "summary": "List Vault profiles",
+        "description": "The caller's own Vault signer profiles and every shared one. Needs vault.use.",
+        "tags": [
+          "Vault"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vault profile objects."
+          },
+          "403": {
+            "description": "Missing vault.use."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a Vault profile",
+        "description": "Creates a Vault signer profile owned by the caller. Needs vault.use, and vault.share to mark it shared.",
+        "tags": [
+          "Vault"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "vaultAddr",
+                  "sshRole"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "vaultAddr": {
+                    "type": "string"
+                  },
+                  "vaultNamespace": {
+                    "type": "string"
+                  },
+                  "oidcMount": {
+                    "type": "string"
+                  },
+                  "oidcRole": {
+                    "type": "string"
+                  },
+                  "sshMount": {
+                    "type": "string"
+                  },
+                  "sshRole": {
+                    "type": "string"
+                  },
+                  "validPrincipals": {
+                    "type": "string"
+                  },
+                  "keyType": {
+                    "type": "string"
+                  },
+                  "shared": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created profile."
+          },
+          "400": {
+            "description": "Missing required fields."
+          },
+          "403": {
+            "description": "Missing vault.use, or vault.share for a shared profile."
+          }
+        }
+      }
+    },
+    "/plugin-api/vault/profiles/{id}": {
+      "put": {
+        "summary": "Update a Vault profile",
+        "description": "Only the owner may edit a profile. Needs vault.use, and vault.share to mark it shared.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated profile."
+          },
+          "400": {
+            "description": "Invalid profile id."
+          },
+          "403": {
+            "description": "Not the owner, or sharing without vault.share."
+          },
+          "404": {
+            "description": "Profile not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Vault profile",
+        "description": "Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use.",
+        "tags": [
+          "Vault"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "400": {
+            "description": "Invalid profile id."
+          },
+          "403": {
+            "description": "Not the owner."
+          },
+          "404": {
+            "description": "Profile not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

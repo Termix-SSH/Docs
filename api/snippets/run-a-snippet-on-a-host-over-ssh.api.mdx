@@ -1,0 +1,68 @@
+---
+id: run-a-snippet-on-a-host-over-ssh
+title: "Run a snippet on a host over SSH"
+description: "Needs no snippets.* permission beyond an accessible snippet and host - running one has never required a separate grant."
+sidebar_label: "Run a snippet on a host over SSH"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVUtv40YM/isEkVMhP1rsSbdsm2K9RRMjdhoUSbCgJdqaWJrRzlBOVMP/veBIfsRBCuypOtjSDJ8fyY9bzDlk3tRinMUUr5nzANZBsKauWcLwJ6jZVyYE4ywsuHU2B7JAWcYhmEXJe1Egm0PhgsAAfGOtsStwlqGgAJY37MHz98Z4zoEgcE2ehGHlycoQExRaBUwfcNY7xqcEVYGDfHZ5i+kW9/qYim84wcxZYSt6RXVdmow0i9Fz0FS2GLKCK9I3aWvGFN3imTPBBGvvavZiOES5zuMkPxE1VnjFHncJakof3RlbN/IXlU1n6dzPW2xvObhywzlsogIsnYeLyfX0bv7NQl1SxoUrc/YhgTW3nMOihUfsBR5xCBdfbmbz0cXd7Op2dDG9uZ2PLq4v/7wC8gx+bzyw37AfBJMzLL2rQAoGIb9iidUZPlpMkPLcaFhUTt9g0WcQxBu7wl33aCFC7WzoZH4Zj/XvbXJ92YBfOWuE86HC8+m/JCe/HTtG32MSXYETcD7GvW8tE4DAOuHe7KePzTrfmbROYOkaq5HsEqxYCpdjirULsQVICkxxVJfNytgB1Wa0b/lRnwMm2IGpfbnFxpeq8K6sf7vGw1xn5LUHH3dPqpo13kgbdRdMnv1loz4fnnbJFjPn1oZPT6g2f3B7ODkxMdNG7rA/NXSoViFSa7BRDNNeCJP+5XfnKxJM8ev9/F30M+4mW9yaLQS2AsZG7NWJ8+afOFRQMOXsgQJ8jkZj7WJrqWIsy2lKh9i6rFBHBdNeBBO0FCN9fnk/JvuIvt7PoZOHoOwiEMzKDowdwn3BFmrPGm4CRkBozUFPMs7ZZgxO+eajLGK0p3D/MJKX04nOKAQhL0p0L0YKkOr127t0DqI/Du2a2wReCpMVnaNwdDOEiQBlElStlwX3YnvtjKz2P2Wi92RbJWIuA3fDoAx5e+TWq1eq6pLPuHB8pL7xOdPtIvctXYTOiOoeiBsupxNMUOemQ+Dn4Xg4fl9m2nCMPHNVRTYP0LpGFwe4pbCNaeiXFFwpbgSiM2ap1BF3FiqybRz1oNeaYFaabB2Lq0NeUdwCfafdNmpizydOPyJNxEaZzb6cx7c9bpf/cyl2bSn8KqO6JGM1uUhE257BHvDIYNq5++2Z4J7Fnro6quh2u6DAd77c7fT4e8Ne+ekpwQ15Qwuto5IRdi0ZqWvNLab4awfGYK4BqXjZdNN9tnaVtg5UO72ZKeEs+vVduVx1PL1gEn9TxARdBDySWzzbYkl21dAq8kO0qc+/U0EBmw==
+sidebar_class_name: "post api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a snippet on a host over SSH"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/snippets/execute"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs no snippets.* permission beyond an accessible snippet and host - running one has never required a separate grant.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"snippetId":{"type":"integer"},"hostId":{"type":"integer"},"inputValues":{"type":"object","description":"Resolved values for $INPUT_n placeholders, keyed by \"INPUT_n\". $HOST/$USER/$PORT/$NAME are resolved server-side from the target host.\n","additionalProperties":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet executed."},"400":{"description":"Snippet ID and host ID are required, or the snippet is a note."},"404":{"description":"Snippet or host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

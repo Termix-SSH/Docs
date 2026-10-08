@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "LDAP API",
+    "version": "1.0.0",
+    "description": "Sign in with your LDAP or Active Directory username and password."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ldap/providers": {
+      "get": {
+        "summary": "List LDAP directories",
+        "description": "Every configured LDAP directory. The bind password is never sent, only whether one is set. Needs ldap.manage.",
+        "tags": [
+          "LDAP"
+        ],
+        "responses": {
+          "200": {
+            "description": "Directories."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an LDAP directory",
+        "description": "Needs ldap.manage.",
+        "tags": [
+          "LDAP"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Directory added."
+          },
+          "400": {
+            "description": "Missing fields."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/ldap/providers/{id}": {
+      "put": {
+        "summary": "Update an LDAP directory",
+        "description": "Config fields are merged over the stored ones; an empty bind password keeps the stored one. Needs ldap.manage.",
+        "tags": [
+          "LDAP"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Directory updated."
+          },
+          "400": {
+            "description": "Missing fields."
+          },
+          "403": {
+            "description": "Missing permission."
+          },
+          "404": {
+            "description": "Directory not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an LDAP directory",
+        "description": "Refused while users still sign in with it. Needs ldap.manage.",
+        "tags": [
+          "LDAP"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Directory deleted."
+          },
+          "403": {
+            "description": "Missing permission."
+          },
+          "404": {
+            "description": "Directory not found."
+          },
+          "409": {
+            "description": "Users are still linked to it."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

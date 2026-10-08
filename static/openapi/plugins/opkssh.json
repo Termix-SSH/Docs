@@ -1,0 +1,204 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OPKSSH API",
+    "version": "1.0.0",
+    "description": "Connect to hosts with short-lived OpenPubkey SSH certificates after signing in with your identity provider."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/opkssh/token/{hostId}": {
+      "get": {
+        "summary": "Get the cached OPKSSH certificate status for a host",
+        "description": "Whether the current user has a valid cached certificate for this host, and when it expires.",
+        "tags": [
+          "OPKSSH"
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Certificate status."
+          },
+          "400": {
+            "description": "Invalid host id."
+          },
+          "404": {
+            "description": "Host not found or not accessible."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Forget the cached OPKSSH certificate for a host",
+        "description": "The next connection to the host asks for a browser sign-in again.",
+        "tags": [
+          "OPKSSH"
+        ],
+        "parameters": [
+          {
+            "name": "hostId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Certificate removed, or there was none."
+          },
+          "400": {
+            "description": "Invalid host id."
+          },
+          "404": {
+            "description": "Host not found or not accessible."
+          }
+        }
+      }
+    },
+    "/plugin-api/opkssh/chooser/{requestId}": {
+      "get": {
+        "summary": "Proxy the OPKSSH provider chooser page and its resources",
+        "description": "Public. Serves OPKSSH's local chooser for one sign-in, rewriting its URLs to this path. Any subpath is proxied too.",
+        "tags": [
+          "OPKSSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Chooser page content."
+          },
+          "302": {
+            "description": "Redirect to the identity provider or the callback listener."
+          },
+          "404": {
+            "description": "Sign-in not found."
+          },
+          "502": {
+            "description": "OPKSSH did not answer as expected."
+          }
+        }
+      }
+    },
+    "/plugin-api/opkssh/callback": {
+      "get": {
+        "summary": "OAuth callback from the identity provider for an OPKSSH sign-in",
+        "description": "Public. The redirect URI registered with the identity provider. Finds the sign-in by OAuth state or the opkssh_request_id cookie and forwards to its proxied callback listener.",
+        "tags": [
+          "OPKSSH"
+        ],
+        "responses": {
+          "302": {
+            "description": "Forwarded to the sign-in's callback listener."
+          },
+          "401": {
+            "description": "No sign-in matches this callback."
+          },
+          "503": {
+            "description": "OPKSSH's callback listener is not ready yet."
+          }
+        }
+      }
+    },
+    "/plugin-api/opkssh/callback/{requestId}": {
+      "get": {
+        "summary": "Proxy OPKSSH's local callback listener for one sign-in",
+        "description": "Public. Forwards to OPKSSH's login-callback listener, which prints the key and certificate once the code exchange succeeds. Any subpath is proxied too.",
+        "tags": [
+          "OPKSSH"
+        ],
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The listener's page."
+          },
+          "404": {
+            "description": "Sign-in not found."
+          },
+          "500": {
+            "description": "The listener is not ready."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

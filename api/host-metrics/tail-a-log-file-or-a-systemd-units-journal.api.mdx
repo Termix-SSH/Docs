@@ -1,0 +1,69 @@
+---
+id: tail-a-log-file-or-a-systemd-units-journal
+title: "Tail a log file or a systemd unit's journal"
+description: "Tail a log file or a systemd unit's journal"
+sidebar_label: "Tail a log file or a systemd unit's journal"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVttu40YM/RWCL22BiZ3eXvSWLdptthcE3QRBERiLiURLXI9mtDOUHa2hfy8oKbazjhf1ky3qkDy8a4tiy4TZA/4eksBfJJHzhAuDjY22JqGob7fIHjNsrFRo0NuaMEMu0GCkTy1HKjCT2JLBlFdUW8y2KF0zoLxQSRH73kxWPrUUu72ZyeiRYpLIvsTeYEEpj9wIB1W/AhdKWLIjaH1BEawH61zYUAEFR8olxG6Gp9y1nuU8d6lLQnUBqjmDu0QFsE9CtoCwBKUPm4o8lLwmf9qxY0/pNc/7DC00n6kJPlFSwA+Xl/rzktBtReBsEhgMKgVRSSjVNf70msq1X1vHSrtpZYL9eAz7O4DNc0oJJAxGq5A0VyECOVpbhUFBnqmYYeZb53qDP5/imIe6tr6ApWVHBQS/MznTZvhSw7IDuy9tiGBfZP6bBB9DG711aLAmqUKBGZakBIcWynDeuLZkf2Ebnqufi3ps53ltvS0pprkLZZpvuei1DhTXz93dRqf6+CWrf0Mb4ZZizU8w4lGLlChvI0s36D6SjRSvWqXwsNDq5yGsmA4ltuE/qNtJDky8124Yq31oaNcclUjz3DT6PILQTH9+C7G2ghm+u789Yv+eUtKSSViRh0RegMcqqJMQ+fNY0orsMEcJ3gxGQcumsEFx6JfDkHbcxqjQjO0+Qvb9/nEjJxm9u7+FEQ+JBKxA4tJfsJ/BvY5SE0npGmABsStKKsmpIJ8ThDXFk1EMbA/TfXYmr26uYUUdJLFR2JewYalA6qcPR+HsoOendkWdgU3FeTU6Sns3M7gWsLkkVZuwEDZ+0s6t92EA6Hvru+AJyCUax4r9MgxRszgN83Cvw9XNNRrUth8D+H52Obs8CutPXhP8cnNnoKY6xM5AwWllwJNsQlwNLN7e3ClxSQYa1+rGCG7YG+OsQaeTo0OYhoo0IUltvRKb2uO8gX9BcFdSoSeZN86yVx/DEG+nZfCA+2WABg/Xge6PaSGgQV0JaDDjQq/esPGyB9xuH22iu+j6XsXjKtdpLzjZR6f3bmldoiNmefBCXv7/nTKvB7Oibn8b19a1ChluyzkMzjxdX+UyHc6vcxmhz6duj13oQ2QFn5nGb/+ZvjC+g1P8nteR7w59PpPhAvtFf3Az3v56i33/H496EAE=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Tail a log file or a systemd unit's journal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/logs/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Tail a log file or a systemd unit's journal
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","schema":{"type":"string"},"description":"A log file under an allowed directory."},{"in":"query","name":"unit","schema":{"type":"string"},"description":"A systemd unit. Used instead of path when given."},{"in":"query","name":"lines","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The last lines of the log."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: answer-an-acme-http-01-challenge
+title: "Answer an ACME http-01 challenge"
+description: "Public. Serves the key authorization a plugin published through ctx.system.publishHttpChallenge while it proves control of the domain."
+sidebar_label: "Answer an ACME http-01 challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu3DYQ/ZXBnFqAljdB0INu28BJnaKFUW9hFMaioKXxkl2JVDgjr7eC/j0YSt5dx3WA3HqSRL7hvPc4MxqwJq6S78THgCVe9XeNrwq4pvRADOIItrQH24uLyf9rFQYWuqbf+ACdotlRDeJS7DcOKnkseM9CbTFv/iLSvXe2aShsCHbONwReoEtRE1QxSIoNxPucq46t9aFAg2I3jOUtfqRAyTa4NtjZZFsSSroxoFe+nRWHBoNtCUuUuKWABhN97n2iGktJPRnkylFrsRxQ9p0CWZIPGxzHtYK5i4GJdf/tYqGP56as/ssFA5ZB6FHOuyZzHg2+W7x7Gf17hOqg3/OJafcxgTjPkHkXOI4GWxIXayxxQ4Jm0lfiebGjpjnbhrgL57Zq6exw5PmQo0c0yHppszt9ajQOzVds/op9ghWl1j/ChEc1ganqk5d9jr0jmygte019ux7NgFWMW0+nK7bzv9L+sHJyxLWaPbl5etDBeyfS4Xwn+j2B0MwvH2JqrWCJn25WL9hfE7NWYJYMTEHAh1w5y2cV6sjWlPSGfs6Hgg11hj05bZ5JOnCbVKGZimuCHMvrn528yujTzQomPDAJWAH2m3DmQwE3jgJ0iZSu0doXuyXWlYpqChVBfKD0qorM9tTu73ZyeXWZ65fFJvFhAzsvDqR9/PuFnAP0+63d0t5of1duSsTHNAVcCthKOPfM3E1xF+boyoYQM0D3bdjHQEAN09QSPtzHrNpLozLn6l1eXaJBLfiJ+tufijeLYvFCknZvFRPBMa6AC1u5pylWx6pvKQiDF1ZakGIvxNn4LrK0Nmj+uQqWgXeZOCzf/3YBeglnizfHHv+agHZPEAryvxqvUwUd55dqzTNjmGfOLZ7MHDT4fOqgwXKatmuDLrJowDDcWaY/UzOOuvy5p6QDZW3wwSZv7/T2bgesPet7jeW9bZi+YdcPf8yD/Ed4jfNT4wbt2gfb9PqFBre0P/wQxvXpYP14scJx/AKG4mv5
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Answer an ACME http-01 challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/.well-known/acme-challenge/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Serves the key authorization a plugin published through ctx.system.publishHttpChallenge while it proves control of the domain.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The key authorization, as text/plain."},"404":{"description":"No challenge is published for this token."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: create-a-termix-id
+title: "Create a Termix ID"
+description: "Create a Termix ID"
+sidebar_label: "Create a Termix ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v00wQ/iujOW/TgLjgW3kBEThQkaAKRRGa2EO8jbNrdsdNjeX//mrWThOScoBc4oyf+Z7nSYdCm4jZEhccdvYRZm9xZTBy3gQrLWbLDtdMgcNNIyVmy1W/Mhj4Z8NR3viixaxLP23gAjMJDRvMvRN2oq+oriubk1jvru+jd2qLeck70idpa8YM/fqec0FzEmiJJbmiYi2mDr7mIJaj+oz2o3eUYN0Ge4MFxzzYWpM98z59NEesvYtDsJfTF/r1myP+F5iEC7AFO9Eh9AZfTaeXwJl7oMoWMJaUYK8vYR/SaxDasgMfoIkcgKrAVLRQUgRyJ7nO+xjLAYLjhgzuWEpfYIa1jzq5mnQ7eF1Xzca6K6rttST41VNk3Wp44BDTUptQKR7Ps33zTThkGvDYnxzEXHc3zO70LJ6GXYrUminBMBtBaMaH9z7sSDDDj3eLi9RzjtF6B+J1UJGdgHUgJYMm8cH+SncEJVOhE4zwJgUFckWCJceJ7iH3fmv5rDaq7SfWOVjNNkDQoKNU6f1e/ljRx7sFDHiILEAC0W7clXUTuCvZQR1YyzVgJa05qiXngl3O4B84/LGLVO1Q2D9O8uZ2BltuIQoFsW4DeyslyO7x+0U7T9C/H+2WWwP70ublkCge00xgJkC5RHUbseD3bvTOyTmfAJBOvfWOgavIk3TrKgpfjnLy7pF29UDvA9EPBD7v5sh76374NDkryeFAlPHy4eZ2hgb19AfPF5PpZHoR77ZZVzaW0CoD5vMPUKsh13YiNC7N5WAbakv9hcYNLn7vkluuWvVDRY+BhulKm/asXN1R0qbx6J7l9vMyJvwo13VF1mmoRN9upP0Sj7RHg+fEXxksVSWyJXbdmiJ/DVXfq/lnw0E1fmXwgYKltY5vueoNDoeQlGLLrVY6aPrVQqtReNUMnDrTdxWLJ3G6/TxXmq/H/4mdL9Qn0F61nvaYIRr0qdMkKcnWYUVu09AmsTLF1EOh3+lxRodU6YHnrj2psOsGxELFoe/RjA0lscB+1ff9/87hbO4=
+sidebar_class_name: "post api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a Termix ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/termix-identity"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a Termix ID
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["handle"],"properties":{"handle":{"type":"string"},"description":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Created identity"},"400":{"description":"Invalid handle"},"409":{"description":"Handle taken or user already has an identity"}}}
+>
+  
+</StatusCodes>
+
+
+      

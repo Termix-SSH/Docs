@@ -1,0 +1,69 @@
+---
+id: resolve-a-rooms-current-stage-for-an-anonymous-guest
+title: "Resolve a room's current stage for an anonymous guest"
+description: "Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal socket with roomGuestToken, remote desktop stages get a read-only viewer token."
+sidebar_label: "Resolve a room's current stage for an anonymous guest"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVcFu40YM/RWCl7bAxHYXe6l7Sot2m21RBImLoAiMYizR1qxHQ+2QsqMa+veCku04m26BPfckiSI55HvkmwOWJEUOjQZOOMfbdhVD4SB7pasY6qBUQkMZbm4n8K4lUYGGYwStgoAyrDlG3kOTSSgpZZB90KIimcDvtKMMmbTNSaBiUShJfYjyPdzf/wKifkMCPhN84JCoBLYArQiUch2SjyBcbElhH7SCzFwPJSx4S8lBppqVoCTZKjendBtS8JDJl1ecYge7QHvLajETdKh+Izh/xB85Rr/CpcPGZ1+TUjb7AYPh0Hit0GHyNeEch2B0mOljGzKVONfckkMpKqo9zg+oXWOOojmkDfb90pyl4SQk9v/NbGaPl2DfMddgR4BP5dD30IMDzuAhtTGOBuwdvp29fZ3gt5C2kFhhzW0qB7c33712WzBD7VMHVr9RiH3vsCatuMQ5bkjRjR3PcdrEdhPSlW/CVEgkcLqSyltb040FTw8DGj06FMq7E2ptjhaN7pOz/+Q2w8LofILRHw0coaLNQbshdkU+U75urYDHZe8OWDBvA11afBN+pe5suUhxbySMKF8mOnNSqTZ45Mq+Ryd0x5efOddecY7vHxavqr8fERinB2zCIaSBKTuEc/jbmydU5EvK4AV+GJKeCT2OXe9etHSubewK3Th0o8vz2H3Y62crev+wgNEfxCZeQcImXYU0gYeK0mkhHQQF9VsSsxRUUiroec/+rYuh2ku4vxjJ69sb2FJnw5s1pM24vlo//fWqnbPrl0O7pc7BvgpFNR4kz8dM4EbBFyoWdvQF3qdjdOGTLY0v1P771HEioCg0GRYjpDUPXQeNdAH5/bgGcH17gw5t8scevp3MJrPXRFUmbDHsjKAhgcCqg2gry3ms1SfWijK0QtkNpR1pew5RBg+bzG1j8NREA6AmhTIQ1bBo7ZPVe5yaOxKOOzIRZK6/EijanIecpiWwNnFJdnTqam4Fhq3+tHxbwaSU9P9xJ4zzrfSk0yb6kAzZQdEOR118xGddHJTvhTKiwxOK8/GuWDq05izwcFh5oT9y7Hszf2wpm+wtHe58Dn5lM/Z4wDKIvZc4X/so9B98fH13vIa+gc/VfpKXZNqy87G1L3S4pe58nfXLy0vg3U8L7Pt/AJSS0Kg=
+sidebar_class_name: "get api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Resolve a room's current stage for an anonymous guest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/session-sharing/guest/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public, rate-limited per IP. Guests poll this to follow presenter switches. Never returns host details; SSH stages are joined over the terminal socket with roomGuestToken, remote desktop stages get a read-only viewer token.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Room name and the stage, or a null stage"},"404":{"description":"Link not found"},"429":{"description":"Too many requests"}}}
+>
+  
+</StatusCodes>
+
+
+      

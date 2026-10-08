@@ -1,0 +1,71 @@
+---
+id: update-a-plugins-install-wide-settings
+title: "Update a plugin's install-wide settings"
+description: "Writes the given keys. Every value is validated against the field the manifest declares, and a key the manifest never declared is rejected rather than stored. Validation failures come back per field so a form can show every problem at once. Sending a secret field back as { set: true } leaves the stored value alone, so saving a form does not clear a key it was never shown."
+sidebar_label: "Update a plugin's install-wide settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v40YM/SsEL20BrZxuFz34li1SIFugDTZJgyINClpirImlGe2QsuMK+u8FZxQnm2QL7KmX+uLxzOM3+egRa5Yqul5d8LjEq+iUBbRhWLste9jwXko42XLcw5bagcGJHVxNyjXQmpwXTQK3jts6nTry7pZFoeaqpchSAPkayLR9DvC85fgAq0135DuuTHUkbTiCNuRBNESuS/g9G3bBwy25dogsUIWOYUXVBnqOsxMSgOA2xA4qk27CDjiF0MewarkDUgi+4hLO2dfOr4FAuIqss4KkjwRGENYlaBwYJmiZtnN2skdzSqgNnguzKrTN2pLxOrCADwpVyxTn+J3CjmSO3Fzz5Z8eC1RaCy6v8awd1s4L3hTYU6SOlaM9jOisQj1pgwV66hiX6GosMPKnwUWucWl+FihVwx3hckTd94YSjc6vcZpuMphF34d6b4jnslXwyl7tifq+dVXK9uJOrD3Gl6rDysqF0zRNplv64IXFAG+Pjuzr8/66aBiGPveOsKrzaylxKvDda+jfPEOI0IU4d5fAjiMfemSW/OF1OxW1LUdoqdoIUN05X/Y5t2VHntY8i797Kf5rABmqBjK+RAuuY21CbRUYFItchyUuZpWL0dXT4iGkRTKHBQrH7UP5htiaABbPjP0RhggXHDt3DxmPVijhaohO90l2xRQ5Hg9m8/pmKkasQtg4fnpDvfuF94ebJyrOrWq5Kk8VHYrYqPY49439ziAs5sPPIXakuMQPVxcvvD9nEZtHDRv2IOwVnE8jYkZCdH/neW2Yao42U++T0sQIBkuCqRRPQzr4lqPCInd/hjz2/91Ov+jRh6sLyHhrNRt5cWv/xvkSrhr20Ec2dwubSKUNi91UXLOvGMI2cc/rUSRvn6b7qzN5fHaayECUonUM7Jw2oN39Xy/COUC/PrUb3hewa1zVZEPyaKaEUwWqVExsxkLY+Vm6Im+8RZXaO/l98AzcCudZMDr4+EgkJ/fU9S3jcpysTrchZcSpXeHc2cdnp1igDUMO6+2P5fdH5dGLcNPk2sA/ypVwQodhhDpUQ8deBZyKuQwxDMqZRvog2lGiqrlDLhPbAM3i3wjYwqK2fbNzNR9I6Lkf4yMT/r8U/8OlmMdK+V4XfUvOW5ETkY4zA1/jzMBY4DKtwyclzTR8U2ATRA07jisSvoztNNn1p4GjEexNgVuKjlbWsdcj1k7sXOPyllrhf+mNbz/OC/Q7+JK7D0TmjcVSbnCJWOCG93mDTzdTgXmIk/X88FO28ebCxB8FX2xlI/rDbjq7NIZezcu9C7WJRNrZvwTaZbshhZG2QbobsSW/HmidCDWptM8/xj6Dpg==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a plugin's install-wide settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/{id}/settings/admin"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes the given keys. Every value is validated against the field the manifest declares, and a key the manifest never declared is rejected rather than stored. Validation failures come back per field so a form can show every problem at once. Sending a secret field back as \{ set: true \} leaves the stored value alone, so saving a form does not clear a key it was never shown.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated settings."},"400":{"description":"One or more fields were rejected."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: remove-admin-status
+title: "Remove admin status"
+description: "Revokes admin privileges from a user."
+sidebar_label: "Remove admin status"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu2zgQ/ZXBPDNO2u3ug97cG+Bu0Q0SF8HCMApaGkuMJVIhR3a0gv99MaRiO3GD3erFMjWXM2dmDgcsKOTetGycxQxvaOs2FEAXjbHQerM1NZUUYO1dAxq6QH6CClmXAbMFfg/kAy4VenroKPB7V/SYDfGv8VRgxr4jhbmzTJblk27b2uRaEl7eB8k6YMgrarS8cd8SZuhW95QzKmy9a8mzoSBfJf2sOLEL7I0tUb0o49rTmrynAjprHjqKuMEUZNmsjZSwVzGY1Q39d7ivVOq8h7Wu65XON88DxUcICK2zIeF8e3UlP8+jTCOngTV3ATw1bktF4jWxulf47md+wjHMPoLz8AQZjERIFCv5kGtrHY9RoXedB7ezYxtTyjHBb+cJvjkG3XHlvPmHitHu3StAJM3adTbZ/f4zwJ+1qakAdk94XsDYK2yIK1dghq0Lsc2aK8zwUgoMl8ntIrqhwkB+K2OWLQbsfC12Zy36W0qek2/MIyR73C/FNe+84T76rkh78tNOUi2WezVg7tzG0OmJbs2f1B9OTkLcyoym9p4GOsxOxdwK2GiG2WiEanz57HyjGTP8cjc/Q39LIRhngd2GLASyDMYCVwTTsS9xX6AiXZAHHeB9DAraFtEsOsaOnJZ0wJaqQoVGsiUTVJimH+93/CqiL3dzSPYQiEEzBFPaC2MncFeRSAQJXAWGgbVIR+spp4JsTuC25F+tIqI9pfuXmZxez2BDvQyWZ2NL2BmugJvHH2flHEx/ndoN9Qp2lcmrlCgc00xgxqBzDuI22srejd7jUuqc5bu2vbMEVAdKOyDid3OUzU+PumlrOpW5ox4dterpbC/NXLtIm2Hxw3H8p9czVCgbk2p/+8fkzdXk6oyTeUWQO09w9JvAJ51X0NZdaSwULu8ashzAcIh64l3HlJREFrfRUb1HYDfny/4y53C8CP7/VZOGgumRL9taGxu1W2RgGGVjEemRZM+EY6mwEnXJFjgMKx3ou6/3ezl+6MiLJCwVbrU3eiX0yf5jmoKoFhvqMcMPCe/FXFCIed2lhXpxiYlSHETt+q9b2fHVeBk2rhAfr3cCUe8wQ1ToIidRT+LZgLW2ZafLuJIxpjz/AkmppQI=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove admin status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/remove-admin"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes admin privileges from a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"userId":{"type":"string","description":"Preferred unique user identifier."},"username":{"type":"string","description":"Legacy fallback identifier."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Admin status removed from user."},"400":{"description":"User ID or username is required, or cannot remove your own admin status."},"403":{"description":"Not authorized."},"404":{"description":"User not found."},"500":{"description":"Failed to remove admin status."}}}
+>
+  
+</StatusCodes>
+
+
+      

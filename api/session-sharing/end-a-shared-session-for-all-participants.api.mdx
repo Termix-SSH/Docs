@@ -1,0 +1,69 @@
+---
+id: end-a-shared-session-for-all-participants
+title: "End a shared session for all participants"
+description: "Owner-only. Terminates the underlying session and notifies joined participants. Remote desktop viewers are not force-disconnected."
+sidebar_label: "End a shared session for all participants"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsETy0gO267veiWAi2QLdANNimCwjCKiURbs5Y4Wg5lRxX03wuOlNj5KtCeetLX4/DxkXwasKRYiG/VB8YcPx2ZZBG47pdwS9J4dkoRtCLouCSpe887iBSjDwyOS+CgfuspwpfgmUponagvfOtY4xI+UxOUoKS419DCwdORJIITskDYBiloUfpYBGYqlMolZqhuFzFf482c5qZy4nmHmwwjFZ147TFfD3hPTkguO60wX2/GTYatE9eQksQE8FZS67TCDNk1hDnGygldlZih0NfOC5WYq3SUYSwqahzmA2rfJqimrKMdLBTbwJGiff9+tbLLc+UeyRKXVOKY4YfVD69RvwVNYgbTGcIWtPIREqkp5sMbJ1cnuTpOZ//4NgM5kACJBMFxzLAhrUJpEoSomE1K5HjR1t3O88K1/mLu5CJOEl8Msz7jBbGJFNOZk5qd1BaN2Yu8f4ROpmF5gAmP41mrbkzXSbjzhj3JXKm2OMtvzxMIs/nmlyCNU8zx493tq9SPomvYE0MkVvCcBLYkQfxfzpBQkStJwEX4KR2aJtdgKXBpkhYh7D294OZa/yv1mE2TNEFOs/TlqO8y+nh3CxMeIik4heh3vPC8hLuKGFoho5uBV1C3p2hvCiqJC4JgfXyvisR2IvYflby8voI99RDVdpV3cPRagTYPf74q5wn676XdU5/BsfJFNSWKpzRLuFJwhUYLm7HzSlh04dim3RVq3x33gQmojrRMY+15G1LVXms6k3y2Cbi8vsIMbWynGr5brpar141KW1X7Az3aWYT7HmrPewgycXUctCKBLpJkidrctlOIBnCwk9C1Jk9DlASVEJqYGmWr1zg2vvPU/MwluGnlyycn3QYBV9fP3PMl5QGLwEqs/xufnsZO6UEv2tp5toKTSwyz16zx5DXJTZ65DWaYn/zYDGeTYWVela9xGO5dpN+lHkd7/bUjMdffZHhw4t29tX49YOmj3ZeYb10d6R8k++bzbPjfwnvcH7eebeUPru7sCTPcU3/26xg35956/enGfMk9X8UXq5eovnn6MEyIWzOicXxKlozJUo3j3/nNqH4=
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"End a shared session for all participants"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/{shareId}/end"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Owner-only. Terminates the underlying session and notifies joined participants. Remote desktop viewers are not force-disconnected.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"shareId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session ended"},"403":{"description":"Not the owner of this share"},"404":{"description":"Share not found"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

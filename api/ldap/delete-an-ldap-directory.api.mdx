@@ -1,0 +1,69 @@
+---
+id: delete-an-ldap-directory
+title: "Delete an LDAP directory"
+description: "Refused while users still sign in with it. Needs ldap.manage."
+sidebar_label: "Delete an LDAP directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNtu2zAM/RWCTxugJdnlZX7L0A7obii2DsVQBANrsbEWW/IkOqln+N8H2k6bNeiAAXuKrBxSh4fk6dByyqOrxQWPGX7mmyaxhV3hSoYmcUyQxJUlJLf24DzsnBTgZAafmG2C0lI9q8jTmmdoUGidMLvCDyfLc1wZrClSxcJRbzt0+kZNUqBBTxVjhs6iwcg/GxfZYiaxYYMpL7gizDqUth5QXnjNEft+pehUB584KeDFYqE/f5Zx4iLnEmILlksWtjPsDb5avDyGfnQpOb+GmmOlx+An7Ku/pfVB4CY0fp/49TH46yAeRZ4ELJ3fsAUJqh72vcGKpQgWMxxJohmlyXBel83a+WdUu7kKPK9j2DrLMc07Z3s0mDhu96I2sdQYNA8IfAtNhAst6xZGPKp6ifMmOmmH2GumyHHZ6LNXq950mIewcXx4Q7V7z+3dzUGKL9qmsQ2Hie66VojUOHVTv0cQmunwNsSKBDN8d3lxxP4LD80ACRv2kNiLTp8UDPpIiO4XKRIKJssRKMGbISmQtwNsCBzac1jSHbexKjTjTI6Q+6n8sZNHGb27vIARD4kFSIbdeOb8DC4L9lBHVroGnIDQhpPe5GzZ5wxhy/HRKga2h3L/s5LL8zPYcAtJKIqO9bCuUt1+PyrnDvrv0m64NWoReTE+lO6fmcGZAOWSNGzCQtj5KTonr6tDuej/5NvgGbhMPG6E8zdhqNpJqWWqjcDy/AwN6riPxJ/PFrPFcXcO/anV0R+CQ4RlLm7LcL+8amva54FRTSntQhwXuQ5JKvJKYRqEk2E1gfyYzu6TPHxfF8cLe/kfJjr2XPhW5nVJziu1Ycu7ySGu8N4h0KDGq3vsXQINZs6q/xYhicK77poSf41l3+v1z4ajGsDK4Jaio2tV+6pD65KeLWY3VCb+S41PPk+W/RQeY7xfNK9ibals9AsNbrgdfb9fHZrgyemH04tT7PvfSB5ANA==
+sidebar_class_name: "delete api-method"
+info_path: api/ldap/ldap-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an LDAP directory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/ldap/providers/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refused while users still sign in with it. Needs ldap.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Directory deleted."},"403":{"description":"Missing permission."},"404":{"description":"Directory not found."},"409":{"description":"Users are still linked to it."}}}
+>
+  
+</StatusCodes>
+
+
+      

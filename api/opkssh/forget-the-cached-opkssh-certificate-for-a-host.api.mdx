@@ -1,0 +1,69 @@
+---
+id: forget-the-cached-opkssh-certificate-for-a-host
+title: "Forget the cached OPKSSH certificate for a host"
+description: "The next connection to the host asks for a browser sign-in again."
+sidebar_label: "Forget the cached OPKSSH certificate for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv20YM/isEnzbgYmdDn/SWtSnqtkCDxkMwBEZxlmjrJomn3lF2NEH/faBOTtymGVBgT9YRH4/fxyM/D1hQzINrxXnGDNclAdODQO6ZKdcoiAcpCUofBWysIux8AAvb4I+RAkS35wvHYPfW8QINit1HzO7x082H29t3uDHY2mAbEgoaH5BtQ5ihXrgq0KDTyq2VEg0G+tq5QAVmEjoyGPOSGovZgNK3muVYaE8Bx3Gj6Nh6jhQV8Pvlpf58K+g1BXE7l1shCNT4AxUGfFBFgeBoI7BnWuBo8NWP8ld8sLUrknpXzMBXz4HvFMBeYOc7LrSEHmyeU4xuW2uJ0WBDUvoCMyyoJiE0SXeGy7bu9o4vbOuWvq1iLJfiK+LlkNo0osFI4XDqYRdqzULzHY2/fBdgTaFxD5DwqI2KlHfBST/lbskGCledFr7fjGbA3PvK0XnEtu4D9Y+Rsytu9UVSx88venygUqTF+eH0nEBo5o+3PjRWMMP3d+tn7G+1WdPIVcQQiQUcT9OnRXxw/9hpJEuyBQWwEf6YLgXLxQSbEqdHOpf0yC2pOo1cgqA5DeTfR3mR0fu7NSQ8RBKwcpr7BdyVxNAGUroGnIDYiqJGciqIcwJ/oPCiiontebt/upNXNyuoqIcoNojjPRydlCDNw5dnch6hP9/ainoDx9LlZSoUn8osYKWjLlHTZiz4I8/ZueW0C+ofYLn3TEB1nHfC8c5Pqp3UKjP5BlzdrNCgDnyi/tvicnH5TNDr5FNqUrooM6lY+iAXtTtQAZ9a4ptuq5T02vzJECLYncwOpm1znLJ73SFXEIuTHtrgD+70Tq2P0lhWuvPQvPVhTzKpzm1easHE/6zQ7JhK8HsBunssxPJ/mW8aHaEHWba1daysJ7MYZqu5xyerQYPJbDRTVwcNZrMvb8zk0JowDFsb6c9Qj6OGv3YU1Ek2Bg82OLvVZ7sfsHBRvwvMdraO9B9Kf/k82/yv8BLn08ayruvB1p2e0GBF/dN/x7g599Q31x+v19c4jv8CZZtakg==
+sidebar_class_name: "delete api-method"
+info_path: api/opkssh/opkssh-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Forget the cached OPKSSH certificate for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/opkssh/token/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The next connection to the host asks for a browser sign-in again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"hostId","in":"path","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Certificate removed, or there was none."},"400":{"description":"Invalid host id."},"404":{"description":"Host not found or not accessible."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: upsert-a-single-open-tab-for-the-current-user
+title: "Upsert a single open tab for the current user"
+description: "Upsert a single open tab for the current user"
+sidebar_label: "Upsert a single open tab for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20gM/SsEz4rj9rAH3dKiBdw9JNi4CBaBUVAjRppYmlFnqDhaw/99wZFiK3VyiC6WOY9fT+SbPQpVEfN7vO7YwZqKiJsMA//uOcoXXw6Y79NfG7jEXELPGRrvhJ3oEXVdYw2J9e7yMXqntmhqbknfZOgYc/TFIxvBbBboHm2JGQoVa8Vk2FDBzWi5DiUHLaMLvuMglqMGs+UsZJRgXYWHU4i3zmofZTV3s0644oAZur5pqGh47OnwUsA7GcaSzuMcMizIbNmVtxyj9W71RpFnydKjbMTOuzh293m51J+Sowm2Uz4xxzUV0HeRg3AJsTeGY3zom2ZYoAZ4Df6ZgEAQrasaBq9fVKiABx9AagbTh8BOoI+JgZal9iXm2PmoH6cjqTHHS/W7EJ2EDCOHJw46IHvsQ6PH+Gfef30fYM2htc8w4vGwUVfTBytD8i2YAoerXjPcbw7ZHo33W8tzC3X2bx6OllmIWx2okaZ5oCPPtUinxSYY5hMIs+nluw8tCeb44259Vv303UD8lh1E5ce6RJcm8cH+l4YbaqaSA1CELykokCsTLDkudBLmLR1rG7vCDK1mGyE6EZQqfdzJuxX9uFvDiIfIAiQQbeUurFvAXc0OusBabgZWQGjLUS2GS3aGwT9xeLeLVO2c7g8zeXWzgi0PEIWCWFfBzkoN0j7/OmvnCP04tVseMtjV1tRjonhKs4CVABmJ6jZhwe/c5G3IOZ8Aek5u8I6Bm8jj4qhS/XPSuG/P1HYNv4jMaW+P2nIyvUjK8qgYr+CTUCzf0oWZpFj34BPtVjQvTutzdbPCDHXjRu4+/7X4tFwszzhd6zb7wHDyW8A3MjV0TV9ZB6U3fctOIliJygsE3wvH9OV131tKUj2N4Uel41U1x+ERfpbLriHrNEuSi/2kKvd4UpXNSKIa9/uCIv8MzeGg5t89B9WLTYZPFOyomCoOOI5IkpItD5jj1/EKuphujydq+nHb/riOVEaOQndzfasCUEzXWutL9Qm006uJdpgjZuhTW0lskm2PDbmqpyrta4qpz/9/gn1M
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upsert a single open tab for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/open-tabs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Upsert a single open tab for the current user
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["id","tabType","label","tabOrder"],"properties":{"id":{"type":"string"},"tabType":{"type":"string"},"hostId":{"type":"integer","nullable":true},"label":{"type":"string"},"tabOrder":{"type":"integer"},"backendSessionId":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Tab upserted successfully."}}}
+>
+  
+</StatusCodes>
+
+
+      

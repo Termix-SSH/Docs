@@ -1,0 +1,69 @@
+---
+id: revoke-a-snippet-share
+title: "Revoke a snippet share"
+description: "Revoke a snippet share"
+sidebar_label: "Revoke a snippet share"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsEL22BWTv9OOmWYlPA26JYbFIERWAUjMRYU0sz2iHlRDX03xccyY67Tg657MmamUfy8ePRe1TaCBZ3eB1817EKrh12lKhl5WQve/QBC+xIa3QYqGUs0FfoMPHn3ieusNDUs0Mpa24Jiz3q0GVUUN5wwnF0L3qhsmSR1Rt9rQ0tXQzCYoCfLi7sp2Ipk+/URws0pwNTCEi8i1uuFjg6/OUl/CrsqPEVGA8WnYE/nwP/jApaM8gU4DuB+Bg4LSzJr6CfclCgAxakpsTosGWtY4UFVtyw2k2uS4HLruk3Pryjzi9nI1nufTUupzyW+0PJRnQonHaHHvWpMXv8msPfsU9ww6n1TzDh0QooXPbJ65Bt75kSp8veKNytrVdljFvPpzfU+d95ON6cuLi2Tk2dOHV0bFyt2uHcUDtPIHTzx28xtaRY4IfbmzP21yziYwCNWw4gHBR8yOW3IDH5/8iQUDNVnIAEfs1OgUKVYdkwN/M0pSO3KSt003BOkOfx/PdRX2X04fYGJjyIjZmC+E1458MCbmsO0CU2ug68gtKWxW5KrjiUDHHH6dUsMtvTcr+5kpcfV7DlAUQpqQ8bePRag7ZP/5ylc4S+vbRbHhw81r6sp0DyHGYBK1OeipnN2Ekm2bqkEGIG2DuFIQYGboQnEfnwEHPWXht+lrLA5ccVOrSRn8j/uLhYXJx3iHacg5axbSlUAkPsIfUB4oNyyAzspDW3ljKBmjwCNRATxAAthQHqKCr2bNzKxpfb3JcuirYUjN48JK+K/H+sjj1UftJl15AP5i6rdj+r/w6f1W9tPixkh0Vet5P07Xjcm2uHRtRs9/t7Ev4rNeNo1597TqbutcMdJU/3Vsq7PVZe7LvC4oEa4TOaZQzKwabo+0/zSv4B0L1M/6CiYBLaUdPbCR1ueZj+I2xzfMOIx7qM6/Fky76/+uPq5grH8QsP3V68
+sidebar_class_name: "delete api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke a snippet share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/snippets/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke a snippet share
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet access revoked."},"400":{"description":"Invalid request."},"403":{"description":"Not the snippet's owner."}}}
+>
+  
+</StatusCodes>
+
+
+      

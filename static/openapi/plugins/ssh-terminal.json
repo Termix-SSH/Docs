@@ -1,0 +1,423 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SSH Terminal API",
+    "version": "1.0.0",
+    "description": "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ssh-terminal/image-upload": {
+      "post": {
+        "summary": "Upload an image into a terminal session",
+        "description": "Normalizes an uploaded or pasted image to PNG and stores it where the terminal's programs can read it, over SFTP on the connected host or in the backend's mapped local storage, depending on the image storage settings. Returns the path to hand to the program.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "instanceId": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "file",
+                      "clipboard"
+                    ]
+                  },
+                  "clientUploadTimestamp": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The stored image's path."
+          },
+          "400": {
+            "description": "Missing or invalid image or session."
+          },
+          "409": {
+            "description": "The terminal is not connected."
+          },
+          "413": {
+            "description": "The normalized image is too large."
+          },
+          "502": {
+            "description": "Writing to the remote host failed."
+          },
+          "503": {
+            "description": "Image storage or processing is unavailable."
+          },
+          "507": {
+            "description": "The image storage limit was reached."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/image-storage/test": {
+      "post": {
+        "summary": "Test image storage visibility (admin only)",
+        "description": "Reports which storage mode an upload would take for one of the caller's already-connected terminal sessions. Uses the bounded local-mapping probe only; it never opens new connections.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instanceId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Visibility test result."
+          },
+          "400": {
+            "description": "Missing terminal session instanceId."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to run the test."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/client-settings": {
+      "get": {
+        "summary": "Terminal settings every user's terminal needs",
+        "description": "The admin-set session timeout and persistence flag, whether command history is on, and the touch input tuning. Readable by any signed-in user; changing them goes through the plugin's admin settings.",
+        "tags": [
+          "Terminal"
+        ],
+        "responses": {
+          "200": {
+            "description": "The settings."
+          },
+          "500": {
+            "description": "Failed to load settings."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/user-settings": {
+      "put": {
+        "summary": "Save some of the caller's terminal settings",
+        "description": "Writes the caller's command autocomplete setting. The terminal uses it once, to move a value a browser kept before 2.9.0.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "commandAutocomplete": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "A value the setting does not accept."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/hosts/{hostId}/auto-tmux": {
+      "put": {
+        "summary": "Turn auto tmux on or off for a host",
+        "description": "Sets the host's autoTmux terminal setting. Used by the \"enable Auto-Tmux\" action shown when a persisted session expires. Needs edit access to the host.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "Invalid host id or value."
+          },
+          "403": {
+            "description": "No edit access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/command-history": {
+      "post": {
+        "summary": "Save command to history",
+        "description": "Saves a command to the caller's history for a host. Commands that look like they carry a secret, and anything while command history is off globally or for the host, are acknowledged but not stored.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Command saved, or skipped on purpose."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to save command."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/command-history/{hostId}": {
+      "get": {
+        "summary": "Get command history",
+        "description": "The caller's distinct commands on a host, most recently used first, for autocomplete.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of commands."
+          },
+          "400": {
+            "description": "Invalid request parameters."
+          },
+          "500": {
+            "description": "Failed to fetch history."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Clear command history",
+        "description": "Clears the caller's whole command history for a host.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Command history cleared successfully."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "500": {
+            "description": "Failed to clear history."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/command-history/{hostId}/recent": {
+      "get": {
+        "summary": "Get recent command history",
+        "description": "The caller's commands on a host, newest first, duplicates included. Needs hosts.view.",
+        "tags": [
+          "Terminal"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of commands."
+          },
+          "400": {
+            "description": "Invalid host id."
+          },
+          "403": {
+            "description": "Missing the hosts.view permission."
+          },
+          "500": {
+            "description": "Failed to fetch command history."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/command-history/delete": {
+      "post": {
+        "summary": "Delete a specific command from history",
+        "description": "Deletes one command from the caller's history for a host.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Command deleted successfully."
+          },
+          "400": {
+            "description": "Missing required parameters."
+          },
+          "500": {
+            "description": "Failed to delete command."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

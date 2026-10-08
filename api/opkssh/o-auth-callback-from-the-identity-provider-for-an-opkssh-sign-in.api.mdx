@@ -1,0 +1,59 @@
+---
+id: o-auth-callback-from-the-identity-provider-for-an-opkssh-sign-in
+title: "OAuth callback from the identity provider for an OPKSSH sign-in"
+description: "Public. The redirect URI registered with the identity provider. Finds the sign-in by OAuth state or the opkssh_request_id cookie and forwards to its proxied callback listener."
+sidebar_label: "OAuth callback from the identity provider for an OPKSSH sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVE1v20YQ/SuDufSylpWkvfDmFHXrBKiFWoERGIKxIkfiRNQuMzuUzAr878GQtKxGziHHniRw38y8Nx/vgAWlXLhWjgEznDXLivMJzEsCoYKFcoVP/9yA0JqTklABe9YStCTggoKytlBL3HFBMoFrDkXqHxOvwwUHWLZwe9VoCUm9EkTpX2O9Sal8FPraUNJHLiCPccMEPhSwirL3YnkisCZL/8RUQO6raunzDVRGJZBM0KH6dcLsAW9nH+/u/sKFQ6FUx5AoYXbAd9O39vNflddDASqswgnZX9JrNTqHv07fnGf5Ox5Fbr3mJZlwfknRR/42fXceOXB9rRpwghAVhHzRQks6wa5zuCUtY4EZrknRYe21xAwv66pZc7jwNV8ODb18TogOE8mOxHpzwEYqw6P7jsjn2AjMSbb8BAMeu4WF5o2wtn3skryQ2Agxe1h07oDDqE6/+Jo/Unv8cpLiLi9pO4ziNNEBta0JMyxVayPbwzAbQejGP9dRtl4xww/38zP2d5QSxwAaNxQgUVDg0M/TikThf70hoSRfkIBP8L5P2i+ZwfrAfkynko7cBlXokK3aAEGHwfdMv+z1h4w+3M+fFzqRgtfnTZnAfUkBaiGj64AV1G/IdpxyKijkBHFH8kMVPdvTdv90J69mN7Ch1u5RlMN6vOft0+OZnCP051u7odbBvuS8HAqllzITuFHwuSYLG7EQ92GMzn2wC/C52rsPbQwEVCUaToHDKvaqWSs63hJczW7QoS38QP3NZDqZngn6PYZgjqYRypieSaUyil5UvKMCbmsKs2ZplCxtTqK84twrJfArJeknaW3jMES3dkPnVmhzqmPSrQ9Gd1yawQqPZ7+SuH3dSs0EwQcY5Y3r870gu8WgFPT/ad3D4io96WVdeQ7Ws96qDqPFPeCLxaHDoTQ6PNrcwqEN0pCHw9In+iRV19nnrw2JGdjC4c4L+6Vti7nVi5n++cccu+4bHgxyYQ==
+sidebar_class_name: "get api-method"
+info_path: api/opkssh/opkssh-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OAuth callback from the identity provider for an OPKSSH sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/opkssh/callback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The redirect URI registered with the identity provider. Finds the sign-in by OAuth state or the opkssh_request_id cookie and forwards to its proxied callback listener.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"302":{"description":"Forwarded to the sign-in's callback listener."},"401":{"description":"No sign-in matches this callback."},"503":{"description":"OPKSSH's callback listener is not ready yet."}}}
+>
+  
+</StatusCodes>
+
+
+      

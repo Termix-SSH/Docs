@@ -1,0 +1,68 @@
+---
+id: restore-database-from-backup
+title: "Restore database from backup"
+description: "Restores the database from an encrypted backup file."
+sidebar_label: "Restore database from backup"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu2zgQ/ZXBnFUnLbp70C3ZbYF0Dxs0XgRFYBRjamwxlkiWHMXRCv73YijZcZwGaKuLZfIN580bztOAFScTbRDrHZb4mZP4yAmkZqhIaEmJYRV9C+SAnYl9EK5gSWbTBVjZhmdYoNA6YXmHf08RuCgw8reOk1z6qsdyyH9t5ApLiR0XaLwTdqJbFEJjDSmFs/ukPAZMpuaW9E36wFiiX96zESwwRB84iuWkuyORa5L6CJskWrfGnRKLa5ZXtvOjRFPwLo3nvTs/15/nquzLgjjKU0HqjOGUVl3T9DNN9P5HcZejSoGkBptgLwH4CNY9UGOr1yTdFfjHzzCBFdmGqxlqIS1L7SssMfiUlcpl49m+j2dTEBaYOD5w1J4N2MVGUVic5Priuwhzjq19hBGPu4WGmi5a6XPskilyvOg00d1iVwxovN9YPl6hYP/h/rBydMSNNnnq49FBh0bVIkHJZhiWEwiL6eWjjy0Jlvjpdv6C/Q2nZL0D8Rt2kNgJWJevtSbx0f6fLxzUTBVHoASX+VAgV2VYDsydOC7pwG2sCgu0mm2EYIGOMtP7rbzK6NPtHEY8JBYggWTX7o11M7it2UGIrHQLsAJCG066YrhiZxj8A8dXq8hsj+X+ZSUvrq9gwz0koSjWrWFrpQZpH7++KOcA/XVpN9wXsK2tqcdE6SnNDK4EyEjSsAkLfuumaEPO+QzQfXK9dwzcJB4nQN3j85PvfHikNjR86hN7A3huD0euYd3KZ/GsaDROQ3BxfYUF6tyMCrz7c/b2fHb+Qpl5zWB0OJ/iZvCBTA2h6dbWQeVN17KTBFaSVgfRd8Ip90+Ht6VsgtNlmkz5xI/Hik6TD0/G+ttmPl4Z4Uc5Cw1Zp6yySQyTpdzh/jTM9plNZVFgrb5T3uEw6N5/sdntdPlbx1HtYlHgA0VLSxVVvQHHG5KdZMM9lvjXSP7NXDkovOnGYTv5QqiLHOzu+t8bnf/l9KVpfaUxkbbKjrZYIhbos0DZa/LagA25dUfrPK75TH2+A2RvdC0=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore database from backup"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/database/restore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Restores the database from an encrypted backup file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"backupPath":{"type":"string"},"targetPath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Database restored successfully."},"400":{"description":"Backup path is required or invalid encrypted backup file."},"500":{"description":"Database restore failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: read-the-callers-own-settings-for-a-plugin
+title: "Read the caller's own settings for a plugin"
+description: "Returns every user-scope field the plugin declares for the authenticated user. The scope is always the caller, never a user id from the request."
+sidebar_label: "Read the caller's own settings for a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE1v20YQ/SuDuaQFNpIaBD3w5gJp4RQoDEeFURhCMCZH4lbkLrMztMwK/O/FLClZieECufVEcvfNx3t8M0esWMrkO/UxYIG3rH0KAvzIaYBeOL2VMnYMW89NBVozdE2/8wEqLhtKLLCNKZ9TrzUH9SUpVzl0AeuaYYr3AtQcaJCMLalpODkIVgcoo8FXsE2xzYDEX3oWXaBDpZ1gcY83ua7gxmFHiVpWTnZxRG+dd6Q1OgzUMhboK3RoSXziCgtNPTuUsuaWsDiiDp2hRJMPOxzHjYGli0FY7P7damWPr7VZnxt/IyCs6sPuRN/LrMsCR4fvV+9fhv8RQfqyfsaNDlvWOlZY4I4V3cShwOUEkeXRV+PyVGlpIqFD4fR4Yt6nxvDovqn1V+wTrDm1/gkmPBpH4bJPXocc+8CUOF31VvJ+M7ojljHuPV+eUOd/5+F8cpHik2k5iXWZ6CxtrdrhLLl9TyB088uvMbWkWODHu/WL7j+xiI8BNO45gHBQ8CHbworE5P8hQ0LNVJl9BH7JSYHCZNEcmP/EJaVzbxMrdJNxJsizdf4+6Ksdfbxbw4Q3AwApiN+Ftz4s4K7mAF1ia9eBV1Das9hJyRWHkiGa119jkbu9lPu7lby6uYY9DyBKyQwDB681aPv0+QWdM/T7pd3z4OBQ+7KeCslzmQVcK1CpYmEzFuIhzNElhRAzwO4pDDEwcCM8jYIP25hZe22M5uzeq5trdGiGn1p/9/Pip9Vi9YJSHs6YGJ7jFvCBzvMGVSz7loMKeBVrC1LslSUL30XRloLVn11wy1RdrKo3U8hXU09z6m97sUEKykH/p/t0spXyky67hnwwAfIiOc4L6B7nBYQOi7xJT7zRYd5CG4d1FDXo8fhAwn+mZhzt+EvPyfbLxuEjJU8P9jPvj1h5sfcKiy01wv8h2Q+389r+EV7r9jTHwYb4kZrevtDhnodp94+by+X624c1juO/1mxkZw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read the caller's own settings for a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/settings/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every user-scope field the plugin declares for the authenticated user. The scope is always the caller, never a user id from the request.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The caller's settings for this plugin."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

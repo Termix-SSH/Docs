@@ -4,7 +4,7 @@ Alerts, sessions, user administration, API keys, and a couple of commands for ch
 
 ## termix alerts
 
-Your alerts. See [Alerts](/features/networking/alerts).
+Your alerts. See [Alerts](/plugins/alerts).
 
 ```bash
 termix alerts                  # list active alerts
@@ -100,7 +100,7 @@ The key is printed once when you create it and cannot be shown again. Copy it st
 
 Give a key an expiry date where you can, and one per system rather than one shared everywhere, so you can revoke a single one without breaking everything else.
 
-See [API Keys](/features/api/api-keys).
+See [API Keys](/guide/api-keys).
 
 ## When a command does not work
 

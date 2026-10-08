@@ -1,0 +1,68 @@
+---
+id: mint-a-connection-token-for-an-address
+title: "Mint a connection token for an address"
+description: "Creates an encrypted guacamole-lite token for connection details the caller supplies, used by Quick Connect. No saved host is involved."
+sidebar_label: "Mint a connection token for an address"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv40YM/isEz4qTvi6+ZbO7QLbYbZq4GxSGUYw1tDWxNKMdUnZUQ/+94Iw3Vpzk0J7qiyXxTX78uEdLXEbXigsep3gVyQgxGA/ky9i3QhbWnSlNE2o6q50QSNiQh1WIUAbvqVRTsCTG1QxSEZSmrikCd21bO+ICOiYLyx5+71y5gatsNYEvAdhsyUIVWMAxOL8N9ZbsBAsUs2aczvGWmiAE74k3ElpcFMhUdtFJj9P5HpdkIsXLTiqczhfDosBI3zpieRdsj9N9enWRLE4ldlRgGbyQFxUZza80mv/5A2v9e+Syosbok/Qt4RTD8oFKwWLkaJ5lBWre3jSkWbUxtBTFER+Nn5ywROfXWCD5rlEH0bZY4NaXWinVngQXw8jhC9OhwDZEGQmcF1pTVEnHFN82M8y7EO2rQhsa4/wrovTTorkNnnNRP15c6N9zxMwqGkElYWOinn9+TfmzY3Z+DSHqrE3tLKwc1ZYPJj+9NHk+f0WJdNGThbBaJatfXgt0R3FLESjGECeolTQkVbA4xTawjrM1Chk8b+tu7fyZad15TKHObA51nmpBxZv64gS3LtZqhMVJvD9DF2FGsXGPkPVxGEH1TlGVmzgG7FPXKxHFQwKfvmclLA4PH0NsjOAUP93PXoS+I2bdwLyWTF7A+bSHGiRE93dCOFRkLEUwDO+SUzDeJrXjzMoQNo5OcjOt+5V6LFBxclDBAjPe8GEnb2b06X4GWR+YBIwAu7U/c34C9xV5aCNpugU4ATEbYv1SkiVfEgSd31tVpGxzYv+xk5c317ChHlhMFIXkzkkF0jz+9aKcJ9V/39oN9QXsKldWORAfw0zgWsCUwmp20IWw8wfr0ngfkoLKje+DJ6CaKaNZ6er2SHQfHk3T1uP9zwRz5JMjBWUauRizxkj4RBbHb985YkQbzq9CCuZEo54u6eXNtbIbRc4d/GFyMbl40dfb9zcFfP1yleqdJRIEztDRUwC97tQyhh1TLHLjytq1y2CiLWDlagKJxvNKxVwZTS75ilSGaJ1fTzJtsjQmcdyh2s/OC5jx9TqeNOPBWBuJ+TTf/fF0/J/OZB630KOct7XOSe+BstT+QHFzPFJcOmNjklMPieYWGSyqvt8vDdMfsR4G/fyto6i3dlHg1kRnljrxebpWCfaJFzfUa1tyg85m+TxuTd1lBjm5s0qNT3x889udktrycK+bYBN+zU6TNTucIhYY0hASgaZve6yNX3dmnTgo+dS1MM/J4GT5U6bfWc33owz3+6wx014MAxaHgnJvhsUwDP8AKrItZg==
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mint a connection token for an address"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates an encrypted guacamole-lite token for connection details the caller supplies, used by Quick Connect. No saved host is involved.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["type","hostname"],"properties":{"type":{"type":"string","enum":["rdp","vnc","telnet"]},"hostname":{"type":"string"},"port":{"type":"integer"},"username":{"type":"string"},"password":{"type":"string"},"domain":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The encrypted token."},"400":{"description":"Missing or invalid fields."},"403":{"description":"Remote Desktop is turned off."},"500":{"description":"Server error."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: preview-how-a-host-to-host-transfer-would-run
+title: "Preview how a host to host transfer would run"
+description: "Says whether tar or per-file SFTP would be used, and why, without moving anything."
+sidebar_label: "Preview how a host to host transfer would run"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v40YM/SsEz4qdXfTkW1I0QLYI1qhdBEVgLGiJtiaWZrQcyo5q+L8XHGljJfEe9lAdbGmGH4/kmzdHLDjm4hp1weMMF9RFOJSsJQsoCQSBhuVq4yqGxd1yDofQVgWsGdrIRQbkCziUXQYHp2VoFeqwd34L5Dstnd9OMEOlbcTZE95ZkAfytGXBVYbC31uOehuKDmfH9OmEC5yptJxhHryyV9uipqlcTgZy+hwN6RFjXnJN9qZdwzjDsH7mXDEbBXrCGFrJecExuuDvC8ysYB1/9xZz0jIOu/Zu+BoJDYs6jinfu0jnxFHF+S2e3se+ZDHOdt4nEeowQ6dcxwt+pxGwS1Fr1jIUc+ENC/ucPxplyL6trSPUakhDkSHht7jRBlen9Fj3YhN87Iv+fH1tf29JsiwZ8jJE9tAnTizQkkGYYvATg/TbJc8HF6OxoyGhmpUlTlJxfRicYROiTbBJheK0qdqt81fUuKkx8KruyTNVIR83LA8/6t47PtgsWfYsRrYjtlJZiH6mIwz/hFZgyVK7F+jt8bQy17wVp13yXTMJy01rKJ5Wp+yIeQg7x+MVatyf3L2ujEIsjJl9/8aBXkdSqjYGNpnhbDDCbHi5C1KT4gy/PC4/oB/YBRp27CGyV3A+9d6SBHH/plMCJVPBAhThNgV9HVFyTBMal3RmYqrKmGHZehPM0FNC+nzQnyL68riE3h4iK5BCdFt/5fwEHkv20Agb3AycgtKOo63kXBhfIexNb35SRUI7bvcvd/Jmfg877iAqiRoBTa1A65dvH8p5Nf311u7YdLB0edkniuc0E7hXoFyjuQ22EA5+8M7J+5AMbJ98FzwDV5H742GS99dZLP94obqp+KIonc/7Oy06b7yRoKcf66uxxJyNPypLLyAnY8gmpFk4NTBv5B1u5veYoR3Gvq2fJteT6w/NvpVwiJwBF05TI+qwZ7CjHntK2JWTgfN51RY2t6hCblsqbCTUYF3qjzBoAPLBrq3EFtORmtI9MVB3EAkowwEIyhDVfPr/QU2Gu01a/x7o8XwZ/U9XZM9n5RedNhU5b0UkBTsOYviEZzHEDMdyaP4XBXGVoRVozsfjmiL/LdXpZMvfWxaTulWGexJHa5ug6Rr27E4quOMOZ/h7X/nV0iCaedX2QvHuSjYFfNXx+deFadd6uNrrUJiPkIm0/c4QMwypu0kn09oRK/LblrZJalJMe/4D1pUCnA==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Preview how a host to host transfer would run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/transferMethodPreview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Says whether tar or per-file SFTP would be used, and why, without moving anything.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sourceSessionId","destSessionId","sourcePaths","destPath"],"properties":{"sourceSessionId":{"type":"string"},"destSessionId":{"type":"string"},"sourcePaths":{"type":"array","items":{"type":"string"}},"destPath":{"type":"string"},"methodPreference":{"type":"string","enum":["auto","tar","item_sftp"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The chosen method and the reason."},"400":{"description":"Missing parameters."}}}
+>
+  
+</StatusCodes>
+
+
+      

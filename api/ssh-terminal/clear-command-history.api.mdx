@@ -1,0 +1,69 @@
+---
+id: clear-command-history
+title: "Clear command history"
+description: "Clears the caller's whole command history for a host."
+sidebar_label: "Clear command history"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v40YM/SsEL22BiZ0W7UW3tM1ive1hUacIisAoGImxph7NaIeUHdfQfy8oybHrbAoserI0euS8x4/nA1YsZfat+hSxwJ8CUxbQmqGkEDh/JbCrU2AoU9NQrKD2oinv4SllIKiT6AwdKq0Fiwe849z4SAFXDlvK1LByti8H9Ja/Ja3RYaSGsUCLXlToMPOnzmeusNDcsUMpa24IiwPqvjWkj8prztj3K0NLm6KwGOC762v7uZBxQbY0WVyBdGXJIk9dCPsZ9g6//1z0Im4p+AqMFZu+3uEPnwO+Ix+4Ak3jBcfrZtj3DhvWOlVYYMWBldGN4guct6Fb+3hFrZ+L1Fc61Ww+lfhqSjM/jPXp0aFw3h4L2eVgWdBdsPkjdRmGBjzDiEerlnDZZa/7IfbR6pBvOiPysOrdAcuUNp7PT6j1v/D+5eQsxdLaMpb9PNFLl2rVFqfu2fsIQjc9vEu5IcUCP9zfvWK/ZBGfImjacAThqODjMIh2Scr+bzIk1EwVZyCBH4ekYH022BA49Opc0gu3URW6cQ5HyGkS/9rpm4w+3N/BiAdhBVIQv45XPs7gvuYIbWaj68ArKG1Y7KTkimPJkLac31QxsD0v9xdX8ubjAja8B1HK6uMadl5r0Ob5z1dyXqBfXtoN7x3sal/W40VyumYGCwUqVSxswkLaxSm6pBjTALDvFPcpMnAQHnfEx6c0qPYaTOZy+R6OFgI3Hxfo0MZ+FPDt7Hp2/bpLy/dw3CCQsWVHfvQoDqQNXkHKzBzdcUUdNFTmJANJgpBKCqc0U3Uqlo2mFqhth061SbShaISnsRns8tIaLynajkXlqP/HX8exUH7WeRvIR+MzGMFhspUHPNmKTc6ZsaCtxL+sBR0Wk/mu3GDDluBweCTh33Poezv+1HE211g53FL29Ggtejhg5cWeKyyeKAj/h9qvf5t8/Rt4S8NxO6Nx2lLo7A0dbnh/+oPoV+d++vPtr7d3t9j3/wDbX1Q+
+sidebar_class_name: "delete api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Clear command history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/ssh-terminal/command-history/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Clears the caller's whole command history for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Command history cleared successfully."},"400":{"description":"Invalid request."},"500":{"description":"Failed to clear history."}}}
+>
+  
+</StatusCodes>
+
+
+      

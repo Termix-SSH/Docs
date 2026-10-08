@@ -79,7 +79,7 @@ To push one file to every host in a group, use fleets:
 termix fleets exec 2 "..."
 ```
 
-Fleet transfers in the web app push and pull a file across a whole fleet at once. See [Fleets](/features/fleets/overview).
+Fleet transfers in the web app push and pull a file across a whole fleet at once. See [Fleets](/plugins/fleets).
 
 ## Hosts that need 2FA
 

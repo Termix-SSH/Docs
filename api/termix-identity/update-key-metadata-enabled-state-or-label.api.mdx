@@ -1,0 +1,70 @@
+---
+id: update-key-metadata-enabled-state-or-label
+title: "Update key metadata (enabled state or label)"
+description: "Update key metadata (enabled state or label)"
+sidebar_label: "Update key metadata (enabled state or label)"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v2zgQ/SuDObWAYmcXPemWdnfRtJegcREsAmMxliYWY4lkyVEcraD/vhhSsZM4PXR9sU2+mXnz9Tii0DZieYsrDp15hMs/cF1g5KoPRgYsb0fcMAUOF700WN6up3WBngJ1LBxiAhiLJXqSBgu01DGWaGosMPCP3gSusZTQc4GxargjLEeUwSeUFd5ywEmdKpqjfHT1oJDKWWEr+pO8b01FYpxd3kdn9ezEl9vccyVYoA/OcxDDUW/Z0qZVCgfgxrmWyeJUYEsbbp9dRQnGbnFKH2UUvbMxO/r9/Fy/ao5VMF65YInffU3CNex4UH8fzj+cYr7yANYJ3Lne1qh+3/KhLqBjoZqE4N1MG6LonQuQqL7HAjuWxtW54JVWPBW+xKVv+62xZ+TNUlIvz0zNVowMyx0PcTmaekJtbXh4alwfWrXE15T+dn2AeSAyHqdnU3Gttc9VeT4bhzI2Ih7ndqeKJxAW84+/XOhIsMQvN6uT0Ncco3EWxO3YQmQrYCxIw6BBXDD/pjmAhqnmABThY3IKZOsES4YL7Ubl3M7wK27kzVcesMhDmyHHsb3fy08ZfblZQcZDZAESiGZrz4xdwE3DFnxgpVuAERDacdSTimu2FYN74PDTLBLbTOx/VvLi6jINUBQKYuwW9kYakO7xn5N0DtBfL+2OhwL2jamaHCgewyzgUoAqiWo2Y8Ht7WxdkdUVoEr0nuzgLAO3kRdpIXSpvx3X/89H6nzLL9Y3K8i8sIdF1TbeuVQwI2pxkLF59OHi6hIL1InP6f+2OF+cnxTlqt+0JjYw6OBfX38GrweVZhGht6kcT2cN2brllFbobTZxe5vMKhWeO9UqBspFlSG117soHSXpmmftF/f+BeHDgAg/ytK3ZJKepX0eZ0W4xaMiYIGvNAEL1OSwwNLUKvmNi6JG47ihyN9DO016/KPnoM/AusAHCkbZJemoTZw7c0dt5BN+B/nGd9/mZ+A9KI23eD/tplVaD9T2+i8zzG/JtJ4KzHOZoueLTznG2UrNj4Ynz4Vq10E2ry5Wnz7rBs3vTOdqNQq01xeL9jmyS4kkiUtnI7Zktz1tk0okpzq49HJdX61novpmbuOYESsVq2k6pJrES7Odpv8ACDac8A==
+sidebar_class_name: "patch api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update key metadata (enabled state or label)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugin-api/termix-identity/keys/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update key metadata (enabled state or label)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"},"label":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Updated key"},"404":{"description":"Key not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

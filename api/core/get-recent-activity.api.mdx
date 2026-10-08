@@ -1,0 +1,69 @@
+---
+id: get-recent-activity
+title: "Get recent activity"
+description: "Fetches the most recent activities for the authenticated user."
+sidebar_label: "Get recent activity"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMtu20AM/BWCZ1VxgrYH31I0CZJeAsRFUARBQUu0xVraVXcpx6qhfy8o+VW7KRCgJ8u7Q3I4S84ac45ZkFrFOxzjNWtWcAQtGCofFQJn7BQoU1mKCkeY+dBfU6MFO5WMlHNoIocUE1SaRxw/4WeKxdRTyPE5wZoCVawc7GqNYpV+NhxaTNBRxTjGUipRTDBmBVeE4zVqW9uFOOU5B+ySI6oTo0grqZoKXFNNOYCfHRJVD4G1CS7F7jnBwLH2LnK05Bejkf38mfESSolqWU66Tq3++9H5adADxyjeAa9qCZz3wA9/y35NUnJurOZ8rGubYtclWLEWPscxztm0qEkLHONZvtXybAs/G8JNLw7Lra5NKA2Ox0p9802ACYdKVjDge0EiZ00QbfvYKVPgcNlYxafnLllj5v1C+PCEavnC7e7kIMWDvdqg7GGi3SMWqvX2ce3/AMJk83HtQ0WKY7x7nJyw3wqsfsEOoqkmrp9AK+KD/CJDQsGUcwCK8KlPCuTyHtYH9u9y2NKO29AVJsNYDpD9XP540VcZ3T1OYMBDZAVSiDJ378Sl8Fiwgzqw0U1AFJQWHO0k45xdxuCXHF7tomd7KPeblby8v4UFtxCVgoqbw4toAVqtvp+0s4O+XdoFtwm8FJIVQ6G4L5PCbT/e0cI2WPAvbhOdkXO+B9g9udY7Bi4jD5sgbub7rkVLa3MzvZf3t5igDfxA/eJjej5KRyctmTdkPjDs41K4oqyAumzm4iD3WVOx0wii0WhB8I1u9rz2UStyVn8zBTenG3tc0xbGqS3l/3DR4bGVV3pWlyTOaPXrvd64whPuXAETPCC1cYbnBAsf1YDr9ZQifw1l19nxYLy287lEmpac43hGZeR/NPQWr32F/YLbA5tfUtkYpjeiJQUxIoPP7F3w5mqCXfcb1wFMyA==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get recent activity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/dashboard/activity/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the most recent activities for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"limit","schema":{"type":"integer"},"description":"The maximum number of activities to return."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of recent activities."},"401":{"description":"Session expired."},"500":{"description":"Failed to get recent activity."}}}
+>
+  
+</StatusCodes>
+
+
+      

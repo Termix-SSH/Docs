@@ -1,0 +1,68 @@
+---
+id: share-all-hosts-in-a-folder
+title: "Share all hosts in a folder"
+description: "Shares every host within a folder (and its subfolders) with one or more users and/or roles at a permission level. Only hosts owned by the caller are shared; skips hosts the caller may not share."
+sidebar_label: "Share all hosts in a folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVlFv20YM/isEnzZAtbNi24P2lBQtlm5AgiZFMBjGcJYY6+LTnUqe7GiG//vAO8FynXRAX+cHW7r7yI9H8j56jzVJxbaLNngs8a4xTAK0JR6gCRJhZ2NjPRh4DK4mhh+Mr8FGAelXeUl+TCAIniAwtIEJeiEWML6eBwYOjgRMBAMdcWtFbPDgaEtuBjfeZSaBsPNUw2qA2BBUxjliMEwgGlT9G8jGdjJiTyCtGcCHmGEzLDCatWC5wE9Xl+9wWSDTl54kXoV6wHKfXi1TjWXkngqsgo/ko26ZrnO2MpqM+ZNoRvYoVUOt0ac4dIQlhtUTVRGLE0cLzKlI5LymKMrbceiIoyVR6xEx+ZHI1q/xMNlMe4bZDFigjdTKa9xf+867554LJN+3Gp2WQwMOjnB5KNDWig6ebh6xXLyM6LhifaQ1MR6Wh8PhUOBUvz+1fP/FWQXvc6xbSzvdqK2+tcabdQ6j7jnl+vfQ8+kpfd+ulPSQSZmkC17yUd9eXOjP1237IfdmbhSQvqpI5LF3bphpfn9+zebab42zNYzdAatQZ/QvrzIY66iGGDLJeBtmqPG1FJtQY4ldkFQbExsscc4rU80zcJ6ssEAh3pIedrHHnp3CsDjj+iv0DPea6WfIeDws1bTq2cYh2a7IMPFlr0yLpVasCmFj6XTFdPYPGo4rJy7utKdzPk8dHQvQxNhpsAmG5QjCYnz4ELg1EUv8+HD/Ivo7yvc7hg15EPIRrE/3VUkC239SzaEhozUzAlfJqapFgiXDVInTI01XI51K74ayZQgW6E2K9GkXvxnRx4d7yHgQiipIYtf+jfUzeGjIQ8ek4RZgI0SzIdGVimryFUHYEn/zFCna03R/dyYvb69hQwNINBytX2dJje3z3y+Oc4R+f2o3NBSwa2zVZCKZaGZwHcFUUdRsxCZFztaV8aqxpoq6b/ygak9OKF8BFctPk8y+fzZt5+hU9iaBOKrdJDyjPqksHUVo+YranIjKmXZcqKr5x5BSb6Ny43iFLm+vVYSIJefv7a+zny5mFy/yeq8jRYfXZDeD96ZqoHP92nqoQ9W35KOk+Rd2Hjj0kSRVX+9+a9LEGFsxzVIwzo0j62SKnnPvpyH0PxnBua6RnuO8c8Z6TVHSu/0ojwtUecRimpxZIpcFqnsF7PcrI/SZ3eGgy196YhW/ZYFbw9astMiqdJj7PTXUhgYs8V3O5pt7DUPhrs/ScTbetcmO6n17c6dqthr/JrShVhs2Orv0u0QsMKSKJeVMa3t0xq97nWglZp/6+Rf/Nzxt
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share all hosts in a folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/folder/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Shares every host within a folder (and its subfolders) with one or more users and/or roles at a permission level. Only hosts owned by the caller are shared; skips hosts the caller may not share.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["folder","targets"],"properties":{"folder":{"type":"string"},"targets":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","enum":["user","role"]},"id":{"oneOf":[{"type":"string"},{"type":"integer"}]}}}},"permissionLevel":{"type":"string","enum":["connect","view","edit","manage"]},"durationHours":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder shared successfully."},"400":{"description":"Invalid request body."},"500":{"description":"Failed to share folder."}}}
+>
+  
+</StatusCodes>
+
+
+      

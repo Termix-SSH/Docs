@@ -1,0 +1,68 @@
+---
+id: turn-totp-off
+title: "Turn TOTP off"
+description: "Turn TOTP off"
+sidebar_label: "Turn TOTP off"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v20YQ/SuDOa8lp+iJNydoAKcoYtQqjMAQghE5Etcidze7Q8uqoP9ezJCRFbk5hAeJnH3zve8dUGhTsHrExefFHS4dZv42cJH3sdljdbBPn7nBSvLADusYhIPoEaXU+ZrExzB/KjGordQt96Rvsk+MFcbVE9eCDlOOibN4LnYaJX2tY8Nn0CLZhw0e7dFCSoqhjPjfrq/1r+FSZ580JVZWMsT1eoZHh7//H+IvX4oPG9BMEDOYhy8QokAMk9+7t3634Zk635jfDLWai8xDDvA9PTrsWdrYYIUpFmuWpMUK56kbNj5cUfJz7Xje+EKrjtFh4fzMWSd/wCF3CsbLLF/ikGHBufcvMOLxuFTXeshe9ua7YsqcbwbN97g8ugPWMW49n1so+T95f7KchbjXdY0TPg90WkkrkrRYg2E1gdBNLx9j7kmwwk8PizfV33MpPgaQuOUAhYOADyAtgyaJ2f9rVwdapoYzUIH3FhQoNAYzR9vReUun2sau0KHXbCMEHQaySp928tOKPj0sYMRDYQESKH4TrnyYwUPLAVJmLdeBFxDaclFLzQ2HmiE+c/5pF1bt+bh/eZI3d7ew5T0UoSx6dXdeWpD+5eubdk7QXx/tlvcOdq2v2zFReU0zg1sBqqWo24SFuAuTd01ByUO16DmFfQwM3JWJJqoDf78qyB8v1KeOLxh/Yrrubh3t1IvCRkrf3N2iQ6XH2Oi72fXs+k37i128WlMtMdv6dALWBI1sX+fYAwWgQVoOokIVM1BKboStqN4OybDF1qbU7clUbLpDlyz/If9ps8IvMk8d+aBRjMuHSQAe8VUA0NkINMwkAkuHrcpF9YiHw4oK/5O741HN3wbOSu+lw2fK3tDGZRw3aszf8h4r/DDq8dVCi1F4N4zkuNBmZf1Jpe4+3ytfV5PG9+NWMu3Q2W+F6DBao6YNZjtgR2Ez0MboZTH1+Q/wYyW5
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn TOTP off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/disable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turn TOTP off
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"TOTP off."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."}}}
+>
+  
+</StatusCodes>
+
+
+      

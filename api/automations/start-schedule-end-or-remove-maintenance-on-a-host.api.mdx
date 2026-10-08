@@ -1,0 +1,70 @@
+---
+id: start-schedule-end-or-remove-maintenance-on-a-host
+title: "Start, schedule, end or remove maintenance on a host"
+description: "While a host is in maintenance, automations with host status, health check, metric, Docker or tunnel triggers do not fire for it. Manual, scheduled, webhook and login triggers still run. Past the estimated end plus the grace period, an optional overdue alert is sent."
+sidebar_label: "Start, schedule, end or remove maintenance on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v4zYQ/SsDnlqAcZw0i23dU7bdAtli0SBJEbRBUIylicSYIrXkKI7X8H8vhlQsOXYK7L0+2DI13zPvcdaqpFgE07LxTs3UbW0sAULtI4OJYBw0aByTQ1eQBuzYNyjCEZaG6ywYGbmLGmpCyzUUNRULDQ1xMIWGX32xoAA+AHfOkQUOpqooRCg9OM/wYALBgw9geAKf0XVoNcSiprKzVGpY0rz2fgHoSrC+Mm6wENlYC6FzE7jEyMA1AUU2DTKVQK6E1nYxHVcBC4KWgvGlBnTgU9JowT9RKDsCtBRS1pEcT5RWjFVUszt1PmSt7rVqMWBDTEFerpWRwrXItdLKYUNqpqQqF6XSKtCXzgQq1YxDR1pJVg2q2VrxqhVJqW1FQW0291maIn/w5UpEXisXXhrB8grb1poihXT8GKV1633bfv5IBe9EcaewSK2WNIJvKbChmCzm80E7cjCuUlqR6xrRjIxBrL10Jr3KSTb+idT9Rh4xHrKy0b36AfsPPjTIaqZKZDpi04jl12NJDnCYCVgaV/olzKkyLk7EfNmFVI7PxnWcU3pV4tdGP27nxJKruE5m0pS8bSOlWHQhkCvoUDK7Lq6oJeQDkUvtJtUElkQLuxJsNN5xbVcTNXOdtZv0EWex9S7mWE6nU/nZdXFTEzhajmGa8EgpnbNDKhfuCa0pIbdcnLcWXS//w2EXCedLjBBrDCkNrhOsCrSWws/gnV2B4Qh+6ShAgQ6KGl1F48h6H2f7Ps6zh8GiWBByiCRaG60a4tqXAjUfZQwT4mbquLVdZdwRtuZ4xE7HI6/H64zHjQwvhacX4HbBioG9rv3luwA3FBrzDFleCTqjNN7wKunOCQOF805iuLvf6LUqvF8YGp9ga36n1fZkZOJaoJqbOja0Haeaue2RlvgkCyndP/z2gphPtzd70V9TjNJW9gtyicqExaWw4sQH8zVVSMi6pAAY4UMymuhVxJJi6tQ4pW1sOSulM+9lkYH5Hpf8ZkSfbm8gy0MkBmSIpnJHxk0gAbwNJOFqMAyMC4pyUlApWEsk/WYWKdpxub+5kueXF7CgFSSWMq7qB7x5/mcvna3ot5d2QSsNy9oUdXYUBzcTuGBBZBS1XrbHkmj3aMCC5T26lXcEZGMPDrkDrobb4+MzNq2lMa9v6fuFogfO6plZnU5Pz46m749Of7o5eTd7dzI7/XEyfX/ytzrArtPXVDndZcYR8Rv34FNHDEtI49sUzi8vlFaCyBzkyWQ6me7TaOcgMrURvIOVoFMAnf4N1Co8tpQxil6oQnpYY9tSfz8IazSYrqZ+VK8l7WHR0Gld8AHydbZDqMlRnXlnJ7T1cCn/vzvt7k4Zf0zPfNxaNE6akBh33VP3nRqoW2k1Ko/SalQ5pdWsX6judVqtRHe9nmOkP4PdbOT4S0dBmPleqycMBucyandrVZooz6WaPaCN9B/t++6q35K+h7fCf2FAJ/T3hLaTf0qrBa2GpW8je1BmgBRBfvlL9nN0IyYG5b09Tm6J7U13+ce18Pu83wcbX4pOQFkf5Ds5z61Id0k6WyuLruqwSnScbMrnX9K7Iy8=
+sidebar_class_name: "post api-method"
+info_path: api/automations/automations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start, schedule, end or remove maintenance on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/automations/maintenance/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+While a host is in maintenance, automations with host status, health check, metric, Docker or tunnel triggers do not fire for it. Manual, scheduled, webhook and login triggers still run. Past the estimated end plus the grace period, an optional overdue alert is sent.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action"],"properties":{"action":{"type":"string","enum":["start","schedule","end","remove"]},"reason":{"type":"string"},"start":{"type":"string","format":"date-time","description":"When a scheduled window begins."},"durationMinutes":{"type":"integer","description":"Estimated length."},"graceMinutes":{"type":"integer"},"recurrence":{"type":"string","description":"Repeat a scheduled window","e.g. weekly or monthly.":null}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new maintenance state."},"400":{"description":"Invalid action or plan."},"403":{"description":"The host was shared with the caller; only its owner can change maintenance."},"404":{"description":"A host the caller cannot see."}}}
+>
+  
+</StatusCodes>
+
+
+      

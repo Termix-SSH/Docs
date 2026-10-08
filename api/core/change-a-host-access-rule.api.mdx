@@ -1,0 +1,70 @@
+---
+id: change-a-host-access-rule
+title: "Change a host access rule"
+description: "Updates the permission level or the expiry of one share. Requires the right to manage sharing on the host."
+sidebar_label: "Change a host access rule"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vk1vGzcQ/SuDObXARnLTtAfdbCNBnBaBkSgwCkMoKO5YS4tLbsihZHWx/70Yci0pln3wJXuQdsn55ps37LGmqIPp2HiHM/zW1YopAjcEHYXWxGi8A0sbsuBDXqeHzoQd+DvwjiA2KtAEvtD3ZMKoGcyqYWAPrXJqVWSMW4F3ebvxkSdYIatVxNktfrk4v8RFhZ0KqiWmIKs9GgmoU9xghU61hDM0NVYYiqsaZxwSVRh1Q63CWY+867KUY1pRwGGonrWitKYYr15pa1GkKfKFr3ci8lRZe8fkWLZU11mjlVR1eh+ltP2pbb+8J81YYRd8R4ENRdk91P1vKfuRQmQpI1ZILrVSOe2dKyY2hrayURv5KnXHxVBhnUIO46NPIR7ZcqldUpCiJGvV0tJjFj8CIqvBXfAtOL+F5NjYfIj53AsWKE7gc7IWArV+M2KgoGSCQ36kdrHzLpYU356dyd+PruYNQcr4qyEkSxMcKnz3nOSV2yhrajC1YNJ5bgRd7EE3yq0eFX8/VfzsGZS1fkv1S/A0ccRntvHuORsQk24OIf7xXIgflLHFSUkJVkE5sTpU2BI3vi6w1ILLDM8ZTsNS6al4n/amHqYFp9P+Ea8DVhgpbB4bJAUrWvj0zP7xKcBcUPQARR4FvZF0CoZ3WXdJKlA4T+L4diGNor1fGzpeUZ35i3b7lSMTXwXK5SiPDe3B1TB3OHaTfBchrMaXDz60inGGn27mJ9F/pcI57NfkIJJjMIU3xIkP5r+MZ2hI1RRARbjIRkG5OotlxXwyxyntYytZYVWYoYgcuOF+yy9G9OlmDkUeIjEohmhW7o1xE7hpyEEXSMKtwDCwWlOUFU01OU3gNxRezCJHe1zuV1fy/PoK1rSDyCqwgHlruAFuH/49SWcv+vrSrmlXwbYxuimO4sHNBK4YlOYoaqMs+K0btbVyzmcB2VduJ7ODbKTSEsKRXw7s+v5BtZ1Q0jNseER6T7jtbJBDvfO5fIZFH8c2OL++EpKkEEsN3v45+e1scnZSG+Eg7QPBQW8C75VuoLNpZRzUXqeWHEcwHCU/CD4xxXyCnY/cqkz2I5wuMyGBypwCpZEzczz13B+mx08ewgVnTA887awyThLJzNKPvHSLwktYoahghbM8hUsu8rkfp4tRZHaLfb9Ukb4FOwyy/D1REN5ZVLhRwZRxc9tjbaK81zi7UzY+HT7HNfllzK3+FV4K+rG/nTT3RtkkX1jhmnbl6iCc9hM97usyyBwuPZWzLtuXxdObuRg5qJ/cHIR39xPj+nx++VG6f7yCtL4WpaBk+Mtv9u9zOpme81qPVrlVkivBDItRef4Hv71uyg==
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a host access rule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/rbac/host/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates the permission level or the expiry of one share. Requires the right to manage sharing on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"permissionLevel":{"type":"string","enum":["connect","view","edit","manage"]},"durationHours":{"type":"number","nullable":true,"description":"Hours from now until the share expires. Null removes the expiry."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated rule."},"400":{"description":"Invalid id or nothing to change."},"403":{"description":"Not allowed to manage sharing on this host."},"404":{"description":"No such rule."},"500":{"description":"Failed to update grant."}}}
+>
+  
+</StatusCodes>
+
+
+      

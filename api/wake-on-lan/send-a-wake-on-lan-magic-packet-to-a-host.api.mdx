@@ -1,0 +1,69 @@
+---
+id: send-a-wake-on-lan-magic-packet-to-a-host
+title: "Send a Wake-on-LAN magic packet to a host"
+description: "Send a Wake-on-LAN magic packet to a host"
+sidebar_label: "Send a Wake-on-LAN magic packet to a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v2zAM/SsETxugJt2wk2/ZgGHtvoq1QzEEwcDabKzFljyJTpoZ/u8DZTd1l/XQky3qkXwk9dih0DpitsRr2vCJdyefFl9wZbChQDULB73s0DrMsCEp0aCjmjFDW6DBwL9bG7jATELLBmNeck2YdSj7JqGc8JoD9v1K0bHxLnJUwOvTU/0UHPNgG7FeU1xQvmGByE6wN/jmf5gvHrZU2QI+L94BFUXgGCH37tauW6WS/N4c+33wUcB5gVvfugL73vwDuGRXAMGkE1DT2ubQDKzEA0Hpo6DBmqX0hTZlOKfeZDhvqnZt3Qk1dr4b41Tk5uo172zRJysajBy2981tQ6Wu+C+fH74NcMWhtncw4FG7GDlvg5V98r1hChwWrWZfrnrTYe79xvLUQo39yPuDZRLiUsc1jGMa6DC9UqTBcap6HkBoxp/3PtQkmOH59dUR+0uO0XoH4jfs0kTBOpCSQZP4YP+QIqFkKjgARXibggK5IsGS40zHOS3pwG2oCs3wNgfIw+v8tZMnGZ1fX8GAh8gCJBDt2p1YN4Prkh00gZWuASsgtOGolpwLdjmD33J4sorEdtruZ3dycXEGG95DFApi3Rp2VkqQ+u7nUTkH6PNbu+G9gV1p83JIFB/SzOBMgHKJ6jZiwe/c6J2TUwlRLnpPbu8dA1eRZ0lQ1t36VLWVSsucamlxcYYG9dUP/F/NTmenR1WpB8SKudHqa8pL6zjCTaqzUNtjhT5oU0q2YboU0jRUnzU5JTU+jefI/BG3wzCF72TeVGSdZkjy7cYNsMSHDYAGJzsADY5Bs7Q60yJYjcZsiV13Q5G/h6rv1fy75aASXxncUrB0o/1cdljYqP8FZrdURT6imHsnuj0zfPFtXM4vAc3/qd9LyamOtlS1ekKDG94PG75f9ZNdd/H18gr7/i99vBvW
+sidebar_class_name: "post api-method"
+info_path: api/wake-on-lan/wake-on-lan-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a Wake-on-LAN magic packet to a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wake-on-lan/host/{id}/wake"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send a Wake-on-LAN magic packet to a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Packet sent"},"400":{"description":"No valid MAC address configured"},"404":{"description":"Host not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

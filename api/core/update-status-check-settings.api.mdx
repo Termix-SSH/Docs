@@ -1,0 +1,68 @@
+---
+id: update-status-check-settings
+title: "Update status check settings"
+description: "Sets the default number of seconds between status checks and re-times every running check."
+sidebar_label: "Update status check settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P2zgM/SsEz5ok/dgefJsWXWy6l0GTwWAxCBaKzIk1sSVXpPOxRv77grI3kzadQw/rQyJLj+QjRT73WBK75FvxMWCBCxIGqQhKerJdLRC6Zk0J4hMwuRhKhjXJnigAi5WOwVXktgw2lJDoRnxDDLSjdITUheDDZkBM0KDYDWPxiIvFH7gymOhbRywfY3nEos+vPlGJhaSODLoYhILokW3b2jurHKfPrER7ZFdRY3Ulx5awwLh+JidosE2xpSSeOOMyzU/KYR6E0s7WF0Y+CG0oocHGB990DRa/GWzsYVi/+zCbnfKjdLmNgQevb2cz/bsqnviwYWC7o3KCJ4Pvf4abh52tfQl+5DMi310jb8vGB7DOETP8V6AJKp2GpIolFth2OWkrFRY4rSLLdMh5yiMfNMiUdpS0+j12qVYkmh+C/RW7BEtKjT/AgMfTSk1dl7wcs+2abKJ022mwx9XJ9Ohi3Hq63LGt/5OO550LFwu9s6GAl47Ot1GJtEo2w7AYQWjGxe8xNVawwC8Pyyv2C2L2MYDErTYnBQEfcitrkJj8P7l/oCJbUgLL8DE7zZ2rsGyYr+IypTO3ISs06DXaAEGDwWamz3t5ldGXhyUMeGASsALsN+HGhwk8VBSgTaR0DXgBsVti3XFUUnAEcUfp1Swy28ty/3Ilb+/msKWjDnPSXoG9lwqkOfx9lc4Z+uul3dLRwL7yrhoC8UuYCcwFrBNWsxELcR9Ga2dDiBmg5zYcYyCgmmkYAhWDry8y8vlgm7amV8d+dtLre4q5UF4UiWPD397N0aDOyJDt2w+TN7PJ7KoKy4rAxUTwYjeBz9ZV0Nbdxgcoo+saCsLghTUTSLET4nxXbWRpbNavsXHu29IKfSemcDG33wXvXzTxfxbqoYmEDjJta+uDcs+y0Y9C84gqNNph2XlWmJH0ygxnxSP2/doy3af6dNLtbx0llZGVwZ1N3q71AlQzcOicrDBbOmKBn4ZEb5bKROF1NwzhDx8CVZezEt7dqyysx+9JE0s1SXaPJv8WiAZjrmWWoLzXY23DprObPMXZpT7/AvExduo=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update status check settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/status/settings"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets the default number of seconds between status checks and re-times every running check.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"statusCheckInterval":{"type":"integer","minimum":5,"maximum":3600}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Settings saved."},"400":{"description":"Invalid interval."},"403":{"description":"Admin access required."}}}
+>
+  
+</StatusCodes>
+
+
+      

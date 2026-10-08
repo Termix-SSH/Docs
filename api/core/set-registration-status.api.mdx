@@ -1,0 +1,68 @@
+---
+id: set-registration-status
+title: "Set registration status"
+description: "Enables or disables user registration."
+sidebar_label: "Set registration status"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1vGzkM/SsEz4qTbXf3MDe3SNF0gUXQuAgWgbGgZ1iP4hlpKlF2vAP/9wWlqeN89JC5eCy/Rz6S4vOIDcc62EGsd1jhpaNVxxF8gMbG8p4iBwi8tlECKW6GBoXWEas7/BY5RFwaDPwjcZQPvtljNeavNnCDlYTEBmvvhJ3oTzQMna1zpPP7qGlHjHXLPemb7AfGCv3qnmtBg0PwAwexHDO36/xOox6BK+87JoeH/KiOOHgXC/zdxYV+PK3x60kpEIUkRUhDQ8LNDA8Gf3+NdOW21NkGttQlhu8+wCRlorx/SfnbC1CS1gf734T747XQn8h23IB4iCxPGv0zx6Ryhlpgz9L6BiscSOpWO0TSYoXnOqd4fso/+9kug5HDVidV3Y2YQqd4NM+E/ONTgAWH3j5AweNhqdQ6BSv7zF0xBQ7zpCnvlgczYu39xvLpCQ32L94fT05C3OiYy2hOAx2H2YoMKjbDdLgZhGZ6+eRDT4IVfrldvFB/wzFqz8Rv2EFkJ2AdSMswn4ZQetoyNRyAInzIQYFck2GZmMd0WtJRW6kKDVrNViBo0FFWer+TXyr6cruAgs8TJoFo1+7MuhnctuxgCKxyDVgBoQ1HPam5YVcz+C2HX1aR1Z62+82dnF9fwYb3esOCWLeGnZUWpH/490U5R+jbW7vhvYFda+u2JIqPaWZwJUC1RKVNWPA7N7Frcs5ngP5Obu8dA3eRyzKof3x9dJ7LB+qHjp84hfrPQaf23ef+WFEATvd8fn2FBnU1SpHv/pz9djG7eFH8omWofWB45M3gkuoWhi6trYPG16lnJxGsRC0Agk/CMY9o8FF6yk433Zeb56teVvx53vHRON/gzeUKCD/I+dCRdSohL/04mcUdZrNAtctX7GJpsPVRFDeOK4r8LXSHgx7/SBzUCJYGtxSsiihbj2X22SM2vMcKPxbhZwtVo/AulTV65v7qD0dPu54vPn7WWzr9jfS+UVKgnWqlHVaIBn3uTraRfDZiR26daJ03MQfV539samMb
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set registration status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/registration-allowed"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables or disables user registration.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"allowed":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Registration status updated."},"400":{"description":"Invalid value for allowed."},"403":{"description":"Not authorized."},"500":{"description":"Failed to set registration allowed status."}}}
+>
+  
+</StatusCodes>
+
+
+      

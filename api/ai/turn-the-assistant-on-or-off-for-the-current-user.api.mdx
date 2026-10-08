@@ -1,0 +1,69 @@
+---
+id: turn-the-assistant-on-or-off-for-the-current-user
+title: "Turn the assistant on or off for the current user"
+description: "The same value as the user setting 'enabled', for the onboarding step and the panel, which set it outside the settings form. Refused while the assistant is off for the whole server."
+sidebar_label: "Turn the assistant on or off for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlU1v40YMhv8KwUsvip1+nHTzFi3g7SXY9SIoEqOgJdqaWBrOzlB2XMH/veBIdbzJLtA9VgdZnnk55LwjPhqw5lRFF9SJxxJXDUOijuFAbc9ACbRh6BNHSKzq/A4ekT1tWq4fsYCtxKwQvxGKtc0n5QDk6zweyHNbwLFxVWMrgFOQXpOrOc9PiyZbqJvBB972iWvTt6OAUnJJySu4BLLdXjIeG2ktPh44zh49Fqi0S1g+4GKJ6wIjf+456TupT1gO+a+LXGOpsecCK/HKXm2KQmhdRebA/CmZDQOmquGO7ElPgbFE2TxxpVhgiBI4quNks5MVV8KNSMvk8ZwvqyMF8WmU/3R7az9vPTeHf0jg+QhVI67iGZ4L/OVr8iml+eFFgWDKOEX8/PUE/81HtIo71kZqLDH0ecOkDZY4D22/c/6GgpuTm0vQG2euj5Fm/IB9bE2JxasC/pQ+wopj556nTHheW2jVR6enHLthihwXvSV7WJ+LASuRvePrEQruDz5dRq6W+GjnNXp8vdDlVBrVYMVmmZ1SFmExPfwusSPFEt/fr95U/5FTcuJBZc8eEpuHPntnSSS6v/O7Aw1TzdF65l1e9NIEOTAfz/WWLrWNu8ICnWUbJVigp1zp01G/WdH7+xWM+txbpJDczt84P4P7hj2EyFZuYV2ntOdkIxXX7CsGOXD85i5ytdd2f7eTi7sl7PkESSlmbhydNqDd819vtnORfr+1ez5d6GKJ0kuaGSwVqNL0L8UshRz9FF2Rz+1Tqc2TP4ln4Dbx2AQGgg8vCPntmbrQ8hctbyA526ltJfvj1AS4WMLi0myLuyUWaA0ybvXH2e3s9q0BHhbLqxbVhhQiU53gZK2TWPuRqUYfSZygasjvOHPTNKACFEKUw0iOIEk7yiib3qNVH/0roooHiV/AoOpjtEMwHL2ucnhh5v/7MzG+x8rPOg8tOW9+ZXINE+se8IV1WCDZbeLdusBGkppmGDaU+FNsz2cb/txzNJKtCzxQdLb1EVs4vrwZcns+YYm/jj7erKwSk7f9yIFX3yED3AXGd5+MTJvpc9ZJbSGRjljke4ljkU58pmAeG7Alv+tpl0GSl7TrH8JTw3s=
+sidebar_class_name: "put api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn the assistant on or off for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ai/opt-in"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The same value as the user setting "enabled", for the onboarding step and the panel, which set it outside the settings form. Refused while the assistant is off for the whole server.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The user's new choice."},"400":{"description":"enabled is not a boolean."},"403":{"description":"The assistant is off for the whole server."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,145 +1,137 @@
+---
+title: Kubernetes
+description: Run Termix on Kubernetes with plain manifests.
+---
+
 # Kubernetes
 
-Termix ships a Helm chart for running on Kubernetes. The chart lives in the [Termix repository](https://github.com/Termix-SSH/Termix) under `charts/termix`.
+Termix runs as one pod. If you use remote desktop, run guacd in the same pod. They then share one volume for recordings and drive files, and you avoid two pods fighting over a `ReadWriteOnce` disk.
 
-Termix and guacd run in the same pod. That keeps remote desktop recordings on one volume and avoids the mount problems you get when two pods on different nodes want the same `ReadWriteOnce` disk. The guacd port is not published through a Service, so only Termix can reach it.
+Run one replica with SQLite. To run more than one, use [PostgreSQL or MySQL](/configure/database) and set `REDIS_URL` so plugins that keep live state, like Session Sharing, share it across pods.
 
-## Installing
+## Manifests
 
-Clone the repository, then install the chart:
+Save this as `termix.yaml`, change the storage size and image tag if you want, then apply it.
 
-```sh
-helm upgrade --install termix ./charts/termix \
-  --namespace termix \
-  --create-namespace
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: termix
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: termix-data
+  namespace: termix
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: termix
+  namespace: termix
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: termix
+  template:
+    metadata:
+      labels:
+        app: termix
+    spec:
+      containers:
+        - name: termix
+          image: ghcr.io/termix-ssh/termix:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GUACD_HOST
+              value: "127.0.0.1"
+            - name: GUACD_TUNNEL_HOST
+              value: "127.0.0.1"
+            - name: GUACD_RECORDING_PATH
+              value: "/termix-data/session_recordings/guacamole"
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 20
+        - name: guacd
+          image: guacamole/guacd:1.6.0
+          volumeMounts:
+            - name: data
+              mountPath: /termix-data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: termix-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: termix
+  namespace: termix
+spec:
+  selector:
+    app: termix
+  ports:
+    - port: 8080
+      targetPort: 8080
 ```
 
-Check it came up:
-
-```sh
+```bash
+kubectl apply -f termix.yaml
 kubectl -n termix port-forward svc/termix 8080:8080
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080` and do the [first run](/install/first-run).
 
-## Exposing it
+If you don't need remote desktop, remove the `guacd` container and the three `GUACD_` variables.
 
-Nothing is exposed outside the cluster by default. Pick whichever fits your setup.
+## Expose it
 
-### Ingress
-
-Turn on `ingress` in your values and set the host:
+Nothing is reachable from outside the cluster yet. Add an Ingress in front of the Service, and make sure it passes WebSockets through. With ingress-nginx:
 
 ```yaml
-ingress:
-  enabled: true
-  className: nginx
-  hosts:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: termix
+  namespace: termix
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+spec:
+  ingressClassName: nginx
+  rules:
     - host: termix.example.com
-      paths:
-        - path: /
-          pathType: Prefix
-  tls:
-    - secretName: termix-tls
-      hosts:
-        - termix.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: termix
+                port:
+                  number: 8080
 ```
 
-There is a ready-made example at `charts/termix/values-gitops-example.yaml`. Copy it and change the host, TLS secret, storage class, and image tag:
-
-```sh
-helm upgrade --install termix ./charts/termix \
-  --namespace termix \
-  --create-namespace \
-  --values charts/termix/values-gitops-example.yaml
-```
-
-### Traefik
-
-If you use Traefik CRDs instead, there is `charts/termix/values-traefik.yaml`:
-
-```sh
-helm upgrade --install termix ./charts/termix \
-  --namespace termix \
-  --create-namespace \
-  --values charts/termix/values-traefik.yaml
-```
-
-Set `traefik.ingressRoute.host`, `entryPoints`, and either `tls.secretName` or `tls.certResolver` to match your cluster.
-
-## Storage
-
-Termix keeps its database, encryption keys, and session recordings in a volume mounted at `/app/data`. The chart creates a 10Gi `ReadWriteOnce` claim by default:
-
-```yaml
-persistence:
-  enabled: true
-  size: 10Gi
-  storageClass: ""
-  existingClaim: ""
-```
-
-Set `storageClass` if your cluster has no default, or `existingClaim` to reuse a volume you already made.
-
-## Database
-
-The default is SQLite, stored in that volume. It needs no setup.
-
-:::warning
-SQLite works with one replica only. Move to PostgreSQL or MySQL before you raise `replicaCount` or turn on autoscaling, otherwise several pods end up writing to the same file.
-:::
-
-For PostgreSQL or MySQL, put the connection string in a secret and point the chart at it:
-
-```sh
-kubectl -n termix create secret generic termix-database \
-  --from-literal=DATABASE_URL='postgres://user:password@host:5432/termix'
-```
-
-```yaml
-database:
-  dialect: postgres
-  existingSecret:
-    name: termix-database
-    urlKey: DATABASE_URL
-```
-
-See [Database](/setup/database) for what the connection string should look like.
+Set `TRUSTED_PROXIES` to your ingress controller's pod range so logs and the audit log show real client IPs. See [reverse proxy](/configure/reverse-proxy).
 
 ## Secrets
 
-Sessions are signed with a JWT secret. Termix generates one on first start, but a generated secret lives in the pod's volume, so give it one yourself if you want logins to survive the pod being replaced.
-
-Provide `JWT_SECRET`, and `GUACAMOLE_ENCRYPTION_KEY` if you use remote desktop, either through `secrets.create` in your values or an existing secret you made separately.
-
-## Settings worth knowing
-
-| Value                         | Default       | What it does                             |
-| ----------------------------- | ------------- | ---------------------------------------- |
-| `replicaCount`                | `1`           | Pods to run. Leave at 1 on SQLite        |
-| `image.tag`                   | chart version | Termix image tag to pull                 |
-| `service.port`                | `8080`        | Port the Service listens on              |
-| `persistence.size`            | `10Gi`        | Size of the data volume                  |
-| `database.dialect`            | `sqlite`      | `sqlite`, `postgres`, or `mysql`         |
-| `guacd.enabled`               | `true`        | Run the guacd sidecar for remote desktop |
-| `autoscaling.enabled`         | `false`       | Needs Postgres or MySQL first            |
-| `podDisruptionBudget.enabled` | `false`       | Keep a pod during node drains            |
-| `networkPolicy.enabled`       | `false`       | Restrict pod traffic                     |
-
-Anything Termix reads from the environment can go in `extraEnv` or `extraEnvFrom`. See [Environment Variables](/setup/environment-variables).
-
-Turn off `guacd.enabled` if you do not use RDP, VNC, or Telnet, and the sidecar is not deployed.
-
-## GitOps and CI
-
-The repository has working examples for keeping a cluster in sync:
-
-- **Argo CD**: `deploy/argocd/application.yaml`, or `application-traefik.yaml` for Traefik. Apply with `kubectl apply -f`.
-- **GitHub Actions**: `.github/workflows/helm.yml` lints and renders the chart on pull requests, and can publish it to GHCR as an OCI chart from a manual run.
-- **GitLab CI**: `deploy/gitlab/.gitlab-ci.yml` is a drop-in pipeline. Copy it to your repository root and set `KUBE_CONFIG` to a base64 encoded kubeconfig. The deploy job uses `helm upgrade --install --atomic`, so a failed rollout rolls itself back.
-
-Once published to GHCR you can install the chart without cloning:
-
-```sh
-helm pull oci://ghcr.io/<owner>/charts/termix --version 0.1.0
-```
+By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/configure/security#keys).

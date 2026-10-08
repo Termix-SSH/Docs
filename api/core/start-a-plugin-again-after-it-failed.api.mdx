@@ -1,0 +1,70 @@
+---
+id: start-a-plugin-again-after-it-failed
+title: "Start a plugin again after it failed"
+description: "Clears the plugin's error budget and activates it. Use after fixing whatever made it fail, such as installing a missing dependency or freeing a port it needs."
+sidebar_label: "Start a plugin again after it failed"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVVFv20YM/isEX7YCN8Xruj7oLRs2IB2wBYuLoPCMgdHR1tXSnXqknHiG/vtASXG8pi3Qxz1Juvt4R37k9+mInqXKodOQIpb4c8OUBbRm6Jp+G+I3ApxzynDX+y0rUPRAlYY9KQsELeCtMNBGOcMmPIS4hfualPecoSXPEBQ2FBoH0lc1kECIotQ0hiRog4i9ee44eo7VAVKGTWae9ruU1Y6IzF6KvyI6VNoKliu8HvMTXDvsKFPLytk2jhisko60RoeRWsYSg0eHmT/0IbPHUnPPDqWquSUsj6iHzlCiOcQtDsPawNKlKCy2/3KxsMd/uVqekyRK+siDsUeq3HZa4ODw1eKHT0dX1DScoaFqJ0C+DbGYDpSipUhbnsNfPQ//PU2ETnhnrAWFIBCTQorgg+zG6B+/nPrYHPagyUrICrSlEAscBocta528cZlE0U2Ulngx53hxDH64yKz5gA6F8/6xAX1uDIfuo2vfpT7DknMbHmDCo1EtXPU56GGMvWPKnC97u2q1HtwRq5R2gc9XqAu/8eG0cnbEjbV06tn5QacO16odzp237wmEbn75NeWWFEt8c7t8lv0Ni4QUQdOOIwhHhRDHZtslKYd/yJBQM3nONuo/jYeOmjHYGDg25bykU25TVeim+Z0gTxP8/l4/m9Gb2yVMeBDTqIKEbfwuxAJua47QZbZ0nY2I0o7FVio2vTGk/Tyyn6pizPac7q9m8vL6CnZ8mKZrtIegNWj78Pezck7Qr6d2xwcH93Wo6ukiebqmgCs1yxILm7GQ7uMcXVE0yVCltk/xkCIDN8KTBkLcpLHqoI2VOU/v5fUVOrSBn1J/+br4flEsnpU0qjxlhqe4An6hk3DBp6pvOap5qVhakFOvLCPxpruWot0/T8HNpNHH6FGss+vMRsv+4yRMQVE56v/E36f5Un7Qi66hEI2J0VGOswOtcHYgdFjOzm4mtHZYm1OVKzwe70j4bW6GwZY/9JzNXtYO95QD3VkvV0f0QezdY7mhRvgLxH375/zzeAGfy/FRxtE0vKemty90uOPD9Aca1uemev3HzRKH4V+UxpcH
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a plugin again after it failed"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/retry"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Clears the plugin's error budget and activates it. Use after fixing whatever made it fail, such as installing a missing dependency or freeing a port it needs.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugin's state after the attempt."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin, or it is not on disk."},"500":{"description":"The plugin failed to start again."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: split-the-window-containing-a-pane
+title: "Split the window containing a pane"
+description: "'h' places the new pane to the right, 'v' below, matching tmux's own -h/-v semantics. The new pane starts in the source pane's working directory."
+sidebar_label: "Split the window containing a pane"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE1v2zgQ/SuDubQL0HZ2j7qlhwXSomiwcREUiVEw0tRiLZEqZ2RZK+i/L4Z0HKdBFuitJ4nkm4835HsTVsRldJ244LHAe6zvEbrGlsQgNYGnATrrCSSkdXTbWgzc4/4e4YGaMBhorZS181uQtj+8YQiDh0W9WuyBqbVeXMlLWJ8nY7FRGJxPOTn0saR08oZhCHGnySoXqZQQxyUaFLtlLO5w3fYH+Bi8kxBxY7Cz0bYkFPV0QqccOis1GvS2JSywDixXFRqM9KN3kSosJPZkkMuaWovFhDJ2inReaEsR53mjaO6CZ2IF/HVxoZ/no7pORLrGyRLn2WBLUodK6wcWNLmNAldd02+dX9jOrXQ+izZ3v5pyZ/Mq5UCDTHH/SKSPjcai+anol9BHWFNs3QEyHrVbprKPTsYU+0A2UrzstfzdZjYTliHsHJ3v2M59oPG0c5biRseSaZ8nOk2pFunwOD1dZxCa48/fIbZWsMD3t+sX3d8QswseJOzIA5OXxyegRUJ0/1pFQk22ogiW4V1KCtZXCZYClzibZ5ROvWVWaPI7yJCnl/B9kFc7en+7howHJgErwG7rF84v4bYmD10kbdeAExC7I9adkiryJUHYU3yVRer2fNy/PMnL6yvY0ZhFo8oYnNQg7eHrCzon6K+PdkejgaF2Zf2ozlOZJVwJ2FJYw45YFfkxurTehwTQc+vH4AmoYcq6cP5bSKydNErzXMJweX2FBvXZZwJ/Li+WFy9ovYthYMrFgpcYmmQ1wPn22MDgfBUGThD1EQZbxsAMowpGlcbpIlSbrfXaz/FV3Kj6EqucI1Wwzuugbcr1czuqJy/k5Xf2y/zEhA6y6hrrvJJPpjIdjekOn4xJA86sCQ0WJ9vM7rQxyUg1bJoeLNPn2Myzbv/oKarvbAzubXT2QS/5bsLKsf5XWHyzDdP/zPDtP0dn/gNe6/xR317FvbdNrys0uKPxyeLnzbkLX3+6WeM8/wcqW2Bd
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Split the window containing a pane"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/split"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+"h" places the new pane to the right, "v" below, matching tmux's own -h/-v semantics. The new pane starts in the source pane's working directory.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Pane split."}}}
+>
+  
+</StatusCodes>
+
+
+      

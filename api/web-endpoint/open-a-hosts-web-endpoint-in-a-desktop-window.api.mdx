@@ -1,0 +1,68 @@
+---
+id: open-a-hosts-web-endpoint-in-a-desktop-window
+title: "Open a host's web endpoint in a desktop window"
+description: "Open a host's web endpoint in a desktop window"
+sidebar_label: "Open a host's web endpoint in a desktop window"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P2zgM/SsEL3txPrroybdp0UXTBbaDTYrBYhAUisXEmjiUKtGTyQb57wvKnsRptofJIXGkR/LpiXw+ophNwvIRH2gFn9gG71hwWWCkHy0l+eDtActj/usiWSwltlRg5VmIRbdMCI2rjDjPk6fkWddSVdPO6JMcAmGJfvVElWAxSPSItU8ys1gg9YVnVkuH6ANFcZQ0QQ+6pHIstKGIp6u4y36S6Hij227DPtJHijLYXnnfkGEs0FKqogtKHEu8qyoKAgYSNetRchsmC5XyWOvpCNY+gtQuwd6x9fsxnvJHj5SC59TR/X061Z/r3Iua+ijwgZjsWOm9/z/ojJ9N4yz0+vfAd7fAv7xAz9JxD3t/C/vskwB7gbVv2YKPYKqKUgJL7DKR089KfA3EYECF/y3BnlbwqjM43bCUtuJDfyIscEdSe4slBp/0joORGkuchKbdOB6Z4CZ7Wo1es0xUg9E5OlF8pqhNeMQ2Nhp4czn/+DbCguLOvUCHx9NSQ6s2Ojnk2BWZSPGu1dqPy1NxxMr7raPhignuTzqcVwYp5tqx3RUOE53bphYJSjbDtI0yCIv+4Q8fd0awxC8Pixv2c0rJeQbxW2JI1AkpNYEW8dH9m6cHajKWIpgEH3JSMGwzLAfmOx4e6cytOxUW6LRaB8EC2WSmT3v5JaMvDwvo8JBIwHQtNXI8hoeaGEIkpVuAExCzpaQrFVniisA/U/zlKTLbodxvVvLufgZbOkASE8XxBvZOapDdy/fb2X2Fvl3aLR0K2NeuqrtC6VJmDDMBU0nSsB4Lfs99dGVY58pUovuGD54JqEnUzZRa4d8XE/30YnahoaGjTa8N7NW4rn1L7VatjNc+a+hEk1zZNdzdz7BAHaJOjnfj6Xh6I9LtWH+bgePkLPWjVYB1kSppDuoT+XoNw3z+GaRlpibfqc74zmSX7xvszX5xxevcF0IvMgmNcaxlshMceyt5xIuVYIFDM8ECh3ayLLK8GnI8rkyib7E5nXT5R0tRjWJZ4LOJzqxUR3UF7Hoje8iWDljix+7lNlooMYU3bTdmP73o1D/O3nf/da6Tv+pfmDtvNSYaPbB+l5ipanR2mbx2xMbwpjWbPKg5p37+A5MInyA=
+sidebar_class_name: "post api-method"
+info_path: api/web-endpoint/web-endpoint-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open a host's web endpoint in a desktop window"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-endpoint/open-window"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Open a host's web endpoint in a desktop window
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","endpointId"],"properties":{"hostId":{"type":"integer"},"endpointId":{"type":"string"},"ignoreCert":{"type":"boolean","description":"Accept a self-signed certificate for this window."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The window opened."},"400":{"description":"Invalid request."},"401":{"description":"Not signed in."},"404":{"description":"Host not found or access denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

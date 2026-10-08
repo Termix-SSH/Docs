@@ -1,0 +1,68 @@
+---
+id: preview-user-data-export
+title: "Preview user data export"
+description: "Generates a preview of the user data export, including statistics about the data."
+sidebar_label: "Preview user data export"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu2zgQ/ZXBnFk7LdA96JZ20yLdwwYbL4IiMIoxNbEYS6RKjmJrBf97MZSieJPm0EN1sCXqDefN48zTgCUnG10rLngs8DN7jiScgKCN/OB4D+EOpGLoEkcoSQj40IYoBpy3dVc6v4UkJC6JswloEzrJAYpdoEGhbcLiFv8koQ0lxrXByN87TvIhlD0WQ350kUssJHZs0AYv7EVfUdvWzpLyW94nJTlgshU3pHfSt4wFhs09W0GDbQwtR3GcRlzQ1zMsSXR+i0eDI3X+GLlkL47qdALbhFAzeTzmS8mmNvg07vnu7Ez//i/bRVZkVmw7qVhC6qzllO66uu4Xmvj9z8I/kau5BAlz5KTx444LVB4NSxVKLLANKRdLUmGBy3ISdjkGLacgNJg4PnBU9QfsYq1gNM+Sfw1dhBXHxh1gxONxraG2i076HLthihzPO813uz6aAW0IO8enK9S6v7ifV062uNbjGtU73WjWuxJplWyGqf4ZhGa6+RRiQ4IFfrlZvWB/zSm54EHCjj0k9gLO5/bTJCG6/3LrQMVUcgRK8CFvCuTLDMuB+WhOS5q5jVWhdgwWEwQNespM7/fyKqMvNysY8ZBYgASS2/o3zi/gpmKvR6t0DTgBoR0nXbHaj5YhPHB8tYrM9lTuX1by/OoSdtzr3EbRAd47qUCaw7cX5czQX5d2x72BfeVsNSZKT2kWcClAVpKGTVgIez9FW/I+ZIC+J98Hz8B14nEQ1Af+eXKQiwM1bc0nE/846T8fdPWY7AF3IWvnRINxmoHzq0s0qGMzCvDuj8Xbs8XZC2FWFYMNkeEpbgEXZCto627rPJTBdg17SeAkaXEQQyec8vHpCDeU3WzqpavJPJ777PPEw5M7/h67HltJ+CDLtibnlW42j2FynFt8dBw0OJN8dJ21wUr9qbjFYVDQv7E+HnX5e8dR/WRt8IGio43KruaBYwtlq9lxjwV+HEt8s1IyCq+7cRqffQzUZmZbvPr7Wg1iM31UmlBqTCR1Qv0tEA2GLGM2o7w2YE1+29E2z3PeU68fJ6x5xw==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Preview user data export"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/database/export/preview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a preview of the user data export, including statistics about the data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"scope":{"type":"string"},"includeCredentials":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Export preview generated successfully."},"500":{"description":"Failed to generate export preview."}}}
+>
+  
+</StatusCodes>
+
+
+      

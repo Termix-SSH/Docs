@@ -1,0 +1,68 @@
+---
+id: upload-an-image-into-a-terminal-session
+title: "Upload an image into a terminal session"
+description: "Normalizes an uploaded or pasted image to PNG and stores it where the terminal's programs can read it, over SFTP on the connected host or in the backend's mapped local storage, depending on the image storage settings. Returns the path to hand to the program."
+sidebar_label: "Upload an image into a terminal session"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVsFuGzcQ/ZXBXHKhZSVtUFQ3p0Aap2hqVAqMwhCK0e5Yy2iXZMhZO4qgfy+G3LXkSDnkXl20S87jvCHfPO4Oa05VtEGsdzjDDz521NqvnIAc9KH1VHMNPkKgJFyD7WjNIB5uPvwO5GpI4iMnsAKPDUcGaRiEY2cdtS8ShOjXkboEFTmITDVYMeAfOML87eIGvMuIyjvHlSZofBLNZ8vEiqoNu/pFgo5C4BpaX1Gbs9KaDdQc2NXWrceVCsFhHhKLWLdOE/ibpY8u5ZhA0mgNjRYgvowVohM0KLROOLvDxVAGLg1G/txzkje+3uJsl19t5BpnEns2WHkn7ESnur4VGyjK5b2P3UVNQjqcqoa7/CTbwDhDv/rElaDBEH3gKJaTzmb+R2FJonVrNKirkeAMV9ZR3OLeoHVJyFV8XZ8C9gaT72N1di12facV3tuW0WDV2rDyFGtc7vMbO/mYz35hO05CXTiTIP90Z1LwLhX2r6ZT/XsuqkVTDmSUj8qCpJkox5/PAf60KeUjVRk8UGtH3fkIiVOy3g3gX89nGwUINoHzcpBXgb386TzMjeof89kE4j20FNecoa+nr06ht9GqyEYlRe68cBHyPdl2yPp6eibr9TO1aptFX3Gp3iboHT2QbWnVjul/Oc/8uepb22k/UtKOq5pMYG+wY2l8jTMMPmXhkTQ4w8vQ9mvrLijYy5Sai3HzLvOiF8UE0GDi+MBRO2OHfWwVieYbLv/4PkLumy9Q4nG/VGjVRyvbjF0xRY5XvSa/W+7NDivvN5aPRyjYP3j7NHK0xFz7qIjteKEndTYiQcnmMO2WHIRmeHg7dtH728UJ+3nRFojfsIPETkYb0iQ+2q+kkdAw1RyBErzJi2YjzManwHxSxyU9cStVoTYuzoYQNOgoM/30KN9l9P52ASVeLQ1IINm1u7BuArcNOwiRla5RHxbasBovV1yzq7i47feqyGyPt/uHd/Lq5ho2vIUkFHMfPFq11+7LvyflPIX++NZueGvgsbFVUxKlQ5oJXAtQJUlhQyz4RzegK3LqAVSJzpPbesfAbeLSFdbd+1y1lVbLnM/fwej8cHVzjQZV9qWAl5PpZHp6SvN3B8sZDGrkR6tkIIXWCqQqMjsDjdVG3RroqIo+ZZI0XGwH5yq7U3PaiA9AIeST0tbtyCnhQTbFqPW6HjzLiQc64fMt6d3hzvr/1s+3flG98Be5DC1Zp9udfW43OOUdHpxSG+PIK7Wnj91yaVBLUsxut6LEH2O73+vw556j+uDS4ANFq9ZeTA+L9LNFbniLM/ytHNDFQplpeNsrw3MfGOqQT/Z+89dcvW01fKt0vlaYBudYc3jUxPv9f7F6fZE=
+sidebar_class_name: "post api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload an image into a terminal session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ssh-terminal/image-upload"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Normalizes an uploaded or pasted image to PNG and stores it where the terminal's programs can read it, over SFTP on the connected host or in the backend's mapped local storage, depending on the image storage settings. Returns the path to hand to the program.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"image":{"type":"string","format":"binary"},"instanceId":{"type":"string"},"source":{"type":"string","enum":["file","clipboard"]},"clientUploadTimestamp":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stored image's path."},"400":{"description":"Missing or invalid image or session."},"409":{"description":"The terminal is not connected."},"413":{"description":"The normalized image is too large."},"502":{"description":"Writing to the remote host failed."},"503":{"description":"Image storage or processing is unavailable."},"507":{"description":"The image storage limit was reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: enable-or-disable-a-plugin
+title: "Enable or disable a plugin"
+description: "Persists the new state and starts or stops the plugin immediately. Disabling releases everything the plugin owns, including any port it was listening on. Enabling also starts any installed hard dependency that is off, and disabling also stops the running plugins that depend on it. With dryRun nothing changes and the response lists what would."
+sidebar_label: "Enable or disable a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SsDXtoCm5WbBgWqm5O6qFOgMBwVRmEYxWg51tLaJTecWckbQf+9GHL1EUs+5NBbdZFAzscbzps32hhLXEXXiQveTM0NRXYsDFITeFoDCwoBequ/ojCECCyhyxZd0y+cB9e2ZB0KNUMJvzrGeeP8AiI1hEwMtKI4SK1nR15h7bkA56umt3qFfoAuRAEnsEaGxrGQ15vgS7jyY1RsOOzAqIvzLNg0ZKHGaMFSR96SrwaQGgUcQ3h8LFIJdg9tDLKrI/Y+JcrIOHvmSBA8OCnhzkkNNg63vQcfcjFVjX5BnGKnMMRd8EwJOsNao6xD39jSFEZwwWZ6b25yDvNQmA4jtiQU9WJjnHagQ6lNYTy2ZKbGWVOYSJ97F8maqcSeCsNVTS2a6cbI0KkVS3R+YbbbYgzyuac4HKJk2OaM5zyEhtCb7fYh5yGW98EOavIybRW8kBe9wq5rXIVKmskTK3M2p7HD/IkqMYXpYugoiiPWW9JGatQzIPSjOPIzJvO3Fxf69TVNZ3sWfccHmpZmW5h35+yv/QobZ2GsEObBDqP1T+ejV0qpCA1WSwa0rfPlSI6yRY+LXbJ3p+5/BuC+qkeAo90v59I4Bku8lNApTRvnl2RBAiAwxRXFAta1q2qwVDlLSiiSmuLxEMXec6mdNy1JHWxmUKUUSkyamsmIe7JxdjtJD6VMSAky7/rYqJ0pXgD8O/QRZhRb9zwCMkoTpqqPTobkOyeMFC97TXX/oASsQlg6Oj7Bzv1Bw/7kKMQn5Uzu83GgPTNqkW5H28SUZGSK8cdvIbYoZmo+3s1O0H8iZhc8SFiSByYv4Hx6Ok0SovuS+As1oaUIyPA+Bd1Pc3JM7TsuaY8tV2WKPHHZ5DByT2t5FdHHuxlke2ASQAF2C//G+RLuavLQRVK4hQqh4JJYTypSUSMIq5EA56pIaI+f+5tf8vLmGpY0ZIFVjVur7kn7/M9JOXvTb3/aJQ07bo9Kvk9TwrUAViruvLPVVTF6V+h9SAZ6j34InoAapjwEKka3Bxm7esa2a+gr2VEx22rXHkN6HydqYEaeX95cm8LoaOQi3/5c/nhRXpwUnzQiRIKDXwlXuB97sKHqW/LC4HRrrj3E0AtxalEXWFpMsjnyJa030u2alxQBjpFept4chPj/df0frus8N0LPMukadF77lpRyMyrrvRnzm8JM06LO4vpQmDqwqMFmM0emv2Kz3epxXssqm2OTrZk+YsNUmCUNx4t6hU2v6ZPgrjA6tT7v+So5vr8dF/gP8Fo9Oynzw3HOHRpnzfZhW5g8xil7vviQc7yZqfvB8eRfgYLfr6Wby9mH31Vwxr8XbbDqFHGtf3FwnTOHVEjaCOlsYxr0ix4XSVRTUP38C5txvhU=
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enable or disable a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugins/{id}/state"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Persists the new state and starts or stops the plugin immediately. Disabling releases everything the plugin owns, including any port it was listening on. Enabling also starts any installed hard dependency that is off, and disabling also stops the running plugins that depend on it. With dryRun nothing changes and the response lists what would.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"query","name":"dryRun","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugin's new state."},"400":{"description":"Invalid request body."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."},"409":{"description":"This desktop is linked to a server, which decides whether the plugin runs."}}}
+>
+  
+</StatusCodes>
+
+
+      

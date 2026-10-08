@@ -1,0 +1,71 @@
+---
+id: install-a-plugin-from-the-official-registry
+title: "Install a plugin from the official registry"
+description: "Downloads the release, checks its sha256 and signature against a key this build trusts, loads it, grants the capabilities it declares and starts it along with any installed dependency that is off. Without a version the newest compatible release is used; naming an older one pins the plugin there. A bundled plugin at its shipped version needs no download. capabilities must list exactly what the consent prompt showed; when it differs from what the release asks for, nothing is downloaded and the answer is 409 CONSENT_MISMATCH with the real list."
+sidebar_label: "Install a plugin from the official registry"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVt9vGzcM/lcIvWwDrpcsawvUe0q7DkuHtkHjIRiyoKBPtE+1TrpKvDhXw//7QOnOdmJ3WN/rF9sSf3ykSH5cK02xCqZl452aqN/8ylmPOgLXBIEsYaQCqpqqZQTDEWKNZ8+eAzoN0SwcchcIcIHGRQaEJfXAtYkw64zVwKGLHAvINg0XsAjoOJuvsMWZsYYNyR1oqiwGitk4Y+B0jNa7BawM14CuB3GE1pIGTS05Ta4Sl8hgIvj5vIRrw7XvBM0dhWi8S94crSgyVL5pkc3MbsMTvS6S/hUcNsYtAB14qymAdwStcRlta7uFSaYClXAOs85pQTGci/+UHtO2pLeeHZGO4DzoIbPlw7CbLjJYExnoHiu2PawklJQe7yI5hjb4pmWItV8JyFVNLmXLzOcUIsyDb3ZKY0wYlxHmPhTgPNcSlYlbDKRTikUeXVxRkMunpy/g1ft3V6/fTT++vbh6ez599UfOeraLNuEs/3GqUIyLqCY36jIFH9VtoVoM2BBTkIu1MlJOLXKtCuWwITVRRqtCBfrcmUBaTTh0VKhY1dSgmqwV961IRQ7GLdRmc5uFKfJLr3uReKxbecfkWK6wba2pUMr45FOUWl4fmvazT1TxAxA3av85UhzBtxTSv8laDe94BF+hqhqdI3t4VyhyXSPGI+PMkirUjBjF+sN2m8ozZyvAHubeWr8qQYTHOo/7xZsuxgIwMR0HKX4H2VOZcO1HtAOHIWCvCmWYmngs4ekjyYmtlF6SOTs9la9D2Ls2HEt9LKncED9EgcQZ0dNjVi7cHVqjwehia8OHXXv0qd4KOXP+8fFg9pfj4CpBFsCiTC3UjXFlRhXLBh0uRlRPD9XfeYbc5jJMTGXQQqCFiRz6QevFoda5DYR6bzgVYNxu1BQPGlp7kpHA0CBXdQowo9Iw6wHBGrckDZHCHYXk89np2fFAR2RQ+c7qZHSWmrWqSZdKnrMhrr2WZvRRaj/15ESdDAk5WRu9ORlwq0Jlr7mHu2BFUj0u2799F2BKoTH3A0ol3Rqp6oLhPunOCAOF806c3dxuirWqvF8a2j/B1vxJ/fZkz8SVtG6uwH1D25qtmVs1DA/5n4VSn8mP331okNVEvbmeHqC/ophJwS/JQXqR4cHFiQ/mSxojUBMKCWCEl8notsCTYu60vZB2fZaikkYTb1lkNwQ/rfiriN5cTyHLQyQWShGKfWJcCdfS9G0ggVtI9zMuKcpJRUKBBP4ujYLjUSS0++n+5kyeX14kck+8bEZC5ub+40E4W9FvT+2S+gJWtanqcQHYuinhggErjqI2yIJfuUG7QifVjxXLPbpeyJtspNwFwgkfdmzy+h6b1tKDCb+b3tvBvpvfD2fqzSh7u5FnnvuUUMNiUQ2NcX55oYo962fPy59Py9ODbKV55QPBTq+E11jV42ahfdU15DjvX37lIPiOKaY3laZuMPHTUGAXuZUBR/20IBydZ4+xrHeM+n0T/L4J/r9NMI8Rpns+aS0aJ1WZiGM9UM2NGqhGFWqSdsCRbW4LVQspTW7Uej3DSH8Fu9nI8eeOgvDIbaHuMJjUhMIq2kT5rdVkjjbSf9Tvjx+GHe8n+BrKcV47aYQ7tJ38U4VaUp+31Y20d55VyXu+eJV9PJmK+k7xYAMVPtuS7+X7K2Gi2bDJNl6LTsCVbKO4yo59iiOxXjpbK4tu0eEiEUeyKZ9/ATPYzHY=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install a plugin from the official registry"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/install"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads the release, checks its sha256 and signature against a key this build trusts, loads it, grants the capabilities it declares and starts it along with any installed dependency that is off. Without a version the newest compatible release is used; naming an older one pins the plugin there. A bundled plugin at its shipped version needs no download. capabilities must list exactly what the consent prompt showed; when it differs from what the release asks for, nothing is downloaded and the answer is 409 CONSENT_MISMATCH with the real list.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["capabilities"],"properties":{"version":{"type":"string"},"channel":{"type":"string","enum":["stable","beta"],"description":"The channel to follow. beta installs the newest beta when it is newer than stable."},"capabilities":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The installed version and the plugin's state."},"400":{"description":"Invalid id, version or capability list, or no capability list."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"Not in the official registry."},"409":{"description":"Already installed, incompatible, the consent does not match, or managed by a linked server."},"502":{"description":"The registry could not be reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

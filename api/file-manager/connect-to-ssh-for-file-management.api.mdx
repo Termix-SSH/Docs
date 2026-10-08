@@ -1,0 +1,68 @@
+---
+id: connect-to-ssh-for-file-management
+title: "Connect to SSH for file management"
+description: "Establishes an SSH/SFTP connection for file manager operations. Supports password, key-based, and keyboard-interactive authentication, as well as jump hosts and SOCKS5 proxies."
+sidebar_label: "Connect to SSH for file management"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVslu4zgQ/ZVCnemlB5OLb0nQQdJBI8bIjWBgGA1aqliMJVJNUl7G8L8PilQseQumj+OLbdbCYi3v1Q4zcqlVlVdG4wi/Oi/nhXI5OZAakuRxkDxMxpAarSllJXgzFt5UQVBKLRdkwVRkJYtcH5K6qoz1Dirp3NrYTMCStr25dJQJkDrjv3MjbdZT2pOVqVcrAln7nLRXafAjQDpYU1Hw93tdVpAb510wT17un5MbqKzZKHJ9FOjlwuFoig8c0/cYE84EWvpVk/N3JtviaBf+KksZjrytSWBqtCftWSSrqmiuHrw7zsMOXZpTKfmX31aEIzTzd0o9io6jKTpyThn9lKFAVaFAfjwKrB1ZLUviOCrLCfKKXPB7sGhdO2+VXuBeIL/zSKTrck6WRaq6aBEuvKR/COGiVVOdi0Ln8mfaXhQtaTv+zJTrOAmHp0KBpOuSc3a4O7hDgdpowtleYGop4y6QxZUccC88cit0pNJayV6Up9Jdqtdx/q9meL+PSUtMunQ3HYW5MQVJHTITZBzB5cQF8fhaRaL4x2d1aTx8Wp2oYs1me59Lpc9Ssd/Ht1hyldEuPvuP4ZC/joc9SR67g02H2c8EGAtNozuYvEzGfCBhbs3akQWnFrqndJ8D+vOS6+/KOaUXHz4yqKSVJXmyjj0pvZKFyhhfGBAYU0rpG3dfzt3dHuHDwWswuPkPT3uTqgjqe4El+dxkOMKK68iz4HMc4aAq6oXSPVmpAcNbr4G3QeMGBTqyK7IMNjusbcFGKE4u/tvUFiZkS7WBqI/7GZumtVV+G2znJC1ZfhOOprO92GFqzFJR90RW6pm2h5OOi4SRKVa16+jQBbn3jEQBwEL/BiUUzY+HkGoc4bfXyVn0SUQn8GZJGhxpD0qDzwn4EmPVP7EAOcmMLMPzXXAaoJnVgmEoS/dJbYeGV/G08m1RhREgzAO+r/3ViL69TiDqgyMP0h96EF5z0lBZ4nAFKA9eLsnxScp4khKYFdmrrwjRdtP925m8HT+FLnZeWs9dv1Y+B19ufp4956D6+6ld0lbAOldpHi9y7TV9ePIgU6ZI96ELZq0b61RqbYICy6XeGk1AhaM4EEx5f7Vk+XUjy6qgE7JqcfwDQYeRk1pBpKJhl3o6wgOmtWcfRNOeHPFLe9zSSpc9julieEQP0xbphzw8HWCP9N+F8k5EHQQfniP2meKlR53h81TXRcH8pvSbCe2lPOf3aGOB2/ETCmR8iZ3ypT/sD8/65y4AsADKlA+1Lc2KwjrmYpfztiZA6bSoM25F561Ui9zDmzUlcOEjKoE3ILXxeTMADIalDGzSvPU+4h4rMpqerH0l704n0e3apep/uUjGDvO08YOq4NLxRsA4v2tIYootSaDALk1g2CgDUczijLD6bscB/7DFfs/Hv2qyTAEzgStplZxzGzDeY5z60LfLMBL3MZO90PasXtQRQE9WVW7uA6ONXxLG9Hmz8pYmYxsr17y2yjWOEAWaUK3AH+Fsh4XUi1ouAgQHn/z5F3MtMzM=
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Connect to SSH for file management"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Establishes an SSH/SFTP connection for file manager operations. Supports password, key-based, and keyboard-interactive authentication, as well as jump hosts and SOCKS5 proxies.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","ip","port","username"],"properties":{"sessionId":{"type":"string"},"hostId":{"type":"number"},"ip":{"type":"string"},"port":{"type":"number"},"username":{"type":"string"},"password":{"type":"string"},"sshKey":{"type":"string"},"keyPassword":{"type":"string"},"authType":{"type":"string","enum":["password","key","none"]},"credentialId":{"type":"number"},"jumpHosts":{"type":"array","items":{"type":"object","properties":{"hostId":{"type":"number"}}}},"useSocks5":{"type":"boolean"},"socks5Host":{"type":"string"},"socks5Port":{"type":"number"},"socks5Username":{"type":"string"},"socks5Password":{"type":"string"},"socks5ProxyChain":{"type":"array"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH connection established, or requires TOTP or a browser sign-in."},"400":{"description":"Missing required parameters or invalid SSH key format."},"401":{"description":"Authentication required."},"500":{"description":"SSH connection failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

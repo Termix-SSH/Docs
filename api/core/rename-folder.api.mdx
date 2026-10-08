@@ -1,0 +1,68 @@
+---
+id: rename-folder
+title: "Rename folder"
+description: "Renames a folder for SSH hosts and credentials."
+sidebar_label: "Rename folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu2zgQ/ZXBnFk7W+zuQbe0aNG0QDeIXQSLwFjQ1MRiLJEqZxRHK/jfF0Mpjpo0h64ulsg3nDdvOM8DlsQu+VZ8DFjgFQXbEIOF21iXlOA2JlitPkEVWRhsKMElKimItzUv0KDYHWNxg6vVJ9wYTPS9I5Z3seyxGPKnT1RiIakjgy4GoSC6Zdu29s5q4uUda/YB2VXUWH2TviUsMG7vyAkabFNsKYkn1t1Yl19tQzMgS/Jhh0eDgQ6v7OVHKXIbA48nvT07058fVfg41p6yGCVw5xwx33Z13S80xe8/C/qrLkHxWaRAh+kjETyKkGP/+GlC62sqQeKUc1J/gcq3IaliiQW2XVbCSoUFLrUjyxHHyzEMDTKle0rakQG7VCsQzbNsf8cuwZpS4x9gxONxo6GuS176HLslmyidd5rrZnM0A7oY957mK7b1X6g/rcyOWGkfR4HnB506Uom0SjbDsJhAaKaXjzE1VrDAz9frF+xXxOxjAIl7CsAUBHwAqQg0SUz+33ynoCKrTbQM7/KhuS8Ky4G5F/OSTtzGqtCg12wjBA1mfQu8O8irjD5fr2HEA5OAFWC/C298WMB1RQHaRErXgBcQuyfWFafT5AjiPaVXq8hs53L/spLnlxewpx5YbBIfdnDwUoE0D/+8KOcE/XVp99QbOFTeVWMifkqzgAsB69RE+BEL8RCmaGdDiBmg+zb0MRBQzTTOgBrE1ZO1fHiwTVvTD1bwOOYzB5i5gg+3McvmReNwuv7nlxdoUCdmrP3tn4vfzhZnLzRZVwQuJoKnuAV8sK6Ctu52PkAZXddQEAYvrHVBip0Q5861kaWx2eGma3Q1H/Pn2YYnm/w/hjxeDKEHWba19UEZZCsYJu+4QQ1Gg5N7oHpiJrYx41Zxg8OwtUzfUn086vL3jpI6w8bgvU3eblVFtQEcL0M2jT31WOD7kfybtRJReN2Nc/XM79UwTt52+U0nfTv9bTSx1JBkD8rNHrBANBizPtlV8tqAtQ27zu7yYOYj9fkPciZZ9g==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/folders/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renames a folder for SSH hosts and credentials.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"oldName":{"type":"string"},"newName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder renamed successfully."},"400":{"description":"Old name and new name are required."},"500":{"description":"Failed to rename folder."}}}
+>
+  
+</StatusCodes>
+
+
+      

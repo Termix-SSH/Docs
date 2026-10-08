@@ -1,0 +1,68 @@
+---
+id: unlock-user-data
+title: "Unlock user data"
+description: "Re-authenticates user with password to unlock encrypted data."
+sidebar_label: "Unlock user data"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFu2zgQ/ZXBnBknLbp70C3dbYG0hw0aB8HCMBY0NbUYS6TKGcXRCv73xZCK4zTtoVgdbJl8w3nzhvM8YU3sku/Fx4AVfqEzO0hDQbyzQgwDU4K9lwZ6y7yPqQaJMIQ2uh1QcGnshWqordgFGhS7ZaxWeMuUGNcGE30biOV9rEespvzTJ6qxkjSQQReDUBDdsn3falIfw/k9K5sJ2TXUWX2TsSesMG7uyQka7FPsKYkn1t0nbidIluTDFg/5UR7cx8AF/vbiQr9elv6nFTsXRjXw4Bwxfx3adlzgweC7H8VcP2niGZ5Km9FvXqOvwoNtfX1UMiN/+9G5H61v6VTpoq8W0pE0scYK+8hZCCsNVniujeLzAj9TOBpkSg/ah2o14ZBahaH5LtXfcUiwpNT5Ryh4PKw11A3Jy5hjN2QTpctBM63WBzOhi3Hn6XTF9v4zjceVkyNutIlF+NODjp1qRHolm2FYzSA088vHmDorWOGnu+Ur9jfE7GMAiTsKwBQEfABpCDRJTP7ffKGgIVtTAsvwPh8KNtQZlgNzI05LOnIrVaFBr9kKBA0Gm5ne7+WnjD7dLaHggUnACrDfhjMfFnDXUIA+kdI14AXE7oh1xVFNwRHEB0o/rSKzPZX7l5W8vL6CHY3AYpP4sC0DLt3jP6/KOUJ/XdodjQb2jXdNScTPaRZwJWCdsIbNWIj7MEc7G0LMAN23YYyBgFqmMgLqDl+efeXDo+36ll76wHH+tXVfYxbJi6JwvuyX11doUOejVPr298Wbi8XFKwWWDYGLieA5bgEfrGugb4etD1BHN3QUhMELaxWQ4iDEuU86pZ3NZjZfmtsy0dlY5zl9kXB6NsX/b8flXgg9ynnfWh+UUnaCaTaOFWbjQIOn1rE22Ki9VCucpo1luk3t4aDL3wZKagprgw82ebtRSdUBsNyD7Bc7GrHCP0oZZ0slofB2KCP1nc+rVxxd7fqvG53yzfx/0cVaY5Ldo8mfFaLBmKXKjpLXJmxt2A52m4cyn6nPf9pyYbM=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlock user data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/unlock-data"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Re-authenticates user with password to unlock encrypted data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Data unlocked successfully."},"400":{"description":"Password is required."},"401":{"description":"Invalid password."},"500":{"description":"Failed to unlock data."}}}
+>
+  
+</StatusCodes>
+
+
+      

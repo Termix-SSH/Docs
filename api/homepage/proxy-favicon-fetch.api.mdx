@@ -1,0 +1,69 @@
+---
+id: proxy-favicon-fetch
+title: "Proxy favicon fetch"
+description: "Fetches and caches a site favicon server-side to avoid CORS issues."
+sidebar_label: "Proxy favicon fetch"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNtq3EgQ/ZWinrLQnvEumxe9eUMuzi7E2A5mMSaUpRqpdqRupbs0Y2XQv4eSNOPBjgOBfVKr+9TlnK4+Oyw45VFaleAxw3esecUJyBeQ07SEJMqwoo3kwUPiuOF4kqRg0AC0CVLAm0+XVyApdZwW6FCpTJjd4ofQcEsl453DliI1rBztZIdi1b52HHt06KlhzLCLNTqM/LWTyAVmGjt2mPKKG8Jsh9q3BksaxZc4DHcGTm3wiZOd/3F6ap8njOa+paGSFzg4/PNHsHO/oVoK+Hz5zwh6/eNcUnNhtFem016TBQ6Dw4a1CgVmWLKi8dUKM1y2dVeKP6FWltUsx3KOQ4eTmpMkRj/DJbonVf8NXYRrjo08zOqjUU+cd1G0H2PvmSLHs85q3t4Nbod5CGvh4x1q5W/uDztHKa5M4knD40QHxSvVFuebsP8JhG5evAuxIcUMP95cP+v+ilOS4EHDmm16vIJ40IrBioQo38iQUDEVHIES/DUmHUfQYGPgeCfHlA69TazQTRM1QR5H6r+tvtjRx5trmPCQWIEUkpT+RPwCbir20Ea2dh2IgtKak+3kXLDPGcKG44ssxm6P5f5lJc8uzmHNPSSlqOJL2IpWoM3Dl2d0DtBfl3bNvYNtJXk1FUqPZRZwrkC5JgubsRC2fo7OyfswAuycfB88A9eJp7cgfhVG1qK10dwbAZxdnKNDG/mp+d8Xp4vT55SgiFSOhYoYWthKUbLCmGEVIvT2IuanM6JsLTknB23dpf0v1OLXaYwwBgWl6j5QLMbraUPShrx1Oc/KRQwP/cHnxhf+tDN7Vl7Z6/9nldNcKD/osq1JvPU2OsFutpBbfLQQdLg3EXS4t5E7201q0N3unhJ/jvUw2PZksGYQhSS6r81VV1Qn/gmvV5ezAf8GL/W35v5g1xuqO0OMnrShKFZmspxHS3z/9hqH4TvdJzV6
+sidebar_class_name: "get api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy favicon fetch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/homepage/favicon"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches and caches a site favicon server-side to avoid CORS issues.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"url","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Favicon image."},"400":{"description":"Invalid URL."},"500":{"description":"Failed to fetch favicon."}}}
+>
+  
+</StatusCodes>
+
+
+      

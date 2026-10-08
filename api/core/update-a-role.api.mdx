@@ -1,0 +1,70 @@
+---
+id: update-a-role
+title: "Update a role"
+description: "Updates a role by its ID."
+sidebar_label: "Update a role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v20YM/lcIPrWFamdFtwe/JV0LpAOGIE0QDIEx0HeMdbF0p95RdjTB/3vBk2I7cdKhfpJ5/M2PH3u0nEx0jbjgcYbXjSXhBAQxVAyLDpwkOP9zggUKLRPObvHy7PQTzgtsKFLNwlGlPTq1b0hKLNBTzThDZ7HAyN9bF9niTGLLBSZTck0461G6Jmt54SVH3G7ngzYnOQu2U5XnxiZ4YS/6RE1TOUOa+PQ+afb9se+wuGcjWGATQ8NRHCd9tS41FXV/5zR3ykmi80vcFk+b8sJ7w7F2Kbng08E7xUgdFuiE6/T/fvFi5wUGlQRrqpxOwAItyfkkICXDQTgwJFSFJbzZuMoaijZB5VYMZUiSJu+AvIV3QFUVNmzfTnCbf9rY1ASfhvo/nJzkNjxJ51In3jZD+NQawyndtVXVTTT1jy+ZnPucMIxTg0WwHYQ4gEdRkw0/vhLLB4G70Hqb9X5/KcAXchVbkDAmlj1rUQXWLGWwirk2D1iRN8NpXJCZqlaa9s5uscDEcf0I0jZWqoTPR/FPaCNcaZsfYNBHRWNi00YnXbZdMEWOp63GuZ1vix5NCCvHhxJq3F/c7SQHLr4pNIfuHzragaQUaXDcDv0/KGExfnwJsSbBGX69uTrK/hsPKJKwYg+JvYDzGTkaJET3X14TKJksR6AEZ9lpBouqZcM8hcOS9sDOVSmyNdqgst/y+428mtHXmysY9CGxAAkkt/TvnZ/ATckemsiabgFOQGjFSSWGLXvDENYcX60iZ3vY7l/u5OnFOay4gyQUxfklbJyUIPXDv0fl7FR/vbUr7grYlM6UQ6C0DzOBcwEyktRs1IWw8aO1Ia8bQkb0nXwXPANXacS/ct7lni0/P1DdVHzEbo/s87yknfgJl90+yudbnfZdyH11oo5x3I/Ti3MsUFdq8PThj8lvJ5OTowhXJYMJkWFvN4HPZEpoqnbpPNhg2pq9pHxkwsZDDK1wyqNtQpKaMv2OOBtu03iankfr96fh50dswIjwg0ybipzXWJkV+pFCblEpRA+XkggWOHNWz50SrL72/YISX8dqu1Xx95aj8sO8wDVFRwtt1W0egn5bnN1Rlfgn6b65HI/cW3gtwcc99LqEa6pa/YcFrrgbzuxW5zVgMEcfHj4NMd5fqfne8OhyKk/t6PTiWglmMR7gOlg1ibTRjtBmiBtyGZnMsqzHivyypWXmg+xSfz8A/kzfnw==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/rbac/roles/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates a role by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"displayName":{"type":"string"},"description":{"type":"string"},"permissions":{"type":"array","items":{"type":"string"},"description":"Permission strings validated against the permissions catalog (wildcards like hosts.* and * allowed)."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Role updated successfully."},"400":{"description":"Invalid request body or role ID."},"404":{"description":"Role not found."},"500":{"description":"Failed to update role."}}}
+>
+  
+</StatusCodes>
+
+
+      

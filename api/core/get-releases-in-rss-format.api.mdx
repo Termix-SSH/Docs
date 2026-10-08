@@ -1,0 +1,69 @@
+---
+id: get-releases-in-rss-format
+title: "Get releases in RSS format"
+description: "Returns the latest releases from the GitHub repository in an RSS-like JSON format."
+sidebar_label: "Get releases in RSS format"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VVFv00AM/iuWn0M3kOChb0NiY0OCaS2a0FRN18RtjiZ3wXa2hSr/HfnStd3GEEPiKcnd5/u+z2c7ayxIcvaN+hhwjBekLQcBLQkqpyQKTBU5IYEFxzptnHj92M6BqYniNXIHPoALcDGZvKr8iuBs8uUzLCLXTkeYobql4PgKTygQuwpnGTaOXU1KbBtr9Mb9oyXuMMPgasIxNm5JmKHkJdUOx2vUrrF1H5SWxNhnj7RPSwILgtDWc2KIi6R2q18jLEjzcoR99gwl8fU/0e4Yn7BBQ5xkjbCfZcgkTQxCYke/OTy0x+Mr2JzgU0a3eewzfPs7/LHzFRXGt0z5VXoY1mdYk5axwDEuSdGSryWO8eBe6wGLmGXim/sLabkyBD42+y22DFPi2t/BgE+uhPKWvXYpdk6OiY9aI7maWa7zGFee9ldc4z9Rt13ZO2JiiR/Ss3/Q9h5K1eb+fux7AGG2eTlOtnGMZ5fTJ+onJOJjAI0rCiAU1JJsRWIkkf1PZ0goyRXE4ATep0PBhSLBUmC6in1LW22DK8yG4hogu+r6fqvPKjq7nMKAByEFpyB+GV75MILLkgI0TCY3A6+gbkViKzkVFHKCeEP8rIukdj/dL87k0fkprKgDUcfqwxJuvZag9d31Eztb6MtTu6Iug9vS5+VAJDuaEZwquFzFwjZYiLdhE527EGIC2L4LXQwEVAkNxe/DIibXXiuzuaneo/NTzNAKfpD+5t3o9eHo8Ikla+88MsEubgQfnDV21S59gCLmbU1BBbyKyQKOrZKkxDdRtHbB+DdVcEJ7I/VBiz+mtr4JSkH/21we6kDpTg+ayvlgilPnrzcz4grvWTBDmxKzDMsoajvr9dwJfeWq7215GKXW/4UXN6+owPHCVUJ/cPX3E/sZsSvqdn+KG1e1Bknj/WUi/m5+/1nE7t+xEzKzD/amZJh8u1F88mGKff8LJBqTMg==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get releases in RSS format"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/releases/rss"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the latest releases from the GitHub repository in an RSS-like JSON format.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"page","schema":{"type":"integer"},"description":"The page number of the releases to fetch."},{"in":"query","name":"per_page","schema":{"type":"integer"},"description":"The number of releases to fetch per page."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Releases in RSS format."},"500":{"description":"Failed to generate RSS format."}}}
+>
+  
+</StatusCodes>
+
+
+      

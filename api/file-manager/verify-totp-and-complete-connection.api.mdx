@@ -1,0 +1,59 @@
+---
+id: verify-totp-and-complete-connection
+title: "Verify TOTP and complete connection"
+description: "Verifies the TOTP code and completes the SSH connection for file manager."
+sidebar_label: "Verify TOTP and complete connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNuK2zAQ/ZVhnpXLln0oftulLM2WsoGkXUoIRbEnsRpb8krjXGr870WSm7hJl7LQp4TxGc05czkNZuRSqypWRmOCX8mqtSIHnBPMn+ZTSE1GIHUGqSmrgrj7Npt9hNRoTanPhLWxsFYFQSm13JAdokCWG4fJAh98/HOM41KgJVcZ7chh0uC78dj//MkiFN5FKpm4rEWO5apQLqdsiK3A2789MSPnPHjyIZA/S7H0Uit7Sr25Tp3onSxUP8dYkDXnpFmlMnC4eOX2FQ2uY0GHqod+/w80q5JMzUNsW4ElcW4yTLAyjlFgJTnHBEdVUW+UHshKjXzjB13jR12jBmy4QoGO7I6sn0ODtS18JoqL4t9MbWFOtlQHiHhslz41ra3iY8hdkbRk72pffLFsRYOpMVtF/Yis1Cc6niK9J2ZpTmUceP+hBvlYESaYcyQbYJh0IBTdnwdjS8mY4OPz/Ir970mz2ZIGR5pB6bCjvoix6mccWU4yIwvSwX14NOyFh4XEMJq+pBO3qAoFKl8tQlCgloHpjz2/yujxeQ4RD44YJINTGz1QegjPOWmoLHm6AhQDyy05H0kpI50SmB3ZV1UEtv12v7mTd9MJbOkIjqVlpTewV5wDl4fvV3JO0Le3dktHAftcpXks5M5lhjBhkCk7n9Zhwex1l51KrU0A+O9SH40moMJRvAql1yaoVlx4mX2PgbvpBAX6tY8Cbobj4fhK1r01e0cCKFMcSpZmR8HEXGz+7GE+FaB0WtSZ75BjK9UmZ1hbU4LnE48F2IDUhvNuLv5QS6k9vW5Jgqseo6H0rbTnapf0/H1pJs3/25TjmjAdeFQVUmnPOBhD01nLAs/WggL75oL+RHr2shSYe1dKFtg0K+noiy3a1odfarLeOJYCd9IqufJT8i5x9rPp02yObfsLUKY+aA==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify TOTP and complete connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/connect-totp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Verifies the TOTP code and completes the SSH connection for file manager.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"TOTP verified, SSH connection established."},"400":{"description":"Session ID and TOTP code required."},"401":{"description":"Invalid TOTP code or authentication required."},"404":{"description":"TOTP session expired."},"408":{"description":"TOTP session timeout."}}}
+>
+  
+</StatusCodes>
+
+
+      

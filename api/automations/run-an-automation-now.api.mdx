@@ -1,0 +1,70 @@
+---
+id: run-an-automation-now
+title: "Run an automation now"
+description: "Runs immediately, as the automation's owner. Pass dryRun to record what each step would do without touching anything outside Termix. An automation that needs a plugin that is off is recorded as skipped."
+sidebar_label: "Run an automation now"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v4zYQ/SuDubQFFDst9uRbtmiBbA8NkhRBERiLsTixGEsklxzGUQX992Iox9aukQJ7rQ62RM7nm5k3AxpOdbRBrHe4wtvsEtiuY2NJuO0roATSMFAW35FK/ZDA7x3HBdxQSmBif5sdiIfItY8G9g0JMNUNJOEAe59bA8bD3krjs4D4XDfWbYFcL+XFZ0nWMNxz7OzrAq7czB2I2nPMJgFBaPPWHs5sAv/0pH+TZzYabNrZENgssEKhbcLVI14djSVcVxgoUsfCUS8HtJp3IGmwQkcd4wqtwQojf8k2ssGVxMwVprrhjnA1oPShSDnhLUccx/UkzUk+etOrSO2dsBN9pRBaWxf3y+ekKA/ntvzmmWvBCkP0gaNYTno7gTuT23jfMjkcy6NuU/AuTdK/XF4Wpa8qet8wxOwU5Np3vMCxwg+XH84FTyiB8wJPPjuzQHXSsTTeKEo+lRgVrBUup2JcULDLU73ScrBmXMbssMLE8eUN5xxbVcLqG79/+xwPpYdJHhXQxHWOVvqiu2GKHK+y+n1cj5UC7HeW5ycU7B/cH09mJu4U7QmiuaEjqI1IwEOBC8hFCKvDy+8+diS4wk8P92fR33FKpUv9jh0kdgKlPxnUiY/2nwnShslw1Ab9WIwCOVPEimKpyjylY2xTVlhNbTqJnBr1eS/vRvTp4R4meUgsQALJbt2FdQt4aNhBiKzhVmAFhHac9KRmw65m8C8c382iRDuH+7uRvLq5hh33kISiKAUoOYB0r5/P0jmKfj+0O+4r2De2UBFFSSc3C7gWoFrSG7+pi0JrRbsmpzNAteg9ud47Bm4TTwOhY3x7GvjfXqkLLc8HVilj1KI9+QKPFb2fMxFc3VxjhToeU6I/Ly4Xl2fpK7cqjybwDnodlcYnKV8EirPJLYOPsNeaJq+zqoA2FAK7VEqlY9tRoZFD36hV+oplnd9/63vGYv+zvTA1q/CrLENL1ilIhZ6GA7c94onbsMIZu2GFq2k9ZKfLRKuh8sOwocR/xXYc9fhL5qjUta7whaKljZb/cUBjk74bXD1Rm/g/EP/x9rB/foL3Qn6jCKf88EJt1i+scMf9tMTG9VjhNB7F+3Tx6+Tj4l7VT4pne0op9Ej9N3/eKfltDvut80Z1ImnX6G9x7MOE0WqYzgZsyW0zbQtXFZv6/AtNTPLh
+sidebar_class_name: "post api-method"
+info_path: api/automations/automations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run an automation now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/automations/{id}/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs immediately, as the automation's owner. Pass dryRun to record what each step would do without touching anything outside Termix. An automation that needs a plugin that is off is recorded as skipped.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"dryRun":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The run outcome."},"404":{"description":"Automation not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

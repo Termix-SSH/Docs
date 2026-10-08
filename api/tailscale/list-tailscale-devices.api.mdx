@@ -1,0 +1,60 @@
+---
+id: list-tailscale-devices
+title: "List Tailscale devices"
+description: "Returns the devices in the configured tailnet using the stored admin API key. Requires the tailscale.devices.view permission, because the response is a full inventory of the tailnet."
+sidebar_label: "List Tailscale devices"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU2P4zYM/SsEz1on/brkNgW67Wx7WOykGBTToGBkJtbEkbwSnYxr+L8XlJ2Pnewc9thcksjk43sk9dxjyclG14gLHhf4iaWNPoFUDCUfnOUEzue/NviN27aRSxBytWeBNjm/zQ+TBH1A5d55uPt4DzvuCvjEn1sXeYTTpGSp5mICLg6Oj9Bw3LuUXPAG1mypTZzDI6cm+MTgEhBs2roG5w/sJcQOwuYM6VmKvz0aFNomXDzh8lQHVwZPKAkXPX4/n+vXl4r/cEky3qTpRA4Hgz/Of7hNWGovqK45Qk12l94QVqBBG7ywF8WgpqmdJcWYPScF6jHZivekv6RrGBcY1s9sBQ02MTQcxY28J9irQIqROjTohPfpFmAYPwZ/+pri9+RqHWKADYut4NywK+2DwT1LFUpc4JYzJZIKFzhr6nbr/Dtq3OwsfHZiaDBxPHDUQfTYxloz0Lwi8FdoIyx17i8wxuOw0lTbRiddzl0zRY53rRZ9Wg2mRxvCzvH1CTXud+7OJ1cQD9rZsWPXQOc+VSKNks1huJiC0Ew/3oe4J8EFfnhc3rB/4LytIGHHHhJ7Od0QLRKi+zdPGSqmkiNQgp8zKJAvx63VxLxf15Ius82qdLhabQxBg54y0+ejvMnow+MSxnhILEACyW39O+cLeKzYQxNZ6RpwAkI7TnpiuWRvGcKB45sqMtvrdn9zJydPgCQURV3j6KQC2b/8cyPnHPrtrd1xZ+BYOVuNhdKlTAH3AmQladoUC+Hop2xL3occoM/Jd8EzcJ14vAzOb0JW7aRWmZc7c/fxHg3qzo/svyvmxfxWU1m+dhitU4WkhLR+8J6tjHwv6A8Pv+XeNyHJnrJrTIuQfevm6r4u3F886H/t7eOyCb/IrKnJee1Jtpd+MqYnvBhTfhmcXgLmbJ8rg9pvje37NSX+M9bDoMefW45qOyuDB4qO1jpj9RgcNy070o47HaS13OgVPFDdjtf1lbGrD52989dfljgM/wFJ3JWs
+sidebar_class_name: "get api-method"
+info_path: api/tailscale/tailscale-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List Tailscale devices"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/tailscale/devices"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the devices in the configured tailnet using the stored admin API key. Requires the tailscale.devices.view permission, because the response is a full inventory of the tailnet.
+
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"List of tailnet devices."},"403":{"description":"The caller lacks tailscale.devices.view.","content":{"application/json":{"schema":{"type":"object","properties":{"devices":{"type":"array","items":{"type":"object"}}}}}}},"500":{"description":"Failed to fetch Tailscale devices."}}}
+>
+  
+</StatusCodes>
+
+
+      

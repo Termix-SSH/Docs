@@ -1,0 +1,69 @@
+---
+id: fetch-a-workspace-to-apply-and-mark-it-as-just-used
+title: "Fetch a workspace to apply and mark it as just used"
+description: "Returns the full workspace with its payload parsed, and touches lastUsedAt server-side so the caller does not need a second round trip."
+sidebar_label: "Fetch a workspace to apply and mark it as just used"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu20gM/RWCpy0wsb2LnnTLHgqke2jQuAgKw1gwGsaaWpqZDik7qqB/X4zGddxms0Bve7JEccj33pDPI1qWOrmoLnis8CNrn7yANgyPfdvCMaS9RKoZjk4bcCoQaWgDWYiUhK0B8hY09HXDAi2JfhK21wrC6cDpSpxlkDBXrKltOYENLOCDgme2QCBcB28hhT5XSi4u0KDSTrDa4P13AIJbg5ESdayc8rcRXcYcSRs06KljrNBZNJj4a+8SW6w09WxQ6oY7wmpEHeKc5ZV3nHCatjlbYvDCkhP+WK3yz4+yrBu+UEIDUIztsMDJ4NvV25f5Z9AzzcdMbIHTZLBjbYLNoIMomoK9wmVs+53zVxTd8txHlqOz03JuhQaLnoV3n9p8Cs1PfT+HPsGaU+eeTvpjJihc98npMJ99YEqcrvvceLOdzIh1CHvHlxGK7i8ezpGLEndZyaLUZaGzsI1qxJPg+b0koTk9vAupI8UK39+vX6C/YxEXPGjYswdhr+D8PDi5SUjuG+VMaJgsJyCBP+eiZQIbLgfnW7mkdMZWWKEpY1NSngfny1FfRfT+fg0lH4QVSEHczl85v4D7hj3ExBmuAaegtGfJkZot+5ohHDi9ymJGeyn3Lyt5fXsDex5AlJI6vyuLqt3T3y/onFN/Xdo9DwaOjaub0kie2yzgRoFqlXzslAvh6E+na/J5CajW/J38EDwDt8JlI5x/DDNrpy1fro7A9e0NGsxDX+D/vlgtVi/viA4MQx78ENmD0oPMfSW2TqGlIfRaIolLRsNdZp9x1K2r9/Md5IXsyGcop4F4x1o3QP+y+HO1jtI+3zcJfOlFoRe2P4PLu+WVvf6/rLUMmPKTLmNLzmf+s6WMJ0Pa4LMhocFnS0KD1eywxZW2BptsZNUGx/GBhD+ldppy+GvPKfvN1uCBkqOHfLmbEa2T/GyxeqRW+D/0+u3jycTfwGuYv++1z0t9oLbPb2hwz0P5J5i2l557++FujdP0D/naaYc=
+sidebar_class_name: "post api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Fetch a workspace to apply and mark it as just used"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/workspaces/{id}/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the full workspace with its payload parsed, and touches lastUsedAt server-side so the caller does not need a second round trip.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The workspace to apply."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

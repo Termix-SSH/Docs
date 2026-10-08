@@ -1,0 +1,69 @@
+---
+id: list-mounted-filesystems-and-their-usage
+title: "List mounted filesystems and their usage"
+description: "List mounted filesystems and their usage"
+sidebar_label: "List mounted filesystems and their usage"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v40YM/SsETy0wsdOvi25p0W6z3RZB4yAoDKOYSIzFSprRDik7WkH/vaDkON519pCT5dEb8vHjPQ2ofiuYrfH3KAp/kibOBTcOW598Q0rJ3g7IATNsvZboMPiGMEMu0GGijx0nKjDT1JFDyUtqPGYDat9OqKC0pYTjuDG0tDEIiQG+v7y0n4IkT9wqR0txy58IHXZCBfhQwGMiAml9TtBSgiZ2QReYha6uR4c/vhbiOux8zQVwaDtd4AT74Rz2VwSf5yQCGkFLgjKKosOYgGraeYNBQYGpeEn402sJVyVBHptm4uu5pgJiOIZc4Di6L258YNG5FirgkWuSXpQamUrWkjhBJ35rnWhIy1hghlsydtMIMly2dbflcOFbXlqSi2ae3LLxwW8pybJgqS4eEvmqiPuwHLgY0aFQ2j2PtEu1RcIvyf0TuwQrSg0/wYxHm51Q3iXWfrr7QD5RuuqMzHozugHzGCum0xPf8h/UH09OQtzaksxLcBrouDOlaouHXbL/Mwjd4eG3mBqvmOH7+9UZ+1sSsclprCiAUFDgeRiWJCb+NE+2JF9QAi/w8xT0ufXzxWltTks6cpurQjcrYoa8aOK/vX6V0fv7Fcx4EFLwCsLbcMFhAfclBWgTGV0HrKC+IrGTnAoKOUHcUfpqFRPb03a/uZNXN9dQUQ+iPimHLexZS9Dm6d+zco7Qt7e2ot7BvuS8nBPJS5oFXCv4XMWuHbAQ9+FwO/chxAlg733oYyCgWmhWF4fHOFXNWluZp2YGVzfX6NDWfi7gu8Xl4vKsrA+8I/jl5s5BQ01MvQNTkINAuo+pmli8u7kz4ioO2roz44j1ZB+z6qA35ZgcZZpIG0UbH4zYYT3eoPvP2B3nqfSky7b2HCzBpODh4AlrfPEEdHjqCmYjB1+wyJ85AzrMuDDHn/wvW+MwPHihu1SPox1/7CiZ6DcOdz6xf7AOrwcLY88FZo++FjpjnMegFGy5vvn78JH4FtC9XsmzuIIpa+frzv6hw4r6+UszbsYTL3z36wrH8X+YBFEc
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List mounted filesystems and their usage"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/disk-breakdown/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List mounted filesystems and their usage
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Size","used and free space per mount.":null},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

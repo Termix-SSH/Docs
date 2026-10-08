@@ -1,0 +1,59 @@
+---
+id: update-every-plugin-that-has-a-newer-release
+title: "Update every plugin that has a newer release"
+description: "Skips pinned plugins and any update that asks for new capabilities, which are returned under needsReview for the admin to look at one by one."
+sidebar_label: "Update every plugin that has a newer release"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVMFu40YM/RWC51nFuy0KVLcUaIFsDw0aL4IiMApaYqyppBl1SNlRDf17wZGSuJvdw956kkE/ku9xyHfGmqVKflAfA5Z41/pBYPAhcA1DNx58EKBQA4UJxqEmZdCGFEhagceYIPAJKhpo7zuvnsXBqfFVA5QYEuuYrNIYajYo1/I7Hz2fcqo2DFT3PoBG6GJsgRRiYNhP9inQodJBsHzA24UK7hwmliEGYcHyjB82G/v8V8S9ETyRrIRro0S6tIe09DdNOfpIvuO6wNnh95vv3hbbNgwVdR0n6KhqZWFcrLMpegp04DX9xy+le4GapdU4gBfofGi5NsEEwunI6XlgSyUBr/I8+QLn2WHP2sQaSxyiKDocSBss8WoFXS0q31HXocOlps3sjGPqDIfuM05/xDHBllPvn1YOOO8stRqT1ynn7pkSp+vRWj3sZnfGKsbW82WEBv8rTy+RixJ3VcP98kKXhc6o08BYYqM6GNkMw3IFoVt//BJTT4olfrzfvmF/xyI+2s60HEA4KNgGNQzWJCb/DxkSGiZbOhL4KRfNT26wnJhf7FLSC7dFFTr01m2BoMNAmelfJ/0qo4/3W1jwIKy2zOIP4Z0PBdw3HGBIbHQdeAWllsUiFdccKoZ45PRVFZnt5bi/eZLXtzfQ8gSilNSHA5y8NqD9059v5LxAv320LU/P65wbyWubAm4UqFKxtBUL8RTW7IpCiBlg/1OYzAe4E15uwIfHmFV77Uzmur3Xtzfo0BZ+of7hh+L9pti8kZSPOCaG17wCfqaqWS8N6liNPQddzi+eAqQ4KksevN1dT8H6r1vwaXFCPnKanktkW2yMvHkiJ0jcMQl/TsYuKSgH/T/a7bJUyk96NXTkg8nPNnJebecBV5ro8MJ4dg4bc6fyAc/nPQl/St08W/jvkZNZys7hkZKnvb2f+cerr93+drfFef4XDLRHHA==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update every plugin that has a newer release"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/update-all"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Skips pinned plugins and any update that asks for new capabilities, which are returned under needsReview for the admin to look at one by one.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was updated, what needs review and what failed."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"This desktop is linked to a server, which manages its plugins."}}}
+>
+  
+</StatusCodes>
+
+
+      

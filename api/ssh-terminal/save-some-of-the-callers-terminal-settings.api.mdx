@@ -1,0 +1,68 @@
+---
+id: save-some-of-the-callers-terminal-settings
+title: "Save some of the caller's terminal settings"
+description: "Writes the caller's command autocomplete setting. The terminal uses it once, to move a value a browser kept before 2.9.0."
+sidebar_label: "Save some of the caller's terminal settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsEL72MHXfRS33LFi0220tQexEUQbCgJcaaWJqZHVJ2XMP/veBIsZ1Nc9hTddDHDMl5fCSfDlizVNkn9THgHO+yVxbQhqGituX8k0AVu45CDdRrrGKXWlYGYVUf1lNYNgzKufOBWuiFBbxCDBU70Ahd3DIQbKnt7bnKcSecYcNJYcWPMTN8mP46nU3RodJacH6PyzEaPjjM/K1n0Y+x3uP8UD595hrnmnt2WMWgHNS2KKXWV2R5XD2JJXNAqRruyN50nxjnGFdPXCk6TDkmzupZbHfM8PoiwQunVYwtU8BjuQyTpBhkcP0wm9njNYsL2nI9xaPDX/5r+3rkw1geeYQ6skCIClRVnHSKdlLH2sQa55j6Apq0wTlepbZf+zCh5K9EmskL+1e9cJ6MAQUdCuctZ+P0gH1uzRXdd1j+jn2GwvgzDPZ4fDDXqs9e98V3xZQ5X/d2+v3D0RlhceP5coWS/5P3p5WLEAsrwkDWZaATvY1qMrDFzOguRujGlz9i7khxjp/vlm/QL1jExwAaNxxAOCj4UHi1Q2L2/5SGgIap5gwk8LEEBetnMyuOpVKXKZ2wDVmhQ2+nDSboMFBB+rTTdxF9vlvCYG8lBlIQvw4TH6Zw13CAlNngOpsWpQ2LrVRcc6gY4pbzu1kUtJd0/zCT17c3sOE9iFIuzbfz2oB2z1/fpHMy/XFqN7x3sGt81QwHyfmYKdxYo6uY22gLcRdG74rCMAlq+xT2MTBwKzxMhU33X2dd+P2ZbGTfnWNTiqNV8DEWrryaMS4Wn+BFaeD69gYd2rAMaf88nU1nb2u7+HSWOhkK/ZIVrcSBpNYrSJWZg4PGi8a8d9BRlaOU1AjaWFF7DjNyWrNsNCaglEp9UxTtqIjY2GymKSCxY4iPr/X5AtJp9F8BP5x18v8V+KFNlZ/1KrXkg2VahOkwats9nrXNOvlC3dDha317cNhEUXM6HFYk/CW3x6Mtf+s5m3I9ONxS9rSygptM4dCsRdQ2vMc5/jYQM1kaNDNv+2Huv/uZmKCd1Pj2iynRavwndbE2l0w7dOU+R3QYC/dF9craAVsK657WRThKSLv+BfyhnMg=
+sidebar_class_name: "put api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save some of the caller's terminal settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ssh-terminal/user-settings"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes the caller's command autocomplete setting. The terminal uses it once, to move a value a browser kept before 2.9.0.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"commandAutocomplete":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"400":{"description":"A value the setting does not accept."}}}
+>
+  
+</StatusCodes>
+
+
+      

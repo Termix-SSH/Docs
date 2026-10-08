@@ -1,0 +1,68 @@
+---
+id: apply-the-onboarding-plugin-picker
+title: "Apply the onboarding plugin picker"
+description: "Sets every listed plugin to enabled, disabled or removed in one pass. Choices are first raised so that every kept plugin still has its hard dependencies (the adjustments list says which and why). Enabling runs dependencies first, disabling and removing run dependents first, and one plugin failing does not stop the rest. Removing a bundled plugin deletes it and its data; it can be reinstalled from the registry later. Clears the fresh-install pending flag. With dryRun nothing changes and the response lists what would."
+sidebar_label: "Apply the onboarding plugin picker"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv3EYM/isETy0gy276ALo9OYYLOD3UiB0YhWEUXA29Gq80owwpr9XF/veCI+2rjlHknr1YnuHjI/mRnDU6lir5Tn0MOMMbVgF+5jRA40XZQdf0Cx9AI3CgecOuAOclf0FMkLiNz+zAB4iBoSOREi7q6CsWoMTw6JMoJPLCDiSC1qSThyV3urUv6psGahLwKlBTcuC44+A4VJ4FvtOagdxTL9pyUMnwQGgQWNW+qoGCg1U9fF/CpeH0YQGpD3JsJYPZBmAippVDmOR34roTNpEc2gj0kXzWdJEFQlQQjR0YusSiJXzcWiOY98E1+xQ6bljZAsw2LU5HSr/ZQUUB5mbCB1FqTOsxxXayu/CiVhFSTiVcNExJ8tVjYqlPJh0w5Ob5saFFCXdea3Bp+NgHw1nbTVVTWFhhgttC7mIQztm0TJLCKvaNK7FApYXg7B6vM3zBhwITf+5Z9H10A87W+V+f2OFMU88FVjEoB7Ur6rrGV2S0On0S49Yapaq5JfvSoWOcYZw/caVYHBi6x2okj7nrUuw4qWcxpe3FF/TJOW+uqLk+UpnkRJMPCyyQQ9+aj4nKWOCWyxmEURkfNpsCx7wdmJjH2DAF3OSfCY+Zy27enZ3Zn+NWusvJJHndN8Wua2LKfGJX4qbAn75k5rZmqA76ySj3TI3fqvz4hoqRKEFD1VKAXOtDOdJQypYCLXhS//W1+lRviAEIGh+WbL0oS+O5IRj1HcyHzCHh9Mwpm/v5/wKojFs5hDlDpkgOfVNgy1pHhzPsolhFO9IaZ3g6gT6NYR4pGb1PTW/AAkfHRtE19qkxaSvokfO/Yp/gllPrXyaguHkw1apPXoesO2dKnM57c3j/sCnWWMW49Hx4Qp3/g4fdyYGJGyP1SINDQzvi1Kqdgc1iRqQshMX08XtMLSnO8MPd7Sv0Nyziow3fJQcQDmpz1pJuTmLy/+QGg5rJcQISeJ+N7vo7K+bSHIa0wzZGhQV68zaKYIGBMtKnlb6J6MPdLYzyIKxACuIX4cSHEu5qDtAlNriFzTalJYudVGxzmCE+c3ozioz2MN1fncnz6ytY8gCilNSm3somobYvf78KZyf69ald8lBMqyc7kr2bEq4UqFIxtUkW4ipM2hUF6wCq1O4pDLZduBEeO8Gm5cf9nL18obZr+HgAHkwom7wbq+BjzLnyasI4cf78+goLtDYZA373S/nDWXn2KhG5SWNi2OuVcElVvVteserHxWt7K64CpNgrSy6X9WxLeVxO3Dm3Hs2x7xt3a6rz1TLX7QjCer89vr1Cvr1C9q+QsfmVX/S0a8gHI1we9+tpSdzjtCSwwD3b7FWQF8VDgbXtlNk9rtdzEv6Ums3Gjj/3nGwFPBT4TMkbm8Z5j2PX5+2w5AFneDFy8+TW0Jh4048D9D+vHNsMu1V2/eeNzfT59FpqozOdRCt7bNAKZ2iIM//z/shna2woLHpa5BGcbdrvX7p/Gz4=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Apply the onboarding plugin picker"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/onboarding/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets every listed plugin to enabled, disabled or removed in one pass. Choices are first raised so that every kept plugin still has its hard dependencies (the adjustments list says which and why). Enabling runs dependencies first, disabling and removing run dependents first, and one plugin failing does not stop the rest. Removing a bundled plugin deletes it and its data; it can be reinstalled from the registry later. Clears the fresh-install pending flag. With dryRun nothing changes and the response lists what would.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["choices"],"properties":{"choices":{"type":"object","additionalProperties":{"type":"string","enum":["enabled","disabled","remove"]}},"dryRun":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was enabled, disabled, removed or failed."},"400":{"description":"The choices are not valid."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"Plugins on a linked desktop are managed by the server."},"500":{"description":"The choices could not be applied."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: stop-metrics-collection
+title: "Stop metrics collection"
+description: "Closes the tab's connection and drops its viewer, which stops polling when it was the last one."
+sidebar_label: "Stop metrics collection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDubQFGDvt0bds0G2zbVFjkyAoAqOgpVmLsURyOSM7qqD/Xgyl2M56U2Av1cGWyPl8nPfYY0lcJBfFBY8LvK4DE4NUBGLX3zEUwXsqdBesL6FMITI4Ydg52lMysK9cUQGLrsdQ185vYF+RByewt2Oo2rJA8DRDg2I3jItH/DWwwB8kyRWMK4PRJtuQUNLdHp1WE61UaNDbhnCBrkSDiT63LlGJC0ktGeSiosbiokfpYrbyQhtKOAyr0ZpY3oWyU5MieCEv+mpjrF1htbH5E2vv/XmssH6iQtBgTCFSEkesu2Prt8Tsgr8pTxxYkvMbHPKj6TkGz6PXT5eX+vca7wkAKEJdTzArlJHKGWqEhqQKpUIROBeiiCxwHut24/yFjW5eBZaLZowzf/nXIPPelQMaZEq7F1jbVKs7mi/q+Cu0Ce4oNe4ZRntU/JiKNjnpsu+abKJ01WoFj6vBKJ5h6+h0xUb3G3WHlZMQtwruiMRpoAN0lUjE6Tz1ezRCM728D6mxggv88HB3Vv10FCBhSx6YvIDzefI0SUjun3zQUJEtKYFleJeD5pHOs66OMxzMq5YOtY1doRmncjQ5zuXTXt6s6MPDHYz2wCRgBdht/IXzM3hQksREWq5RtojdEutKQSX5giDsKL3ZRa72FO5vRvJqeQNb6oDFJsm0dVKBNM9/n7VzMP12aLfUHUXCJuFjmhncCNhCGCad0BRh7yfvwnofsoHuW98FT0A100gNZe3HI79/frZNrOmr/DzwUk/wU8hYOVHjVzIEV8sbNKhkGdv+cXY5uzwD43e3I7he3htoqAmpM1A63hrwJPuQtrn2X5b32q6wgVi3DBJCrb/QWG83BJ3yTZnL+RyV3Y3NIjQN1a2ECM2ZOnxZzImm/R/aPQ6Y0LPMY22d19qzpPSTMj3iUZnQ4Kk2YVaz6U1zosGFK1X71Ux9+35tme5TPQy6/LmlpNKzMrizydm1nthjj6VjfS9x8cnWTP8Byfcfp+viB3ir/BeKe+X3ztatfqHBLXXjnTOsBoPjeOfs48b1mOPiTt2PjmfXikrgQcSXf96qeK2n66gJpfoku9eLze7HxCH3kYUyr/VYW79p7SZrTY6pz7+Oc63H
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop metrics collection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/stop/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Closes the tab's connection and drops its viewer, which stops polling when it was the last one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Metrics collection stopped."}}}
+>
+  
+</StatusCodes>
+
+
+      

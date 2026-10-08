@@ -1,0 +1,70 @@
+---
+id: run-a-package-action-across-every-host-in-a-fleet
+title: "Run a package action across every host in a fleet"
+description: "Auto-detects each host's package manager (apt/dnf/yum/pacman) and runs install/remove/upgrade-all, elevating with the host's stored sudo password. Requires manage-level access per host."
+sidebar_label: "Run a package action across every host in a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v4zYQ/SuDuXQXoO202JNv2aJbZHtokKQIisAoxtLYYiyRXA5lxxX834shFduNkQJ7rC62qPl8w/dmwJqlijYk6x3O8bpPflJz4ioJMFUNNF7SDwKBqg2tGTpytOYIHyikWe1Ws33fzQJVHbmPQK6G2DsB6yRR284id37Lsz6sI9U8obY1wC1vKVm3hp1NDaSGX3NI8pFrkL72EEhk52M9hTv+1tvIMqaetLzlFqiqWAQCx+w9RYOJ1oLzJ/zSMifBhcFAkTpOHPV8QKsdBkoNGnTUMc7R1mgwlgw1zlPs2aBUDXeE8wHTPmQrl3jNEQ+HRbFmSZ99vVeTt86Vd4ld0k8UQmsrUmhnz6L4Dpex/fKZq4QGQ/SBY7Is2bcqEznaSYrWrdEgu77TNkeMc/2KMho8wxkXB+0/D+0yyiE/6inBOykpf7q60p9/X4hbjhMF+HgBSmEQWfo2yRQPBj9dfbp0zFMA5xOsfO/qKWq+jlPja52Cl9yzDmOOs9D2a+smFOxslac3G2x9mI05BQ0Kx+3rHPvYqhOaNyn/9H2EB46dfYFijzow4aqPNu2z75IpcrzuNe/T4mAGrLzfWD4/oWB/4/3x5CzEvU6voHUe6Ahvk1LA8QLpezFCM/754mNHCef49fHhovp7FlFkk9+wA2GXwLpMD03io/073yRomGqOQAKfc9DMOjXLjnkg5y0daytdoSk0KCYnIjzv0rsVfX18gGIPwgkogdi1m1g3hceGHYTIWq4BmyDRhkVPKq7ZVQx+y/HdLnK153B/N5LXtzew4T1IongmKt3LXxftHE2/H9oN7w3sGls1JZGc0kzhJikpRN1GW/A7N3pX5JQDVCX9Tm7vHQO3woUQKgt3J0H55YW60PK5AJzx/EjnI411mCufYbNJ/Ubxg+vbGzSojClBfpxeTa8uEPk1+j5k/VTJTh4K+V51HCrfdeRqMW/YXyxWtmVIkZysOAp4B9S24FeKQqe3xLuK84SV7R1lNRuv213vgN5qClXRiwBvOe5zVTolKkW9rX04Ce3/e2mV6574Jc1CS9YpXlnghlEdn/CkjmiwjAgNzvPuOkrkwqDGVPthWJLwH7E9HPT4W89RxW9hcEvR0lIvytOAtRX9X+N8Ra3wfwD8YWyn/gjvlfwqMk4VZkttr29ocMP7smYPupAKwXL28uHnkmPyoO4nx4vNqSJ8XB63v9+rfC7HDdz5Wn0i7XQX0q4k9rmPLNX5bMCW3Lov/Ckx9fkHAI8gow==
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a package action across every host in a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/packages"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Auto-detects each host's package manager (apt/dnf/yum/pacman) and runs install/remove/upgrade-all, elevating with the host's stored sudo password. Requires manage-level access per host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","enum":["install","remove","upgrade-all"]},"package":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Per-host package action results."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

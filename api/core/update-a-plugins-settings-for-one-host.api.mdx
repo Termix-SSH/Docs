@@ -1,0 +1,70 @@
+---
+id: update-a-plugins-settings-for-one-host
+title: "Update a plugin's settings for one host"
+description: "Writes host-scope values. Requires edit access to the host, so a user who may only connect to a shared host cannot change how a plugin treats it. A value written here becomes the host's own rather than following the host defaults; list keys in `_inherit` to hand them back to the defaults."
+sidebar_label: "Update a plugin's settings for one host"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v20YQ/SuDuaQFGMlNgx7Yk1OkgFOgMBIbRmEIyYgciWuRu8zO0LJK8L8Hw6Uk13KK5NJTdSG1O9/z5g17LFmK6Fp1wWOON9EpC1RB9KUUoWW4p7pjmcF7/ty5yAJcOgUqChYBDaAVj+IZSACCTjjCtgrQ0A6Cr3dQBO+5UJMlkIoil6MCFOR9UCgq8muzsQWCtu7WzoNGJhVwOoPzFAFso1NlDxVHhiUXoWE5OH8hELYeImnFEbQiD6tQ12Hr/PogBCWvqKtVfoXaicKGdwLOw6ePzlccnX6yGCvypak0sKRis89wrzrDDJXWgvktXo6xCi4ybClSw8rRLnp0VsqWtMIMPTWMOboSM4yphiXmGjvOUIqKG8K8R921JiUanV/jMGTPGrEsLr7JkPPKa444DIskzaJvQrkzkafKRfDKXu2K2rZ2BRkY5ndiiOhPbYflHReKwzAMZlva4IXFBF6dndnjn5C6qhi6tiTlEoRVnV/LDIcMXz8nfeHvqXYTQlyZQYgQPNujCZFh5bguBbaGgsgWCJeTtZ9Prf0ZTuFKOhqflF4/qyRdUU1YnFk3sGGtQmkN6RSz1JYc50lE5r0rh/k+ubmZn/epWQNmKBzv99DoYm2KmD1x+lfoIlxxbNwDJHm01gkXXXS6G3WXTJHjeWe+bxeGkSKEjePHJ9S6P3h3OHlk4oP1MfXpsaFDWyvVFico2f8khNn08nuIDSnm+O7m6iT6DyziggcNG/Yg7NUGywbHnITo/h4xBRVTyRFI4M1oFKZhS4pjSx6ndIgtZYVZGookchyLu61+NaJ3N1eQ5A18QAri1v6l8zO4qdhDG9nCzcApKG1Y7KTgkn3BEO5HNnk+izHax+X+7kqeX14YCYEoRUMObJ1WoM3Dx5N0DqLfX9oN7zLYVq6okiM5upnBhc2GiqlNskakk/ZE0FSo3ZPf2SByLZxmwgji/ZFa3j5Q09aMeT9Yn1ZhrIhTO8IJ2eeXF5ihDUNK69Uvs5/OZmcn6RpnFDbuR70ZvKXDUEIZiq5hP+6IiftDp5yIpQ2iDY3kNSHkeuSfw355IQcmgtVEMDauT+Poj9z4/2b8ls2Y8K/8oPO2JuetGyPj9RNl3uJEmZhhPu7EfSMww6kF+bTmFtNJfot9vyTh61gPgx1/7jgaJS4yvKfoaGkYu+2xdGLvJeYrqoX/pZs/TE0rf4Svxb2nHm+8M1Yac8QMN7xL+9zo9j/0OFVlWAwZpmEfc06XvyU/L6/MxFH5ZJ/bQjjssstrY/Ll9FnQhNJUIm3tA4O2yXcYUxm3xnjWY01+3dF6JN7RpP2+AEyjj0o=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a plugin's settings for one host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/{id}/settings/host/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes host-scope values. Requires edit access to the host, so a user who may only connect to a shared host cannot change how a plugin treats it. A value written here becomes the host's own rather than following the host defaults; list keys in `_inherit` to hand them back to the defaults.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated settings."},"400":{"description":"Invalid host id, or one or more fields were rejected."},"403":{"description":"No edit access to that host."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: save-command-to-history
+title: "Save command to history"
+description: "Saves a command to the caller's history for a host. Commands that look like they carry a secret, and anything while command history is off globally or for the host, are acknowledged but not stored."
+sidebar_label: "Save command to history"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdlUtv3DYQgP/KYC690OtN0V725gQN4hRFja6LoDCMYpYar2hRJEOObKuL/e/FUNpH4uaQa3XYlch5z/DjDhsuNrskLgZc4ZqeuACBjX1PoQGJIC2DJe85/1CgdUViHuEhZiBoY5EFvJtkC0hLAj7GDrzrWBVHsJTzCASFbWYxoEYpjNK6sIXn1nk++jrYdgXiwwNsfdyQ9yPEXN1pHOrQAGUGsl2Iz56bLTewGQRCFFB9bhZoUGhbcHWHt5x7F8jjvcHMnwcu8jY2I6529dNlbnAleWCDNgbhILpFKXlnSWty+Vi0MDsstuWe9E3GxLjCuHlkK2gw5Zg4i+OiuxridXMm54LwljPu1UXN9GyzSHZhi/v6aIglxVAmSz8u3+jflw2aiw2FnrgxWpvSuZS4gRggDTnFwgv19dNy+Vr7N1eKFv6QOyTK1LNwLlXp5/9Sek/Ocx0FdXpo1wI14J6ljQ2uMMVSa0HS4govkx+2LlxQcpeltBcyt+FyVr6Ye40GC+cnztqsHQ7ZqzKaryL4Kw4ZaitfYJLH/b2q2iE7GavuhilzvhrU/9393uzQxtg5Pl+h5H7l8bhyZmKt3Z3Kfm7o2KdWJGmwVQxXsxCa+eV9zD0JrvDjp9tX0a+5FBcDSOw4QOEg4EIdZ3USs/unThq0TA1noAJvq9F6VlSsKi6mATqldIxtygoNOvU2iaDBQDXSx2f5ZkQfP93CJA+FBUiguG24cGEBn1oOkDJruAacgFDHRVcsNxwsQ3zi/M0sarTn5f7uSl7dXEPHIxShLBUWTlqQ/uXvV+kcRb+/tB2PRjFk28lROblZwLUAWSmqNstCfA6ztqWgyCEruk9hjIGBfT19e4OKjT9OwPnlhfrk+RwQyzMeHDmgTXyItVxOVB7X6w9woBhc3VyjQT0vU+ZvFsvF8nV71x/gcOKgTL0+JEabYqAk7wSKzczBHLhroCebY5kQDT5a8iczc1kbLp3EBJRSbbEe+54qIOd5W58xQplxOulfBLk78fb/c+lMEy78IpfJkwtaocq03QzGOzyBUQ/BGRrxOA5HON6bOiyqttttqPCf2e/3uvx54KzYuzf4RNnRRkdFGYfTpFcidjzWC6OW+eJWg1NxP0zQ+OqKUxoeaX7z+1o5tpmvyj42qpPpGU39XSEajLWVlZl1bYeewnagbcVOtanPv90n7Xc=
+sidebar_class_name: "post api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save command to history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ssh-terminal/command-history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves a command to the caller's history for a host. Commands that look like they carry a secret, and anything while command history is off globally or for the host, are acknowledged but not stored.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Command saved, or skipped on purpose."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to save command."}}}
+>
+  
+</StatusCodes>
+
+
+      

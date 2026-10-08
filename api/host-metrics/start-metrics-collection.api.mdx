@@ -1,0 +1,69 @@
+---
+id: start-metrics-collection
+title: "Start metrics collection"
+description: "Opens an SSH connection from the tab, where a TOTP prompt can be answered, and starts collecting metrics for the host."
+sidebar_label: "Start metrics collection"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU2P2zYQ/SuDObUA13aK9KLbtkCaTROsUXuxKBZGMZbGFmOJVMiRvaqh/14MJXvduFsgp1wkipwZvjcfT0csOObBNmK9wwzvG3YRyMFi8R5y7xznegKb4GuQkkFobeBQcmAgWN4v59AEXzcCOTlYM5CLBw5cGCBXQBQKEiH3VaWB3BZqlmDzCBsfUrzSR5mgQaFtxOwJ3/so8GkwwpXBhgLVLBz09IhWQTYkJRp0VDNmaAs0GPhLawMXmElo2WDMS64JsyNK1yQrJ7zlgH2/UuvYeBc5qsFPs5m+/p2HEcEZuXcDFyXmw4l67gsGG+F0+wR7g29nb67jLUeq4JiLCATRbt2N1ajcwMYGzUJyfnvtnHLivMDGt2645Of/Av2ObMUFiB+wnnP9QmKCfW+wZil9oYn0UdAM+cxw2lTt1robauxUsd6M/tPTO0WdHm3Ro8HIYX+qShsq9UfzFaA/fRtgyaG2zzDYo6Y/ct4GK13yXTMFDretQnha9eaIufc7y5c71NjfuTvvXIRYaJ2HOl4GOpe9FGlwbAf9HozQjIt3PtQkmOGHx+UV+gXHqIUXv2MHkZ2Adalp9RIf7N+UGqNkKjgARfglBU2dn2ZFHVO5LimdsQ2s0AxNPZi8tPXng7yK6MPjEgZ7iCxAcmqnCTyW7KAJrHANWAGhHUfdyblglzP4PYdXWSS0l+n+5kzezu9gx93QgjrxByslSP381xWds+m3p3bHncqQzcuTxpyvmcCdAOUS1W20BX9wo3dOTkeJctFzcp13DFxFHmbDuo1PrK1UfJq9kxrczu/QoLb9QODNZDaZXdH6aPcMv84fDNRc+9AZKGzcGXAsBx92CcVv8wcFLtFAU7URxPtKn1CToy1Dp5OjQxhTRXRQa3IKbGyPxSsT/jUaHScn7OS7ivvQQsLPMm0qsk45JdE4juLzhC/igwYv5QeTYI2rdCcazGyhfwe1U+fjcU2RH0LV97r9peWg6rIyuKdgaa2lfDpiYaOuC8w2VEX+n1T98Mco6T/Ca/hPU+x0hPdUtfqFBnfcDX+lfnWptfP7xRL7/h9OHI/o
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start metrics collection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/start/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens an SSH connection from the tab, where a TOTP prompt can be answered, and starts collecting metrics for the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Metrics collection started, or a TOTP code is required."},"401":{"description":"The host needs a sign-in step first."},"404":{"description":"Host not found."},"500":{"description":"Failed to start metrics collection."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: import-discovered-proxmox-guests-as-hosts
+title: "Import discovered Proxmox guests as hosts"
+description: "Creates one host per entry, owned by the caller, and stores each entry's proxmox host settings (the guest's source) on the new host."
+sidebar_label: "Import discovered Proxmox guests as hosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v4zYQ/SuDuWwLMHZa9KRbttii2QJt0KQNCtcoxtKsxVgiueQotir4vxdDam036R72Vl0sU2/efD9O2HCqow1ivcMKv49Mwgm8Y2h9EggcgZ3E0YDfO25gM4K0DDV1HUcD5BpI4iMnYKrbgn2TIER/6P2hkCQWsW6b4Cs13Q6c5E2C5IdY89fgXWZ0vM/oxZ8ODQptE1YrvCs8uDYY+aNavvXNiNWU/9rIDVYSBzZYeyfsRD9RCJ2tSXNaPiVNbMJUt9yTvskYGCv0myeuBc0F0Qo1gKTOQvSBo1hOalKOz7YUI41o0Ar36TXnsTxKnYJ3qZB8e32tP/8u+I9+Dz25MaeeYM+Roc5NaHJt962tW/hAtuNmgUeD3/0Xy89+tt/aZ3YLVN89S+sbrDD4pGkGkhYrXIZu2Fp3RcEu5yYtbR98VEzi+MxRCz/hEDuFo3nh6w8/RHjg2NsDFDwe12paD9HKmG03TJHjzaAeV+ujmbD2fmf58oSC/YnH08kFxb22qtTskuhU5VYkaLAZhtUMQjO//OBjT4IVvn98eBX9PadkdeL8jh0kdgK2zJ868dH+nccGWqaGI1CCt5k0N0Nh2TB34jKl82TkrHQ01FuBoEFHOdKnvXw2ovePD1Dwui9AAslu3ZV1C3hs2UGIrOEasAJCO9Yd45obdjWDf+b42SxytJfl/uJK3tzdwo5HSEJRNxn2VlqQ/vDXq3RO0C8v7Y5HMw98dpTObhZwK0C1JDWbsVmQinVNzvkM0O/kRtUv7hKXVVAN+PWsHu8O1IeOLxZ7NR3XR+3ZB5+rY0U/fxIfuLm7RYO6GSXHbxbXi+tXmd/mLYJPRr+/K0qXQ85+DOyYg4bfa2XS6Oqy4yR1C843rHlLyv3Sre0pS9c8PDN/Y1Ot7ebm5OqFn5eRTWdt/B8JfJlA4YMsQ0fWadJZc6ZZqlZ4lirMipxvAoOzXK1Nbp8Cp2lDiX+L3fGoxx8HjipEa4PPFC1ttJuqOlhmL2vUjketR6nM1YOGo/BuKGv84gZRfTop6t0v96osm/km6n2jNpH2epvQHitEgz5XP6tYPpuwI7cdaJuFIHPq8w8eRp3b
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import discovered Proxmox guests as hosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates one host per entry, owned by the caller, and stores each entry's proxmox host settings (the guest's source) on the new host.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hosts"],"properties":{"hosts":{"type":"array","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"How many hosts were created and which failed."},"400":{"description":"No hosts given."}}}
+>
+  
+</StatusCodes>
+
+
+      

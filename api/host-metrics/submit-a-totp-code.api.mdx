@@ -1,0 +1,68 @@
+---
+id: submit-a-totp-code
+title: "Submit a TOTP code"
+description: "Answers the TOTP prompt a metrics connection is waiting on."
+sidebar_label: "Submit a TOTP code"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v2zgQ/SuDOdN2WvSyuqVBdzfdLWo0DoIiMBa0NLEYSyRLjmyrgv97MaTiOF+HYnXQB/Vm5s1w5nHAimIZjGfjLBZ4buOOQgSuCRZfF3PwwbWeQUNLHEwZoXTWUilwMBF22rCxa3B2igpZryMWt/i3iwxfsgEuFQb60VHkj67qsRjSpwlUYcGhI4Wls0yW5Zf2vjGlFvez+yiUBoxlTa2WN+49YYFudU8lo0IfnKfAhmLCUYzG2cvqBBo5GLvGg0J27C9cRa/8TJewjN7ZmJ29PzuTx9PqXOTcqZqKxw+vQb6YGKUgRzLgAjzEHs3evTRLtd5SMHdj9nCnTXMM9OENizEKWMdw5zqbotHeS3Wz6fs/XjF1Dlpt+7zDmplaz3GKUoSWuHYVFuhdTCXWXGOBM990a2Mn2ptZ7SJPxnaYPTzHtphIqqgwUthSkGYYsAuNeED1jMZ31wVYUGjNHjIeD0sxLbtguE+2K9KBwnknJG6XBzVg6dzG0OmK9uYf6o8rJy6upHPyfp46OjZAzZlsgmExglCNL3+60GrGAj/fLF6wvxpLz25DFiJZBmPT3EgQF8zPvI816YoC6Agfk1PQtkqwZJg26TSlI7ecFSo0Ei1DUKHVien9jt9k9PlmARkPkRg0QzRrOzF2Cjc1WfCBhK4Cw8B6Q1FWSqrIlgRuS+HNLBLb03L/diXP55ewoR4i65CEY2e4Bm73/71I5wj9/dJuqFewq01Z50DxMcwULhl0yVHMRiy4nR2tS21llnTJ8l/b3lkCaiLl6RBJ+vYoZp/2uvUNPROfB1051ZwTITL2zqXKGRbTJ2IJ5/NLVCijk4vwbno2PXtRmn/NluBifq2gpdaFXkFl4kaBJd65sEmZ/DW/luQ5KvBNF4Gda+Quk6/XBL1Mn4xyTLsq497qpLdji111q9aI8ieVKCWNZzyGR+X+vwdH7iKmPc98o40VSkk3hlGBbvFRgVDhqQZhUq3x7YkOLTNQrIdhpSNdh+ZwkOUfHQVRmKXCrQ5Gr2QrRE4wN1USnw31WfQlx8lCOAq86fJ8PjupRHiO6jn/eiWSsRpPvDY3QdA7VOleICp0qY5JntLagI22606v04Qnn3L9AlVjpEA=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Submit a TOTP code"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/connect-totp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Answers the TOTP prompt a metrics connection is waiting on.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"totpCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected."},"400":{"description":"Missing sessionId or totpCode."},"401":{"description":"TOTP verification failed."},"404":{"description":"TOTP session not found or expired."},"429":{"description":"Too many TOTP attempts."}}}
+>
+  
+</StatusCodes>
+
+
+      

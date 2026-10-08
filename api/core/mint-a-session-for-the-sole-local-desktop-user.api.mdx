@@ -1,0 +1,59 @@
+---
+id: mint-a-session-for-the-sole-local-desktop-user
+title: "Mint a session for the sole local desktop user"
+description: "Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key."
+sidebar_label: "Mint a session for the sole local desktop user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU1vG0cM/SvEXNoCK9lNPw7qyQUSIGmLGIiDoDCMgpqhtVPNcrZDruyNoP8ecHblyHGCIvecJI348fjIR+5dIPEl9hozu5V7KxRgPYK2BM8TeS2ZIZBsNfeAfQ+aQbaxrwYpbyLDbS4dEGsslEa4a4mhDMyRNyCKHDBlJsANRhatftStKQQKkLLHBGv0W+KwhNecRsAdxoTrRJB3VCDl3JvBEv7MG4HIgFKDSE40BxiEChTaYAmJRCDfQlQBXygYLkzyG8TbGbI5BFRcoxC0KNDlQqAtMhjOGut7Wm6WUKgnVArQIQ+YLEMULWhU/dBAIKXSRY6i0WNKo/FxihBDZz+8zwNrA7lMxWNJkUQXUzgqFI42BpINRJTZebEAPKW5G0SByYjBvics9nxS2EwlDBzMhEfwsfihs0Z4mhkO5FNkEkv3nko+YVGA7qMooAKm1MBdG30LnEtnrM1j0Je8ixJzbfEEpi85DJ5kCZfHPycOCklOOwo1+ndSmV8Q+zLWiYMtjQajiyIWbU231o0ustrP2mcSC9dAh+pbe7WMI2Rt63gYNz1qa1wJpdtFS5gE8IF5661CX2gX8yBpBGKbvaGHu6gtIOwwxXDMA+tBgTMMUmfwMdSla5ziRtzq2pRSxN00rpD0mYXErfbu2fm5fTwW1Zs5tC91npbu0Lifz396avgil3UMgbhOC3+mM9X3l88leYExUTB9TmmOBS3d4dC4jrTNwa1cn0Vd44wxt3JnNfRZZKXCmM5w0LyYHV3jhMrOqlxd791Qkjm45pO8f+ehwJUp4R4me3e4MVc/lKhj9V0TFioXg+W8vjk0e+dz3kY6fcE+/kHjw8tJiDe+pW6i9zTQ3unYk1u5VrU3sNXMrWYj18xfXtj0qlu5V++unqA/tkbzlhiETIRc586S5BLfV7lDS1gVJfB7DQrIoZpVx9qV05IesE1VucZFyzaZuMYxVqT/3ukXEb16dwWTPQhVRUrc8CLyEt7Zju0LGdwGooLilsRevG08P6/OL1VR0Z7S/dVMXly+rMoVxVKFWpWk3f0/T8p5MP16arc0HjdQTSQf0yzhpQJ6leOutRT5jmdvj8y5Gtj/yKMtVUpCkxgi3+ZaddRkZc7Te3H50jXOBn6C/uzX5Y/ny/MnJV21BN7W1Ee/JTxH30KfBltHIfuhI1apZyjfMZQ8KEkl3gTYIVv+eQr+iqyADwvouNFPDtxx85paP4VjWmIl1m/X+9v1/na9/+96T4tO6V7P+oSRTZL1tO3nm3jtKpV1ZU9X0TXu0V28aVxrV3R17fZ7G8S3JR0O9vzfQMUu3k3jdliiYZjO28f7e/n6zZU7HD4ALyIVtQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mint a session for the sole local desktop user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/internal/auto-session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session created."},"403":{"description":"Forbidden, or no local users exist."},"500":{"description":"Failed to create session."}}}
+>
+  
+</StatusCodes>
+
+
+      

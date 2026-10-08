@@ -1,0 +1,68 @@
+---
+id: update-your-host-defaults
+title: "Update your host defaults"
+description: "Sets and clears your own host defaults and updates every host of yours that follows them."
+sidebar_label: "Update your host defaults"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v2zgQ/SuDObN2tljsQbe026LpHjZoHAQLwyjG0sRiLJEqObSjFfzfi6EU20naQw/VwbbINzNvvp4HrDiWwXZivcMCb1gikKugbJhChN6nAH7voPZRoOJ7Ss2ESF1FwhF4x6Ef7/19NoggNQnc+6bxe33hdoYGhTYRiyV+UujfkytcGQz8LXGUd77qsRjyqw1cYSEhscHSO2EnekVd19iSlOz8ISrjAWNZc0v6S/qOsUC/fuBS0GAXfMdBLMeMY3kNOhhM7vkNhUA9GrTCbTw7jxKs2+BhfJR17LyLo/O3Fxf69aKYtONqBl9YUnARar+HltxYqwhlTW7D1Uw5/Pkj838dgw/Q+sCwoyZxhD0HhsBKPVseDLYsta+wwC7lnElqLHCuMeZP/ZqnyAENRg47DtqEAVNoFIfmRdT/tOMLDq19hBGPh5WalilY6bPtmilwuEwaark6mAFL77eWz0+os/9wfzw5c3GjDRvLdu7oWOhapFOyGYbFBEIz/fjoQ0uCBX6+W7xif8MxWu9A/JYdRHYC1ukEggbxwf6fhwdqpooDUIR32WmeaIVlw9yT85ROw5Gz0unQaCMEDTrKTB/28lNGn+8WMOIhsgAJRLtxb6ybwV3NDrrASteAFRDactSTkit2JYPfcfhpFpntebl/uZKX11ew5R6iUBDrNrC3UoO0j19fpXOE/nppt9wb2Ne2rMdA8RRmBlcCVKqyxCesys5kXZJzPgP0nlzvHQM3kccVUCX4ctKQD4/Udg2fdv605MunLV4dtIX3PhfLiqJxGvrL6ys0qHsyZvz2r9kfF7OLV5VY1Ayl7ubJbgYfqKyha9LGOqh8mVp2EsFKzCIafBKOuV+dj9JSFrBpeG6zno6K+0xtX0YeTor4e/V6HCLhR5l3DVmX1VJlY5hkZonqJvM7Us1SszLjTbHEYVhT5NvQHA56/C1xUBFZGdxRsLTW0qti4Dg3WV+23GOB78cs3yyUh8KbNK7gi/8A1ZajCl7fqiisp7+S1ldqEmiPJn8WiAZ9LmQWoHw2YENuk2iTdzi71Oc7pwd4DA==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update your host defaults"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/defaults/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets and clears your own host defaults and updates every host of yours that follows them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"set":{"type":"object"},"unset":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved. Returns how many hosts changed."},"400":{"description":"One or more values were rejected."}}}
+>
+  
+</StatusCodes>
+
+
+      

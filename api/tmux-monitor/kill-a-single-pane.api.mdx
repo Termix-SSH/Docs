@@ -1,0 +1,69 @@
+---
+id: kill-a-single-pane
+title: "Kill a single pane"
+description: "Killing the last pane of a window closes the window, and the last window of a session ends the session (tmux semantics)."
+sidebar_label: "Kill a single pane"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVMFq3EAM/RWhUwuT3W3pybfkUEhKaWi2hBKWMrGV9XRtjTuSs9ka/3uR7exuGlLIqSfb8tNIT6P3OixI8hQaDZExw0+hqgKvQUuCyotC45kg3oGHbeAibiGvopAMgDHiwHNxSJhgQ4qQSIgMxMWY8Rh4o3X7AEK1Zw25vJ2hQ/VrwewGl/brc+SgMeHKYeOTr0kp2d8Og7XZeC3RIfuaMMMyip4X6DDRrzYkKjDT1JJDyUuqPWYd6q4xZGClNSXs+5WhpYksJAZ4v1jY4+k0Lo38JlQVFTPsHX5YfHgBxFHhLrZsuN5hTVrGwhqNoujGfjOcN1W7DnzimzC3CZzUI815N1Lo51bsxGaODoXS/SPrNlWWj+6v4t9jm2BJqQ42TsOjURPK2xR0N+Tekk+UTltr4WbVuw7zGDeBjiO+CZ9ot48cHXFlMxxndHzQfqSlaoPTqO17BKGbXj7GVHvFDC+ul8+6v5rWQeOGGIRYIfCwKFYkpvDbGxJK8gUl8AJnw6H7jRsSh6s5prTvbWSFblyaEXJYm59bfbGji+sljHgQUvAKEtZ8EngG1yUxNImsXQdBQf2GxCI5FcQ5Qbyn9CKLodvjcb96kqeX57ChHYj6pCbWbdAStH748YzOHvr60W5o52BbhrwcC8mhzAzOFXyuYmkTFuKWp+zcs8nB52r/Pe8iE1AlNGoj8F0cWAetjOax3uH08hwd2tqPBN7NFrPFM1pnKW6FxmKRNcUKJkMZbk/c5EIyQExOAj5PUQR2JhhTmwwXYfqsPVs/01aYA5p1BV5XBJMUn5Q3/bAS63/2y3FrlB503lQ+sPEZfKKb/OYGD35jCUeOgw6zvW0eTGflBjO11K679ULfUtX3Fv7VUjI7WTm89yn4W7u7mw6LIPZeYHbnK6F/jOrN18md38JL3T/Klk2z975q7csapN3B5vvVscFefrlaYt//AQtwWGI=
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Kill a single pane"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/kill-pane"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Killing the last pane of a window closes the window, and the last window of a session ends the session (tmux semantics).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Pane killed."},"404":{"description":"Pane not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

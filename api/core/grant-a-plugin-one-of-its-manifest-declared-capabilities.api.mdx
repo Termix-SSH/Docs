@@ -1,0 +1,71 @@
+---
+id: grant-a-plugin-one-of-its-manifest-declared-capabilities
+title: "Grant a plugin one of its manifest-declared capabilities"
+description: "The grant is install-wide, not per-user: it unlocks the capability for the plugin as a whole. What each call then does with the capability (e.g. whose hosts ctx.hosts.list() returns) is still scoped to whichever user's request triggered it."
+sidebar_label: "Grant a plugin one of its manifest-declared capabilities"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVt9v20YM/lcIvjQBFCXrij34LR26IR2wBW2GYMiMgZYY6+LTnXqk4riC//eBJ8U24mVYn6cXS3f8+JsfPWDNUiXXqYsBZ3jTMCwTBQUn4IIoeX+2djUXEKJCx+msF04zcAp98LFaCWjDUFFHC+edbuA+pnzU+X7pApAAwbqJnku4bUiBqWqgIu9NKkAdWWDttHmp54TLZWlIYWiiqEClT2V+K70TPTmFxNqnIKfmrKjzHqSKHdegEdaNqxp+5ATm8BuBxF96FgVNbrnkxDU4Lf8MWKDSUnB2h9fZY8F5gR0lalk52cWAznLTkTZYYKCWcYauxgJNp0tc40xTzwVK1XBLOBtQN51JiSYXlrjdzkdhFn0f641JvMRWMSgHtSvqOu8qspqcP4gVZjhWHRcPXCkW2KXYcVLHYrf7DP6TG/aYJ9LFICPg7cWF/Rz3wUEtnECI67EzuC5xW+C7/wpTqLnylBMeDjrjjUBLwd2z6KTw+9cUes8JPFmzUd26UI4apGwp0JIn+Ltj+K8RpK+ayWKJFnzL2sTa6hklp8/KOsPzSef54OrteY5UsEDh9PjcBX3yJojFCyt/xD7BDafWPcEoj1Zv4apPuQ53Ay6YEqfL3mzdzbfFgFWMK8eHJ9S5X3izOzlQ8dmKP5brUNGuvo1qh1P72fcohMX08lNMLSnO8OPtzZH3n1nExQAaVxxA2GZ/rJMZicl9zY0IDVPNyeb5fVYKFOosloG5Boch7Xwbo8JiHKJRZD9GD2t91aOPtzcwyoOwAimIW4YzF4xJOECX2NwtjIyUVix2UnHNoWKINvqvRZG9PUz3N2fy8voKVrwBUUrqwnKisPbpr6NwdqLfntoVb4qRyUZDsjdTwpUCVSoGm2QhrsOErijY6FGlmYHDJgYG9sLjEBirfNrz0YcnajvPL/ljxxtWvPuY0+TU5HBq98vrKyzQJmSM9e0P5XcX5cVRDvIcx8Swx5XwgXajCXWs+paDCjgViwNS7JUlV8omtaVMg1Pb/Jx3FD2jLbh4n6HPnHK2Y51dRMaQLxwb9rT7P919Y9srP+l558kFy3cmumFixjucmBELnOWtN5HjvEDzyCSGYUHCvye/3drxl56T0d68wEdKjhbWMncD1k7svcbZPXnhf6nFyadpO57Ca04+00swbnkk39sXFrjizbiet/NtgeNoZevjxY+jjbMbg++BRyvX6He3Kq5/+2zEuZhWdxtrwyRa238AWo+GY44jk3Q+G9BTWPa0zDyXddrzN6QWSD0=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Grant a plugin one of its manifest-declared capabilities"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/grants"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The grant is install-wide, not per-user: it unlocks the capability for the plugin as a whole. What each call then does with the capability (e.g. whose hosts ctx.hosts.list() returns) is still scoped to whichever user's request triggered it.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"capability":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The capability is now granted."},"400":{"description":"The capability is not declared in the plugin's manifest."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: run-a-command-across-every-host-in-a-fleet
+title: "Run a command across every host in a fleet"
+description: "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others."
+sidebar_label: "Run a command across every host in a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVVFvIkcM/iuWlYdW2kBa3RNvuSppc1UvKCGNqgidzK5h59id2Rt7IRziv1ee3QAJSqV7Li/AzOex/dn+vMWCJY+uURc8jvCavEBoFfLg8zZG9lptQAPwiuMGeD7nXN2KoeZ6xhHKIApaMuRUVfafBLhwel7xiiugPGcR0DCAsz9u7yfDs4f7q7vh2fj2bjI8+3z519Xw7Obz+GHyxYO0M1GnrUUCToCapnJcQNO7yUCoZlhEqmuKQALiXdOwAj9znswGcOu5i2lOrnJ+AUVgAR8UREOTIg1acpQBZqi0EBw94XXFrILTDBuKVLNytPMtOqOkIS0xQ0814whdgRlG/ta6yAWONLacoeQl14SjLeqmSSivvOCIu920Q7Pox1BsDPLWOA9e2atdpZRzslSGX8UKsj19O8y+cq6YYRNDw1Edi93moa7JF0dA0ej8AncZOt+0+jdVbQd9/dAufSxMaYKXDvLrxYV9vW6OMcfzRO6ecIgsbaUyMC8fLj6c2iRuUwHmofXFAM1VzVqGwrgNkjIxikc4bKp24fw5NW44TzUZbl2xG3buGDMUjquX4rSxMhvM3nj8J7QRJhxr9wwdHq0KwnkbnW6S7Ywpcrxsze3TdJcZfWHp+PiEGvcnb/YnR0/cW0k6no4f2hNbqjbYd4X970CY9T+uQ6xJcYSfHicn0d+ziBGrYckehL2C86lvzUmI7ntqDyiZCk5T8DE9CuSLBEuGqR7HKe1j67LCrOvtDnLo7q9rfTeiT48T6PAgrEAK4hb+3PkBPJbsoYls4WbgFJSWLHaSc8E+Zwgrju9mkaI9pvuHmbwc38CSNyBKUW3s105L0Pr5y0k6e+iPU7vkTQbr0uVl50gObgZwo0C5ipn1WAhr31vn5G0EKFe7J78JnoEr4W4ebNbvDipx9Ux1U/GrqX6Z5rfDvEvjPQ+JNKdm1esZXI5vMEObly7zXwYXg4sTPn6PoW2SZgo4rwG6yUthx9ZDH4Fk0FC+pAVbFi74DjF3FYNG8jLnKBA8UFVBmBsHtfVI8Dmn+tqo15QkrW+2u9YDvbwPlMcg0u+ZpDLOrlM0b4PeHkTzf7axurFQftZhU5HzxmwSwm0vok94EFHMsCsmZjhKi+tFSacZmk+Db7czEn6I1W5nx99ajqaR0wxXFB3NrKOetlg4sd8FjuZUCf9HQX666xfcz/BexC9a5E2IVtbKOELMcMmbbsXuprsMuzlM3ruL3zof5xMzPxiebE3T6v2KGd/em8rO+u1bh8JsIq1tj9O6cxxSHknR09kWK/KLlhZJFNOb9vkXlkkuTw==
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a command across every host in a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/execute"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"command":{"type":"string"},"inputValues":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Per-host execution results."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

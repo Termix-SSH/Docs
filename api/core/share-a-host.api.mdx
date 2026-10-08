@@ -1,0 +1,70 @@
+---
+id: share-a-host
+title: "Share a host"
+description: "Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). SSH authentication remains private to the owner; recipients may select one of their own saved SSH credentials."
+sidebar_label: "Share a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVt9v20YM/lcIPrWAamddtwfvKQlaJN2ABk2GYAiMgZYY6xLpTuVRTlxD//vAOyV24qRAX+cH27oj+fHnR22w4liK69QFjzM8r0k4AkEdosKd0xqCZwgCbRCGPrJEIF9Ng4CExkQVCDqW1sXogoeGV9zAmzJ4z6UWsHJ8VwBXTgtoydOS307g/PwEqNeavbqSDBuEW3I+QiduRcqgAbRmCHee5Q8QLl3n2GuEltYQueFSs2vXJufEJCHSiqtkvRSuzDo1cYIFKi0jzq7w69HhMc4L7EioZWWx0w06i70jrbFATy3jDF2FBQp/651whTOVnguMZc0t4WyDuu6SlFdesuAwzLM0Rz0K1dpEniuXwSt7tSvqumYMfHoTLfObfdthccOlPvHiCpVkyRpTDBI6FnUck9J4sdUnEVpjgU65jS/ZfWYg3T5KRRXnl1gg+741ZKu9ORMaxvlQWIJmGwyev1ynHD7VG4r9HM2HYRgK3DbLX9YrP8IcuwgLtDayi8rZU26k5EbVS8rjSehlN0rft4tUmAwqHLvgYw71/cGB/Txt/RPr+Gj9X0Hsy5JjvO6bZj3BocAPL2mc+hU1roKx7rAI1YP0r/vSx9Q0LKl9fRiRQGsX06yNeh/29S5SYdPowTh1ycB16H2V1H57yblP5BqubIwy0ggyFNiy1qGyhg8xtYH1/QynsqByamLTjauGaVLDAiPL6mFOemlMEotnYP+EXuDC6noPWR5tICKXvThdJ90Fk7Ac9gZ2Nbf+KEO4dbx7Qp37k9ePJzsmzm06cvV2DT2Wu1btcBxQe85CWIx/PgVpSXGGny8v9rw/50xdGm7ZQ2Sv4HxiHwMJ4r5niqqZKhagCEfJqBFhEkuKqRS7IW0HMUVlk2hoWWRLNDd3+qpHny8vIMtDZDWujW7p3zk/gcuaPXTC5m4BTkHplo0+uTTmKxnCiuXVKJK3u+n+6Uwenp3CLa8hKok6v8zbQtv7f/fCeRT9+dTe8rqAu9qVdQaKW5gJnCpQqdHURtm8L5J2Sd7GhEq1e/Jr2xbcRM5TYLT7dUvYH++p7Rp+wqRbUhu5zyjvkeDmLzDZDmE946UDY0x/HRKAU0PCcWAOz06N4Fhiztb73ye/HEwO9rJ4UTOUtoW3ehP4SGUNXdMvnYcqlH2bdqTTmPahhF45plrbsLeUNs3YeGnXj6v+Odhmu63+v+8EubbK9zrtGnLe0pQYbjNy4hUaJ2KBY4pm6aUgE+N8PJ1d4WazoMh/SzMMdvytZzHKmxe4InG0sGJfbbBy0f5XOLumJvIPMv7m67jx38Jrfj5QizdeWVHT2xMWeMvr/PIy2HLMY5XQ88Vxxnh3Yepbxb33Eevuxz1x9uXcSHMxvte0oTIdIVvI9p2AQ4ojEXQ622BDftnbmp5htmmf/wALzpll
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/host/{id}/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Shares a host with one or more users and/or roles at a permission level (connect, view, edit, manage). SSH authentication remains private to the owner; recipients may select one of their own saved SSH credentials.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["targets"],"properties":{"targets":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","enum":["user","role"]},"id":{"oneOf":[{"type":"string"},{"type":"integer"}]}}}},"permissionLevel":{"type":"string","enum":["connect","view","edit","manage"]},"durationHours":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host shared successfully."},"400":{"description":"Invalid request body."},"403":{"description":"Caller may not share this host."},"404":{"description":"Target user or role not found."},"500":{"description":"Failed to share host."}}}
+>
+  
+</StatusCodes>
+
+
+      

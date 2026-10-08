@@ -1,0 +1,70 @@
+---
+id: issue-an-ssh-certificate-for-a-key-ed-25519-only
+title: "Issue an SSH certificate for a key (Ed25519 only)"
+description: "Issue an SSH certificate for a key (Ed25519 only)"
+sidebar_label: "Issue an SSH certificate for a key (Ed25519 only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU2P20YM/SsETwmgtZ0gOVS3zUdRJ0C7iDdYFIZR0BJtzVqaUWYoe1VB/73gyF+7dg6NL5ZG5PCRfHzsUGgdMJ3jPfvKPMH0Ey4SDJw13kiL6bzDJZNnf9tIgel80S8SrMlTxcI+RANjMcWapMAELVWMKZocE/T8ozGec0zFN5xgyAquCNMOpa2jlRVes8deL1VrDvLB5a2aZM4KW9FHquvSZCTG2fFjcFbPLu5yy0fOBBOsvavZi+GgX7dUmtxI+4nacC2y2hubmZrK8+/kPbWYoBGuzs+DeGPX2A8/BR1qZ8MQ6+1kon85h8ybWuFiitMQGs4hU0grzYI16Ltrpn86AbLwOX/7/v2b32DDbQLOg3Xw8XZwenfp9JVbsE5g5Rqbo2K6El+vnc3+OEcBK+eBNAi8OkR0tmxfY4IVS+FybaoLsaTa2xTHddmsjb2h2owl0uXG5GzFSDvecBvGncn78XmmyiS/PfCk8aXegi8h/u0aD3v+DfbYn5Fwpq0eKnxOxWNPCpEa9+zS98EIk/3D785XJJjil4f7i9AzDsE4C+I2bCGwFTAWpGDQIM6bfyPtoGDK2QMF+BAvBbJ5NIuOI+1O5tzG8AtsVJuvHImk0QaT05Q87uSniL483MNgD4EFSCCYtb0xdgQPBVuoPSvcBIyA0IaDnmScs80Y3Jb9T7OIaAdgv1jJ27tpJE4Q8mLsGnZGCpDq6Z+LdI6m/7+0kf+7wmTFECicwoxgKkCZBHXb24Lb2b13RlZHgjLR72RbZxm4DDyKA6Ia8u2kNp+fqKpLvlSLyXNxmB+mf9FrP1cuVs6Iuh7lcz8PcHs3xQSV+kMd3owmo8lFde6aZWlCAa1OgA5orQeZphOgsbEuh7OCbF5yzM83dnBxu8u5pqG60sY+6wRXFCVzT7pfEYRnqI90EX6ScV2SsRopTne314o5nrQCE3yhFpigZogJpnFRnEvGIsFCVSedY9ctKfB3X/a9Hv9o2OtGWiS4JW9oqYWfd5iboM85pisqA1+gPW4SfPVtv5Feg4K6lsVhbq2C3FLZ6NuAd1hrvXZ/4GyMPnz4OMS4uVf3k+PF5lJdO6rr3V8zVaTlfuNVLlcfTzvdnbQbAruYR1S/eNZhSXbd0DoKSLxTOU3PJ/nF5EakV1PrusHiXnWs74+ZRl3TZPv+P8fkyYQ=
+sidebar_class_name: "post api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Issue an SSH certificate for a key (Ed25519 only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/termix-identity/keys/{id}/certificate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Issue an SSH certificate for a key (Ed25519 only)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"validityDays":{"type":"integer"},"principals":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Issued certificate"},"400":{"description":"Not an Ed25519 key, or no CA"},"404":{"description":"Key not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

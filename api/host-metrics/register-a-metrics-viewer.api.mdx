@@ -1,0 +1,68 @@
+---
+id: register-a-metrics-viewer
+title: "Register a metrics viewer"
+description: "Starts polling a host while something shows its metrics. Answers skipped instead of failing when the host has no metrics."
+sidebar_label: "Register a metrics viewer"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsEz+OPFj3pll30w9sWNTZJgyIwirHESBNLM9ohZUUV/N8LjhTHSbqHPVUHa8x55DxyyKcRC+I8ulZc8JjhtdgoDG2oa+dLsFAFFugrVxNwaEgqNXMVegYnDA1JdDkv4cpzT5GBD65tqQDnWcgWEB7gwboUrK/Ig1Q0xawsgw/nAGhQbMmY3eMvuv37ZMedwUhfOmL5EIoBszH9dZEKzCR2ZDAPXsiLbtm2rV1uNZfVI2tCI3JeUWN1JUNLmGHYP1IuaLCNoaUojlh3ldSmuMA5L1RSxFN6lAa3wfOE/n691tfr4v3pqKcIkUrHQpEKAyGeK9I7qcBCJMvBL/Fk8If/CrLxR1u7AiY+S9Sjte6hwAzbwIm5lQozXLV1Vzq/sK1bKXwxF3P1/H5msjgmZmiQKR4paplH7GKtQdC8YfBX6CLcUGzcE0x4PO3UNe+ikyH57slGiled8rjfncyIeQgHR5cW27pfaThbLkJc651MhbwMdC59JdIq2QTDbAahmRc/hdhYwQw/3d28Y39NzC54kHAgD0xewE1tp4eE6P5J/QEV2YIiWIYPKShYXyRYckz3c5nSmduUFRp0etoEQYPeJqaPvXyV0ae7G5jwwCRgBdiVfuH8Eu50NNpISteAExB7IFZLTgX5nCAcKX41i8T2stzfXMmr7QYONADr/Kdh1W6V5unvd+mcod9e2gMNRsUkr6aD+OWYJWwEbC6sbjMWQu9n79x6HxJA960fgiegmmkaEB32zy8y8eOTbdqaLsd6fdIbewipNk5085XQwNV2gwZ1OKY0v1uul+t3yf/mjgQft7cGGmpCHAwUjg8GPEkf4iFx/Xl7q+kJG2jrjkFCqPUXGuttSTDofCkvTvemM93YpFVzE32exxbsszzCeYBf0RlfxO//Ve6p2YSeZNXW1nnNK8nLOGvVPb5oFRq8VCtM+jav3irWbsJqgHHcW6bbWJ9Oav7SUVQt2hk82ujsXq9UhQen9ksydaABM/w4FWlxozQVXnfTJL/5WqhEnaV2+8e1ist+/uo0oVCfaHtlaXvMEA2GdBFJyJJtxNr6srNl0oIUU59/Ae8vlWg=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Register a metrics viewer"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/register-viewer"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts polling a host while something shows its metrics. Answers skipped instead of failing when the host has no metrics.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Viewer registered, or skipped with a reason."},"400":{"description":"Invalid hostId."}}}
+>
+  
+</StatusCodes>
+
+
+      

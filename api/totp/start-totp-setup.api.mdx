@@ -1,0 +1,68 @@
+---
+id: start-totp-setup
+title: "Start TOTP setup"
+description: "Returns a new secret and QR code. With TOTP already on, a current code or backup code in `credential` returns the existing secret instead, to add another authenticator."
+sidebar_label: "Start TOTP setup"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v00AQ/SujOW+Tgjj5VhBIhQOlCapQFcHEnsbb2LvL7riJifLf0azdNG3gwBEfks3mzdebmecdVpzKaINY77DAa5YuugQEjjeQuIwsQK6CL9dQ+ooncGOlhvnn+RVQE5mqHrwzQFB2MbKTjAIfYUnlugvDT+vgRxm5YieWmh8QxyhSM/DWJrFu9RjMuiRMlQHxQFUF5LzUHIE6qdW+JPFxggaFVgmLW9RccGEw8s+Ok7z1VY/FDkvvhJ3okUJo1M56N71PWucOU1lzS3qSPjAW6Jf3XAoaDNEHjmI5ZTeHtI+wSaJ1K9znRyOn4F0aDF6fn+vXc1pnp0Ti3uCbP2EvRs4SaEU2cjViX51iL90DNbZ69Lg32LLUvsICg0+5GpIaC5yGpltZd0bBTsVLmCaWLqDBxPGBoxK5wy42CkXzIso330WYc2ztFgY87hdqWnbRSp9tl0yR40Wn0W4Xe6MN8GvLxzcU7CfuDzdHLmbajYG/Y0cHwmuRnGyGYTGC0IyHDz62JFjgx5v5SfYzTsl6B+LX7CDpjFqXR0+D+Gh/5cmAmqnSOUvwNjvN3VJYNsw9OC7pkNtQFRq0Gm2AoEFHOdP7jfw1o483cxjwkHQ6BJJduTPrJnBTs4MQWdM1YAWE1pz0ptR5LBn8A8e/VpGzPab7n5m8uLqENfeQhGJez43uvbTb7yflHKD/Tu2aewOb2pb1ECg9hZnApQCVktRsxILfuNG6JOd8Buj/5HrvGLhJ4xroml8/CcL7LbWh4ZcLfVhkbd6dzzRZUVxWFbi4ukSDuh9Dpa8m55Pzk/rnG392R6X4mPunFOQqaFjku+hbIPdcwIBCMAPsSChT7ptubktZpcYhmik3g+g+7u2zFI7U7r9S8GEkhbcyDQ1Zp9VnEdqNunWLT7qlBn4Y3szBwmCtGlfc4m63pMRfY7Pf6/XPjqOq0sLgA0VLS+2oShAOg5gFa809Fvhu4O1srqkovOmGnX7xxlCxOkjr1eeZysxyfNO0vlKbSBs0+bNANOhzb7Kk5bsdNuRWHa2yKmSf+vwGiFqZAg==
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start TOTP setup"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/setup"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a new secret and QR code. With TOTP already on, a current code or backup code in `credential` returns the existing secret instead, to add another authenticator.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"credential":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Secret and QR code."},"400":{"description":"A code is required."},"401":{"description":"Invalid code."}}}
+>
+  
+</StatusCodes>
+
+
+      

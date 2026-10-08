@@ -1,0 +1,68 @@
+---
+id: revoke-all-sessions-for-a-user
+title: "Revoke all sessions for a user"
+description: "Revokes all sessions with option to exclude current session."
+sidebar_label: "Revoke all sessions for a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcGO2zYQ/ZXBnLW2m6Y96LYJEmBToF1kHSwKwyhoamxxTZEKOVzbFfzvxZBa21knh6C6WJbezLx5w3kasKGog+nZeIc1fqZnv6UIylqIFKPxLsLOcAs+Q4A90F7b1BDoFAI5fsFNsEJWm4j1Ar9EChGXFQb6mijyO98csB7yXxOowXqtbKQKtXdMjuWd6ntrtJIq06cobAaMuqVOyR0fesIa/eqJNGOFffA9BTYU81sVNsRS9a65QEcOxm3wWCHtNfX8vjC+QKy8t6QcHvMlfGPvXSxZ38xm8vOtQg8vqoQsVQMxaU0xrpO1h4nUejv79TrsT8+gErc+mH+pERlL/FnltQ/guaUASdQbU729TiVtgvMMa59ck3G/fY/pR2Xsd0tNUFrtiFvfYI29j1lRxS3WOM3Vpy/YaYm9UdZihZHCs0y2XgyYghU4Vq/K/u1TgDmFzuyh4PG4lFCdguFDjl2RChRuk1RcLI/VgNr7raHLJ6o3f9Dh9OQixYOcijKiy0SnobbMvZDNMBlyBmE13nz0oVOMNX56nF+xH8cL7LfkIMr5Ng64Jbgdp5dPKLSkGgqgIrzLSUG5JsNyYB7KZUsnbqUrrNBItQLBCp3KTJ92/ENGnx7nUPAQiUExRLNxN8ZN4LElB30goVuBYWAlS9wH0tSQ0wT+mcIPu8hsL+X+aSVv7+9gSweIrAIbtymWwd3+n6t2TtCfl3ZLhwp2rdFtKRTPZSZwx6A0RwkbseB3bozWysnCKM3yXrmDdwRkI5VVELv5fHaqD3vV9ZaujeXFUK78hEOio8x07XOUYQnHcQtu7++wQlmcIsGb3ye/zCazK2nmLYH2geAcN4EPSrfQ27QxDhqvU0eOIxiO0h4En5iKV8gadyrb5niaipl/6+XiMio7zOvyw9mM//dnoJwepj1Pe6uME37ZL4bRZhaYbSZbSkmPYr4nq1lW2Iot1QschpWK9CXY41Eef00UxESWFT6rYNRKlBbHwHJusr9s6YA1vi/93MyFjsBtKiv46kMj3nJyw/u/HsQVVuMXq/ONxAS1E4JqhzVihUWF7ED52YBWuU1Sm7zEOadc/wH9dZG3
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke all sessions for a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/sessions/revoke-all"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes all sessions with option to exclude current session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"targetUserId":{"type":"string"},"exceptCurrent":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Sessions revoked successfully."},"403":{"description":"Not authorized to revoke sessions for other users."},"404":{"description":"User not found."},"500":{"description":"Failed to revoke sessions."}}}
+>
+  
+</StatusCodes>
+
+
+      

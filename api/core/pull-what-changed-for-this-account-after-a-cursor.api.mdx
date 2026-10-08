@@ -1,0 +1,69 @@
+---
+id: pull-what-changed-for-this-account-after-a-cursor
+title: "Pull what changed for this account after a cursor"
+description: "Returns records in change order. Each has the entity type, syncId, revision, whether it is deleted, and the row when it is not. Records of entity types this server does not currently run are skipped but still move the cursor."
+sidebar_label: "Pull what changed for this account after a cursor"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU1v40YM/SsEz7NKGqA9+JYWu0W2l2DjIigCo6BHtDW1NKNyKDuq4f9eUJI/skkK7F57sjVDDh8fycc9lpy9hFZDijjDL6ydxAzCPkmZIUTwFcU1Q5KSpYCP5CuoKINWDBw1aA/at+wg99HflQ6EtyGHFB3sKtaKBYJCyFByzcqlA4rl4C1pZyZxuo9JC/gyxU2ry8ctWsiQWbYsUCYerMF3Ihy17kG6CCQMeRPalktYdgpZQ11Dk7Y8RPOd5CQFOlRaZ5w94UMfPS4ctiTUsLLY6R6D8fB3x9Kjw0gN4wxHZ3SYfcUN4WyPhgtnGKLymgUPB/e2ax2aoN/lOWSO7qsK/ZKahj5kNtTK5QuaHGiCJfnNylJPse5Bq5S5eCt+VglxjYfDwqFwblPMnO3+5vrafl6GvYWWrAtWUz9YrIoh8rNO1A51PZa8ScIg3FCIBR4c/vjWm58o1FwaZmEqjw8Xxgg2rFUqcYZrNvZa0gpneGVNdrW9uZpsLa+hKcbSdVKb0SvO/kidwJylCc9TE6Flndl3ErQffJdMwnLbWZynhdXEp7QJfHlCbfiN+9PJxRMPxu5I3+VDJ7Ir1fZYBPsejdBNfz4laUhxhp8f56/QP3C2eQJNG46QOaqNpbFvQZKEf8gsoWIqWYAy/Dw8ehq0wXEow2VKJ2xjVujGJhxNzl34107fRfT5cQ6jPWRWIIUc1vFDiAU82mC3wgbX2YQrbTjbieeSo2dINsvvZTGgvaT7m5m8vb+DDfeQlURDXMMuaAXaPP/5Kp2T6bdTu+HedC74agyUz2EKuFMgrxkmtbQQaRcnb0/RNIy82j3FPkUGrm1Yrf9DXKUh66C1pTl17+39HTq0hh+h3/xU/HBdXL9KaW6KZzN49pu0u627dYhQJt81HDVD0GywQFKnw/Q5bFPWhqLFn7rgvqtr2FWk05SWsEoyqjJ5n7qoQCu11OCklS8Q2ThF5aj/lyUzdqvys161NYVovA76tJ/E7AktGavmDTo8CtrCYZWy2vV+v6TMv0t9ONjxuB1MqsqQaVlzibMV1Zkdbri/XFJbqjsLjqZZ7xgf19J/275bwu/dQm/SMiI6rrszooV9SDBIowKft8KvH+d4OPwLWGAHDQ==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pull what changed for this account after a cursor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/sync/v2/changes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns records in change order. Each has the entity type, syncId, revision, whether it is deleted, and the row when it is not. Records of entity types this server does not currently run are skipped but still move the cursor.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"cursor","schema":{"type":"integer"}},{"in":"query","name":"limit","schema":{"type":"integer"}},{"in":"query","name":"types","description":"Comma-separated entity types, to backfill only those.","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A page of changes, the next cursor and whether more remain."},"500":{"description":"Failed to read changes."}}}
+>
+  
+</StatusCodes>
+
+
+      

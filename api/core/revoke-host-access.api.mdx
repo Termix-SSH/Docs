@@ -1,0 +1,69 @@
+---
+id: revoke-host-access
+title: "Revoke host access"
+description: "Revokes a user's or role's access to a host."
+sidebar_label: "Revoke host access"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v1EgQ/SulugBS70xgWQ6+DRCkgT2gMKsIjUaoYlfGzdjdprs8ibH831fldiYDSZDCgZPd7VdVr159uMeCYx5sI9Y7zPCM937HEQjayOFJBB8g+IqfRKA85xhBPBCUPsoMDQptI2ZrPHu9eIMbgw0Fqlk46G2PVl02JCUadFQzZmgLNBj4W2sDF5hJaNlgzEuuCbMepWtGlBPecsBhMPd6SVyWj/S1UXRsvIscFfDi5EQfPyqwSGmGUYgCYjueL9uq6mY4GHx5n9HS7amyBSzfTpi/72LeUFVxgJo6cF6gJkdbhlhSsG4L3oGUNk7KDgb/uS/OO7IVF1qDxG8qykyFwpql9AVmWHDFwmiSaBnOwwXlc/U8720xzJPRvL9RcUCDkcP+pmxtqNQKzU/RP/s2wIpDba8h4VE1jZy3wUo32l4wBQ6LVgOvN1q+3Pud5eMbauwH7g43Ry4+afFScY4dHWpZijQ41VjPCYRmennnQ02CGb4/X91h/4ljtCqz37GDyE7AqugMGsQH+50UCSVTwQEowuvRKZArRthoONbmOKUDt5QVmtSvCXLbsV+v5EFG789XkPAQWYAEot26v6ybwXnJDprASteAFRDS8WwC51ywyxn8nsODWYxsj+V+tJKLj0vYcQdRKIg26pWVEqS+/nInnQP08dLuuDNwVdq8TIHibZgZLAUol6hmExb8lZusc3I6TZSLfifXecfAVeQ0E9Zd+jFrK5WmOXXv4uMSDWrDJ+ovXs2en8xO7qS0KhlyHxhu7WZwSnkJTdVurYPC523NTiJYiUoLgm+F4yh846PU5DT+1AVpvY5DPo3uzyF1Xpywk99YxqmywtcybyqyTjmMs9xPm2CNugnQoJqgwWzcxgci2WGtbiZItsa+v6DI/4VqGPT6W8tBJ31jcE/B0oXKuu6xsFHfC8wuqYr8i6yenk0b+xk8RPpmopyO056qVk9ocMdd+oXoFvmDEQ+6DJvjPfv29N/T1SkOw/9yNXiC
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke host access"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/host/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes a user's or role's access to a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Access revoked successfully."},"400":{"description":"Invalid ID."},"403":{"description":"Caller may not manage sharing on this host."},"500":{"description":"Failed to revoke access."}}}
+>
+  
+</StatusCodes>
+
+
+      

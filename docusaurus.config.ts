@@ -1,18 +1,49 @@
+import fs from "node:fs";
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import { redirects } from "./redirects";
+
+// Written by scripts/sync-content.mjs.
+const apiSpecs: { id: string; name: string }[] = fs.existsSync(
+  "./src/data/api-specs.json",
+)
+  ? JSON.parse(fs.readFileSync("./src/data/api-specs.json", "utf8"))
+  : [];
+
+const openApiConfig: Record<string, OpenApiPlugin.Options> = {
+  core: {
+    specPath: "static/openapi/core.json",
+    outputDir: "api/core",
+    sidebarOptions: { groupPathsBy: "tag" },
+  },
+};
+for (const spec of apiSpecs) {
+  openApiConfig[spec.id] = {
+    specPath: `static/openapi/plugins/${spec.id}.json`,
+    outputDir: `api/${spec.id}`,
+    sidebarOptions: { groupPathsBy: "tag" },
+  };
+}
 
 const config: Config = {
   title: "Termix",
   tagline: "Self-hosted, plugin-based server management.",
   favicon: "img/favicon.ico",
 
-  url: "https://termix.site",
+  url: "https://docs.termix.site",
   baseUrl: "/",
 
   onBrokenLinks: "throw",
+  onBrokenAnchors: "warn",
+
+  markdown: {
+    // .md is plain markdown, so plugin docs pulled from other repos can not
+    // run code here. Pages that need components are .mdx.
+    format: "detect",
+    hooks: { onBrokenMarkdownLinks: "throw" },
+  },
 
   i18n: {
     defaultLocale: "en",
@@ -21,21 +52,42 @@ const config: Config = {
 
   plugins: [
     [
-      "docusaurus-plugin-openapi-docs",
+      "@docusaurus/plugin-content-docs",
       {
-        id: "api",
-        docsPluginId: "classic",
-        config: {
-          termix: {
-            specPath: "static/openapi.json",
-            outputDir: "docs/api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          } satisfies OpenApiPlugin.Options,
-        },
+        id: "develop",
+        path: "develop",
+        routeBasePath: "develop",
+        sidebarPath: "./sidebars-develop.ts",
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "plugins",
+        path: "plugins",
+        routeBasePath: "plugins",
+        sidebarPath: "./sidebars-plugins.js",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "api",
+        path: "api",
+        routeBasePath: "api",
+        sidebarPath: "./sidebars-api.ts",
+        docItemComponent: "@theme/ApiItem",
+      },
+    ],
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "api",
+        config: openApiConfig,
+      },
+    ],
+    ["@docusaurus/plugin-client-redirects", { redirects }],
   ],
 
   presets: [
@@ -45,7 +97,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "/",
-          docItemComponent: "@theme/ApiItem",
+          editUrl: "https://github.com/Termix-SSH/Docs/edit/main/",
         },
         blog: false,
         theme: {
@@ -55,47 +107,71 @@ const config: Config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: [
+    "docusaurus-theme-openapi-docs",
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: ["/", "develop", "plugins"],
+        docsPluginIdForPreferredVersion: undefined,
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        ignoreFiles: [/^api\//, /\/v\/\d/],
+      },
+    ],
+  ],
 
   themeConfig: {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    docs: {
+      sidebar: { hideable: false, autoCollapseCategories: true },
+    },
     navbar: {
       title: "Termix",
       logo: {
-        alt: "Termix Logo",
+        alt: "Termix",
         src: "img/logo.svg",
         href: "https://termix.site",
         target: "_self",
       },
       items: [
         {
-          href: "https://docs.termix.site",
+          type: "docSidebar",
+          sidebarId: "docs",
           position: "left",
           label: "Docs",
-          target: "_self",
-          className: "navbar__link--no-external-icon",
+        },
+        { to: "/plugins", position: "left", label: "Plugins" },
+        {
+          type: "docSidebar",
+          sidebarId: "develop",
+          docsPluginId: "develop",
+          position: "left",
+          label: "Develop",
         },
         {
-          href: "https://docs.termix.site/api/termix-api",
+          type: "docSidebar",
+          sidebarId: "api",
+          docsPluginId: "api",
           position: "left",
           label: "API",
-          target: "_self",
-          className: "navbar__link--no-external-icon",
         },
         {
-          to: "/contact",
+          type: "docSidebar",
+          sidebarId: "cli",
           position: "left",
-          label: "Contact",
-          target: "_self",
+          label: "CLI",
         },
+        { type: "search", position: "right" },
         {
-          href: "https://donate.termix.site",
-          position: "left",
-          label: "Donate",
-          target: "_self",
-          className: "navbar__link--no-external-icon",
+          href: "https://github.com/Termix-SSH/Termix",
+          position: "right",
+          className: "navbar-github-link",
+          "aria-label": "GitHub",
         },
       ],
     },
@@ -103,45 +179,36 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "GitHub",
+          title: "Docs",
           items: [
+            { label: "Install", to: "/install" },
+            { label: "Plugins", to: "/plugins" },
+            { label: "Build a plugin", to: "/develop" },
+            { label: "API", to: "/api" },
+          ],
+        },
+        {
+          title: "Code",
+          items: [
+            { label: "Termix", href: "https://github.com/Termix-SSH/Termix" },
+            { label: "Mobile", href: "https://github.com/Termix-SSH/Mobile" },
+            { label: "CLI", href: "https://github.com/Termix-SSH/CLI" },
             {
-              label: "Termix",
-              href: "https://github.com/Termix-SSH/Termix",
-            },
-            {
-              label: "Mobile",
-              href: "https://github.com/Termix-SSH/Mobile",
-            },
-            {
-              label: "Docs",
-              href: "https://github.com/Termix-SSH/Docs",
-            },
-            {
-              label: "Support",
-              href: "https://github.com/Termix-SSH/Support",
+              label: "Plugin registry",
+              href: "https://github.com/Termix-SSH/Termix-Registry",
             },
           ],
         },
         {
-          title: "Support",
+          title: "Help",
           items: [
             {
-              label: "Request Feature",
-              href: "https://github.com/Termix-SSH/Support/issues/new?template=feature_request.yml",
+              label: "Report a bug",
+              href: "https://github.com/Termix-SSH/Termix/issues/new/choose",
             },
-            {
-              label: "Report Bug",
-              href: "https://github.com/Termix-SSH/Support/issues/new?template=bug_report.yml",
-            },
-            {
-              label: "Email",
-              href: "mailto:mail@termix.site",
-            },
-            {
-              label: "Donate",
-              href: "https://donate.termix.site",
-            },
+            { label: "Discord", href: "https://discord.gg/jVQGdvHDrf" },
+            { label: "Email", href: "mailto:mail@termix.site" },
+            { label: "Donate", to: "/donate" },
           ],
         },
       ],
@@ -150,6 +217,14 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.oneDark,
+      additionalLanguages: [
+        "bash",
+        "yaml",
+        "nginx",
+        "json",
+        "ini",
+        "powershell",
+      ],
     },
   } satisfies Preset.ThemeConfig,
 };

@@ -1,0 +1,69 @@
+---
+id: export-a-users-data-admin-only
+title: "Export a user's data (admin only)"
+description: "Downloads a JSON export of another user's data (hosts, credentials, file manager bookmarks). Secrets are decrypted server-side, so handle the file carefully."
+sidebar_label: "Export a user's data (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v20YQ/SuDuTQGNpLqpj3o5qJO4RRog1qBUQhCMSZH4lbkLrMztMQI/O/FkJQtW3GBHHsid/lm5r354gFzliz5Wn0MOMdf4i6UkXIBgg+3f/wOvK9jUohroBC14ASNcPpOICcleFNEUXGQJc45qKdSHKx9yVBRoA0nuI9xW1HaysUEbjlLrAKUGHLOUlsr5yCcHji9FZ+zA4lQUMhLBi148JRR4nVTlu0EHSptBOdL/CScBFcOa0pUsdppvjygNxE1aYEOA1WMczS+Nzk6TPy58YlznGtq2KFkBVeE8wNqWxtSNPmwwa5bGVjqGITFvl/OZvZ4nqoX6TG+J6mZYOfw3eyHc7urvPIBKMtYBI6cRvi7c7gphRAV1rEJI+7yK24Xz+ODKLUCZcy2nEMT1JdG0ScIvFco48aH3tmPX9P2nnzJOWg8CjTPR12dw4q1iDnOccOKbkj4HKeGkimZwOlgOD0M6e/Q4VDooU5NKs0A3YvAf8UmwYJT5fdjY6BVQzhrkte2t71nSpyuGou5XHXugFmMW8+nN1T737h9vDlxcWtVH8p66uixCQrVGsfmsPMAQje+vI+pIrXy3y3O2N+yiI8BNG45gHBQ8KHvDAsSk/9ChoSCKecEJPBz7xQo5D2sN+zLcirpkdugCt3Q5gPkqdH/2emrjD7cLWDAg7ACKYjfhLc+TOCu4AB1YqPrwCsobVnsJrOhzhjiA6dXVfRsT9P9zZm8+ngDW26tY5P6sIGd1wK02v99JucR+u2p3XLrYFf4rBgCyVOYCdwoUGabSY5YiLswWmcUbP4oU/tOoY2BgUvhYRZ8WMdetdfSZI7de/XxBh1aww/UL3+afD+bzM4k2dxmMTE82U3gmrIC6rLZ+AB5zJqKgwp4FaMFKTbK0ie+jqIVBYs/dsH1MLD0fE/3MwkxlO3FSwY2PkE56P9h/Q+dpbzXaV2SD5aDfpccxiW07Pe9oMNeMjocJKDD+fgnWDk03oY9HO5J+FMqu86uPzecbMesHD5Q8nRvBV0eMPdi7znO11QK/0cC3/w5LvQLeI3ucZaDDfIDlY2d0OGW26e/Vbc63bK/Xi+w6/4Fw0aj5A==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export a user's data (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/users/admin/export/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads a JSON export of another user's data (hosts, credentials, file manager bookmarks). Secrets are decrypted server-side, so handle the file carefully.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"JSON export of the user's data."},"403":{"description":"Admin access required."},"404":{"description":"User not found."},"423":{"description":"The user's data stays locked until their next login."},"500":{"description":"Failed to export user data."}}}
+>
+  
+</StatusCodes>
+
+
+      

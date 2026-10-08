@@ -1,21 +1,45 @@
+@import "@fontsource-variable/inter";
 @import "@fontsource-variable/jetbrains-mono";
 
+/* Colors from the app (src/ui/index.css in Termix). Keep them in step. */
 :root {
-  --ifm-font-family-base:
-    "JetBrains Mono Variable", "JetBrains Mono", monospace;
-  --ifm-font-family-monospace:
-    "JetBrains Mono Variable", "JetBrains Mono", monospace;
-  --ifm-heading-font-family:
-    "JetBrains Mono Variable", "JetBrains Mono", monospace;
-  --ifm-font-size-base: 14px;
-  --ifm-code-font-size: 90%;
-  --ifm-h1-font-size: 1.8rem;
-  --ifm-h2-font-size: 1.35rem;
-  --ifm-h3-font-size: 1.1rem;
-  --ifm-h4-font-size: 0.95rem;
-  --ifm-h5-font-size: 0.85rem;
+  --accent-brand: #f59145;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.1802 0.0043 128.73);
+  --card: oklch(1 0 0);
+  --muted-foreground: oklch(0.44 0 0);
+  --border: oklch(0.922 0 0);
+  --surface: oklch(0.97 0 0);
+  --surface-dim: oklch(0.945 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --warning: oklch(0.795 0.162 86.05);
 
-  /* Orange accent — replaces zinc primary and blue hover */
+  /* Names the page CSS modules use. */
+  --bg-base: var(--background);
+  --bg-elevated: var(--card);
+  --bg-surface: var(--surface);
+  --bg-surface-hover: var(--surface-dim);
+  --border-base: var(--border);
+  --border-medium: oklch(0.88 0 0);
+  --foreground-secondary: oklch(0.35 0.004 128.73);
+  --foreground-subtle: var(--muted-foreground);
+
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-mono:
+    "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  --ifm-font-family-base: var(--font-sans);
+  --ifm-font-family-monospace: var(--font-mono);
+  --ifm-heading-font-family: var(--font-sans);
+  --ifm-font-size-base: 15px;
+  --ifm-line-height-base: 1.7;
+  --ifm-code-font-size: 88%;
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.4rem;
+  --ifm-h3-font-size: 1.12rem;
+  --ifm-h4-font-size: 1rem;
+  --ifm-heading-font-weight: 650;
+
   --ifm-color-primary: #f59145;
   --ifm-color-primary-dark: #f37e25;
   --ifm-color-primary-darker: #e86f15;
@@ -24,214 +48,437 @@
   --ifm-color-primary-lighter: #f8b07d;
   --ifm-color-primary-lightest: #fbd0b0;
 
-  /* Light mode surfaces */
-  --ifm-background-color: oklch(1 0 0);
-  --ifm-background-surface-color: oklch(0.97 0 0);
-  --ifm-navbar-background-color: oklch(1 0 0);
-  --ifm-footer-background-color: oklch(0.97 0 0);
-  --ifm-card-background-color: oklch(1 0 0);
+  --ifm-background-color: var(--background);
+  --ifm-background-surface-color: var(--background);
+  --ifm-navbar-background-color: var(--background);
+  --ifm-footer-background-color: var(--surface);
+  --ifm-card-background-color: var(--card);
+  --ifm-font-color-base: var(--foreground);
+  --ifm-color-emphasis-300: var(--border);
+  --ifm-toc-border-color: var(--border);
+  --ifm-hr-border-color: var(--border);
+  --ifm-table-border-width: 0;
+  --ifm-table-border-color: var(--border);
+  --ifm-table-stripe-background: transparent;
+  --ifm-table-head-background: transparent;
+  --ifm-table-head-font-weight: 600;
 
-  /* Shape — sharp corners everywhere */
   --ifm-global-radius: 0px;
   --ifm-button-border-radius: 0px;
   --ifm-card-border-radius: 0px;
-  --radius: 0px;
-
-  /* Elevation via border, not shadow */
+  --ifm-code-border-radius: 0px;
+  --ifm-pagination-nav-border-radius: 0px;
+  --ifm-alert-border-radius: 0px;
+  --ifm-badge-border-radius: 0px;
   --ifm-global-shadow-lw: none;
   --ifm-global-shadow-md: none;
   --ifm-global-shadow-tl: none;
 
-  /* Scrollbar */
+  --ifm-navbar-height: 3.5rem;
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-link-color: var(--muted-foreground);
+  --ifm-navbar-link-hover-color: var(--foreground);
+  --ifm-menu-color: var(--muted-foreground);
+  --ifm-menu-color-active: var(--foreground);
+  --ifm-menu-color-background-active: transparent;
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-link-padding-vertical: 0.32rem;
+  --ifm-menu-link-padding-horizontal: 0.75rem;
+  --ifm-link-color: var(--accent-brand);
+  --ifm-link-hover-color: var(--accent-brand);
+  --ifm-link-hover-decoration: underline;
+  --ifm-container-width-xl: 1320px;
+  --doc-sidebar-width: 270px;
+
   --ifm-scrollbar-size: 6px;
   --ifm-scrollbar-track-background-color: transparent;
   --ifm-scrollbar-thumb-background-color: oklch(0 0 0 / 20%);
   --ifm-scrollbar-thumb-hover-background-color: oklch(0 0 0 / 35%);
-
   --ifm-hover-overlay: oklch(0 0 0 / 0.04);
   --docusaurus-highlighted-code-line-bg: oklch(0 0 0 / 0.08);
-
-  /* Semantic tokens used by CSS modules */
-  --bg-base: oklch(1 0 0);
-  --bg-elevated: oklch(1 0 0);
-  --bg-surface: oklch(0.97 0 0);
-  --bg-surface-hover: oklch(0.94 0 0);
-  --border-base: oklch(0.922 0 0);
-  --border-medium: oklch(0.88 0 0);
-  --foreground: oklch(0.1802 0.0043 128.73);
-  --foreground-secondary: oklch(0.35 0.004 128.73);
-  --foreground-subtle: oklch(0.556 0 0);
 }
 
 [data-theme="dark"] {
-  --ifm-color-primary: #f59145;
-  --ifm-color-primary-dark: #f37e25;
-  --ifm-color-primary-darker: #e86f15;
-  --ifm-color-primary-darkest: #c45a0c;
-  --ifm-color-primary-light: #f7a466;
-  --ifm-color-primary-lighter: #f8b07d;
-  --ifm-color-primary-lightest: #fbd0b0;
+  --background: oklch(0.155 0.004 128.73);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.185 0.004 128.73);
+  --muted-foreground: oklch(0.7 0 0);
+  --border: oklch(1 0 0 / 11%);
+  --surface: oklch(0.185 0.004 128.73);
+  --surface-dim: oklch(0.21 0.004 128.68);
+  --sidebar: oklch(0.155 0.004 128.73);
+  --destructive: oklch(0.704 0.191 22.216);
+  --warning: oklch(0.852 0.156 91.94);
 
-  /* Green-tinted dark surfaces matching new app */
-  --ifm-background-color: #0e0f0d;
-  --ifm-background-surface-color: #181917;
-  --ifm-navbar-background-color: #181917;
-  --ifm-footer-background-color: #0e0f0d;
-  --ifm-card-background-color: oklch(0.21 0.004 128.68);
+  --border-medium: oklch(1 0 0 / 18%);
+  --foreground-secondary: oklch(0.82 0 0);
+  --bg-surface-hover: oklch(0.255 0 0);
 
-  --ifm-hover-overlay: oklch(1 0 0 / 0.05);
-  --ifm-scrollbar-track-background-color: transparent;
   --ifm-scrollbar-thumb-background-color: oklch(1 0 0 / 20%);
   --ifm-scrollbar-thumb-hover-background-color: oklch(1 0 0 / 35%);
+  --ifm-hover-overlay: oklch(1 0 0 / 0.05);
   --docusaurus-highlighted-code-line-bg: oklch(1 0 0 / 0.08);
-
-  --bg-base: #0e0f0d;
-  --bg-elevated: #181917;
-  --bg-surface: #181917;
-  --bg-surface-hover: #222320;
-  --border-base: oklch(1 0 0 / 12%);
-  --border-medium: oklch(1 0 0 / 18%);
-  --foreground: oklch(0.985 0 0);
-  --foreground-secondary: oklch(0.82 0 0);
-  --foreground-subtle: oklch(0.72 0 0);
 }
 
 html,
 body {
-  font-family: "JetBrains Mono Variable", "JetBrains Mono", monospace;
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
 }
 
-[data-theme="dark"] body {
-  background-color: #0e0f0d !important;
-}
-
-.theme-doc-sidebar-container {
-  background-color: var(--ifm-background-surface-color) !important;
-}
-
+/* Navbar */
 .navbar {
-  box-shadow: none !important;
-  border-bottom: 1px solid var(--border-base);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.25rem;
 }
 
-.footer,
-.footer--dark {
-  background-color: #0e0f0d !important;
-  border-top: 1px solid var(--border-base);
-  color: oklch(0.72 0 0) !important;
+.navbar__title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-.footer--dark .footer__title,
-.footer--dark .footer__link-item,
-.footer--dark .footer__copyright {
-  color: oklch(0.72 0 0) !important;
+.navbar__logo {
+  height: 1.5rem;
 }
 
-.footer--dark .footer__link-item:hover {
-  color: oklch(0.985 0 0) !important;
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0 0.75rem;
 }
 
-[data-theme="light"] .footer,
-[data-theme="light"] .footer--dark {
-  background-color: oklch(0.97 0 0) !important;
-  color: oklch(0.35 0 0) !important;
+.navbar__link--active {
+  color: var(--foreground);
 }
 
-[data-theme="light"] .footer--dark .footer__title,
-[data-theme="light"] .footer--dark .footer__link-item,
-[data-theme="light"] .footer--dark .footer__copyright {
-  color: oklch(0.35 0 0) !important;
+.navbar-github-link {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
-[data-theme="light"] .footer--dark .footer__link-item:hover {
-  color: oklch(0.1802 0.0043 128.73) !important;
+.navbar-github-link::before {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3'/%3E%3C/svg%3E")
+    no-repeat center / contain;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--ifm-scrollbar-thumb-background-color) transparent;
+/* Sidebar */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--border) !important;
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.menu {
+  padding: 1.25rem 0.75rem !important;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
-*::-webkit-scrollbar-track {
+.menu__link {
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+}
+
+.menu__link:hover {
+  color: var(--foreground);
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  border-left-color: var(--accent-brand);
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* Top level groups read as plain section labels. */
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.theme-doc-sidebar-item-category-level-1 {
+  margin-top: 0.35rem;
+}
+
+.menu__list .menu__list {
+  margin-left: 0.75rem;
+  padding-left: 0;
+  border-left: 1px solid var(--border);
+}
+
+.menu__list .menu__list .menu__link {
+  margin-left: -1px;
+}
+
+.menu__list-item-collapsible:hover {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--ifm-scrollbar-thumb-background-color);
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  background-size: 1.1rem 1.1rem;
+  opacity: 0.6;
+}
+
+/* Content */
+.theme-doc-markdown {
+  max-width: 820px;
+}
+
+.markdown h1 {
+  margin-bottom: 1rem;
+}
+
+.markdown h2 {
+  margin-top: 2.5rem;
+}
+
+.markdown a {
+  text-underline-offset: 3px;
+}
+
+.markdown code {
+  border: 0;
+  background: var(--surface-dim);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.85em;
+}
+
+.markdown pre code {
+  background: transparent;
+  padding: var(--ifm-pre-padding);
+}
+
+div[class*="codeBlockContainer"],
+.theme-code-block {
+  border: 1px solid var(--border);
+  box-shadow: none !important;
+}
+
+/* Tables: rows separated by one line, nothing else. */
+.markdown table {
+  display: table;
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+  border: 0;
+}
+
+.markdown table thead tr {
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.markdown table tr {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent !important;
+}
+
+.markdown table th,
+.markdown table td {
+  border: 0;
+  padding: 0.55rem 0.9rem 0.55rem 0;
+  vertical-align: top;
+  text-align: left;
+  background: transparent;
+}
+
+.markdown table th {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.markdown table code {
+  white-space: nowrap;
+}
+
+.theme-admonition {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ifm-alert-border-color, var(--accent-brand));
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.theme-admonition-tip,
+.theme-admonition-note,
+.theme-admonition-info {
+  --ifm-alert-border-color: var(--accent-brand);
+}
+
+.theme-admonition-warning,
+.theme-admonition-caution {
+  --ifm-alert-border-color: var(--warning);
+}
+
+.theme-admonition-danger {
+  --ifm-alert-border-color: var(--destructive);
+}
+
+.tabs {
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs__item {
   border-radius: 0;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.9rem;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-  background-color: var(--ifm-scrollbar-thumb-hover-background-color);
+.tabs__item--active {
+  border-bottom-color: var(--accent-brand);
+  color: var(--foreground);
 }
 
-article a:not(.pagination-nav__link):not(.breadcrumbs__link) {
-  color: var(--foreground) !important;
-  text-decoration: underline !important;
+.pagination-nav__link {
+  border: 1px solid var(--border);
 }
 
-article a:not(.pagination-nav__link):not(.breadcrumbs__link):hover {
-  color: var(--ifm-color-primary) !important;
+.pagination-nav__link:hover {
+  border-color: var(--accent-brand);
 }
 
-[data-theme="dark"]
-  article
-  a:not(.pagination-nav__link):not(.breadcrumbs__link) {
-  color: var(--foreground) !important;
+/* Right hand table of contents */
+.table-of-contents {
+  font-size: 0.8rem;
 }
 
-[data-theme="dark"]
-  article
-  a:not(.pagination-nav__link):not(.breadcrumbs__link):hover {
-  color: var(--ifm-color-primary) !important;
+.table-of-contents__link {
+  color: var(--muted-foreground);
 }
 
-.openapi-explorer__request-btn {
-  background-color: var(--bg-surface) !important;
-  color: var(--foreground) !important;
-  border: 1px solid var(--border-base) !important;
-  padding: 0.5rem 1rem !important;
+.table-of-contents__link--active,
+.table-of-contents__link:hover {
+  color: var(--foreground);
+}
+
+.theme-doc-breadcrumbs {
+  margin-bottom: 0.75rem;
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__link {
+  font-size: 0.8rem;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  margin: 0 0.35rem;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: var(--surface) !important;
+  font-size: 0.875rem;
+}
+
+.footer__title {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.footer__link-item {
+  color: var(--foreground);
+}
+
+.footer__copyright {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.button {
+  border-radius: 0;
+  font-weight: 600;
+}
+
+/* Search box from docusaurus-search-local. */
+.navbar__search-input,
+[class*="searchBar"] input {
   border-radius: 0 !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  text-transform: uppercase !important;
-  font-size: 12px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
 }
 
-.openapi-explorer__request-btn:hover {
-  background-color: var(--bg-surface-hover) !important;
-  border-color: var(--ifm-color-primary) !important;
+[class*="dropdownMenu"],
+[class*="searchResultItem"] {
+  border-radius: 0 !important;
 }
 
-.openapi-explorer__request-btn:active {
-  background-color: var(--border-base) !important;
+/* API pages (docusaurus-theme-openapi-docs). */
+.api-method > .menu__link {
+  align-items: center;
+  justify-content: start;
 }
 
-article .cardContainer,
-article .card.padding--lg {
-  display: none !important;
+.api-method > .menu__link::before {
+  width: 42px;
+  min-width: 42px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
 }
 
-/* Force doc content background to match app theme */
-[data-theme="dark"] div[class*="docMainContainer"],
-[data-theme="dark"] div[class*="docItemContainer"],
-[data-theme="dark"] div[class*="docRoot"],
-[data-theme="dark"] div[class*="docsWrapper"],
-[data-theme="dark"] main,
-[data-theme="dark"] article {
-  background-color: #0e0f0d !important;
+.get > .menu__link::before {
+  content: "get";
+  color: oklch(0.65 0.15 150);
 }
 
-[data-theme="dark"] .menu {
-  background-color: #181917 !important;
+.post > .menu__link::before {
+  content: "post";
+  color: var(--accent-brand);
 }
 
-/* Hide the external link icon on navbar links */
-.navbar__link--no-external-icon svg[class*="iconExternalLink"] {
-  display: none;
+.put > .menu__link::before {
+  content: "put";
+  color: oklch(0.65 0.13 250);
+}
+
+.patch > .menu__link::before {
+  content: "patch";
+  color: oklch(0.65 0.13 250);
+}
+
+.delete > .menu__link::before {
+  content: "del";
+  color: var(--destructive);
+}
+
+.openapi-explorer__request-btn,
+.openapi-explorer__response-btn {
+  border-radius: 0 !important;
+}
+
+@media (max-width: 996px) {
+  .navbar {
+    padding: 0 0.5rem;
+  }
+
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.markdown table thead,
+.markdown table thead tr {
+  background: transparent !important;
+}
+
+/* Code blocks use the site's surface, not the syntax theme's own. */
+.theme-code-block,
+.theme-code-block pre,
+div[class*="codeBlockContainer"] {
+  --prism-background-color: var(--surface) !important;
+  background: var(--surface) !important;
 }

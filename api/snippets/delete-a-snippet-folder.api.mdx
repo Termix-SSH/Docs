@@ -1,0 +1,69 @@
+---
+id: delete-a-snippet-folder
+title: "Delete a snippet folder"
+description: "Moves the folder's snippets to the root instead of deleting them."
+sidebar_label: "Delete a snippet folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFFv3DYM/isEX7YB6l1W9MlvKZIB6TagaFIEQ3AoGJt31s6WXJG+xDP83wfKvuTWLAMK7MmW9FH8Por8RqxYyuQ79TFggb/HAwtozbCNTcXpBwEJvutYBTTmgxSjgg+iTBXELVTcsPqws8N2hQ6VdoLFHV4vgbhx2FGilpWTnYzoLVdHWqPDQC1jMX8cJv7a+8QVFpp6dihlzS1hMaIOneFEkw87nKaNgaWLQVjs/O3ZmX3+qWfhsKiZuXK1wsnhu3/DX4UDNb4Co8GiK5wmhy1rHSsscA5HN1MvcN01/c6HN9T59bFM6zmVrEdTNKFD4XQ4Cu9TY3Hovsn7R+wT3HBq/SPMeDSBwmWfvA459p4pcTrvLfXdZnIjljHuPZ/uUOd/5eFp5+SKayvkXKnTi57qWqt2uNTb1jMI3fLzS0wtKRb44fbmBftrFvExgMY9BxAO1iC5WSxJTP4vMiTUTPYKJPA+XwoUqgzLgflVTiU9cZtVoZv7ZoY8d86fD/oqow+3NzDjQViBFMTvwhsfVnBbc4AusdF14BWU9iy2U3LFoWSIB06vqshsT8v93ZU8/3gFex5AlFIeoAevNWj7+OWFnCfo95d2z4ODh9qX9ZxIntOs4EqBShULW7AQH8ISXVIIMQPsnMIQAwM3wvNU+LCNWbXXhp9HTeD84xU6tJafyf+8OludvXwhOnBOWsa2pVAJDLGH1AeIW+WQGdjKXMUkE6iNR6AGYoIYoKUwQB1FxY6NW9n4cp/fpYuiLQWjtzTJRR5doKOdLY7wLS2bqaAc9P/ywrkllB913TXkg7HLJjAuJnKHzyZiXXM0TYeLkaDDIovYODS5FjKO9yT8OTXTZNtfe07mERuHB0qe7u1B7kasvNh/hcWWGuH/0Prjp8V3f4LXWB9nMdggHqjpbYUO9zwc7XvanLrlxeVvlzeXOE1/A/FWNNU=
+sidebar_class_name: "delete api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a snippet folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/snippets/folders/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Moves the folder's snippets to the root instead of deleting them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet folder deleted."},"400":{"description":"Invalid request."}}}
+>
+  
+</StatusCodes>
+
+
+      

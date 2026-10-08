@@ -1,0 +1,69 @@
+---
+id: start-stop-restart-pause-or-unpause-a-container
+title: "Start, stop, restart, pause or unpause a container"
+description: "Runs the container action on the session's host."
+sidebar_label: "Start, stop, restart, pause or unpause a container"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXBvLQBNpJTpC98cxsUcYqiRqTCKAyhWJNjcStyltkdWlYJ/nswu9TFcZzCQZAnksO5nLmdGbCiWAbXifOMBb7vOYLUBKVnsY4pgC31H3hO8kgxOs8/RKh9lBkaFLuOWFzjG19uKODKYGeDbUkoqHxAp447KzUaZNsSFjh5uajQYKAPvQtUYSGhJ4OxrKm1WAwouy4pS3C8xnE0n/V1QPpNvOVsn+HIIHHfagGi2CBoMIrvkoO9oLN9JDTYc35bjeMq/e88R4rq86ezM308bMaypn31g+UZjgZff05vsXi77wuwF7j1PVfgQ/ooPTOVQtVk//qx/a+HXh+sjZpbhp437Lc8wUgufv4fqLfWNSnaaLAlqX2lRfYxV0JqLHDeNf3a8UvbuXmVxmZ+6GKcD4fpGOfDSXfH+ZBDjFpkCnf7AetDo07RfALqb98HWFJo3T1kfdTCRyr74GSXbG/IBgrnveK6XulQlN5vHJ1KbOd+p91BcuJioUORO3jq6DAjtYiOQpod/c5KaKaX33xorWCB766Wj9Avpo6K3xBDJBZweQc1iA/uP5vqXZOtdE0j/JKcguUqqSXD1LLTlA7YclZo8hZkleMe/LuVJxG9u1pC1odIAlYgujW/dDyDq5oYukAK14ATELuhqJKSKuKSwN9ReDKLhPa03M+u5PnlBWxoB2n3HK9h66QGae//eZTOQfX5pd3QzsC2dmWdA8VjmBlciK5CVLNJF/yWJ+vSsi6ZLUX/W955JqAmUl4Yx7c+Ze2k0TQzqcL55QUa1IHP0F/NzmZnjxL6w7JdE0w2Gu3SV63lI5lHpfGdroWyd8zNWCzemoy/8etoNCNFzxVYtYy+odQX3eHWssKbhmShuauB7wxMfGcgkZzyx8R32U0G8CnmIdE3sXzl7cnDIXQv866xjhVnooNh4pprPHKNBs9HyhyvRkSDxek9Kh4elGK6CCuDGlU9DsONjfRXaMZRxR96CkomK4N3Njh7o527HrByUd8rLG5tE+kLmf/4fjo2L+CppPZLy7qxd7bp9QsNbmj34J4qX33HwKe1+s6hp76Mq9M7c/nnYonj+BGnegf6
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start, stop, restart, pause or unpause a container"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs the container action on the session's host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","stop","restart","pause","unpause"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found, or an unknown action."},"500":{"description":"The action failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

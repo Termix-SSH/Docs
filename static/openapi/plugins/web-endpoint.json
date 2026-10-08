@@ -1,0 +1,157 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Web Endpoint API",
+    "version": "1.0.0",
+    "description": "Open a host's web UI inside Termix, directly or over an SSH tunnel."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/web-endpoint/open": {
+      "post": {
+        "summary": "Open a tunnel to a host's web endpoint",
+        "description": "For endpoints reached through SSH. Returns the local port the tunnel listens on.",
+        "tags": [
+          "Web Endpoint"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "endpointId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "endpointId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The local port."
+          },
+          "400": {
+            "description": "Invalid request",
+            "or the endpoint does not use a tunnel.": null
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "404": {
+            "description": "Host or endpoint not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/web-endpoint/open-window": {
+      "post": {
+        "summary": "Open a host's web endpoint in a desktop window",
+        "tags": [
+          "Web Endpoint"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "endpointId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "endpointId": {
+                    "type": "string"
+                  },
+                  "ignoreCert": {
+                    "type": "boolean",
+                    "description": "Accept a self-signed certificate for this window."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The window opened."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "404": {
+            "description": "Host not found or access denied."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

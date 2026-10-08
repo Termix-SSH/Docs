@@ -1,0 +1,489 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Proxmox API",
+    "version": "1.0.0",
+    "description": "Import Proxmox VE guests as hosts, keep them in sync and watch node stats."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/proxmox/stats/{id}": {
+      "get": {
+        "summary": "Get cached Proxmox node stats for a host",
+        "description": "Returns the most recently polled Proxmox stats snapshot for a host, or an empty skeleton if none has been collected yet.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proxmox stats snapshot."
+          },
+          "404": {
+            "description": "Stats not available yet."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/stats/start/{id}": {
+      "post": {
+        "summary": "Start Proxmox stats collection",
+        "description": "Registers a viewer and starts (or reuses) polling for a host's Proxmox node stats.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Polling started, snapshot returned if already available."
+          },
+          "403": {
+            "description": "Proxmox stats is not enabled for this host."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/stats/stop/{id}": {
+      "post": {
+        "summary": "Stop Proxmox stats collection",
+        "description": "Unregisters a viewer session for a host's Proxmox node stats polling.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Polling stopped successfully."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/stats/heartbeat": {
+      "post": {
+        "summary": "Update Proxmox stats viewer heartbeat",
+        "description": "Keeps a Proxmox stats viewer session alive.",
+        "tags": [
+          "Proxmox"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Heartbeat updated."
+          },
+          "400": {
+            "description": "Invalid viewerSessionId."
+          },
+          "404": {
+            "description": "Viewer session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/stats/history/{hostId}": {
+      "get": {
+        "summary": "Get historical Proxmox node stats for a host",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1h",
+                "6h",
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of node history rows."
+          },
+          "400": {
+            "description": "Invalid range or date."
+          }
+        }
+      }
+    },
+    "/proxmox/sync": {
+      "post": {
+        "summary": "Sync Proxmox guests for a host",
+        "description": "Re-runs discovery for a Proxmox node and creates, updates or marks missing the imported guest hosts.",
+        "tags": [
+          "Proxmox"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sync result."
+          },
+          "400": {
+            "description": "Missing or invalid hostId."
+          },
+          "500": {
+            "description": "Sync failed."
+          }
+        }
+      }
+    },
+    "/proxmox/discover": {
+      "post": {
+        "summary": "Discover Proxmox guests on a node",
+        "description": "Connects to an existing SSH host (a Proxmox node) using its stored credentials, runs pvesh to enumerate all guests (VMs and LXC containers) in the cluster, and returns them ready to be imported as Termix hosts. No separate Proxmox API token is required.\n",
+        "tags": [
+          "Proxmox"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "number",
+                    "description": "ID of the SSH host that is a Proxmox node."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Discovered guests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "guests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "vmid": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "qemu",
+                              "lxc"
+                            ]
+                          },
+                          "node": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "connectionType": {
+                            "type": "string",
+                            "enum": [
+                              "ssh",
+                              "rdp"
+                            ]
+                          },
+                          "enableDocker": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "credentialId": {
+                      "type": "number",
+                      "nullable": true
+                    },
+                    "defaultCredentialId": {
+                      "type": "number",
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid hostId."
+          },
+          "401": {
+            "description": "Authentication required or session expired."
+          },
+          "403": {
+            "description": "Access denied to the host."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "422": {
+            "description": "Host is not a Proxmox node or is unreachable."
+          },
+          "500": {
+            "description": "Discovery failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/discover": {
+      "post": {
+        "summary": "Discover the guests on a Proxmox node",
+        "description": "Lists the node's VMs and containers so they can be added as hosts. /discover/stream reports the same with progress.",
+        "tags": [
+          "Proxmox"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The guests found."
+          },
+          "400": {
+            "description": "Missing or invalid hostId."
+          },
+          "403": {
+            "description": "Access denied to the host."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "422": {
+            "description": "Host is not a Proxmox node or is unreachable."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/import": {
+      "post": {
+        "summary": "Import discovered Proxmox guests as hosts",
+        "description": "Creates one host per entry, owned by the caller, and stores each entry's proxmox host settings (the guest's source) on the new host.\n",
+        "tags": [
+          "Proxmox"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hosts"
+                ],
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many hosts were created and which failed."
+          },
+          "400": {
+            "description": "No hosts given."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

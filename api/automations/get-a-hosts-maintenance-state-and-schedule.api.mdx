@@ -1,0 +1,69 @@
+---
+id: get-a-hosts-maintenance-state-and-schedule
+title: "Get a host's maintenance state and schedule"
+description: "Get a host's maintenance state and schedule"
+sidebar_label: "Get a host's maintenance state and schedule"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20gM/SsEL+0CU9u76Ek3F9gW6V6K1ougCIyCkRhr1tKMOqTsqIL+e0FJsZ16e8hJoxE/Hvn4qB6VdoLZHa5bjTWpj0Fw67ChRDUrJ/vYow+YYUNaosNANWOGZRS9KdBh4u+tT1xgpqllh5KXXBNmPWrXmKUPyjtOOAxbs5YmBmExg79WK3sULHnyjSXHDDclA+XqDwxHH4p4RIf+ASh0mIW2qhxSKEBLhqaiELiAGFgWEI929gIPVAlDDEBgIEFKSlzA0Ws5uuVUVZwWU7TB4dvV22sU68n3bA85hRAVhHmBw+B+sf/AOud7JVCT1Rwo5AyipAwG2RpTtBWjw5q1jAVmuGNFN3U2w2VTtTsf3lDjl3TmY3kRbtlPfR/QoXA6PBHUpsoC4K+wvsY2wYZT7R9hskdjQThvk9du9L1nSpzWrWG42w6uxzzGvefLG2r8P9ydbi5CfDG6JzovA53YL1UbnKfC3icjdPPhfUw1KWb48XZzhf4Li/gYQOOeAwgHBR9GTixJTP7H2CEomQpOQALvxqDwNCGj4wIH96ykE7apKpsvyzaZnCf8v6P+FtHH2w1M9iDGvIL4XXjjwwJuSw7QJDa4DryC0p7FbnIu2EYiHjj9tooR7WW7X9zJ9acb2HNnk5fUh908+fXjt6tyTqYvb+2eOwfH0ufllEjOaRZwoyZhMbfZdpTn5D0LiXK17xS6GBi4kllXPjzEsWqvlZV5sZlg/ekGHdrUT/j/XKwWq6uqPrcBRLkRWwKdKcBEI9NKeFIhxARHo0qiqdH6VFLTcJCRgSaK1hQMyDwOL1P4M0QnCpUfddlU5IPlGEXbz+q/w7P60eGF/m1fnNOhw2zevVs3bmHz7ft7Ev43VcNg199bTiburcMDJU/31sm7Hgsvdi4wG5fkFcw8Whobotef57X+B6D7f/hPIgqmoANVrb2hwz135//DsB0u1t2Hvzc4DD8BHR07Sg==
+sidebar_class_name: "get api-method"
+info_path: api/automations/automations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a host's maintenance state and schedule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/automations/maintenance/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a host's maintenance state and schedule
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The active window","if any":null,"and the planned ones. owned is false on a host shared with the caller.":null},"404":{"description":"A host the caller cannot see."}}}
+>
+  
+</StatusCodes>
+
+
+      

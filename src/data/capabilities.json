@@ -1,0 +1,176 @@
+[
+  {
+    "id": "credentials:read",
+    "risk": "critical",
+    "title": "See your passwords and keys",
+    "consequence": "It can read the stored secret for any host you can reach."
+  },
+  {
+    "id": "system:tls",
+    "risk": "critical",
+    "title": "Manage certificates",
+    "consequence": "It can replace the certificate Termix serves over HTTPS and answer domain checks from certificate authorities."
+  },
+  {
+    "id": "ssh:connect",
+    "risk": "high",
+    "title": "Run commands on your servers",
+    "consequence": "Any command, on hosts you connect it to, with your access."
+  },
+  {
+    "id": "process:spawn",
+    "risk": "high",
+    "title": "Run programs on this machine",
+    "consequence": "Programs run on the Termix server itself, not on your hosts."
+  },
+  {
+    "id": "users:write",
+    "risk": "high",
+    "title": "Create and change user accounts",
+    "consequence": "It can add users and change their roles."
+  },
+  {
+    "id": "users:impersonate",
+    "risk": "high",
+    "title": "Act as other users",
+    "consequence": "Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log."
+  },
+  {
+    "id": "db:core-refs",
+    "risk": "high",
+    "title": "Read core account tables",
+    "consequence": "Can query users, roles and hosts directly from the database."
+  },
+  {
+    "id": "auth:provide",
+    "risk": "high",
+    "title": "Handle sign in",
+    "consequence": "It can add a login method, a second factor or an SSH sign-in type."
+  },
+  {
+    "id": "device:serial",
+    "risk": "high",
+    "title": "Access serial and USB devices",
+    "consequence": "It can open a physical serial port on the machine running Termix."
+  },
+  {
+    "id": "notify:hub",
+    "risk": "high",
+    "title": "Receive every alert",
+    "consequence": "Stores and delivers the alerts all plugins send, including their contents."
+  },
+  {
+    "id": "hosts:write",
+    "risk": "medium",
+    "title": "Create and change hosts",
+    "consequence": "It can add hosts and edit the ones you already have."
+  },
+  {
+    "id": "credentials:use",
+    "risk": "medium",
+    "title": "Connect to your servers",
+    "consequence": "It cannot see your passwords or keys."
+  },
+  {
+    "id": "credentials:write",
+    "risk": "medium",
+    "title": "Save new credentials",
+    "consequence": "It can add passwords and keys to your saved credentials."
+  },
+  {
+    "id": "network:outbound",
+    "risk": "medium",
+    "title": "Reach the internet",
+    "consequence": "It can send requests to outside services."
+  },
+  {
+    "id": "network:serve",
+    "risk": "medium",
+    "title": "Accept connections",
+    "consequence": "It opens a port on the Termix server."
+  },
+  {
+    "id": "network:broadcast",
+    "risk": "medium",
+    "title": "Send network broadcasts",
+    "consequence": "It can send packets to devices on the local network, such as a Wake-on-LAN signal."
+  },
+  {
+    "id": "users:read",
+    "risk": "medium",
+    "title": "See usernames and roles",
+    "consequence": "Never password hashes, never two factor state."
+  },
+  {
+    "id": "events:core",
+    "risk": "medium",
+    "title": "Watch everything happening",
+    "consequence": "Including activity from other users, not just yours."
+  },
+  {
+    "id": "notify:send",
+    "risk": "medium",
+    "title": "Send alerts",
+    "consequence": "To you or other users, and through the channels they set up."
+  },
+  {
+    "id": "audit:read",
+    "risk": "medium",
+    "title": "Read the audit log",
+    "consequence": "It can see who did what and when."
+  },
+  {
+    "id": "desktop:window",
+    "risk": "medium",
+    "title": "Open desktop windows",
+    "consequence": "Only in the Termix desktop app."
+  },
+  {
+    "id": "hosts:read",
+    "risk": "low",
+    "title": "See your host list",
+    "consequence": "Names and addresses for hosts you can already see."
+  },
+  {
+    "id": "db:own",
+    "risk": "low",
+    "title": "Store its own data",
+    "consequence": "Kept in its own tables, separate from other plugins."
+  },
+  {
+    "id": "kv:own",
+    "risk": "low",
+    "title": "Remember small settings",
+    "consequence": "Kept separate from other plugins."
+  },
+  {
+    "id": "files:own",
+    "risk": "low",
+    "title": "Store its own files",
+    "consequence": "In its own folder on disk, separate from other plugins."
+  },
+  {
+    "id": "secrets:own",
+    "risk": "low",
+    "title": "Store its own secrets",
+    "consequence": "Encrypted by Termix. The plugin never holds the key."
+  },
+  {
+    "id": "settings:read-core",
+    "risk": "low",
+    "title": "Read Termix settings",
+    "consequence": "Server settings, not your hosts or credentials."
+  },
+  {
+    "id": "plugins:read",
+    "risk": "low",
+    "title": "See installed features",
+    "consequence": "It can see which features are installed and running."
+  },
+  {
+    "id": "ui:surface",
+    "risk": "low",
+    "title": "Add its own screens",
+    "consequence": "Tabs, panels and settings you can hide later."
+  }
+]

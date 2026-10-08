@@ -1,0 +1,69 @@
+---
+id: rename-a-session
+title: "Rename a session"
+description: "Saved tags follow the session to its new name, for every user monitoring this host."
+sidebar_label: "Rename a session"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20YQ/SuDOTXAWlKLXMqbcyjgFEWNWIVRGEKwJkfiVuQuszMUxRL878VwKZmw4QI55CRy+ebjzc57GrAgzqNrxAWPGT7YExUg9sCwD1UVOpCSgInZBQ8SwAmDpw68rcnAPkSgE8UeWqYIdfBOQnT+AFI6hjKwrNCg5sPsCbd1e4Y/Egh3BhsbbU1CUb8O6LSDxkqJBjU/ZqgZ7go0GOlb6yIVmElsySDnJdUWswGlbxTpvNCBIo7jTtHcBM/ECvhls9GfV0RnSpG0UrHC0eDHzcf3gT4I7EPrL9Bf30Jvr4PqnJRpBJodbBXJFj3Q2bHwCsfRYE1ShkIJBxY0iXeG66ZqD87f2MatpW7PN/NM10MaxbhOHaNBpni6jK6NlQajedXS36GNsKVYuzMkPOp8mPI2Oumn2GeykeJtq/WfdqMZMA/h6Gh5Yhv3O/XXk0WKB72INOhlouu9lCINzvel7wmEZn74LcTaCmb4+XH7pvuH694dyQOTF3B+2kgtEqL71yoSSrIFRbAMn6akYH0xwabA6cKWlK69JVZo0uYlyMvu/dPJux19ftxCwgOTgBVgd/A3zq/gsSQPTSRt14ATEHsk1pOcCvI5QThRfJfF1O1y3N89ydv7OzhSDyw2imoxbWN9/vqGzhX6/aM9Um+gK11epkL8UmYFdwI2F9awGQuh83N0br2Kyeai363vgyegiikJw/l9mFg7qZTm0jTg9v4ODeraJwI/rzarzRtan2LomFKx4CWGClRLF3mygc75InQ8QRrricHmMTBDr4JRqfF0ESrO2nrtZ96KL5QkfUn2uriqxwt5+XFumtZB6CzrprLOa6OTAQyzizzhi4towMJH0GC2MNWJ1M5MPqtxw/Bsmf6K1Tjq8beWoprEzuDJRmef9UaeBiwc63OB2d5WTP8zgp++zMb9Ad5r/SJGr0o82arVNzR4pP7lH2DcLT3z/s+HLY7jf6g4Vf4=
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename a session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saved tags follow the session to its new name, for every user monitoring this host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session renamed."},"404":{"description":"Session not found."},"409":{"description":"A session with this name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

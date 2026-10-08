@@ -1,0 +1,69 @@
+---
+id: summarize-what-a-plugin-stores
+title: "Summarize what a plugin stores"
+description: "The plugin's tables with row counts, key/value count, stored settings per scope, applied migrations, capability grants and the size of its files folder. No values are returned."
+sidebar_label: "Summarize what a plugin stores"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu40YM/RWCl7bAVHa3ix50ywLbIltgETQugiIwCkairamlGS1JxfEa+vdiRopjrJsF9tiTpJnHId8b8umINWslvjcfA5a4ahj6dtj68J2C0UPLCntvDUjcQxWHYOpgx4fFI7UDTysO1KJwDcpmPmwVehbQKvbsgPq+9VxD57dCKYk6qKinB996O8BWKJgChRqsYVD/mSFuwJvCxqfkm9jWLAV8jJBTKpAwCNsggesCHRptFct7vMllK64d9iTUsbGkjSP6xKwna9BhoI6xRF+jQ+FPgxeusTQZ2KFWDXeE5RHt0CeUmviwxXFcJ7D2MShr2n+zXKbHpXY6dB3JocDR4dvlz/8NqqhtWaClaqdAdedDMWmuRUeBtjyHv70M/xhBh6qZ76jAcXTYsTWxxhK3bOgmoiUu5iMXR1+Pi5qM0KGyPD6rMkibYOi+SPFXHARWLJ1/ggmPib9yNYi3Q459YBKWqyFlul+P7ohVjDvP5yvU+9/5cFo5O+I26TwJeX7QSfbGrMf5OtL3BEI3v/wapSPDEj/crS6qv2VVHwNY3HEA5WDgQ+6tlCSK/5y7EBqmmgVI4V0+9NSCOTBfwDmlU20TK3RTU02Ql7b6Z2+vVvThbgUTPg0KkIH6bfjRhwLuGg7QC6dyHXgDox1rWqm45lAxxEeWV1nkas/l/mYlr26u01SDGkka4WnmrXv6+4LOCfrt0u744GDf+KqZEulLmgKuDahKVqDPWIj7MEdXFELMgLRP4RADA7fK0wT4sImZtbc20Zy79+rmGh2mhp9Kf/NL8dOyWF5QyjMZheElroD3dBozqGM1dJyMKhlT3AeQOBhrFr6Pah2FlH/ugttsAsnK9g0Z0PMx2Sb1y/RpdoJxsP+p/U6dZvxki74lH5Im2VuOsxXd42xF6LDMxpvdaO2wiWpp/3h8IOU/pR3HtPxpYEk+s3b4SOKTDNl1aq/pvcZyQ63yV3T8/o/Z2n+A10p8nueQhjlzwxLR4Y4P0/9hXJ9762/vVziO/wIDUHww
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Summarize what a plugin stores"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/data"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The plugin's tables with row counts, key/value count, stored settings per scope, applied migrations, capability grants and the size of its files folder. No values are returned.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The summary."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

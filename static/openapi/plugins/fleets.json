@@ -1,0 +1,583 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fleets API",
+    "version": "1.0.0",
+    "description": "Group hosts into fleets and run commands, package actions and file transfers on all of them at once."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/fleets": {
+      "get": {
+        "summary": "List the current user's fleets",
+        "tags": [
+          "Fleets"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of fleets with member counts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "tagRules": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}": {
+      "patch": {
+        "summary": "Update a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet updated."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a fleet",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleet deleted."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/members": {
+      "get": {
+        "summary": "List the resolved effective members of a fleet",
+        "description": "Returns the union of statically-added hosts and hosts matched by the fleet's tag rules, each annotated with the caller's permission level on that host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resolved member hosts."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a host to a fleet's static membership",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host added."
+          },
+          "404": {
+            "description": "Fleet or host not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/members/{hostId}": {
+      "delete": {
+        "summary": "Remove a host from a fleet's static membership",
+        "description": "Only removes the static membership row - a host still matched by the fleet's tag rules remains an effective member.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host removed."
+          },
+          "404": {
+            "description": "Fleet or membership not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/share": {
+      "post": {
+        "summary": "Share a fleet's current member hosts with users or roles",
+        "description": "Snapshot at share time - grants host access for every current member host to each target. Hosts added to the fleet later are not automatically shared; re-run this route to extend sharing to new members.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "permissionLevel": {
+                    "type": "string"
+                  },
+                  "durationHours": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fleet shared."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/share-targets/users": {
+      "get": {
+        "summary": "Users the caller may pick as a fleet share target",
+        "tags": [
+          "Fleets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users list."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/share-targets/roles": {
+      "get": {
+        "summary": "Non-system roles the caller may pick as a fleet share target",
+        "tags": [
+          "Fleets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles list."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/execute": {
+      "post": {
+        "summary": "Run a command across every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string"
+                  },
+                  "inputValues": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host execution results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/transfer/push": {
+      "post": {
+        "summary": "Push an uploaded file to the same remote path on every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host push results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/transfer/pull": {
+      "post": {
+        "summary": "Pull the same remote path from every host in a fleet",
+        "description": "Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>/<filename>).` Single file only (v1).",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "remotePath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zip archive containing the per-host pulled files, plus an X-Fleet-Transfer-Results header with the per-host JSON result summary."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/inventory": {
+      "get": {
+        "summary": "Read the last-known inventory snapshot for a fleet's members",
+        "description": "No live connection - reads back whatever the most recent POST refresh stored. Latest-only per host, no history.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stored inventory rows for current members."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Refresh the inventory snapshot for every host in a fleet",
+        "description": "Connects to every effective member host the caller has view-level access to, collects OS/kernel/arch/hostname/uptime, and overwrites the stored latest-only snapshot per host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-host refresh results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/fleets/{id}/packages": {
+      "post": {
+        "summary": "Run a package action across every host in a fleet",
+        "description": "Auto-detects each host's package manager (apt/dnf/yum/pacman) and runs install/remove/upgrade-all, elevating with the host's stored sudo password. Requires manage-level access per host.",
+        "tags": [
+          "Fleets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "install",
+                      "remove",
+                      "upgrade-all"
+                    ]
+                  },
+                  "package": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host package action results."
+          },
+          "404": {
+            "description": "Fleet not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

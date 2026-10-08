@@ -1,0 +1,68 @@
+---
+id: enroll-a-host-with-an-api-key
+title: "Enroll a host with an API key"
+description: "Creates a host owned by the user assigned to the API key. The user's encrypted data must be unlocked by an active sign-in."
+sidebar_label: "Enroll a host with an API key"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVktv2zgQ/iuDueyFdRJ304NuaZFi08WiwcaLYGEYC1qaWIwlUiVHtrWG/3sxpGKpsXPoqb5YGn7z4Dy+0R4LCrk3DRtnMcNPnjRTAA2lCwxua6mAZQdcErSBPOgQzEqE7KLw5v4O1tRNYNYjfgtANvddw1RAoVlD3QaGJUFrK5evkz1tQedsNgRi7p2xE1TIehUwm+Mf4vrWeldVNVnGhUJP31oK/NEVHWb7+Go8FZixb0lh7iwLMtujbprK5Fruc/Ec5FJ7DHlJtZYn7hrCDN3ymXJGNTI0R9OIp8a7hjwbCoK3uqaRXmBv7AoPSsDnxI3zPDowlmlFHhXWxpq6rTG7UljrXXr+cH39/lphQU+6rRiz6fSgUJL4plvdcjmLwteHCsmKzTlaZwkVNjqErfMFKlxThwpzTwVZNrpChXrVZ/boPOkdRornAnhyVUH+7FEq3x6dpa9PmM1PIUeJ9l5LSIapDmeMHRaH+JMChcbZkKoxvbyUvx9bNnYLxW6hAkKb5xTCU1tV3USi+v2czp3d6MoUqcmlSXvo1Sn0LxOCsStwHkyv9dLzUWf6/lRnNgzGGzNhAqRhiEauz8X4WZsqzVm6XBw3CXiCkpiauHQFZti4wLHcXGKGF4K4SBqoMJDfkA+xGq2vBIDqlaN/XethRr42O0h4PCxENW+94S7qLkl78jet+JgvpJK5c2tDY4luzJ/UHSUjEw8yf6mEY0PHspfMjQQbYZj1IFT9w2fnay0d+uVxdhL9A4VgnAV2a7IQyDIYm6ip5dJ583/kAihJF5G/4GM0CtoWERYVYxnGVxpaNd5KelW8JQiqnhjwectvRvTlcQYJD4EYNB+5Dh5LstB4knAVGAbWawoiyWVGcwK3If/mLWK043T/dCZfujOw9iztvTVcAte7/06uc4T+fGrX1CnYliYvk6MwuJnAHcsKCKLWY+O6Sdq5ttZFgJxr2zlLQFWg1PxC7H8PK+F2p+umooGwB1IUnh7eEj1Pp2OWHU4Hcj3h0BHqhQEHSSK+8XKwTy4WxbBEhf1w3dzfoUKZx5TZ6YfJ1eXk8iTjQh+58wSD3gRudV5CU7UrY6FweSubMYDhIFkD71qmMEkrKHCt7SgZaZW+7PRYAm1fCOq19/2wTH/x10CqBNOOL5pKGyuXixy278lujmXivp7uFioJsjnu90sd6B9fHQ4i/taSFyJbKNxob/RSyiKshal3I8dJMjL8lG7/LjaCwKs20cCrzwrhtyMH3399EGZa9p8ntStEx+utfGLoLWaICl3McGTBKNtjpe2q1atIJNGm/L4DIQNGnQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enroll a host with an API key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/enroll"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a host owned by the user assigned to the API key. The user's encrypted data must be unlocked by an active sign-in.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["ip"],"properties":{"name":{"type":"string"},"ip":{"type":"string"},"port":{"type":"integer","minimum":1,"maximum":65535,"default":22},"username":{"type":"string"},"authType":{"type":"string","enum":["none","password","key","credential","agent"],"default":"none"},"password":{"type":"string"},"folder":{"type":"string"},"tags":{"oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host enrolled successfully."},"400":{"description":"Invalid host data."},"401":{"description":"Missing or invalid API key."},"423":{"description":"The API key user's encrypted data is locked."},"500":{"description":"Failed to enroll the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

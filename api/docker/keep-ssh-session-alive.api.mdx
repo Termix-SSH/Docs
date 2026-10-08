@@ -1,0 +1,68 @@
+---
+id: keep-ssh-session-alive
+title: "Keep SSH session alive"
+description: "Resets the idle timeout of the caller's Docker SSH session."
+sidebar_label: "Keep SSH session alive"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v2zgQ/SuDufTC2GmxJ93Sdhd1i2KDOkWwCIwFLU0kxhKpckZxVMH/fTGkv5qgCxTVwZaHb8g3bzjPE1bEZXS9uOCxwC/EJAzSELiqJRDXURgEwn2KlbZtKb5ieB/KDUVYLj8AE7MLfoYGxdaMxR3mVVwZjPRtIJa3oRqxmNJPF6nCQuJABsvghbzoku371pVWecwfWMlMyGVDndU3GXvCAsP6gUpBg30MPUVxxAmXKSyqMyhLdL7GXXqUCPfBc8a/ubzUrx9LX+ZNYEPU29Y9EvBQlsR8P7Qz3Bn84/+yFu/BMRzqgxAPuoAPAvdh8NUMlUhH0oQKC+wDp0qsNFjgvG+H2vkL27t5leSbMzfzIxk0yBQfKarAEw6x1SQ0z+j8E4YINxQ79wQZj7uVppZDdDKm3DXZSPFq0HPvVjszYRnCxtF5xPbuE43HyNkWS+1JlvF8o6PujUivZBMMiz0Izf7lrxA7K1jgx9ubF+wPYkrYkAcmL+B8unh6SIjue7of0JCtKIJleJs2BeurBEuJqVnnJR255arQoNPTMgQNepuYPmzlp4w+3t5AxgOTgBVgV/sL52dw25CHPpLSNeAExG6INVJSRb4kCI8Uf1pFYnsu9y8reXW9gA2NwGKjOF/D1kkD0j39+6KcI/TXpd3QaGDbuLLJB/HpmBksBGwprGl7LISt32eX1usM2FJ03foxeAJqmfJA6LB/OdnEn0+261t6NtbHcdbe3YekkhOF7c0Grq4XaFAHJJf6enY5u3whwGfrbU0H+1J216HqrAd1Ius8RYbgYdQxagIL5+Ytlx9MrrcNNRtVQKv1FVjN5NBS6qPOdGeTd+0v1Sei/twm4TDNP/CaTk74uxac747Qk8z71jqvtJJbTHurucOT1SiP7NUGmRs0eDKclUFVQBOmaW2ZvsZ2t9Pwt4GiWsnK4KONzq61D+obmG9PcpkNjVjgu1zWxY3SUng75EF8ZvbqMEdnvP57qd6w3v9pdKHSnGi3aNJngWgwJOmSD6XYhK319WDrNMppT33+Az+oYec=
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep SSH session alive"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/ssh/keepalive"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Resets the idle timeout of the caller's Docker SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session keepalive successful."},"400":{"description":"Session ID is required or session not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

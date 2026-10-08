@@ -1,0 +1,60 @@
+---
+id: get-the-current-users-effective-role-permissions
+title: "Get the current user's effective role permissions"
+description: "Returns the permission strings granted to the authenticated user through their roles, plus whether they are an admin. The frontend uses this to hide UI a user could not use. It is not a security boundary: every protected route checks again server side."
+sidebar_label: "Get the current user's effective role permissions"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVMGO20YM/RWCl15UrxMUOei2CdJgU6AIEgeLYrMoxiOuZmprRiEpe1VD/15w5Owqu+0h955sUY/k4xP5TtiQeI69xpywxo+kAycBDQQ9cRdFYk4gyjG1Ai27pNSA5oJwgwZKGr2z4CDEoIHz0AZ7HRk470kq6PeDwDGQhoKgERwTuASu6WJawSYQ3HFOSqmUsf5RrEuIDcHnK3BzdZ+HfQMpqz2u4EohSnl0IOQHjjrCNg+pcTzWQAfiEXrOSt4Ich6UwAfyOwHXuphAiA/EILGh1ZeEFaprBesb/Pj68g3eVsgkfU5CgvUJX67X9vO9ZEbeD8yUCiv+SRbKyQqnCn9Zv3ie97vRXgq4wmmqsCMNucEaW1KssHcasMYL3jp/sah70RFWONM3wicceG9ArJ70+SMPDBvLvD+Pi9Otpc56ldwtOSa+HKzXze1UndDnvIu0jLg+/kbjQ2RR4pMP1M0KLQudUMeesMag2hvZAsP6DMLq/OfXzJ1TrPH99eYZ+080b6DmHdnnSgoxleWzJpnj386QEMg1xOAEXpei4FJTYCWxfIXlSA/c5qmwwmjdZghWmFxh+tdR/5PR++sNzHgQUnAKEtv0s+3zdaAEPZPRrSAqqNuRWMRTQ8kT5MN8Cf86RWG7lPuHlbz8cAU7GkHUscbUwjFqAO3u/3w2zgP0x6Xd0VjBMUQf5kby2KbcpvMqlnbGQj6mc7Z3qVytV3vv0pgTAe2F5huI6S6XqaPubczz9l5+uMIKbeFn6i9frV6sV+tnI5WLzEzwmLeCt84HM6I2JmiyHzpKKhBVjNZsDfOx9lm0c8n6n7fgHWmZ4cmV090deY0HKja3PPqnjOyczNz0f4etvq2y0r1e9HsXk4lezOt0drsbNLcz8/tO0o7MkEMWNcjptHVCn3k/TRb+OhCbl91WeHAc3dYWx4zr0VDfvd3gNP0DM8dvOA==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the current user's effective role permissions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rbac/permissions/me"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the permission strings granted to the authenticated user through their roles, plus whether they are an admin. The frontend uses this to hide UI a user could not use. It is not a security boundary: every protected route checks again server side.
+
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The current user's permissions."},"401":{"description":"Not authenticated."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,59 @@
+---
+id: get-preferences-for-the-current-user
+title: "Get preferences for the current user"
+description: "showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are legacy fields, kept here read-only for backward compatibility; the authoritative copy is GET /host-sidebar/preferences."
+sidebar_label: "Get preferences for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v4zYQ/SsDXnJRnHQPPbgnb5Bms9s2QeM0KIKgGFFjiTFFsuQojtbwfy+Gcm3XyQLaa3OJTL75nnmctaoo6WgCG+/UVKXGrz75xHOsUwGNfEXsb9yFNXpZgPZtQM2C+MPQCtBVkBi5Sxfe+ninG2oJMBJYqlH3sDBkq1TAkgJDQ5EgElan3tkeFj5CiXq5wlgNmtmUxhrufwJuCLDjxkfDyOaFQPvQg0lwdTmHM3HsNJmKSoxnIdKCIjlNaaIKxVgnNX1U94ki3O7v1FOhIqXgXaKkpmv14fxc/v03AVnqSKP2jsmxgDEEazQK+Ow5icRaJYka5Yv7QGqqfPlMmlWhQvSBIpvBXiQfyM2xTDfuF18bdyBSem8JndoUiiWHB1eJo3G1KpTrrMXSkppy7GhTqIV3fGe+jgOj1uQ4l2kU3qKrO6zHKU/sI9b0q6/G4bVvW3TVLVpipksnl9U76XjP1EGHjpM46uJxQsG4WQi/o7Hj8PQa0FVbkRv3yb9QHB/Q7c7ax47Zv9cZ70hWJsnv+1Ah00VDY2PT3i1MbOdYXlifaGQWTVWRExelg8dW+ZAtRqbjmE7GmeoS+/YL9aVxlXH1CAeLo8n/fHfz2yk57SuqAGPEHvwiE1GXKJ4kGGzAcm9kAjMHqEXBSQIxJwzlHf0rmRqy9iSBXznwMd8gBNvVxkFF2mKkBMaBMEw0ZceUJnv9s6w5TdRm+CtUS9z4Sk1VTZlfkBs1VWfi4OkBaalCJYovFIUI16qLVlDqOOI/fRdhTrE1rzDg1eZJRHUXDfdZtiSMFGedGHp82hRrpb1fGjo8wWC+UL87OVAxVDAX41DRrjQNcxBnt4XeglSx/fjZxxZZavMwf+P9HaVkvAP2S3KQyLFkUrI+Gx6Or5mmoSGsKAIm+JiV5kdLYFlwonKj7kPa+TZEpQolRL2FSBNh9vR5xd/06PPDHAY8JGJAhmRqd2rcBB4acvK8iLsFGAbGJSU50VRJ7UCI45tRZG8P0/3dmZzdXksHy6sd2bgaVoYb4Pb1rzfh7KDfn9ol9QWsGqObwVDam5nANcvMJBHbYmU+ttIanfMZIPfoepkZsolkCqQWC5+jNixzrLbdO7u9VoWShh9c//Dj5IfzyfmbkOaNLBKRYC83gUvUzW4ove5acpzA8DC20eeplMQHn7jFTM7bLrgiPlwW8kojMekuRsmaDOaxE+v9PvG/WLeG/mN65bNg0eQdJjPOestPj+oNPz0Nr7LcrdclJrqPdrOR4787isI8T4V6wWgGuhaaUUOzZVJaUi/9qTUFmcIXtN0wsUfLmVDRjjKvLudqs/kH4A7cXw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get preferences for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user-preferences"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are legacy fields, kept here read-only for backward compatibility; the authoritative copy is GET /host-sidebar/preferences.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User preferences.","content":{"application/json":{"schema":{"type":"object","properties":{"reopenTabsOnLogin":{"type":"boolean"},"theme":{"type":"string","nullable":true},"fontSize":{"type":"string","nullable":true},"accentColor":{"type":"string","nullable":true},"language":{"type":"string","nullable":true},"storageMode":{"type":"string","nullable":true},"commandPaletteEnabled":{"type":"boolean","nullable":true},"showHostTags":{"type":"boolean","nullable":true},"hostTrayOnClick":{"type":"boolean","nullable":true},"pinAppRail":{"type":"boolean","nullable":true},"expandAppRailOnHover":{"type":"boolean","nullable":true},"showPinAppRailButton":{"type":"boolean","nullable":true},"disableUpdateCheck":{"type":"boolean","nullable":true},"confirmTabClose":{"type":"boolean","nullable":true},"hiddenRailTabs":{"type":"string","nullable":true},"compactHostView":{"type":"boolean","nullable":true},"statusColorScheme":{"type":"string","nullable":true},"customKeybindings":{"type":"string","nullable":true,"description":"JSON-encoded array of the user's custom keybindings. An action's type is one of the shell's own or one a plugin declares in contributes.keybindingActions."}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: get-version-information
+title: "Get version information"
+description: "Returns the running instance's version in localVersion. When the update check succeeds, remoteVersion is the newest GitHub release on the instance's update channel and version is its legacy alias, not the instance's version. Remote fields are omitted when the check is disabled, fails, or returns an unparseable release tag."
+sidebar_label: "Get version information"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV9+P2zYM/lcIvezFzV2LYhvydgO6W7tiKNpri6E4BIzNxGpkyZWo5LIg/3tByXacH21xQB93L5fYpPiR/PSR2amKQul1y9pZNVVviaO3Abgm8NFabZegbWC0Jf0SYE0+aGdBWzCuRPMhf5/Ax5pscopthUxQ1lSuIMSyJKpCAZ4ax/Shd88BLG0oMNxq/ivOwZMhDAQuHzSKOpyJ1pIBtNUBSADNAQwtsdwCGo2hAOv49Ih1D/RtAgILTaYKgJ7ANZqZKtj0KWTsOkClA84NVQUsUJtQgPPguwKhhWhb9IHEZADPuJyoQjEug5p+UrdkyaNR94Vq0WNDTF5e7JSWan+J5LeqUBYbUlOVAmeAqjhpzDtiYAcLNBLFdTjAWbM9akWqTmDkGGCjuXaRoXSWsWTpZa61QAxlTQ2q6U7xtpXoc+cMoU2RFxgNqyn7SPv9faE8hdbZQEHsn11fy79jfENr7cL5BuWpRJHQZFnssW2NLtObq89BnHbnINz8M5WsJOKXqD1VUsVxfoI8ZZdq6l1LnnXGdWR2ODKw13Z5VtAesFtcJPsE3kuhax0yV2DhPJRGk5V6Ni2ynmujeZvpEiRZesCmNRLz2eS3yVO1H7D+EM37juJystfBWfAUouGiI/8sRZn1jMxkpQepqGazHVHVeYh2Zd3GHhidbx8Y51axzWQWu/xqIC6UaOXqzAkSsauUk42N9CC2M3YzgaIKNSfGQ4/CLGNUhboIVp5nROp+X6juGl+qSR8ssDj2ge5Pi3U31pmsCYd7GwU43JgNbgOIvwgK5k/zqE01kb4c6dGP2/NPVqq+WL36uF4wEogJvPEUhCDpVm6+K4mnfPl9ci241t9D1HoqkeVOyMU8xfh6pIHC6qMUD6L4bVV/HP50P46UZ9FRqj85y+VY93sLgzwq5zdKkY1mndEljTjO/2SMNMRYIeOju3IsKozLWZbn047se90+b5WNxiQGZwUtVBvnRoeaqhnyJYesmWqqBNMT1g1dOqXmxsyiv3h1hhOi1wKt9XReuV7i991foZ5fPz/X8tfS1YHkQpxAPFFi3xDXrlJTtSTpQItcq6m6Wh/Emfy6n3EJqro669S/Lnq4I9/oB8j2SoZMoDJ6zdvkOyf05G+inP/pfl/sVOncStP4Cbb6b9oOT0ZHvJO5khs4PmgoRM3c9jMwFSYZJcGRD3/2xXz18e7CJA6pLuxWZCExS2dKSRDn9X9pxkFNWJEHDPBHOjRNZjFLjkmFxikN2HJWqsgrQjY57AifN+fM7xG9+ngH2V4aBsgQ9NI+0f1+1uaLUIBmYFxRkCclVZQu65r8N7NIaMflfnQlb968hBVtZTXxaROR5QS4eZidpTOYPr60K9oWsKl1WedA4RBmAi8ZsOQgbp0tuI3tvLvZhyXLe7RbZwnIiDoJ72WtSVlrTirVsffmzUs1Em317NfJ0+vJ9VlKMrFK5wkOfhN4gWUNrYlLbaFyZWzIcl5nZXh7F5lCKnzrAjeYhkLHglvi0S4+bFyncXeH/ev/zf4nbfaZ9kwPfNUa1FYa1GlyVsNPAx/uC1W7wPJot5tjoPfe7PfyOC/+onPDkjRNq/13GvjTfwFcTGVF27NfIms0USyTSq/R6zyVRIRVvooplex6U5bU8sjrbO+XU4Y5cvviTu33XwE6Ix6A
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get version information"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/version"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the running instance's version in localVersion. When the update check succeeds, remoteVersion is the newest GitHub release on the instance's update channel and version is its legacy alias, not the instance's version. Remote fields are omitted when the check is disabled, fails, or returns an unparseable release tag.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"checkRemote","description":"Set to false to return only localVersion and status without contacting GitHub.","schema":{"type":"boolean","default":true}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Version information.","content":{"application/json":{"schema":{"type":"object","required":["localVersion","status"],"properties":{"localVersion":{"type":"string","description":"Version of the running instance. Use this field for client compatibility checks.","example":"2.7.1"},"status":{"type":"string","description":"Update comparison result, update_check_disabled when explicitly disabled, or unknown when the remote lookup fails or the release tag cannot be parsed.","enum":["up_to_date","beta","requires_update","update_check_disabled","unknown"]},"channel":{"type":"string","enum":["stable","beta"],"description":"The update channel the check used. Always beta on a beta build."},"remoteVersion":{"type":"string","description":"Newest release version on the channel. Present only when the update check succeeds.","example":"2.8.0"},"version":{"type":"string","deprecated":true,"description":"Legacy alias of remoteVersion, not the running instance's version. Present only when the update check succeeds. Use localVersion for the instance or remoteVersion for the latest release.","example":"2.8.0"},"latest_release":{"type":"object","description":"GitHub release metadata. Present only when the update check succeeds.","properties":{"tag_name":{"type":"string"},"name":{"type":"string","nullable":true},"published_at":{"type":"string","format":"date-time","nullable":true},"html_url":{"type":"string","format":"uri"},"prerelease":{"type":"boolean"}}}}}}}},"404":{"description":"Local version not set."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: create-a-detached-tmux-session
+title: "Create a detached tmux session"
+description: "Starts the tmux server if none is running."
+sidebar_label: "Create a detached tmux session"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVNFq5EYQ/JWmn3Iw3t2EvERvvsCBL4SYeIMJZgltqb2arDSjm255rQj9e2iNvN7YOOAnSaPqmaqa7hqxYimT79THgAXeKCUV0JpB2/4JhNMjJ/APEGJg8AKpD8GH/QodKu0FizvcGvLXGLzGhDuHHSVqWTnZ3xG9bdyR1ugwUMtYYB1Fryp0mPhb7xNXWGjq2aGUNbeExYg6dIb0QXnPCadpZ2jpYhAWA/yw2djjFX8W8TFAmZiUqxVODn/c/PQWeAmyQI9ea9DaCxg5oCYxVQPwkxeVFU6Tw5a1jpWpiKLospgC113T7324oM6vza2LNnuwHrO+ab2cIegwO5kd6VNj5ehekfoz9gm2nFr/7DyabOGyT16HufaeKXG67I3B3W5yI5YxHjyfr1Dnf+HhtHK2xY35m/073+hkd63a4XIN9p1B6JaXLzG1pFjg19vtG/bP3ms8cADhoODD3Ep2SEz+HzIk1EwVJyCBz/OmQKHKHWeF85WdSzpxy6rQ5YbKkJeW+vuo7zL6eruFjAdhBVIQvw8XPqzgtuYAXWKj68ArKB1YbKXkikPJEG0A3lMxsz23+8NOXl5fwYEHEJs8H/ZLP7ZPf72Rc4J+3NoDDw6OtS/rfJC8HLOCKwUqVaxswUI8hqW6pBDiDLD/FAbLAW6E82j48BBn1V4bk3meBXB5fYUOre2zgO9Xm9XmjazPKR6F82ExaIrNc/bk4XFw9KGKR5khHQUWoDJFERhsYGzYZL4IG8+WgvFZuuLnOQeAoGKlsubqP1u/pmKzFJSDfjgJ850rP+m6a8gHYzNP+biExR2+hIUVnMUFOixOgXhKjJ2bU9Iqx/GehP9IzTTZ8reek2XBzuEjJU/3ZvzdiJUXe6+weKBG+H+0fff7Eruf4D3yzzMXbOAeqentCx0eeHjJ72l3Ho7Xv91scZr+Bb2xMLk=
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a detached tmux session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/sessions"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts the tmux server if none is running.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session created."},"409":{"description":"A session with this name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

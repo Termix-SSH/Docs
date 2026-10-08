@@ -1,0 +1,70 @@
+---
+id: create-or-delete-a-user-or-change-a-users-groups
+title: "Create or delete a user, or change a user's groups"
+description: "Create or delete a user, or change a user's groups"
+sidebar_label: "Create or delete a user, or change a user's groups"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVttu4zYQ/ZXBvLQFGDu9vfgtG3S32bZbY+MgKAyjGIsTibFEaknKjivo34shFdtZZ1Fs/SJpOHPmfugeI5UBZ0v81YUIf3D0pgi4UtiSp4Yjeznt0VicYUuxQoWWGsYZGo0KPX/qjGeNs+g7VhiKihvCWY9x3yYtG7lkj8Owytoc4hun96LyuXHhbGQb5YjatjYFRePs9DE4K7IzbLd+5CK+iGKJVIgRKuwC+xSqZONdyz4aDgk8qxyBQvTGlqiQbdcISOGZIqNCzTWnF9J64d5517XJX+O2/Na7JktWw4m7M9hBYZnUXnGoORTetDke/MCsWcOD8xArhmQFOdowwSH9xHtonQ05lx8uL+XxEmdRMRSuachq8By6Ok4kip9e072xW6qNBmPb7lntx3O1Dw6oKDgEiC4FV7kgpXceuOZt6hRotob1BGe2q+tB4c//FdwDmZo1OHuAlDQ/L8t16gY4D7kdQCDVViIpKrLls+SbkGsWUGHDsXJapjYHmoZ3htO27kpjL6g1U/F30eSZnzZkqWQfpgIUpr3Rw/QwS4H99nkVOl8Lzlnz/nKdhwX7xjxB1keZ+cBF503cJ9s1k2d/1Ukoy9Wgeiyc2xg+lVBrfuP9QXICcSsLkNt+CnSYqipGmc60J/KdlVCNL2+dbyjiDN/fL86iv+UQpIXRbdhCYBvB5K6IE+fNP7nFFZNmDxTgTQIFaaOoJcM0P6cpHWLLWaHKTJJVjlzyuItfjOj9/QKyPgSOQBGCKe2FsRO4r9hC61nCVWAiRNpwEEnBmm3B4Lbsv5hFiva03F9dyav5DWx4DyGSj8aWsDOxgtg8/X2WzkH160u74b2CXWWKKjsKRzcTuInCEEHMRl1wOztaF2StSwpyTnbvLAPXgfOaCbN+PHLyL0/UtDWfUuSRCY/8dmSvkdZOiM7YB5fqaKIAvbhW4Gp+gwplkTL295PLyeVZoX43W4br+Z2Chhvn9wq0CRsFluPO+U3K6938TkoRg4K27oSTXJ2YKW8x7GUXZb1D6rFQQEOJ8ccU/helvIjzMCuRn+K0rclYcZXYoR/ZZolHtkGFp3wjDDUyzlhcec7SpToWf5UtBKbv1xT4ztfDIOJPHXshlJXCLXlDa6n1skdtgrxrnD1QHfgs4sMFi99+HK/M7wDV65k8L66Vrd1S3ckXKtzwPt/+g1x7eWiT93xwnX1cLMT8aHh2oQuxHTh6/uetUNJ6/GPQOC02nnZy2dIuO3Ypj0R/SdZjTbbsqEwMkjDl9y86rgi7
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or delete a user, or change a user's groups"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/managers/users/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create or delete a user, or change a user's groups
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action","username"],"properties":{"action":{"type":"string","enum":["create","delete","addToGroup","removeFromGroup"]},"username":{"type":"string"},"group":{"type":"string","description":"Needed for the group actions."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The command result."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

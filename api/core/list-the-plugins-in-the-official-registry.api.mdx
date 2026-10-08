@@ -1,0 +1,70 @@
+---
+id: list-the-plugins-in-the-official-registry
+title: "List the plugins in the official registry"
+description: "Fetches the official registry index (cached for 15 minutes unless refresh is set) and merges it with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices."
+sidebar_label: "List the plugins in the official registry"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVcGO20YM/RWCpxZQtM626UG3LZAUm/awQFwsiu2ioEe0Z2ppRh1S9rqG/j2gpLWdbIIi954kcB6H5CP55og1i8uh05AiVviO1XkWUM+Q1uvgAjWQeRNE8wFCrPkJvnPkPNewThlev4E2xF5ZoI8Ni0DmdWbxEASE9XugWEPLecMCQWEf1MPek9p5iKLUNFyD58zVGPRs23GWkGIxmiPvWRQyN0zCoD4IrPrQ1OAoQu5jAXvP6jkDRei7mpSBZCtjlpH34KijVWiCBpZizMru7UIc/6nX9Gp2cz4Fx1L+GbFApY1g9YB3Tb8JUfCxwI4ytayc7eCIwXj7p+d8wAIjtYwVziRggeI8t4TVEfXQ2dEqpYYp4jA8FphZuhSFxQDXi4V9Pm3I0vOZ/yaIhrgpcSjwx8UPX0Y7oy9DQ24rQHUbYtlNyZctRdrw6P5mcf0fwVzqmxpiUliZdex5icNQYMvqU40VbljR+FCPFV7NUa6eb7DqOe+eeepzYygsPgv6R+ozLDm34QkmPBo1wq7PQQ+j74opc77pLdDD41Ac0aW0DXxpoS78yoeT5eKKD9aDiePLi04t8ardc6vGFo0gLOafdym3pFjh+/vli+w/sNiUgqYtRxCOCiGOo2VBUg7/kiHBM9U2nAI/j5eeJnB0HFtyWdIpt6kqLKYxmyDnOft7r1/N6P39Eia8LSKQgoRNfBViCfeeI3SZLd3C1lJpy2IWxzVHx5B2nL9axZjtJd3fzOTN3S1s+QCilG2iJ13Q9umvF+WcoN9O7ZYPJgvB+SmQnMOUcKtATsXcZiykfZy9HUUbfHJq5xQPKTJwIzwtQIjrNFYdtLEy5+m9ubvFAmfdwgqvfypfL8rFi5LGLU2Z4exXwltyHqYVgjq5vuWoJpliaUFOprEj8V0SbSla/HkKfguik5pNG/hM0wsB/zwTW6OoHPV/5f+C8k8jrfykV11DIRr5o4gdZ8l7wJlwNCWfKX4s0CdROz0eVyT8e26GwczTG2FyVgehVcM1VmtqhAvc8uGTV2NHTW/BRyXcUQ4Gn4TurL6/vF3iMHwEWzy0rQ==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the plugins in the official registry"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/registry"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the official registry index (cached for 15 minutes unless refresh is set) and merges it with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"refresh","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The registry listing."},"403":{"description":"The caller lacks admin.plugins.manage."},"502":{"description":"The registry could not be reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

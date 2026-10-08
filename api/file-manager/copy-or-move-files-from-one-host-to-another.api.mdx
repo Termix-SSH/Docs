@@ -1,0 +1,68 @@
+---
+id: copy-or-move-files-from-one-host-to-another
+title: "Copy or move files from one host to another"
+description: "Starts a background transfer between two of the caller's file manager sessions."
+sidebar_label: "Copy or move files from one host to another"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vk1v4zYQ/SuDufSiONl+XHxLths0Wyxq1C6CIjAWNDWWGEukljOK4xr+74shHVuJncMe6oslcj4e5808aoslsY2uExc8jnEqJgqDgYWxqyqG3pcg0XheUoQFyZrIg6wDhCVITWBN01D8iWHpGoLWeFNRBCZmFzyPsEAxFeP4AW/V4Es2wHmBkb71xHITyg2Ot+nVRSpxLLGnAm3wQl50y3Rd46xRhJePrDC3yLam1uiTbDrCMYbFI1nBYhDoATn00dI0o7krsdDTyvA9W0yM1Lzf1WfF18XQURRHnPK9iXRMzBKdr3D3NvY5i2G2476J0WywQCfU8hm/3QDYuagtSR3KSaQlRfKWTo0KJN+3WhHTS0ikxH3Cr7yUDucaJjwNXRchNGR8rsqgQ36nhoQS+fk4YJZCEQxwby0xL/sGbOg2I8XWmagd0kypasnLx9BnTvdJnBfSftiln5LHXfCca/7z1ZX+vU4/qwk8rY9N6cqU6Ndzxl8cs/MVKIqWhCJDSEgzS+AYfBCwwXuyQi+RfjmNdH3wWVATfMUgATi0FDwBNUzJ9bf3EB/Q2tA3ZUrKOmmjxG4mEMfYBdYW7hLTeNk1feX8hencpY7XxX68Ll+izcIf2YEpPlHUMdtiHxv1PeHt39BHmFFs3TNke9zN1dX20ckm+S7IRIrXvaZ/mO+KLdoQVo6GK6Zzf9LmsDIIMdWZzNQNAx3IrkU6BZvMtMOSERb7h9sQWyM4xs/3sxP0+7kCCSvywOQFnE9NqElCdP8lfYCaTKnNyHCTgoJRAVMG1DGRNDzScQbTqXQmNFs2wQK9SUgf1/Iuos/3M8j2wCRgBNhV/sL5EdzX5KGLpHALcAJiVsS6YqnUSYXwRPHdUyS0w3L/cCWvJ3ewok3uNR2EtZMapH3+enKcg+mPl3ZFmwLWtbN1TsTHNCO4EzBWbxR+sYWw9ntva7yOgrGi+8ZvBtO0K1DF/u/jNfHp2bRdQ2fl+Kh0b1T4uPFKfB9e1udDcT0an2rqi3RmmcyX1Hl1u9ppGy1DIsyJIn51+8H15A4L1InNtf8wuhpdnTByE8OaqQAqnaRqaeZ0z3Lum+ntbFKA87bpSyWXJRpX1QLLGFrQUuY5V6kyPki9bylVmdaka3Tf3x9Dt1FlHGQ4xKgDyyDCW5jb4039f3w85H4XepbLrjHOK/6kcNu9Sj7gUSWxwKFOqv9rpZwXqMdRr+12YZj+ic1up8vfeoqqgfMCn0x0ZqGsqeBhbvskjyvapGKl817MFJuaN31WkDdfKSqNB2Wf/DVVUVvsv3baUKpPNGv9YjFrHCMWGFJNk4CmtS02xle9qZIGpZj6+w7GgGJ0
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Copy or move files from one host to another"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/transferToHost"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts a background transfer between two of the caller's file manager sessions.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sourceSessionId","destSessionId","sourcePaths","destPath"],"properties":{"sourceSessionId":{"type":"string"},"destSessionId":{"type":"string"},"sourcePaths":{"type":"array","items":{"type":"string"}},"destPath":{"type":"string"},"methodPreference":{"type":"string","enum":["auto","tar","item_sftp"]},"move":{"type":"boolean","description":"Delete the source after a successful copy."},"parallelSegmentCount":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new transfer id."},"400":{"description":"Missing parameters or a session is not connected."},"403":{"description":"A session belongs to someone else."},"500":{"description":"The transfer could not start."}}}
+>
+  
+</StatusCodes>
+
+
+      

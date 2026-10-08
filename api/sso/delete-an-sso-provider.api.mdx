@@ -1,0 +1,69 @@
+---
+id: delete-an-sso-provider
+title: "Delete an SSO provider"
+description: "Refused while users still sign in with it. Needs sso.manage."
+sidebar_label: "Delete an SSO provider"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVF1v21YM/SsEn1bg1va2vkxv2ZJ16T4S1CmCITCGG4mx7izxqpeUE1fQfx8oyY5bIwUK7MlX9OHXIXk6LEjyFBoNkTHD9/TQChXwWIaKoBVKAqKhqkDCmiEwPAYtIegM/iIqBETirPbs1zRDh+rXgtkdLpdXuHLY+ORrUkpm7DBYhsZriQ7Z14QZhgIdJvrYhkQFZppacih5SbXHrEPdNQOKldaUsO9XhpYmspAY4IfFwn4+b+I6xW0oKEFBFSkVM+wdvln8eIr8M4gEXkNDqbZn5An75itROSo8xJb3cX86xX4YiPOJJvKqwBsqQKMxh33vsCYtY4EZjjWiG4nJcN5U7Trwa9+EuUicN1NamXeh6NGhUNruGW1TZS7ovsj/d2wT3FhTTzDi0agTytsUdDf43pNPlM5ay3q36l2HeYybQMcW34TfaXewHIVY2ozGGRwHOoysVG1wGqV9jyB00+PXmGqvmOG725uT6pc0jAI0bohBiNUWT0sCSxJT+OQNCSV5m4cX+HkICp6LATY4DtM5bulQ29gVunEhR8jzSv77qC9W9O72BkY8CCl4Hc7ideAZ3JbE0CSych0EBfUbErPkVBDnBHFL6cUuhmqP6f5mJs+uL2FDOxD1SW2ph0vV+umfk3YO0G+ndkM7Z+qQl2MieU4zg0sFn6uY24SF+MiTd+7ZLsfnav973kUmoEpoPIjAD3HoOmhlbS4Drysa+Y0MZ9eX6NAWf2zh+9litjid07FIed7BVUN8eQ6/RGbKFfbH5OBt0N/ae4gJ3sa4rmjgv4mitWcrY1qG8+E6wTMsl1cH9y/z2umwEuv/oKDj0JWedN5UPrDVNZx5NynEHT4rhO2FRBOPvUqgwywUJr5lFDV01917oQ+p6nszf2wpmQCsHG59Cv7e2L7rsAhi7wKzB18JfaXD795Pev0KXip4f2hsV7b1VWtf6HBDu1H0+9WxBp5f/HFxc4F9/x9cDD7L
+sidebar_class_name: "delete api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an SSO provider"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/sso/providers/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refused while users still sign in with it. Needs sso.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Provider deleted."},"403":{"description":"Missing permission."},"404":{"description":"Provider not found."},"409":{"description":"Users are still linked to it."}}}
+>
+  
+</StatusCodes>
+
+
+      

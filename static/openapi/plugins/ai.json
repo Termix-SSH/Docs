@@ -1,0 +1,494 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Assistant API",
+    "version": "1.0.0",
+    "description": "An AI assistant that reads your setup and proposes changes for you to approve."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ai/status": {
+      "get": {
+        "summary": "Whether the AI assistant is available to this user",
+        "description": "Deliberately not behind the AI gate: the frontend calls this to decide whether to render any AI surface at all, and needs a plain answer rather than a 403 when the feature is off.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The effective enablement state."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/opt-in": {
+      "put": {
+        "summary": "Turn the assistant on or off for the current user",
+        "description": "The same value as the user setting \"enabled\", for the onboarding step and the panel, which set it outside the settings form. Refused while the assistant is off for the whole server.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The user's new choice."
+          },
+          "400": {
+            "description": "enabled is not a boolean."
+          },
+          "403": {
+            "description": "The assistant is off for the whole server."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/providers": {
+      "get": {
+        "summary": "List the user's configured AI providers",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Providers, with API keys masked."
+          },
+          "403": {
+            "description": "The AI assistant is not enabled."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "defaultModel": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Provider created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/providers/{id}": {
+      "patch": {
+        "summary": "Update an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider updated."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an AI provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider deleted."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/probe-models": {
+      "post": {
+        "summary": "List models for a provider that has not been saved yet",
+        "description": "Lets the add-provider form fill its model picker before the provider exists, so nobody has to go and look up model names by hand.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerType": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Model ids, possibly a curated fallback list."
+          },
+          "400": {
+            "description": "Unknown provider type."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/providers/{id}/models": {
+      "get": {
+        "summary": "List models available from a provider",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ids."
+          },
+          "502": {
+            "description": "The provider could not be reached."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/conversations": {
+      "get": {
+        "summary": "List the user's AI conversations",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversations, newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/conversations/{id}": {
+      "get": {
+        "summary": "Get one conversation with its messages and proposals",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a conversation",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/chat/stream": {
+      "post": {
+        "summary": "Send a message and stream the assistant's reply",
+        "description": "Server-sent events. Emits conversation, token, tool_call, tool_result, proposal, done and error frames.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "type": "integer"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "activeTab": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/proposals/{id}/apply": {
+      "post": {
+        "summary": "Apply a pending proposal",
+        "description": "Re-validates the stored payload and applies it as the approving user, through the same core APIs and plugin services a manual action uses.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal applied."
+          },
+          "400": {
+            "description": "The proposal could not be applied."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/proposals/{id}/mark-run-in-terminal": {
+      "post": {
+        "summary": "Record that a run_command proposal was executed in an open terminal",
+        "description": "For the terminal-docked assistant only. The command is typed into the user's already-open SSH session client-side, not re-run over a pooled connection here; this just marks the proposal applied with the output the client captured, so the card and the /apply path stay in sync without running the command twice.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Proposal marked applied."
+          },
+          "400": {
+            "description": "The proposal is not a run_command proposal, or the hostId does not match."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/proposals/{id}/reject": {
+      "post": {
+        "summary": "Reject a pending proposal",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proposal rejected."
+          },
+          "404": {
+            "description": "Proposal not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

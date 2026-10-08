@@ -1,0 +1,68 @@
+---
+id: create-a-session-share-link-or-targeted-user
+title: "Create a session share (link or targeted user)"
+description: "Mints a share grant for a live terminal/RDP/VNC/Telnet session. Caller must own the live session."
+sidebar_label: "Create a session share (link or targeted user)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vttu4zYQ/ZXBPHUB+dLbi9+y2Rb19hZsvA2KwCjG0qzFWCK15MiOa+jfiyHlyHaSBdqH5iUyOdfDwzM8YMEh96YR4yzO8FdjJQBBKMkzrD1ZgU/OA0FltgzCvjaWqsmHdzeTP367niy4siwQOATj7BiuqarYQ90GAbezICUnz6MFZii0Dji7x9u0BLcleWPXuMwwcN56I3uc3R9wxeTZX7VS4ux+2S0z9Py55SBvXbHH2SH+NJ4LnIlvOcPcWWErukVNU5mctKvJQ9DWDhjykmvSL9k3jDN0qwfOBbOTQPdYuiDzArWWWF78brwTl7tKlxWZhQbIsFE4otUvvOVKO2i8a9iL4aCJ+mBDSmOF1+yxO40/bAeJSHQK0mpug5DN+RWLp5qebWbItq21mRBKba9oMMOtzRX8eGC47E47+UKEytgNZtgG9tFJyK9ZPgb2r5V1gckXYnumYuRstY9HQMVo541wTMOPjfH7n1zrw0kE29YrBS/+qU9onA0J6m+mU/13TufbSOPcMwkXWt13L1nN7ZYqU0BPr2T37cvRjF1DYQKtKi4ycB7yxPjCcQDrBtb3x6vBvn+xNPZb9sDeO+0ow5qldAXOsHFBSdmQEh8nTdWujR1RYyZ9zFFIhUxSY5GrGizEa9P6St0wu0j4p2s9LPR0HiHZY3dy5W71diQoTy/eE/aliLIoXiL9nYww6z9+dL4mwRm+v1s8S3286eI2bCGwFTAJJU3ivPk73lQomQr2QAHexqBAtohm0XGsWObObQxf1EaN+ZmVRUazJRPM0FKs9GEnr1b0/m4ByR4CC5BAMGs7MnYMdyVbaDxruRkYAaENB13JuWCbMzg9wNe6iNWmwv4jklc3c9jwHoKQF+XdzkgJUj/+9aydJ9N/D+2G9xnsSpOXKVEY0oxhLkC5DoRwtFV+9945WSU85aL7ZPfOMnAVeBz5rLL7YRDsHx6pbio+VcXpmQgO+nChfcPGIHm9sp1I2FGpzgXqxPdSl87k50xvpp0y6ZOLZ2ZEi74cVnB1M1dNZR/SCXw9no6nz2kW9ed0AAZY7UFLVe2ISJN1UrIHldgsAtuTbnARBwRr79pGD7dmjnTwztUh0kwVo6Y45HrOX0dl0EHe150G+lfHzAklLmLWN5d1H4ZR+v+8CNIJCj/KpKnIRNWMOnboZfAeBxkcZvNRCDHDXgqXWWSXOhwOKwr80Vddp8ufW/b6rlhmuCVvVMDjsyLDdDWidm54r+Cl5kf9lN9S1SaVuXhTqHw+qfbN77cqfKv+bVK7Qn087XS40Q5niBm6CHAU2bh2wIrsuqV11KkYU68OnQvGhUDESo/KZ/cnFR4OyWKhctl1mPUNRfnEbtl13T9nynDy
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a session share (link or targeted user)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Mints a share grant for a live terminal/RDP/VNC/Telnet session. Caller must own the live session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","sessionId","protocol","shareType","permissionLevel"],"properties":{"hostId":{"type":"integer"},"sessionId":{"type":"string"},"tabInstanceId":{"type":"string"},"protocol":{"type":"string","enum":["ssh","rdp","vnc","telnet"]},"shareType":{"type":"string","enum":["link","user"]},"targetUserId":{"type":"string"},"permissionLevel":{"type":"string","enum":["read-only","read-write"]},"expiryHours":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Share created"},"400":{"description":"Invalid request"},"403":{"description":"Sharing disabled, or caller does not own the session"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

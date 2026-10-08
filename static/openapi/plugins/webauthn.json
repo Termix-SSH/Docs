@@ -1,0 +1,149 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Passkeys API",
+    "version": "1.0.0",
+    "description": "Sign in with a passkey or security key instead of a password."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/webauthn/credentials": {
+      "get": {
+        "summary": "List passkeys",
+        "description": "Lists the caller's registered passkeys.",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of passkeys."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/register/options": {
+      "post": {
+        "summary": "Start passkey registration",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Registration options and challenge id."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/register/verify": {
+      "post": {
+        "summary": "Finish passkey registration",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Passkey registered."
+          },
+          "400": {
+            "description": "Registration failed or challenge expired."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/authenticate/options": {
+      "post": {
+        "summary": "Start passkey login",
+        "description": "Public. Authentication options, optionally scoped to a username. The assertion is then sent to /users/auth/passkey/verify.",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Authentication options and challenge id."
+          },
+          "404": {
+            "description": "No passkeys found for the user."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/credentials/{credentialId}": {
+      "delete": {
+        "summary": "Delete a passkey",
+        "tags": [
+          "Passkeys"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "credentialId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Passkey deleted."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

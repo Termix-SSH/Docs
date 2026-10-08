@@ -1,0 +1,68 @@
+---
+id: upload-a-tls-certificate-and-key-admin-only
+title: "Upload a TLS certificate and key (admin only)"
+description: "Validates a PEM certificate chain and private key, installs them as the served certificate and reloads HTTPS without a restart."
+sidebar_label: "Upload a TLS certificate and key (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlVFv20YMx78KwacVuDhpu+1Bb2mQomnXzZidBUNgFLTEWBdLd+odFdsT/N0HnlRHiVNgfZseLPlE8sg/eT91WHDMg23EeocZ/kWVLUg4AsH08jPkHMTe2ZyEIS/JOiBXQBPsg66seWfAuihUVRGk5Boo3SFyeODiibs6Bq48FRE+zOfTGWyslL4VIAgchYJM0KDQKmJ2i9eRQ8SFwcBfW47yzhc7zLr01wYuMJPQssHcO2En+oqaptK9rHen91Hr6TDmJdekT7JrGDP0y3vOBQ02wTeaHkd9O8p0ZBwlWLfCvVqnkj/x7oXX6dJMY+Nd7AO+OTvT21N5L0Z6DLpxMYELCsFyr5zjDUQhaWNSjAbNoOYYacUTTebnl2J/tjFatzLQusBU0LJiA7xtVCzwAWoba5K8fKEta94Ncd8ex/3dC1ArpQ/2Hy6S3S//sbbUCrgjWyXHvcGapfQFZtj4mJpAUmKGp612+1SqeDJuhME0R0EHosM2VGqK5tnGf/s2wJxDbbf93AXcL9Q1b4OVXfJdMgUO563udrvYmw5z79eWxyvU2E+8O6yMQsx0iPq2jgMd5qAUaTTZZIbZYIRmeHjvQ02CGX68mR9lP+MYVSXxa3YQ2QlYlybhfBC9V7FkKjjo+XqXgqbGqVlyTG0Zl3TIra8KDVrdrTdBg45Spvcb+W5GH2/m0NtDZAESiHblTqybwE3JDprAmq4BKyC05qgrORfscgb/wOG7VaRsx3L/sJLn0yudWkjYsG6VWAJSb78clXMw/XFpE982pc3LfqP4uM0ErgQol/iNeLqF37jBOyfnfDLQ9+R23jFwFbk/BkqnPx+5drmluqn4iEPfAPMUPyMqWXfnk3pW1B2HU3A+vUKDenB6Cd78Onl9Njk7kmZeMuQ+MDz6TeCS8hKaql1ZB4XP25qdRLAStTwIvhWOqYF6hGtKlB2m6bpJqCKY/zZ7CTLwExW1deBdtXv1PJvuEeX/h89QP4/CWzltKrJOK04E6gZo3WKClto+w9bCYKl4y26x65YU+TpU+70uf205KJAWBh8oWGV0Tx/sZzCxap2afNGLcTLXRNS8avvj/Owbp5w6UHX6x0wJsxy+lbUv1CfQBk36zRAN+iR4olla67Ait2pplYCQYur1L4bo0hw=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a TLS certificate and key (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/tls-certificate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validates a PEM certificate chain and private key, installs them as the served certificate and reloads HTTPS without a restart.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"certificate":{"type":"string"},"privateKey":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Certificate installed. Carries the new status and a reload message."},"400":{"description":"Missing, unreadable, expired or mismatched certificate and key."},"403":{"description":"Not authorized."},"500":{"description":"Certificate installation failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

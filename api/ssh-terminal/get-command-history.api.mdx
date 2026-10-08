@@ -1,0 +1,69 @@
+---
+id: get-command-history
+title: "Get command history"
+description: "The caller's distinct commands on a host, most recently used first, for autocomplete."
+sidebar_label: "Get command history"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P2zYQ/SuDubQFuPa2aC+6bYEmcXoJaheLYmEEs9TYYk2RCmfkXVXQfy8oyR/JZgvk0JMl6s3wvfl47rFksck16mLAAjcVgyXvOX0nUDpRF6yCjXVNoRSIAQiqKGqgjqKQ2HJQ30ErXMLOpfxlFxNQq9HGuvGsvECDSnvB4gE3nGoXyOPWYEOJalZO+UuPLt/fkFZoMFDNWGC+aVWiwcSfWpe4xEJTywbFVlwTFj1q12SkC8p7TjgM24yWJgZhyYCfbm/zz+cy78A7UYi7s7QFDgZ//hp2FY7kXQmZA4vChfYY88vXYt6Q81yCRtix2goqJxpTt8BhMFizVrHEAvesaCbJBS4b3+5duKHGLUWqG50rtZwZ3sw5lv1UlQENCqfjqXxt8jkLmi+o/BXbBGPZn2HCY66RsG2T026MfWRKnO7aTORhO5gebYwHx9cn1LjfuTufXKVY52ZMxb5OdO5Npdrg3LP8PoHQzA9vYqpJscD395sX7Ncs4mIAjQcOIBwUXACtGPIlMbl/KCOhYio5AQn8OiYFCuUIGwPHRl1LOnObVKGZpm+CXObv7yd9ldH7+w1MeBBWIAVx+3DjwgLuKw7QJM50DTgFpQNLPrFccrAM8cjpVRUj2+tyf3Ml7z6s4MAdiFJSF/bw5LQCrZ8/vpBzhn57aQ/cGXiqnK2mi+RyzQJWCmRVctiMhfgU5mhLIcQRkL9T6GJgYC88LYgLuziqduqzzPX6HZyMA+4+rNBgHvtJwI+L28Xtyy6t38Fpg0Cmlp340aMYkMY7BbGJOZjTfhqoyaYoI0kCHy35S5q5OiXLQWMD1DRjp5ooWlPIhOexectnyzxl/pJg3rCgHPT/9NxpaJSfddl4ciGzHW2in03nAS+mk+fqynYwL8xnxoMGi9mQt2a05pyg7x9J+M/khyEff2o5ZU/ZGjxScvSYG/jQY+kkP5dY7MgL/0c1vv9j9vof4DUNp90NmdORfJvf0OCBu8ufxrC9ttq3v21wGP4Ft0NmDA==
+sidebar_class_name: "get api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get command history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ssh-terminal/command-history/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The caller's distinct commands on a host, most recently used first, for autocomplete.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of commands."},"400":{"description":"Invalid request parameters."},"500":{"description":"Failed to fetch history."}}}
+>
+  
+</StatusCodes>
+
+
+      

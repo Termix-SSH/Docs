@@ -1,0 +1,69 @@
+---
+id: form-login-2-8-route
+title: "Form login (2.8 route)"
+description: "Kept for 2.8 clients, which call /users/ldap/login. Same as /users/auth/{method}/verify, with the provider in providerId."
+sidebar_label: "Form login (2.8 route)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVVGL2zgQ/ivDPLWgc9KllMNve3CFtAe3dHMsZQnHrDyJ1ciSK42zmwv+72VsJ5tr2EKf+hR59Ekz8+mbLwesONvkWnExYIkfuRVYxwRXxe9gveMg2cBj7WwNlryHWZc55ZmvqJ35uHGhgFtqGCgft6iTenZoWOpY9bMdJ7feG3h0UoPUDG2KO1dxAhdO60VVoEGhTcbyHq87qXFlsKVEDQsnjR7QaX0tSY0GAzWMJY5J0GDir51LXGEpqWOD2dbcEJYHlH2ryCzJhQ32/UrBuY0hc9b9q/lcf/7Pwl/aGOTOWs553XkDMQFBZhtDBWuyEhO4DMe0BfYG387fXN60CDvyrgKbuOIgjnyewG8vwcuaBAZSYexMc4QoQDtynh48F9j35th2iW3MgmYkpcSJ/xP1w01oMHPaHUnsklckmu9Sf45dgiWnxj3BiEelKrPtkpP9cPaBKXEaXqe8X/XmgDbGrePzCLXuI+9PkbMrbvVJRs7PLzq9UC3S4vRy+j2C0EyL9zE1JFjih7vlRfW3nLOLASRuOUDmIKouVZsmicn9R4qEmkmVRxn+GC4FCtUAGw4OD3Pe0qm2sSs0owZHyLMKvzzKixV9uFvCiIfMAiSQ3Sb8pmNzV7NOAGu5BpyA0JazRqxqxTLEHacXuxiqPaf7p5m8vlnAlveQhZK4sJlmtHn696KdE/Tnqd3y/mggQ6L8nKaAhQBZyXpswkJ8DNNpS2EQvxXdp7CPgYF9nqbAhXUcunbitc1Jvdc3CzSogh9Lv3pXvJkX84uWljWDjYnh+VwBf5KtofWdjmAVbdeo/4GTrGVBip3wOL86eQ0FzT+pQGmdhveVmucAfv19Wp2ZIBzkV3vtKBXhJ5m1nlzQpgZzOEx2co9DCjRYnmx2dJSVwVqNp7zHw+GBMv+TfN9r+GvHSb1iZXBHyaljDc5RuazrCss1+cw/4OTVp8lSX8NLVR5nMuhA7sh3+oUGt7x//kvoV+c+efP37RL7/hv+DGHJ
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Form login (2.8 route)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/{method}/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Kept for 2.8 clients, which call /users/ldap/login. Same as /users/auth/\{method\}/verify, with the provider in providerId.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"method","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful, or a second factor is required."},"401":{"description":"Invalid credentials."},"404":{"description":"That login method is not available."}}}
+>
+  
+</StatusCodes>
+
+
+      

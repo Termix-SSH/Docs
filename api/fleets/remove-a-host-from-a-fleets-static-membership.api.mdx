@@ -1,0 +1,69 @@
+---
+id: remove-a-host-from-a-fleets-static-membership
+title: "Remove a host from a fleet's static membership"
+description: "Only removes the static membership row - a host still matched by the fleet's tag rules remains an effective member."
+sidebar_label: "Remove a host from a fleet's static membership"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu40YM/RWCl7bAxHaLPemWotk22wJd7KYIisAoaImyppZmtEPKjmro3xeUFMddNwVyaU+Wxo+c994Mn45YsOTJt+pjwAx/DXUPiZu4ZwGtGERJfQ4NNxtOUvkWUjzAFRBUURREfV1DQ5pXXMCmH2vKmlm/ElDaQupqFutIPghQAC5LztXvee65QIdKW8HsAd9aoeDaYUuJGlZOtn5Eb9xa0godBmoYM/QFOkz8qfOJC8w0dexQ8oobwuyI2rcjKihvOeEwuH/sYiJuX9lpbWhpYxAWA3y3WtnP3438ydyZjCwWODh8s3pziRoFQ0zn/oaoUMYuWNngsGGtYoEZFlyzMrpJQYbLtu62PlxR65ej47I8+mJYzq2Wx0nbgA6F0/7Jyi7VVozuCyq/xy7BHafGP8KER1MqnHfJaz/WbpgSp+vO9n9Ym6V5jDvP5yvU+p+5P62ctfholk6WnTc6OVyptjg7b+8TCN388DamhhQzfHd/d8H+I4v4GEDjjgMIBwUfxstom8Tk/yJDQsVUcAIS+H5sChSKETYWjgd1LunEbVKFbrpDE+T5Fv150BcZvbu/gwkPwgqkIH4brnxYwH3FAdrERteBV1DasdhKzgWHnCHuOb2oYmR7bvernbx+fws77m3Ik/qwhYPXCrR5/ONCzgn6emt33Ds4VD6vpo3keZsF3CpQrmJlMxbiIczVOQWbBsrV/qfQx8DAtfA0Gj6UcVTtteanaRK4fn+LDu3CT9S/XawWqwtBP6bYtWOICfigcUotGfdNXYA8Ng2FQhy0lO9oy0bDxzAhSl8zaKIgJSeBGIDqGmJpIho75BhyHg+ojaINBeM535YPYyo8JWiZYgN0ysyLvP2SuM1cUA76/6X1dMmUH3XZ1uSDyRxj5Thn0wM+ZxM6nJxFh9kY2jM7e5/jd+3GILbC43FDwr+lehhs+VPHybJn7XBPydPGDvrhiIUXey4wK6kW/hePvv4wJ/s38BL3pxkPNuB7qjt7Q4c77qcPjeXaf7jj7MqwPo//H25+ubm7wWH4DFocpi4=
+sidebar_class_name: "delete api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a host from a fleet's static membership"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/fleets/{id}/members/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only removes the static membership row - a host still matched by the fleet's tag rules remains an effective member.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host removed."},"404":{"description":"Fleet or membership not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

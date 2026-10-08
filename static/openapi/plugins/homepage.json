@@ -1,0 +1,534 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Homepage API",
+    "version": "1.0.0",
+    "description": "A drag and drop widget page for your servers and services, plus service links for the dashboard."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/homepage/items": {
+      "get": {
+        "summary": "Get homepage items",
+        "description": "Returns all homepage widget items for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of homepage items."
+          },
+          "500": {
+            "description": "Failed to fetch homepage items."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create homepage item",
+        "description": "Creates a new homepage widget item for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "typeId"
+                ],
+                "properties": {
+                  "typeId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Homepage item created."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to create homepage item."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/items/{id}": {
+      "put": {
+        "summary": "Update homepage item",
+        "description": "Updates a homepage widget item's title or config.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Homepage item updated."
+          },
+          "400": {
+            "description": "Invalid id."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to update homepage item."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete homepage item",
+        "description": "Deletes a homepage widget item.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Homepage item deleted."
+          },
+          "400": {
+            "description": "Invalid id."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to delete homepage item."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/layout": {
+      "get": {
+        "summary": "Get homepage layout",
+        "description": "Returns the homepage canvas layout (widget positions, pan, zoom) for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "responses": {
+          "200": {
+            "description": "Layout data or null."
+          },
+          "500": {
+            "description": "Failed to fetch homepage layout."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save homepage layout",
+        "description": "Saves or updates the homepage canvas layout for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "entries": {
+                    "type": "array"
+                  },
+                  "pan": {
+                    "type": "object"
+                  },
+                  "zoom": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Layout saved."
+          },
+          "500": {
+            "description": "Failed to save homepage layout."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/service-links": {
+      "get": {
+        "summary": "Get service links",
+        "description": "Returns all dashboard service links for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of service links."
+          },
+          "500": {
+            "description": "Failed to fetch service links."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create service link",
+        "description": "Creates a new dashboard service link for the authenticated user.",
+        "tags": [
+          "Homepage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "url"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Service link created."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "500": {
+            "description": "Failed to create service link."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/service-links/{id}": {
+      "put": {
+        "summary": "Update service link",
+        "description": "Updates label or url of a dashboard service link.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Service link updated."
+          },
+          "400": {
+            "description": "Invalid data."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to update service link."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete service link",
+        "description": "Deletes a dashboard service link by id.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Service link deleted."
+          },
+          "400": {
+            "description": "Invalid id."
+          },
+          "404": {
+            "description": "Not found."
+          },
+          "500": {
+            "description": "Failed to delete service link."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/favicon": {
+      "get": {
+        "summary": "Proxy favicon fetch",
+        "description": "Fetches and caches a site favicon server-side to avoid CORS issues.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Favicon image."
+          },
+          "400": {
+            "description": "Invalid URL."
+          },
+          "500": {
+            "description": "Failed to fetch favicon."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/rss": {
+      "get": {
+        "summary": "Proxy and parse an RSS/Atom feed",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of feed items."
+          },
+          "400": {
+            "description": "Invalid or missing URL."
+          },
+          "500": {
+            "description": "Failed to fetch or parse the feed."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/ping": {
+      "get": {
+        "summary": "Check the HTTP reachability and latency of a URL",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ttl",
+            "schema": {
+              "type": "integer",
+              "description": "Cache TTL in seconds (min 10)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping result with ok, statusCode and latencyMs."
+          },
+          "400": {
+            "description": "Invalid or missing URL."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/proxy": {
+      "get": {
+        "summary": "Proxy a JSON API URL and return the parsed response",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ttl",
+            "schema": {
+              "type": "integer",
+              "description": "Cache TTL in seconds (min 10, default 60)"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The JSON body returned by the target URL."
+          },
+          "400": {
+            "description": "Invalid or missing URL, or non-JSON response."
+          },
+          "500": {
+            "description": "Failed to fetch the target URL."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,48 @@
+---
+title: Trusted proxy login
+description: Let Authelia, Authentik or another proxy sign people in.
+---
+
+import { CoreEnv } from "@site/src/components/EnvTable";
+
+# Trusted proxy login
+
+If a login proxy like Authelia, Authentik or Cloudflare Access already sits in front of Termix, it can sign people in for you. The proxy checks who someone is and sends their username and groups in headers. Termix trusts those headers only from addresses you list.
+
+:::danger
+Anyone who can reach Termix without going through the proxy can send those headers and become any user. Only turn this on when the proxy is the only way in.
+:::
+
+## How it works
+
+1. Someone opens Termix. The proxy makes them sign in.
+2. The proxy adds a username header and a roles header.
+3. Termix checks the request came from a trusted address.
+4. Termix maps the proxy's roles to Termix roles and signs them in.
+
+If any role in the header is not in your role map, the login is refused. That way a new group in your identity provider can't grant access by accident.
+
+## Set it up
+
+```yaml
+    environment:
+      TRUSTED_PROXY_AUTH_ENABLED: "true"
+      TRUSTED_PROXY_AUTH_TRUSTED_PROXIES: "172.18.0.5"
+      TRUSTED_PROXY_AUTH_ROLE_MAP: '{"admins":["admin"],"staff":["user"]}'
+```
+
+Termix won't start with it on unless both the trusted list and the role map are set.
+
+<CoreEnv group="auth" />
+
+## Getting the address right
+
+The address Termix sees is the one that connects to it. That is your proxy, not the person in the browser. In Docker it is the proxy container's address on the shared network. List that one address if you can, not a whole subnet.
+
+If logins get refused, the trusted list is almost always why. Set `LOG_LEVEL=debug` to see which address the request came from.
+
+## With other logins
+
+It works next to passwords and other sign in plugins. Keep password login on for one admin so you can still get in if the proxy breaks.
+
+You can't add a new second factor while this is on. The proxy decides who signs in.

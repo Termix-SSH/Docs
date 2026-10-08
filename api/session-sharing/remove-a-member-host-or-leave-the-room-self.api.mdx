@@ -1,0 +1,69 @@
+---
+id: remove-a-member-host-or-leave-the-room-self
+title: "Remove a member (host), or leave the room (self)"
+description: "Remove a member (host), or leave the room (self)"
+sidebar_label: "Remove a member (host), or leave the room (self)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VV1v00oQ/SujeWqlbVK498lvBYpUQALRoOoqitDEnsZL7F2zO05rLP/3q1mbNm3CAzzwZK93Ps6cmTPuUWgTMVvia19VtMaVwch5G6x0mC17XDMFDhetlJgtV8PKYEOBahYOMRlYhxk2JCUadFQzZmgLNBj4e2sDF5hJaNlgzEuuCbMepWvUKkqwboPDYI4GaSOHq98LtFLj2HgXOer9y/NzfRQc82AbsV6zfOba77jAweC/x+4XJYO/cxwgJ+e8wJoh7Pv8c+jz0VUdSMlQ+ijqN3mAl1J5GgZzFAUQ1FyvOcCJep4a8AEqph2naMH7Gk4iV7enaLBmKX2BGRZcsTCakbAM503Vbqw7o8bOI8dovTuLJSkpcw0R570thvmYKc77kdkBtdNh97OPbag0Fj5H+p9vAyw41PYeRnsc9obkWrsx0r0/Kg/NKUUanJqm59EIzfTy1oeaBDN8d7M4SH09FgPit+wgshOwLjGjSXywP0gtoWQqOABFeJWCArkimSXHmbYt935r+Rk2aux77tCM4zeaPA7gtzv5JaJ3NwsY7SGyAAlEu3Fn1s3gpmQHTWCFa8AKCG056pecC3Y5g99x+GUVCe0I7A+ZvPh0BVvuIAoFsW4Dd1ZKkPr+60E5D6a/T+2WOwN3pc3LMVF8TDODKwHKJarbZDtJSr0nWVEuek+u846Bq8izpBPrbn2q2krFe5RfjxMNF5+u0KCO7VjDi9n57PywUSUFhsrutEEpQIR1B5V1W9VYwkouyRNUDyZBm9r26CIeCDbBt43SUzMnQpOoUqMaH6Ump3inqfkDYT9B/tBu4XuZNxVZp4mSOvtJ8Ut8VHxS8RPN68pUgGgwS5t4Er6ep6W6MqiwNFLfrynyl1ANg37+3nLQxb8yuKNgaa09WPZY2KjvBWa3VEU+AJ17J+x0/E4+T/v6FNAcL+an/Jxqb0dVqyc0uOVu/HvoL+EvZpxYGVbD3pZ9c/nhcnGJBumpDJ/JLrFzNHzfjxYLXULD8JAtLSVNNgz/A/AAj5A=
+sidebar_class_name: "delete api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a member (host), or leave the room (self)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/session-sharing/rooms/{id}/members/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Remove a member (host), or leave the room (self)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Removed"},"400":{"description":"The owner cannot be removed"},"403":{"description":"Only the host can remove others"}}}
+>
+  
+</StatusCodes>
+
+
+      

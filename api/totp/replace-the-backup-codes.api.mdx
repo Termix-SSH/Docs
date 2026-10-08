@@ -1,0 +1,68 @@
+---
+id: replace-the-backup-codes
+title: "Replace the backup codes"
+description: "Replace the backup codes"
+sidebar_label: "Replace the backup codes"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1vEzEQ/SujOTtJQZz2VhBIBQEVDapQFaGJd5p1s2sbe7ZpiPLf0XiXNG0AiT0km/Gbb7+XHQqtMlY3OP88v8SFwcQ/es7yOtRbrHblp0tcYyWpZ4M2eGEvekQxts6SuOBndzl4tWXbcEf6JtvIWGFY3rEVNBhTiJzEcS6nQeJ3G2o+gmZJzq9wXx4tJMfg84B/eXamXzVnm1zUlFjhJ97Akuy6j6Ch8hT3Bl/9CfnR5ez8qsAgJNBmwWXwQSD40e/Fqd+Fv6fW1cVvilrV0/MvHFuyDNLwk0rQYMfShBorjCGX/kkarHAW237l/ISim+kQZoPb5Ldb5nTPSTeywz616oHPs34LfYI5p849wIDH/UJdbZ+cbIvvkilxOu816c1ib3ZoQ1g7PrZQdB94e7AchbjSNQ6TPw50WFUjErXYAsNqBKEZX96F1JFghe+v5yfVX3HOLniQsGYPmb2A82WCmiQk97NcKWiYak5AGV6XoEC+LrDiWHZ23NKhtqErNOg02wBBg55KpXcb+WtF76/nMOAhswAJZLfyE+encN2wh5hYyzXgBITWnNViuWZvGcI9p792Uao9Hvd/T/L88gLWvIUslESv8sZJA9I9fD9p5wD9/9GueWtg0zjbDInyY5opXAiQlaxuIxbCxo/elrySiazoOflt8Azc5pE2qg9fHpXl7QN1seVnSnBQAN3dbSinThRW1AnOLy/QoNJjaPTF9Gx6dtL+fBMmt2QlpLI+nUBpggb236bQAXmgXhr2ogIWElCMZoCdCIryt6OibuMd+gfrn5RyWLLwg8xiS85rwELr3SgIN/goCGjKNHT5x6KwMNiohlQ3uNstKfPX1O73av7Rc1K6LwzeU3K01Fkpt3HYcFGCNW+xwjeDbk/mWpHC234gyzMNVxU4SNfl5yvl73L8L+iGLSXaoCmfFaLBULotWlFsO2zJr3paFbqVmPr8AlEgNas=
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace the backup codes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/backup-codes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replace the backup codes
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"New backup codes."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."}}}
+>
+  
+</StatusCodes>
+
+
+      

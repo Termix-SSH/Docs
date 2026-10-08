@@ -1,0 +1,69 @@
+---
+id: start-proxmox-stats-collection
+title: "Start Proxmox stats collection"
+description: "Registers a viewer and starts (or reuses) polling for a host's Proxmox node stats."
+sidebar_label: "Start Proxmox stats collection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P20YM/SsEL02Aie20Oem2BVp0k0OM7LaLYmEUXIm2JpZmlCHljxr67wVHWseb7RbIoSdZo0fyPQ75fMKKpUy+Ux8DFviJN16UkwDBzvOeE1CoQJSSCryKCRL3wvIautg0PmxgHRMQ1FH0B4Flioc2HiDEii1IZYYOlTaCxT1OX3HlsKNELVshLO5P6K12R1qjw0AtY4G+QoeJv/Q+cYWFpp4dSllzS1icUI9dRgXlDScchpWhpYtBWAzw42Jhj6fylhPprIcrBxKokzoqJNY+Ba7Ar4GaxFQdgXbkG3poeIaDw3eLn/4l4SQ4awUvEKICBwuqcmu09pK7M+V49zzHb1E0x61jH6oZDoPDlrWOlTUliqIbe1PgvGv6jQ9vqPPzbiw9z6XnWdH85KsBHQqn3WNr+9RYILpvqv4Z+wS3nFp/gBGP1kPhsk9ejzn2gSlxuuqt9v1qcCcsY9x6vjyhzn/g4/nkIsWNXdZ4GZeJzndXq3Y43am9jyB0049fY2pJscD3d7fP2N+wiI8BNG45gHBQ8AG0ZrAiMfm/yZBQM1U2wwI/56R5mg2WA/OdXEo6cxtVoRsnc4R8nc3Pe32R0fu7WxjxIKxACuI34Y0PM7irOUCX2Og68ApKWxY7KbniUDLEHacXVWS2l+3+7k5eLa9hy8dx/G0P9l5r0Pbw1zM5Z+j3t3bLRwf72pf1o2+cy8zgWoFKFQubsBD3YYouKdgeUKn2ncIxBgZuhMel8GEds2qvDV8s39XyGh3axI/c384Ws8UzRddtF5OeLeqPX2DTs4xUbEHFwZa5M1qtKZZjKDOrPWlZP7G0weW9bCkYnWkobkwrPDWEMjYNl5nAN3RslYJy0P/NdMfRUD7ovGvIB2OdzeA0uck9fnUTs5jJnR3mHOMz2aAXvjLPtnIWdTo9kPDvqRkGO/7SczK7WDncUfJmfdk8Ki/ZBrFYUyP8H/pffZps/jW8RPxxLYPt5I6a3t7Q4ZaP43/FsLp0zeXHm1schn8AoS1gIA==
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start Proxmox stats collection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/stats/start/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Registers a viewer and starts (or reuses) polling for a host's Proxmox node stats.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Polling started, snapshot returned if already available."},"403":{"description":"Proxmox stats is not enabled for this host."},"404":{"description":"Host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

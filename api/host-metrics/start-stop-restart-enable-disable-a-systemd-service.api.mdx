@@ -1,0 +1,70 @@
+---
+id: start-stop-restart-enable-disable-a-systemd-service
+title: "Start/stop/restart/enable/disable a systemd service"
+description: "Start/stop/restart/enable/disable a systemd service"
+sidebar_label: "Start/stop/restart/enable/disable a systemd service"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v20YQ/SuDOTXAWnQ/Tro5Qdo6bVEhtmEUhlCsyIm4FrnL7AwlswL/ezG7tCRHziHhQRR335uZnY+3exS7Zpw/4O+BBf4iia5kXBrsbLQtCUXd3aPzOMfOSo0GvW0J5+gqNBjpc+8iVTiX2JNBLmtqLc73KEOXUF5oTRHHcZnRxPI2VINCviSXwQt50S3bdY0rrbjgi0cOXtfObIfVI5WCBrsYOoriiHW3905OUCzR+TWOBm2p9l7ZSo+Gx13wnK38dHmpr4q4jK7LRLxKFiAS943M1OYvr8Gu/dY2rgKNBEKE7HjC/3yOf9/Q1k6Wc0qUVZF3VM1QQ3uJvxEbpWAJXRGJ0wd5u2qoqBzrGyzwwEJtBUxx60pCgy1JHSqtY+CUNS3nHIs6sFy0ufRFa71dU+Ri4nGxd9VYTKkzqMvPTdHHRvn4ZXj/hD7CLcXWPUHGo1afqeyjkyFxV2QjxateQ3hYjmaPZQgbR6crtnN/0HBYOTFxo62Q63Rq6FDYWqTDqRv1O4PQTH9+DbG1gnP8cH97Fv0NMWspJGzIA5MXcB6kJlAnIbr/cqlqshVFsAxvk1GwvkqwREzFPj3SIbZ8KjR5pjLkOFWPO/lqRB/ubyHjgUnACrBb+wvnZ3Bfk4cukoZrwAmI3RDrSkkV+ZIgbCl+9RQp2tN0f3MmrxbXsKEBUjc6v4adkxqkffr37DgH6LendkODgV3tyjo74qObGVyLDhorbcJC2PmJXVrvQwLovvVD8ATUMOX5Uo35eFSn90+27Ro6qsmzVBxF5ERXnP8UUsqcKOeFlsLV4hoN6sxk2o+zy9nlWU7+dFuCd4s7Ay21IQ4GKscbA55kF+ImHeG3xZ2eWthA1/QMEkKjv5BnFgYdOx1mTuXUKW9tkrupt75PNl4EeugLoScpusY6r76SEuwnRXnAU0VR4Zk0ZZIPVRU0OE8XyJTOpUkkJe/3K8t0F5tx1OXPPUWVjKXBrY1Ow0wCMoVc4fyTbZjO4jxcJvjDx0lU3wCa1+N/Hk2vc7m1Ta9faHBDQ77pxuVoMLdl8p433mUfF7dKPxLPLi+VroP6Lv6+UdFZTZdgGyrlRLvT69TusuOQzpEELq3tsbF+3dt10ohkU5//AaKvrWo=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start/stop/restart/enable/disable a systemd service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host-metrics/managers/services/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start/stop/restart/enable/disable a systemd service
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"unit":{"type":"string"},"action":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Action result."},"400":{"description":"Invalid unit or action."},"403":{"description":"Elevation required or denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

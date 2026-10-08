@@ -1,0 +1,69 @@
+---
+id: resolve-a-guest-share-link
+title: "Resolve a guest share link"
+description: "Public, unauthenticated endpoint for anonymous share-link guests. Never returns host name, IP, username, or hostId. Rate-limited per IP."
+sidebar_label: "Resolve a guest share link"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P4zYM/SsETy2gSdLF9tDcpkBbZFsUwUyKQTEICsXmxGpsykvRmUkD//cFZW+S2XQK7K0nWxI/Hh+ppyOWlAoJrYbIOMdlt6lD4aBj32lFrKHwSiUQl20MrPAUBTxHPjSxS5AqL3RTB97BtqOkaQK/054EhLQTTlDFpMC+IQeLpYMukQyrKPlsUU7gzqvFaIIlaklgsZygQ/XbhPNHvKeUQmS4r7wE3uLaYevFN6QkZnDEYMhbrxU6tOg4R4O0ijtidCj0sQtCJc5VOnKYiooaj/Mj6qE146Q5cN+vzTi1kRMlO383m9nnNUV3lGK9p3IoHorITIWdQeCniL3D97P3126/GUkcjcGOSwf00hooB0L7uLOfKDlk4C2UIflNTWWO9u6H62irGKHxfAArzog3y+//De49iTWERKJg3ztsSKtY4hy3pOgG3uY4betuG/jGt2GaBsZvRjRTGSqeHk+s9ugw5cBDBzqpLQa6L5L/GTuBFUkTXmCwRyM5UdFJ0EP23ZAXktvOYDyue3fEIsZdoMsd34Zf6XDauQhxb80cunUZ6NTbSrXFsee2HozQjT8/R2m84hw/PKyu0H+ePLWSIRErBAatCCxJlPCPz32vyJck4BP8mIOC5zKbZceJteaypBO2oSp0wwAPJucR/vtZ30T04WEFgz0kUvAKKWz5JvAEHipiaIUMroOgoH5HyXYKKokLgmjz8FYVGe0l3V/N5O1yATs6QFIvasP8HLQCbV7+uirnZPr11O7o4OC5CkU1JErnNBNYKPhCk7mNthCfefQuPNs19IXauedDZAKqE03y9ciX2KoOWtMF5aP8wO1ygQ5t8ocavpvMJrPrRmVtqMPeGpQDJNgcICtllAGr56gVSRZFl6GNbTu7aAQPW4lda/Q0RJlQibFJuVFtTNp4Nrzj1IzqZG6mC6NIWd4vMdo9YyXW/5nsD9Om9KLTtvaBrc6sL8dRqx7xrFVZh16pVRb8zAE6nJ/fgbVDy2zux+PGJ/pD6r637Y8diUnR2uHeSzDhzcJ0EuH5k68T/Qd939yNT8y38FYFn688233f+7qzFTrc0eHVc9WvLyX6l59W2PefAPmXqKk=
+sidebar_class_name: "get api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Resolve a guest share link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/session-sharing/resolve/{linkToken}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public, unauthenticated endpoint for anonymous share-link guests. Never returns host name, IP, username, or hostId. Rate-limited per IP.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"linkToken","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Resolved share connection info"},"404":{"description":"Link not found, expired, revoked, or sharing disabled"},"429":{"description":"Too many requests"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

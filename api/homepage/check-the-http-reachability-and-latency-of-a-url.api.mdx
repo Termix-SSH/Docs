@@ -1,0 +1,69 @@
+---
+id: check-the-http-reachability-and-latency-of-a-url
+title: "Check the HTTP reachability and latency of a URL"
+description: "Check the HTTP reachability and latency of a URL"
+sidebar_label: "Check the HTTP reachability and latency of a URL"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVV2P01gM/SuWn0C6tGW1T32bRQsMy0ojKBqhUYXcxJNcktwbrp3pZKv8d+SkX2yHB3hqcnNsH/v4nu5QqRBc3uHb2HBLBePaYUuJGlZO9mWHPuASv3WcenQYqGFcYpdqdJj4W+cT57jU1LFDyUpuCJc71L41mGjyocBhcE+nUbU0F2E+KBec0GHOkiXfqo8W/YqykmG1eg8+gHAWQy7wrPEBXi6e4zCsjZK0MQiLpftjsbCfH5Pc+FBAYulqha3XEmLlQJS0k1cxZ6CQQ03KIev/lRkODv98Ks11eKDa5xATNF7Ekn768H5mvf6fdclZBVoyvF2tbiAxZSVtfO21Py8G8R7IcqDDhrWMOS6xYEUTREtc4rytu8KHF9T6ebnXa97agB0Kp4eDYCbOEucX4/scuwQrTo1/hAmPNjLhrEte+zF2w5Q4XXVW8G5tumUxVp7PT6j1/3B/PDlL8dGUnGZ/nugobKnaHgS39wmEbv/wOqaGFJf47nZ1wf4ji/gYQGPFpn5Q2wIbqxWJyf9HhoSSKecEJPDXmHScscHGwFHQ85aO3Kau0E2LOkFOm/p1qz9l9O52BRMehBVIQXwRXvgwg9uSA7SJja4Dr6BUsdhJxjmHjCE+cPppFyPb83H/8iSvbq6h4t4WPKkt6bjy2jx+uWjnCP310VbcO9iWPiunQnIqM4NrBcpULGyPhbgN++iMQogjwL5T6GNg4Fp4ukk+3Mexa6+1tXmwKbi6uUaHtvIT+ZezxWxx2RLkiYqxUJ5iC1ufF6wwZriPCXq7EfurM6Ls2WcsDtq6k8Mr1D5UMkZYBzlJuYmU8lGeNoo2FIzlfld+48L/QPsosvKjztuafLBC47Xe7c3gDk9mgA4PdmBmYYawtiNRw+12GxL+lOphsOPJge2q515oU5t731MtfEEii0E52BI9+7A3+ueA7mlyFffHv4UHqjtDoJnFRZUJOTn/Cbm2l+QNOtnMyQPf/L3CYfgOQjNHQw==
+sidebar_class_name: "get api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check the HTTP reachability and latency of a URL"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/homepage/ping"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Check the HTTP reachability and latency of a URL
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"url","required":true,"schema":{"type":"string"}},{"in":"query","name":"ttl","schema":{"type":"integer","description":"Cache TTL in seconds (min 10)"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Ping result with ok, statusCode and latencyMs."},"400":{"description":"Invalid or missing URL."}}}
+>
+  
+</StatusCodes>
+
+
+      

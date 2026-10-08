@@ -1,0 +1,68 @@
+---
+id: delete-user-account
+title: "Delete user account"
+description: "Deletes the authenticated user's account."
+sidebar_label: "Delete user account"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVUtv20YQ/iuDufRCy86jPfDmNArgpAejUWAUhlCsl2NxLXKX2RlaYgn992J2qYej5GAdJGr3m5lvXh9HrIhtdJ244LHEj9SQEIPUBKaXmrw4a4Qq6JnibwzG2tB7mWGBYlaM5T1+Y4qMywIjfe+J5UOoBizH9NdFqrCU2FOBNnghL3pluq5Rvy74yyfWyCOyrak1+iRDR1hieHgiK1hgF0NHURyx3naGeRNidYJkic6vcJc+yoO74DnD315d6c/LNK9zFlCldCvg3lpifuybZpjhrsD3P7O6nSKDY9gnN6HfnKNvvA0xkhXYM56w786xfxrvw54O0FYoetOcdsAFv689Q4ipQY1hAVO1zqfuTO7fn7vXDoEGeAy9zzR+/1mCn4xrqAIJeyaHbmtZW5I6VFhivtTGGKmxxEuNzpf5+GKywQKZ4rOORnk/Yh8bRWLxQ8h/Qh9hQbF1W8h43C3V1PbRyZBsH8hEite9Brtf7ooRbQhrR6cnpnNfaDicnLj4qnOVZ+HU0WF4apFOySYYlhMIi+nhU4itESzx893ijP1XYtbOSFiTByYv4HzqjQYJ0f2XO1eTqSiCYfiQnILxVYIlw9SQ05QO3HJWWKDTaBmCBXqTmD5t5JeMPt8tIOOBScAIsFv5C+dncFeThy6S0i3ACYhZE+uJpYq8JQjPFH+ZRWJ7Wu5XV/L69gbWNACLieL8CjZOapB2++9ZOgfo60u7pqGATe1snQPxMcwMbgSMFVazCQth4ydrm7fRWNF744fgCahhynuggvX3UermW9N2Db2UpoMkaeseQyqSE0XhNOzXtzdYoO5HzvTtH7M3V7OrswosagIbIsHRbgZzY2vomn7lPFTB9i2pLDiVho2HGHohTn3qAktrkr5OQ5MVPgkGHFf1RczxKNWveyHkMRDaymXXGOeVQVr8cZKKe0xSkQK+EItlgXVgUcQ4Phimb7HZ7fT4e09RZWBZ4LOJzjxoEXXnMXc+KcSaBlXRzPpioTwU3vR5iX542ag6HMTs4/yv+WKuQzq9ttpQqVU0GyzSd4lYYEi1SSqSzkZsjF/1ZpUWMXnVz//N9Yj0
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/delete-account"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes the authenticated user's account.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Account deleted successfully."},"400":{"description":"Password is required."},"401":{"description":"Incorrect password."},"403":{"description":"Cannot delete external authentication accounts or the last admin user."},"404":{"description":"User not found."},"500":{"description":"Failed to delete account."}}}
+>
+  
+</StatusCodes>
+
+
+      

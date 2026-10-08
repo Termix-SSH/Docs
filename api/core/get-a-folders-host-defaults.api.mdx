@@ -1,0 +1,69 @@
+---
+id: get-a-folders-host-defaults
+title: "Get a folder's host defaults"
+description: "The defaults hosts in this folder and its subfolders follow, over yours and the server's."
+sidebar_label: "Get a folder's host defaults"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VFGP00gM/iuWX+CkIe0hxEPe9nQctyAhBIUVKhWaJm4z12QmjJ3thij/HTmT7RZWi8TDPTX1fB5//sb+BiyJi+haccFjjquKoKSd7WphqAILg/MglWPYhbqkCNaX4ISBu22KTCd1OBoI1xShD13kCSUVAVO8pviIMzQods+Yr/HfwAJ/z0VwY7C10TYkFPV4QKdEWisVGvS2IcwxVbos0WCkr52LVGIusSODXFTUWMwHlL5VrPNCe4o4jhtFcxs8Eyvg6XKpPz92/NHWHSXCzlcUnVAJ11PQwIF6KmHbw+eJCbe2oOxA/WfMcDT4bPns/oVvAnBXVLd6hV2SJMNxNNiQVKHEHPckaFKXOS5U6cWt7otZ18Vw2/aIBpOSSaEu1pqF5qfSn0IXYUWxcTez8qgiMBVddNJPuVuykeJFp4XXm9EMWIRwcHQesa17Tf0pcnbFe1U7qXl+0Un8SqTF+VH0fwKhmT/+CbGxgjm+ulrdY/+emF3wIOFAHpi8pNkj0CIhum9WkVCRnQaR4a/p0tOwTYnTw5y3dOKWukKTBixB7kbsv6M8yOjV1QoSHpgErAC7vX/ifAZXFXloIyldA05A7IFYIwWV5AtKW/FQFxPbc7l/W8mLt5c6psBiozi/h6OTCqS5+XKvnRP096U9UG/gWLmiSoX4rkwGlwK2ENa0GQvh6OfswnofJoCeW98HT0A1U1oI53dh6tpJrW3O03vx9hIN6sAn6k+fZ38us+W9ltSvihAJ7vIyeGGLCtq62zsPZSi6hrz6mLDSghg6IZ6EbwNLY73Wn6fgpT7vvLqPkgOe/PDn4ro5XsjL/+2baSCEbmTR1tZ5pT5ZwDAbyBq15MTvRHUuggbzk3tuTALmaxyGrWX6EOtx1PDXjqL6w8bgtY3ObvUx1gOWjvW7xHxna6ZfKPD43WzMf8BDnG/30OsSThaLOaLBA/XnHj9uzo3y5YsVjuN3lpxL6A==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a folder's host defaults"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/defaults/folders/{folderId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The defaults hosts in this folder and its subfolders follow, over yours and the server's.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"folderId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Values and inherited values, keyed by \"namespace.key\"."},"404":{"description":"No such folder of yours."}}}
+>
+  
+</StatusCodes>
+
+
+      

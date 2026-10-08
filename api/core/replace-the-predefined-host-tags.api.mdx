@@ -1,0 +1,68 @@
+---
+id: replace-the-predefined-host-tags
+title: "Replace the predefined host tags"
+description: "Sets the instance-wide tag list. Tags are trimmed and duplicates dropped. Tags already on hosts are not changed. Requires admin.settings.manage."
+sidebar_label: "Replace the predefined host tags"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v2zgQ/SuDOTOO0t3sQbd00aLpfiBIXASLwFiMpYnEWCIZchRHa/i/L4ZybLdpDr1VB1si33y9GT5usOZURRvEeocl3rAkkJbBuiTkKj5Z25pBqIHOJpnBnJoEFBkk2r7nGsjVUA+hsxUJJ6ijD4HrF2AXmeoRvIPWJ5ksnReoWnKNwq75cbCRE1DdWzdLLGJdk2Y9OWp4hgaFmoTlHd7cfMKFwciPAyd57+sRy03+tJFrLCUObLDyTtiJblGYsrLenT4kLW+DqWq5J32TMTCW6JcPXAkaDNEHjmI55d0cdI+iGGlEgz09Xwr3CcvzojBop/c9LEm0rplwf7JrpMXyrCi206O5p+BdmkK8Kwr9+5r/ecuQ6IlrpTzNcGvw1+/h/vYC5CDnBf4ehgDi4bwowHl3wn2QMXvQPRLofRI4KwrlPVIlHF98//La9182JeuatzqyNXj+vZQ+ku00b58LyEO0q2FrsGdpfY0lhiGTTUoNnupQnGauDSaOTxy11RscYqfbaL6J8Y8fIsw59vYZJjxuF2paDdHKmG2XTJHjxaAR7hZbs8HK+5Xl4xUK9g8e9ytHLm50QKYGHTvat7gVCZpshmG5A6HZvXz0sSfBEj/fzl9lf8MpWe9A/IodJHYC1mWiNIiP9r88rNAy1RyBErzPTvMZy3yqYe7AcUmHKc1VoUGr0SYIGnSUM31Yy5sZfb6dw4SHxKITk2zjTqybwW3LDkJkTdeAFRBacdKVimt2FYN/4vhmFTnbY7p/mMmLq0tY8QhJKOokwtpKC9I///uqnD30x6ld8Whg3dqqnQKlQ5gZXApQpeqVXrDg125nXZFTRaNKdJ/c6B0Dd4mnyVfluT5o1odn6kPHB425e1GNxVYbd+/zlhXF4G7UL64u0aCejqnOd7/NzopZ8ap+VY/KR4aD3Qw+UNVC6IbGOqh9NfTsJIGVpDVA9IPwJAbBJ+kpy+RuZK45dFRNZzlErvneOq6zlMPu1H6VwOYgvz/lTTINnvCznIaOrNOqs9Rsdop0h+r85dJZmOmzvMPNZkmJv8Ruu9Xlx4Gjqs3C4BNFS0vtlkoLTgOWhWjFI5b4+8TIyVyDK7wbprP6zeWkIrRXyasvqh7L3R3X+1pNIq3R5N8S0aDPpGelymsb7Mg1AzX5sGeX+vwPU3+4VQ==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace the predefined host tags"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/tags"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets the instance-wide tag list. Tags are trimmed and duplicates dropped. Tags already on hosts are not changed. Requires admin.settings.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tags":{"type":"array","maxItems":500,"items":{"type":"string","maxLength":100}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved tags."},"400":{"description":"Not an array of up to 500 non-empty tags of at most 100 characters."},"403":{"description":"Missing admin.settings.manage."},"500":{"description":"Failed to save the tags."}}}
+>
+  
+</StatusCodes>
+
+
+      

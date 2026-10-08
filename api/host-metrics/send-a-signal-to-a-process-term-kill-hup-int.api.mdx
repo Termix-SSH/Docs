@@ -1,0 +1,70 @@
+---
+id: send-a-signal-to-a-process-term-kill-hup-int
+title: "Send a signal to a process (TERM/KILL/HUP/INT)"
+description: "Send a signal to a process (TERM/KILL/HUP/INT)"
+sidebar_label: "Send a signal to a process (TERM/KILL/HUP/INT)"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v2zgM/lcIPm2AGud+PPmtG3q3bN1d0KYoDkVwUGwuVmNLnkQn9Rn53w+U3CRruof6IbGlj+RHUvw0IOt1wPwBP7nA8JXYmyLgUmGrvW6IycvugMZijq3mChVa3RDmaEpU6Ol7ZzyVmLPvSGEoKmo05gNy30aUZVqTx/1+mdAU+IMre4G8NC6cZbIsW7pta1NoNs5mj8FZWTvz7VaPVDAqbL1rybOhILutKV8joDCYtdX1yV5gb+wa9/EReqF1NiQvv06n8ldSKLxphQjmeBs9gKfQ1TwRn7+/BpvZra5NCa0pwXlIcUf4b+fwq5q2MVV4rohYlWQNlRMUZi9YkC1Bj26BHWhovSsoBHi3uLr5mn2ZXV9nn+7m2eyvxXtU2BBXrpQOuhDrJY3MMatc4IsmNT1rtNVr8iEbfVHIBlPus7FqCgP57fN56HwtDvAltX9c52FBvjFPkPAojQ9UdN5wH21XpD35y044PCz3asDCuY2h0xXdmi/UH1ZOXNzKKUgtOnV06GnF3OJ4EOU7gVCNL38432jGHD/fL87Y31II0gZ2G7IQyDIYC1wRSBDnzX+pTRXpkjzoAB+iU9C2jLBoGBt9mtKBW8oKVRqnBDkO1OOOf8ro8/0CEh4CMWiO3b8wdgL3FVloPQldBYaB9YaCrBRUki0I3Jb8T7OIbE/L/eZKXs5nsKEeAmvPxq5hZ7gCbp7+PUvnAH17aTfUK9hVpqhSoHAMM4EZgy44iNmIBbezo3WhrXURIPva9s4SUB0ozZbIy81RmK6edNPWdBCS6VE3DnohDfzmYqkMC/YH+YTL+QwVyqykrH+ZTCfTs1pcmy3Bx/mdgoYa53sFpQkbBZZ45/wmUv9zfifZclDQ1l0Adq6WX0jDCr2Mm0xxiG2U8W50FMvxTL1ZKn7geDgKTE+ctbU2VsLE4R9GFXnAUxURsRl1JOlyUhJUmMf7YizlUkUrsR6GlQ505+v9Xpa/d+RFJpYKt9obvZLyPgxYmiDvJebfdB3ojOjh7sB3N6OIvgdUryfwPI5WZnGr606+UOGG+nSx7Zd7hekoxuhp42OKcbEQ86Ph2V0lcnWQ3PnftyI0q/HOa1wpNl7v5PbUuxTYxTyiqMW1AWtt151eR12IPuX5H5snoGk=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a signal to a process (TERM/KILL/HUP/INT)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host-metrics/managers/processes/{id}/signal"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send a signal to a process (TERM/KILL/HUP/INT)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"pid":{"type":"integer"},"signal":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Signal result."},"400":{"description":"Invalid pid or signal."},"403":{"description":"Elevation required or denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

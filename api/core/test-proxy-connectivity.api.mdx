@@ -1,0 +1,68 @@
+---
+id: test-proxy-connectivity
+title: "Test proxy connectivity"
+description: "Tests connectivity through a proxy configuration to a target host."
+sidebar_label: "Test proxy connectivity"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVcGO2zgM/RWCZzXJFtgefJsWXXTawwZNFoMiGCwUm2NrYkuuRE/iNfLvBSVP4k4yWBSoD4ktPYrkE/k4YEEh96Zl4yxmuKbAAXJnLeVsngz3wJV3XVmBhta7Qy+bD6bsvBYTYAcaWPuSGCoXeIYKWZcBsw2uVp/wXqGn7x0Ffu+KHrMhfhpPBWbsO1KYO8tkWbZ029YmjwfPH4MENGDIK2q0vHHfEmboto+UMypsvWvJs6EQccaWNS0lxP8HS6QTVGBvbIlHha3z0w3bNVvyspEWrlh0gbzVzfXNVoewd764snk8xqAO/YdKGzsBaO91jwoNUxMuUxE7psDryPnvT3V85NpC62xIp7xdLOTvsljAU+hqlgP/vIZZPtdMLChn4UGbmoqYRkNcuQIzbCVGYYsrzHAuIc+L7TzSM5dkUWEg/0Re6mrAzteCQ/XC2TfXeViTb8wBEh6P92Kad95wH223pD35m05cbe6PasDcuZ2h6YpuzRfqTyuTI1ZSjYmS6UEnFivmVoKNMMxGEKrx5S/nG82Y4ee79UX0KwohtdSOLASyDMYCVwTixHnzX2q5inRBHnSA9/FQ0LaIsGg4k6uYpnQurJiVVJZ4SxBUmIoXH/f8akSf79aQ8BCIQTMEU9o3xs7griILrScJV4FhYL2jICs5FWRzAvdE/tUsYrRTun+ZyZvlLeyoh8Das7El7A1XwM3h34t0TtBfp3ZHvYJ9ZfIqOQpnNzO4ZdA5BzEbseD2drTOtbUuAmRf295ZAqoDzWIPiMx9PQvkx4Nu2pquCFrq4+f+fW7fhXrR2FNBmoBPOjQVgIn6bAap8p915RWPErWxDy7elWEJFseeu1neokJp00T423ezPxazxcVFrCuC3HmCs90MPuq8grbuSmOhcHnXkOUAhoOQCd51TGGWhCtwo6NkjnlGIWp/UhoZXS/9DudZ85sGXaKe6cDzthYiZSCIOA2jmG0SiwqLLY6MY+JZJmNieIPDsNWB/vH18SjL3zvyIlb3Cp+0N3orHIsyYarPqGM76jHDDymhN2uJROB1l1r9xSCV2z3J7fLvlajPdhzIjSvExus9qvibISp0kbSodHFtwFrbstNlFIt4pjw/AEsu3bA=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Test proxy connectivity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/db/proxy/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Tests connectivity through a proxy configuration to a target host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"singleProxy":{"type":"object","properties":{"host":{"type":"string"},"port":{"type":"number"},"type":{"type":"string"},"username":{"type":"string"},"password":{"type":"string"}}},"proxyChain":{"type":"array","items":{"type":"object"}},"testTarget":{"type":"object","properties":{"host":{"type":"string"},"port":{"type":"number"}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Test result"},"500":{"description":"Proxy connection failed"}}}
+>
+  
+</StatusCodes>
+
+
+      

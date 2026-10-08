@@ -1,0 +1,70 @@
+---
+id: deploy-ssh-key-to-a-host
+title: "Deploy SSH key to a host"
+description: "Deploys an SSH public key to a target host's authorized_keys file."
+sidebar_label: "Deploy SSH key to a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVUtv20YQ/iuDubQFaEkJ0h54c+IEUXqoEbkwCkEIVsuRuBa5y+wOLbME/3sxu7QkW3aAAOWF5O68vnl802NBQXvTsHEWc7yipnJdAGVhsfgMTbuujIYddcAOFLDyW2IoXeBfAqiWS+fNv1R821EXYGMqmmCGrLYB8yV+8FSQZaOqgKsMG+VVTUxeLns04q9RXGKGVtWEOZoCM/T0vTWeCszZt5Rh0CXVCvMeuWuilGXaksdhWCVpCvzeFZ2IPFfWzjJZlivVNJXRSoBO74Kg7c9tu/UdacYMG+8a8mwoxNuI+7MLPC9ejEQeCSY0zoak83Y2k9fT/EpSJZtFzDMVEFqtKYRNW1XdBIcM372kdswkzK9A2eK0EvHIEzxiH828OTdz2XIpZlIWniu8+6Ff55/4tI5h41qblH9/KehPylRUSOMktDCCn6DkqiYuXSEt4EJMuHRCjlN9bJppb4phmpQv2F2USTKQv39sotZXooTZM9//uNbDDfnaPECSR+mWQLr1hruouyblyUtOMF+uhqxH7dzO0OmJasyf1B1OTkwspHVSpU8NHXqjZG5w7F75T0KYjR+fnK8VY45fbm/Ool9QCFIgdjuyEMgyGAtcElyOI5cKWJIqyIMK8D4aTZ1RUlKMlTmFdIgtocIszWASOU7h3Z5fjejL7Q0keQjEoBiC2doLYydwW5KFxpOEm4FhYLWjICdaKqoJ3D35V1HEaE/T/dOZvLyex9kKrDwbu4W94RK4fvh2Bucg+vOp3VGXwb40ukyOwtHNBOYMSnMQtVEW3N6O2lpZmRqlWe6V7ZwloCpQGgjhpK9HNvv4oOqmonP2mQ1St42LN4ZFBMdOv7yeY4YyHAnm2z8mb2aT2Rn8m5JAO09w1JvAR6VLaKp2aywUTrc1WQ5gOAgE8K5lCrFIMrC1ivw5dszVk/lOq2Ic1ieO+yMf/0+bJnUI0wNPm0oZK/FFTuhHQlniCaFghnncMc84ZZVhfOdL7Pu1CvS3r4ZBjr+35IUtVhneK2/UWtK97LEwQb4LzDeqCvQDnL9+HVn2N3gt4MeptDKS96pq5Q8z3FGXluKwGjJMHRm9p4sPycfFjagfFc/2nLDWgW2v/1oI36zHfVm7QnS82svmVfvk2EUckdviWY+VsttWbSM9RJvy/Aez+tY3
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Deploy SSH key to a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/{id}/deploy-to-host"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deploys an SSH public key to a target host's authorized_keys file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"targetHostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH key deployed successfully."},"400":{"description":"Credential ID and target host ID are required."},"401":{"description":"Authentication required."},"404":{"description":"Credential or target host not found."},"500":{"description":"Failed to deploy SSH key."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: get-container-stats
+title: "Get container stats"
+description: "One sample of the container's CPU, memory, network and block IO."
+sidebar_label: "Get container stats"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VV1v1EoM/SuWX7hIw265gpe89XL5WK4QFVtUoWp1NU3cZEgyE2acbkOU/46cSbMpbZEqIZ6STI7tYx/b02NGIfWmYeMsJvjREgRdNxWBuwQuCFJnWRtL/kmAVyefFdRUO98psMR750vQNoOLyqUlbD6uUCHrPGByjv+6tCSPO4WN9romJi/nPRoJ1GguUKHVNWGCgUIwzm4yVOjpW2s8ZZiwb0lhSAuqNSY9cteMYPbG5jgM6l5fM+FHetsJODTOBgry/++jI3ncrs+rG+cQWHNY4aDwxX3A7fYdTFmBdQyXrrUZOD9+pM5aSpmyyf7FrwLN1iP45X3B3mhTUQbsICc+KDZzHBTWxIXLMMGcGFUsWYLrpmpzY5/pxqyzUa/1bB3W/SzLsO4XZR3Wo2NUGMhf3cja+ko8ovqJ3BfXejglX5triHiUWgdKW2+4G20vSHvyx62QOt+JsKlzpaHliW7Mf9TNJwsXW9E0irZ0NEtcMDc4SS/fEYRqennjfK0ZE3x/dnqH/XbSkF1JFgJZBmPHwZAgzpvvWpBQkM7Igw7wz+h0HAuBjYajdMuUZm4xK1SxkyPk0Mtf9/wgo/dnpxDxEIhBMwST22fGruCsIAuNJ6GrwDCwLinISUoZ2ZTAXZF/MIuR7bLcj67k8ckGSuqkAT0bm8PecAFcX/9/J50Z+vjSltQp2BcmLWKgcAizgg2DTjmI2YQFt7eTdaqtjJVOWf5r2zlLQFWgOCzGXroxa8OVpBlXGRyfbFChNHyk/nx1tDq6k9AHbXVOMNlItBOX1doe5jKAs9DJWBQucIhibLfvVORfuTyoOLujuRbL4CoadWlc4FpboTc1ydu7M/8zqX7cimT5N6342A1M17xuKm2sEBvnv582yzkeNouQiXeBOixnoZgs135ye2/HNHYKpUTir+8vdKDPvhoGOf7WkpfdsVN4pb3RFyLUeY+ZCfKeYXKpq0C/qMNfn6ar4Sk8lNLNjFoZ0CtdtfKFCkvqbl1asp7+YOBlpYbdcrm/fX2Kw/ADyECwCQ==
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get container stats"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/stats"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+One sample of the container's CPU, memory, network and block IO.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Container stats."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container stats."}}}
+>
+  
+</StatusCodes>
+
+
+      

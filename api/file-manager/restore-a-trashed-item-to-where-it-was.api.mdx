@@ -1,0 +1,69 @@
+---
+id: restore-a-trashed-item-to-where-it-was
+title: "Restore a trashed item to where it was"
+description: "Restore a trashed item to where it was"
+sidebar_label: "Restore a trashed item to where it was"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v20YQ/SuDOTXAWlKLXqqbczDgBEGNSIVRGEIwJsfiROQuszuUzAr878WQlMxaDRADOYnafTvvzdc7otI24fIBb6Rk+ESethxx47CmSBUrR7s9onhcYk1aoENPFeMSJUeHkb81EjnHpcaGHaas4IpweURta0MljeK32HVuDPKt4di+REmckgR/+7ZgGwOnOvjEye5/WyzsJ+eURalVgjGtC4bISUPkHEz7DDuHvy/+uISuQsVaiN8ClZEpb4GfJWkCUtCCIUTZiqfyFKZzrwJ8HniAQCOlgnMQ5Qo0wKHgyCAKB0ro0HhCbsUMSdENNV3ivC6brfgrqmX+JCVfVUMr5n24+VHybj7mgg4Tx/2pM00s7T2+VvR3aCKsOVbyDAMerWyJsyaKtv3bR6bI8boxCQ8ba1EWwk54ekK1fOT2fDIJsbL2DPWfBjp3q1Ctceyi/R9A6MaPmxArUlzih/v1hfrVMBagYcceEnsF8X0rjCRE+YcMCQVTzhEowfs+KJDPe1j/sG/4NKWztiErdMNMDpCXofx60O8q+nC/hgEPidUGJMnWX4mfwX3BHurIJtdZy5V2nOwk45x9xhD2HL+bRa92Wu43V/L67hZ23EJSimrTfBAtQKvnLxfpnKFvL+2OWweHQrJiIEovNDO4VaDMFiedsBAOfnydkfehB9g9+TZ4Bi4TDysl/in0WYuWlubUk+D67hYd2tgPCfw6W8wWF2m9j+GQ2AHnoj1lFfYMtlFpKP7qZn3nQHxWNrlVKGkk2RYKTzFUYHqGZbHVJR+0GPti61qRN3njkPzwyv9H4bmnys86r0sSb+H7LT6ObvCAL26ADqd+gA57NnS4HA14MIWNw8IcZfmAx+MjJf4rll1nx4Ph2rrnkuixNH99ojLxhbIseGVvg/TL59GK34Ex/p/iHbev7HtPZWO43mf2FMXIfj7xaYN9O+U8CZIcu0038dm7P1dr7Lp/Acv0X58=
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore a trashed item to where it was"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/trash/{id}/restore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Restore a trashed item to where it was
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The restored path."},"409":{"description":"Something already exists at the original path."}}}
+>
+  
+</StatusCodes>
+
+
+      

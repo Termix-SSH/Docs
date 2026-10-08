@@ -1,0 +1,70 @@
+---
+id: mint-a-connection-token-for-a-saved-host
+title: "Mint a connection token for a saved host"
+description: "Resolves the host's RDP, VNC or Telnet login for the caller (a shared recipient gets only what was shared with them), opens a jump tunnel when the host has jump hosts, and returns an encrypted guacamole-lite token."
+sidebar_label: "Mint a connection token for a saved host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVsFuIzcM/RVCl+4CipO224tv2d0W9RZtg8TboAiCgtbQHsUaaVbi2HGN+feC0sR27GSB9lhfPDMiKerx8YlbVVEy0bZsg1djdU0puBUl4JqgDom/SXD98UrDH799gBBhSs4TgwsL62EeYrYz6BxFeIOQaoxUQSRjW0ueYUGcIHi3gXWNDGtMTzZry7V4N281hJZ8AoSHrmmBO+/Jwbomv8sCakxlVd6SBvSyC3dR/DyQN3HTMlWw6NBgExydOcsEHJbkR0orxkVS4zt1TU1ggo+Ulhxada9VItNFyxs1vtuqGWGkeNlxrcZ39/29Vi1GbIgppmxgBaUWuVZaeWxIjZWkNKmUVpG+dDZSpcYcO9IqmZoaVOOt4k0rltYzLSiqXgKLNSV+H6qNmJjgmTzLI7atswalJOcPSeqyPY0VZg9kWGnVxtBSZEtJVtsYOJjgDiwTR+sXSivyXSMYxKpVWq28EVxyQdV9nwM1guHnRLEc7TjEgdEVprQOsfqq0cfQoPUvmjDOJj4xekOTl4Lkn4CU2uBTOdt3Fxfy95yx03qocuaEEMZWwAFcCMv8miglGzx0Lcw2I9n73UtxJn6FzlaFbrbSMJD7CVCwCcJ8PpDepmw4hPv+NNxznomzkJUqiTF4vTv1+lk294FhHjpfSQo+ABpDKWWnH15FoDTNkHPBw4TOVTnaTFBg6NqRElAb4jpUwuOQMoOEzmN13rpuYf0ZtvY85vTPqpL+uQnek+EzOfP5thC+V9I7cfXUGV10EkTpo/T+DJ3oRmzsIxR71R+03Y0Qu9T3sPl2hKiZha2Z//JejJQeHn4KsUFWY/Xpdnqy9c1Q+oJHEkGyRVRkkxDt37nJoCasKAImeJ+D7qg0yEevlQlhaekoN2ztL7RRuqhCMdnrwsOaX83o0+0Uin2uDDIku/Bn1o/gVoSvjSTparAMjEtK8sVQRd4QhBXFV0+Rsy2J/UckL68msKQNJMbI1i8GqW4e/zo5zs7030O7pI2GdW1NXTZK+21GMGFAw0ncBlsIaz94G/RCajQs6+g3wROQS1TYLYp5vdfWHx+xaR0918ZBAk8Vby+Wp0J3uvakb/uVI1k7EDzr5yEXw7JkcywQl1cT0WSKqSD77ehidHGC9+4qFhyGu3jQtyT4b6TXZjGsE0VdADXOtrOAsdIwt46AI/o0l2W5iKW85S41IVbWLzJ9RBcazMI9wPKr9QwIgw7se0rUECHhiopyHmd8cK/9j2eL0l9Mj3zeOmFEr4scbgdtvVN7bc2DwqG6KlGXvb4qrcbDSHGv83Ah/tvtDBN9jq7v5fOXjqJMLPdarTBanAmn7raqskmeKzWeo0v0lWq8uR6mlbfw2hGeVM6LxK3QdfKmtFrSZj/29DI6lC7PGZTFD2Wfs6mE2DufTDZyE+yuo6vfb0TDZ8NE1IRKfCKuBTJcl81DPku+L/K3rXLoFx0usuTmmKIC+Fz7jrQuZ/ri8bbbYjGV4vb97rS52HLYvv8HlHHjLQ==
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mint a connection token for a saved host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/connect-host/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Resolves the host's RDP, VNC or Telnet login for the caller (a shared recipient gets only what was shared with them), opens a jump tunnel when the host has jump hosts, and returns an encrypted guacamole-lite token.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"protocol":{"type":"string","enum":["rdp","vnc","telnet"]},"promptedUsername":{"type":"string"},"promptedPassword":{"type":"string"},"promptedDomain":{"type":"string"},"tabInstanceId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The token and the id to look the session up by."},"400":{"description":"Invalid host id, or the protocol is off for this host."},"403":{"description":"Remote Desktop is turned off."},"404":{"description":"Host not found or no access."},"500":{"description":"The tunnel or the token could not be set up."}}}
+>
+  
+</StatusCodes>
+
+
+      

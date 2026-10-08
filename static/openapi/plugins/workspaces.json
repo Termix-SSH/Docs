@@ -1,0 +1,381 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Workspaces API",
+    "version": "1.0.0",
+    "description": "Save your open tabs and split layouts and reopen them in one click."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/workspaces": {
+      "get": {
+        "summary": "List the current user's saved workspaces",
+        "description": "Returns every manual workspace plus the single auto-maintained \"Last Session\" workspace, each with a computed tabCount.",
+        "tags": [
+          "Workspaces"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of workspaces."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the current tab arrangement as a new named workspace",
+        "tags": [
+          "Workspaces"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace created."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/last-session": {
+      "get": {
+        "summary": "Fetch the auto-maintained \"Last Session\" workspace",
+        "description": "Returns null if the current session has never been auto-saved yet.",
+        "tags": [
+          "Workspaces"
+        ],
+        "responses": {
+          "200": {
+            "description": "The Last Session workspace, or null."
+          }
+        }
+      },
+      "put": {
+        "summary": "Upsert the auto-maintained \"Last Session\" workspace",
+        "description": "Always overwrites the single Last Session row for the caller - never creates a second one. Called by the frontend's debounced auto-save effect.",
+        "tags": [
+          "Workspaces"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Last Session workspace saved."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}": {
+      "patch": {
+        "summary": "Rename or recolor a workspace",
+        "description": "Does not accept a payload - use PUT /workspaces/{id}/content to overwrite a workspace's saved tab arrangement. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace updated."
+          },
+          "400": {
+            "description": "Invalid request, or target is the Last Session workspace."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a workspace",
+        "description": "Rejects the Last Session workspace, which is not user-deletable.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace deleted."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}/content": {
+      "put": {
+        "summary": "Overwrite a workspace's saved tab arrangement with a new payload",
+        "description": "Used by \"Update with current\" in the Workspaces panel. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "payload": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Workspace content updated."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}/duplicate": {
+      "post": {
+        "summary": "Duplicate a workspace's content and color/icon under a new name",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New workspace created from the duplicate."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}/set-default": {
+      "post": {
+        "summary": "Mark a workspace as the restore-on-login default",
+        "description": "Clears isDefault on any other workspace for the caller. Idempotent if the target is already the default. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace set as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}/unset-default": {
+      "post": {
+        "summary": "Remove a workspace as the restore-on-login default",
+        "description": "Idempotent if the target is not currently the default. Rejects the Last Session workspace.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Workspace unset as default."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/workspaces/{id}/apply": {
+      "post": {
+        "summary": "Fetch a workspace to apply and mark it as just used",
+        "description": "Returns the full workspace with its payload parsed, and touches lastUsedAt server-side so the caller does not need a second round trip.",
+        "tags": [
+          "Workspaces"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The workspace to apply."
+          },
+          "404": {
+            "description": "Workspace not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

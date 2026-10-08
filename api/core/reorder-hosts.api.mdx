@@ -1,0 +1,68 @@
+---
+id: reorder-hosts
+title: "Reorder hosts"
+description: "Sets a manual sortOrder for multiple hosts within the same folder, used by drag-to-reorder in the sidebar's manual sort mode."
+sidebar_label: "Reorder hosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20gM/SsEL3tRHLfY3YNuadGiaQ8b1C6ChWEUtMRYE0sz6pCKowr+7wVH/mqSYtHT6iJp5vHjkZw3A5YsRXStuuAxxxmrAEFDvqMaJET9J5Yc4S5EaLpaXVszVEFUYOu0ch60YhBqGO5CXXLMoBMuYdVDGWl9oeEickguDlhX8oriH3IeBJpQ8gQzVFoL5guczT7gMsPI3zoWfRPKHvMh/brIJeYaO86wCF7Zq21R29auIKNxeS/GZUApKm7IvrRvGXMMq3suFDNsY2g5qmOx3TaIM0M5g1KM1GOGTrmR/3bhyjOM88prjrjL8FjBl7YPj/GUNngZfb2eTu31c2M+pJrva8klSFcULHLX1XU/sUh/vmR17R+odiUcGULilQz+esngPbmaS9BwCDU2e4KWZcNahRJzbLtUAdIKc7w0xOUejhkKxweO1sUBu1gbArMnYf4NXYQ5x8Y9wojH3dJMiy467ZPtiilyvOosyGK5ywYsQtg4Pl+h1n3i/rhy5mJmvR/ree7o2IRKtbVkEwzzPQiz/cf7EBtSzPHj7fxZ9jMWccGDhg17EPZ6GG4LEqL7nuYQKiarIAm8SU6BfJlgyTA14ZzSafYSKxs+izZCMENPKdP7rf4yo4+3cxjxIKxACuLW/sL5CdxW7KGNbOlm4BSUNiy2UnDJvmAIDxx/ySJle17u367k1c01bLgHUYrq/DoJCGjz+PUZnSP090u74T6DbeWKagwkpzATuFagwgRODlgIW7+3Lsj7kAC2T74PnoFr4XH4TVQ+n+To3SM1bc1P5GMxKsH0p4M/3S131su7kKrm1MxwP/1XN9eYoR2YkfrrvyevppPps5LMK4YiRIaT3QTeUVFBW3dr56EMRdewVwGnYrQghk5ZUuPaINpQEsX9FH0+P95Pow0nZf3/b4RxypQf9bKtyXnjk3Rl2CvQAi08moqOGrTMxpV8gcOwIuEvsd7tbPlbx9HUZZnhA0VHK2uFSQmOA5U6uOEec3w7VuBibvENXnfj2Xxyz5joHIXx5oupxWp/XRkFzDHS1pKjLeaIGYb2eNektQFr8uuO1ulwJ5f2/ADJaKP4
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reorder hosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/reorder"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets a manual sortOrder for multiple hosts within the same folder, used by drag-to-reorder in the sidebar's manual sort mode.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"positions":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer"},"sortOrder":{"type":"integer"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Hosts reordered successfully."},"400":{"description":"Invalid positions array."},"500":{"description":"Failed to reorder hosts."}}}
+>
+  
+</StatusCodes>
+
+
+      

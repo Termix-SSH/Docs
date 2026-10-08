@@ -1,0 +1,70 @@
+---
+id: share-a-snippet-with-a-user-or-role
+title: "Share a snippet with a user or role"
+description: "Share a snippet with a user or role"
+sidebar_label: "Share a snippet with a user or role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVW1v4kYQ/iuj+dJWcoC+fOJbrrpKXKU2SnKKqghVgz3BG+xd3+4YcC3+ezW7xkDISXd8AXafed1nnulRaB1w/owP1jQNS8Blhg15qlnY602PxuIcG5ISM7RUM87RFJih5y+t8VzgXHzLGYa85Jpw3qN0TURZ4TV7PByWCc1BPriiU8hb49xZYSt6RU1TmZzEODt9Dc7q2ZVvt3rlXDDDxruGvRgO8Zb8muUxYkZsEG/sGjNk29ZabBvYawGuYlwessHqc2C/KK7tRsC9q/gCMBaYIe8b4zncyjv28aMdCI2zISX6y2ymXwWH3JtGa8X58RGA8pxDgLYpSLiYqP/f3sMv7JYqU8DQ2wH46zXwLycgJUNIAX4I4HaW/QQ1rzc5lOQZ6AiFnZESCLRl4DzEnmVYs5SuUF64EF9B6THHaVO1a2NvqDHTwUGY9qY4TIO6xQwD++2RWK2v1AbfpvCPaz08sq/NHhIelUGB89Yb6aLtismzv2017PPykPWYO7cxfH5CjfmTu/HkzMWD0ik9xLmj8eVKkQYHRuv/BMJs+PGH8zUJzvHT0+NV9g8cgnEWxG3YQmArYGzsvgZx3vwXqQ0lU8EeKMCH6BTIFhEWDeNbnpc05paqwizNZYKcJvN1J1/N6NPTIyQ8BGWZQDBre2PsBJ5KttB41nQzMAJCGw56knPBNmdwW/ZfrSJme97u7+7k7d0CNtxBEPJi7DrxTur9v1fljNDvb+2Guwx2pcnLFCicwkxgoYMnQc0GbJqSaJ2TtS4C9J5s5ywDV4HTDKlO3Z8U7uOe6qbit4p0FJ5LvTnp06XMzC5U5UyNjH1x0bURjTFqN9zeLTBDna/UqZ8ns8nsmg605Vhh7uqabBGgcy341oJ7EbaxXP0nJdfaXwLRWbRUqQA4CzXZDkoXJOi1NiKvTL6JJFA9qClq9sDIbxOUixRH9gjvZdpUZKz6jnrRD1rzjCetUYId91eG87idkuAsM9REFd73Kwr82VeHgx5/admrlCwz3JI3tNJWPvdYmKC/C5y/UBX4KrNxUeGP98MO+wn07d7L+DiyVud1S1Wr/zDDDXdpix50/SS6xujp4vcU4yay5mR4tRhV0kYlvvv7QcVoNSzY2hVq42mnm452KbCLdUThi2c9VmTXLa2jdkSf+vkfo8bJbA==
+sidebar_class_name: "post api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share a snippet with a user or role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/snippets/{id}/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Share a snippet with a user or role
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"targetType":{"type":"string","enum":["user","role"]},"targetUserId":{"type":"string"},"targetRoleId":{"type":"integer"},"expiresAt":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet access updated."},"400":{"description":"Invalid request."},"403":{"description":"Not the snippet's owner."}}}
+>
+  
+</StatusCodes>
+
+
+      

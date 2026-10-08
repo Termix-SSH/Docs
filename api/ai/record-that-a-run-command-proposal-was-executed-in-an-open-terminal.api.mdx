@@ -1,0 +1,71 @@
+---
+id: record-that-a-run-command-proposal-was-executed-in-an-open-terminal
+title: "Record that a run_command proposal was executed in an open terminal"
+description: "For the terminal-docked assistant only. The command is typed into the user's already-open SSH session client-side, not re-run over a pooled connection here; this just marks the proposal applied with the output the client captured, so the card and the /apply path stay in sync without running the command twice."
+sidebar_label: "Record that a run_command proposal was executed in an open terminal"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktvGzcQ/iuDubQFVpJb5KSelKJBlR5q2C6CwhWCMTnW0tolN+Ss5a2g/14MuXoktgMEvVYX7ZLz/ma+2R1aTia6TlzwOMd3IYLUDMKxdZ6aiQ1mwxYoJZeEvEDwzTCFm5rBhLYlb8ElkKFjC85LyNp94vhdAmoikx0moWMP19e/QeKUXPBgGsdeJslZrsAHgciT2HsIjxyBoAuhYQsmeM9GA4OaI/8MUrsED30SaCluUnbVxdCFRA1Q1zWOLWyd1Pkm9NL1kh+LPzDUSR/ZVpBKnIaiBU1BX2ZqYYCOpIYkNIDzkAZvssXQC8Tee+fXRXPMXbbO8PRvjxUKrRPOb3GxxFWFHUVqWTjq2Q6dFldNY4WeWsY5OosVRv7Uu8gW5xJ7rjCZmlvC+Q61pCrlhdcccb9fFWlO8jbYQUW+VDbBC3vRq1wNQ1q82UNSaHfPbYe7BzaCFWoROYrjpLd1SLK0L8VQYerbluJwdpkkOr/Gff5piKkLPhVLP11c6N/nLXZ5QExB1NYqwE3V/JuXFG7OYXYpNwwpGh8PKBxuKxjbt6QANnARb0lMPXp485WQVPY+9F6j2VfYstTBKnIh5TopgHOcdU2/dn5CnZuRmx28p9nO2f1M09Junjg/OYwRVpg4Ph66oY+NmsHqizj+Cn2EG9V5giKPCnti00cnQ9a9Y4ocF71GcrvaVzs0IWwcn59Q537n4XhyZuJae6CAc27oiGYt0uHYhvpehLAaH96F2JLgHN9/uHkW/fU43RI27CHpxDmf4VAnIbp/aBxmsjrnCd5mo8cJzIoZpfOUjrGVrLAqw1RETuP0sJVXI3r/4QaKPCQWIIHk1grQFD7U7KGLrOFW4ASENpz0xLBlb7iQ0mtZ5GjPy/3NlVxcLmHDg1JOFKWXQmDt08dn6RxFv720Gx4q2NbO1MVROrmZwlKAjCRVG2UhbP2obcjngTOi9+SH4Bm4SVxGRMnl6kRLvz5R2zV8TiMXZ6xxZAsF8T7kcjlReVwsYXFcMovLJVao81Iy/3F6Mb14Xg8Pi+XZapKadJWQTTDoJCWWvoMTQXACU5Nfc4L7EFUGJCj/xPDIGUmd85YyW45tdcUmRFtMv0w6sKUE/MSml7wDgTzkjXc2/J/FvTsR9f/79j/s2zJnwk8y6xpyXgHMzLobifoWT0SNFZIbV10ma6xwnlfwi3y9qnL/qo3d7o4S/xmb/V6PP/WsnXy7qvCRoqM77d7bHVqX9Nni/J6axF/B/PurcW//AK+lcWA8r3T3SE2vb1jhhofy5bBf7Sss0569l4tfio/JjaqfFJ99DOhGOO62yz+ulcvvxo+KNljVibTVzxPaFsch55H3Rj7bYUN+3dM6U2+2qb9/AQuOmwE=
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Record that a run_command proposal was executed in an open terminal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/proposals/{id}/mark-run-in-terminal"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For the terminal-docked assistant only. The command is typed into the user's already-open SSH session client-side, not re-run over a pooled connection here; this just marks the proposal applied with the output the client captured, so the card and the /apply path stay in sync without running the command twice.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"summary":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Proposal marked applied."},"400":{"description":"The proposal is not a run_command proposal, or the hostId does not match."},"404":{"description":"Proposal not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

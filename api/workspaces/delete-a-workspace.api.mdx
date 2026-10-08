@@ -1,0 +1,69 @@
+---
+id: delete-a-workspace
+title: "Delete a workspace"
+description: "Rejects the Last Session workspace, which is not user-deletable."
+sidebar_label: "Delete a workspace"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVF1P3EAM/CuWn1ppOa4VT3mjKpWgPKCWClXoVJnEXJZLdsPauSM95b9XTu6rRSAh9SnJZnY94/XMGguWPPlGfQyY4Td+4FwFtGS4JFH4ziI+BljFtJCGcnawKn1eghcIUaEVTkcFV6x0V/EEHSrNBbNbvNnuEJw5bChRzcrJ/q3RW7GGtESHgWrGDH2BDhM/tj5xgZmmlh1KXnJNmK1Ru2ZABeU5J+z7maGliUFYDPBxOrXH33p2JGDgyMUEe4cn05PXoKbrPrbBwL3DmrWMBWY4HoFuJJ7hcVO1cx+OqPHHu/7I8doXPToUTsut3DZVhkf3T82fsU1wzan2TzDi0XQJ523y2g1775gSp9PWSt7OerfGPMaF58MVavxX7nYrB0d8twaODTo8aNfPUrXBTZ/tewSh27x8iakmxQwvbq6fsd/OhsYFBxAOCj4Mo2NFYvK/yZBQMhWcgAQ+DYcChWKADRuHGzmUtOM2qkI3TssI2c/Lw0pfZHRxcw0jHoQVSEH8PBz5MIGbkgM0iY2uA6+gtGCxlZwLDjlDXHJ6UcXA9rDdb+7k6dU5LLgDUUrqwxxWXkvQ+unXMzk76Ntbu+Bu69ShkOzLTOBcgczlJFssxFXY7M4pmAEoV/tPoYuBgSvh0Q0+3MdBtdeKD20jcHp1jg5t6Ef6HybTyfT5HdGSobPBjw0HULqToa40lVeoqIutjiuJR0TJtak3Hnnl88VwB00UrSkYlc1AfB7sCbTPqn9rm3WCctD/lHTjxSs/6XFTkQ/Ga7D6ehMRt7iPCHS4Dwl0mPnCgrGMogZcr+9I+Eeq+t6WH1tO5v+ZwyUlbyWHNCi82HuB2T1Vwq8IfPdtk6Xv4SWuW58FM9mSqta+0OGCuzGQ+9lh/n0+uzy7PsO+/wMBayQN
+sidebar_class_name: "delete api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a workspace"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/workspaces/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rejects the Last Session workspace, which is not user-deletable.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Workspace deleted."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -4,7 +4,7 @@ Manage saved commands and saved logins.
 
 ## termix snippets
 
-Snippets are commands you saved so you do not have to retype them. See [Snippets](/features/terminal/snippets).
+Snippets are commands you saved so you do not have to retype them. See [Snippets](/plugins/snippets).
 
 ### List snippets
 
@@ -63,7 +63,7 @@ Inputs must be written `NAME=VALUE`. The exit code is the one from the server, s
 
 ## termix credentials
 
-Credentials are saved logins you can attach to several hosts, so a password lives in one place. See [Credentials](/features/files-and-hosts/credentials).
+Credentials are saved logins you can attach to several hosts, so a password lives in one place. See [Credentials](/guide/credentials).
 
 ### List credentials
 

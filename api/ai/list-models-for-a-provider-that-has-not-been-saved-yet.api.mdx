@@ -1,0 +1,69 @@
+---
+id: list-models-for-a-provider-that-has-not-been-saved-yet
+title: "List models for a provider that has not been saved yet"
+description: "Lets the add-provider form fill its model picker before the provider exists, so nobody has to go and look up model names by hand."
+sidebar_label: "List models for a provider that has not been saved yet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsEz4qdFj3p5i1awLtbNGiyCIrUWFASI00sz8wOqTiq4f9ecOTY7jp7aE/rgy3PPH49kk87bFjq5KK64LHEj6wC2jFQ01zFFJ5dwwkeQ9rAo+t7cCqwCQ33EF295gQVP4bE2eQI5xcnKgVIAB+q0IzQkYAGaAOQb6APYQ1DPDjytGGBykC+mf3lsUClVrB8wMUSVwUm/jKw6LvQjFju8l+XuMFS08AF1sEre7UrirF3NVkt8yexgnYodccbsicdI2OJoXriWrHAmELkpI7Fbl+zv8uoI1o0Od/ivsCKhD+l/s07iu4Dj29evfpdNmfXziu3nHCfP1aixOBlyuTH62v7+XdjfstcuUYKiEHEVf0IBPWQSLmBR+r7iuo19E50ZmF/esvJJ7/2YetPnbJ0ZmgZbFi70GCJMUgmh7TDEuexH1rnryi6Obl5TKHiq9w3wQKF0zMna9UOB6MG51h8FfPPMCS447RxLzDhcb8y03pITsdsWzElTovBQj6s9sUO6xDWjs9PJoqPJ2cubq3DE3Xnjo5kd6rRks0wLA8gLA4Pv4a0IcUS39/fXWR/yyIueNCwZg/CXsH5PO0WJCT3d5426JiMTxJ4l53mOTdYNswdOS/pmNthcAp0Fm2CYIG2E1ji01a/mdH7+zuY8CCsQAriWn/l/AzuO7Yes6VbgFNQWrPYSc0N+5ohPFvzv1HF7DTR/5PJxc0S1jyCKCV1voWt0w508/L5opwj9L9Tu+axgG3n6m4KJKcwM1gqUK1iZgcshK0/WNfkfcgAuyc/Bs/AvRx2waTjj5Po/PJCm9jzpUi8bvmZNpyOXiXhdHKuBNd7a/ljyOQ6Ne+4WMJCxImSV1jcLLFA266Jpx9m17PrS/Y8LJZARyvtSCExNQKj7Z2wDjGXbGIXhAXqjnzLYppuGJNlipYa577b+m8oK+dhCD860UmqJyM6kw8LZ9pubFZsG0LP3MDIF3O7O+n09/KSmXqo/KLz2JPzVv4wCfykfg94Uj/rqJuaeFLAVYGdyWX5gLvdYQb2ezv+MnAybVsV+EzJUWUdNiHDaZyz7K3zfPw88XKVZ8rg/TApw1fvMpO8o0rf/H5rYlUd3omWD5aYaItF/i4RCwyZ+yyM+WyHPfl2oDZrS/Zpn38A2IfJJQ==
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List models for a provider that has not been saved yet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/probe-models"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lets the add-provider form fill its model picker before the provider exists, so nobody has to go and look up model names by hand.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"providerType":{"type":"string"},"baseUrl":{"type":"string"},"apiKey":{"type":"string"},"providerId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Model ids, possibly a curated fallback list."},"400":{"description":"Unknown provider type."}}}
+>
+  
+</StatusCodes>
+
+
+      

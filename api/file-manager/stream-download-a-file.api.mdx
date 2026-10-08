@@ -1,0 +1,68 @@
+---
+id: stream-download-a-file
+title: "Stream-download a file"
+description: "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP."
+sidebar_label: "Stream-download a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu20YQ/ZXBnFpgJblFe+HNTmLAaYMKlQOjMIRiRI7FtchdZndoSSX078Hs0pJiO4fcyoNELt/Mvnmz8zhgxbEMthPrHRb43m9d46mKQPBgGwbSu5V1FPYQJTC1U/gcOcLi3RwaXlO5h9ZXDD+VJOCfOADvuPwZtjU7kJqh9lGgpgix7P7MAexo1XBlwEvNYWsjQ59yXt/Op2hQaB2xuMdrZfCJHK054NJg4C89R7ny1R6LIT3awBUWEno2WHon7ERfUdc1tiStavYYtbQBY1lzS3on+46xQL965FLQYBd8x0Esx4TjGK13N9UZNEqwbo0Hgx1J/caLdCnD2HkXc6JfLy7071uFr7KWSdxRUE3721vYTzZG69bwXCh0FKhl4RBT0O9vBT23EB7INlxNUXm1LLWvsMDOx1RxqgJnXdOvrZtQZ2fKaNJmsWfVmEQ7sEgs0WDk8MRBOzNgHxqNR/Ni9398H+CWQ2t3kPF4WGpo2Qcr+xS7YgocLnulcL88mAFL7zeWz1eos3/w/rhylmKhbcwCnyc6dqQW6ZRsgmExgtCMN9c+tCRY4Me721fsF7n1IH7DDiI7AZtPsW7ig/0vHSmomSoOOhxXKSmQqxIsBabenJd05JarQoNWd8sQNOgoMX3cyncZfby7hYyHyAIkEO3aTaybwp1OWhdY6RqwAkIbjrpScsWu5DyW36sisT2X+4eVvJzfwIbVHyiIntetlRqk3f37qpwj9Mel3fDewLa2ZZ03iqdtpnAjQKVEDRux4LdujC7JOZ8Ayc7c3jsGbiLn2VB/+PvkLB921HYNv3CC50E/js7JEax78Ek1Kxr2jWvB5fwGDerYZAF+mV5ML17JchX8NrIBrqwkyq1/4uQRMTdPndGAdWXTV6pwlEB2XQs8BN+C1pOHDcQDuWSrqa867i0l+xsPWZ7myfOAjz7/ktFwMtP/yzchn0nhncy6hqzT8pILDWNL7vHkZmjw3M+0vNeOtjSoRDRyGFYU+XNoDgdd/tJzUK9aGnyiYJVZNibMxzPZ2Ib3WOC7rNPkVvkpvOnzpL/4AKmFHV14/tdCzWc1fshULCww0BZN+i0QDfrUi2R0aW3Ahty6p3XyipRTr6+FsrAL
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stream-download a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/downloadFileStream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Binary file stream."},"400":{"description":"Missing required parameters."},"500":{"description":"Download failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

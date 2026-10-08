@@ -4,7 +4,7 @@ Control SSH tunnels and containers from the shell.
 
 ## termix tunnel
 
-Start and stop the tunnels you configured on your hosts. See [SSH Tunnels](/features/networking/tunnels).
+Start and stop the tunnels you configured on your hosts. See [SSH Tunnels](/plugins/tunnels).
 
 ### List running tunnels
 
@@ -45,7 +45,7 @@ termix tunnel list -q      # names, one per line
 
 ## termix docker
 
-Manage containers on a host. See [Docker](/features/networking/docker).
+Manage containers on a host. See [Docker](/plugins/docker).
 
 ### List containers
 

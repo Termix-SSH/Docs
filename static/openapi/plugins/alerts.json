@@ -1,0 +1,581 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Alerts API",
+    "version": "1.0.0",
+    "description": "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/alerts/items": {
+      "get": {
+        "summary": "List the caller's alerts",
+        "description": "Newest first. Brings in any Termix announcement the caller has not seen yet.",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "unread",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "severity",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "info",
+                "success",
+                "warning",
+                "critical"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "description": "Only alerts with a lower id, for paging.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The alerts and the unread count."
+          },
+          "403": {
+            "description": "Missing the alerts.use permission."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Clear the caller's alerts",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "read",
+            "description": "Only clear alerts already read.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "How many alerts were removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/unread": {
+      "get": {
+        "summary": "Count the caller's unread alerts",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "The unread count."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/stream": {
+      "get": {
+        "summary": "Stream new alerts",
+        "description": "Server-sent events. Sends \"unread\" with the count on connect and after every change, and \"item\" with each new or updated alert.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/items/read": {
+      "post": {
+        "summary": "Mark alerts read or unread",
+        "tags": [
+          "Alerts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "all": {
+                    "type": "boolean"
+                  },
+                  "read": {
+                    "type": "boolean",
+                    "description": "False marks them unread. Defaults to true."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new unread count."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/items/{id}": {
+      "delete": {
+        "summary": "Delete an alert",
+        "description": "A deleted Termix announcement does not come back.",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "No such alert for the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/categories": {
+      "get": {
+        "summary": "List the sources and categories of the caller's alerts",
+        "description": "For building delivery rules.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Source and category pairs."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/meta": {
+      "get": {
+        "summary": "What channel types this server can use",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "The channel types and whether email is set up."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/channels": {
+      "get": {
+        "summary": "List the caller's channels",
+        "description": "Without their config.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "The channels."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a channel",
+        "tags": [
+          "Alerts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "type",
+                  "config"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "webhook",
+                      "ntfy",
+                      "discord",
+                      "email"
+                    ]
+                  },
+                  "config": {
+                    "type": "object"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new channel."
+          },
+          "400": {
+            "description": "The channel is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/channels/{id}": {
+      "get": {
+        "summary": "Get one of the caller's channels with its config",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The channel."
+          },
+          "404": {
+            "description": "No such channel for the caller."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a channel",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "webhook",
+                      "ntfy",
+                      "discord",
+                      "email"
+                    ]
+                  },
+                  "config": {
+                    "type": "object"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated channel."
+          },
+          "400": {
+            "description": "The channel is not valid."
+          },
+          "404": {
+            "description": "No such channel for the caller."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a channel",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "No such channel for the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/channels/{id}/test": {
+      "post": {
+        "summary": "Send a test alert to a channel",
+        "description": "Takes the same path a real alert does, private network opt-in included.",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the channel accepted it, with the error when it did not."
+          },
+          "404": {
+            "description": "No such channel for the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/rules": {
+      "get": {
+        "summary": "List the caller's delivery rules",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "The rules."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a delivery rule",
+        "description": "Sends every alert whose category matches and whose severity is at least minSeverity to the listed channels.",
+        "tags": [
+          "Alerts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "channelIds"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "match": {
+                    "type": "string",
+                    "description": "\"*\", \"automations.*\" or an exact category."
+                  },
+                  "minSeverity": {
+                    "type": "string",
+                    "enum": [
+                      "info",
+                      "success",
+                      "warning",
+                      "critical"
+                    ]
+                  },
+                  "channelIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new rule."
+          },
+          "400": {
+            "description": "The rule is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/rules/{id}": {
+      "put": {
+        "summary": "Update a delivery rule",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated rule."
+          },
+          "400": {
+            "description": "The rule is not valid."
+          },
+          "404": {
+            "description": "No such rule for the caller."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a delivery rule",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "No such rule for the caller."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

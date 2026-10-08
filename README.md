@@ -21,6 +21,8 @@
 
 This is the source for [docs.termix.site](https://docs.termix.site/), the docs for [Termix](https://github.com/Termix-SSH/Termix). Termix is self-hosted, plugin-based server management.
 
+Core pages live here. Each official plugin keeps its own docs in its repo, and a sync job pulls them in at every release, along with the API reference and the environment variable list.
+
 Want to try Termix first? Use the [demo](https://demo.termix.site/), any username and password works.
 
 <br />

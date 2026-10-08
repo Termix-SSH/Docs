@@ -1,0 +1,69 @@
+---
+id: proxy-a-json-api-url-and-return-the-parsed-response
+title: "Proxy a JSON API URL and return the parsed response"
+description: "Proxy a JSON API URL and return the parsed response"
+sidebar_label: "Proxy a JSON API URL and return the parsed response"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU2P2zYQ/SuDOSWA1naCNgfd0qJpdxs0QdbBolgYwVgcS4wlUiFH61UM/fdiKPkj8eaQnmxSb968+eQehcqI+T3+5RtuqWRcZdhSoIaFg37Zo3WY45eOQ48ZOmoYc+xCjRkG/tLZwAZzCR1nGIuKG8J8j9K3CosSrCtxGLKnaUSU5sLMOuGSA2ZoOBbBtmK9Wv9ORcWwXL4F6yBy4Z2J8KyxDl4sMjC8oa4WeLV4jsOwUnmx9S5yVOqXi4X+fEu4rBhubt/9A2tveggsXXBsYN2DVAxCoWSBjx/eznDI8JenGK7dA9XWgA/Q2BitKxWf6dl5d5XIDzoSy69PsbwhW7MB8bBhKapL78P3qXgf/GMPNKp//f5acUDOTEEkhpZCZHN0jxk2LJU3mGPJglpoqTDHeVt3pXVX1Np5NfXBvFUHWhwOD4dO0KrnOL+oy7++C7Dk0NhHGPGo+Y9cdMFKn2zXTIHD60493q+0IQrvt5bPb6i1f3N/vDmjuNUWGQt5TnTsmEqkPXSSnkcQZtOfNz40JJjjzd3yQv0tx2i9A/Fb1rZyou2lCVQnPtivpEiomAwHoAi/JdKU7lQpNUzFPQ/pqG2MCrNxAkbIaQQ+7+SHim7uljDiIbIACURbuivrZnBXsYM2sMrNwAoIbTnqTcGGXcHgHzj8MIqk9jzdP51J7bkt9xCFgmjb76xUIM3jp4twjtCfT+2W+wx2lS2q0VE8uZnBtQAVEtVswoLfucm6IOd8Auh3cr13DFynKRy0FhuforZSa5iH/aezhBlqy4/iX8wWs8VlSGAClcmRCb6FnTU6rIlh4wP0OhHT6CSU/rcFxwzauouHI9TWbWOy0AgMxWrtKZhUntZHacipyqlX/t/Qf6P8WGfhR5m3NVmnvtJk76eFcI+nhYAZHlaCLoy0FFZ6F0WB+/2aIn8M9TDo9bjeddyNjbSu9WnYUB35QkXhnbDTRnr2YXpFngNmT6vbcn98cx6o7hSBujAuvIzI8Vk5IVd6CFah46o5LcI//1jiMPwHup5lXw==
+sidebar_class_name: "get api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy a JSON API URL and return the parsed response"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/homepage/proxy"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Proxy a JSON API URL and return the parsed response
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"url","required":true,"schema":{"type":"string"}},{"in":"query","name":"ttl","schema":{"type":"integer","description":"Cache TTL in seconds (min 10, default 60)"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The JSON body returned by the target URL."},"400":{"description":"Invalid or missing URL, or non-JSON response."},"500":{"description":"Failed to fetch the target URL."}}}
+>
+  
+</StatusCodes>
+
+
+      

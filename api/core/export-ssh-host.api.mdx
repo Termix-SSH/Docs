@@ -1,0 +1,69 @@
+---
+id: export-ssh-host
+title: "Export SSH host"
+description: "Exports a specific SSH host with decrypted credentials."
+sidebar_label: "Export SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1v2zAM/SsETxugJV3R7eBbB7RrukuxZCiGIBgUiY212JIr0Uk8w/99kOWk6deAYifJ9CP5SOqxRU1BeVOxcRYzvNhVznMACaEiZe6Mgun0CnIXGLaGc9CkfFMxaVCeNFk2sggjFMhyFTCb43R6hQuBlfSyJCYfjS2aGLySnKNAK0vCDI1GgZ7ua+NJY8a+JoFB5VRKzFrkpupRlmlFHrtuEdGhcjZQiIDTk5N4POY/ywmor4H0gfkIO4FnL8EndiMLo6EO5CcanO/xEz14nD33OHTDOoY7V9uE/fRS9EtpCtLAbqB0TKgTWBLnTmOGK2IUqTsZjiNgrJfpbI3uxskbBQbym31Ha19ENIonSX+62sOMfGl2kPAYWxdI1d5w0/suSXry53VMOF90okXl3NrQsUVW5hs1B8tRiGmcUZrBcaDDyHLmCodRxu8EQjFcLp0vJWOG17ezZ+ynFIJxFtityUIgy2AscE4Qkzhv/siIhJykJg8ywJc+KEire1jv2I/kuKQDt1QVivQgE+ThSf7e8quMrm9nkPAQiEEyBLOyH4wdwW1OFipPka4Aw8ByTSFaVJSIInAb8q9W0bM9bvebO3l+M4E1NRBYejZ2laTK5e7Xs3IO0Le3dk2NgG1uVJ4ShYc0I5gwSBUXR9hjwW3t4K2kjXKRiuN/aRtnCagIlIRg7J3rqzZcxDKH13t+M0GB8cEn6qefRx9PRifPSoqaV84TPPiN4EKqHKqiXhkL2qm6JMsBDIdIC7yrmULf+MoFLqWN+YdXcPFYrE/zRbFYJsv/ty7ThJl2PK4KaWzk0mu6HTbBHPfZlyj296zfmsNCWAzmbI5tu5SBfvii66L5viYfpb4QuJHeyGXs67xFbUK8a8zuZBHoH5W9+z5s5vfwGtu9pGzU00YWdfxCgWtq0nrvFsdb7uvFDLvuL3qGMmQ=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/db/host/{id}/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Exports a specific SSH host with decrypted credentials.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The exported SSH host."},"400":{"description":"Invalid userId or hostId."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to export SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

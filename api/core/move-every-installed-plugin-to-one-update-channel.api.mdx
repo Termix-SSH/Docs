@@ -1,0 +1,68 @@
+---
+id: move-every-installed-plugin-to-one-update-channel
+title: "Move every installed plugin to one update channel"
+description: "Sets the channel on every installed plugin. Nothing is installed here; the next update check offers what the channel allows. Going back to stable never downgrades a plugin that is on a beta."
+sidebar_label: "Move every installed plugin to one update channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVUtv3EYM/isEz4rsJkGBqicnSAsnSGrUGxjFYlFwJVoaS5pRZqjVboX97wVH2odj+5BrdJE0w+dH8uOIBYfcm06Ms5jhLUsAqRjyiqzlBpwF3rDfgbFBqGm4gK7pS2NT+OKkMrYEE84uK/b8e7RgeSvQdwWJWuO8Bnd/zz7AUJE88kFN44aQwp9Oza0pr0EcBKF1o2Y27KFwgy09FRyA5gBA1I4JGiLBmoVSTFCoDJgt8SbKBFwl6Plbz0HeuWKH2Rh/jecCM/E9J5g7K2xFr6jrGpOTYnHxEBSQEUNecUv6JbuOMUO3fuBcMDkztMQ5FXXXedexF8NBlQ4XJ/0g3tgSE2Tbt6o7JYoJag642sdHzYfO2TCZeX15qa/HxVpUPGOhoLpwQlTfJRcp7hN8+5zqFydAUFs32IPSLPzmeT+5ltdDQ3kdgIrW2HR2nbZkqeRZ/bfn1E2AgkMtrtN6NcbWXGiJCQL7DfsEhsrkFUyWAhgJh8RSVCxalsoVmGHngkLfkVSY4cUsdHFAOcHJoLbAiL1vVAiT7wL6x/UeFuxbs50DwP1KVfPeG9lF3TWTZ3/Vq5/lap+MmDtXGz4/oc584t3x5MzErTbNVLlzQ8ceqEQ6DTaKYTYLxRbQjz+cb0kww493iyfR33IIxlkQV7OFwFYgDgODOnHe/BcbGCqmgj1QgHfRKJAtolhUjOU6T+kY25QVJmjU2ySCCVqKkT4M8mJEH+8WMMlDYAESCKa0r5Qr7iq20HnWcBMwAkI1Bz3JuWCbMzgd85eyiNGew/3DSF7dXEPNO2UVL0ozg5EKpN3++ySdo+iPQ1vz7tDL0VE4uUnhWoByCao2y4Ib7Kydk7UuCug92Z2zDNwEngZA2ejvE4992FLbNfyIYA48stfK3buIkREVwrnXr26uMUEdjynR17+mv1yml08AiPPuPMNJL4UPlFcH5i1c3rdsZZpU5RDveuEQy6Qj2lLkzrlnPrsNv7BFlAU00+OeOMzxo4jGE0n/BBtqalzhrVx0DRmroEWqGmdeW+LMa5icL5ZKuS9b4jiuKfBX3+z3evytZ6+ctUpwQ97EHogEhVObRjqreYcZvp9QfLXQEFS86aeJ/27tKZUdKffmr1slofW8PltXqI6nQVcgDZghJuhipSLhxbMRG7JlT2XkjGhTn/8BPXfvEQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Move every installed plugin to one update channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/channel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets the channel on every installed plugin. Nothing is installed here; the next update check offers what the channel allows. Going back to stable never downgrades a plugin that is on a beta.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["channel"],"properties":{"channel":{"type":"string","enum":["stable","beta"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugins whose channel changed."},"400":{"description":"Not a known channel."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"This desktop is linked to a server, which manages its plugins."}}}
+>
+  
+</StatusCodes>
+
+
+      

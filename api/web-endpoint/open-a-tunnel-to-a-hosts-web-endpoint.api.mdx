@@ -1,0 +1,68 @@
+---
+id: open-a-tunnel-to-a-hosts-web-endpoint
+title: "Open a tunnel to a host's web endpoint"
+description: "For endpoints reached through SSH. Returns the local port the tunnel listens on."
+sidebar_label: "Open a tunnel to a host's web endpoint"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P2zYQ/SuDufTCtZ0iJ902RYI4BZpF7GBRLIyAliYS1/KQIUfrdQX/92IorT/WzSGH6mKLmnnz5uuxx4pSGV0Q5xkL/OAjEFfBO5YEkWzZUAXSRN/VDSwWHyfwhaSLnEAagtaXtoXgo+RX6ZiphdYlIU7geYIGxdYJiwe8pzW8H6FxZTDSj46SvPPVHos+v7pIFRYSOzJYehZi0U82hNaVVilOH5Py7DGVDW2t/pN9ICzQrx+pFDRnQA/Y+CTzCg2+5DSvNHSIPlAUR0kBRqMTlGOhmiIeLvxO35NExzUe8qMBU/CcBrDfZzP9uazq8qJUEwV++192c36yratgLA0a9DEX9oUGVJ4SsBfoEoEdCz7Bgru2zahvrlH/8gLJ1UwVOB6Dv702++iTwFn7c5jvvuNqgprmlqTxFRYYfKYWrDRY4DS0Xe34xgY33dH65sV96gMxGkwUnyjqBPTYxVY90LwK/bfvIiwpbt0zDPZ4WKlr2UUn++y7Jhsp3nYa9GF1MD2W3m8cnZ/Y4P6k/fHkDGKh4zJ06Bzo2NJGJCjZbIbFaIRm/PPBx60VLPDT/fKK/YJScp5B/IYYErGA49w2DeKj+yePLjRkK4pgE7zLoGC5GtZGHXNjzlM6chuyQoNOow0maJBtZvq4k58y+nS/hMEeEgnYYQ5uHE/gviGGEEnpGnACYjeU9KSkirgk8E8Uf5pFZnte7l+u5O3dHDa0hyQ2iuMadk4akO3zt6t0jqa/XtoN7Q3sGlc2Q6B0CjOBuYAtJanbaAt+x6N3aVkXwJai3y3vPRNQm2jYBtWhLycFe/9st6GlczmZXarHUTW0j999rpgTdblQRri9m6NBXZkh+TeT2WR2VZLPgRgsaKzfEuxoDV/n4Di5isZFMlC5SKW0e13q3EzLquBH0TiYvMpbmwV1HKcReFRy8ZdBXhJ6zac/yfX/coUMoyX0LNPQWsfKPYtJP8rQA55kCA2eC5GqqErRyuTWqG3fr22ir7E9HPT4R0dRRWZl8MlGZ9faFVUUHOYq68+G9ljgH0OaN0tlpOZtN6zoqxtKtecomHefF6oa6/Gm2/pKfaLd6W1ld1hg5qjeWaHyWY+t5bqzdV7yjKnPv6ikqE4=
+sidebar_class_name: "post api-method"
+info_path: api/web-endpoint/web-endpoint-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open a tunnel to a host's web endpoint"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-endpoint/open"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For endpoints reached through SSH. Returns the local port the tunnel listens on.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","endpointId"],"properties":{"hostId":{"type":"integer"},"endpointId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The local port."},"400":{"description":"Invalid request","or the endpoint does not use a tunnel.":null},"401":{"description":"Not signed in."},"404":{"description":"Host or endpoint not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

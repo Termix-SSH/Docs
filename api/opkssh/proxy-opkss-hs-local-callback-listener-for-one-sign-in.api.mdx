@@ -1,0 +1,69 @@
+---
+id: proxy-opkss-hs-local-callback-listener-for-one-sign-in
+title: "Proxy OPKSSH's local callback listener for one sign-in"
+description: "Public. Forwards to OPKSSH's login-callback listener, which prints the key and certificate once the code exchange succeeds. Any subpath is proxied too."
+sidebar_label: "Proxy OPKSSH's local callback listener for one sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWClzTArO0G6UW3bdG0mxxi1C4WwcIoxiPamlqeUYaUbVXQvweULK8TY1vk1pMkDsl5fCSfWsyJXfKV+Bgww3m9Lr2bwLuYjjblDBLh4/zDYvH7K4Yybn24c7Ys19btoPQsFCgZOBbeFVAlH4RBCoIdNWBDDo6S+I13VghicNQfupgT0MkVNmwJuHaOKOcJ3IcGuF5XVgrwDFWKJ085SIwTNCh2y5g94YAGVwYrm+yehJLaWwx2T5hhos81sTzkaNBrSZoPTW/3iXLMJNVkkF1Be4tZi9JUGsiSfNhi163UmasYmFjP38xm+viaqGVBFwJeMVR2SxPsDL6dvb11XvhtuPMBQhTYxDrkvetP/5VXWdCQRDZvJth1BvckRcwxwy0JmqG2DKdVWWtrbOWnsdoxF9OxS9P2QkiHBpnSYSSsTqXGovkGwqdYJ1hS2vsTDP6onDC5Onlp+tg12UTpvtbrn1adadHFuPN0bbGV/0DNxXKVYqHcD+ReJ7q0ohCp8Nwi/R6c0Jxf3sW0t4IZvn9c3qBfELOPASTuKABTEPChnzu9JCb/j1VPKMjmlMAy/Nwn7edV3frAvkHXJV2wDVWNwzW4oBmn7++jvIjo/eMSBn9gErACPMzFBB4LClAlUrgGvIDYHekKkKOcdHHigdKLVfRor+n+bibv5w/90rLYJD5s4eilANmf/rop5+L6/dTuqBnFor+In6+ZwIOAdcIaNkpIPIZztLNBN8E60XMbmhgIqGQa1sKHTeyr9lJqmYNIwP38AQ3qwA/Qf5zMJrObgn6JIZATlboi8giKi5jkrvQHyuFjRWFerxWSpr1SNQa7EUp9J5U2H4boRnfI5xTES6NSdvBjn6rIsrdB4Z6HZp7iqbmWWWdLuJFZ2MQEWvZ5ar6tQ1cwCAX5f8v4MJdCJ5lWpfVBKemVqD2r2RM+qxkaHPQMDY6A0WD2LPIrg9o0DWvbtWX6M5Vdp+bPNSUVq5XBg03ernUynlrMPet7jtnGlkz/wuIPf5z/Ga/hJeSjKARVhIMta/1CgztqvvoXdatr8f7t1yV23Rc29Jbs
+sidebar_class_name: "get api-method"
+info_path: api/opkssh/opkssh-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy OPKSSH's local callback listener for one sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/opkssh/callback/{requestId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Forwards to OPKSSH's login-callback listener, which prints the key and certificate once the code exchange succeeds. Any subpath is proxied too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"requestId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The listener's page."},"404":{"description":"Sign-in not found."},"500":{"description":"The listener is not ready."}}}
+>
+  
+</StatusCodes>
+
+
+      

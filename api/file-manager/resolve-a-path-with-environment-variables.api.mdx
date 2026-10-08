@@ -1,0 +1,69 @@
+---
+id: resolve-a-path-with-environment-variables
+title: "Resolve a path with environment variables"
+description: "Expands environment variables and ~ in a path via the SSH session."
+sidebar_label: "Resolve a path with environment variables"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20gM/SsETy0wcdJFe9EtBZpuuigQ1F4ERWAsGImxWEsz6gxlx2u4v31BjRK7+SgQoHuyNXokHx85T1usOJVROpXgscAPtx35KgH7lcTgW/YKK4pC1w0nIF/BDxAPBB1pDSsh0JphOv0TEqckwU/QodIiYXGFZ9IwfCZPC444d9hRpJaVo73doljB7z3HDTr01DIWOGY5r9Bh5O+9RK6w0Nizw1TW3BIWW9RNN4A1il/gbueeTmYcX5RnbuDUBZ842fs/Tk7s52eJZjVD5BSaFVdA1yk0vfKgxwR3Dt8+FfNZUhK/gDsqsJdiCHr3VNAZScMVaLgrd1dk57BlrUOFBS5Y0eVOCzzumn4h/og6Ob6Rho/aLP7xmOAiC5I4ru6G0MfGAtE9KP419BFmHFu5hYxHkydx2UfRzRB7zRQ5nvZW+2puUyhDWAofnlAnf/Hm/uQgxdTGkHU+THQ/lVq1w3Fa9pxB6MY/ZyG2pFjgp8vZI/bTvEagYckekm2x+GFVrUiI8i8ZEmqmiiNQgvdD0mHDDTYEDqM5bOmeW+4KXV67DNnv3be1Psvo0+UMMh4SK5BCkoU/Ej+By5o9dJGNrgNRUFpyspOSK/YlQ1hxfLaLge2h3C9W8vTiHJa8gaQU1dZ1LVqDtrf/PGrnHvpyaZe8cbCupaxzobQvM4FzBSo1WdiIhbD2Y3RJ3ocBYO/Jb4Jn4CZxvhPib8LQtWhjbR7aD5xenKNDW/vcwJvJyeTkUVvvY1gndsCV6FCyDSsGu0opiz89m104EF82fWUKJY0ki1rhJoYWjE++LHZryQetx7l0IWlL3uiNS/JlvNOjlQ4aPOm6D0naLfPKXn+bXectUb7V464h8UZ48IXtaCxXuDcWdHhoLYO/7s1l7rAOSS1ku72mxH/HZrez4+zNZhuVJONXYXFDTeJftPfqy+iXr+E5nkvePPhsrKjpDYdmP/9DrfGrsi8zt4eseXa9vTt//DDD3e4/RemMlA==
+sidebar_class_name: "get api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Resolve a path with environment variables"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/file-manager/resolvePath"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Expands environment variables and ~ in a path via the SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The resolved absolute path."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to resolve path."}}}
+>
+  
+</StatusCodes>
+
+
+      

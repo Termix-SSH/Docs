@@ -1,0 +1,68 @@
+---
+id: create-a-temporary-ssh-connection-without-saving-to-database
+title: "Create a temporary SSH connection without saving to database"
+description: "Returns a temporary host configuration for immediate use"
+sidebar_label: "Create a temporary SSH connection without saving to database"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVktv20YQ/iuDOSUAIztp2oNujpsgSg9VIxtGYRjFiByJa5G7zO5QsirovxezS0m05VdQXiQuZ76d5zezwYJD7k0jxlkc4neW1tsABMJ14zz5NZQuCOTOzsy89aSCMHMeTF1zYUgY2sCYodA84PAaJ5OveJOh5x8tB/nkijUON/HVeC5wKL7lDHNnha3oJ2qayuQR+OQ2qBkbDHnJNek/WTeMQ3TTW84Fsx7QNZoGM2yc1/M2sLdUqyXUSnmhajcZNt417MVwUDDT9CCDeGPnmD0IwWTyFQL7JXsYjcH56H9E3naXHSBsW0/ZPwcRFbY98151/1562/PmRc0zuwbPcxOEPRegQKoMqgVSksDK+UWI2SMLrQ205CLl901DIaycLzJY8DqD3HPBVgxVGdCcrWRgneVMA+IsA0FTtXNjoaYd5F+tyRdw7qzlXN4OYrg60JdtH3eS8GaXYDAz2PkOJsAO660CL3j9ukg23iy1Rhe8fhp6wesd6vjVFiu6ojZ7y138RNUO63VZ2+FEqW2Gh8iPipdL7XwvDaPfn/bwABqNc0v23hR80L48rs+pcxWTPbryMjA03i1NwcW+UsHYIEwFuFnvsl4hx0fbNzTOhtSOH05P9ec+/MVzxJN7JuECQpvnHMKsraq1OvTxMaSRXVJlCuioCAoSSsLvj4UvrcbLefMvF0nol2OhL85PTVGwTRIfjyV6+bBOYOZaG+F+fczASeII9t551OjULKUrcIiNC0pqDUmJQzzRSJz80P56l6f+wgwTwyjnbrD1lcod5epv13q4YF+bu46RcHujqnnrjayj7pTJsz9r9arrm222wdy5heH+CTXmD17vT3oQE2XqlM4+0L6KShFl6UjosaqiEGbdny/O1yQ4xG9XF8etwSFo1sUt2EJgK2AsSMlw1uUqVUXJVLAHCvApggLZIopFxchEfZf2tiWvMEOjtyURzDD1Ad6u5EmLvl1dQJKHwAIkEMzcvjN2AFclW2g8h0iaRkBowUFPci2NnEG770kvorX9cP90JM/Go0goQciLsXNYGR0C9d0/xxNjJ/rzoY1TYlWavEwXhcM1AxgJUC5B1TpZcCvbaedktTUoF/1Odq3zhKvAg9gDugJ8PywPn++obireTe8Di6ZRfNofrYePh6HZU9hT++EszpF7r+PHpR6C3Wfp0+cpVVeerVbZzMV8GlGHsOvLs/EIM9RWTkn58Nvg/eng9ChZFyVD7jzDQW8Anykvd6O4cHlbs5UARoIGHLxrhUMaxS5ITXG56oJ1Hrn03qqns6gjGE2+ZtS1AoGWWkfiIoVOKe5794zbHBa6/7VDpigL38lJU5GJPBu5bdNx4TWWiRrvs+FNls6H17jZqIGXvtpu9fhHy1557ibDJXlDUw29khqm0o4UmMrgPLnwLuZaxas2scSD/VTpb8/U4z8nSlzTbs+tXaE6nla6q9IKh4gZps0gkmQ822BFdt7SPPJMxNTnP7pBByQ=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a temporary SSH connection without saving to database"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/quick-connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a temporary host configuration for immediate use
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["ip","port","username","authType"],"properties":{"ip":{"type":"string","description":"SSH server IP or hostname"},"port":{"type":"number","description":"SSH server port"},"username":{"type":"string","description":"SSH username"},"authType":{"type":"string","description":"Any registered SSH auth type that works for an unsaved host (password, key, credential, agent, none, or one a plugin marks for Quick Connect)."},"password":{"type":"string","description":"Password (required if authType is password)"},"key":{"type":"string","description":"SSH private key (required if authType is key)"},"keyPassword":{"type":"string","description":"SSH key password (optional)"},"keyType":{"type":"string","description":"SSH key type"},"credentialId":{"type":"number","description":"Credential ID (required if authType is credential)"},"overrideCredentialUsername":{"type":"boolean","description":"Use provided username instead of credential username"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Temporary host configuration created successfully"},"400":{"description":"Invalid request data"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Credential not found"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

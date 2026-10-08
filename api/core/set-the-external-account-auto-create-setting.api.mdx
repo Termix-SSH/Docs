@@ -1,0 +1,68 @@
+---
+id: set-the-external-account-auto-create-setting
+title: "Set the external account auto-create setting"
+description: "Enables or disables creating an account on first external sign-in."
+sidebar_label: "Set the external account auto-create setting"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu2zgQ/ZXBPDNOtnt50JtbpNh0gUWwcREsAmMxpiYWY4lUyaEvK/jfF0Opjps0DwVWD7ZEnSHPmcvRgDUnG10vLnis8NrTquUEIULt0nhvI5M4vwbyQNaG7AWCh0cXkwDvhaOnFpJb+wvnZ2hQaJ2wesDPiWPCpcHIXzIneR/qA1ZDeXSRa6wkZjZogxf2oq+o71tnSdlcPiWlNGCyDXekd3LoGSsMqye2ggb7GHqO4jjpWy7c6zPgKoSWyeOxXMoj9cGnEf7u6kr/vtV/x1Kk5r4m4XqGR4O/fA9447fUuhq21GaGxxBhOn4K+fl1yJ9BgLI0Ibp/J9yv39v6I7mWa5AAibYM0jCkkdYMVUXH0oQaK+xJbKNpIGmwwsus+b78WpELyhIu+hi2LunGBhPHrVakehgwx1ZD0Lw4/O+QIyw4dm4PIx6PSw21OTo5lNgVU+Q4z3rqw/JoBrQhbByfr1Dv/uDDaeVsizst51iC841ORWtEeiVbYFrEAkIz3XwMsSPBCj/dL16xv+OkWkHChj0k9gLOlwzOp8SX1oKGqeYIlOB92RTI1wVWAktpziWduI2q0KDT00YIGvRUmD7t5E1Gn+4XMOK1mEByGhi4b9hDH1npGnACQhtOumK5Zm8ZwpbjmyoK2/N0/3Am57c3sOEDJKFYun/npAHp9v+8knOC/nhqN3wwsGucbcaD0vMxM7gRICtJwyYshJ2foi15HwpA35M/BM/AbeJxHtQn/np2mOs9dX3L3ziC+sxRq/YYSn6cKACnPp/f3qBBHY1R5LvfZj9dza5eiV80DDZEhue4GVyTbaBv89p5qIPNHXtJ4CSpAIghC6dSoj4k6ag42tQvdyxF7clDv7prmdxiu6fRf0lmeHbN/8m0x54R3stl35Lzyrm4xDAZzAMWg0GDb1nM0mATkih0GFaU+HNsj0dd/pI5qnksDW4pOuU4OgWO/VJ8ZcMHrPDDqOtioYQU3uZx9F58GdRTTlZ4O198+F07e/rEdKHWoEg7NOW3QjQYSvKK9ZS1AVvy60zrMr1lU73+A2hzdX4=
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the external account auto-create setting"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/external-auto-provision"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables or disables creating an account on first external sign-in.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Setting updated."},"400":{"description":"Invalid value for enabled."},"403":{"description":"Not authorized."},"500":{"description":"Failed to save the setting."}}}
+>
+  
+</StatusCodes>
+
+
+      

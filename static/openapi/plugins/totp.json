@@ -1,0 +1,216 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TOTP API",
+    "version": "1.0.0",
+    "description": "Two-factor sign in with a code from an authenticator app, with backup codes."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/totp/status": {
+      "get": {
+        "summary": "TOTP status for the caller",
+        "tags": [
+          "TOTP"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the caller has TOTP on."
+          }
+        }
+      }
+    },
+    "/plugin-api/totp/setup": {
+      "post": {
+        "summary": "Start TOTP setup",
+        "description": "Returns a new secret and QR code. With TOTP already on, a current code or backup code in `credential` returns the existing secret instead, to add another authenticator.",
+        "tags": [
+          "TOTP"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "credential": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Secret and QR code."
+          },
+          "400": {
+            "description": "A code is required."
+          },
+          "401": {
+            "description": "Invalid code."
+          }
+        }
+      }
+    },
+    "/plugin-api/totp/enable": {
+      "post": {
+        "summary": "Turn TOTP on",
+        "description": "Checks a code from the secret /setup returned, turns TOTP on and returns backup codes. Signs the caller out everywhere else.",
+        "tags": [
+          "TOTP"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "totp_code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP on, with backup codes."
+          },
+          "400": {
+            "description": "Missing code, already on, or setup not started."
+          },
+          "401": {
+            "description": "Invalid code."
+          },
+          "409": {
+            "description": "Core does not allow second factors right now."
+          }
+        }
+      }
+    },
+    "/plugin-api/totp/disable": {
+      "post": {
+        "summary": "Turn TOTP off",
+        "tags": [
+          "TOTP"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "totp_code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "TOTP off."
+          },
+          "400": {
+            "description": "Missing code or TOTP is not on."
+          },
+          "401": {
+            "description": "Invalid code."
+          }
+        }
+      }
+    },
+    "/plugin-api/totp/backup-codes": {
+      "post": {
+        "summary": "Replace the backup codes",
+        "tags": [
+          "TOTP"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "totp_code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "New backup codes."
+          },
+          "400": {
+            "description": "Missing code or TOTP is not on."
+          },
+          "401": {
+            "description": "Invalid code."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

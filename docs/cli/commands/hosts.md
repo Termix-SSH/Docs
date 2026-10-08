@@ -69,7 +69,7 @@ With a key file:
 termix hosts create --ip 10.0.0.5 --username deploy --key-file ~/.ssh/id_ed25519
 ```
 
-Tags matter more than they look. A host tagged here can join a [fleet](/features/fleets/overview) on its own if a fleet has a matching tag rule.
+Tags matter more than they look. A host tagged here can join a [fleet](/plugins/fleets) on its own if a fleet has a matching tag rule.
 
 ## Update a host
 
@@ -111,7 +111,7 @@ termix hosts import hosts.json --overwrite
 
 Without `--overwrite`, hosts that already exist are skipped. There is a limit of 100 hosts per file. Split a larger file and run it more than once.
 
-The file format is the same one the web app uses. See [JSON Import Format](/features/files-and-hosts/json-import).
+The file format is the same one the web app uses. See [JSON Import Format](/guide/import-export).
 
 ## Enroll a host
 

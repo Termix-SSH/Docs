@@ -1,0 +1,759 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Snippets API",
+    "version": "1.0.0",
+    "description": "Save the commands you run often and run them in a terminal or on many hosts in one click."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/snippets/folders": {
+      "get": {
+        "summary": "List the current user's snippet folders",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of snippet folders."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a snippet folder",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Snippet folder created."
+          },
+          "400": {
+            "description": "Folder name is required."
+          },
+          "409": {
+            "description": "A folder with this name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/folders/{name}/metadata": {
+      "put": {
+        "summary": "Update a snippet folder's color or icon",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "color": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet folder metadata updated."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Folder not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/folders/rename": {
+      "put": {
+        "summary": "Rename a snippet folder",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldName": {
+                    "type": "string"
+                  },
+                  "newName": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder renamed."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Folder not found."
+          },
+          "409": {
+            "description": "A folder with the new name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/folders/{name}": {
+      "delete": {
+        "summary": "Delete a snippet folder",
+        "description": "Moves the folder's snippets to the root instead of deleting them.",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippet folder deleted."
+          },
+          "400": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/reorder": {
+      "put": {
+        "summary": "Bulk update the order and folder of snippets",
+        "description": "Accepts a \"snippets\" array, and the legacy \"updates\" key.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "order": {
+                          "type": "integer"
+                        },
+                        "folder": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippets reordered."
+          },
+          "400": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/execute": {
+      "post": {
+        "summary": "Run a snippet on a host over SSH",
+        "description": "Needs no snippets.* permission beyond an accessible snippet and host - running one has never required a separate grant.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippetId": {
+                    "type": "integer"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "inputValues": {
+                    "type": "object",
+                    "description": "Resolved values for $INPUT_n placeholders, keyed by \"INPUT_n\". $HOST/$USER/$PORT/$NAME are resolved server-side from the target host.\n",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet executed."
+          },
+          "400": {
+            "description": "Snippet ID and host ID are required, or the snippet is a note."
+          },
+          "404": {
+            "description": "Snippet or host not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/export": {
+      "get": {
+        "summary": "Export every snippet and folder as JSON",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Export object with snippets and folders arrays."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/bulk-import": {
+      "post": {
+        "summary": "Import snippets and folders from JSON",
+        "description": "Existing folders are skipped. Existing snippets, matched by name and folder, are skipped or overwritten.",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "snippets": {
+                    "type": "array"
+                  },
+                  "folders": {
+                    "type": "array"
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import results with counts."
+          },
+          "400": {
+            "description": "Invalid request body."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets": {
+      "get": {
+        "summary": "List the current user's visible snippets",
+        "description": "Owned snippets plus snippets shared with the caller directly or through a role, tagged with isShared.",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of snippets."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a snippet",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "order": {
+                    "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean",
+                    "description": "When true, the snippet is a note (copy/paste only, not directly executable on a host)."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Snippet created."
+          },
+          "400": {
+            "description": "Name and content are required."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/shared": {
+      "get": {
+        "summary": "List snippets shared with the current user",
+        "description": "Registered before /:id so the literal path \"shared\" is not swallowed by the id parameter.",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippets shared with the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/{id}": {
+      "get": {
+        "summary": "Get one snippet",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested snippet."
+          },
+          "400": {
+            "description": "Invalid request parameters."
+          },
+          "404": {
+            "description": "Snippet not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a snippet",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "order": {
+                    "type": "integer"
+                  },
+                  "isNote": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated snippet."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Snippet not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a snippet",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippet deleted."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "404": {
+            "description": "Snippet not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/share-targets/users": {
+      "get": {
+        "summary": "Users the caller may share snippets with",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users list."
+          },
+          "500": {
+            "description": "Failed to list users."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/share-targets/roles": {
+      "get": {
+        "summary": "Non-system roles the caller may share snippets with",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles list."
+          },
+          "500": {
+            "description": "Failed to list roles."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/{id}/share": {
+      "post": {
+        "summary": "Share a snippet with a user or role",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "targetType": {
+                    "type": "string",
+                    "enum": [
+                      "user",
+                      "role"
+                    ]
+                  },
+                  "targetUserId": {
+                    "type": "string"
+                  },
+                  "targetRoleId": {
+                    "type": "integer"
+                  },
+                  "expiresAt": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet access updated."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "403": {
+            "description": "Not the snippet's owner."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/folder/share": {
+      "put": {
+        "summary": "Share every owned snippet in a folder",
+        "description": "Also shares snippets in subfolders (\"Parent / Child\").",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "folder": {
+                    "type": "string"
+                  },
+                  "targetType": {
+                    "type": "string",
+                    "enum": [
+                      "user",
+                      "role"
+                    ]
+                  },
+                  "targetUserId": {
+                    "type": "string"
+                  },
+                  "targetRoleId": {
+                    "type": "integer"
+                  },
+                  "expiresAt": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet folder shared."
+          },
+          "400": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/{id}/access/{accessId}": {
+      "delete": {
+        "summary": "Revoke a snippet share",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "accessId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Snippet access revoked."
+          },
+          "400": {
+            "description": "Invalid request."
+          },
+          "403": {
+            "description": "Not the snippet's owner."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/{id}/access": {
+      "get": {
+        "summary": "List who a snippet is shared with",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of access grants."
+          },
+          "400": {
+            "description": "Invalid snippet ID."
+          },
+          "403": {
+            "description": "Not the snippet's owner."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

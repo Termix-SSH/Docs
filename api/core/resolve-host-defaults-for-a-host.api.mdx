@@ -1,0 +1,69 @@
+---
+id: resolve-host-defaults-for-a-host
+title: "Resolve host defaults for a host"
+description: "What every key resolves to for a host, or for a new host in a folder or under a parent host, and where each value comes from."
+sidebar_label: "Resolve host defaults for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P0zAQ/SujOZtsQYhDbov4WpAQgqIVWirkTaaNaWIHz6TdUPW/o7GzbdllJbhxamy/8cx7M37dYU1cRdeLCx5LvGysAG0ojrCmESJxaDfEIAGWIYKFJrAYCHFaetqmLXAeLCxDW1PU08Hrh4XeRvIyRVlfw7ahSEC2amBj24GgCh0xLGPoCjQodsVYXuEbvfMFLe3QCuPCYG+j7Ugo6vEOnRb7Y6A4okFvO8ISNclFjQa5aqizWO5Qxl5PnBdaUcT93vw5NBf+p1CW6Pzq4chM8M1fpF4YjMR98EysgCezmf78rv/HLHidxWHYOmlAGnIROAyxIqN9oRquR/iaauDeVlSsafyKBe4NPp09vX/t+wA8VE1u1RgGqKwHqp0Uygw7kibUWOKKBFVrabDEM0Wf1VMTzqZZUJIUN7eNGGKrUDR3Mn4JQ4Q5xc7dQMajKsBUDdHJmGKvyUaK54Nmu1qowlUIa0enO7Z372g87Jxc8UmlzlKeXnRQvhHpbzui6wxCM328CrGzgiW+vZzfq/4TMbvgQcKaPLCOsPPaB9AkIbqfVpHQkE1zzvA8XZpGXGEpMPXjlNKhtswKTR6pDDnO1PetPFjR28s5ZDwwCVgBdiv/yPkCLhvy0EfScg04AbFrYt2pqCZfEYQNxQdZpGpP5f5nJc8/XCTXYLFRnF9N09vdfLtH5wD9d2nXNBrYNq5qciI+pingQsBWwho2YSFs/RRdWe9DAui59WPwBNQy5Vfg/DIk1k5apTlN7/mHCzSoA59Lf/KseDwrZvcozRs1s0hwjCvgpRpd3w4r56EO1dCRFwYnrGVBDIMQJ+H7wNJZr/mnKZisIL/Z21d44sJ3C9DX44W8/A82ngdH6EbO+tY6rxSTVewmd7nCA4fJ5JM9JodZmHxYXuFud22ZPsd2v9ftbL7qHbVje91SjeXStkwG1zSe/gekqrBEVBN5AHxw/b8B3zH6Y8hCF9FpTDato52+fjnH/f4XBPqJIg==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Resolve host defaults for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/defaults/resolve"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+What every key resolves to for a host, or for a new host in a folder or under a parent host, and where each value comes from.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"folder","schema":{"type":"string"}},{"in":"query","name":"parentHostId","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Resolved values with their source, keyed by \"namespace.key\"."},"404":{"description":"No such host you can edit."}}}
+>
+  
+</StatusCodes>
+
+
+      

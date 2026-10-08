@@ -1,0 +1,70 @@
+---
+id: apply-a-pending-proposal
+title: "Apply a pending proposal"
+description: "Re-validates the stored payload and applies it as the approving user, through the same core APIs and plugin services a manual action uses."
+sidebar_label: "Apply a pending proposal"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v20YQ/SuDOTXAWnKCnHhTDwWUHGrECoxAFYoxORa3Inc3O0PZrMD/XgwpyapdB8itF4lcvPl4s/MeD1ixlNkn9TFggV/4ak+Nr0hZQGsG0Zi5gkR9E6kCChVQSo1nAa9AE4hSynHvwxY64exA6xy7bT0loJahjJlhcbOUMUFquq0PIJz3vmQBgpZCRw1QaW1YEpn9EdCh0lawWONiiRuHiTK1rJzt7IDeGk6kNToM1DIW6Ct0mPl75zNXWGju2KGUNbeExQG1TyMqKG854zBsDC0pBmExwIfra/v790xuckxRrL2ReDXDweHH/0KuaoZ0QpexayoIUeGeX4R+/EERC3iIXTDs4LBlrWNlRKMouolvgfNphleU/Jz8/FRU5gdfDXOr1qNDm/BpWl1uLA7di8LfYpdhxbn1TzDh0cYiXHbZaz/G3jNlzovOSq83gztgGePO8+UJJf+Z+/PJRYpbm/8038tE5+uoVRMer8neJxC648NvMbekWOCnu9Wr7m9ZxFZG445to4KCD+PeWZGY/d80rlTNVHG2ff11TDruocHGwPFaLimde5tYoZuWbYI8r9tfj/pmR5/uVjDhQViBFMRvw5UPM7irOUDKbO06k5HSjsVOSq44lAxxz/lNFmO3l+P+6Ukubpaw4x5EKavJ9tFrDdo+/fmKzhn686Pdce/gsfZlPRWS5zIzWKqpXU4OYiXiYzhGlxRMBlSODkOhj4GBG+FJEz48xJG118ZoLpawEPGiFNRcBh3a2k8E3s+uZ9evaQVYLIHOUVqTQmaqBHoThLB2aTKrUVosUNYUtizwELNhQOPR93i8ENNnS8H6Om7HwlQIBIlDZUM+ifRlM6amoBz0f+i/014pP+k8NeSDMR2d5HB0ojU+OxE6JPs5uxE6LEZLngxp47A2FyvWeDjck/DX3AyDHX/vOJvVbBzuKXu6t3tdH7DyYs8VFg/UCP9gcL98Obr+O3ir75Okg+l5T01nb+hwx/306Rg2l4Z78/vtCofhH9zkdwg=
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Apply a pending proposal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/proposals/{id}/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Re-validates the stored payload and applies it as the approving user, through the same core APIs and plugin services a manual action uses.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Proposal applied."},"400":{"description":"The proposal could not be applied."},"404":{"description":"Proposal not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

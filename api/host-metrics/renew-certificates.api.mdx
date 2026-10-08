@@ -1,0 +1,70 @@
+---
+id: renew-certificates
+title: "Renew certificates"
+description: "Renew certificates"
+sidebar_label: "Renew certificates"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVUtv4zYQ/iuDObUAY6evi27ZRR/ZvoLEQVAYRkFLE4sxRWrJkR1V0H8vhlRsZ50cVgdbIr95z3wzIOtNxGKJv/nI8CdxMGXElcJWB90QU5DbAY3DAlvNNSp0uiEs0FSoMNDnzgSqsODQkcJY1tRoLAbkvk0ox7ShgOO4ymiK/MFXvUC+FC69Y3IsV7ptrSk1G+/mT9E7OTvT7ddPVPIrL5ZYWiM6JITgWwpsKIrMdH6UjhyM26BCcl2TJCnw2os+XTY0izWuRoVV6G87dyK39t6SdjimR4zH1ruYrXx/eSl/FcUymFbcxwIXNUEgR3sIFDvLMxwV/vgW8trttDUVGNd2L7AfzmF/edBlSTECe+CaoPZR/PYByNIupQ0qcoaqGRaus3ZU+NN7rpW+abSr4FEbSxV4d1A5QwnwtcRtCkRyZR6lQhRRYUNc+0paJDuSOqXAeWu7jXEXujVz0XfR5AabN9rpDYU4j9HOB1ON85QfVBgp7F6argtWlOCXLvzjuwALCo15hoxH6a5IZRcM90l2TTpQuOrEj+VqVAOW3m8NnZ7o1vxO/eHkRMWdtFqu6KmiQw/UzC1O3Z56IoFQTS+/+NBoxgI/PSzOvL+jGKU+7LfkIJJjMDnlYsQH81+uX026ogA6woekFKRGAkuCqTlOQzr4lqNClWc2Q45T+7Tndz369LCAjIdIDJohmo27MG4GDzU5aAOJuwoMA+stRTkpqSJXEvgdhXejSN6epvurM3l1cw1b6iGyDmzcBvaGa+Dm+d+zcA7Qr0/tlnoF+9qUdTYUj2ZmcM2gS44iNmHB790kXWrnfALIvXa9dwRkI+UZEg67PbLfz8+6aS2d8tIJ/bxQjrDiKHV89CljhkXkFVXD1c01KpSRycF/N7ucXZ6l5A+zI/h4c6+gocaHXkFl4laBI977sE0R/HpzL0FzVNDaTqjF20QweVihl6mTKY6pmjLpjU7EOLXWm8zwyo9D1Zmeed5abZyoSnM+TKSxxCNpoMJT2hCimYhDWiZaVFhMa0jYY5XhomMY1jrSfbDjKMefOwrCCyuFOx2MXksilwNWJsp7hcWjtpHO3D1sJPzmdtox3wKqt8N4mT8nw7fTtpMvVLilPq/LUfZJ7r1kPV98zDYuFiJ+FDzbgMJPB569+ftOmGU9bdLGVyITtFCo/CbDPsWRWCydDWi123R6k4gg6ZTnf64hwTw=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Renew certificates"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/managers/ssl/{id}/renew"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renew certificates
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["client"],"properties":{"client":{"type":"string","enum":["certbot","acme.sh"]},"dryRun":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The renew result."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

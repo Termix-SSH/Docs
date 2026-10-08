@@ -1,0 +1,69 @@
+---
+id: refresh-the-inventory-snapshot-for-every-host-in-a-fleet
+title: "Refresh the inventory snapshot for every host in a fleet"
+description: "Connects to every effective member host the caller has view-level access to, collects OS/kernel/arch/hostname/uptime, and overwrites the stored latest-only snapshot per host."
+sidebar_label: "Refresh the inventory snapshot for every host in a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu40YM/RWCpy4wsd1iT76lBbbI9rDBJkVQBMaCkShr6hFHO6TsuIb+vZiRY7sbpMAe92Rp/Ei+xyGfDlizVsn35qPgEn+LIlyZgkXgLac9cNNwZX7L0HH3xAnaqAbWMlQUQn4nha3n3VXgLQegqmLN8Q6qGEJJ9uluvuEkHOaUqnaeMwh1PB968x07IKkhbjntkjfWklwtJq4hkLHaVZSwBxXqtY0G/ZHFDB0arRWXj/ghMJviymFPiTo2Tvn8gD7L6sladJiL4hJ9jQ4Tfx184hqXlgZ2qFXLHeHygLbvC0qM15xwHFcZrX0UZc2AXxaL/PPfzt1yuiqtSdwk1hYS6xBMZzg6fL94/zqiUAaJBk0cpJ7hODrs2NpYZ8pRDd3EfInzPgxrL1fU+3lTpM4Pvh7nXrYsFtMeHSqn7YvqIYUche6bmn/FIcE9p84/w4THLE+5GpK3fYl9Ykqcrodc+HE1ugNWMW48X55Q7//g/enkIsVd7uPUp8tEp7a2Zj0e253fJxC648OHmDoyXOLHh/tX7O9Y1UcBixsWUBYDL2VccpGY/D+UkdAy1ZyAFH4tScuAZVgJLDdyKenEbVKFbhqaCXIem7939iajjw/3MOFB2YAM1K/lyssMHloW6BNnug68gdGGNZ9UXLNUXEb/TRWF7WW7v7uT17c3sOE9qFEyL2vYeWvBuucvr+ScoN/f2g3vHexaX7VTIT2XmcGNAWUjIH3BQtzJMboiyUtAleX/SfZRGDgoTxvhpYlFtbfAL2ujcH17gw7zwE/Uf54tZotXgn5PceiLWSh4sQjT8pS6aRCoYteR1Oqgp2pDa840fJQJ0fjAYIlEG04KUYBCgNhkEV2+5CgVlwvK29qRZJ7Hafl8tIGs97SlZw9rYjoabDENL0ATt28l5O0TY7Ef0p2nSTV+tnkfyEvuVfGmw9HZHvHsbOhwuh50uCwmfba3lcOcNAccDk+k/GcK45iPvw6csnGtHG4peXrKU/J4wNprfq5x2VBQ/p+2/vT5+C14B29xfjEIye6wpTDkN3S44f30QRlXl+Z9++nuHsfxX5clkfg=
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Refresh the inventory snapshot for every host in a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/inventory"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Connects to every effective member host the caller has view-level access to, collects OS/kernel/arch/hostname/uptime, and overwrites the stored latest-only snapshot per host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Per-host refresh results."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

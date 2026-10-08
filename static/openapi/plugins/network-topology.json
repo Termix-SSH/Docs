@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Network Topology API",
+    "version": "1.0.0",
+    "description": "Draws your hosts and the links between them as a live, interactive graph."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/network-topology": {
+      "get": {
+        "summary": "Get network topology for authenticated user",
+        "description": "Retrieves the saved network topology graph (nodes and edges) for the current user. Returns null if no topology exists.",
+        "tags": [
+          "Network Topology"
+        ],
+        "responses": {
+          "200": {
+            "description": "Network topology retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "nullable": true,
+                  "properties": {
+                    "nodes": {
+                      "type": "array",
+                      "description": "Array of graph nodes (hosts and groups)"
+                    },
+                    "edges": {
+                      "type": "array",
+                      "description": "Array of graph edges (connections)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Save network topology for authenticated user",
+        "description": "Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise.",
+        "tags": [
+          "Network Topology"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "topology"
+                ],
+                "properties": {
+                  "topology": {
+                    "type": "object",
+                    "description": "Network topology data containing nodes and edges"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Topology saved successfully"
+          },
+          "400": {
+            "description": "Invalid topology data"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

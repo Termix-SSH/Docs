@@ -1,0 +1,616 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Docker API",
+    "version": "1.0.0",
+    "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/docker/ssh/connect": {
+      "post": {
+        "summary": "Establish SSH session for Docker",
+        "description": "Opens an SSH session to a host for Docker operations. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "hostId"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "userProvidedPassword": {
+                    "type": "string"
+                  },
+                  "userProvidedSshKey": {
+                    "type": "string"
+                  },
+                  "userProvidedKeyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or a prompt the user has to answer."
+          },
+          "400": {
+            "description": "Missing sessionId or hostId."
+          },
+          "403": {
+            "description": "Docker is not enabled for this host, or the user lacks docker.use."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "SSH connection failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/ssh/connect-totp": {
+      "post": {
+        "summary": "Answer a verification prompt",
+        "description": "Sends the code (or password) the host asked for and waits for the next step of the connect.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "totpCode"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or another prompt."
+          },
+          "400": {
+            "description": "Session ID and code required, or the session is not waiting for a code."
+          },
+          "404": {
+            "description": "The connect expired."
+          },
+          "408": {
+            "description": "The host did not answer in time."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/ssh/connect-browser-sign-in": {
+      "post": {
+        "summary": "Continue after a browser sign-in",
+        "description": "Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example).",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or another prompt."
+          },
+          "400": {
+            "description": "Session ID required, or the session is not waiting for a browser sign-in."
+          },
+          "404": {
+            "description": "The connect expired."
+          },
+          "408": {
+            "description": "The host did not answer in time."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/ssh/disconnect": {
+      "post": {
+        "summary": "Disconnect SSH session",
+        "description": "Closes the caller's Docker SSH session.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSH session disconnected."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/ssh/keepalive": {
+      "post": {
+        "summary": "Keep SSH session alive",
+        "description": "Resets the idle timeout of the caller's Docker SSH session.",
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session keepalive successful."
+          },
+          "400": {
+            "description": "Session ID is required or session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/ssh/status": {
+      "get": {
+        "summary": "Check SSH session status",
+        "description": "Whether the caller's Docker SSH session is connected.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session status."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/validate/{sessionId}": {
+      "get": {
+        "summary": "Validate Docker availability",
+        "description": "Checks that the container runtime is installed and its daemon answers.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Docker availability status."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}": {
+      "get": {
+        "summary": "List all containers",
+        "description": "Lists the containers on the session's host.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "all",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of containers."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "500": {
+            "description": "Failed to list containers."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}/{containerId}": {
+      "get": {
+        "summary": "Get container details",
+        "description": "The container's inspect output.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container details."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container details."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}/{containerId}/{action}": {
+      "post": {
+        "summary": "Start, stop, restart, pause or unpause a container",
+        "description": "Runs the container action on the session's host.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "stop",
+                "restart",
+                "pause",
+                "unpause"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The action ran."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found, or an unknown action."
+          },
+          "500": {
+            "description": "The action failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}/{containerId}/remove": {
+      "delete": {
+        "summary": "Remove container",
+        "description": "Removes a container, optionally by force.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container removed."
+          },
+          "400": {
+            "description": "Session not found, or the container is running and force was not set."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to remove container."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}/{containerId}/logs": {
+      "get": {
+        "summary": "Get container logs",
+        "description": "The container's log output.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tail",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "timestamps",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "until",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container logs."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container logs."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/containers/{sessionId}/{containerId}/stats": {
+      "get": {
+        "summary": "Get container stats",
+        "description": "One sample of the container's CPU, memory, network and block IO.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "containerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Container stats."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          },
+          "404": {
+            "description": "Container not found."
+          },
+          "500": {
+            "description": "Failed to get container stats."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

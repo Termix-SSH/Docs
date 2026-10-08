@@ -1,0 +1,70 @@
+---
+id: change-a-plugins-update-choices
+title: "Change a plugin's update choices"
+description: "autoUpdate lets the background check apply new releases that ask for nothing new. pinned holds the plugin at its installed version, which also stops auto-update. channel picks whether betas are offered; going back to stable keeps an installed beta until a stable release passes it."
+sidebar_label: "Change a plugin's update choices"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv20YQ/iuDubQFaMpNgx7Uk2OkqFOgMBIFRmEIxYgci2uRu8zOULIq8L8Hs6QetewAuZcXUbvfvGe+4Q5LliK6Vl3wOEXqNHxuS1KGmlVAK4YFFatlDJ0voai4WAG1bb0FzxuIXDMJG44USFbwECL4oJXzS0Pk0DrvuYQq1OWgrq27pfNACk4FnBeluuYS1hzFBZ/BpnJFBVRLANHQCphTF13yKoeiIu+5htYVK4FNxVpxhAUrCVBkCA8PHLn8DZbBfDDnQU0TLWqGFbMp9Cd2TRQ6r64G2sPGuKAlseic5pih0lJweo+3KQDBeYYtRWpYOdrFDp2lsCWtMENPDeMUXYkZRv7SucglTjV2nKEUFTeE0x3qtjWUaHR+iX0/H8As+i6UW0M8ly2CV/ZqV1YHV5CVbvIoVr/dueqweORCMcM2hpajOpYkeyj0CXYRQs3ksc9wKNvLd2MJzv3PkH3XWI6GPGKGll2c9+mx2KQNXgYX3lxe2s9/G3BWMQit2XotuIIlN4tvX4Le+DXVroQxYbAI5XZE//Ky4sIqHqEmax0qG+fzoRslb8jTkkfxt+fifwWQrqjG7s3RomlYq1AOJS+s5qn0U5yMSic7V/aTkFQIZigc1/tW6WJtSMye2fk7dBFmHBv3BAMerSmEiy463SbZBVPkeNWZsft5n+2wCGHl+PSEWvcnbw8nJyo+WYcMFThVdKhlpdri2KOp8AmUSmkvv4fYkOIUP9zNzrz/xGIzDBpW7EHYKzifpt6MhOj+Td0KFVPJEUjgXVIK5MsES4KpCqchHXwbosJsmLQBcpy1x42+6tGHuxkMeBBWYx9xS3/hfA53FXtoI5u7GTgFpRWLnRRcsi8Ywprjq1Ekb0/T/d2ZvLq9gRVvjXyiGmltnFagzdM/Z+EcoN+f2hVv99yaDMnRTA43ClSomNiIhbDxo3RB3ocEsHvy2+AZuBYexsCo5+ORtN4/UdPW/JxkBvba08rIZXsi2fNFb5V9CCmHTk0JjrNwdXuDGY47Aqf45tf858v88ixBacxDZDjK5fCeDpMLZSi6hr2tHhULEmLodOSZNog2lIh07KnrivySgUbxHwSGRbSnp+cO7I4E/f8y/dYyHUZE+UknbU0uLZZEiruRRu9xpFHMcJrW6J5J5xlWQdQgu92ChD/Huu/t+EvH0ThynuGaoks9ZYxZOrH3EqcPVAt/o2Y/fhz37U/wmpd7LvJGRGuqO/uHGa54Oyz8ft5nOMxhsj5cXA82LmYmfhQ8W+LG1YfNcns1u/7DGGP8GmhCaUKRNvZZQZvB8j4x9rlgZzusyS87WiZWTErt+Qrd2HRv
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a plugin's update choices"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugins/{id}/options"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+autoUpdate lets the background check apply new releases that ask for nothing new. pinned holds the plugin at its installed version, which also stops auto-update. channel picks whether betas are offered; going back to stable keeps an installed beta until a stable release passes it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"autoUpdate":{"type":"boolean"},"pinned":{"type":"boolean"},"channel":{"type":"string","enum":["stable","beta"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved choices."},"400":{"description":"Invalid request body."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

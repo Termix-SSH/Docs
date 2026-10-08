@@ -1,0 +1,68 @@
+---
+id: write-to-a-file
+title: "Write to a file"
+description: "Writes content to a file on the remote host and preserves the existing permissions when the file already exists."
+sidebar_label: "Write to a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVUtv4zYQ/iuDOTNO2m6Lwj0lbYPNFosGtYugCIKCFscWY4nUckZRvIb/ezGk1nbi7GFP1cGWOA/ON49vtuiIq+Q78THgFO+SF2KoYhAKAhLBwtI3BDGA1ASJ2igEdWQBGxx0iZjSE3GW0rNn8WEFHaXWM/sYGIaaim32Y5tE1m2KKk/QoNgV4/Qer1X80Qa7ooQPBhN96onlKroNTrf50ydyOJXUk8ExRBXZrmt8ZRXC+SMrji1yVVNr9U02HeEU4+KRKkGDXYodJfHEWY9ymDfuSJUl+bDCncHOSv2m4Oj2ExmFKjp9PxGqrG8VbC/Ln9HgwjL99E7RvizD+zjsa+AZskdyE/iNlrZvhLUw6mKCu/xotriLgQuo7y8u9O+lz5zfIXkRCsB9VRHzsm+azUSDfveWyUetYVjBl9xDZ5NtSSgxxASz2XuNMlCl+hCiALHYReO5Jje6/eHU7e2+O8BR8OR+gUDkeNa7qHCZpHSNBdajzjIPMTkYYt84qKnpsvMf34RpfUNOE6RYS9dpmgy2JHV0OMUucm6EXFw875p+5cOZ7fy5Kp+1pQfPs71mDQ3mJk/ap1vsU6Nm+Lpo/8Q+wVyxPUPRx92DmlZ98rLJtguyidJlrzffP+zMFqsY156OT2zn/6DN/uTIxUybupT42NG+zWqRToPNajgdlbTP8st1TK0VnOKHu/lJ9LMyCCBxrf2RO6/MrV4Sk/+cBwxqso4SWIar7DTTgKplw0kZjgOkfWwFFRr0eltRQYPB5kgfB/lqRB/u5lD0c2dYAfarcObDBO60SzIHBTHgBcSuifWkIkehIohPlL6KIkd7nO5vzuTl7Q2saQMsNmXmG7zUIO3zvydw9qrfnto1bQwMta/qchEfrpnAjYCthNVs1IU4hNG6skHH0laichs2MRBQw+NIKFv+deDZ359t2zX0ihcP7DVOzP57z4LHBPeF/ArH7bTgy5hT60V9vyB6uLy9QYM6WyVL300uJhcnubtKcWAyQM6XvdPGpzLaXCo8u57fGvChanq9HViS9ataYJliCwq6TGTeaCFKPRZfqaC1eWOMnZg34GHxvQ5lewT6/1iWpT2FnuW8a6wPCiIT0naszj0e+AwNHjMaGjxw2oNBDUwNtlvdQ3+nZrfT4089JWWrB4NPNnm70KopNWFp0Exka9rgFH8t0M/mGpaqN32Z9VcLWUlsT7+3f86UfhbjYm+jU5tkBzT5d4poMOZ8Z6rLZ1tsbFj1dpXZIvvU5z9G6gsT
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write to a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/writeFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes content to a file on the remote host and preserves the existing permissions when the file already exists.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"content":{"type":"string"},"encoding":{"type":"string","enum":["utf8","base64"],"description":"How content is encoded. Defaults to utf8."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"File written successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"403":{"description":"Permission denied; needsSudo is set when a sudo password would help."},"500":{"description":"Failed to write file."}}}
+>
+  
+</StatusCodes>
+
+
+      

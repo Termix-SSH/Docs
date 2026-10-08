@@ -1,0 +1,69 @@
+---
+id: list-local-users-and-groups
+title: "List local users and groups"
+description: "List local users and groups"
+sidebar_label: "List local users and groups"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SuDOTXAWnLT9sKbW6Sp07QwGhlGIQjBmhyLE5G7zM5QMkPwvxdDMrISxQVyErl8O/Pm4z31qH4rmK3xjygKf5EmzgU3DhuffE1Kyb72yAEzbLyW6DD4mjBDLtBhoo8tJyow09SSQ8lLqj1mPWrXjKigtKWEw7AxtDQxCIkBXl5e2k9BkidulKOlWJUErVAS8KGAbYptIwscHP78LfR12PuKC+DQtDrDfjqH/R3B5zmJgEbQkqCMougwJqCK9t5gUFBgKhaYhbaqBoe/PEcvj3Vt5B48V1RADMeQCxwG99WNtywKVcx9dVYXOqxJy1hghlsyQmODM1w2VbvlcOEbXlrci3qay7L2wW8pyXIMtey5GNChUNp/nlObKguAX9P4N7YJVpRqfoQJjzYQobxNrN149558onTVGof1ZnA95jHumE5PfMN/Unc8OQnxziY/TfY00HERStUG5wWx9wmEbn74PabaK2b45m51xv4didiMNO4ogFBQ4KntliQm/jTNsCRfUAIv8OsYdGy2wcaL44KclnTkNlWFblrzCfK06B8O+iyjN3crmPAgpOAVhLfhgsMC7koK0CQyug5YQf2OxE5yKijkBHFP6dkqRran7f7uTl7dXMOOOhD1STls4cBagtaP78/KOUK/v7U76hwcSs7LKZE8pVnAtYLPVezajIV4CPPt3IcQR4B996GLgYAqoUlHHB7iWDVrZWWeOhRc3VyjQ1v7qYAfF5eLy7Oy3vKe4LebWwc11TF1DgqWnYNAeohpN7J4fXNrxFUcNFVrFhGr0SgmsUFnyjEVTj7URNHaByM2r8f/K/wLQscRKj3qsqk8B4s5iraf1b/GJ/Wjw1P9m2HMDoAOx2ToMOPCDHv0tGyNfX/vhW5TNQx2/LGlZPLeONz7xP7eernusWCx5wKzB18JnRHNY1AKtkY//DN7/AtA9+0CPssomIb2vmrtDR3uqJv+KIbNcGJ2r1+tcBj+A1UGOOA=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List local users and groups"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/users/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List local users and groups
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The users and groups."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

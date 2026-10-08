@@ -1,0 +1,69 @@
+---
+id: disconnect-every-anonymous-guest-watching-the-stage-host-only
+title: "Disconnect every anonymous guest watching the stage (host only)"
+description: "The guest link stays valid, so a guest may open it again."
+sidebar_label: "Disconnect every anonymous guest watching the stage (host only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVNuO20YM/RWCTwkwa7ttnvS2bdFiU6BddF0sCsMoaImxppZmlCFlryro3wuOnL1mA6R90mXOkDyH5BmxYimT79THgAWua4Z9z6LQ+HAAURoEjtT4yoFEoPNhSwPEjgN4BdqTDwt0qLQXLDb4Q2wa2uHWoXDZJ68DFpsRd0yJ02WvNRab7bR12FGilpWTZIC3AjrSGh0GahkL9BU6TPyx94krLDT17FDKmlvCYkQdOkOJJh/2OFnMxNLFICx2/u1qZY+nFH82BgKVlzKGwKVyhZPDd6vvXmJ/jQpaM9RRdAa9+zyIoOV2x8lBTBAiSF/WkGJscZoctqx1rIydxXEzyQKXXdPvfbigzi+FRXwMF1KTkVnaXVmOvpqWWXJZJm7jkdFUTcdPmvWpsUDontX0Z+wTrDm1/g5mPE6PGnJjEs4aPW7LvaK1aodnpe17BqE7v/wUU0uKBb6/Xb9IfTMzAY0HDiAcFHzIKlqSmPw/ZEiomSpOQALf56BAocqwfHFhcpcxHjw/q406/wsP6OZ5mSEPE/P3SV+t6P3tGmY8CCuQgvh9uPBhAbc1B+gSW7nOplrpwGJ/Sq44lAzxyOlVFrnaubD/qOTl9RUceLCNS+rDHk5ea9D27q8XdO6hXy/tgQcHp9qX9ZxIHtIs4EqBShW7dsZCPIXz7ZJCiBlg5xSGGBi4EV7kCffhQ8ysvTb8SPKbeZzh8voKHdrYzhy+WawWq5eNqikxNP5oDcoBBHbDbEUxzbVSiFpzgl5s26y0c9sermg2qhT7zuRpmbOgeaNyo2wLWwpW73lqfrw3A+Ajp8GyhKGNvZwN70Ra1hbFlBGlPcMbMwWIoRnePicyYhmDctD/66jzDCnf6bJryAerPq/8ePaQDT54SLaGJy5i5mms0WGRrXS2kuyp2Uy2DrO1FRscxx0J/5GaabLfH3tO5ttbh0dKnnbW1s2IlRd7r7D4QI3wF4i/+f3s22/hNSqfNjrYOh+p6e0LHR54mM1/2j52z+vfbsxu6OmGPduoXOVnA4/jjFibv0zTfZ7sN5Zqmv4FLbJujA==
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect every anonymous guest watching the stage (host only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/guests/remove"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The guest link stays valid, so a guest may open it again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Guests disconnected"},"403":{"description":"Not the host"},"404":{"description":"Not a member, or no such room"}}}
+>
+  
+</StatusCodes>
+
+
+      

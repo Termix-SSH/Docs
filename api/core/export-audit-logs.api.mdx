@@ -1,0 +1,69 @@
+---
+id: export-audit-logs
+title: "Export audit logs"
+description: "Streams the full filtered result set as CSV or NDJSON. Accepts the same filters as GET /audit-logs. Admin only. The export is itself audited."
+sidebar_label: "Export audit logs"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtuGzcQ/ZXBPNNrNb087JvaOIFdwA0gtUZhCAXNHWkZccktObStCvr3Yri61Y4CxU99knZ45srDM2tsKJloe7bBY40TjqS7BNwSzLNzMLeOKVIDkVJ2DIkYdIJfJn9AiHD7/mby220FY2Oo58Et6Y62bkmgH6+mcKlzY/nChUWqYNx01kPwblXBtCWg5z5EBpvAciI3hwKmpkKFrBcJ63sciwlnCnsddUcSG+v7NVop+u9McYUKve4Ia5yH2GlGhcm01Gms18irXk4SR+sXqJB87iSsSY/i13xOwUv0huY6O8a6nGw26ssZcqJ43Xwlw0lPbcqg3+AZKYUcDU0F/gb/lI2hlM4ZC8dMaq5dotnpcKwjv9f8tVrU7ipqbDTTBduOThdIvnlbvJmS4fTBJ0ri9G40kp//ErsQCFxYCDWpwo3CH0bfv8bdBgaduQ3R/iMU3Cj88UvxPmjrqAEOO/rqXYJUSY/YEbehwRoXJFzsNbdY49FDuBwcpV+KjztC5+gEhupFvj9DjjCl2NlnGPAojScyOVpeFd8H0pHiOEum+5nM2YSwtHRs0b39lVZ7y1GIiUx9mOBxoP0ltMz97nLkewCh2v75sLuam7vpq+onlJINHjgsyUMiz2B9UYvxdtZakNCSbiiKavxcgoL2TYEVx3Ibxy3taxu6QjUQa4AcmPX5iU9WdHM3hQE/SBtDsgt/YX0Fdy156CNJuQosA+slJbEYasgbgvBI8WQXpdrjcX/zJMefrmFJKyhvzfoFPFlugbvnv161s4d++2iXtFLw1FrTDonSIU0F1wzacNHxLRbCk996G+19KAA5134VPAG5RMMLsH4eSteWnbS5Ze/40zUqFMIPpb/7qfpuVI1etSSrwYRIcPCr4EqbFnqXF9ZDE0zuyHPZG1IWxJCZUhl8HxJ32kv+LQuuXr7TlxnluXgmz//HPTgwh+mZL3unrZcei1ast9Jyj4fYIuWDuMwUtiGxHK/XDzrR79FtNmIe1Fdko7FJPzhqsC6ar3BJq+M1+qhdluQo+nECvN+I54D3S/Ac8Iu9d47LYdWdhT7aZOfgD3vqgJ7JR7QCH4T2IP8fr6a42fwLv1Ew/Q==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export audit logs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/audit-logs/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams the full filtered result set as CSV or NDJSON. Accepts the same filters as GET /audit-logs. Admin only. The export is itself audited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"format","schema":{"type":"string","enum":["csv","ndjson"],"default":"csv"}},{"in":"query","name":"userId","schema":{"type":"string"}},{"in":"query","name":"action","schema":{"type":"string"}},{"in":"query","name":"resourceType","schema":{"type":"string"}},{"in":"query","name":"success","schema":{"type":"string","enum":[true,false]}},{"in":"query","name":"startDate","schema":{"type":"string","format":"date-time"}},{"in":"query","name":"endDate","schema":{"type":"string","format":"date-time"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Audit log file."},"403":{"description":"Not authorized."},"500":{"description":"Failed to export audit logs."}}}
+>
+  
+</StatusCodes>
+
+
+      

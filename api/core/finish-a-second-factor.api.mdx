@@ -1,0 +1,69 @@
+---
+id: finish-a-second-factor
+title: "Finish a second factor"
+description: "Checks the user's answer for a login waiting on a second factor and issues the session. The pending token comes from temp_token in the body or the pending-login cookie."
+sidebar_label: "Finish a second factor"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVVFv4zYM/isEX3YD1CTXDQPmt96wA3obsGLNUAxFcFBtJtZiSz6RTuoF/u8DJSfNGnTAPe7JMs1PJD+Snw9YEZfRdeKCxwJ/qqncMkhN0DPFbxis5z1FWIcIFpqwcR721onzGwgeLDCVwVewtqWoi6/AMfeU72BidsHPYFkTdOQrhUnYkocytMSwjqEFobb7nK3OJ9xTqAYIMZ0n2FWOXYawdTRDg2I3jMUj3vRS48pgZ6NtSSiq9YBOy+ms1GjQ25awwJzjbYUGI33pXaQKC4k9GeSyptZicUAZOvVlic5vcBxX6sxd8Eys368XC338m7ZfU27clyUxr/tmhqPB7xfvLz0fYvCbI6khgg8nXlKBE/K7S+SNB/IxNA2d2HYMvbc76xr71FCGXv94CV2GAK31A1hRroVnOI4GW5I6VEpTYEGT2Spwrp3nue2lnufuXuV488ORwXG+o+jWAxpkirsj531sFI/mVfw/Qx9hSbF1z5D9UXllKvvoZEjYJ7KRYmpm8bgazQFzq88ttnO/0HCynF1xr/3LDTq/6NTOWqTDqc36np3QTIePIbZWsMBPD8uL7O/zEE9zy+TlOKYaJET3t1VPqMlWFMEyfEiXpmVQtwRM3Tkv6ZRbrgpNHtns8jK0f+3lzYw+PSynhQAmASvAbuOvnJ/BQ00eukiargEnIHZLrJaSKvIlQdhRfLOKlO053V/N5M3dLWxpABYbk1rsndQg7fPni3JOrl9P7ZYGA/valXUOxC9hZnArYEthhU2+EPZ+QpfW+5Ac9Lv1Q/AE1DDl3XB+HVLVThotc5rem7tbNKgDn1O//mH2fjFbXJSkeleGSPCCm8HPtqyha3rViiqUfUteGJywpgUx9EKciNd9bK3X+NMUfHTecf1abl+H1Z3xQl7+Z0qeJ0voWeZdY51XDpKWHCZNesSkSWhQVSmpzpkuocHiTNsnaVoZrFXXikc8HJ4s0x+xGUc1f+kpquisDO5sdKqdSYIqx3qu9LaG6T/Ifff79P/4Ft7K/7jcXjd7Z5te39DglobzX9G4Ohfiu9/ulziO/wCLOKAG
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Finish a second factor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/second-factor/{factorId}/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks the user's answer for a login waiting on a second factor and issues the session. The pending token comes from temp_token in the body or the pending-login cookie.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"factorId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful."},"401":{"description":"Wrong answer or no pending login."},"403":{"description":"An enrolled factor is unavailable."},"429":{"description":"Too many attempts."}}}
+>
+  
+</StatusCodes>
+
+
+      

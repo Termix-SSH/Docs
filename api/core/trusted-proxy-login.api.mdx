@@ -1,0 +1,59 @@
+---
+id: trusted-proxy-login
+title: "Trusted proxy login"
+description: "Signs in the user named by a trusted reverse proxy's headers. Only answers requests from a configured proxy address."
+sidebar_label: "Trusted proxy login"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVE1v3DgM/SsEL72ozjTbLVDfsh8F0i02ATJBsBgMForMjLVjS65IZ+IO/N8Lym5m2mkPPe3JhvT4+EiRb48VsUu+Ex8DlnjjN4HBB5CaoGdKEGxLFdwPYEFSz0IVJHqkxARdik/DC4aabEWJC7gKzQA28I4SQ6KPPbEwPKTYggUXw4Pf9ImqKRBsVSViLtCg2A1jucJbpsS4NpiIuxiYGMs9ni8W+vla6Ye48QG4d46YH/qmwNHg68WrU+R1zjaLhNYz+7CZ4b+cwv+OclRrlmogpkNHPENQTNPEHVUz0dtTouUxBTRZrzah8U4Ydl5quLr843flPn93kXl+/Z6gr3lsLzUF8c7qtYppPR96W+A4GmxJ6lhhiV1kQYOdlRpLPFP9fJaJXmZBaJAp6XNiudpjnxqFoflGwj+xT7Ck1PonmPA4rjXU9cnLkGPvySZKF71mWq1Hs0cX49bT8Ynt/F80PJ8cUdy4mtrpuY+J9ihDR1hiLdKp2AzDcgahmX/exdRawRLf3y1P1N8Qs/ZK4pYCMAX5MuGaJCb/aerlNCJgGX7LpGBDlWE5MD/QcUnP2qaq0KDXbBMEDermYIn/7eSHit7fLWHCA5OAFWC/CS99KOCupgBdIpVrwAuI3RLriaOKgiOIj5R+WEVWe9zun+7kxfUlbGkAFpvEh800sdI+/XtSzjP051u7pcHArvaunhLxIU0BlwJWd8XyFyzEXZijnQ15DZ3ovQ1DDATUME0r4MNDzFV7abTMeXovri/RoA78JP38TfFqUSxOSlrWBC4mgkNcAX9aV0PX9LrJVXR9S0EYvLDKghR7Ic6N17VrbdD88xR8xwy+zakLE4SC/I8+PI2I0JOcdY31QYvJprCfPWSF2UPUU45cZG2wVqcpV7jf31um29SMox5/7CmpP6wNPtrk7b0+hprBwaOur26WOI6fAV8HRuo=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Trusted proxy login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/proxy-login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Signs in the user named by a trusted reverse proxy's headers. Only answers requests from a configured proxy address.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful."},"401":{"description":"Proxy headers missing."},"403":{"description":"Not a trusted proxy, or the user is not allowed."},"409":{"description":"Trusted proxy login conflicts with OIDC or 2FA."},"503":{"description":"Trusted proxy authentication is misconfigured."}}}
+>
+  
+</StatusCodes>
+
+
+      

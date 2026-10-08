@@ -1,0 +1,69 @@
+---
+title: Environment variables
+description: Every environment variable Termix and its plugins read.
+toc_max_heading_level: 3
+---
+
+import { CoreEnv, PluginEnv } from "@site/src/components/EnvTable";
+
+# Environment variables
+
+Set these on the Termix server. In Docker Compose they go under `environment:`. You never need most of them. Termix works with none set.
+
+This page is made from `env.catalog.json` in the Termix repo and from each plugin's manifest, so it matches the code.
+
+Most switches here also exist as a setting in the app. When both are set, the environment variable wins.
+
+## Core
+
+### Server
+
+<CoreEnv group="server" />
+
+### HTTPS
+
+See [HTTPS](/configure/https).
+
+<CoreEnv group="https" />
+
+### Database
+
+See [database](/configure/database).
+
+<CoreEnv group="database" />
+
+### Secrets
+
+Termix makes these on first boot and saves them in `DATA_DIR/.env`. Set them yourself only if you keep secrets somewhere else. Each one can also be read from a file: add `_FILE` to the name, like `JWT_SECRET_FILE=/run/secrets/jwt`. See [security](/configure/security#keys).
+
+<CoreEnv group="secrets" />
+
+### Sign in
+
+See [trusted proxy login](/configure/trusted-proxy-login) for the `TRUSTED_PROXY_AUTH_` ones.
+
+<CoreEnv group="auth" />
+
+### Proxies and origins
+
+See [reverse proxy](/configure/reverse-proxy).
+
+<CoreEnv group="proxy" />
+
+### Logs and audit
+
+<CoreEnv group="logging" />
+
+### Plugins
+
+<CoreEnv group="plugins" />
+
+### Desktop app
+
+<CoreEnv group="desktop" />
+
+## Plugins
+
+Plugins only read these while they are installed and on.
+
+<PluginEnv />

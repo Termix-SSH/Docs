@@ -1,0 +1,69 @@
+---
+id: read-a-plugins-settings-for-one-host
+title: "Read a plugin's settings for one host"
+description: "Returns every host-scope field the plugin declares for that host. Requires edit access to the host, the same check the host editor itself uses."
+sidebar_label: "Read a plugin's settings for one host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v20YQ/SuDubQFNpKTBj3w5gJJoBQoDEeFUQhCsV6OxI3IXWZnKFsl+N+D4dKyYtlFcyl60nL3zcybr6ceS2KXfCs+BizwmqRLgYH2lA5QRZZX7GJLsPFUlyAVQVt3Wx+gJFfbRAybmEAqKyN6Btf0pfN6T6UXsM4RM0gcTRVhxhPbhsBV5HbHh9EgJvDCVG+gY+IZGhS7ZSxWeDWGZVwbbG2yDQklfejRK/HWSoUGg20IC/QlGkyZSYmFpI4MsquosVj0KIdWUSzJhy0Og3nWiZJa/CtHPghtKeEwrBXNbQxMrIA3Fxf6822Rl8cq/sDAJOLD9mkdcTD49jnjRdjb2pe5ZL6cgD+fA3+P5y341vvbZ424c9VEb6a1wYakiiUWuCVBk4tU4DxDeN77cpg/ZDFX9/M+l25Ag0xp/9CoLtVqiOZJ0D9jl2BJqfH3kPGohWRyXfJyGG1vySZKl53GXq21Yy7GnafTG9v63+hwvDlx8Uk7ljty6ujYwEqkxamx+p1BaKbD+5gaK1jgx5vlGftPxOxjAIk7CsAUBHwYp1qDxOT/toqEimxJCSzDr6NTsCEv1Gg4tuQ0pSO3nBWaPKIZ8jikn+/kRUYfb5aQ8TplYAXYb8MrH2ZwU1GANpHSNeAFxO6I9cZRScERxD2lF7MY2Z6W+7sreXm1gB0dgMUmnRy481KBNPd/naVzhH5/aXd0MHBXeVflQPwYZgYL3Q1hNZuwEO/CZO1sCHEE6LsNhxgIqGbKO+HDJo5Ze6k1zWl6L68WaFAHPlN/88vs9cXs4iwlVQAXE8Gj3Qze2ePiQRld11AQVjlUWpBiJ6qIg8E2sjQ2aPxpCq7JlmBfEBVlrgv5lIWuUBAK8v/U/TxPQvcyb2vrg2Y+Kkg/SdAKJwlCg8Wo+A9po8Ep4WIS8fV0U6yw728t0x+pHga9/tJRUolZG9zb5O2t9nPVY+lZzyUWG1sz/UPtfpxSL3+Cl3g/rHLQPd7butMvNLijQ/63Uvn6DyNOVRnWp/L+4d0Sh+EryarGAw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a plugin's settings for one host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/settings/host/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every host-scope field the plugin declares for that host. Requires edit access to the host, the same check the host editor itself uses.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugin's settings for that host."},"400":{"description":"Invalid host id."},"403":{"description":"No edit access to that host."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

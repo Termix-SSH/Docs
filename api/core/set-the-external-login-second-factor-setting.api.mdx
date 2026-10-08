@@ -1,0 +1,68 @@
+---
+id: set-the-external-login-second-factor-setting
+title: "Set the external-login second-factor setting"
+description: "Enables or disables asking for an enrolled second factor after an external login method (SSO, LDAP)."
+sidebar_label: "Set the external-login second-factor setting"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SuDOTUA7d2mHwfdnHSDblq0i9rBolgYwViatbiWSYUc+aOC/3sxpOp17A2CXKqDLZFvqDdvZp56rDiWwbZivcMCbxwtGo7gA1Q25nuKK+uW8OgDkAN2wTcNVxC59K6CRypFdx6F8/5OODhqoPFL62DNUvsKvptO/zTw+y+Tu1djNCi0jFg84IfIIeLcYOBPHUd546s9Fn16tIErLCR0bLD0TtiJblHbNrYk5Xv1FJV0j7GseU16J/uWsUC/eOJS0GAbfMtBLEfd5ZRddQJceN8wOTykS3nE1ruY4a+vr/XvTKEhv1HOL6swGlSILKJadW1FwtUYDwZ/fOmUW7ehxlawoabjJO3AbQj54TLkDy9AndQ+2H8G3E8vHf2OrJZHvLL5nN8oVWnE5ykk0mNUAXK9sMCWpKxVQZIaC7zqtFRXXz8ODUYOG61r8dBjFxqNRnPG8m/fBZhxWNsdZDwe5hpadsHKPsUumAKHSacEHuYH02Pp/cry6Qq19jfeH1dOjphqU+RCnh50LH0t0irZBNNWSCA0w807H9YkWOD7+9kF+ynHaL0D8StWAZ2AdSA1w2SoUGpQqJkqHYsIb9KhQK5KsBSYania0pFbzgoNWn1bhqBBR4np01a+yOj9/QwyPpWfBKJdupF1Y7iv2UEbWOkasAJCK466UnLFrmTwGw5fzCKxPZX7m5Wc3N3CivcQhUIak62VGmS9+3iRzhH67dKueG9gW9uyzi+Kz68Zw60AlaKe9h8W/NYN0SU55xNA98ntvWPgJnIeDXWbv5596mZH67bhz3xF3eqgVXv0SR8rCsChzyd3t2hQRyMn+frn8ffX4+uL5Gc1Q+kDw3PcGG6orKFtOp3Yypfdmp1EsBI1AQi+E46pRK2Psqbki0O/TFlSthdz/4J1nZPpn733f/s45K4S3slV25B1mlXykX5wowdMbpSs5qt+NDdY+yga1fcLivwhNIeDLn/qOKjTzA1uKFhNKNsK5uZKJrTiPRb4Noswmik3hTddntOzj5Ea0NFC7yazt7/qGAxftbWvNCjQFk36LRAN+qR08qm01mNDbtnRMo16OlSvfwEni6nH
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the external-login second-factor setting"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/second-factor-after-external-login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables or disables asking for an enrolled second factor after an external login method (SSO, LDAP).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"External-login second-factor setting updated."},"400":{"description":"Invalid value for enabled."},"403":{"description":"Not authorized."},"500":{"description":"Failed to set second-factor-after-external-login setting."}}}
+>
+  
+</StatusCodes>
+
+
+      

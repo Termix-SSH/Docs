@@ -1,0 +1,70 @@
+---
+id: assign-a-role-to-a-user
+title: "Assign a role to a user"
+description: "Assigns a role to a user."
+sidebar_label: "Assign a role to a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v20YM/lcIPm3A1fa6bsD85nQt4O5hQZIiGAyjoCXGuli6U++oOJqg/33gSbG9uC5QvUi6+/ib/NhhzjELthbrHc5xEaPduggEwZcM4oGgiRwmaFBoG3G+wpurxXtcG6wpUMXCQU87tCpfkxRo0FHFOEeVXOZoMPDXxgbOcS6hYYMxK7ginHcoba3IKMG6Lfb9egBzlCuft4p4LZt5J+xEr6iuS5uR+j59jBpAd67abx45EzRYB19zEMsxqfUlL/MTnHXCWw7Yp0fdiLV3cUC/nc309f9k3WiKKGWMc4hNlnGMD01ZthPsDb67KLP8E2yEl8BG8K/n4Ns2ClepFBEycs4LbBgqcg2VZXuwPWp4d67hc+QAPgzVVPEH37gX/B+XQioDU/5K/W/fiuYj2ZLz1CYJm+xMUNNXsRQ+15bwMWVfO2OO07ChbKqNEafd0B/9NAWIBiOHp5d2akKpcDSvTP7jmwB3HCr7DAMetWkiZ02w0ibZDVPgsGjU4mrdmw4z73eWT0+otn9xezg5UXGrHTSU/VTRoVEKkRrHHtb/AYRm/PjoQ0WCc/x0f3fm/S3HaL0D8Tt2ENkJWAdSMKgRH+y/qZuhYMo5AEW4SkqBXJ5gSTAV5DSkg29DVGiGaRwgx3l83MtFjz7d38GAh8gCJKAFfWPdBO4LdlAHVncNWAGhHUc9yThnlzH4Jw4Xo0jenqb7hzO5uF7CjluIQkGs28LeSgFSPX85C+cA/fHU7rg1sC9sVgyG4tHMBJYClElUsRELfu9G6XE0KRO9J9d6x8BlHEdBqenmSGofnqmqSz4loVmvFXvwKTdW9BLHHl9cL9GgjsUQ4NvfJ7/MJrOzwO8KhswHhqPcBD5QVkBdNlvrIPdZU7GTCFaiOg/BN8IxlUeHtKJEoGOvDJvgbBG8ttsd+fj7y2OouPCzTOuSrFOraca7kRpWqNSAJm0NZYP5cX0kflgbLJRL5ivsug1F/hzKvtfjrw0Hnfy1wScKljaawFWHuY36neP8gcrI33H9p5uRjH+GS86+TJjT8XqistE/NLjj9rjq+nVvcOiw5MFw+X6w8+ZOVRyFz9aXstCBN6//vlX+2IxrsPK5ygTaa0JoPxj3KZZhoelZhyW5bUPbNO5Jpz7/AcRGs+Y=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Assign a role to a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/users/{userId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Assigns a role to a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"roleId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Role assigned successfully."},"400":{"description":"Role ID is required."},"403":{"description":"System roles cannot be manually assigned."},"404":{"description":"User or role not found."},"409":{"description":"Role already assigned."},"500":{"description":"Failed to assign role."}}}
+>
+  
+</StatusCodes>
+
+
+      

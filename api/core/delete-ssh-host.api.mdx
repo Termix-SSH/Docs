@@ -1,0 +1,69 @@
+---
+id: delete-ssh-host
+title: "Delete SSH host"
+description: "Deletes an SSH host by its ID."
+sidebar_label: "Delete SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v2zAM/SsETxuguVnR7eBbh6Zouh2GJUMxBMGgWEysxZZciU7qGf7vgywnTT+xnizRj3yPpMgWFfnM6Yq1NZjiBRXE5EEamE6vILeeYdmAZg+TiwQFslx7TOc4nV7hQmAlnSyJyQVjizrEqCTnKNDIkjBFrVCgo9taO1KYsqtJoM9yKiWmLXJT9SjDtCaHXbcIaF9Z48kHwOloFD4PZR60qV6vAl9nGXm/qouiSbATePac28RsZaEV1J7cRIF1oNWAPnuFxFiGla1NxH56LvKl1AUpYDsoOlQvwa4TWBLnVmGK8S+KWKQUTwLmRC3jt9WqQ4Ge3HZf0doVAYbiEeEvWzuYkSv1HUQ8htJ5ymqnuel9lyQdufM6MM0XnWgxs3aj6dgiK/2VmoPlKMQ09Cj24DjQoWU5c4VDK8M9glAMh0vrSsmY4vXN7In6KXmvrQG2GzLgyTBoA5wTBBLr9F8ZkJCTVORAevjSBwVpVA/rHft2HKd00BazQhEfZITcP8k/O35R0fXNDCIePDFIBq/X5oM2CdzkZKByFOQK0AwsN+SDJSNFJiOwW3IvZtGrPS73myt5/n0CG2rAs3SszRp2mnPg8u73k3QO0LeXdkONgF2uszwS+XuaBCYMMmMf3AYs2J0ZvDNpwqjIjMN/aRprCKjwFIdAm5Xts9ZchDSH13v+fYICw4OP0k8/Jx9HyehJSrOcILOO4N4vgbHMcqiKeq0NKJvVJRn2/bqyOwPO1ky+L3xlPZfSBP7hFVw8HNTHfGFYDJPh/9qKsZFMd3xSFVKbQNmPbjtM+hz3JEsU+3OqVVii/S2dY9supaefrui6YL6tyYVBXgjcSqflMlRt3qLSPpwVpitZeHpF97sfw959Dy+J3A+MCdOylUUdbihwQ01c3t3ieH9djL+NZ2Psun9tmxsB
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/host/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes an SSH host by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH host deleted successfully."},"400":{"description":"Invalid userId or id."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to delete SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

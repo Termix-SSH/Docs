@@ -1,0 +1,68 @@
+---
+id: establish-ssh-session-for-docker
+title: "Establish SSH session for Docker"
+description: "Opens an SSH session to a host for Docker operations. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in."
+sidebar_label: "Establish SSH session for Docker"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVt9v2zYQ/lcO90zb2da9+C3tOiQNihpzhmAIguEsXSzGMqnyqDia4f+9OFKWnThp0dfpxRZ5Pz5+vPtOWyxZimCbaL3DKX5p2AmQg/n8AoRFrHcQPRBUXiLc+wB/+GLFAXzDgdRLxnBTsYNYcTYiWUmyJCh8yQYIFsFvhAOIXbqRdZA2GxLZ+FCa5Bq4qTsQ6gTEA7kyre4hbMjGHLTwznERR9HHBo7e+xSjPsUYDUZaCk5vMSPGO4OBv7Ys8b0vO5xu06sNXOI0hpYNFt5FdlG3qGlqW6QDTh5EudmiFBWvSf/FrmGcol88cBHRHAW6xR7yZYkGlY/LUjM3QQmLliVFGmwOwSQG65a4G7wOW9ZFXnLQvVY4zIJ/tCWXs57AV4McG86luuLuh2ZX3H0nZHr0qNJ4J/kcv56d6c/zGvqQb4RL099z8OsmpuvUbFCRpJJysuEwVhDvXgvz2YpYt4SBK42Wqemdfjt16ovTCjgfgR0tai5T3cTKSnJPqAYwNRUrgTK5jVvhPvS709AXWtsa9d63LkP4/TXc2jl9UWrl3pOtWc13BtccK1/iFBsvWjYNxQqnOGnqdmndiBo7yUgmItWkD4IGhcMjB63lLbahVhc0L9L+49sA1xzW9gmyPe7u1LVog41d8l0wBQ7nrWa9vduZLRberywfr1Bjr7gbVo5CzLX8870fBxoKpYqxUbDJDKe9EZr+z58+rCniFD/dXJ+gnw9Ss2IHwi6CzZKiSXyw/6VWhIqp5AAk8D4FHYQiOaZLOT7SgC2fCg1azZZN0KCjhPRhE99E9OnmGrI9CEeguBexXvaawArXgI0QacWiKwWX7AoG/8jhzVMktMd0/zST57NLWHEHEilE7ZWNjRXE9dO/J8cZTH+e2hV3BjaVLaqcSA5pxnAZgYoo6tbbgt+43rsgpw1DhQ4FINd5x8B16rKdQdXVvw6K/PGJ1k3NL/Rxrz8HWTx7SwUPpq+J3+u7zzTvSBetu/fpRmxUSHthOZ9dokFtxkzrL+Oz8dkJ2Z/J0ZL3k1KZmPlyTU51IZJ1HAS8g05bVk8luVDm8wuTua39Uoyyrcy6Mk1SJ77O8qTqsaY0kvoC/iiRFrWV6tncPkzrlwi3h1H3Pxv5uYEiP8VJU5N1acapZG57tb3Fg9oqLXt+RCpMXwBJc+9yuan5drsg4b9Dvdvp8teWg6rpncFHClYHTJZOzA2UhHaVCu5D5nh0raDUvG6zFr34tFCRHUbD7Mtc5XHRf6Ksfak+gTb6mUEbnCIa9OkekxSntS3W5JYtLZOapZj6fAPohHAT
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Establish SSH session for Docker"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/ssh/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens an SSH session to a host for Docker operations. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","hostId"],"properties":{"sessionId":{"type":"string"},"hostId":{"type":"integer"},"userProvidedPassword":{"type":"string"},"userProvidedSshKey":{"type":"string"},"userProvidedKeyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or a prompt the user has to answer."},"400":{"description":"Missing sessionId or hostId."},"403":{"description":"Docker is not enabled for this host, or the user lacks docker.use."},"404":{"description":"Host not found."},"500":{"description":"SSH connection failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,377 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Tmux Monitor API",
+    "version": "1.0.0",
+    "description": "Browse and control tmux sessions, windows and panes across your hosts."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/tmux-monitor/{hostId}/overview": {
+      "get": {
+        "summary": "Get a host's tmux sessions, windows and panes",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tmux overview for this host."
+          },
+          "403": {
+            "description": "Host not found, not accessible, or the monitor is disabled for it."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/focus": {
+      "post": {
+        "summary": "Focus a pane",
+        "description": "Selects the pane's window and pane on the server, so every attached client switches to it.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Focused."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/sessions": {
+      "post": {
+        "summary": "Create a detached tmux session",
+        "description": "Starts the tmux server if none is running.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session created."
+          },
+          "409": {
+            "description": "A session with this name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/windows": {
+      "post": {
+        "summary": "Create a window in an existing session",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Window created."
+          },
+          "404": {
+            "description": "Session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/rename": {
+      "post": {
+        "summary": "Rename a session",
+        "description": "Saved tags follow the session to its new name, for every user monitoring this host.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session renamed."
+          },
+          "404": {
+            "description": "Session not found."
+          },
+          "409": {
+            "description": "A session with this name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/kill": {
+      "post": {
+        "summary": "Kill a session and drop its saved tags",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session killed."
+          },
+          "404": {
+            "description": "Session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/kill-window": {
+      "post": {
+        "summary": "Kill a window and every pane in it",
+        "description": "Killing the last window of a session ends the session (tmux semantics).",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Window killed."
+          },
+          "404": {
+            "description": "Window not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/kill-pane": {
+      "post": {
+        "summary": "Kill a single pane",
+        "description": "Killing the last pane of a window closes the window, and the last window of a session ends the session (tmux semantics).",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pane killed."
+          },
+          "404": {
+            "description": "Pane not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/split": {
+      "post": {
+        "summary": "Split the window containing a pane",
+        "description": "\"h\" places the new pane to the right, \"v\" below, matching tmux's own -h/-v semantics. The new pane starts in the source pane's working directory.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pane split."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/search": {
+      "get": {
+        "summary": "Search pane output across a host's tmux sessions",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching lines, capped per pane and across panes."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/metrics": {
+      "get": {
+        "summary": "Per-pane CPU, memory and GPU usage",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metrics for every pane tmux reports."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/tags": {
+      "put": {
+        "summary": "Replace the acting user's tags on a session",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tags saved."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

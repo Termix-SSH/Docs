@@ -1,0 +1,1651 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Host Metrics API",
+    "version": "1.0.0",
+    "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/host-metrics/metrics/{id}": {
+      "get": {
+        "summary": "Get host metrics",
+        "description": "Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Host metrics data."
+          },
+          "403": {
+            "description": "No access to this host."
+          },
+          "404": {
+            "description": "Metrics not available."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/start/{id}": {
+      "post": {
+        "summary": "Start metrics collection",
+        "description": "Opens an SSH connection from the tab, where a TOTP prompt can be answered, and starts collecting metrics for the host.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metrics collection started, or a TOTP code is required."
+          },
+          "401": {
+            "description": "The host needs a sign-in step first."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "Failed to start metrics collection."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/stop/{id}": {
+      "post": {
+        "summary": "Stop metrics collection",
+        "description": "Closes the tab's connection and drops its viewer, which stops polling when it was the last one.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metrics collection stopped."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/connect-totp": {
+      "post": {
+        "summary": "Submit a TOTP code",
+        "description": "Answers the TOTP prompt a metrics connection is waiting on.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected."
+          },
+          "400": {
+            "description": "Missing sessionId or totpCode."
+          },
+          "401": {
+            "description": "TOTP verification failed."
+          },
+          "404": {
+            "description": "TOTP session not found or expired."
+          },
+          "429": {
+            "description": "Too many TOTP attempts."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/heartbeat": {
+      "post": {
+        "summary": "Keep a metrics viewer alive",
+        "description": "A viewer without a heartbeat for two minutes is dropped.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Heartbeat updated."
+          },
+          "400": {
+            "description": "Invalid viewerSessionId."
+          },
+          "404": {
+            "description": "Viewer session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/register-viewer": {
+      "post": {
+        "summary": "Register a metrics viewer",
+        "description": "Starts polling a host while something shows its metrics. Answers skipped instead of failing when the host has no metrics.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Viewer registered, or skipped with a reason."
+          },
+          "400": {
+            "description": "Invalid hostId."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/unregister-viewer": {
+      "post": {
+        "summary": "Unregister a metrics viewer",
+        "description": "Drops a viewer. Polling stops with the last one.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "viewerSessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Viewer unregistered."
+          },
+          "400": {
+            "description": "Invalid hostId or viewerSessionId."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/metrics/history/{id}": {
+      "get": {
+        "summary": "Get metrics history",
+        "description": "Returns stored CPU, memory, disk and network samples for a host over a range.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1h",
+                "6h",
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The samples in the range."
+          },
+          "400": {
+            "description": "Invalid range or dates."
+          },
+          "403": {
+            "description": "No access to this host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/host-metrics/preferences/{id}": {
+      "get": {
+        "summary": "Get the Host Metrics layout for a host",
+        "description": "Returns the current user's saved card layout for the host, or a default layout from the host's enabled widgets when none is saved.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The layout for this host."
+          },
+          "403": {
+            "description": "No access to this host."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the Host Metrics layout for a host",
+        "description": "Saves the current user's card layout for the host. For the host's owner it also updates the host's enabled widgets.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "slots": {
+                    "type": "array"
+                  },
+                  "columns": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Layout saved."
+          },
+          "400": {
+            "description": "Invalid layout."
+          },
+          "403": {
+            "description": "No access to this host."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/wireguard/{id}": {
+      "get": {
+        "summary": "Get WireGuard interfaces and peers",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "WireGuard installation status, interfaces, and peer details."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/wireguard/{id}/action": {
+      "post": {
+        "summary": "Bring a WireGuard interface up or down",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "interface": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "up",
+                      "down"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/users/{id}": {
+      "get": {
+        "summary": "List local users and groups",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The users and groups."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/users/{id}/action": {
+      "post": {
+        "summary": "Create or delete a user, or change a user's groups",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action",
+                  "username"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "create",
+                      "delete",
+                      "addToGroup",
+                      "removeFromGroup"
+                    ]
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "group": {
+                    "type": "string",
+                    "description": "Needed for the group actions."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The command result."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/ssl/{id}": {
+      "get": {
+        "summary": "List certificates from certbot and acme.sh",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The installed ACME clients and certificates."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/ssl/{id}/issue": {
+      "post": {
+        "summary": "Issue a certificate with certbot or acme.sh",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "client",
+                  "domains",
+                  "challenge"
+                ],
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "certbot",
+                      "acme.sh"
+                    ]
+                  },
+                  "domains": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "challenge": {
+                    "type": "string",
+                    "enum": [
+                      "http-standalone",
+                      "http-webroot",
+                      "dns"
+                    ]
+                  },
+                  "webroot": {
+                    "type": "string"
+                  },
+                  "dnsProvider": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The issue result."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/ssl/{id}/renew": {
+      "post": {
+        "summary": "Renew certificates",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "client"
+                ],
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "certbot",
+                      "acme.sh"
+                    ]
+                  },
+                  "dryRun": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The renew result."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/ssl/{id}/revoke": {
+      "post": {
+        "summary": "Revoke and remove an issued certificate (certbot or acme.sh)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "certbot",
+                      "acme.sh"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "certbot cert name or acme.sh domain"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Revoke result."
+          },
+          "400": {
+            "description": "Invalid client or certificate name."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/top-memory/{id}": {
+      "get": {
+        "summary": "List the processes using the most memory",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The top processes by memory."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/timers/{id}": {
+      "get": {
+        "summary": "List systemd timers",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The timers with their next and last runs."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/disk-breakdown/{id}": {
+      "get": {
+        "summary": "List mounted filesystems and their usage",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Size",
+            "used and free space per mount.": null
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/services/{id}": {
+      "get": {
+        "summary": "List systemd services",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of services."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/services/{id}/action": {
+      "post": {
+        "summary": "Start/stop/restart/enable/disable a systemd service",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          },
+          "400": {
+            "description": "Invalid unit or action."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/processes/{id}": {
+      "get": {
+        "summary": "List processes (rich, sortable, filterable client-side)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Process list."
+          }
+        }
+      }
+    },
+    "/host-metrics/managers/processes/{id}/signal": {
+      "post": {
+        "summary": "Send a signal to a process (TERM/KILL/HUP/INT)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pid": {
+                    "type": "integer"
+                  },
+                  "signal": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signal result."
+          },
+          "400": {
+            "description": "Invalid pid or signal."
+          },
+          "403": {
+            "description": "Elevation required or denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/packages/{id}": {
+      "get": {
+        "summary": "List upgradable packages and the package manager",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The package manager and upgradable packages."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/packages/{id}/action": {
+      "post": {
+        "summary": "Install or upgrade a package, or upgrade everything",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "install",
+                      "upgrade",
+                      "upgrade-all"
+                    ]
+                  },
+                  "pkg": {
+                    "type": "string",
+                    "description": "The package name. Not needed for upgrade-all."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The command output."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/logs/{id}/files": {
+      "get": {
+        "summary": "List readable log files under /var/log",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Common logs and the files found."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/logs/{id}": {
+      "get": {
+        "summary": "Tail a log file or a systemd unit's journal",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A log file under an allowed directory."
+          },
+          {
+            "in": "query",
+            "name": "unit",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A systemd unit. Used instead of path when given."
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The last lines of the log."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/host-metrics/platform/{id}": {
+      "get": {
+        "summary": "Detect available management tooling on a host",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Platform capabilities (systemd, package manager, certbot, docker)."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/health/{id}": {
+      "get": {
+        "summary": "Get the host's health checks and their last results",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configured checks and results."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/health/{id}/config": {
+      "post": {
+        "summary": "Save the host's health checks",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "checks"
+                ],
+                "properties": {
+                  "checks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "target": {
+                          "type": "string"
+                        },
+                        "port": {
+                          "type": "integer"
+                        },
+                        "path": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "intervalSeconds": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved checks."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/health/{id}/run": {
+      "post": {
+        "summary": "Run the host's health checks now",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of each check."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/firewall/{id}": {
+      "get": {
+        "summary": "Read the host firewall (iptables, nftables or ufw)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The firewall type",
+            "status and rules.": null
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/firewall/{id}/rule": {
+      "post": {
+        "summary": "Add or delete an input rule",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "op",
+                  "protocol",
+                  "port",
+                  "target"
+                ],
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "enum": [
+                      "add",
+                      "delete"
+                    ]
+                  },
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "tcp",
+                      "udp"
+                    ]
+                  },
+                  "port": {
+                    "type": "integer"
+                  },
+                  "target": {
+                    "type": "string",
+                    "description": "ACCEPT",
+                    "DROP or REJECT": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The command result and firewall backend used."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/firewall/{id}/persist": {
+      "post": {
+        "summary": "Save the current firewall rules so they survive a reboot",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The save result."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/managers/cron/{id}": {
+      "get": {
+        "summary": "List the SSH user's crontab entries",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The parsed crontab entries."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      },
+      "post": {
+        "summary": "Replace the SSH user's crontab",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "entries"
+                ],
+                "properties": {
+                  "entries": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "schedule": {
+                          "type": "string"
+                        },
+                        "command": {
+                          "type": "string"
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The crontab was written."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "No access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "The command failed on the host."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

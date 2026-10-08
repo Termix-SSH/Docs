@@ -1,0 +1,69 @@
+---
+id: end-the-meeting-host-only
+title: "End the meeting (host only)"
+description: "Clears the stage. One-off rooms are ended for good; persistent rooms stay listed for reuse."
+sidebar_label: "End the meeting (host only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE2P3DYM/SsETwmgnZm2OTmnbZACmwLNIrvBIhgMAo7NGatjS45Ez65j+L8HlLzf3QIN0JNl6Ul8fCTfiBXHMthOrHdY4LuGKUSQmiEK7XkBHx2f+N0OgvdtBAoM7CquYOcD7L2v3kLHIdoo7GQGRaEBGt3KsMB95AUaFNpHLNb4zjcNbXFjMHLZBysDFusRt0yBw2kvNRbrzbQx2FGgloVDTACrFDuSGg06ahkLtBUaDPytt4ErLCT0bDCWNbeExYgydIqKEqzb46RvBo6dd5Gjnv+6WunnsQjvNUGcDL5Z/fb89C8vSZ/aR8FpMtiy1L5SZrpjMsECl13T7607oc4uI8dovTuJNSmRZdJpOdpqWrLTDCKH422WfWj0Opongb/4PsAlh9beQMbj9EDCC006Z/VQyDsNapEOZ230P4PQzIs/fGhJsMAPV5fPQl9k/iD+wA6iltq6pIIG8cF+J0VCzVRxAIrwe3oUyFUJli4uVNPS+4PlJ9yos3/ygCZXOEPua/z3tbzI6MPVJWQ8RBYggWj37sS6BVzV7KALrHQNWAGhA0fdKbliVzL4I4cXs0hsM7GfVPL0/AwOPOg8BLFuD9dWapD25uuzdO6g/13aAw8Grmtb1jlQvA+zgDMBKiXqtRkL/trNt0tyzieAnpMbvGPgRmdV+9q6nU9ZW2n4geQXuYnh9PwMDWrb5hx+WawWq+eFqtUzGnvUAqUHImzVHtwBfMhcyXmpOUAfOZhEbS7b/RXxQLAPvu9UnpY5CZrmKBVKZ68lp3znrnk/63OLfaUDC941w+unJEcsvVMD+/8dMHeQ8I0su4asU+5p4MfZN9Z47xvJGB45h5qdRkCDRbI+tY+NwWRGxRrHcUuRP4dmmnT7W89BvXVj8EjB0lYLuR6xslHXFRY7aiL/ixyvPs3e+hpeon87w04H+EhNr39o8MBDNuhp89Alzz9eqMHQ45l6MkOJ5T8+PI4ZcamOMk13cZLDaKhp+gGLLFow
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"End the meeting (host only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/end"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Clears the stage. One-off rooms are ended for good; persistent rooms stay listed for reuse.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Ended"},"403":{"description":"Not the host"}}}
+>
+  
+</StatusCodes>
+
+
+      

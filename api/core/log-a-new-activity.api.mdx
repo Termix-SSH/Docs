@@ -1,0 +1,68 @@
+---
+id: log-a-new-activity
+title: "Log a new activity"
+description: "Logs a new user activity, such as accessing a terminal or file manager. This endpoint is rate-limited."
+sidebar_label: "Log a new activity"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDufRCy0qQ9sCb0yao06A1agVGYRjFiDsm11ruMrtDS6yg/17Mkvqo5RxyqQ4StXyz83bezNstGk5VtJ3Y4LHEz6FOQOB5DX3iCFSJfbYyFJD6qgFKQFXFKVlfA4FwbK0nByHCo3UMLXmqOc5g0dgE7E0XrBewCSIJXzjbWmEzwwKF6oTlPf5CqVkGigYfCoz8teck74MZsNzmvzaywVJizwVWwQt70VfUdc5WpKwvn5JS32KqGm5Jn2ToGEsMyyeuBAvsYug4iuV0fHtAJYnW11i8qMSVPxweFAkEnetr639IILQEw5WjyKkAF9YcK0oMjkU4pgKMra0kIG+g94ZjqkLkNMNdgU1Icm1O8lsvXHPcv/ud2lfY7fJHK5S64NN4kLfzuf684L0n7UJds1HdVLDH3rlBdfqvELsC3722y7V/JmcNTIrAMphhQr85R99qRwQPvOlUrwn47hz4a0gCPgg8ht4bpTO2Exj2dgr88TU+H8k6NiBBj3UQZoZak5alCQZL7ELKapM0WOKl2bfW5R5/6YIKnTg+c9T222IfnWLP5P8r9BEW2t8bGPG4e9DQqo9Whhy7ZIocr3pNd/+wK7ZYhbCyfLpCnf2Nh8PKyRa32q6jkKcbHZRvRDolm2FYTiAspoePIbYkWOKnu8UZ+70gElbsIbHOoAdpGDRJiPafPDrQMBmd8gTv86a5YxWWA7Mcp0c6cBtPhQVazTZCsECfexef1vJNRp/uFjDiIbEACSRb+wvrZ3DXsIcustItwAoIrTjpSsWGfcUQnjl+8xSZ7Wm5v7uSVzfXsOIBklAUdbi1lQak3fx97g576PeXdsVDAevGVs2YKB3TzOBatLmThk1YCGs/RVfkdXaokmzEfgiegV3icQ7UB/88OuiHDbWde9Xp9h40P7Wcg9Woqo8hx1nRDXCag6ubayxQR2cswtufZm/ms/lZcRYNgxoeHONm8IGqZnJQMKHqW/aSQF0yrD3E0MtkkDrFLWVHn/rps458vpP2g/wy5fZ4N/yPV9hYVeGNXHaOrFf22U+2kwfd48GDsMAT8upDD2PxFbXdLinxl+h2O13+2nNUh3ko8JmipaWKoHaCY1Nl81nxgCX+PB77YqFcFO76cT5fXI9qPAefvPnjVi1jOV2zbTAaE2mNRf4uEQsMubTZnvLaFh35uqc6T3jeUz//An/F3CQ=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Log a new activity"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/dashboard/activity/log"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Logs a new user activity, such as accessing a terminal or file manager. This endpoint is rate-limited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"type":{"type":"string","description":"An activity type a plugin's tab declares, lowercase letters, digits and underscores."},"hostId":{"type":"integer"},"hostName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Activity logged successfully or rate-limited."},"400":{"description":"Invalid request body."},"401":{"description":"Session expired."},"404":{"description":"Host not found or access denied."},"500":{"description":"Failed to log activity."}}}
+>
+  
+</StatusCodes>
+
+
+      

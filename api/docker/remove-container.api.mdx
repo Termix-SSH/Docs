@@ -1,0 +1,69 @@
+---
+id: remove-container
+title: "Remove container"
+description: "Removes a container, optionally by force."
+sidebar_label: "Remove container"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDObUA106L7UW3tJtFs22BIEkRFIFRjKWJxVoiteTIiWrovy+G9Ic2cRZIDz3ZoObjzXvDxy1WHMtgO7HeYYHX3PoNRyAovROyjoMBn75S0wywHODBh5JnaFBoFbG4xw++XHPAhcGOArUsHPR8i1YrdiQ1GnTUMhYYOUbr3WWFBgN/7m3gCgsJPRuMZc0tYbFFGboULMG6FY6jOVnrgPA/VvvccxiO5dJceCJx6X3D5HAcF9omdt5Fjhrw49mZ/nxN4S97WBASmdUMR4PvT4XeZDbAeYEH37vKgA8gNR/ZBxsh9M5ZtwJyVWYfHimmpMiyq/7+W0AO9VPwT6egfCTbcAXid6iPCGZKGbYsta+wwIobFuUpiVHgvGv6lXXvqLPzKm3C/JAa59uD4ON8OxFsnOc2yjeHzX5j+tBoSTTP0P3l+wC3HFr7BDkeVYzIZR+sDCl3yRQ4nPeK6n6hKpfery1PT6izv/FwOJmUuFHVs6rTQoclqEW6/XKkpUhBaHZ/PvrQkmCBn+5uX6Dfyyx+zQ4iOwHrkszaxAf7L2kk1EwVB6AIP6eiSXANS4lJu+lIB2x5KjR5rXPIca//eZRXEX26u4Ucr6sEJBDtyr2zbgZ3NTvoAitcA1ZAaM1RT0qu2JUMfsPh1SkS2indb2by/OoS1jxAFAqi6/9opQZpn/5+Mc4h9O3Urnkw8Fjbss6N4rHNDC4FqJSoabtY8I9ul12S03tFpeh3coN3DNxEzhfGugefprbS6JjZJeH86hIN6sJn6D/MzmZnLwb6gxytGHY52u3KVy25462M4B0Mei1qHyVmMW5ufjUZf+NX0ehEit5V2c+jbzjp0vkoLTmFt1uS62eX/jmibXJbdvLWNyJrLvwk864h67R9uuXbnYHc49FAtGt+TMzR3SMaLKbvRvHc+JORLAwqE1pwu11S5D9DM456nH1eLaKykZaNvhEP1EQ2uOZh4vwbanpFm7xlQ8Fq8OnEV8n57nr3Dn0Pr42/v7VumPbcgzlOqob1Pzaesjouppb/4eL3i9sLHMcvck3PcQ==
+sidebar_class_name: "delete api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove container"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/remove"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a container, optionally by force.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}},{"in":"query","name":"force","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Container removed."},"400":{"description":"Session not found, or the container is running and force was not set."},"404":{"description":"Container not found."},"500":{"description":"Failed to remove container."}}}
+>
+  
+</StatusCodes>
+
+
+      

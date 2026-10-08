@@ -1,0 +1,59 @@
+---
+id: get-the-update-channel
+title: "Get the update channel"
+description: "Which Termix releases this instance is told about. A beta build always reports beta; stored is the admin's choice for stable builds."
+sidebar_label: "Get the update channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVMFu20gM/RWCl15mlWwPPWhPKdAN0r0UqBfBIjCK8Yi1JpY46pCK4wr694Ij13ET9JDb+mKJ80i+R3HehA1JyHHQmBhrvG1jaGFFuY+PkKkjLySgbRSILOo5EEQBTV0DfpNGreAKNqQeNmO0WLf3B4FMQ8oq5eQvEE2ZmpLXEvimj/xGILQpBoKvKYOo33S0lJAKHarfCtZ3eE1M2Xe4dphJhsRCgvWEby8v7e9X7quWILSemTqrERIrsRrOD0MXgzfcxb0YeEIJLfXenvQwENaYNvcUFB0OOQ2UNS6tjhXPgKI58hYdEo+9sVzoo0OTi+vZ4aL4dTl5ZI68fW/vT4mblDryjPPyc9iTtqnBGrdUyHptscaLB8pi8n7SdSiULYj13YRj7gyE7tnI/ktj/vm1FzzOa0sNY456KLkb8pny1Wh97tazmzCktIt0HvFD/IcOp8hZic825mWS54VO+lrVwcgWmOktoDIXe/g75d4r1vjxdvWC/WcS0wyadsQgxAqRy45Zk5Tj9/LJoSXfUAYv8L4UBc9NgZXECmf3i6QTt0UVOozWbYGgQ/aF6f1ef8vo4+0KFjwIKXgFiVv+I3IFty0xDJmMroOooH5HYpFADdn9Sg+Uf6uisD0f96snefXpBnZ0sEuXNfIW9lFb0P7xyws5J+jrR7ujg4N9cZPSSJ7aVHCj4IOKpR2xkPZ8zA6eORWAnXs+JCagTqhC2//IX1NRHbUzmcftvfp0gw6PtwBrfPuu+vOyunwhqZhEygRPeRV88KGFoRu3kaFJYeyJVSCqGC3IaVSSMvghifa++MdxC65Ji4ZxaLye/Od52+nJjf43FrtsjdKjXgydj2z6ik9MR1O5O43TnVxw7bBNonY4TRsv9G/u5tnC30bKZhhrhw8+x+JuxR1w2ZHiJTs62FqFQINdngffjctFe+bP5iAno7v+sMJ5/gHMpE5C
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the update channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/version/channel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Which Termix releases this instance is told about. A beta build always reports beta; stored is the admin's choice for stable builds.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The channel.","content":{"application/json":{"schema":{"type":"object","properties":{"channel":{"type":"string","enum":["stable","beta"]},"stored":{"type":"string","enum":["stable","beta"]},"runningBeta":{"type":"boolean"}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

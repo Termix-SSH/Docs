@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Tailscale API",
+    "version": "1.0.0",
+    "description": "Add tailnet devices as hosts and connect with Tailscale SSH."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/tailscale/devices": {
+      "get": {
+        "summary": "List Tailscale devices",
+        "description": "Returns the devices in the configured tailnet using the stored admin API key. Requires the tailscale.devices.view permission, because the response is a full inventory of the tailnet.\n",
+        "tags": [
+          "Tailscale"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of tailnet devices."
+          },
+          "403": {
+            "description": "The caller lacks tailscale.devices.view.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "devices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to fetch Tailscale devices."
+          }
+        }
+      }
+    },
+    "/plugin-api/tailscale/host-metrics-manager/{id}": {
+      "get": {
+        "summary": "Get Tailscale status and IPs for a host",
+        "tags": [
+          "Tailscale"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tailscale installation status, running state, IPs, and peer count."
+          }
+        }
+      }
+    },
+    "/plugin-api/tailscale/host-metrics-manager/{id}/action": {
+      "post": {
+        "summary": "Connect or disconnect Tailscale on a host",
+        "tags": [
+          "Tailscale"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "up",
+                      "down"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Action result."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

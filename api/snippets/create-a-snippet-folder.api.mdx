@@ -1,0 +1,68 @@
+---
+id: create-a-snippet-folder
+title: "Create a snippet folder"
+description: "Create a snippet folder"
+sidebar_label: "Create a snippet folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zAM/SsEz2qSDbvMt27YgG6HFWuHYiiCgbHZWI0teRLdxAvy3wdKzkeb9TAfElt6JB8p8mmLQsuIxT3eONt1LBHnBgP/7jnKB18NWGzTpw1cYSGhZ4Old8JOdIu6rrElifVu+hi907VY1tySvsnQMRboF49cChrsgu84iOWou45aPkFFCdYtcaf+Gx/+uWPLHOLFRnqUduy8i9n729kb/as4lsF2ShCLfZLw4JuKA5SBSbiaqOt3s9k5/nPGKVOwEfaFGA3enxtc7l2vrdQgtY3ZmJrAVA3AGxslTlDpPrf8mLgAQXzGEQ22LLWvsMDOx1RFkhoLnHZNv7Tugjo7HW3iNBtFNBg5POlbcb/FPjRqgC9j/vR9gFsOrd1AxuNurqZlH6wMyXbBFDhc9hrzfr4zWyy9X1k+XaHOfuXhsHLi4kZ7IR/IqaPDCdYinZJNMCxGEJrx5bMPLQkW+OXu9oz9DcdovQPxK3YQ2QlYB1IzaBAf7J/Ul1Az6YlQhA/JKZCrEiwZTnLHHVM6cMtZoUGr0TIEzdi2+LiWVxl9ubuFjIfIAiQQ7dJdWDeBu5oddIGVrgErILTiqCslV+xKBv/E4dUsEtvTcv93JS+vr2DFA0ShINYtx05tN7/O0jlA/7+0Kx4MrGtb1jlQPIaZwJUAlRLVbMSCX7vRuiTnfALoPrnBOwZuIuehUZH5fpSnTxtqu4aPcrLXhIOKHBeyeJyqiXvwqYJW1MVBAuHy+goN6vjkQryZzCaz89OmJ04JlL5tyVURBt9D6B34B2GXstEvqbnV8hGIjpqjBnwA76AlN0Dto0Td1jzLxpardMY66y25k8ReF4hntA4NIbyRadeQdeovScB21I57PGqH9sxe+g3u9WNuUIkpdLtdUOQfodntdPl3z0GVYW7wiYKlhZZOZQBzMyTRWPGgjPM9cXGrhBTe9HmuXtwZKhgHkbv+dqOjvhjvntZXahNojSb9FogGfUo2yUpa22JDbtnTMk1m8qnPX3e1X6A=
+sidebar_class_name: "post api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a snippet folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/snippets/folders"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a snippet folder
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"color":{"type":"string"},"icon":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Snippet folder created."},"400":{"description":"Folder name is required."},"409":{"description":"A folder with this name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

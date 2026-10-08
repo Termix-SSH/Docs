@@ -1,0 +1,68 @@
+---
+id: user-login
+title: "User login"
+description: "Authenticates a user and returns a JWT."
+sidebar_label: "User login"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVd9v2zYQ/lcO98w6adYNmN7SogOSFViwuAgGwyho6WIxlkiVd4qjCf7fhyMV26mbh0wPtnT87vfdxxEr4jK6TlzwWOBlLzV5caUVYrDQM0WwvoJI0kevouu7+QwNil0zFgv8yhQZlwYjfe+J5WOoBizG9OkiVVhI7MlgGbyQFz2yXdeoBxf82QOr3xG5rKm1+iZDR1hgWD1QKWiwi6GjKI5YTzUgb1s6QrJE59e4M9hZ5m2I1U8O06NBchc8Z1sX5+f697ICX8LaeeC+LIn5vm9mavjDz5BX/tE2roLnkCBEeI5g0nr/v7R+OdW6mRBgDw1ywYNjKPsYyUszQOXYrhqazFz8fmpmHgK01g/QpCytCLWdcFL49fVq3FuXze4MtiR1qLDALnBqj5UaCzzTfPgs2UWDTPFR56JYjNjHRgFofrD9T+gjzCm27gkyHndLVS376GRIuiuykaJOJRaL5c6MWIawcXQssZ37k4a95MjErQ5V7vWxof1w1CKdBptgWEwgNNPLHyG2VrDA67v5SfS3xKwdkLAhD0xewHmQmkCdhOj+zR2qyVa6Qwwfk9G0TQpLiqnyxyntY8tZoUGn3jIEDebZx4etvBrR9d0cMh6YBKwAu7V/5/wM7mry0EXScA04AbEbYpWUVJEvCcIjxVezSNEel/vNlby8uYINDcBiozi/hq2TGqR9+naSzh769tJuaDCwrV1ZZ0d8cDODKwFbCqvahIWw9ZN2ab0PCaDn1g/BE1DDlIdf2ervA899frJt19BLXnqmnGM6OuIo5+9DKpwT1cRpAS5vrtCg7kzO/uK32fvz2flJVeY1QRkiwUFvBp9tWUPX9LqrVSj7lrwwOGHNDGLohfKO6862NhHuFKzSNzxv7QtX44Gy33It5HkQepKzrrHOq9vEAONEFYtUK0aD2e3SYK1UUixwHFeW6WtsdjsVf+8pKg0sDT7a6JTb8s5j7nxiiA0NWOCnHOq7ubpXeNPnJfrhplF22DPYzV+3uter6cZqQ6U60W7RpN8C0WBI5UgckmQjNtave7tOa5hs6vMf0j6EXg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"User login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Authenticates a user and returns a JWT.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful."},"400":{"description":"Invalid username or password."},"401":{"description":"Invalid username or password."},"403":{"description":"Password authentication is currently disabled."},"429":{"description":"Too many login attempts."},"500":{"description":"Login failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

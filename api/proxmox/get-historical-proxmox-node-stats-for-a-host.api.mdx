@@ -1,0 +1,69 @@
+---
+id: get-historical-proxmox-node-stats-for-a-host
+title: "Get historical Proxmox node stats for a host"
+description: "Get historical Proxmox node stats for a host"
+sidebar_label: "Get historical Proxmox node stats for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20gM/SsET1tgYrvdogvolgXSwu0l2KYNisAoJhItTS3NqBwqtmrovxeUZFubxIvNRdKMHsnH7z2KzSMmd3jNYVeFHa4M1pZtRUKsP/boPCZYWynQoLcVYYJFiLLM0CDTz8YxZZgIN2QwpgVVFpM9Slsr0nmhnBi7zoyafjbE7UkVW58TPiMZhZ3P0SD5plKGr5XAO328eavPv5TAn4sMV2eVrzlU/6l7HbiygglmVuhCXEXnmUp4uaqVhijWwUeKKvRmsdBXRjFlV4sLaueS2bYQ1uBDRlC4KIFb4LCNM+wMvn1OZukfbOky6MMHgUGtzpT8I+AHklGlS20JY5oHU1GsRFgHBguaUjRYkRQhwwRz0mOf9gTnddnkzl/Y2s3rQcO8F56PbOf7oSQ6DRHxw6F2Gi5VHB+z+hYahhviyu1gwKPGKlLasJO2l70ny8SXjTK4W2lW0hA2jqY3tnafqD3eTFR81kQNQZ8qOuatEKkP+dTzAEIzfrw/ZPPj7c0T9p8pRhc8SNiQh0hewHmQgkCNBHa/rCKhIJsRg43wd68UrM96WC/YJ3fq0pHb4BWaoQwHyKkOf2zlLKOPtzcw4CGSgBWILvcXzs/gtiAPNZPSNeAExG4o6k1KGfmUIDwQn/WiZzsN94sjeXm9hA21WnUszuewdVKAVLvvT9w5Ql8e2g21BraFS4vBUDyZmcFSwKYSVWzEQtj6UTq13oceoP+tb4MnoDKObeX8OvReOynVzUMnXV4v0aBW/MD99WwxWzzxaFnVgeXYfl+vIG8oDlS0daKBDVGttCr1OLY+7VltraTFpF37PNQhSmW90hmL4oVt/i9yx0wK7WRel9Z5NdL37n4cAXd4GgE6F8ZtYbBXjgbHQYAGk3E7rEy/J1R2v7+3kb5w2XV6PQxW7fHMRXtf6v5Y2zKSwQ21k6XwYMtGiaH2+hnsOOP/D7Sf4CfgSg/sFPk8mUdRSoMX8lrKf/wz7r1XgOb56B1a2bdTmwcmY4i6VTcZuR+ubrDrfgPtbZKu
+sidebar_class_name: "get api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get historical Proxmox node stats for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/proxmox/stats/history/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get historical Proxmox node stats for a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"range","schema":{"type":"string","enum":["1h","6h","24h","7d","30d"]}},{"in":"query","name":"from","schema":{"type":"string","format":"date-time"}},{"in":"query","name":"to","schema":{"type":"string","format":"date-time"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Array of node history rows."},"400":{"description":"Invalid range or date."}}}
+>
+  
+</StatusCodes>
+
+
+      

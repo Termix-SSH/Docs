@@ -1,0 +1,457 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Automations API",
+    "version": "1.0.0",
+    "description": "Run steps on your hosts on a schedule or when something happens."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/automations/webhook/{token}": {
+      "post": {
+        "summary": "Trigger an automation from an external system",
+        "description": "Unauthenticated by design; the 32-byte token in the path is the credential and is compared against a stored hash in constant time.",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The run was accepted."
+          },
+          "404": {
+            "description": "No automation matches that token."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations": {
+      "get": {
+        "summary": "List the current user's automations",
+        "description": "Returns every automation the caller owns, with its parsed definition, linked notification channels and the plugins it needs that are not running.",
+        "tags": [
+          "Automations"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of automations."
+          },
+          "403": {
+            "description": "Missing the automations.view permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an automation",
+        "description": "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time, and a webhook trigger returns its token once.",
+        "tags": [
+          "Automations"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "definition": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/editor-options": {
+      "get": {
+        "summary": "What the automation editor can offer",
+        "description": "The caller's hosts, snippets, fleets and notification channels, and which optional plugins are running, so the editor only offers triggers and steps it can run.",
+        "tags": [
+          "Automations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lookup lists and the running providers."
+          },
+          "403": {
+            "description": "Missing the automations.view permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/runs/history": {
+      "get": {
+        "summary": "List automation runs",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "automationId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recent runs, newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/runs/{runId}/steps": {
+      "get": {
+        "summary": "Step-by-step results for a run",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run's steps in order."
+          },
+          "404": {
+            "description": "Run not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/{id}": {
+      "get": {
+        "summary": "Fetch a single automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The automation."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated automation."
+          },
+          "400": {
+            "description": "Validation failed."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an automation",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/{id}/run": {
+      "post": {
+        "summary": "Run an automation now",
+        "description": "Runs immediately, as the automation's owner. Pass dryRun to record what each step would do without touching anything outside Termix. An automation that needs a plugin that is off is recorded as skipped.",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dryRun": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run outcome."
+          },
+          "404": {
+            "description": "Automation not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/maintenance": {
+      "get": {
+        "summary": "List maintenance windows on the caller's hosts",
+        "description": "Covers hosts the caller owns and hosts shared with them. A shared host carries its owner's maintenance with owned set to false.",
+        "tags": [
+          "Automations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Maintenance state per host."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      }
+    },
+    "/plugin-api/automations/maintenance/{hostId}": {
+      "get": {
+        "summary": "Get a host's maintenance state and schedule",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The active window",
+            "if any": null,
+            "and the planned ones. owned is false on a host shared with the caller.": null
+          },
+          "404": {
+            "description": "A host the caller cannot see."
+          }
+        }
+      },
+      "post": {
+        "summary": "Start, schedule, end or remove maintenance on a host",
+        "description": "While a host is in maintenance, automations with host status, health check, metric, Docker or tunnel triggers do not fire for it. Manual, scheduled, webhook and login triggers still run. Past the estimated end plus the grace period, an optional overdue alert is sent.",
+        "tags": [
+          "Automations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "start",
+                      "schedule",
+                      "end",
+                      "remove"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When a scheduled window begins."
+                  },
+                  "durationMinutes": {
+                    "type": "integer",
+                    "description": "Estimated length."
+                  },
+                  "graceMinutes": {
+                    "type": "integer"
+                  },
+                  "recurrence": {
+                    "type": "string",
+                    "description": "Repeat a scheduled window",
+                    "e.g. weekly or monthly.": null
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new maintenance state."
+          },
+          "400": {
+            "description": "Invalid action or plan."
+          },
+          "403": {
+            "description": "The host was shared with the caller; only its owner can change maintenance."
+          },
+          "404": {
+            "description": "A host the caller cannot see."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

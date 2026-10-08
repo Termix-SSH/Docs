@@ -1,0 +1,70 @@
+---
+id: update-homepage-item
+title: "Update homepage item"
+description: "Updates a homepage widget item's title or config."
+sidebar_label: "Update homepage item"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtu4zYQ/ZXBvLQFGDstti96yy66aLZAEewmCIrAKGhxLDGWSC45iuMK/vdiSPnSOFlgqxdJ5Dlz5RyOaCjV0Qa23mGFd8FopgQaWt9T0A3BxpqGGCxT/0MCttwR+Ai1dyvbzFAh6yZh9YC/TwxcKAw66p6YouyMaMV20NyiQqd7wgqtQYWRvg42ksGK40AKU91Sr7EakbchoxxTQxF3u0VBU+L33mwF8pJce8fkWLZ0CJ2ttSQ1f0yS2Xhu2y8fqWZUGKIPFNlSyruS4QkscbSuwV12sLLNuYVdfiS+FLxLxcwvl5fy+m959yXK1YQhF9vMxPa71+DX7kl31oDdY96dY/70DCs/uAL59TUzH7XtyAD7yeOxtxLGDCX2nrj1Rro05JJIryqch25orLvQwc73pLmQ0ny0ZocKE8WnfZeH2AkH1Qv/f/khwi3F3j5DwaO0M1E9RMvbzF2SjhSvBnH7sNipEWvv15ZOV3Swf9D2sHJi4ov0ttT91NChUS1zwOl4yX8BoZo+PvrYa8YKP93fnkX/hVKy3gH7NTlI5BisA24JxImP9p98zqAlbSiCTvA+GwXtTIZl4qwcoGNKh9hKVqjKkBTIcUweN/xmRJ/ub6HgIRGDZki2cRfWzeC+JQchkoSrwDKwXlOSlZoMuZrAP1F8M4sc7Wm5v7uSVzfXsKYtJNaRrWtgY7kF7p//PkvnAP3+0q5pq2DT2rotjtLRzQyuGXTNSWgTFvzGTexaO+czQPa123pHQF2iMg4iGp+PcvPbs+7DpApFHvaycKIKwrNu5U9Rh4G/urlGhTIqJemfZ5ezy/NSgIm6yQGa6MNee7OFlY+wlUmaRi6j5NvWlBSEbkj7X+isW6fMkMyNTu3S61gkIvjEvc6SOJ2xu1dU4WVo41Fe/98lUY4P0zPPQ6etk1CyYIyT2DzgUWxQ4d60DIYIDiqsrJG7pfWJBT6OS53oLna7nSx/HSiKliwUPulo9VIa8DCisUm+DVYr3SX6Rl4/fp5ulJ/grYj3M+tkYJ90N8gfKlzTttxpu8VOYTmv2XvZ+FB8XNwK/Ug8u6ZE0w5KfHMnYrScbrveG6FEvZF7U2+KX5/TyMKX10bstGsGqVuFxaQ8/wK1J7ep
+sidebar_class_name: "put api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update homepage item"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/homepage/items/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates a homepage widget item's title or config.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"title":{"type":"string"},"config":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Homepage item updated."},"400":{"description":"Invalid id."},"404":{"description":"Not found."},"500":{"description":"Failed to update homepage item."}}}
+>
+  
+</StatusCodes>
+
+
+      

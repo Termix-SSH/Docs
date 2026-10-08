@@ -1,0 +1,68 @@
+---
+id: create-service-link
+title: "Create service link"
+description: "Creates a new dashboard service link for the authenticated user."
+sidebar_label: "Create service link"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVcFu4zYQ/ZXBnBnbW7QX3bKLLprtoUGTIigCYzGWZiXGEsklR3Fcw/9eDKm1lbh7WKC6SCLfDN88ch4P2HCqow1ivcMKP0Qm4QQEjnfQUOo2nmIDieOzrRl667bwxUeQjoFG6diJrUm4gTFxXKBBoTZh9Yi/+YEDtYxrg5G/jpzkvW/2WB3yr43cYCVxZIO1d8JOdIpC6DWh9W75lJTTAVPd8UD6JfvAWKHfPHEtaGaJHrGnDfdocIy9LhmiDxzFctLAMnnOkCRa1+KxwC/H86P5U/AulRw/rd7p67Vgd3Nh6qxes9C8P69Wl+gb90y9baAhoYz65b9QH8n23ID4KeEr9ReoxAaWzjdYYfBJhQgkHVa4DP3YWndFwS67Sf/lFH2l0QkN6j9H3aNDqR6XaN5Q+NuPEe45DvYFCh6Paw2tx2hln2M3TJHj9agrP66P5oC191vL8xEK9nfen0ZmKe50U4uw80SnnehEgpLNMKwmEJrp46OPAwlW+Onh/oL9HadkvQPxW3aQ2AlYl4+sLuKj/ScfMOiYGo5ACd7npECuybAcmDdoXtKJW6kKDVpdrUDQoKPM9Gkn32X06eEeCh4SC5BAsq27sm4BDx07CJGVrgErILTlpCM1N+xqBv/M8btVZLZzuX9YyevbG9jyHpJQFOta2FnpQIaXzxflnKA/Lu2W9wZ2na27slA6L7OAGwGqJWnYhAW/c1N0Tc75DNB5cnvvGLhPXFpC3eLPs8/8+kJD6HnW/N+ae+r5mQdY98VnwaxoxMm64Pr2Bg1qt5S63y1Wi9WlGtBEajPHJvoAO9u0LJAzqFfutZmmrsuoqSOTgdCP6VV7p5O7nsw376z2+UDZDqdj9uHSG94yO5yd9X9x9nKehF9kGXqybuafxYAe8WxAaPCbBU2mczahtc4l0YDDYUOJ/4r98ajDX0eOai9rg88ULW10Q9RLsJyo7Dxb3mtFpbare6Wl8H4szfnmBlHXOfnl7R936heb6SYafKMxkXZ6m9AOK0SDPuuXvSmP6RFy7aiVVFhy6vMve9eB7A==
+sidebar_class_name: "post api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create service link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/homepage/service-links"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new dashboard service link for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["label","url"],"properties":{"label":{"type":"string"},"url":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Service link created."},"400":{"description":"Invalid data."},"500":{"description":"Failed to create service link."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: delete-service-link
+title: "Delete service link"
+description: "Deletes a dashboard service link by id."
+sidebar_label: "Delete service link"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv20YM/isEnzbgYmdD+6K3DEmxtMNQLBmCITAGWsdYV0t36h1lRxX03weeFMepmwF5snT6SH4fefw8oOVURteKCx4LvOSahRMQWErVOlC0kDjuXMlQO7+FdQ/OLtCg0CZhcY+/h4Zb2jCuDLYUqWHhqF8GdJqxJanQoKeGsUBn0WDkr52LbLGQ2LHBVFbcEBYDSt9mlBfecMRxXCk6tcEnTgr49fxcf16SvjkmaLMCu8DR4Lsfoa/9jmpns4yMeXeK+TMIPITOT5D3P0rzgVzNFiTMFV+0aYHjaLBhqYLFAicEmqkZBS7buts4f0atW1Zz/5Zz/JnGp+Xg7IgG9fCpnV2sNRbNd0z+CV2EW46Ne4QJj9q3xGUXnfQ5ds0UOV50Wv5+NZoByxC2jo9PqHWfuD+cHKW40QFNAzhOdJhXJdLiPEd9n0Bo5ocPITYkWODHu9sT9jeckgseJGzZQ2Iv4DxIxaBFQnTfSJFQMVmOQAl+y0mBvM2wHJjndCzpwG1ShWa6jRPk+T5+2curjD7e3cKEh8QCJJDcxp85v4C7ij20kZWuAScgtOWkJyVb9iVD2HF8VUVme9zuN3fy4vM1bLmHJBTF+Q3snVQgzeO/J3IO0Le3dsu9gX3lymoqlJ7LLOBagEpJGjZjIez9HF2S9yED9Dv5PngGrhNPm+H8Q8iqndQq88lE4OLzNRrUKz+R/2Vxvjg/lQQ20iYXsjG0sHd2wwI5w0OI0OtGzKuTUfNuJQNt3aUXq5pyhCo4OF4eTxuSNOSV5XxXLk/3/HtmulZe2MvbrHSavfCjLNuanNf6eduH2THu8dkx0OCTZ8wGcXANNFg4q05chSQaNgxrSvx3rMdRj792HNUQVgZ3FB2ttfv3A1qX9Nli8UB14v9R9dNfs3n/DK8xf1o8r1u3o7rTNzS45X76BxhXx+Z4efXH1e0VjuN/9JU+Uw==
+sidebar_class_name: "delete api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete service link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/homepage/service-links/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a dashboard service link by id.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Service link deleted."},"400":{"description":"Invalid id."},"404":{"description":"Not found."},"500":{"description":"Failed to delete service link."}}}
+>
+  
+</StatusCodes>
+
+
+      

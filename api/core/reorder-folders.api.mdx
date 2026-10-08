@@ -1,0 +1,68 @@
+---
+id: reorder-folders
+title: "Reorder folders"
+description: "Sets a manual sortOrder for multiple sibling folders, used by drag-to-reorder in the sidebar's manual sort mode. Folders with no existing metadata row are created."
+sidebar_label: "Reorder folders"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v20YQ/SuDufRCy0rQ9sCbUySo00ONSIFRCEIwIsfiWuQuMzu0xBL678Us9WU7QZFjeCG5++bjzcy+HbDkWIhr1QWPOc5YIxA05DuqIQbRv6VkgYcg0HS1urZmiG5VO7+Gh1CXLDGDLnIJqx5KofWVhivhkKycB60MX/KK5Jd46ReaUPIEPow+YOu0Ah+Ady6qOW9YqSQlkLAFEoZCmJTLCWaotI6YL3A2+xOXGQp/7Tjqu1D2mA/p1wmXmKt0nGERvLJX26K2rV1BRvb6MRrjAWNRcUP2pX3LmGNYPXKhmGEroWVRx9F22xCdGcYLKIlQjxk65Sb+vwtPDV+goorza9xneCr0xa7zymsW3B8fIxrb4OPo7O10aq/n/TuW89ABLiF2RcExPnR13U8s1q/fsrv1T1S7Ek4kIVFLBr99MxC5mkvQcAx1nIYJWqYNaxVKzLHtUhlIK8zxugpRrw/A64MhZhhZnlispQN2UhsSsxcB/wmdwJylcTsY8bhfmmnRidM+2a6YhOWms2CL5T4bsAhh4/hyhVr3F/enlQsXMxuEsbaXjk4NqVRbSzbBMD+AMDt8fAjSkGKOH+/nr7KfcYwueNCwYQ+RvR4PhwUJ4v5NQwkVk9WSIrxLToF8mWDJMLXjktJ5EBMrm0SLNkIwOwwcPm71uxl9vJ/DiIfICqQQ3dpfOT+B+4o9tMKWbgZOQWnD0VYKLtkXDOGJ5bssUraX5f7hSt7c3cKGe4hKkkQhqYQ2uy+v6JygP17aDfcZbCtXVGOgeA4zgVsFKkwT4xELYesP1gV5HxLA9sn3wTNwHXk8BKYwn87a9H5HTVvzCy1ZHGXhKAfP1GC6X+6tqQ8hlc+p2ePhGNzc3WKGdnLGGrz9ffJmOpm+qs28YiiCMJztJvCeigrauls7D2Uouoa9RnAajR9I6JRj6mAbojbkz/qFn56f+JfxhrPi/iz3yTiWyju9bmty3ngnIRoO0rVAky7M8Mz5KF/LbNzLFzgMK4r8Wer93pa/diwmTMsMn0gcrax5pkI4zmJq/oZ7zPGPsWJXc8vE4HU3HusX95Xp1Ulb7z6b0KwO157xxxyFtpYcbTFHzDC0pzsrrQ1Yk193tE66kFza8x+uLMyf
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reorder folders"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/folders/reorder"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets a manual sortOrder for multiple sibling folders, used by drag-to-reorder in the sidebar's manual sort mode. Folders with no existing metadata row are created.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"positions":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"sortOrder":{"type":"integer"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folders reordered successfully."},"400":{"description":"Invalid positions array."},"500":{"description":"Failed to reorder folders."}}}
+>
+  
+</StatusCodes>
+
+
+      

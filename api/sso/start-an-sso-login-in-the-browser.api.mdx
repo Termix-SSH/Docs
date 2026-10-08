@@ -1,0 +1,69 @@
+---
+id: start-an-sso-login-in-the-browser
+title: "Start an SSO login in the browser"
+description: "Public. Sends the browser straight to the provider, so a link can start a login. The provider is picked by the provider query parameter, or the default one."
+sidebar_label: "Start an SSO login in the browser"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVE1v20gM/SsEz1Mn7fbkW3bbZtMeEqy8CBZBUIwlRmItc7QzlB3V0H8vOHJsJ0EPPfYiy5zHj/fEeTusKJWRO+UgOMebftlyOYOCpEqgDcEyhm2iCEmj57pR0JDjXQwbrig6SAE8tCwrKL1AUh/VAqFmmcHiBAqcoONyRRUsh2dF4P+e4gCdj35NakVDzICKHnzfKgShGTpUXyec32FRXOO9wwPegjtkY5AroUPxa8I5PnVAh6lsaO1xvkMdOjtLGllqHMd7h5FSFyRRsvM/zt/Zz3Np/qGKI5UHAbgiUdbhQGKGo8P35+9fpxbFtXGXoFAGeeC6j1TNcBwdrkmbUOEca1I0RtrgHM+6tq9Z3viOz1IKZ1lUo0Bx88S2j60h0b1o9l/oIyworvkRJjwawURlH1mHnLskHyle9Nbs7n50OyxDWDGdRnzHX2g4RE5KFCbkpNRpoYOujWr3pLf9n0Do9i+fQlx7xTl+vl28mr6glDgIaFiRQCJRYMl6W5MQ+bs3JDTkbW98gj9zUfBSZVhOzJ/ilNJhtokVumlZJshxW75t9acTfb5dwISHRApeIXEtb2zJbxsS6CLZuA5YQf2KkkVKqkhKgrCh+FMWedpTuX9ZyYubK1jRMF0+lhq2rA3o+vHrKzoH6K9Lu6LBwbbhspkapWObGVwp+FKTpe2xELayzy692PL7Uu3cyxCEgNpE0yVgeQiZNWtrNAuWuqVJ3yBwcXOFDm3xJwpvZ+ez89ffiWsxQnkmLwNcdyRXH+CvIGLX9mhYl6x/90uzmMsQ6pay/l1IuvZiY+yXoZicTMCub7azJ732nvhyBLtFoiT6GxjptF9Kj3rWtZ7FJMiOstt70B0ePchWMAV7Zh+6d9iEpIbZ7ZY+0b+xHUcLT+ZrDlNx8suWKpw/+DaRwxUNz+1449veZsjutPGRDT+Zz9EVLz8ucBx/AD/PTB8=
+sidebar_class_name: "get api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start an SSO login in the browser"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/sso/start"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Sends the browser straight to the provider, so a link can start a login. The provider is picked by the provider query parameter, or the default one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"provider","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"302":{"description":"Redirect to the identity provider."},"404":{"description":"SSO is not configured."}}}
+>
+  
+</StatusCodes>
+
+
+      

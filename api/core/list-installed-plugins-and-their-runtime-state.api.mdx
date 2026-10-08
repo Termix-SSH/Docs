@@ -1,0 +1,62 @@
+---
+id: list-installed-plugins-and-their-runtime-state
+title: "List installed plugins and their runtime state"
+description: "Returns every plugin known to the database, merged with the loader's live state so the UI can tell 'enabled but failed' from 'disabled'. Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users."
+sidebar_label: "List installed plugins and their runtime state"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SsDXtoCm7WbQw9CUSBF3dZp0RqJ0iCIjGiWHGsZccktZ1ayKui/F8Nd2XKcHnLozSetyPl6M2+GszeO2Gbfi0/RzMwrkiFHBtpQ3kEfhpWPsI5pG0ESSEvgULBBpgo6yitysPXSlpuQ0FH+iiH4DQELCgGPSm8uwWIEoRBgYShiE8hBMwjcoA/kFgZucupgYZzncrkwNfzZU3GLcQc4SEtRvEUhBwNTriAmgY8DC6DrfORZcYV9D9yqI4shMEjrGVKcEDEx+1SsOrLeEWxbb9sJ6TObomTfDOpDsGHA6CCjD+CFOla1TCvPou45wQrFxxV4gYZaH90YST1a47rDiCuCbRqCgyYTrkuIY3g3KUNM8VlRKYi4XsQ/jicMKxJIMexg26KcKEYixzW81VM81sgzYAhpq4EncKkatVpkaIgirDJGGS+9FFjbdqefYwEAM0HqKaMSAQM4EvSBC0qLPTY+ePHE1WiJKwjIcpFzysVaPzTB21dpEOJizEcbBkduhKBg2xQcZYZ089k01Q9tBM/CBfWv8/kV9CjtWA5Odk1yPIA8xKg1mPLAlDfEhZRpELApkzIy6Z1tya7rRZy3pHSLQtHBjafgGFxW0qq7JqctFx5PJkdez2B51FkC467Epjg1iGaILhCgwPJsohIyk/DZ9979cHZUrD9ytYRlufqLsjJxqQa8MFi0LcGadhUsLfPkA4FlF4hbIgFWuYZYaeulKtlYhmQxEC9PEhYwrgZckRoGbn3P8LV23cIUldvbD+/efVPD0lFP0VG0XvWLtdSP9f/pwVUgOelwQCt+o919xMXg40hQ7AhSVqHyV4uRwSVSapvKCK7YzN6bq7Hy5roymbhPkYnNbG+en5/rz8OZ9LtnUdIc6WIOh8p0JG1yZmZWJKYyygYzM1Py2VRm9K3e9mbIQS9N9Ynld2nIMKfc+dspVnO4VlU7ZC+7otsQZsovBrX//vpQ7Y1Nae3p9AR7/xvt7k5OTLy2LXUjtlNDeyO7nszMtCK9BlvEzGwSMtX08XPKHYqZmZdv54+if303y9akxI9yLIM6Sdn/U5oZWhqrxvBjMVoqrWJFsTaH6gGku9hGVKYyXr2NIqYyEUukH7fynxG9fDuHUR6YRNuC/So+81GnFkXoM2m4lfJTcE2sJ5aUbwRpM7HncyhKtKfp/uJMvri61C7T9ymX4T2+X93th0dw7kS/PLWlj8enpTjiezc1XIq2EKvaJAtpGydti1HfNbSi9xh3KRJQYBp57+NNKqi9BIU5sffF1aWpzGacKWZmnn9Xf3tenz+CpKNPZyLc69VwgXcvILhkh46ijENJ3/1c5nFJfJ9YOozqf2JB6U0fWTDoKzK13zENPut4Ft9N68Cn4Wgv6QCRp83jafN42jyeNo//cfMYXwmhWznrA/qo86zsBftpeXhv+vutpE0serTf68R5k8PhoMd/D5R1LbiuzAaz13kx7gD3+8gvF3NzOPwLDbnCbw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List installed plugins and their runtime state"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every plugin known to the database, merged with the loader's live state so the UI can tell "enabled but failed" from "disabled". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.
+Non-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.
+The frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships ("en" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.
+
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"List of plugins."}}}
+>
+  
+</StatusCodes>
+
+
+      

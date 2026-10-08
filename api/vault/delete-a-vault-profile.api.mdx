@@ -1,0 +1,69 @@
+---
+id: delete-a-vault-profile
+title: "Delete a Vault profile"
+description: "Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use."
+sidebar_label: "Delete a Vault profile"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCpy4wsdN2T7qluyk222IbNGmDIjAWEw1tsZZmtDOUE1XQvxccyY4RbwrspSdL1Bvy8ZHzPKCjVEZuhYPHAt9TTUIJLLQxrLkmsN4B7Sj2UFIUXnNphaC0ZUUO1iECywJ+83UPUhGER08RGtuDy5ny109ELsHOdrUsukQLNCh2k7C4xz81iCuDrY22IaGo4QFZybRWKjTobUNYIDs0GOlLx5EcFhI7MpjKihqLxYDStxnlhTYUcRxXik5t8ImSAn44P9efr/XrFjgafPs1wJXf2ZrdQQ7eY388xX4K8izCDHt7CrueU/kgsA6d14yjwYakCg4LnJRDM/Vf4LKtuw37M9vyMou4nMmk5cBuRIOJ4m6vXBdrPYPmRdW/QhfhlmLDTzDhUSVKVHaRpc9nH8hGihedlr1fjWbAMoQt03HEtvwL9YfIUYobncWk9XGiw2gqkRbnken7BEIzP/wcYmMFC/x4d3vC/oZS4uBBwpY8JPIC7LPYWiRE/scqEiqyjiLYBD/lpHl9FZYP5pkct3TgNnWFZlq8CfK8en8/yquMPt7dwoSHRAJWIPHGn7FfwF1FHtpIStcAC4jdUtJISY58SRB2FF/tIrM9lvublby4voIt9ZDERmG/gUeWCqR5+nzSzgH67dJuqTfwWHFZTYXSc5kFXAnYUpIem7GzR+jp0nq9BLYU/W59HzwB1WoReiPYr0PumqXWNj/YVPG7EFvItgEX11doUDd/6uH7xfni/KSzd8F7KgUkQBXSnl2qQpSzmnfk4Obmw7G5pTxBcvDQw4uSeSRtSNJYr8zm/ZhcBOzMa76eL5nobfJCXv5Pn50WRuhJlm1t2WsD2SKG2V7u8dleVM1syAb3FoMGC3bq0CqewofhwSb6I9bjqOEvHUV1j5WejWwfdFT3AzpO+uywWNs60X9o8d3vs6m/gdcY72+p7zPFutM3NLilfvpnGFfHDvr+8tfL20scx38BfAxbyQ==
+sidebar_class_name: "delete api-method"
+info_path: api/vault/hashicorp-vault-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a Vault profile"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/vault/profiles/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."},"400":{"description":"Invalid profile id."},"403":{"description":"Not the owner."},"404":{"description":"Profile not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

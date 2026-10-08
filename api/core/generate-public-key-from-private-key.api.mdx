@@ -1,0 +1,68 @@
+---
+id: generate-public-key-from-private-key
+title: "Generate public key from private key"
+description: "Generates a public key from a given private key."
+sidebar_label: "Generate public key from private key"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu2zgQ/ZXBnBknLbZ70C0t2iLtocbGRbAIjGIsTSXGEqmSIzuq4H9fDKXYqpMeuj7YMjmP8+YN52nAgmMebCvWO8zwIzsOJByBoO02tc1hyz18D74BgtLu2EEb7I6EdWOBBoXKiNk9vgtcsBNLdcS1wcA/Oo7y1hc9ZkP6awMXmEno2GDunbAT3aK2rW1OyuDyISqNAWNecUP6JH3LmKHfPHAuaLANvuUglqPuTlw+cz+LjRKsK/FgcMv9kmLc+1C8sJ8+yjS23sXxwNdXV/rzqyqriqGclClmuiw0x18vIZYnjcBGeKo+Ad68BPhAtuYCxB8T/ZrnYLBhqXyBGbY+JiVIKszwMj8Jf/kEvhjBF1vu0WDksOOgXRqwC7WC0JwR+Nd3AVYcGvsIYzwe1grNu2ClT9gNU+Bw3Wne+/XBDJh7v7U8X6HWfub+uDI74lZ7Oqo8P+jYlkqkVbIpDLMpCM308MGHhgQz/HS3esb+lmO03oH4LTuI7ASsA6kYNIkP9me6X1AxFRyAIrxNhwK5IoUlYGrPvKQjt7EqNGg12xiCBh0lpg97+S2jT3crGOMhsgAJRFu6C+sWcFelaWKla8AKCG056kquHc0Z/I7Db6tIbOdy/7GS18ubdEOjUBDrSthbqUCax2/PyjmG/rm0W+4N7CubV2OieEqzgBsByiUqbIoFv3cTOifnfArQfXK9dwxcRx4HQs3in5PNvH+kpq353Baexv3MDWYuYd13n9SzonCcpuB6eYMGdXBGCV7/vXh1tbh6Jo26Q+4Dwwm3gPeUV9DWXWkdFD7vGnYSwUrU8iD4TjimBuowN5RMb7pNH58bwGjAM+M9JzGcDPV/efh4b4Qf5bKtyTpllpximGzmHmc2gwZfMpq1wUqtKbvHYdhQ5K+hPhx0+UfHQS1kbXBHwdJGdVa/wPHWJHfZpm69G+u4WCklDa+7cQDPXhLqLEdHXH65VU/YTC+bxheKCbRHk74zRIM+aZX8J60NWJMrOyrTCKcz9fMfQ8B0dg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate public key from private key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/generate-public-key"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a public key from a given private key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The generated public key."},"400":{"description":"Private key is required."},"500":{"description":"Failed to generate public key."}}}
+>
+  
+</StatusCodes>
+
+
+      

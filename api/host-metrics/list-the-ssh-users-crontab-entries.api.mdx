@@ -1,0 +1,69 @@
+---
+id: list-the-ssh-users-crontab-entries
+title: "List the SSH user's crontab entries"
+description: "List the SSH user's crontab entries"
+sidebar_label: "List the SSH user's crontab entries"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu40YM/RWCL22BiZ3eXvSWFu1uttsiaBwEhWEUE4mxWEsz2iFlRyvo3wtKWseNN0D3SaPRIXl4O+pR/VYwW+PbKAq/kybOBTcOG598TUrJvvbIATNsvJboMPiaMEMu0GGiDy0nKjDT1JJDyUuqPWY9ateMqKC0pYTDsDG0NDEIiQG+u7y0R0GSJ26Uo4VYlQSNT0IF5CkG9Q9AQROTLHBw+MPnbK7D3ldcAIem1Rn2/Tnsjwg+z0kENIKWBGUURYcxAVW09waDggJTscAstFU1OPzxNZJ5rGsfCnj0XFEBMRxdLnAY3AuL9yw6Am5v30IrlL6Sl/mhw5q0jAVmuCUjNpY7w2VTtVsOF77hpfm/qKcuLWsf/JaSLM3TsudiQIdCaf+paW2qzB5fsvkrtglWlGp+ggmP1h2hvE2s3Wj7QD5RumqNwnozuB7zGHdMpze+4d+oO96cuLi1MZjafOroOBWlaoPztNj7BEI3H36NqfaKGb67X52xvyURa5XGHQUQCgo8Vd+CxMQfp1aW5AtK4AV+Gp2Ctctgo+E4J6cpHblNWaGbZn6CPE/9Pwd9ldG7+xVMeBBS8ArC23DBYQH3JQVoEhldB6ygfkdiNzkVFHKCuKf0ahYj29Nyf3Elr26uYUcdiPqkHLZwYC1B66e/z9I5Qr+8tDvqHBxKzsspkDyHWcC1gs9VzGzGQjyE2Tr3IcQRYN996GIgoEpoWicOj3HMmrWyNE/lCq5urtGhjf2UwLeLy8XlWVrveU/w882dg5rqmDoHBcvOQSA9xLQbWby5uTPiKg6aqjWliNWoF9OuQWebY0s4yVETRWsfjNg8Hv9v0f9D7NhKpSddNpXnYL7H5e1nEVjjswigw1MZMN2YhQAdWix0mHFhIj4qXLbGvn/wQnepGga7/tBSsi3fONz7xP7BSrrusWCxc4HZo6+EznjmMSgFm6av/5x1/xtA93n+n7Yp2CrtfdXaGzrcUTf9PIbNcCJ5b35Z4TD8C1YSPzM=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the SSH user's crontab entries"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/cron/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List the SSH user's crontab entries
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The parsed crontab entries."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: revoke-and-remove-an-issued-certificate-certbot-or-acme-sh
+title: "Revoke and remove an issued certificate (certbot or acme.sh)"
+description: "Revoke and remove an issued certificate (certbot or acme.sh)"
+sidebar_label: "Revoke and remove an issued certificate (certbot or acme.sh)"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVUtv4zYQ/iuDOe0CjJ0+Tr5lF9s22xY18kBQBEZBSxOLsURqOSM7rqD/vhhSfqTOHhbVQaLI+eY9H3sUu2KcPeJvgQX+JImuYFwYbG20DQlFPe3ReZxha6VCg942hDN0JRqM9KVzkUqcSezIIBcVNRZnPcquTVJeaEURh2GRpYnlQyh3KvJfcBG8kBc9sm1bu8KKC376zMHr3pnusHymQtBgG0NLURyxnha1G7WMcizR+RUaJN81GmxBUZZBkbZoaMIVLoZ9XOeokriIrlVfcLbHgn5BIRAijGqgDI11Hof0aLzcBs/ZrR8vL/XzWtsNbcKaIBJ3tUxwMPjzW2LXfmNrV0IOTS2qefekKaLkxYj96Rz7qaZNSiTs8634kryjcoLq5psuWV9CpCZsdAmOuaPyldV3+0wc43+PBhuSKpTaLYFTbbRpZjitAstFkxts2lhvVxR5ylxPe1cO05isokGmuNl3XRdrhZ7V4O/QRbij2LgXyPKo7cVUdNHJLmGXZCPFq06tPy4G02MRwtrR6Y5t3e+0O+ycqLjVXst1O1V0aI5KpMWx3fU/C6EZF7+E2FjBGX5+uDvz/paYtRwS1uSBtaDOg1QEaiRE928uV0W2pAiW4UNSmkqiYgmYCn4a0sG3HBWaPLRZ5Di2z1v5pkefH+4gywOTgBVgt/IXzk/goSIPbSR114ATELsm1p2CSvIFQdhQ/GYUydvTdH93Jq/m17CmHbDYKM6vYOukAmle/jkL5yD6/ald087AtnJFlQ3x0cwErgVsIaywURbC1o/ownofkoCeW78LnoBqpjxjSmI3R/r79GKbtqZTujphpbFUIwMNWsmnkHLmREGv2Bqu5tdoUIcmh//D5HJyeZaUP9yG4OP83kBDTYg7A6XjtQFPsg1xnWL4dX6vYQsbaOuOQUKo9Q15XmGnc6eDzKmeOuGNTdw8evw/ueOVx4cOEXqRaVsnYjWZE/qRVh7xlFaUfUZi0Y7iGg3OxmsqscvCJHnF9f3SMt3Hehh0+0tHUXljYXBjo7NLTfNjj6VjXZc4e7I105mLhysL392M7Poe0Lzt+n4+vQ7nxtad/qHBNe3yfTroNZR7M1nPBx+zjYs7hR+BZ1ek8teBfed/3SrzLMertgmlYqLdajbsNhsOKY7Ecmmvx9r6VWdXiSiSTn2+Arzezmg=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke and remove an issued certificate (certbot or acme.sh)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host-metrics/managers/ssl/{id}/revoke"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke and remove an issued certificate (certbot or acme.sh)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"client":{"type":"string","enum":["certbot","acme.sh"]},"name":{"type":"string","description":"certbot cert name or acme.sh domain"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Revoke result."},"400":{"description":"Invalid client or certificate name."},"403":{"description":"Elevation required or denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

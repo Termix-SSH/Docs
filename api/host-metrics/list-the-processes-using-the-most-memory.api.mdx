@@ -1,0 +1,69 @@
+---
+id: list-the-processes-using-the-most-memory
+title: "List the processes using the most memory"
+description: "List the processes using the most memory"
+sidebar_label: "List the processes using the most memory"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SuDOSXAWnKb9sKbGySpk7QwEhlGIQjBmhyLW5K7m52hZJbgfy+GZCQlig8+iVq+nXlvPh57FLtlzNb4Z2CBv0iSyxk3BqNNtiGhpG97dB4zjFZKNOhtQ5ihK9Bgoq+tS1RgJqklg5yX1FjMepQujigvtKWEw7BRNMfgmVgBv15e6k9BnCcXxQVNsSoJJESIKeTETAz3HTTUhNQtcDD4288uXfudrV0BzsdWZtirc9jfAWyuUUECSElQBhY0GBJQTTurMCjIOyoWmPm2rgeDvz/FMg9NY30BD9bVVEDwh5ALHAbzw42PjmUEHIW17Px2PGu09pNINNiQlKHADLek7MaiZ7iMdbt1/sJGt9QkF83Uq2Vjvd1S4qWEeDEFWfauGNAgU9p9a2Cbao2CPxL7J7QJVpQa9wgTHrVTTHmbnHTj3XuyidJVq0TWm8H0mIdQOTo9sdF9oO5wchLis47E1PLTQIcJKUUizpOj/ycQmvnhbUiNFczw/d3qjP1nYtauSajIA5MXcFMjNElI7r+pqyXZghJYhj/GoKCdk3HWKvLjyJxKOnCbVKGZ5n+CHDfg3708yej93QomPDAJWAF2W3/h/ALuSvIQEyldA05AbEWsJzkV5HOCsKP0pIqR7Wm5n13Jq5trqKgDFptEh3DvpARpHr+cyTlAn1/aijoD+9Ll5ZSIj2kWcC1gc2G9NmMh7P18O7fehxGg763vgiegmmnaLOcfwqjaSa0yT60Lrm6u0aCO/STgl8Xl4vJM1ke3I3h9c2vmtTNQOK4MeJJ9SNXI4t3NrRIXNhDrVk0j1KN1TBsHnW6OriKPHYmBpbFeic3j8Yyd/47doZ9Cj7KMtXVeE4wb3M9+sMajH6DBU0dQC5k9AQ0eXQENZq5Qbx99L1tj399bpttUD4Mef20p6cJvDO5scvZeq7vusXCszwVmD7ZmOmObBy/kdbBefJo/By9BU/9MxbfF8spnZ+tW/6HBirrpmzJshhMPfPdmhcPwP/ZTSX0=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the processes using the most memory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/managers/top-memory/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List the processes using the most memory
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The top processes by memory."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

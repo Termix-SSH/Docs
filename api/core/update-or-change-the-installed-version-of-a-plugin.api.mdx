@@ -1,0 +1,71 @@
+---
+id: update-or-change-the-installed-version-of-a-plugin
+title: "Update or change the installed version of a plugin"
+description: "Swaps in another release from the official registry, newer or older. If the release declares capabilities the installed one does not, the request must set acceptCapabilities and list exactly those added capabilities in capabilities, otherwise it answers 409 with code CAPABILITIES_ADDED (or CONSENT_MISMATCH) and the list. A running plugin is started again on the new version. Naming a version that is not the newest pins the plugin to it."
+sidebar_label: "Update or change the installed version of a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVttu20YQ/ZXBvjQBGNpNjQLRm3wpqrRxjEiBUbiGMeKOxLXIXWZ3KFkR9O/F7FI3yy6QxwLVi8jl3GfOmV0pTaHwpmHjrOqp4QKbAMYCWsclefBUEQaCiXc1cEngJhNTGKzA09QE9ssMLC3Ig/PgKk0+h8EkSm5UNRUVegpQYINjUxk2FKKEsYGxqkiDswTaUQDrOOu0v7UUGOo2MARiwKKghi/2baDVUJnAQE9YcLUELl0gQK1JH3oz9uA9g5jdwgQCw4A2LMgHODv9AAvDJRROE1z0b/rngz8Ho8HV8KF/eXl1CW+ch4vP18Or69HDp8HwU3908fvbGIaELKHk0AffWmvsFJqqnRoLJkBg9EwacIrGgrNR3NIC5uSDcTaHa6xFBTcnwCWyqFrHG2kpR2Nsql1nnB0Yzv+2KlOM06B6d+omfgnqPlMNeqyJycuHlTLS4ga5VJmyWJPqKaNVpqTWxpNWPfYtZSoUJdWoeivFy0akAntjp2q9vk/CFPjc6aVIFM4yWZZHbJrKFCijdPIYZJ5Wx6bc+JEKVplqvGvISzfka5f2Cz4zddz5PbGxcxWhFbniZQn0HpcqU4apDi8lFX+SWGicDUn3/emp/B2iY3TYtW3jUy9+in1myiWWs5f0B3aOldFgtKBl0/sk/svL7grBh4cKi1kA1LWxefIW8hotTjfezo7Vrx3vEJaJR4l1E3s3WsZ2aEtg7qx9OLY2xHqrHCF/CDBLAjkpn+XoK0WnYbwEhMrYGWkI5OfkcyXVrolLp2UeXYjjIGPZUydddicro9cnbaORSWUqaaYpbn0lgip7FuFfrvUwIl+bp86TknkNVLTe8DLqjgk9+X4rvu7u15nMr5sZ2j/BxvxBy+3JnomhDHOaj31D24kqmRvVwSfOZhRSWffwm/M1suqpj7ejo+iHFBLu3YwsSBk3vREnzpvvEVhQEmrygAHOo9HtEEbF2L/9lHYoiFkJDMRbEtnRwOOCX43o4+0IknziYYZgpvadsTnclmSh8ZS6bhgYZxTkpCBNtiBwc/KvZhGj3S/3D1eyfzOAGS0TwQqBRvrm+unhKJ2t6I+XdkbLDBalKcrkKOzc5DCQ1cRB1DpZcAvbaRdoBWVYsHxHu5RFR1WgBAJhyS87Pr16wrqp6IAPNzT1Mg0mvj4kvruNyv1auj1xsa6GxbDq8NG/Gahsz8n7X/OfT/PTo6JFCnKeYKeXwxUW5Wb/aFe0NVkOYDhI4uBdyxRiawXaNUZS7+bsawS08ENRop3Ss2vAhpzcBLDz8DykvY3z/23lv3xbSUBneuKTpkITN3ik9lW3C+5UtwtUpnrxntKtg/tMlbI0endqtRpjoK++Wq/l+FtLXoj+PlNz9AbHMvN3K6VNkGetehOsAv3LSL350t2F3sJrQW4I1QqbzrFq5U1lakbLdKFaC/ASmUTv6cNF8vFuJOo7xaNLkyyc7XK8+TyUVTHuLlu106LjcSG3Nlwkxy7mEddSPFupCu20xWlk9mhTfv8AdJ0mHA==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update or change the installed version of a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/update"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Swaps in another release from the official registry, newer or older. If the release declares capabilities the installed one does not, the request must set acceptCapabilities and list exactly those added capabilities in capabilities, otherwise it answers 409 with code CAPABILITIES_ADDED (or CONSENT_MISMATCH) and the list. A running plugin is started again on the new version. Naming a version that is not the newest pins the plugin to it.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"version":{"type":"string"},"acceptCapabilities":{"type":"boolean"},"capabilities":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new version and the plugin's state."},"400":{"description":"Invalid id or version."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"Not installed, or the version is not in the registry."},"409":{"description":"Same version, new capabilities need consent, or managed by a linked server."}}}
+>
+  
+</StatusCodes>
+
+
+      

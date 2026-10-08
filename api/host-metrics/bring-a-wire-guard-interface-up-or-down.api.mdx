@@ -1,0 +1,70 @@
+---
+id: bring-a-wire-guard-interface-up-or-down
+title: "Bring a WireGuard interface up or down"
+description: "Bring a WireGuard interface up or down"
+sidebar_label: "Bring a WireGuard interface up or down"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v4zYM/lcIPm2AmnR7zFt72G69bVhwbVEMRTAwNhursSWfRCf1DP/vB0pukjY7YOeHxKb48yP5aUChTcTFI/7mo8CfLMEWEVcGWwrUsHDQ0wGtwwW2JBUadNQwLtCWaDDwl84GLnEhoWODsai4IVwMKH2btJzwhgOO4yprc5RrX/aq8t648E7YiR5R29a2ILHezZ+jdyo78+3Xz1wIGmyDbzmI5ainGjI8UcEnqlGCdRscDVKhTs+PDLLrGoWia9Fg6fcOV2N6NPHYehez/58vL/Wv5FgE22ZveJXcQuDY1TJDNXqrcK1RgODBBv7YUSjhkCd0LfgAKaTBhqXypcLtYypOUV/gvPJRLprcoXlDjjYc4nxvA2/U3Xyw5TifqjMYOexem9eFWh3g+5T+9l2AOw6NfYGsj9qlyEUXrPTJds0UOFx1msPjajQDFt5vLZ9KqLW/c3+QnLi41ZZl1E4dHbCvRBTs1Fn9zkpoppdffWhIcIGfHu7Osr/lGBVy8Vt2ENkJWAdSMWgQH+y/aXygYio5AEW4Tk6BXJnUkuFMZ+K0pENuuSo0efazynH6n/fyzYw+PdxB1ofIAiQQ7cZdWDeDh4odtIE1XQNWQGjLUSUFl+wKBr/j8M0qUrancH83klfLG9hyD1EoiE7k3koF0rz8c1bOQfX7od1yb2Bf2aLKgeIxzAxuBKiQqGaTLvi9m6wLcs4nBT0n13vHwHXkvFPKBZ+PLPLLCzVtze+2/rjSr8uuOz1qJ598wsyKGr0hPbha3qBBXZps8tPscnZ5BsofdsfwYXlvoOHGh95AaePWgGPZ+7BNNXxc3mvZEg20dRdBvK/1F/LWQq97p+scUz91zxtKlDQN1//mije5HWZB+EXmbU3Wqfu0/cNEI494SiPKNhORoMEDlaDBRWL3Cb6VSVZqPQxrinwf6nFU8ZeOg/LEyuCOgqW1wvo4YGmjvpe4eKI68lmiB6bHHz5Pl8CPgOa/C3jdR6fLuKO60y80uOU+X0PjajSYZzFFzwcfcoyLOzU/Gp7dLMpXB85d/nWrTLOebqjGl2oTaK93He1zYJ/qSKyWZAPW5DYdbRIxJJ/6fAWyDIjB
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Bring a WireGuard interface up or down"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host-metrics/managers/wireguard/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Bring a WireGuard interface up or down
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"interface":{"type":"string"},"action":{"type":"string","enum":["up","down"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Action result."}}}
+>
+  
+</StatusCodes>
+
+
+      

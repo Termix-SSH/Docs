@@ -1,0 +1,69 @@
+---
+id: mark-a-workspace-as-the-restore-on-login-default
+title: "Mark a workspace as the restore-on-login default"
+description: "Clears isDefault on any other workspace for the caller. Idempotent if the target is already the default. Rejects the Last Session workspace."
+sidebar_label: "Mark a workspace as the restore-on-login default"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P20YM/SsETy0w/miRk27bBAU2TdBFdotFYRgBV6KtiaQZZUjZqwr678Vo/KF0sQFy68kSxRk+Pj4+D1iw5MG2ar3DDN/WTEHAyjveUVcreAfkevBacoCjD5W0lDPsfAAtGXKqaw5LuC24ab2yU7C76YtS2LOCFaA6MBX9FC3StUv4xF84V5mCH0gU7lnEenetsUSDSnvBbIOP56Dg1mBLgRpWDvHbgDYCb0lLNOioYczQFmgw8NfOBi4w09CxQclLbgizAbVvpyynvOeA47iN2dJ6Jywx4df1Ov58y80FBAgrkFyawdHgm/Wb751wXmHnO1cscRwNNqylLyJsL4omoc9w1dbd3roFtXZ14UFWgy3GlbAuTgXRoHA4nPvvQh3PovlP9b99F+CBQ2OfIeVjbFQ474LVfjr7xBQ43HSx/GY7mgFz7yvL8wi19g/uL5HZFfeR0cTY/KILwaVqiyfi43tKQnN6+N2HhhQzfP/48AL9WQ/qK3Ygk7LcJJdYxAf7D8VMKJkKDnEcv02XArkiCTAenGYzb+mCLXWFJsknpVwF9OWoryJ6//gAKT8JQUHs3i2sW8JjyQ7awBGuAaugVLHESM4Fu5zBHzi82sWEdk73DzN5c3cLFfcgSkGt28PRagnaPH9+0c4l9ceprbg3cCxtXqZCci2zhFsFiptNcs4Ff3Sn0zm5uAqUTwtErveOgWvhtBfW7fzUtdWa5wskcHN3iwaj6BP8X5br5frljOjA0Efh+5YdKD3JVFfa2irU1PtOUyRwyii5id1HHHlt82qaQVzLhlyEchLERwoV0MwBT+0FFvWBF94tar+3Dq47+g2yuFgu+uP/0GSTxJSfddXWZF1kYDKV4WRMG7waExq8WhMazCavnbvT1mAZbS3b4DA8kfBfoR7HGP7acYi+szV4oGDpKQ55M2BhJT4XmO2oFv4OdT99Opn6z/Aa8vN+u7jcB6q7+IYGK+7TP8O4nTvw3Z/3DziO/wKG2HEG
+sidebar_class_name: "post api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mark a workspace as the restore-on-login default"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/workspaces/{id}/set-default"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Clears isDefault on any other workspace for the caller. Idempotent if the target is already the default. Rejects the Last Session workspace.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Workspace set as default."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

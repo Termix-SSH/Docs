@@ -1,0 +1,68 @@
+---
+id: discover-the-guests-on-a-proxmox-node
+title: "Discover the guests on a Proxmox node"
+description: "Lists the node's VMs and containers so they can be added as hosts. /discover/stream reports the same with progress."
+sidebar_label: "Discover the guests on a Proxmox node"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDufRCS6qbE29Om6JKG9So1RiFIQSr5URci9zd7AwtqYT+ezBLWlKt+JBTeRG1fDPz5uttjxWxTS6KCx5L/MOxMEhN4ENFPzB8/MBgfAU2eDHOU2LgoIA9WONhRWCqiiowDHVg4QlMK8c2PFGasiQyLSSKIY1e2bQEWyc1xBTWiZgnWKCYNWP5gLcp7Nqww2WBib50xPI2VHss+/zXJaqwlNRRgUqHvOgnE2PjrNEEpo+sWfTItqbW6JvsI2GJYfVIVrA4c/SASnheabSYQqQkjlhtxvOTtfNCa0p4yI864Rg8D+jr2Ux//lvHRU2w1gQYPofOVxM8FPjmW8gPjtn5NYQEzj+ZxlUwxB9Nfro0ubGWmKEi76gCye3IRqPJm0uT3wIL+CDnbK6vX8E5zlADYz/yLGSCDJ1PZGxtVg1NUGvRktShwhJjYC1wNFJjidPYdGvnr0x00zi4OQ4GFsiUnihp03vsUqMGWLzg8k/oEiwotW4HAx4PSzW1XXKyz7YrMonSTacxH5aHokcbwsbR+YmJ7nfaH0/OXNzpmAxdPHd07HstEpVshmE5grAYX34NqTWCJb6/X1ywvyNmFzxI2JAHJi/gfO6UBgnJ/ZtHFmoyFSXdn7fZad42hWXD3KnzlI7chqywQKfRBggW6E1m+riVVxm9v1/AgAcmASPAbu2vnJ/AfU0eYiKlW4ATELMh1hNLFXlLoP17NYvM9rzc313Jm9s5bGgPLCaJrkXWCml3ny7SOUK/v7Qb2hewrZ2th0B8CjOBuYCxwmo2YiFs/Whtjc+rYUW/G78PnoAaHpdB9eevk3K925k2NnSuKbODduxzyLVxoh+fZQ9ubudYoO7FkOGPk9lkdpH3vFU5Pe7mx3fPQvMswQVsiKKSb7UuvPc2c98asfWwyyxGOHdLt7Y1WTTH0fll3NKc/eg6+Bdq8JJVf1Lk/+sOGQZNaCfT2BjnNbssLf2oSQ940iTMmp8vmwKPurQscp8U2vcrw/R3ag4HPf7SUVLFWRb4ZJJT+RvkBYchy2K0oT2W+PNQiKuFElJ40w37+uKaUiE6iuftn3cqIavxumu1xCUms9Ury2yxRCww5GJnucpnPTbGrzuzzhufferzFXWMtrA=
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Discover the guests on a Proxmox node"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/discover"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the node's VMs and containers so they can be added as hosts. /discover/stream reports the same with progress.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId"],"properties":{"hostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The guests found."},"400":{"description":"Missing or invalid hostId."},"403":{"description":"Access denied to the host."},"404":{"description":"Host not found."},"422":{"description":"Host is not a Proxmox node or is unreachable."}}}
+>
+  
+</StatusCodes>
+
+
+      

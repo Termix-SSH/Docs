@@ -1,0 +1,69 @@
+---
+id: get-recent-command-history
+title: "Get recent command history"
+description: "The caller's commands on a host, newest first, duplicates included. Needs hosts.view."
+sidebar_label: "Get recent command history"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20YQ/SuDubQF1pL7deHNBZpEKVoElQqjMIRiTI7ErchdZmcoWRX434shKYmx4wI59ETu8u3se/PxeMKCJU++UR8DZrgqGXKqKk5fCeSxrikUAjEAQRlFHQQ+sChsfLJV0TaVz0lZwIe8agsuZvAbcyE9XGZ7z4cZOlTaCmYPuOJU+0AVrh02lKhm5WRfTujt/oa0RIeBasYMLcaiQIeJP7Y+cYGZppYdSl5yTZidUI+NIX1Q3nLCrlsbWpoYhMUA393e2uNTmXdQeVGIm4vGGXYOf/gcdhH2VPmiFwS+GIHfvwT+6kV82IKWPFEPjUkW8TH0R3/83B1vyFdcgEbYsOblmRWUXjSm4wy7zmHNWsYCM9yyohtSleG8qdqtDzfU+LlIeaNjhudjjJsxxvw0ZLObJ845WAThtD9nv02VBUP3jNmfsU3QV+0JBjxaioXzNnk99mcfmRKnu9b4PKw7d8I8xp3n6Q41/hc+XnYmIZZWy6FW00CX0paqDY4lt/UAQje+vImpJsUM39+vXrBfcp940LjjAMJBwYe+QHZJTP4fMiSUTAUnIIGf+qBgyTdYf7Cv21TShdugCt3QvAPk2r5/H/RVRu/vVzDgQViBFMRvw40PM7gvOUCT2Og68ApKOxbbybngkDPEPadXVfRsp+n+4kzefVjAjo8gSkmtow9eS9D66a8Xci7QL0/tjo8ODqXPy+EiuV4zg4UC5Sp2bMRCPITxdE4hxB5g3ykcY2DgSniYEx82sVfttTKZy+U7OPsO3H1YoENr+0HAt7Pb2e3LKi3fwXmQQIaSnfnRoziQpvIKkifm4M5j6qCmPEXpSRJUMafqGmbMTsGy09gANU1fqSaK1hSM8Ng2b1lhmNHnPvCcpw1aUBvm/9G5h95RftJ5U5EPRrp3i9NoQQ94tSBrr4kJoc3NJzaEDrOJrfdOtHa901uk0+mRhP9IVdfZ9seWk3nM2uGekqdHK+jDCQsv9l5gtqFK+D/S8vXv46/jG3hNzHmWg5HbU9XaCh3u+Hj9B3XrqQO//XmFXfcv0VuAYg==
+sidebar_class_name: "get api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get recent command history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ssh-terminal/command-history/{hostId}/recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The caller's commands on a host, newest first, duplicates included. Needs hosts.view.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of commands."},"400":{"description":"Invalid host id."},"403":{"description":"Missing the hosts.view permission."},"500":{"description":"Failed to fetch command history."}}}
+>
+  
+</StatusCodes>
+
+
+      

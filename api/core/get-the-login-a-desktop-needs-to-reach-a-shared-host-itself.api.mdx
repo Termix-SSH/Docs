@@ -1,0 +1,69 @@
+---
+id: get-the-login-a-desktop-needs-to-reach-a-shared-host-itself
+title: "Get the login a desktop needs to reach a shared host itself"
+description: "The minimum authentication material for connecting to a shared host from the recipient's own network. Transient; callers must not store or log it."
+sidebar_label: "Get the login a desktop needs to reach a shared host itself"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWClzbArHcTBD2opy2QJptegtrFojCMgh7R1sQSR5mh7HUN/XtBSbvrxtkCufWk0ehxyPeGfDphydmn0GqIggUuKoYmSGi6BqjTikWDJ/sIDSmnQDVsYgIfRdhrkC1oBIJcUeISqpgVNik2oBVDYh/awKI/ZIgHAWE9xLSbwSKRZPvwM3iqa04Zmi4rSFTIGhNDTFDHLQSdoUOlbcZiifP5B1w5bClRw8rJNk8YrO6WtEKHQg1jgaFEh4m/dCFxiYWmjh1mX3FDWJxQj+2AEuUtJ+z7laFzGyVzNsCbmxt7XErzSDvKoM4Me4dvvwW+kz3VoYRQTpi3l5j5mWbGfBM7MXjvsGGtYokFblnRjewKvDbodbken6dQ9td19FRfPZd1ZWWhw8xp/yhQl2oLRvdV/j9jl2DBqQkPMOLRlMjsuxT0OMSumRKnWzu0WK56d0If4y7w+Q614Tc+Pu2cHTE3yUdJzw96uoFKtcXpZux9BKGbFr/G1JBigR/vFxfVzzlnuweNOxbILApBhrazJDGFv8e2rZhKTkAZfhkOBZJygA2Bw+2cU3qqbWSFbuyvEfLcYZ8P+mJFH+8XMOIhswIp5LCVqyAzuK9YoE1s5ToICko7zrbjuWTxDHHP6UUWQ7Xncn+3kref7mDHR8hKaZjeQ9AKtHn464LOE/T7pd3x0cGhCr4aE+XnNDO4UyCv2cImrJnDFO1JbBTIq30nOUZh4DrzOBdBNnFgHbQ2mlP33n66Q4fW8GPpb36avb6Z3VxQGkc4MTzHzeAd+QrautsGgTL6rmHRDEFHz0qxU86D8G3M2pBY/qkL3rMOHOpowQQl553GFoS5zGaMie3wf9tj0Mz15uvabLBEWfR/a8Jjoyk/6HVbUxCTZLCW0+RPS7TMRmyN7nFdDF78bZtaTahiiafTmjL/keq+t+0vHSczoJXDPaVAa7vt5QnLkG1dYrGhOvN/aPjj75P9v4KXin8cdLEp31Pd2Rs63PFx/If0q3Mrfv9ugX3/D95CfCc=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the login a desktop needs to reach a shared host itself"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/db/host/{id}/local-connection-auth"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The minimum authentication material for connecting to a shared host from the recipient's own network. Transient; callers must not store or log it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The connection auth."},"400":{"description":"Invalid id."},"404":{"description":"Shared host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

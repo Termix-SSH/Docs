@@ -1,0 +1,69 @@
+---
+id: permanently-delete-a-room-host-only
+title: "Permanently delete a room (host only)"
+description: "Revokes the active stage and removes the room and its membership. This cannot be undone."
+sidebar_label: "Permanently delete a room (host only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VNtu3EYM/RWCTwkw3t22edKbm7iA06Iw4g2MYrEIuBKzmq40o8xQayuC/j3gjOJrHCAB8qTLkMPDQ54zYsWxDLYT6x0W+I6P/sARpGagUuyRIQrtGchVELj1x/kweN+mn1YitNzuOMTadgtY1zZCSc55gR1D7yrveIEGhfYRiw2+9k1DO9wajFz2wcqAxWbEHVPgcNpLjcVmO20NdhSoZeEQU4BVfB1JjQYdtYwF2goNBv7U28AVFhJ6NhjLmlvCYkQZOo2KEqzb46R3Bo6dd5Gjnv++WunjIQNvuGHhCieDr1Z/PD3/10sioPZRcJoMtiy1r7DAKmWiySALXHZNv7fuhDq7jByj9e4k1qRglkpfXI62mlB5CMevXfah0VQ0j8r+5/sAaw6tvYEcj9M9Ci+16dzVfSJvOahFOpy50e8chGZ++cuHlgQLfHu1flL6MmMH8Qd2ENkJWJc40CI+2M+kkVAzVRyAIvyZLk3roWEpcaGMlt4fLD/CRp39mwc0ecI55G7G/1/Ls4jeXq0hx0NkARKIdu9OrFvAVc0OusAK14AVENK97gKXXLErGfyRw7NdJLQZ2E8yeXpxDgceVD5BrNvDtZUapL358KSd29Afp/bAg4Hr2pZ1LhTvyizgXFTDUdPmWPDXbs6eJUql6Dm5wTsGbiIv0lZb99Gnrq00fI/yy7zAcHpxjgZ1bXMPvy1Wi9XTQdUUGJpkI/mCCLsBGusO4EPGSs5LzQH6yMEkaPPY7lLEA8E++L5TelrmRGjSUBpU56O05BTvvDUXHFpy7KQZIOsSKHvWCxUueNcMLx/DHbH0TtjJLzbCvEjCN7LsGrJOW0i6H2fr2OCddSR/eGAe6nnaOhosbKVGmryo2OA47ijy+9BMk/7+1HNQc90aPFKwtNNJbkasbNT3CouP1ET+Dgsv3s3m+hKeA/5VxE4VfKSm1y80eOAhO/S0vW+Sb87+OVufoUF6KKtHMko4v3n1OOaItZrKNN1WSiajxabpCxj2Ww8=
+sidebar_class_name: "delete api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Permanently delete a room (host only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/session-sharing/rooms/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes the active stage and removes the room and its membership. This cannot be undone.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted"},"403":{"description":"Not the host"}}}
+>
+  
+</StatusCodes>
+
+
+      

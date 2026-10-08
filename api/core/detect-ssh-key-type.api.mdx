@@ -1,0 +1,68 @@
+---
+id: detect-ssh-key-type
+title: "Detect SSH key type"
+description: "Detects the type of an SSH private key."
+sidebar_label: "Detect SSH key type"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu2zAM/RWCZzXthm0H37puw7oeFiwZiqEIBsbmYjW25El0Us/Ivw+U3SRLu0N9SByJT498FF96LDjmwTZivcMMP7BwLhGkZJCuYfC/gBzMZp+hCXZDwrDmboIGhVYRszu8ClywE0tVxIXBwL9bjvLeFx1mffppAxeYSWjZYO6dsBPdoqapbE5KfH4flb3HmJdck74pOWbol/ecCxpsgm84iOWou2MuN9wdxUYJ1q1wZ3DN3ZRi3PpQPLOfHs00Nt7F4cDXFxf69a8YN9wNIhRJFesdBI5tJRMlefMcZHoQCWyEx/IT4O1zgE9kKy5A/EiSkEo6QU2yZil9gRk2PiYZSErM8Dw/qH4+AM/W3J2lSg1GDhsO2p4e21ApAM0J8Q/fBphzqO0DDPG4Wyg0b4OVLmGXTIHDZaucd4ud6TH3fm35eIUae8PdfuXoiJk2c5D3+KB9P0qRRpNNYZiNQWjGl08+1CSY4Zfb+ZPsZxyj9kP8mh1EdgLWpVurJD7YP+liQclUcACK8D4dCuSK4XIrMLXluKR9bkNVaNAq2xCCBh2lTO+38t+MvtzOYYiHyAIkEO3KnVk3gduSHTSBNV0DVkBozVFXcu1mzuA3HP5bRcr2WO4XK3k5vU73KwoFsW4FWyslSP3w80k5+9CXS7vmzsC2tHk5EMUDzQSuBUgNhuJjLPitG9E5OedTgO6T67xj4CqOw6Au8e3gLx8fqG4qPvWDxzk/sYEje7Dul0/qWVE4jlNwOb1Ggzo4gwSv301eXUwunkgzLxlyHxgOuAl8pLyEpmpX1kHh87ZmJxGsRC0Pgm+FY2qgDnJNye3G2zR4bvLYx+E/5ewPxvkSix5uh/CDnDcVWaf8yQ/60Uju8MhIEum/VrIwWKrxZHfY90uK/D1Uu50u/245qEksDG4oWFqqkuoIONyL5B/r1I+rIfWz+VDYhqp2GLET/1fv2Pvd9OtMp345/o/UvlBMoC2a9JkhGvRJnuQwaa3HityqpVUa0nSmPn8Bpx5iOQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Detect SSH key type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/detect-key-type"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Detects the type of an SSH private key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Private key is required."},"500":{"description":"Failed to detect key type."}}}
+>
+  
+</StatusCodes>
+
+
+      

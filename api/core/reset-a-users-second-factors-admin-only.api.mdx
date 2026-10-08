@@ -1,0 +1,69 @@
+---
+id: reset-a-users-second-factors-admin-only
+title: "Reset a user's second factors (admin only)"
+description: "Removes every second factor the user enrolled in, including ones whose plugin is disabled or missing, and forgets their trusted devices. The user can sign in with their first factor and enrol again."
+sidebar_label: "Reset a user's second factors (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v20YQ/SuDuTQBNpKaBj3w5qIu4LSHwHZgFIZQrJcjcStyltkZylYF/vdiSEpWLDhArjlJXL75eG9nHvdYkoQcW42JscBratKWBGhLeQdCIXEJKx80ZdCKoBPKQJxTXVMJkR1EDnVXRl5DYhJ4rJIQtHW3jgxRoIziHwybMjRRJPLagbekKa9JxbLGDJo7USqhpG0MJDO4PRQLnkHimiEyPEatpoBVzKKHzizf0BT4tY88Q4fq14LFPX4WyoJLh63PviG1p+J+j9HYtl4rdMi+ISzQyl2V6DDTly5mKrHQ3JFDCRU1Hos96q41pGiOvMa+XxpY2sRCYu/fLxb287WmN6cqCmQS0hn2Dj8sfjlHX5RNZPAhkBh27GSCfziHGz/gpLBKHRuud9iQVqnEAkuqSQndSLTAuVGUubcS8/3It5+Pt/xu6g8dCuXtQacu1xaI7kXdv1OX4ZZyE59gxKOpIRS6HHU3xD6Qz5QvOqt9v+zdHkNKm0inJ76Nf9LueHKS4sZUH2U9TXS8hEq1xely7HkEoZv+/JFy4xUL/Hh3e9b9DYnExKBpQwxCrDZeNuBWJOX4nzckVORLyuAFfhuSDpNmsCFwuJVTSsfeRlboxjEbIc+D9u+jvtrRx7tbGPEgpOB1GP53kWdwVxFDa+PD6iAqqN+Q2EmgkjgQpC3lV1kM3Z7K/d1KXny6gg3tQNRntY0f97F5+ueMzhH6/dJuaOfgsYqhGgvJc5kZXCn4oGJhExbSI0/RwbNtgg9q7z3vEhNQLTSuReRVGlhHrY3mNL0Xn67QoQ382Pr7X2c/L2aLM0rmSCFlgue4GVz6UB3crkyha4hVIKpYW5BTpySD8G0SbTxb/WkKrmm44MHlfpKvvVbgzbCkkLjevX3Ziu0RK7H+UIY9zqLSk87b2kc21Qb32U/2dT84tBnUoA06LI6W/cLDlg6rJGox+/2DF/qc67634y8dZXOnpcOtz9GoDl51oI3FytdC31D8zfVkym/htbYPLsBmAVtfd/aEDje0e/7O9MtTq/798q/L20vs+/8BcDigVA==
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reset a user's second factors (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/admin/{userId}/second-factors"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes every second factor the user enrolled in, including ones whose plugin is disabled or missing, and forgets their trusted devices. The user can sign in with their first factor and enrol again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Second factors reset."},"403":{"description":"Admin access required."},"404":{"description":"User not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

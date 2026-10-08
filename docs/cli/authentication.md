@@ -45,7 +45,7 @@ export TERMIX_API_KEY=tmx_your_key_here
 termix hosts
 ```
 
-With those set you never have to run `termix login`, which is what you want in CI or a cron job. See [API Keys](/features/api/api-keys).
+With those set you never have to run `termix login`, which is what you want in CI or a cron job. See [API Keys](/guide/api-keys).
 
 You can also pass a key for one command:
 

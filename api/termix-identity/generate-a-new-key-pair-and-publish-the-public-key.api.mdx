@@ -1,0 +1,68 @@
+---
+id: generate-a-new-key-pair-and-publish-the-public-key
+title: "Generate a new key pair and publish the public key"
+description: "The private key is returned once. With saveCredential (the default) the pair is also saved as an SSH key credential."
+sidebar_label: "Generate a new key pair and publish the public key"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v4zYQ/SuDOe0CjJ0ssIfqlt1+ZXtoULsICsMoxtLEYiyTWnJkRzX034shFdtxuof2Ul8k0TPkzHvzHg9YcSyDbcV6hwXOa4Y22B0Jw4Z7sBECSxccV+BdyRN4sFJDpB1/DlyxE0sNvJOaoeJH6hp5D/rRkg2aTE30KboCikAOZrOf08blMXuCBoXWEYsFzjls7TPcfY9Lg5HLLljpsVgccMUUONx2UmOxWA5Lg4G/dhzlk696LA5YeifsRF+pbRtbkrY0fYra1wFjWfOW9E36lrFAv3riUtBgG3zLQSzH07/HqCjBujUaZNdttUKuPnz8ePMdGgyRcDkYbGjFzduUweBrlM5CVt43TE5jusjB0fYfzhzST/uMrXcxl/fh+kYfr0n7iR0HEq4yZe7Rw15Zkgsy38Xa713i8T3q1luW2ldYYOtjgoIUXpy2Tbe27opaO5XEyJVNTUg/3XAfp+vxQFSSwo5DTBx1odFsNBf1/eG7ACO1OR6HM35nSk1u75zlIx61SKsnpTBFLwWhGV9+9GFLggV+eZi/OXrGMVrvQPyGHUR2AtYlYPQQH+xfaUygZqo46Ix+SpsCuSqFpcSJMlV6v7F8URu19hfu0aDV03IIGsyM4tNevlnRl4c55HiILEAC0a7dlXUTeKjZQRtYyzVgBYQ2HHWl1GEqGfyOwze7SNXmwv4jkrf3d2lgolAQ69bjOG2f/3zTzjH030O74d7AvrZlnQ+Kp2MmcCdApURNG2PB792YXZJzPgVkV+m9Y+Am8iSNtWr+t5M7/PBM27Y5V9hJxKN4Tzq/1KyEjs9VeiZvFVra1IrufjSvUSpwe3+HBlUdGaqbyfXk+g2A992qsbGGXkWi7tjqQqkdR+hcgu5lrSZXNZwgCJ3LKapoTSvVwx7V9hgoEyB9GgUV95aSC449vBgGEDjeJ3CTYevG7VhPMo9jKZdln/nt/3ZnZC6Fn2XaNmSznYbks9nIFngyMk14bWVoUDFGg0c7Wxqs1QmLBR4OK4r8e2iGQZe/dhz0Iloa3FGwtFLGF2r/ebyT/ylOBX7OwFzNtT4Nb7rsFBeXklrg0YDvf52pea3Gy2zrK80JtNeLhvZYIBr0CfxklGntgA25dUfr5DVpTx1/ei36C5GnSl/cy/VnFR4OOWKuljcMGR9FWL9xWA7D8Dd+ttR9
+sidebar_class_name: "post api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate a new key pair and publish the public key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/termix-identity/keys/generate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The private key is returned once. With saveCredential (the default) the pair is also saved as an SSH key credential.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"type":{"type":"string","enum":["ed25519","rsa"]},"label":{"type":"string"},"saveCredential":{"type":"boolean"},"username":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Generated key info with the private key (shown once)"}}}
+>
+  
+</StatusCodes>
+
+
+      

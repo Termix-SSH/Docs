@@ -1,0 +1,69 @@
+---
+id: settle-a-conflict
+title: "Settle a conflict"
+description: "Desktop only. keep 'mine' puts this device's version back, and the next sync sends it to the server. keep 'server' drops it."
+sidebar_label: "Settle a conflict"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE1v20YQ/SuDubQFtpQaBD3w5iIN4ARojUqBUchCsF6OxQ3JWWZ3KJsh+N+DIRlZieEAueVE7vDtfDy+eQMWlFz0rfjAmOMrSpWEFgLXfQYVUQs32HimG4S2kwRS+gQFHb2jXxIcKSYfGG6tqwxYLkBKAqYHgdSzg0RcJPACEqYvieKR4inxfLxBKGJoFZehQbGHhPkONz073BtsbbQNCUWNDui1zdZKiQbZNoQ5+gINRvrY+UgF5hI7MphcSY3FfEDp2wnFQgeKOI57Rac2cKKkgBfrtT6+ZmJDIjUVGY4GX65fPgX8EyB1rgQX+K72TjIcR4MNSRkKbTEkQTN3muNK6VjVnqvVF3xaDb4Y0SwszNN1sVY0mm+K/R+6CFuKjX9YSEQdI5Hropd+untLNlK86LTgbj+aAV0IlafziG39W+pPkbMUG+Vr5uM80Ym+UqTFhVY9zyA0y8vrEBsrmOOb6+2T7jeUJplIqIhVFAKeJ0FokRD9J6tIKMkWFMEm+GtKelLUdHH6FecjnXqbp0Izi2OGPMrjw70829Gb6y3MeEgkYAWSP/DvnjO4LomhjaTtmknDtqKkEUcFsSMIR4rPTjF1e073DzN5cXUJFfWQxEbxfIB7LyVI8/D+yTgn6I9TW1Fv4L70rpwLpccyGVwKWCdJry1YCPe83HaWOUwA/W65D0xAdaJ5EzzfhWlqL7WOuaj34uoSDS7GgTm++DP7Y52tn4y0LQlciASP9zL427oS2ro7eIYiuK4hFvWNpG1BDJ1QmojX7Wssa/1FBfM+gz3t67cVdV1YiOUnscFZLEIPsmpr61nHmuxhWExlh5ocDaqtoK7GYixoMPeFemepJpTvcBhubaJ3sR5HDX/sKKpn7A0ebfT2Vn/QbsDCJ30vML+zdaLvEPTrf4vd/gbP9fplN1kX82jrTk9osKJ+9uxxf+6XV/9utjiOnwEnmUAI
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Settle a conflict"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/link/conflicts/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. keep "mine" puts this device's version back, and the next sync sends it to the server. keep "server" drops it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Settled."},"404":{"description":"No such conflict."}}}
+>
+  
+</StatusCodes>
+
+
+      

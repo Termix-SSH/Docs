@@ -1,0 +1,180 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Usage Statistics API",
+    "version": "1.0.0",
+    "description": "Sends a small anonymous daily report so we can see how Termix is used."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Your Termix server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/telemetry/status": {
+      "get": {
+        "summary": "Usage statistics status",
+        "description": "Whether usage statistics are sent, whether ENABLE_TELEMETRY locks that, the instance ID and the last attempt.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status."
+          },
+          "403": {
+            "description": "Missing the telemetry.manage permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/telemetry/preview": {
+      "get": {
+        "summary": "Preview the next report",
+        "description": "The exact event that would be sent right now, without the API key.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "The event."
+          },
+          "403": {
+            "description": "Missing the telemetry.manage permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/telemetry/send": {
+      "post": {
+        "summary": "Send usage statistics now",
+        "description": "Sends the report straight away. Does nothing while usage statistics are turned off.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether a report was sent."
+          },
+          "403": {
+            "description": "Missing the telemetry.manage permission."
+          },
+          "502": {
+            "description": "The report could not be delivered."
+          }
+        }
+      }
+    },
+    "/plugin-api/telemetry/reset-id": {
+      "post": {
+        "summary": "Reset the instance ID",
+        "description": "Picks a new random instance ID, so later reports look like a new install.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new ID."
+          },
+          "403": {
+            "description": "Missing the telemetry.manage permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/telemetry/usage/config": {
+      "get": {
+        "summary": "Whether to count this user's feature usage",
+        "description": "False when usage statistics or feature usage are off, or the user turned off their own part.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "{ track: boolean }"
+          }
+        }
+      }
+    },
+    "/plugin-api/telemetry/usage": {
+      "post": {
+        "summary": "Add feature usage counts",
+        "description": "Counts from the signed-in user's browser, added to the next report. Ignored when this user is not counted. Names and counts are checked and capped.",
+        "tags": [
+          "Usage Statistics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "features": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Recorded or ignored."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,62 @@
+name: Sync Docs
+
+# Pulls every official plugin's docs, the API specs, the env var list and
+# the app downloads from their releases, then commits what changed. The push
+# redeploys the site.
+
+on:
+  repository_dispatch:
+    types: [registry-updated, core-released]
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-docs
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - run: npm ci
+
+      # The sync builds API specs with the SDK's generator.
+      - run: npm install --no-save @termix-ssh/plugin-sdk@latest
+
+      - name: Sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run sync
+
+      - run: npm run gen-api
+
+      - name: Build
+        run: npm run build
+
+      - name: Check app links
+        run: npm run check-links
+
+      - name: Commit
+        run: |
+          git add plugins develop/reference api static/openapi src/data sidebars-plugins.js
+          if git diff --cached --quiet; then
+            echo "Docs are up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: sync plugin docs"
+          git push
