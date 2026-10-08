@@ -101,6 +101,7 @@ const sidebars: SidebarsConfig = {
         "cli/commands/tunnels-and-docker",
         "cli/commands/snippets-and-credentials",
         "cli/commands/admin",
+        "cli/commands/plugins-and-api",
       ],
     },
   ],

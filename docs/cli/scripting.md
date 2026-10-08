@@ -47,6 +47,7 @@ Every command exits with a code you can branch on. These will not change without
 | 5    | Not found                                              |
 | 6    | The server could not be reached                        |
 | 7    | Your data is locked and needs unlocking in the web app |
+| 8    | The server does not have the plugin this command needs |
 | 130  | You pressed Ctrl+C                                     |
 | 255  | The CLI itself hit a problem                           |
 

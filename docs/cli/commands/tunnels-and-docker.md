@@ -21,7 +21,7 @@ Shows every tunnel and its status. The names here are the full internal names yo
 termix tunnel show 3
 ```
 
-Lists the tunnels configured on host 3, each with an index. You use that index to start one.
+Lists the tunnels configured on host 3 in its Tunnels settings, each with an index. You use that index to start one.
 
 ### Start a tunnel
 
@@ -29,7 +29,7 @@ Lists the tunnels configured on host 3, each with an index. You use that index t
 termix tunnel start 3 0
 ```
 
-Starts the first tunnel on host 3. Get the index from `tunnel show`.
+Starts the first tunnel on host 3 and waits a few seconds to tell you whether it connected. Get the index from `tunnel show`. A tunnel started here shows up in the web app as the same tunnel.
 
 ### Stop a tunnel
 
@@ -54,6 +54,8 @@ termix docker ps 3
 ```
 
 Container ids are shortened to 12 characters, which is enough to use in the other commands.
+
+Docker has to be turned on for the host, in the host's Docker settings. If it is off, the command tells you. Hosts that ask for a verification code or key passphrase prompt for it.
 
 ### View logs
 

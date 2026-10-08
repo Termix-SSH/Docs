@@ -61,15 +61,15 @@ termix files rm -r 3:/tmp/oldstuff
 
 `-r` is required to delete a directory and what is inside it. There is no confirmation, so read the path twice.
 
-## Text files only
-
-These commands treat files as text. Images, archives, and binaries can be corrupted by moving them this way.
-
-For binaries, use the file manager in the web app, or tar and encode first:
+To keep a way back, move it to the trash instead. You can restore it from the file manager in the web app:
 
 ```bash
-termix exec 3 "base64 /opt/app/binary" | base64 -d > binary
+termix files rm --trash 3:/tmp/old.log
 ```
+
+## Binary files
+
+Images, archives and other binaries move as they are, so `get` and `put` are safe for any file.
 
 ## Moving files to many hosts
 
@@ -81,6 +81,6 @@ termix fleets exec 2 "..."
 
 Fleet transfers in the web app push and pull a file across a whole fleet at once. See [Fleets](/plugins/fleets).
 
-## Hosts that need 2FA
+## Hosts that ask for a code
 
-If a host asks for a TOTP code, these commands cannot prompt for it. Connect once through the web app or `termix ssh` instead.
+If a host asks for a verification code, a password or a key passphrase, you are asked for it in the terminal. Hosts that need a browser sign-in only work from the web app.
