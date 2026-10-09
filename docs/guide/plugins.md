@@ -7,11 +7,11 @@ description: Install, update, turn off and remove plugins.
 
 Admins manage plugins in the **Plugins** tab at the bottom of the rail. It has three lists:
 
-| List          | What is in it                                               |
-| ------------- | ----------------------------------------------------------- |
-| **Installed** | Plugins on this server, on or off.                          |
-| **Browse**    | Every plugin in the registry. Filter by category or search. |
-| **Updates**   | Plugins with a newer version.                               |
+| List          | What is in it                                        |
+| ------------- | ---------------------------------------------------- |
+| **Installed** | Plugins on this server, on or off.                   |
+| **Browse**    | Every official plugin. Filter by category or search. |
+| **Updates**   | Plugins with a newer version.                        |
 
 Click a plugin to see its page: what it does, what it can do on your server, its versions, release notes and links to its docs and source. The [plugin list](/plugins) on this site has the same info.
 
@@ -52,6 +52,10 @@ A plugin that fails to start shows as **Stopped unexpectedly** with the error. P
 ## Install from a file
 
 Plugin authors can install a `.tmxplug` file that is not in the registry. Turn on **Plugin developer mode** in **Settings**, **General** first. Only do this with plugins you trust. See [develop](/develop/quick-start).
+
+## Community plugins
+
+Termix can't install community plugins from **Browse** yet. That comes in a later update. Plugin authors can already [submit theirs](/develop/community-registry) to the community registry, so it has plugins when it ships.
 
 ## Desktop app
 

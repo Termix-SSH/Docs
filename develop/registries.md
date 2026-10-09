@@ -35,17 +35,16 @@ A version in the index looks like this:
 
 The full format is in [`registry-index-schema.json`](https://github.com/Termix-SSH/Termix-Registry/blob/main/registry-index-schema.json).
 
-## Community plugins
+## The community registry
 
-Right now the Plugins tab installs from the official registry only. Support for more registries is coming.
+`community/index.json` in the same repo lists plugins made by anyone. Each version is pinned by its `sha256` in a submission file and reviewed by a person before it is listed. The registry then signs it with a separate community key. To get your plugin in, see [community registry](/develop/community-registry).
 
-Until then, share your plugin as a `.tmxplug` on your GitHub releases. People install it from **Plugins**, **Install from file**, with developer mode on. It shows as unverified.
+Termix can't install community plugins yet. That comes in a later update, and submissions are open now so the list is ready when it ships.
 
-To make that easy for people:
+Until then, share your plugin as a `.tmxplug` on your GitHub releases. People install it from **Plugins**, **Install from file**, with developer mode on. It shows as unverified. To make that easy for people:
 
 - Put clear install steps and your capabilities in your README.
 - Link your docs from the `docs` field in your manifest.
-- Sign your releases and publish your public key.
 - Keep a changelog.
 
 ## Pointing Termix at another registry

@@ -29,7 +29,13 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Shipping",
       collapsed: false,
-      items: ["testing", "docs", "releasing", "registries"],
+      items: [
+        "testing",
+        "docs",
+        "releasing",
+        "registries",
+        "community-registry",
+      ],
     },
     {
       type: "category",

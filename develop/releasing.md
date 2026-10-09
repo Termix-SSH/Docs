@@ -52,7 +52,7 @@ TERMIX_PLUGIN_SIGNING_KEY=termix-plugin-signing.key npx termix-plugin sign hello
 
 `keygen` writes a private key and prints the public key. Keep the private key secret and out of git. `sign` writes `hello-1.1.0.tmxplug.sig`. `termix-plugin verify` checks one.
 
-Termix only trusts signatures from keys built into it. Your own signature proves to your users the file came from you, but Termix still treats your plugin as unverified unless it comes from a registry Termix trusts.
+Termix only trusts signatures from keys built into it. Your own signature proves to your users the file came from you, but Termix still treats your plugin as unverified. You don't need to sign a plugin you submit to the [community registry](/develop/community-registry). The registry signs it after review.
 
 ## The release workflow
 
@@ -60,15 +60,15 @@ The template has a **Release** workflow that does all of this on GitHub. It call
 
 Work happens on a `dev-X.Y.Z` branch named after the version it will ship as. Run **Release** by hand from that branch:
 
-| Choice        | What it does                                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------------- |
-| **stable**    | Tests, builds, signs and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
-| **beta**      | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                             |
-| **overwrite** | Releases the manifest version again from this commit, replacing its files.                                    |
-| **dry-run**   | Builds and packs without publishing.                                                                          |
+| Choice        | What it does                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------ |
+| **stable**    | Tests, builds and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
+| **beta**      | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                      |
+| **overwrite** | Releases the manifest version again from this commit, replacing its files.                             |
+| **dry-run**   | Builds and packs without publishing.                                                                   |
 
-The release notes come from your changelog. Set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret for signing.
+The release notes come from your changelog. No secrets are needed: the workflow records GitHub build provenance for the file instead of signing it. To also sign it with your own key, set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 
 ## After you release
 
-Official plugins are picked up by the registry within the hour, and their docs on this site rebuild from the release. For your own plugin, see [registries](/develop/registries).
+Official plugins are picked up by the registry within the hour, and their docs on this site rebuild from the release. For your own plugin, the run's summary shows what to put in a [community registry](/develop/community-registry) submission.

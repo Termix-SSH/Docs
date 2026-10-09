@@ -14,7 +14,7 @@ Termix is spread over a few repos. Pick the one your change belongs in:
 | [Docs](https://github.com/Termix-SSH/Docs)                       | This site.                                                                                                              |
 | [Mobile](https://github.com/Termix-SSH/Mobile)                   | The iOS and Android app.                                                                                                |
 | [CLI](https://github.com/Termix-SSH/CLI)                         | The `termix` command.                                                                                                   |
-| [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry) | The plugin index and the shared release workflows.                                                                      |
+| [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry) | The official and community plugin indexes and the shared release workflows.                                             |
 
 Each repo has a `CONTRIBUTING.md` with how to build and test it.
 

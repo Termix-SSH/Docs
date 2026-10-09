@@ -71,6 +71,8 @@ export default function PluginCatalog(): React.ReactNode {
       <p className={styles.note}>
         Community plugins are not listed here. Each one can link its own docs
         from its manifest, and Termix shows that link on the plugin's page.
+        Termix can't install them yet, but you can already{" "}
+        <Link to="/develop/community-registry">submit yours</Link>.
       </p>
     </div>
   );
