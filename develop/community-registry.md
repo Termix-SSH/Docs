@@ -7,11 +7,7 @@ description: Submit your plugin so it is listed for everyone.
 
 The community registry lists plugins made by anyone. A person reviews every version before it is listed. It lives in [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry) next to the official plugins, in `community/`.
 
-:::note
-
 Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry already has plugins when it ships. Until then, people can install your plugin from a `.tmxplug` file with [developer mode](/develop/quick-start) on.
-
-:::
 
 ## Before you submit
 
@@ -23,7 +19,7 @@ Termix can't install community plugins yet. That comes in a later update. Submis
 
 ## Release it
 
-Run the **Release** workflow in your repo, as in [releasing](/develop/releasing). No secrets are needed. For plugins outside the Termix team, the workflow:
+Run the Release workflow in your repo, as in [releasing](/develop/releasing). No secrets are needed. For plugins outside the Termix team, the workflow:
 
 - publishes the `.tmxplug` as a GitHub release, without a signature
 - records GitHub build provenance for it, which proves the file was built by the release workflow from your repo
@@ -50,7 +46,7 @@ Fork [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry) and add `c
 | `maintainers` | GitHub usernames allowed to send updates. You must be one of them.        |
 | `versions`    | The versions to list, newest first. Each one is the `v<version>` release. |
 
-Open a pull request. The **Check submission** job downloads your release and checks that:
+Open a pull request. The Check submission job downloads your release and checks that:
 
 - the file has the `sha256` you gave
 - the manifest in it has your id, version and repo
