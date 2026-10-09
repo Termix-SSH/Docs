@@ -26,6 +26,8 @@ You can add as many as you like. Synced passkeys are marked **synced**. Remove o
 
 Press **Sign in with passkey** on the sign in page and pick your passkey. No username or password needed.
 
+An account that only signs in through SSO or LDAP can't use a passkey to sign in on its own, so disabling the user at the identity provider always locks them out. Accounts that also have a password are not affected.
+
 ## As a second factor
 
 A passkey that checks your PIN, fingerprint or face counts as a second factor on its own. If you use [TOTP](/plugins/totp) too, signing in with a passkey like that doesn't ask for a code.
