@@ -16,7 +16,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
-| Share anonymous usage statistics | boolean | `true` | Sends a small anonymous summary once a day to help improve Termix. It never includes usernames, hostnames, IP addresses or credentials. |
+| Share anonymous usage statistics | boolean | `true` | Sends a small anonymous summary once a day to help improve Termix. It never includes usernames, hostnames or credentials. |
 | Include platform info | boolean | `true` | The operating system, CPU architecture, Node.js version, database type and how Termix is installed (Docker, desktop app or server). |
 | Include feature usage | boolean | `true` | How many times each kind of tab was opened and how many SSH logins happened since the last report. Users can turn off their own part in their profile. |
 | Include installed features | boolean | `true` | Which plugins are turned on and their versions. Used to count how many instances use each plugin. |

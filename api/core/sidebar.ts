@@ -114,12 +114,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "core/permanently-dismiss-the-donation-reminder-modal",
-          label: "Permanently dismiss the donation reminder modal",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
           id: "core/get-current-session-token",
           label: "Get current session token",
           className: "api-method get",

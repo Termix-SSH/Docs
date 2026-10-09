@@ -55,6 +55,10 @@ Changes run with sudo. Save the host's **Sudo Password** so Termix can answer th
 
 Health checks test a URL or a TCP port from the host, and show when one fails. [Automations](/plugins/automations) can act on a check changing.
 
+Checks run in the background on their own schedule, every 5 minutes by default. Set **Check every (minutes)** when you edit the checks, down to 1 minute. They also run when you open the card or press **Run**. Scheduled checks run as the user who saved them, and are skipped while metrics are off for the host, while that user can no longer reach it, or when the host's login needs a code typed in.
+
+When a check starts failing or comes back, the user who saved it gets an alert in [Alerts](/plugins/alerts).
+
 ## What the SSH user needs
 
 Most stats come from files anyone can read. A few need more:
