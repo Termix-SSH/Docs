@@ -32,6 +32,6 @@ Recordings are deleted after 30 days. Admins change it with **Retention (days)**
 
 Recordings are files in the data folder, `plugin-data/session-recording`. Long recordings of busy sessions use disk, so pick a retention that fits.
 
-A recording stays when its user is deleted, since it is a record of what happened on the host.
+A recording stays when its user is deleted, since it is a record of what happened on the host. For the same reason only admins can delete a recording by hand.
 
 Who can watch recordings is set by the `session-recording.view` permission. Admins and users have it at first.

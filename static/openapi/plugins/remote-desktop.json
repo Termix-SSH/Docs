@@ -234,6 +234,95 @@
         }
       }
     },
+    "/plugin-api/remote-desktop/guacd-host/{hostId}": {
+      "get": {
+        "summary": "Read a host's guacd address",
+        "description": "Returns the guacd address an admin set for this host, if any, and whether the caller may change it.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The address (empty when the host uses the global guacd) and canEdit."
+          },
+          "400": {
+            "description": "Invalid host ID."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Set a host's guacd address",
+        "description": "Sets or clears the guacd address this host's sessions use. Admins only, since it decides where the server opens a connection.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostname": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved. Empty values clear it."
+          },
+          "400": {
+            "description": "Invalid host ID."
+          },
+          "403": {
+            "description": "Not an admin."
+          },
+          "404": {
+            "description": "Host not found or no edit access."
+          }
+        }
+      }
+    },
     "/plugin-api/remote-desktop/status": {
       "get": {
         "summary": "Remote Desktop status",

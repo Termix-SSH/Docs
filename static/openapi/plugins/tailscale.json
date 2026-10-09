@@ -124,6 +124,7 @@
     "/plugin-api/tailscale/host-metrics-manager/{id}/action": {
       "post": {
         "summary": "Connect or disconnect Tailscale on a host",
+        "description": "Needs edit access to the host.",
         "tags": [
           "Tailscale"
         ],
@@ -159,6 +160,9 @@
         "responses": {
           "200": {
             "description": "Action result."
+          },
+          "403": {
+            "description": "No edit access to the host, or elevation denied."
           }
         }
       }

@@ -111,7 +111,7 @@
       },
       "delete": {
         "summary": "Delete session recording",
-        "description": "Deletes a session recording and its file.",
+        "description": "Deletes one of the caller's session recordings and its file. Admins only, since a recording is a record of what happened on the host.",
         "tags": [
           "Session Recording"
         ],
@@ -128,6 +128,9 @@
         "responses": {
           "200": {
             "description": "Session recording deleted."
+          },
+          "403": {
+            "description": "Only admins can delete recordings."
           },
           "404": {
             "description": "Session recording not found."

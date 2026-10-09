@@ -19,4 +19,4 @@ plugin_latest: true
 - Jump host support
 - Session sharing and recording
 - Open a host in the native Windows Remote Desktop client from the desktop app
-- Connections need the remote desktop permission, and only the server decides guacd paths, drive folders and VNC listen mode
+- Connections need the remote desktop permission, only the server decides guacd paths, drive folders and VNC listen mode, and only admins set a host's own guacd

@@ -37,7 +37,7 @@ If your ACL has `check` mode on, Termix asks you to sign in to Tailscale in the 
 
 ## In Host Metrics
 
-With [Host Metrics](/plugins/host-metrics) on, hosts get a **Tailscale** card: whether Tailscale runs, its IPs, peers and status. Save the host's sudo password to allow changes from the card.
+With [Host Metrics](/plugins/host-metrics) on, hosts get a **Tailscale** card: whether Tailscale runs, its IPs, peers and status. Save the host's sudo password to allow changes from the card. Turning Tailscale on or off needs edit access to the host. With only connect access the card is read only.
 
 ## Troubleshooting
 

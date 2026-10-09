@@ -51,6 +51,8 @@ Manager cards let you change a host, not just watch it:
 
 Changes run with sudo. Save the host's **Sudo Password** so Termix can answer the prompt. Without it, changes that need root fail with a message saying so.
 
+On a shared host, seeing the managers only needs connect access. Changing the host (starting or stopping a service, killing a process, installing packages, editing cron, firewall rules, users, certificates or WireGuard) needs edit access. Without it the buttons are hidden.
+
 ## Health checks
 
 Health checks test a URL or a TCP port from the host, and show when one fails. [Automations](/plugins/automations) can act on a check changing.

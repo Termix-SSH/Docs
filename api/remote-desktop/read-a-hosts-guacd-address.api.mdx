@@ -1,0 +1,69 @@
+---
+id: read-a-hosts-guacd-address
+title: "Read a host's guacd address"
+description: "Returns the guacd address an admin set for this host, if any, and whether the caller may change it."
+sidebar_label: "Read a host's guacd address"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsEL90FJnZa7Em3bbNtvQWKIOtuUARGQUu0NbU0o52h4qiC/nvBGSXO1xZoDz1ZHr0hHx/JpxErjmWwnVjvsMArlj64CFIz7HsqK6CqChwjkAOqWusgssDOB5DaRqh9FAN2B+QGA+QqONYsNYcUoaSm4QAtDVDW5PYMVhZoUGgfsbjBK269MFxwPIjvcGMwctkHKwMWNyNumQKH973UWNxspo3BjgK1LBxiAlil3JHUaNBRy1igElpVaDDwl94GrrCQ0LPBWNbcEhYjytAp0jrhPQecNHDg2HkXOSrgu/Nz/XmqzLrmBy3ecNvJoKW6VKcmhT7yrFvjt9Rk+d4mTUpyHyotfTL47rXgK3dLja1yoNXFDHz3EvizApzXDvSuWuA0GWxZal9hgXsWNFmPApdd0++tO6POLkPS+azKOi8TszPNtRyzXhOq9OH2Xtg+NFjgmI/05VMWv/s+wJpDa+8gY9DgLQVL2yZLOJ8m/jvqG9HWiHSxWC4lXVzwHbVdw4vStzilJtw3/5O2Ksd5PAIPndNAOHdU/2cQmvnhRx9a0oQfr9cvqH/iGK13IP7AOstOwOYmahIf7F+kSKiZKg5AEb5PQVMfFZYupgaV3h8sP+NGnf2FBzR5NjPkNJ1/HuWrjD5eryHj04qRQLR7d2bdAq510LrASteAFRA6cNSTkit2JYO/nVfutSoS20zsPyr5/nIFBx4gCgWxbg9HKzVIe/fHi3IeoP9e2gMPBo61LeucKJ7SLGAlQKVEvTZjwR/dfLskp0tBpeh7coN3DNxEzhti3c6nqq00nFzuse/A+8uVzi+HmEv4dnG+OH9R2NXFpYHPv/6QEq65cSwQc++iFjroUmyDP0YOJjMvG9ttPYXKwM42DBLIxZ2+jjUF1VFjBS59qKzbpz51PkpLTunOQ3PFVAElb/gmPnXl5yRHLL0TdvL/WXkeJOE7WXYNWac1JPsYZye6wZMTJV9+7EVo8ORGaLCY/XtjkpPr7XHcUuTfQjNNevyl56Cfh83JcZJlVTbqc4XFjprI/yDMm6v50/AWvlbA/TK7IRlb0+s/NHjg4fSNmTaPzfenD2o29HS/nu1TIvpq7HHMiLW6yzQ9pEpuo5mm6W9gWKSJ
+sidebar_class_name: "get api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a host's guacd address"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/remote-desktop/guacd-host/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the guacd address an admin set for this host, if any, and whether the caller may change it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The address (empty when the host uses the global guacd) and canEdit."},"400":{"description":"Invalid host ID."},"404":{"description":"Host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

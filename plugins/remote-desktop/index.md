@@ -33,6 +33,8 @@ guacd:
 
 guacd only needs to be reachable from Termix. Don't publish its port.
 
+A host can use its own guacd under **guacd Proxy** in the host editor. Only admins can set or change it, since it decides where the server connects. Everyone else sees it read only. In the desktop app, a host set to This device can still keep its own guacd.
+
 Without Docker, install guacd from your distro or [build it](https://guacamole.apache.org/doc/gug/installing-guacamole.html), then set `GUACD_HOST` and `GUACD_PORT`, or the **guacd URL** in **Settings**, **Remote Desktop**.
 
 ## Add a host

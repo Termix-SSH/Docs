@@ -16,6 +16,6 @@ plugin_latest: true
 - First release
 - CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins
 - History charts for each host
-- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard
+- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard, with changes needing edit access on a shared host
 - Health checks for your hosts and services
 - A layout you can rearrange per host, and live stats in the terminal toolbar
