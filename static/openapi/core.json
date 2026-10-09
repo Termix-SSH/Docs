@@ -190,6 +190,9 @@
           },
           "401": {
             "description": "Not signed in."
+          },
+          "403": {
+            "description": "API keys cannot link a desktop."
           }
         }
       }
@@ -735,7 +738,7 @@
                     "localVersion": {
                       "type": "string",
                       "description": "Version of the running instance. Use this field for client compatibility checks.",
-                      "example": "2.7.1"
+                      "example": "26.10.0"
                     },
                     "status": {
                       "type": "string",
@@ -759,13 +762,13 @@
                     "remoteVersion": {
                       "type": "string",
                       "description": "Newest release version on the channel. Present only when the update check succeeds.",
-                      "example": "2.8.0"
+                      "example": "26.10.0"
                     },
                     "version": {
                       "type": "string",
                       "deprecated": true,
                       "description": "Legacy alias of remoteVersion, not the running instance's version. Present only when the update check succeeds. Use localVersion for the instance or remoteVersion for the latest release.",
-                      "example": "2.8.0"
+                      "example": "26.10.0"
                     },
                     "latest_release": {
                       "type": "object",
@@ -7138,7 +7141,7 @@
     "/credential-sidebar/preferences": {
       "get": {
         "summary": "Get the credential sidebar preferences for the current user",
-        "description": "Returns the current user's saved credential sidebar preferences (sort, filters, open folders, display settings). Unlike /host-sidebar/preferences, there is no legacy-column migration to perform here — credentials never had exploded preference columns on userPreferences — so a first-time GET simply returns the defaults without writing a row; a row is only created once the user actually changes something via PUT.",
+        "description": "Returns the current user's saved credential sidebar preferences (sort, filters, open folders, display settings). Unlike /host-sidebar/preferences, there is no legacy-column migration to perform here, credentials never had exploded preference columns on userPreferences, so a first-time GET simply returns the defaults without writing a row; a row is only created once the user actually changes something via PUT.",
         "tags": [
           "Credential Sidebar"
         ],

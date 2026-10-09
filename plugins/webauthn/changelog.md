@@ -13,6 +13,7 @@ plugin_latest: true
 
 ### Added
 
-- Passkeys and security keys
+- First release
+- Sign in with a passkey or security key instead of a password
 - Counts as a second factor when it checks your PIN or fingerprint
 - More than one passkey, including synced ones

@@ -13,6 +13,8 @@ plugin_latest: true
 
 ### Added
 
-- Wake a host in one click
+- First release
+- Wake a host in one click from its menu
 - Wake a host before a remote desktop connection
 - Wake a host from an automation
+- Per-host MAC address and subnet broadcast address

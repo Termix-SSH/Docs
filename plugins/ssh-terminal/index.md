@@ -31,7 +31,7 @@ Turn **Enable Terminal** off for a host that should never get a terminal.
 
 ## The toolbar
 
-A toolbar sits in each terminal with the host's other tools, like files, Docker and metrics, and live CPU, memory and disk stats. Set where it sits, whether it starts expanded, and whether it fades when idle, per host.
+A bar along the bottom of each terminal holds the host's other tools, like files, Docker and tunnels, plus image upload and paste, with live CPU, memory and disk stats on the right. In the host editor's **Terminal** tab, the **Toolbar** card moves it to the top, switches between labels and icons only, and turns each button on or off or changes its order. When a terminal is too narrow, buttons drop to icons and the rest go into a **More** menu.
 
 ## Command history
 

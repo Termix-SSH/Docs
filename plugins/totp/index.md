@@ -20,7 +20,9 @@ TOTP adds two-factor sign in with a code from an authenticator app, like Google 
 4. Enter the 6-digit code it shows and press **Verify**.
 5. Save your **Backup Codes** somewhere safe. **Download Backup Codes** saves them as a file.
 
-From then on, signing in asks for a code. A backup code works in place of a code, once each.
+From then on, signing in asks for a code. Each code works once, so if you just used one, wait for the next. A backup code works in place of a code, once each.
+
+Wrong codes are rate limited, both at sign in and when you add a device, turn TOTP off or make new backup codes.
 
 ## More than one device
 

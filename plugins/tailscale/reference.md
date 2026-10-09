@@ -40,7 +40,6 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
-| `settings:read-core` | Low | Read Termix settings. Server settings, not your hosts or credentials. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 
 ## Works with other plugins

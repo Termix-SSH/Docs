@@ -59,7 +59,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
-| `plugins:read` | Low | See installed features. It can see which features are installed and running. |
+| `plugins:read` | Low | See installed plugins. It can see which plugins are installed and running. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 
 ## API

@@ -599,10 +599,14 @@
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "principals"
+                ],
                 "properties": {
                   "validityDays": {
                     "type": "integer"
@@ -623,7 +627,7 @@
             "description": "Issued certificate"
           },
           "400": {
-            "description": "Not an Ed25519 key, or no CA"
+            "description": "Not an Ed25519 key, no CA, or no principals"
           },
           "404": {
             "description": "Key not found"

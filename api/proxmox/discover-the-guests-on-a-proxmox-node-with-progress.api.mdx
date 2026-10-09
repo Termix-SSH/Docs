@@ -1,0 +1,69 @@
+---
+id: discover-the-guests-on-a-proxmox-node-with-progress
+title: "Discover the guests on a Proxmox node, with progress"
+description: "Same as POST /discover, sent as server-sent events so the UI can show progress. The last event carries the guests."
+sidebar_label: "Discover the guests on a Proxmox node, with progress"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU2P20YM/SsETy2glbdFT7q5SNI6RdFF7XRRLIxiVuJaU0szypDyRwX994AzstfxZgukl55sj/nxSD4+DlgRl8F2Yr3DApemJTAMd78tVzCrLJd+RyEDJif6zhR2FG7iT9qREwb2IDXBhwWUxgHXfg9d8JtAzDmsaoLG8GQMpQnBEkeHTU8snGOGYjaMxQPeBX9o/QHXGTKVfbByxOJhwEcygcK8lxqLh/W4zrAzwbQkFDgaWIX+sadwxAydaQkLrD3LosIMA33sbaAKCwk9ZchlTa3BYkA5dmrp+vaRAo7ZVS8Wb8A/RajL5c+g8UBqI2AZDExYwfmKclRMgbjzjok19Pe3t/rxecC5m9rAEsi0Gv3U4eO5Z2BcFZMG4r4R7U/pnZCTCJkOMotBblIQLIZxHDP84UsJf7XM1m3AB7BuZxpbQWpLjurTktS+wgI3JKhN1QbjrGv6jXU3prOzLlV5JsJsSqoDUiKk9vehwQKH9DTidR//9H2AFYXWHib+YIY7E6x5bFK3pteI/8n0jej8RDouZjOJjjkdTNs1lJe+xXEcLyiy1HmmOJdEOY9XA+E0dv2djDCbvrzzoTWa8P396gX0JTFb70D8llxaAuvidDSJD/Yfo5ZQk6ko6IL8GIOehxgdc+VW6f3W0hU209lfSEkbGZxMnin8915eRfT+fgXJHpgEjADbjbuxLof7mhx0gRRuBlZAzJZYX0qqyJUEOspXq4hoE7D/2Mn53QK2dAQWE0T5t7dSg7SHv16Uczb9+tZu6ZjBvrZlnRLxc5ocFgKmFFa3yRb83k3epXHORwP937ijdwTUMKW1sO7Jx6qtNFrmadXndwslLgVO2L/Lb/PbFxUt2s4HOevDH28nodNUunycwZaoU1itVsxHV0ZUeyNlHfVE61FlHDPsPEtrnMKZSPFmWsULDQXvrhQpS704aco1yOFZUv4nxU+EimrWNcY6rTXKyDDJ0AM+y5Bq03QaMjwhVCImMVpnUezVZxgeDdOH0IyjPqeToBJVWVa1qbB4Mg3Tv/Tjm9+ne/EtfMUBeKWkLR0vT9HONL0axXtxUsB40zJMPI9gk9e8LKmTC6+X2q9hziL+01vVL/P5yl6taAx/0h53vAg+DMlipYI1qognFFHAcFyP4/gJ9pzUrw==
+sidebar_class_name: "get api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Discover the guests on a Proxmox node, with progress"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/proxmox/discover/stream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Same as POST /discover, sent as server-sent events so the UI can show progress. The last event carries the guests.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"number"},"description":"ID of the SSH host that is a Proxmox node."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"An event stream of discovery progress and the result.","content":{"text/event-stream":{}}},"400":{"description":"Missing or invalid hostId."}}}
+>
+  
+</StatusCodes>
+
+
+      

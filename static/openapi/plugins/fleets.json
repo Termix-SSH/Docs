@@ -351,7 +351,7 @@
     "/plugin-api/fleets/{id}/execute": {
       "post": {
         "summary": "Run a command across every host in a fleet",
-        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.",
+        "description": "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.",
         "tags": [
           "Fleets"
         ],
@@ -396,7 +396,7 @@
     "/plugin-api/fleets/{id}/transfer/push": {
       "post": {
         "summary": "Push an uploaded file to the same remote path on every host in a fleet",
-        "description": "Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.",
+        "description": "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.",
         "tags": [
           "Fleets"
         ],
@@ -442,7 +442,7 @@
     "/plugin-api/fleets/{id}/transfer/pull": {
       "post": {
         "summary": "Pull the same remote path from every host in a fleet",
-        "description": "Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>/<filename>).` Single file only (v1).",
+        "description": "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>-<hostId>/<filename>).` Single file only, up to 200 MB per host.",
         "tags": [
           "Fleets"
         ],

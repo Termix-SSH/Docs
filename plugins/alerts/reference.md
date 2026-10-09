@@ -47,11 +47,11 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `notify:hub` | High | Receive every alert. Stores and delivers the alerts all plugins send, including their contents. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
-| `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `settings:read-core` | Low | Read Termix settings. Server settings, not your hosts or credentials. |

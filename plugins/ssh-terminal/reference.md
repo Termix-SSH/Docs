@@ -41,12 +41,6 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Enable Terminal | boolean | `true` | Offer an SSH terminal for this host. |
-| Enable Terminal Toolbar | boolean | `true` | Show a quick-access toolbar docked to the active terminal for this host's tools and live stats |
-| Toolbar Position | select | `"bottom"` | Where the toolbar sits in the terminal. You can still drag it from there. |
-| Toolbar Start State | select | `"expanded"` | Whether the toolbar opens expanded or minimized when the terminal connects |
-| Toolbar Display Mode | select | `"remember"` | How toolbar buttons are shown. Last used keeps whatever you picked in the toolbar. |
-| Show Live Stats | boolean | `true` | Show live host stats above the toolbar buttons in expanded mode |
-| Fade When Idle | boolean | `true` | Fade the toolbar out until you hover over it |
 | Command History | boolean | `true` | Record commands run in this terminal for history and autocomplete |
 
 ## Environment variables

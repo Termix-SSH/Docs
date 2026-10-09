@@ -4,6 +4,21 @@ sidebar_position: 9
 ---
 Changes to `@termix-ssh/plugin-sdk`. A release that bumps the plugin API says so at the top.
 
+## 1.0.5
+
+### Fixed
+
+- `execCommand` timeout errors no longer include the command, which could hold a sudo password
+- `termix-plugin validate` fails when a plugin ships migrations for some database engines but not all three
+- `termix-plugin migrations` loads the table definitions from a path with a `#` or other URL characters in it
+- `i18next`, `react-dom`, `react-i18next` and `sonner` are optional peer dependencies, so npm stops installing them into backend-only plugins
+
+## 1.0.4
+
+### Fixed
+
+- `termix-plugin build` puts a plugin's own Tailwind classes in core's utilities layer, so responsive, hover and group variants and `className` overrides on SDK components work. Plain classes core already ships stay below core's utilities as before, while variants core ships go with the plugin's own so `max-h-56 md:max-h-none` keeps its order. Rebuild a plugin to pick it up
+
 ## 1.0.3
 
 Plugin API 1.2.0.

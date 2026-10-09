@@ -55,5 +55,5 @@ Turn on **Enable Proxmox Stats** on the node and pick **Proxmox Stats** from its
 
 ## Troubleshooting
 
-- **pvesh not found.** The host isn't a Proxmox node, or the SSH user can't run `pvesh`.
+- **pvesh was not found.** The host isn't a Proxmox node, or the SSH user can't run `pvesh`.
 - **Guests have no IP.** Proxmox only knows a VM's IP when the QEMU guest agent runs in it. Install the agent, or set the address by hand after import.

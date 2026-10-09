@@ -48,9 +48,9 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "proxmox/discover-proxmox-guests-on-a-node",
-          label: "Discover Proxmox guests on a node",
-          className: "api-method post",
+          id: "proxmox/discover-the-guests-on-a-proxmox-node-with-progress",
+          label: "Discover the guests on a Proxmox node, with progress",
+          className: "api-method get",
         },
         {
           type: "doc",

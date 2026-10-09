@@ -28,7 +28,7 @@ Drag nodes around. **Zoom In**, **Zoom Out** and **Reset View** help with big gr
 
 ## Status
 
-Each node shows whether the host is online, from Termix's host status checks. Click it to see its details, or jump to its [Host Metrics](/plugins/host-metrics).
+Each node shows whether the host is online, from Termix's host status checks. Right-click it to see its details, or open it in [Host Metrics](/plugins/host-metrics).
 
 ## Save and share
 

@@ -28,7 +28,7 @@ If Connect runs on your own network, an admin adds its address to **Private endp
 4. Press **Test**. It shows how many vaults it can see.
 5. Save.
 
-The token is stored encrypted. Admins can turn on **Share with all users** to let everyone use a source. It only works while the admin who added it has signed in since Termix started, since their key unlocks the token.
+The token is stored encrypted on the server and is never shown again. Admins can turn on **Share with all users** to let everyone use a source.
 
 ## Use it
 
@@ -47,5 +47,5 @@ Your own source is used first. If you don't have one, a shared one is.
 ## Troubleshooting
 
 - **No secret source is configured.** Add one, or ask an admin to share one.
-- **The source owner's data is locked.** A shared source's owner hasn't signed in since Termix started.
+- **No token is stored for this secret source.** The owner opens the source, enters the token again and saves.
 - **Blocked address.** Add the Connect server to the private endpoint allowlist.

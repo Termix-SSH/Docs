@@ -45,7 +45,7 @@ Leave `redirect_uris` out. In OPKSSH it only lists localhost ports for its own l
 
 1. Open the host in **Manage**.
 2. Set **Authentication Method** to **OPKSSH** and save.
-3. Connect. Termix asks you to sign in. Press **Open Browser to Authenticate**, sign in with your provider, and the connection carries on.
+3. Connect. Termix asks you to sign in. Press **Sign in with** your provider (or **Open Browser to Authenticate**), sign in, and the connection carries on. Finish within five minutes, or the sign in times out and you can try again.
 
 The certificate is kept for 24 hours, so you sign in about once a day. It works for the terminal, file manager, Docker and every other plugin that connects over SSH.
 

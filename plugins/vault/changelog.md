@@ -13,11 +13,9 @@ plugin_latest: true
 
 ### Added
 
+- First release
 - Adds the Vault auth type to hosts
 - Sign in to Vault with OIDC when you connect
 - Never stores a Vault token or long-lived key
 - Reusable signer profiles you can share with everyone
-
-### Fixed
-
-- A personal Vault profile can no longer point the server at private or internal addresses unless an admin allows that host
+- A personal profile only reaches a private or internal Vault address when an admin allows that host

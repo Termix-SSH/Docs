@@ -16,7 +16,7 @@ Other plugins send alerts. Alerts is where they land.
 
 ## The inbox
 
-Open **Alerts** from the sidebar. Each alert has a severity (info, warning or critical), where it came from and when. Filter by unread, severity or source, and search.
+Open **Alerts** from the sidebar. Each alert has a severity (info, success, warning or critical), where it came from and when. Filter by unread, severity or source, and search.
 
 New alerts also pop up while you use Termix. Pick which ones under **Alert popups** in **Settings**, **Alerts**: all, warnings and critical (the default), critical only, or none. They always land in the inbox either way.
 
@@ -61,7 +61,7 @@ An admin sets up the mail server in **Settings**, **Alerts**:
 
 ## Termix announcements
 
-With **Termix announcements** on, news from the Termix team, like security notices and new releases, shows up in everyone's inbox. Admins can turn it off.
+With **Termix announcements** on, news from the Termix team, like security notices and new releases, shows up in the inbox. You only get news from after you joined, so a new account starts with a clean inbox. Some come with buttons, and an important one can also show as a card on screen until you close it. Delete one and it won't come back. Admins can turn announcements off.
 
 ## Keeping alerts
 

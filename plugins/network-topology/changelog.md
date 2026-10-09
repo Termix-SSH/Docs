@@ -13,6 +13,7 @@ plugin_latest: true
 
 ### Added
 
+- First release
 - Add hosts and draw links between them
 - Live status for each host
 - Nested, colored groups

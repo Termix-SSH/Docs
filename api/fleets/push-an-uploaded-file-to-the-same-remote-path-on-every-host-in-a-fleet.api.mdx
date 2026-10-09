@@ -1,11 +1,11 @@
 ---
 id: push-an-uploaded-file-to-the-same-remote-path-on-every-host-in-a-fleet
 title: "Push an uploaded file to the same remote path on every host in a fleet"
-description: "Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP."
+description: "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP."
 sidebar_label: "Push an uploaded file to the same remote path on every host in a fleet"
 hide_title: true
 hide_table_of_contents: true
-api: eJzVVcFu40YM/RWCp11AtrPFnnzLFkiR7aFGkyIoFsaCHlHWrEcz2hnKiWro3wvOOLEbNwX2WF8sjR7JR3L4eMCak4m2Fxs8LvGGfIIwCJjgzRAje3EjSADecxyBm4aN2D1Dx92GI7QhCUjLYMg5facEXFuZOd6zAzKGUwIJc7izfusYGusYgncjvNt/eA+zbJwPbYLN0DQcuYbgDUPiuOc4S7ZmIF/DY7Qi7DMbMm2JvbcEdzf3qzlWKLRNuPyCN45ZEq4r7ClSx8JRzw9oNcWepMUKPXWMS7Q1Vhj5+2Aj17iUOHCFybTcES4PKGOfUV54yxGnaV3QnORTqEeFvDY2wQt70U/d4MT2FGXRhNjNapLs9MJ92HxjI1hhH0PPUSwn/aplOUMlidZvsUJ1RoJL3FhPccRJOXVBeKWpXRhM+aeY1Aefiu+frq7075/dX3Gc5ar2Q2ohchqcpLn6/3j18RKe6ww+CDRh8PUcNUrH0oZa6xxSTilzwkXvhq31M+rtosn9WRxsPS0kkk8Nx4WGxApL00u7huhwiYdyNGH1KvyfYYhwz7GzT8e7ghXuKVrauJLk8TQTb2hwWrNWpE/LxUKy4ZyfqOsdz03otFBrZWCGaGXMFDZMkeP1oDl8WU/VAU0IO8vnJ9TbX3l8OTlzcaeNLlTOHb00SLng8brpewFhdXy4ee7z54f7i+zvOCUbdBp27CGxF7A+T5MGCdH+RYqElqnmCJTgU3aaR0lh2TA39zylF24lK6zK0BTIaWy+PcqbjD4/3EPBQ2IBEkh262fWz+GhZQ99ZKVbgRUQ2nHSE8M169CHPcc3s8hsz8v9w5W8Xt3CjkdIQlGs38KjlRake/p6kc4L9MdLu+OxgsfWmrYESqcwc7gVICNJzY5YCI/+aG3I6zyREf1OfgyegV3iMlzWNyFnbUWl4ah0cL261avPMRXqH+ZX86uLhH6JYeizaiawXgKUOcxx4+DBhK4jX6cKejI72rLSsMEXRNbo52lNEDyQcxAaTaLTJqtm5wbp4HfklefxtqxUTsjD0LtANT87C7kAiTqGol+gYqGuy7bJUmQ9UGH6OqHDSWr/53ur3GHhJ1n0jqzXKmbxOxzl8wue5FMXQFlwFS7z+nruiqqtqui6Qo2hZofDhhL/Ed006fH3gaMK2/oklFnmapv0ucZlQy7xfxT63e/Hdfce3mL+LCB+zHrsBn3DCnc8loU7racKy/Dk6OXDzyXG7F7NT4b/tkNVY1/2zOq3O1XHzXEdd6FWMwVnbHV6VHWepr8BzNMaqA==
+api: eJzdVU1v40YM/SsET7uA/JFiT75lC6TI9lBjkyIoAqOgJcqa9WhGO0M5UQ3994Iz/mrcFNhrfbE0eiQfyeHjHiuOZTCdGO9wgV97F8E76DsQDzdzaHyUCCRAIKblAqgMPkbgHYcBuK65FLNjaLldc0hwkIahJGv1nSJwZWRieccWqCw5RhA/hQfjNpahNpbBOzvAh93NR5gk43RoIqz7uubAFXhXMkQOOw6TaCoGchW8BCPCTokylU2OvTMED3ePyykWKLSJuHjGO8ssEVcFdhSoZeGg53s0mnJH0mCBjlrGBZoKCwz8vTeBK1xI6LnAWDbcEi72KEOXUE54wwHHcZXRHOWzrwaFvDUuvRN2op/a3orpKMis9qGdVCTJ6ZV7v/7GpWCBXfAdBzEc9auW5QIVJRi3wQLVGQkucG0chQFH5dR64aWmdmUwpp9iYuddzL5/ms/175+3Yclhkqra9bGBwLG3Eqfq/9P80zU81RmcF6h976opapSWpfGV1tnHlFLihLPO9hvjJtSZWZ36M9ubapxJIBdrDjMNiQXmpud29cHiAvf5aMTiTfg/fB/gkUNrXg93BQvcUTC0tjnJw2kiXlNvtWaNSBcXs5kkwym/UttZnpa+1UKtlEHZByNDorBmChxue83heTUWeyy93xq+PKHO/MrD6eTCxYM2OlO5dHRqkHLBw3XT9wzC4vBwd+zzl6fHq+wfOEbjdRq27CCyEzAuTZMG8cH8RYqEhqniABThc3KaRklhyTA19zKlE7ecFRZ5aDLkPDbfXuRdRl+eHiHjIbKolkSzcRPjpvDUsIMusNItwAgIbTnqSckV69D7HYd3s0hsL8v9w5W8Xd7DlgeIQkGM28CLkQakff3zKp0T9MdLu+WhgJfGlE0OFM9hpnAvQKVqbDxiwb+4g3VJTueJStHv5AbvGNhGzsNlXO1T1kZUGg5KB7fLe736HGKmfjOdT+dXCf0SfN8dBN448ZDnMMUNvYPSty25KhbQUbmlDSsN411GJI0+TmvaGWQt+FqTaLXJqtmpQTr4LTnlebgtS5UT0i1jPVV8dOZTASK1DFm/QMVCXedtk6TIOKDM9G1C+7PU/s/2WL7Twq8y6ywZp1VNYrg/yOkznuVUF0JeeAUu0jo7dknVV1V1VaDGULP9fk2Rfw92HPX4e89BhW51Fs4ke5WJ+lzhoiYb+T8K/+HrYf19hPeYHwXFDUmfba9vWOCWh7yAx9VYYB6mFD1/+DnHmDyq+dnw33aqau5p7yx/e1C1XB/Wc+srNVNwwhbnR1XrcfwbaIIjSA==
 sidebar_class_name: "post api-method"
 info_path: api/fleets/fleets-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Fans out concurrently to every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.
+Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.
 
 <Heading
   id={"request"}

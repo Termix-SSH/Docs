@@ -13,17 +13,10 @@ plugin_latest: true
 
 ### Added
 
-- Tabs and split screen
-- Jump hosts and host key verification
-- Sessions stay alive after a disconnect and reconnect on their own
-- Tmux and Mosh support
-- Themes, fonts and syntax highlighting
-- A toolbar with live stats and quick links to the host's other tools
-- Command history with autocomplete
-- Macros that automate logins and prompts
-- Send keystrokes to several terminals at once
+- First release
+- SSH terminals with tabs, split screen, jump hosts and host key checks
+- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support
+- Themes, fonts, syntax highlighting and a toolbar with live stats
+- Command history with autocomplete, macros and keystrokes sent to several terminals at once
+- Shared sessions keep read-only viewers read-only, even after they leave
 - A local terminal in the desktop app
-
-### Fixed
-
-- Someone who joined a shared session read-only can no longer type into it after leaving

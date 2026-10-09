@@ -13,6 +13,7 @@ plugin_latest: true
 
 ### Added
 
+- First release
 - Find and import VMs and LXC containers from a node
 - Keep imported hosts in sync on a schedule
 - Set up Windows guests for RDP and turn on Docker for guests by name

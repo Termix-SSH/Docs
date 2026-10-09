@@ -37,7 +37,7 @@ The sign in page now shows a button for the directory. Pressing it asks for an L
 | **Username Attribute**         | The attribute with the username. Usually `uid`, or `sAMAccountName` in Active Directory.                                                                 |
 | **Display Name Attribute**     | The attribute with their name. Usually `cn`.                                                                                                             |
 | **Group Search Base**          | Where groups live, for the admin check.                                                                                                                  |
-| **Admin Group**                | Members of this group are Termix admins.                                                                                                                 |
+| **Admin Group**                | Members of this group are Termix admins. Its `cn` or full DN; case and spaces in a DN don't matter.                                                      |
 | **Allowed Users**              | A comma separated list of usernames allowed to sign in. Empty allows anyone the directory accepts.                                                       |
 
 ## How sign in works
@@ -59,6 +59,7 @@ Use `$external.username` as a host's username to fill in the name someone signed
 ## Troubleshooting
 
 - **Invalid credentials for everyone.** Check the bind DN and password first, then the search base and filter. The server log shows why a sign in was refused.
+- **Refused even with the right password.** The filter has to match exactly one entry. If it matches several, Termix refuses the sign in rather than guess, so make the filter stricter.
 - **Certificate errors with LDAPS.** Paste your CA under **CA certificate**.
 - **Too many attempts.** Sign ins are rate limited per user to stop guessing. Wait a few minutes.
 

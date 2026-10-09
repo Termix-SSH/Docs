@@ -18,7 +18,7 @@ Everything is read over SSH. There is no agent to install.
 
 Pick **Host Metrics** from a host's menu. Metrics are on for every host at first. Turn them off for a host in its Host Metrics settings.
 
-Host Metrics only works on Linux. It reads `/proc` and standard tools, so Debian, Ubuntu, Fedora, Arch, Alpine and most others work. Windows, macOS and BSD don't.
+Host Metrics is built for Linux. It reads `/proc` and standard tools, so Debian, Ubuntu, Fedora, Arch, Alpine and most others work. macOS and Windows hosts get CPU, memory, disk, network, uptime and system info, but not the other cards or the managers. BSD isn't supported.
 
 ## Layout
 
@@ -38,22 +38,22 @@ Samples are taken while someone is looking at a host, every 30 seconds by defaul
 
 Manager cards let you change a host, not just watch it:
 
-| Manager   | What you can do                                                                          |
-| --------- | ---------------------------------------------------------------------------------------- |
-| Services  | Start, stop, restart, enable and disable systemd services.                               |
-| Packages  | Search, install, remove and upgrade packages, with apt, dnf, yum, pacman, zypper or apk. |
-| Cron      | See and edit cron jobs.                                                                  |
-| Firewall  | See and change firewall rules.                                                           |
-| Users     | See and manage local users.                                                              |
-| SSL       | See certificates on the host and when they expire.                                       |
-| Logs      | Read the journal and log files.                                                          |
-| WireGuard | See and manage WireGuard interfaces.                                                     |
+| Manager   | What you can do                                                                                               |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| Services  | Start, stop, restart, enable and disable systemd services.                                                    |
+| Packages  | See available upgrades, install a package, and upgrade one or all, with apt, dnf, yum, pacman, zypper or apk. |
+| Cron      | See and edit cron jobs.                                                                                       |
+| Firewall  | See and change firewall rules.                                                                                |
+| Users     | See and manage local users.                                                                                   |
+| SSL       | See certbot and acme.sh certificates and when they expire, and issue, renew or revoke them.                   |
+| Logs      | Read the journal and log files.                                                                               |
+| WireGuard | See WireGuard interfaces and peers, and bring an interface up or down.                                        |
 
-Changes run with sudo. Save the host's **Sudo Password** so Termix can answer the prompt, or you'll be asked.
+Changes run with sudo. Save the host's **Sudo Password** so Termix can answer the prompt. Without it, changes that need root fail with a message saying so.
 
 ## Health checks
 
-Health checks watch something on a schedule, like a URL answering or a service running, and show when it fails. [Automations](/plugins/automations) can act on a check changing.
+Health checks test a URL or a TCP port from the host, and show when one fails. [Automations](/plugins/automations) can act on a check changing.
 
 ## What the SSH user needs
 

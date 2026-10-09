@@ -1,11 +1,11 @@
 ---
 id: pull-the-same-remote-path-from-every-host-in-a-fleet
 title: "Pull the same remote path from every host in a fleet"
-description: "Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>/<filename>).` Single file only (v1)."
+description: "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>-<hostId>/<filename>).` Single file only, up to 200 MB per host."
 sidebar_label: "Pull the same remote path from every host in a fleet"
 hide_title: true
 hide_table_of_contents: true
-api: eJzlVt9v20YM/lcIPiWAbKdDn4xiQDssQzKgDZIM3RYYK3OirYtPd+od5UQ1/L8PvFNiN0EG9Hl6kUTxx0fy+FFbrDmZaDuxweMcT8knCL2ACd70MbIXN4AE4A3HAXi5ZCN2w9Bye8sRmpAEpGEw5Jy+UwKurUwcb9gBGcMpgYQKIlOdIHIbhC9IGthYgqvT6wtYxtACk2kqIF9DZOmjT0CQrF85hm+2A4qm0bD3VhoInoG9xAE6jpD6HGTZu4Lmy9E7vX+kln+evVtax14fj6df4Ko4VBkE7wY42rw5nmKFQquE8xs8dcyScFFhR5FaFo4q36LV4nQkDVao7nCOtsYKI3/tbeQa5xJ7rjCZhlvC+RZl6LKWF15xxN1uUbQ5yYdQD6ry3NgEL+xFP1HXOWtIuzK7S9qa7Uvf4faOjWCFXQwdR7GcitvHGh/oJonWr3CXL0WSuuBTMfjp5ERv35+Evw+qrsDIeutXudcdx0kuddc7x3WuZ6qgc30C8vDnJJdxch3JpyXHySWn3kmChqnmWHr4nZ/zq08fIWYtSH3bUhymuKvw7cnbl8Cyc/BBYBl6X09R82lZmlBrj0LKFcnZ46xz/cr6CXV2tsy9nW1tvZvJCG2mGWCFiePmsdV9dDjHbRHtsHoW/q/QR7jm2NoHKDpY4YaipVtXyjlKM/Al9U5wjo1Il+azmWTDKT9Q2zmemtBqSxaKwPTRypAh3DJFju97zeFmsau2aEJYWz6UUGd/5+FJcuDiSs9JgXLo6OkoKBYcj6q+FyWsxofTEFtSzOefr19kf8Up2eBBwpo9JPYC1udmapAQ7bd8Zh9bTQk+ZKd5slUtG+bmHqb0hK1khVUZuKKyH7m7e3kV0fnnayj6kFiABJJd+Yn1U/jcsIcussKtwAoIrTmpxHDN3jCEDcdXs8hoD8v9w5V8f3EGax4gCUXRKSoj0D788yKdJ9UfL+2ahwruG2uaEijtw0zhTICMJDUbdSHc+9HakNd5IiP6nfyQGdYlLsOlBHS5p65fy+F9TjVPFKPNW4ZcJiuqN9IqvL8401nhmEqub6Yn05MXFfgthr7LVJ7AeglQBrfsht6DCW1LvlbCIbOmFStuG3zRyNz+ON4JggdyDsJSs271VARvOHdUmaKlzKzj8broncvVSdTyuKpAmWRcUXkFZsKyHqjgeg5/u2fx/+0yLcMh/CCzzpH1Wu3MqtuRl29wz8tYYWkwVjjPO/Wxe0rjSs+LChWDmm23t5T4j+h2OxV/7TkqYy72DJz5s7ZJn2ucL8kl/o8WHV2OO/gYXkP+yEx+yETven3DCtc8lL+A3WJXYZnKHL18+KXEmFyr+d7wxWJX5n7aXhefrpRzb8cfhDbUahPpXn816L4EDjmPsupVtkVHftXTKlNk9qnXv32Zb4s=
+api: eJztVm1vGzcM/isEP7WA/NKin4yiQDqsQzqsDZIM3VYYK3NH+1TrpKvEc3I1/N8HSufYTdAN/T5/8R2PLw9J8aF2WHOqou3EBo8LvOx9guCh70ACPJtDE5IkIAECsS0boCqGlIC3HAfg1YorsVuGltsbjlkdpGGoyDl9pwRcW5k43rIDqipOCSQYiEx1gshtEL4gaWBrCa7eXF/AKoYWmKrGAPkaIksffQKCZP3aMXy1HVCsGg17a6WB4BnYSxyg4wipz0FWvStoPj15qf/vqOVXk/x4Xr+avVxZx15lT6ef4Kp4VhkE7wYzFuD5fA6/vc5u1XCKBoXWCRcf8Y1jloRLgx1Falk4qnyHVuvYkTRoUAPgAm2NBiN/6W3kGhcSezaYqoZbwsUOZeiylhdec8T9flm0OcnrUA+q8tC4Cl7Yi36irnO2Im3g7HPSLu4e+w43n7kSNNjF0HEUy6m4PZT/RDdJtH6N+/xTJKkLPhWD5/O5/n17aP46aYgCI+utX+dj0HGc5C50vXNc5wonA53rE5CHPya5jJPrSD6tOE4uOfVOEjRMNcfS3m/8vL16/w5i1oLUty3FYYp7gy/mLx4Dy87BB4FV6H09Rc2nZWlCrT0KKVckZ4+zzvVr6yfU2dkq93a2s/V+JiO0mWaABhPH7aHVfXS4wF0R7dE8CP9n6CNcc2ztHRQdNLilaOnGlXKO0gx8Rb0TXGAj0qXFbCbZcMp31HaOp1VotSVLRVD10cqQIdwwRY5nvebwcbk3O6xC2Fg+lVBnf+XhXnLi4krPSYFy6uj+KCgWHI+qvhclNOPDmxBbUsxvP1w/yv6KU7LBg4QNe0jsBazPzdQgIdqv+cweWk0JXmeneehVLRvm5p6mdI+tZIWmDFxROY7c51v5LqK3H66h6ENiUXJLdu0n1k/hQ8MeusgK14AVENpwUknFNfuKIWw5fjeLjPa03D9cybOLc9jwAEkoik5RGYH27u9H6dyr/nhpNzwYuG1s1ZRA6RhmCucCVCnpp4MuhFs/WlfkdZ6oEv1Ofsjk6xKX4VICujxS18/l8D6kmnuK0eatQi6TFdUbaRXOLs51Vjimkuuz6Xw6f1SBX2Lou3FFWS8ByuCWtdF7qELbkq+VcKja0JoVtw2+aGS2P4x33nrkHISVZt3qqQi+4txRZYqWMrOOx+uidy5XJ1HL4xYDZZJxe+XtmAnLeqCC6yH83ZHF/9+7/713yxwJ38msc2S9NiYT8G6k8I94pHA0WM4CGlzk9XtotDK+MvnSoLpWs93uhhL/Ht1+r+IvPUcl1+WRrDPV1jbpc42LFbnE/9LNJ5fjun4K30N+IDE/5J3gen1DgxseyoVhv9wbLAOco5cPP5UYk2s1Pxo+ugMoyd8vuov3V0rPN+Ndog212kS61VsJ3ZbAIedRbgUq26Ejv+5pndk0+9TfP0RZidM=
 sidebar_class_name: "post api-method"
 info_path: api/fleets/fleets-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Fans out concurrently to every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>/<filename>).` Single file only (v1).
+Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>-<hostId>/<filename>).` Single file only, up to 200 MB per host.
 
 <Heading
   id={"request"}

@@ -44,7 +44,7 @@ Admins can turn on **Share with all users** so everyone can pick the profile. Pr
 
 Set **Authentication Method** to **Vault**, pick a **Vault Signer Profile** and save. When you connect, Termix asks you to sign in to Vault in the browser, then carries on.
 
-It works for the terminal, file manager, Docker and every other plugin that connects over SSH. A host's profile can only be changed by its owner.
+It works for the terminal, file manager, Docker and every other plugin that connects over SSH. A host's profile can only be changed by its owner, and it has to be a shared profile or one the owner made.
 
 ## Permissions
 

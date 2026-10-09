@@ -13,6 +13,7 @@ plugin_latest: true
 
 ### Added
 
+- First release
 - Start, stop, restart, pause and remove containers
 - Live CPU, memory, network and disk stats
 - Read and download container logs

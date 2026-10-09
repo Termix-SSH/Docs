@@ -441,7 +441,7 @@
         }
       }
     },
-    "/host-metrics/managers/wireguard/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/wireguard/{id}": {
       "get": {
         "summary": "Get WireGuard interfaces and peers",
         "tags": [
@@ -464,7 +464,7 @@
         }
       }
     },
-    "/host-metrics/managers/wireguard/{id}/action": {
+    "/plugin-api/host-metrics/host-metrics/managers/wireguard/{id}/action": {
       "post": {
         "summary": "Bring a WireGuard interface up or down",
         "tags": [
@@ -509,7 +509,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/users/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/users/{id}": {
       "get": {
         "summary": "List local users and groups",
         "tags": [
@@ -542,7 +542,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/users/{id}/action": {
+    "/plugin-api/host-metrics/host-metrics/managers/users/{id}/action": {
       "post": {
         "summary": "Create or delete a user, or change a user's groups",
         "tags": [
@@ -607,7 +607,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/ssl/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/ssl/{id}": {
       "get": {
         "summary": "List certificates from certbot and acme.sh",
         "tags": [
@@ -640,7 +640,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/ssl/{id}/issue": {
+    "/plugin-api/host-metrics/host-metrics/managers/ssl/{id}/issue": {
       "post": {
         "summary": "Issue a certificate with certbot or acme.sh",
         "tags": [
@@ -717,7 +717,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/ssl/{id}/renew": {
+    "/plugin-api/host-metrics/host-metrics/managers/ssl/{id}/renew": {
       "post": {
         "summary": "Renew certificates",
         "tags": [
@@ -775,7 +775,7 @@
         }
       }
     },
-    "/host-metrics/managers/ssl/{id}/revoke": {
+    "/plugin-api/host-metrics/host-metrics/managers/ssl/{id}/revoke": {
       "post": {
         "summary": "Revoke and remove an issued certificate (certbot or acme.sh)",
         "tags": [
@@ -827,7 +827,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/top-memory/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/top-memory/{id}": {
       "get": {
         "summary": "List the processes using the most memory",
         "tags": [
@@ -860,7 +860,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/timers/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/timers/{id}": {
       "get": {
         "summary": "List systemd timers",
         "tags": [
@@ -893,7 +893,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/disk-breakdown/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/disk-breakdown/{id}": {
       "get": {
         "summary": "List mounted filesystems and their usage",
         "tags": [
@@ -927,7 +927,7 @@
         }
       }
     },
-    "/host-metrics/managers/services/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/services/{id}": {
       "get": {
         "summary": "List systemd services",
         "tags": [
@@ -950,7 +950,7 @@
         }
       }
     },
-    "/host-metrics/managers/services/{id}/action": {
+    "/plugin-api/host-metrics/host-metrics/managers/services/{id}/action": {
       "post": {
         "summary": "Start/stop/restart/enable/disable a systemd service",
         "tags": [
@@ -997,7 +997,7 @@
         }
       }
     },
-    "/host-metrics/managers/processes/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/processes/{id}": {
       "get": {
         "summary": "List processes (rich, sortable, filterable client-side)",
         "tags": [
@@ -1020,7 +1020,7 @@
         }
       }
     },
-    "/host-metrics/managers/processes/{id}/signal": {
+    "/plugin-api/host-metrics/host-metrics/managers/processes/{id}/signal": {
       "post": {
         "summary": "Send a signal to a process (TERM/KILL/HUP/INT)",
         "tags": [
@@ -1067,7 +1067,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/packages/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/packages/{id}": {
       "get": {
         "summary": "List upgradable packages and the package manager",
         "tags": [
@@ -1100,7 +1100,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/packages/{id}/action": {
+    "/plugin-api/host-metrics/host-metrics/managers/packages/{id}/action": {
       "post": {
         "summary": "Install or upgrade a package, or upgrade everything",
         "tags": [
@@ -1160,7 +1160,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/logs/{id}/files": {
+    "/plugin-api/host-metrics/host-metrics/managers/logs/{id}/files": {
       "get": {
         "summary": "List readable log files under /var/log",
         "tags": [
@@ -1193,7 +1193,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/logs/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/logs/{id}": {
       "get": {
         "summary": "Tail a log file or a systemd unit's journal",
         "tags": [
@@ -1249,7 +1249,7 @@
         }
       }
     },
-    "/host-metrics/platform/{id}": {
+    "/plugin-api/host-metrics/host-metrics/platform/{id}": {
       "get": {
         "summary": "Detect available management tooling on a host",
         "tags": [
@@ -1272,7 +1272,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/health/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/health/{id}": {
       "get": {
         "summary": "Get the host's health checks and their last results",
         "tags": [
@@ -1305,7 +1305,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/health/{id}/config": {
+    "/plugin-api/host-metrics/host-metrics/managers/health/{id}/config": {
       "post": {
         "summary": "Save the host's health checks",
         "tags": [
@@ -1382,7 +1382,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/health/{id}/run": {
+    "/plugin-api/host-metrics/host-metrics/managers/health/{id}/run": {
       "post": {
         "summary": "Run the host's health checks now",
         "tags": [
@@ -1415,7 +1415,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/firewall/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}": {
       "get": {
         "summary": "Read the host firewall (iptables, nftables or ufw)",
         "tags": [
@@ -1449,7 +1449,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/firewall/{id}/rule": {
+    "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/rule": {
       "post": {
         "summary": "Add or delete an input rule",
         "tags": [
@@ -1522,7 +1522,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/firewall/{id}/persist": {
+    "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/persist": {
       "post": {
         "summary": "Save the current firewall rules so they survive a reboot",
         "tags": [
@@ -1555,7 +1555,7 @@
         }
       }
     },
-    "/plugin-api/host-metrics/managers/cron/{id}": {
+    "/plugin-api/host-metrics/host-metrics/managers/cron/{id}": {
       "get": {
         "summary": "List the SSH user's crontab entries",
         "tags": [

@@ -37,7 +37,7 @@ Removing a host from a fleet only takes it off the hand-picked list. If it still
 
 Open a fleet and pick **Run command**. Type the command once and Termix runs it on every host in the fleet at the same time.
 
-You get a result for each host separately, so you can see exactly which ones worked and which did not. One host failing does not stop the rest.
+You get a result for each host separately, so you can see exactly which ones worked and which did not. One host failing does not stop the rest. Termix works on up to 10 hosts at a time.
 
 These variables get filled in per host, the same ones snippets use:
 

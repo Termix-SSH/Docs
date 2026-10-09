@@ -18,6 +18,8 @@ Passkeys lets you sign in to Termix with a passkey or a security key instead of 
 2. Open **Settings**, **Security** and press **Add Passkey**.
 3. Give it a name, like `MacBook` or `YubiKey`, and follow your browser's prompt.
 
+The list next to the name sets whether the passkey checks your PIN, fingerprint or face: **Required**, **Preferred** (the default) or **Discouraged**.
+
 You can add as many as you like. Synced passkeys are marked **synced**. Remove one with **Delete passkey**.
 
 ## Sign in

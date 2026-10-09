@@ -1,11 +1,11 @@
 ---
 id: run-a-command-across-every-host-in-a-fleet
 title: "Run a command across every host in a fleet"
-description: "Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others."
+description: "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others."
 sidebar_label: "Run a command across every host in a fleet"
 hide_title: true
 hide_table_of_contents: true
-api: eJzlVk1v40YM/SsEkUMLKHZa7Mm3bJG02aKbIHEaFIGxoCXanrU0ox1SSbyG/nvBGSV2YqTAnquLJQ4/Hsnho7dYsZTRteqCxwmekxcInUIZfNnFyF7rDWgAfuC4AV4suFT3wNBwM+cIqyAKumIoqa7tmwS4cnpc8wPXQGXJIqBhBEd/XN5Mx0e3N2fX46Ory+vp+Ojz6V9n46OLz1e30y8epJuLOu0MCTgBatvacQXtEKYAoYZhGalpKAIJiHdtywr8xGUyG8Gl54xpQa52fglVYAEfFERDm5AGXXGUERaotBSc3ON5zayCswJbitSwcjT5Fp2VpCVdYYGeGsYJugoLjPytc5ErnGjsuEApV9wQTraomzZpeeUlR+z7WdZm0Y+h2pjKW+MyeGWvdpRSLslSGX8Va8j20HeYf+VSscA2hpajOhY7LUPTkK/2FEWj80vsC3S+7fRvqrus+tpRnx6DKW3wklV+PTmxn9eX44rjcSruS8EhsnS1ysiifDj5cGiTapsasAidr0ZooRrWVaistkFSJlbiCY7buls6f0ytGy9ST8ZbV/XjHI6xQOH48NycLtY4wW0W9Vi8CfxP6CJMOTbuCbIOFvhA0dG8zjkO0gR5QV2tOMGVaiuT8ViT4YifqGlrHpWhsTrNDEHZRaebBGHOFDmedob+ftYX1oWwdrwvodb9yZsXyZ6LG+tshrLv6KU/hgWHy2XfWQmL4eU8xIYM86e76UH2Nyxi/dGwZg/CXsH5dP0tSIjue7plsGKqOA3Tx+QUyFdJLRmmtu6n9IItZ4VFHpGsshuSr4/6LqJPd1PI+iCsQArilv7Y+RHcrdhDG9ngFuAUlNYsJim5Yl8yhAeO72aR0O6X+4creXp1AWvegChFNfZ4dLoCbZ6+HKTzovrjpV3zpoDHlStXOZDswozgQoFKFTMbdCE8+sG6JG+TRKXaOflN8AxcC+exMsq43pHNWb68r8jhmRTeckKfWGIRUtGcmtVAi3B6dWGTw1Fy5r+MTkYnB/X4PYauTdQr4LwGyAOcYMfOw4BACmipXNOSLQsXfNZYuJpBI3lZcBQIHqiuISysBo3dkeBLTv01xmgoMeNw2a47D/TsH6iMQWRYV4msnB0nNG9Bb3fc+z9bfHkslJ903NbkvFU28el24OJ73HExFpibiQVO0v57JuRZgRbT1LfbOQnfxrrvTfyt42gcOdtxbmLMyom9VzhZUC38Hw356XrYkz/De4ifuchvErXXnX1hgWve5E3dz/oC8xym6PngtxzjeGrmO8OD5Wtc/bKpri5vjGXnwxJvQmU2kR7t7wA95sAh5ZEYPcm2WJNfdrRMpJh82vMv3j9IqQ==
+api: eJzlVk1v40YM/SsEkUMLKJa32JNv2SLbZotujMRpUATGgpZoa2JpRjtD2XEN//eCM/JHYqTAnquLpZnH4SM5fPQWSw6FN60YZ3GEd50N4Cx0LYiDD0OoXJAAJEAgpuEMqPAuBOAV+w3wfM6FmBVDw82MfYSDVAwF1bV+UwAujVzWvOIaqCg4BBA3gIvfb+8n+cXD/fVdfjG+vZvkF1+v/rzOL26+jh8m3yyEbhbESKfMwASgtq0Nl9D2bjII1DAsPDUNeaAAwZq2ZQF+4SKaDeDWcuI0J1Mbu4DScQDrBIK4NjJ1UrEPA8xQaBFw9ISfa2YJOM2wJU8NC3td36LRFLUkFWZoqWEcoSkxQ8/fO+O5xJH4jjMMRcUN4WiLsmkjygov2ONuN01oDvLJlRuFvDUunBW2olsx5II0lPw5aIG252e72TMXghm23rXsxXDQ3cI1DdnyBBjEG7vAXYbGtp38RXWXoK8P2sVHaYbW2ZAgvwyH+vP6sozZX8bkHhIOnkNXSxiol4/Dj+c2MbexAHPX2XKA6qphqVypuXUhRqIpHmHe1t3C2EtqTT6PNcm3ptzlyR1jhoH9al+cztc4wm1a2mH2xvHfrvMwYd+YF0gYzHBF3tCsTjH2q5HynLpacISVSBtGeS7RcMAv1LQ1DwrXaJ6myqDovJFNpDBj8uyvOmX/NN1lWgW3NHy6Qq35gzeHlZMj7rWyicrpQYf6KBfsL5d+JxBm/ctn5xtSzl8eJ2fR33MIWh9xS7YQ2AoYG6+/OnHe/BNvGVRMJcdm+hQPBbJlhEXDWNbTkA7cUlSYpRZJkGOTPK/lXUZfHieQ8BBYVGmCWdhLYwfwWLGF1rPSzcAICC056ErBJduCwa3YvxtFZHua7h/O5NX4Bpa8gSDkRdVjbaQCaV6+nYVzgP54ape8yWBdmaJKjsLRzQBuBKhQBQ57LLi17a0LstpJVIjuk904y8B14NRWKhl3R7G5Tpf3lTjsReGtJuyiSsxdTJoRteplEa7GN9o57EOK/MNgOBie5eM377q2nx7GioPUwJG27yz0DEIGLRVLWrBGYZxNiLmpGcSTDXP2cSBRXYObaw4avSPOFhzrq4rRUFTG/rLddRZof/7rcRXFyuh2ZPOW9Paovf/zQZjaRPhF8rYmYzXTUV+3vTY/4VGbMcNUXMxwFOfhXqCnGapPhW+3Mwr84OvdTpe/d+xVM6dHDY4KWpqg7yWO5lQH/o8C/XTXz82f4T3Ge22ymyj1dadfmOGSN2ly76a7DFNfRu9p49fk43Ki5kfDs2Gs2n2YXOPbe1XdWT/UG1eqjae1/j2gdXLsYhxR4ePaFmuyi44WUSTjmfr8C0Z5UUk=
 sidebar_class_name: "post api-method"
 info_path: api/fleets/fleets-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Fans out concurrently to every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.
+Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. $HOST/$USER/$PORT/$NAME/$INPUT_n substitution is applied per host, same grammar as snippet execution. One host failing does not stop the others.
 
 <Heading
   id={"request"}

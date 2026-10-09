@@ -50,9 +50,9 @@ Instead of copying keys to every server, trust your CA once and sign keys with i
 
 1. Turn on the CA in the **ID** panel.
 2. Run the trust command it shows on each server, as root. It tells `sshd` to accept certificates from your CA.
-3. Press **Certificate** next to a key to sign it.
+3. Enter the user names the certificate is for (its principals), like `root`, and press **Certificate** next to a key to sign it. Only Ed25519 keys can be signed.
 
-Certificates expire on their own. To cut off every certificate at once, rotate the CA. Old ones stop working right away.
+Certificates expire on their own. To cut off every certificate at once, rotate the CA and run the trust command again on each server. Until a server has the new CA key, it still accepts the old certificates.
 
 The CA's public key is also served, at `/u/yourhandle/ca`.
 

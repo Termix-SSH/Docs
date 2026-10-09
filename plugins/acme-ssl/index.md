@@ -42,7 +42,7 @@ The **SSL** page in **Settings** shows that ACME Certificates renews the certifi
 
 ## Another certificate authority
 
-Pick **Custom ACME directory** and paste the authority's directory URL. It must be https. This works with ZeroSSL, Buypass, step-ca and others.
+Pick **Custom ACME directory** and paste the authority's directory URL. It must be https. This works with Buypass, step-ca and other authorities that don't need external account binding (EAB). ZeroSSL needs EAB, so it does not work yet.
 
 ## Troubleshooting
 

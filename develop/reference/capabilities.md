@@ -54,5 +54,5 @@ Capabilities are not user permissions. A capability says what the plugin's code 
 | `files:own` | Store its own files | In its own folder on disk, separate from other plugins. |
 | `secrets:own` | Store its own secrets | Encrypted by Termix. The plugin never holds the key. |
 | `settings:read-core` | Read Termix settings | Server settings, not your hosts or credentials. |
-| `plugins:read` | See installed features | It can see which features are installed and running. |
+| `plugins:read` | See installed plugins | It can see which plugins are installed and running. |
 | `ui:surface` | Add its own screens | Tabs, panels and settings you can hide later. |

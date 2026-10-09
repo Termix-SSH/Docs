@@ -76,4 +76,5 @@ You can set one OIDC provider with [environment variables](/plugins/sso/referenc
 
 - **Redirect URI mismatch.** Register the exact Redirect URI from the form. Behind a reverse proxy, make sure it sends `X-Forwarded-Proto`, or set `EXTERNAL_FORCE_HTTPS=true`.
 - **"Not allowed".** Their email isn't in **Allowed Users**, or new accounts can't be made.
+- **"Login was started in another browser".** A sign in from the web page has to finish in the same browser that started it. Start it again from the sign in page.
 - **Admin rights don't stick.** Check **Group Claim** and that your provider sends groups in the token.

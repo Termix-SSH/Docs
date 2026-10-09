@@ -5,7 +5,7 @@ description: "Replace the backup codes"
 sidebar_label: "Replace the backup codes"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVVFv2zgM/isEn52kO9yT37rDDeiGuxVrhuJQBAMjs7EaW9Ikumlm5L8fKHlp2mwDlofEoT5K30eKn0cU2iSs73D5cXmNqwojfx04yVvf7LEe818bucFa4sAVGu+EnegShdBZQ2K9Wzwk7zSWTMs96ZPsA2ONfv3ARrDCEH3gKJZTXvUSvhjf8Ak0SbRug4f8USIpeJcK/o+LC/1pOJlogx6JNf7LO1iT2Q4BdKs0x0OFf/4I+Y9NybpNhoGPoGLBJnBewLsp78153pV7pM42OW+Oyurl+icOHRkGafkFE6ywZ2l9gzUGn7J+khZrXIRu2Fg3o2AXWoRFSZt9T0scHzlqR0YcYoc1jiV0wNeH/+eHCEuOvX2CgsEKHylaWnelalM0y7qnoROssRUJqV4sJCfO+Yn60PHc+F4rv1IGZohW9pnCmilyvByU+93qUI1ovN9aPo1QsB94f4ycbHGjt6FQOd3o2HHlopozDOsJhNX08M7HnpTz+9vlmfobTsl6B+K37CCxE7AuN0IP8dF+yzcTWqaGI1CCt3lTINdkWE7MrT+VdORWVGGFVk8rEKzQUWb6sJOfMnp/u4SCh8QCJJDsxs2sm8Ntyw5CZKVbgRUQ2nLSiOGGnWHwjxx/qiKzPS33b1fy8voKtryHJBRFJ2JnpQXpn76cyTlCf7+0W95XsGutactB6fmYOVwJkJGkaRMW/M5N2YacziQZ0XVye+8YuEvT9KnNfHo2qL/L5X1lKEcj0d7d+7xqRWHZ5ODy+koHhWMqQt/ML+YXZ/KXOz+7JyM+5vZpBbIIKiZyH30P5IAGadmJ+qCPQCFUBXbmS2oDPWWTnO7QL8zjBZVjk4WfZBE6sk43zO4wTr5yh8++glWuhjb/1FtWFbZqRfUdjuOaEn+O3eGg4a8DRx331bN9lNnG0uHsBFveY41/FfufLZWRwruhDMurV4G6wNEBrz/e6Pyup1dKX7oUaYdV/q4RK/RZbfaKHBuxI7cZaJPHLe+pn/8BwdNQBQ==
+api: eJyVVVFv2zgM/isEn5WkG/ZyfusOG9AN24o1h+JQBANjs7EaW9IkuqkvyH8/UPLSrLkdMD8kNvVR/EiKn/YotElY3eHyy/IaVwYjfx84yVvfjFjt86eN3GAlcWCDtXfCTnSJQuhsTWK9Wzwk79SW6pZ70jcZA2OFfv3AtaDBEH3gKJZTXvUSvtW+4RNokmjdBg/5USIpeJcK/vXFhf41nOpog4bECj/zDtZUb4cAulWa48Hgm/9CfrIpWbfJMPARNFmwCZwX8G7ye3Xud+UeqbNN9iuo13+co5beQ09uhF30UxDlcjAvcF85dFQzSMs/8UaDPUvrG6ww+JSrRdJihYvQDRvrZhTsQku2KG6zH26J4yNH7d8eh9hhhftiOuDL4H/7IcKSY2+foGDQ4CNFS+uu1Hiy5vTuaegEK2xFQqoWC8mOc36iPnQ8r32vfVopg3qIVsZMYc0UOV4Oyv1udTB7rL3fWj61ULAfeTxaTra40bNTqJxudDwfykVzzjCsJhCa6eW9jz0p5w+3y7Psbzgl6x2I37KDxE7AutwIDeKj/SefY2iZGo5ACd7mTYFck2HZMR+B05SO3EpWaNBqtAJBg44y04ed/JLRh9slFDwkFiCBZDduZt0cblt2ECIrXQNWQGjLSS01N+xqBv/I8ZdZZLan5f7tSl5eX8GWR0hCUXR+dlZakP7p21k6R+jvl3bLo4Fda+u2BErPYeZwJUC1JHWbsOB3bvKuyekEUy26Tm70joG7xGX6VJS+PsvZu3J4X8jPUXa0d/c+r1pRWJZEuLy+0kHhmEqir+YX84uz9Jc7P7unWnzM7dMK5CSoSM599D2QAxqkZSeqmj4ChWAK7EzFVAZ6ypI6naH/EY+fqBybLPwki9CRdbphVof9pCt3+KwraHI1tPmn2rIy2KoUVXe4368p8V+xOxzU/H3gqOO+epaPMttYOpyVYMsjVvhnuSxmS2Wk8G4ow/Li4lAVOCrg9Zcbnd/1dAH1pUuRdmjyb4Vo0Odss1Zk2x47cpuBNnnc8p76/AtDI19c
 sidebar_class_name: "post api-method"
 info_path: api/totp/totp-api
 custom_edit_url: null
@@ -59,7 +59,7 @@ Replace the backup codes
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"New backup codes."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."}}}
+  responses={{"200":{"description":"New backup codes."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."},"429":{"description":"Too many wrong codes."}}}
 >
   
 </StatusCodes>

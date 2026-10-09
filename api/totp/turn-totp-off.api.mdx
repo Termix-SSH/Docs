@@ -5,7 +5,7 @@ description: "Turn TOTP off"
 sidebar_label: "Turn TOTP off"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVdFu2zoM/RWCz2rSXuzJb92wAd3FxYo1QzEUwcDYTKzGljSJbpoZ+feBkpdm6d3D/JA41CF5SIonIwptElYPuPi0uMWlwcjfB07y1jd7rMb800ZusJI4sMHaO2EnekQhdLYmsd7NH5N3akt1yz3pm+wDY4V+9ci1oMEQfeAollM+9RK+1b7hE2iSaN0GD/lRIil4lwr+n8tL/Wo41dEGTYlVpgx+vZ7hweCb/0P8Z1OybgOaCXyE7GETOC/g3eR39drvxj1RZ5vsN0Nlc5Z5iA5+pUeDPUvrG6ww+JSLJWmxwnnoho11FxTsXCueNzbRqmM0mDg+cdTOjzjEDisci+mA58m++iHCgmNvn6Fg0OATRauhcncmay5jTUMnWGErElI1n0t2nPEz9aHjWe177fBSGdRDtLLPFFZMkeP1oLQflgczYu391vKphYL9l/dHy0mIO516oXIa6DhZ5aI1ZxhWEwjN9PLBx56U88f7xavq7zgl6x2I37KDxE7AOpCWQZP4aH/kGwgtU8MRKMHbHBTINRmWHfOoT0s6citVoUGr2QoEDTrKTB938kdGH+8XUPCQWIAEkt24C+tmcN+ygxBZ6RqwAkJbTmqpuWFXM/gnjn+sIrM9bfdfd/L69ga2vIckFEU3YGelBemfv70q5wj9+9ZueW9g19q6LYnSS5oZ3AhQLUndJiz4nZu8a3K6g1SLnpPbe8fAXZq2TeXk84sQvS+X90w4joKhs1v7fGpFYUUZrm9vdFE4plLo1exydvmq/MXOX6ypFh/z+LQDuQgqorGOvgdyQIO07ET1zkegEEyBrajeDiFjUx6bKkBPWQynO3QuFr/lP05W+FnmoSPrNEqWhHHSkQd80RE0uQUaZtKSpcFWVad6wHFcUeIvsTsc1Px94KjrvXyRi7LLWCaaN3/Le6zwXZH1i4WSUXg3lOU4k3jd+qPY3X66031dTX8VfZlKpB2a/FkhGvS50KwN2TZiR24z0CavV46pz08QMEAT
+api: eJyVVVFv20YM/isEny92WuxlekuHDUiLosHiIRgCo6Al2rpYurveUXE0wf994J3meE77UD/YMu8j+ZE8fppQaJewesTVl9Udrg1G/jZwkg++GbGa8l8bucFK4sAGa++EnegRhdDZmsR6t3xK3qkt1S33pE8yBsYK/eaJa0GDIfrAUSynfOolfK19w2fQJNG6HR7zR4mk4F0q+PfX1/rTcKqjDZoSq0wZ/Ha7wKPBX76H+GxTsm4Hmgl8hOxhEzgv4N3s9+6t3617ps422a+g3v/6nfzeQ09uhEP0c5K0QOV+gRuig//IosGepfUNVhh8yq0habHCZeiGnXVXFOxS+7NsbKJNx2gwcXzmqHOacIgdVjgV0xEvk/3thwgrjr19gYJBg88UrYbKvZytuZwtDZ1gha1ISNVyKdlxwS/Uh44Xte91HmtlUA/RypgpbJgix5tBaT+uj2bC2vu95XMLBfuJx5PlLMS93pFC5TzQ6R4oF605w7CaQWjmhz987Ek5f3xYvan+nlOy3oH4PTtI7ASsA2kZNImP9p98X6FlajgCJfiQgwK5JsOyYx75eUknbqUqNGg1W4GgQUeZ6dNBfsjo48MKCh4SC5BAsjt3Zd0CHlp2ECIrXQNWQGjPSS01N+xqBv/M8YdVZLbn7f7pTt7c3cKeR0hCUXRfDlZakP7l65tyTtCfb+2eRwOH1tZtSZRe0yzgVoBqSeo2Y8Ef3Oxdk9ONpVr0nNzoHQN3icu2qfj8+Spbv5fLeyEzJ3nR2W19PrWisKIjN3e3uigcUyn03eJ6cf2m/NXBX22pFh/z+LQDuQgqErONvgdyQIO07ETV0UegEEyBbajeD+GkFCYrQE9ZOuc7dCkW/8t/mqzwiyxDR9ZplCwJ06wjj/iqI2hyCzTMrCVrg62qTvWI07ShxH/F7nhU87eBo673+lUuyi5jmWje/D2PWOFv5SVwtVIyCu+GshwXLwTd+pPY3X25133dzC+Wvkwl0gFN/q4QDfpcaNaGbJuwI7cbaJfXK8fUz78Oy09q
 sidebar_class_name: "post api-method"
 info_path: api/totp/totp-api
 custom_edit_url: null
@@ -59,7 +59,7 @@ Turn TOTP off
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"TOTP off."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."}}}
+  responses={{"200":{"description":"TOTP off."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."},"429":{"description":"Too many wrong codes."}}}
 >
   
 </StatusCodes>
