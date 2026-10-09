@@ -38,7 +38,7 @@ An update that asks for new [capabilities](/develop/reference/capabilities) neve
 
 ## Turn off update checks
 
-In **Settings**, **Interface**, turn on **Disable Update Checks** to stop the update notices.
+In **Settings**, **Appearance**, turn on **Disable Update Checks** to stop the update notices.
 
 ## Coming from 2.8 or older
 

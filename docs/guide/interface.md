@@ -15,11 +15,11 @@ Right-click an icon for more:
 
 - **Open as tab** opens the panel as a tab. Ctrl+click or middle click does the same.
 - **Open in right dock** keeps it open on the right, next to whatever you are doing.
-- **Hide from sidebar** hides it. Bring it back from the same menu or in **Settings**, **Interface**.
+- **Hide from sidebar** hides it. Bring it back from the same menu or in **Settings**, **Appearance**, under **Navigation**.
 
 ## Tabs
 
-Hosts, terminals, file managers, Manage and Settings all open as tabs along the top. Drag tabs to reorder them. Your open tabs come back when you sign in again, on any device. Turn that off in **Settings**, **Interface** with **Reopen Tabs on Login**.
+Hosts, terminals, file managers, Manage and Settings all open as tabs along the top. Drag tabs to reorder them. Your open tabs come back when you sign in again, on any device. Turn that off in **Settings**, **Appearance** with **Reopen Tabs on Login**.
 
 ## Split screen
 

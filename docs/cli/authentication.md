@@ -37,7 +37,7 @@ termix logout
 
 Do not put your password in a script. Use an API key instead.
 
-Create one in the web app under **Admin Settings**, then set two environment variables:
+Create one in the web app under **Settings**, **API keys**, then set two environment variables:
 
 ```bash
 export TERMIX_URL=https://termix.example.com

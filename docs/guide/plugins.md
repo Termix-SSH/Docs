@@ -30,8 +30,8 @@ If the plugin needs another plugin, Termix installs that too.
 Updates come from the plugin registry, not from a new Termix image.
 
 - Press **Update** on one plugin, or update all from **Updates**.
-- Turn on **auto update** for a plugin to get new versions on their own.
-- **Pin** a plugin to stay on one version. Pick any version from its page.
+- Turn on **Update on its own** for a plugin to get new versions by itself.
+- **Stay on this version** pins a plugin so it skips updates. Pick any version from its page.
 
 An update that wants new capabilities never installs by itself. It waits in **Updates** for you to review it.
 
@@ -47,7 +47,7 @@ Plugins that ship with Termix stay uninstalled after an update or a new containe
 
 ## When a plugin fails
 
-A plugin that fails to start shows as **failed** with the error. Press **Restart** to try again. **Report issue** opens an issue in the plugin's repo with your versions filled in.
+A plugin that fails to start shows as **Stopped unexpectedly** with the error. Press **Restart** to try again. **Report an issue** opens an issue in the plugin's repo with your versions filled in.
 
 ## Install from a file
 

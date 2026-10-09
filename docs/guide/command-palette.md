@@ -17,4 +17,4 @@ Type to search:
 
 Use the arrow keys to move and Enter to pick. Esc closes it.
 
-Turn the shortcut off in **Settings**, **Interface** with **Command Palette**, or change it in **Settings**, **Keybindings**.
+Turn the shortcut off in **Settings**, **Appearance** with **Command Palette**, or change it in **Settings**, **Keybindings**.

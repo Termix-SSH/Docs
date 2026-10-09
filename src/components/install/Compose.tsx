@@ -13,6 +13,7 @@ function compose(variant: Variant, tag: string): string {
       '      GUACD_HOST: "guacd"',
       '      GUACD_TUNNEL_HOST: "termix"',
       '      GUACD_RECORDING_PATH: "/termix-data/session_recordings/guacamole"',
+      '      GUACD_DRIVE_PATH: "/termix-data/rdp-drive"',
     );
   }
   if (variant === "postgres") {

@@ -54,7 +54,7 @@ Put a host in a folder, or under another host as a **sub-host**. A host is in on
 
 ## Tags and pins
 
-Tags filter and group the host list. Admins can set suggested tags in **Settings**, **General**. **Pin to Top** keeps a host at the top.
+Tags filter and group the host list. Admins can set suggested tags in **Settings**, **Host defaults**, under **Predefined host tags**. **Pin to Top** keeps a host at the top.
 
 ## Jump hosts and proxies
 

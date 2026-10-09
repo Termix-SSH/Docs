@@ -61,6 +61,8 @@ spec:
               value: "127.0.0.1"
             - name: GUACD_RECORDING_PATH
               value: "/termix-data/session_recordings/guacamole"
+            - name: GUACD_DRIVE_PATH
+              value: "/termix-data/rdp-drive"
           volumeMounts:
             - name: data
               mountPath: /app/data
@@ -99,7 +101,7 @@ kubectl -n termix port-forward svc/termix 8080:8080
 
 Open `http://localhost:8080` and do the [first run](/install/first-run).
 
-If you don't need remote desktop, remove the `guacd` container and the three `GUACD_` variables.
+If you don't need remote desktop, remove the `guacd` container and the four `GUACD_` variables.
 
 ## Expose it
 
