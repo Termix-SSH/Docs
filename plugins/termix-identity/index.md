@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/termix-identity"
 description: "Publish your SSH public keys under a public handle and run your own SSH certificate authority."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Termix-Identity/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "termix-identity"
 plugin_version: "1.0.0"
 plugin_latest: true
@@ -26,7 +26,7 @@ Anyone can read it, like any public key. It never serves private keys.
 
 ## Publish keys
 
-Add keys three ways:
+Press **Add key** and pick one of three ways:
 
 - **Generate** a new Ed25519 key pair. The public key is published, the private key is downloaded to you, and you can save it as a [credential](/guide/credentials) at the same time.
 - **Paste** a public key you already have.
@@ -50,7 +50,7 @@ Instead of copying keys to every server, trust your CA once and sign keys with i
 
 1. Turn on the CA in the **ID** panel.
 2. Run the trust command it shows on each server, as root. It tells `sshd` to accept certificates from your CA.
-3. Enter the user names the certificate is for (its principals), like `root`, and press **Certificate** next to a key to sign it. Only Ed25519 keys can be signed.
+3. Hover a key and press the certificate button, then enter the user names it is for (its principals), like `root`, and press **Issue**. Only Ed25519 keys can be signed.
 
 Certificates expire on their own. To cut off every certificate at once, rotate the CA and run the trust command again on each server. Until a server has the new CA key, it still accepts the old certificates.
 

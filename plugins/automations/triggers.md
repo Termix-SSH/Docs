@@ -2,7 +2,7 @@
 title: "Triggers"
 sidebar_position: 11
 slug: "/automations/triggers"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/triggers.md"
+custom_edit_url: null
 plugin_id: "automations"
 plugin_version: "1.0.0"
 plugin_latest: true

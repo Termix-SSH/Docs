@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/ldap"
 description: "Sign in with your LDAP or Active Directory username and password."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-LDAP/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "ldap"
 plugin_version: "1.0.0"
 plugin_latest: true
@@ -34,8 +34,7 @@ The sign in page now shows a button for the directory. Pressing it asks for an L
 | **Bind DN**, **Bind Password** | The account Termix signs in as to look users up.                                                                                                         |
 | **User Search Base**           | Where users live, like `ou=users,dc=example,dc=com`.                                                                                                     |
 | **User Search Filter**         | How to find a user. `{{username}}` is replaced with what they typed, like `(uid={{username}})`, or `(sAMAccountName={{username}})` for Active Directory. |
-| **Username Attribute**         | The attribute with the username. Usually `uid`, or `sAMAccountName` in Active Directory.                                                                 |
-| **Display Name Attribute**     | The attribute with their name. Usually `cn`.                                                                                                             |
+| **Username Attribute**         | The attribute with the username. It becomes the Termix username. Usually `uid`, or `sAMAccountName` in Active Directory.                                 |
 | **Group Search Base**          | Where groups live, for the admin check.                                                                                                                  |
 | **Admin Group**                | Members of this group are Termix admins. Its `cn` or full DN; case and spaces in a DN don't matter.                                                      |
 | **Allowed Users**              | A comma separated list of usernames allowed to sign in. Empty allows anyone the directory accepts.                                                       |

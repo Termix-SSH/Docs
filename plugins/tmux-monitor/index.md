@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/tmux-monitor"
 description: "Browse and control tmux sessions, windows and panes across your hosts."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "tmux-monitor"
 plugin_version: "1.0.0"
 plugin_latest: true

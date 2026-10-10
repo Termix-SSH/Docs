@@ -2,7 +2,7 @@
 title: "Macros"
 sidebar_position: 12
 slug: "/ssh-terminal/macros"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/macros.md"
+custom_edit_url: null
 plugin_id: "ssh-terminal"
 plugin_version: "1.0.0"
 plugin_latest: true

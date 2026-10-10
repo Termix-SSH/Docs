@@ -1835,6 +1835,41 @@
         }
       }
     },
+    "/users/ws-ticket": {
+      "post": {
+        "summary": "Get a WebSocket ticket",
+        "description": "Returns a token that is valid for one minute and only opens plugin WebSockets. The web app sends it as a subprotocol, so sockets work behind a proxy that rewrites the Host header. Only a page on this server can get one.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "The ticket.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ticket": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated, or not a login session."
+          },
+          "403": {
+            "description": "The request came from a page on another site."
+          },
+          "500": {
+            "description": "Failed to issue the ticket."
+          }
+        }
+      }
+    },
     "/users/log-level": {
       "get": {
         "summary": "Get log level setting",

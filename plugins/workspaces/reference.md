@@ -8,6 +8,16 @@ plugin_id: "workspaces"
 plugin_version: "1.0.0"
 plugin_latest: true
 ---
+## Settings
+
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Always show buttons | boolean | `false` | Keep the buttons under each workspace visible. Turn off to show them only on hover. |
+
 ## Permissions
 
 Give these to roles in **Settings**, **Roles**.

@@ -31,7 +31,7 @@ Set these on the Termix server, for example under `environment:` in your compose
 | `OIDC_TOKEN_URL` |  | Its token endpoint. |
 | `OIDC_USERINFO_URL` |  | Its userinfo endpoint, if it is not the usual one. |
 | `OIDC_IDENTIFIER_PATH` | `sub` | Claim that identifies a user. |
-| `OIDC_NAME_PATH` | `name` | Claim with the display name. |
+| `OIDC_NAME_PATH` | `preferred_username` | Claim used as the Termix username. |
 | `OIDC_SCOPES` | `openid email profile` | Scopes to ask for. |
 | `OIDC_ALLOWED_USERS` |  | Emails allowed to sign in, comma separated. Empty allows everyone. |
 | `OIDC_ADMIN_GROUP` |  | Members of this group are admins. |

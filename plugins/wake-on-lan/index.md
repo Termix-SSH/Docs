@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/wake-on-lan"
 description: "Wake sleeping machines by sending a Wake-on-LAN packet to their MAC address."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "wake-on-lan"
 plugin_version: "1.0.0"
 plugin_latest: true

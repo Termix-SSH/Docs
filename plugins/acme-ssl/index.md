@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/acme-ssl"
 description: "Gets the Termix HTTPS certificate from Let's Encrypt or any ACME provider and renews it for you."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-ACME-SSL/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "acme-ssl"
 plugin_version: "1.0.0"
 plugin_latest: true

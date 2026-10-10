@@ -33,6 +33,8 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Command Autocomplete | boolean | `false` | Show autocomplete while typing if you press tab |
+| Always show macro buttons | boolean | `false` | Keep the run and delete buttons under each macro visible. Turn off to show them only on hover. |
+| Always show history buttons | boolean | `false` | Keep the copy and delete buttons under each command visible. Turn off to show them only on hover. |
 
 ### Host
 

@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/workspaces"
 description: "Save your open tabs and split layouts and reopen them in one click."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Workspaces/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "workspaces"
 plugin_version: "1.0.0"
 plugin_latest: true

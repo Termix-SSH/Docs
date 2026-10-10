@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/host-metrics"
 description: "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Host-Metrics/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "host-metrics"
 plugin_version: "1.0.0"
 plugin_latest: true

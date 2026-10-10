@@ -32,6 +32,7 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Alert popups | select | `"warning"` | Which new alerts pop up while you use Termix. They always land in the inbox. |
+| Always show buttons | boolean | `false` | Keep the buttons under each alert, channel and rule visible. Turn off to show them only on hover. |
 
 ## Permissions
 

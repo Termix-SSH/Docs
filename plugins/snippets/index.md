@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/snippets"
 description: "Save the commands you run often and run them in a terminal or on many hosts in one click."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Snippets/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "snippets"
 plugin_version: "1.0.0"
 plugin_latest: true

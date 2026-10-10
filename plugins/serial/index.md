@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/serial"
 description: "Open a serial console to a router, switch or other device plugged into your computer."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Serial/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "serial"
 plugin_version: "1.0.0"
 plugin_latest: true

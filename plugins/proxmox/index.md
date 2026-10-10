@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/proxmox"
 description: "Import Proxmox VE guests as hosts, keep them in sync and watch node stats."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Proxmox/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "proxmox"
 plugin_version: "1.0.0"
 plugin_latest: true

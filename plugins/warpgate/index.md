@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/warpgate"
 description: "Connect to hosts through a Warpgate SSH bastion."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Warpgate/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "warpgate"
 plugin_version: "1.0.0"
 plugin_latest: true

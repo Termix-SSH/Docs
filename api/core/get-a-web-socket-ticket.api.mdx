@@ -1,0 +1,59 @@
+---
+id: get-a-web-socket-ticket
+title: "Get a WebSocket ticket"
+description: "Returns a token that is valid for one minute and only opens plugin WebSockets. The web app sends it as a subprotocol, so sockets work behind a proxy that rewrites the Host header. Only a page on this server can get one."
+sidebar_label: "Get a WebSocket ticket"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU2P20YM/SsEz4q8ST8Oum2Bpt0UaBZdB4tiYRTjEdeatTQzGVJru4L/e8EZxXayySHX6iKB4MfjI/k0YUtsk4vigscG/yIZk2cwIGFLHqQzAo7h2fSuhceQIHiCwflRCIxvIfj+ACGSZ4j9uHEe7ml9F+yWhGtYdgQ7WoOJEZh8y+AEjKbncR1TkGBDXwEH4BICu5C2sKbO+RYMxBT2hwIi0S45IQbpCH4PLNCRaSnV8F4hGIhmQxAUsmNgSs+UwBoPGxIFXWOFYjaMzQN+YEqMqwoTcQyeibGZ8M3Vlb4+J0Q7EKfYNIENXsiLupkYe2eNui2eWH0nZNvRYPRLDpGwwbB+IitYYUwhUhJXKpWEF34syfkNHvNT4Y9Xr18i+TMImFE68qJ1qa0gJPBqhT4o80zMLvgac4ofvt5Moo8jsYA1A8FjCsMFdcYH6SgBO6Gc5aevUfLWuJ5akACOeaQ8kE8UKfqBpAstNhgD596NdNjgYlTWFzt+NbdfYZmSjmTCMfXY4FRMR6y+KPp3GBMsKQ1uPw8XK3w2yZl1X0idrRnuoxl7wQY7kcjNYiE5sKa9GWJPtQ2Dcr1SBHZMTg4ZwppMonQ9KtyH1bGa0IawdXRpMdH9QYeT5SLFnQ6/QLlMdJqxYtGesxs2sxNW88fbkAajmN/dL190f1cmOx8lkxdwPhOvRUJy/+ZFnE9CL+yXnDSfaJ6PBuaRXrZ0wla6wgqdVisuWKE3GenTTr6J6N39Eoo/MAkYAXYb/8r5Gu478hATKdxKD1/MllgtllryliDojX6ri4z2ku7vZvL69ga2dAAWk8T5DeycdCDD/p8X7Zxcv5/aLR0q2HXOdqUQn8vUcCNgrLCGzb4Qdn6Otsbn87VFE/1BtZV6pnJHzj+GohbSa5vz9l/f3ujqU+IC/c3P9eur+upFS3rsNiSCc1wNvxrbfRLqNthxIC8qyqywIIVRiDPxeruDyao2b8FvOt6zusPpij8rO5018v/+MynLKLSXReyN80pbVrFplrwHzJKHFZ5Fb1Vhp7LYPOA0rQ3Th9Qfj2r+OFJSHVqdda2IDhZsWaK2dNBttZaiZAHsx3K/X/yMVJhOOnz7/m6Jx+N/v2fBUA==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a WebSocket ticket"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/ws-ticket"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a token that is valid for one minute and only opens plugin WebSockets. The web app sends it as a subprotocol, so sockets work behind a proxy that rewrites the Host header. Only a page on this server can get one.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The ticket.","content":{"application/json":{"schema":{"type":"object","properties":{"ticket":{"type":"string"}}}}}},"401":{"description":"Not authenticated, or not a login session."},"403":{"description":"The request came from a page on another site."},"500":{"description":"Failed to issue the ticket."}}}
+>
+  
+</StatusCodes>
+
+
+      

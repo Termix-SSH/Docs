@@ -2,7 +2,7 @@
 title: "Steps"
 sidebar_position: 12
 slug: "/automations/steps"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/steps.md"
+custom_edit_url: null
 plugin_id: "automations"
 plugin_version: "1.0.0"
 plugin_latest: true

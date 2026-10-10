@@ -2,7 +2,7 @@
 title: "Inventory"
 sidebar_position: 11
 slug: "/fleets/inventory"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Fleets/edit/main/docs/inventory.md"
+custom_edit_url: null
 plugin_id: "fleets"
 plugin_version: "1.0.0"
 plugin_latest: true

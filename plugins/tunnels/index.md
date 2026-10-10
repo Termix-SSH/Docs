@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/tunnels"
 description: "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "tunnels"
 plugin_version: "1.0.0"
 plugin_latest: true

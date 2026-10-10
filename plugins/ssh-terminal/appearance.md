@@ -2,7 +2,7 @@
 title: "Appearance"
 sidebar_position: 11
 slug: "/ssh-terminal/appearance"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/appearance.md"
+custom_edit_url: null
 plugin_id: "ssh-terminal"
 plugin_version: "1.0.0"
 plugin_latest: true

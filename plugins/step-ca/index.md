@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/step-ca"
 description: "Connect to hosts with short-lived SSH certificates from a smallstep step-ca server."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Step-CA/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "step-ca"
 plugin_version: "1.0.0"
 plugin_latest: true

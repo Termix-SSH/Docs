@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/remote-desktop"
 description: "RDP, VNC and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Remote-Desktop/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "remote-desktop"
 plugin_version: "1.0.0"
 plugin_latest: true

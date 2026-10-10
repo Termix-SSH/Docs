@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/ssh-terminal"
 description: "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "ssh-terminal"
 plugin_version: "1.0.0"
 plugin_latest: true

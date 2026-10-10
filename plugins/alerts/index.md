@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/alerts"
 description: "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Alerts/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "alerts"
 plugin_version: "1.0.0"
 plugin_latest: true

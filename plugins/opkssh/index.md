@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/opkssh"
 description: "Connect to hosts with short-lived OpenPubkey SSH certificates after signing in with your identity provider."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-OPKSSH/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "opkssh"
 plugin_version: "1.0.0"
 plugin_latest: true

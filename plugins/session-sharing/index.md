@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/session-sharing"
 description: "Share live sessions by link or with another user, and present sessions to a group in meeting rooms."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Session-Sharing/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "session-sharing"
 plugin_version: "1.0.0"
 plugin_latest: true

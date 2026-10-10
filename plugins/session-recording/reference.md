@@ -18,6 +18,14 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | --- | --- | --- | --- |
 | Retention (days) | number | `30` | How long a session recording is kept before it is deleted automatically. |
 
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Always show buttons | boolean | `false` | Keep the view, download and delete buttons under each log visible. Turn off to show them only on hover. |
+
 ### Host
 
 Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.

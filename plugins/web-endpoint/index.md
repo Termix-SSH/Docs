@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/web-endpoint"
 description: "Open a host's web UI inside Termix, directly or over an SSH tunnel."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Web-Endpoint/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "web-endpoint"
 plugin_version: "1.0.0"
 plugin_latest: true

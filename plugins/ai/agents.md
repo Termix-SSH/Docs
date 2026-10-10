@@ -2,7 +2,7 @@
 title: "Coding agents"
 sidebar_position: 11
 slug: "/ai/agents"
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/agents.md"
+custom_edit_url: null
 plugin_id: "ai"
 plugin_version: "1.0.0"
 plugin_latest: true

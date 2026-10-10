@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/network-topology"
 description: "Draws your hosts and the links between them as a live, interactive graph."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Network-Topology/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "network-topology"
 plugin_version: "1.0.0"
 plugin_latest: true

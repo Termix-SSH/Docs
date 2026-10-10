@@ -222,6 +222,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/get-a-web-socket-ticket",
+          label: "Get a WebSocket ticket",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "core/get-log-level-setting",
           label: "Get log level setting",
           className: "api-method get",

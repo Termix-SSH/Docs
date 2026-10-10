@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/sso"
 description: "Sign in with any OpenID Connect provider, GitHub or Google."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSO/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "sso"
 plugin_version: "1.0.0"
 plugin_latest: true
@@ -26,20 +26,20 @@ GitHub and Google only need a **Client ID** and **Client Secret**. Termix knows 
 
 ## OIDC fields
 
-| Field                                | What it is                                                                                         |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| **Display Name**                     | The button label.                                                                                  |
-| **Client ID**, **Client Secret**     | From the client you made in your identity provider.                                                |
-| **Issuer URL**                       | The provider's issuer, like `https://auth.example.com/realms/main`.                                |
-| **Authorization URL**, **Token URL** | The provider's endpoints. Most providers list them at `<issuer>/.well-known/openid-configuration`. |
-| **Override Userinfo URL**            | Only if the provider's userinfo endpoint is somewhere unusual.                                     |
-| **User Identifier Path**             | The claim that identifies a user. `sub` by default.                                                |
-| **Display Name Path**                | The claim with their name. `name` by default.                                                      |
-| **Scopes**                           | `openid email profile` by default. Add `groups` if your provider needs it for groups.              |
-| **Group Claim**                      | The claim with the user's groups, if it isn't `groups`, `roles` or `group`.                        |
-| **Allowed Users**                    | One email per line. Empty allows everyone the provider accepts.                                    |
-| **Admin Group**                      | Members of this group are Termix admins. Checked on every sign in.                                 |
-| **Custom CA Certificate**            | A PEM certificate, if your provider uses a private CA.                                             |
+| Field                                | What it is                                                                                              |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **Display Name**                     | The button label.                                                                                       |
+| **Client ID**, **Client Secret**     | From the client you made in your identity provider.                                                     |
+| **Issuer URL**                       | The provider's issuer, like `https://auth.example.com/realms/main`.                                     |
+| **Authorization URL**, **Token URL** | The provider's endpoints. Most providers list them at `<issuer>/.well-known/openid-configuration`.      |
+| **Override Userinfo URL**            | Only if the provider's userinfo endpoint is somewhere unusual.                                          |
+| **User Identifier Path**             | The claim that identifies a user. `sub` by default.                                                     |
+| **Username Path**                    | The claim used as their Termix username. `preferred_username` by default, then `name` if it is missing. |
+| **Scopes**                           | `openid email profile` by default. Add `groups` if your provider needs it for groups.                   |
+| **Group Claim**                      | The claim with the user's groups, if it isn't `groups`, `roles` or `group`.                             |
+| **Allowed Users**                    | One email per line. Empty allows everyone the provider accepts.                                         |
+| **Admin Group**                      | Members of this group are Termix admins. Checked on every sign in.                                      |
+| **Custom CA Certificate**            | A PEM certificate, if your provider uses a private CA.                                                  |
 
 ## How sign in works
 

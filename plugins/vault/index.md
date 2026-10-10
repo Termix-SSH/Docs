@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/vault"
 description: "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault."
 hide_title: true
-custom_edit_url: "https://github.com/Termix-SSH/Plugin-Vault/edit/main/docs/index.md"
+custom_edit_url: null
 plugin_id: "vault"
 plugin_version: "1.0.0"
 plugin_latest: true

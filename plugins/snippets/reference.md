@@ -18,6 +18,7 @@ Each person sets these for themselves in **Settings**.
 | --- | --- | --- | --- |
 | Collapse folders by default | boolean | `true` | Start each snippet folder collapsed when you open the Snippets panel. |
 | Show commands | boolean | `true` | Show the first line of each snippet's command under its name. |
+| Always show buttons | boolean | `true` | Keep the run, copy and edit buttons under each snippet visible. Turn off to show them only on hover. |
 | Confirm before running | boolean | `false` | Ask before a command snippet runs in a terminal. |
 
 ## Environment variables
