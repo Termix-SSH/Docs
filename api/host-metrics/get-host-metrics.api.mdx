@@ -1,0 +1,69 @@
+---
+id: get-host-metrics
+title: "Get host metrics"
+description: "Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information."
+sidebar_label: "Get host metrics"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v3DYQ/SuDObUAvbttc9LNLVLX6QeMxIZRGEYxlsYrdiVS4Yx2rS7034OhtPYmCwfIqSdRw0fyveHM4x4rljL5Tn0MWOB71j4FAa0ZGlIWBaG2axgeYwKCOoo68KFs+sqHNfxydeOg5TamwUHlZeMgsO5i2jjoUixZhAUoVCCDKLfgw2NMLdlxC3SotBYs7vC3KAp/siZfCt477ChRy8rJZvfojVtHWqPDQC1jgb5Ch4k/9j5xhYWmnh1KWXNLWOxRhy6jgvKaE47jvaGli0FYDPDjamWfz+VnGu1EAypSWuDo8M3qp1PoXxGoNH2gEbT2knMz49+c4mdxEKICbck39NDwAsfRYctaxwoLXLOim3QWuOyafu3DGXV+aVufzbyWh+/eVyM6FE7bQ5761GCB+ylkk59z+Dv2Ca45tf4JJgw63FLyxiVnZY5m9o/UN4oF1qqdFMul5oULfsoFsShji2POq3DZJ69DpvDAlDid96bh7n50eyxj3Hg+jlDnf+fhOXK0xQe7wInK8UbP92lccL5n+59A6ObBr7m2sMB3t9cn6j+wiI8BNG44gHBQ8CFXuh0Sk/8vlyXUTBUnIIGf86a5fA2WF+YbPpb0zG1ShW6q1gnyUq//7vRVRu9ur2HCg7ACKYhfhzMfFnBbc4AusdF14BWUNiwWKbniUDLELadXVWS2x+n+5kyeX13ChgcQpaTW8juvNWj79M+JnGfot6d2w4ODXe3LejpIXo5ZwKUClSq2bMZC3IV5dUkht1SpNk9hiIGBG5l7y/wmq/ba8KHDD714fnVpDcBJJgE/LFaL1YmsP/yWv2J0mcXF1Y0RV3HQNb15QmyyM7QUaM0wWOdZF0u+kS6KthSM2FweF6x5/uA+X7KwNgrKQf8Pk54qRvlJl11DPpiEbDX72azu8MWs0OGxXWH2t3lU+Mrc3eZt0X7/QMI3qRlHC3/sOZmJ3L+YUraUyouNKyweqRH+Sma+ez8/CN/Da7wPzRqG7H1Nb3/ocMPD9KqM98eWfPH2GsfxE0IeeNk=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get host metrics"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/metrics/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host metrics data."},"403":{"description":"No access to this host."},"404":{"description":"Metrics not available."}}}
+>
+  
+</StatusCodes>
+
+
+      

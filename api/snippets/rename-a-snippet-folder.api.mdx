@@ -1,0 +1,68 @@
+---
+id: rename-a-snippet-folder
+title: "Rename a snippet folder"
+description: "Rename a snippet folder"
+sidebar_label: "Rename a snippet folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu20gM/RWCZ8XOLnpZ3dLFFkgLFEGTIlgExoKWaGtiiaPOULa1hv99wRnFcZr1obrY4jxy3htyng6otI5YPuG9uL5njbgoMPCPgaN+9PWI5SG9usA1lhoGLrDyoixqS9T3ratInZf5c/RisVg13JH907FnLNEvn7lSLLAPvuegjqOt+rb+Sh2fAaMGJ2s8Fii8u7CWHqMYey8xV/r9+tp+ao5VcL2RwRI/+bbmAIGFOq5nVvXD/+FuZUutq2ESPQE/XCwoXmHlB3kp+cd75A2sMnbntAFtGIR3YDyA2sBUj8B7FzXO0LS8Tf7GGQgxd2SqhQV2rI2vscR+SKdJ2mCJ874d1k6uqHfzKSXOc06cZ/VYYOSw5WCdPuAQWizxkENH/JnA334I8MChc3vIGCxwS8HRss3nPUWT7hUNrWKJjWofy/lcU+KM99T1Lc8q31nPFsagGoLTMVFYMgUON4MpeFociwNW3m8cn0eod194PEXOStzbhGUq54VOs2JcTHOCYTmBsJj+fPKhI+P8+fHhnfp7jtF5AfUbFogsCk5SD20TH9y/adqhYbIOU4SPqSiQ1AmWEtNsnEs6ccuqsEBnu2UIFpjaVOLzTi8y+vz4ABkPkRVIIbq1XDmZwWPDAn1go1uAU1DacLRIxTVLxeC3HC6qSGzPj/uXT/Lm7hY2PEJUCupkPU1+t//nnZwT9NePdsNjAbvGVU3eKL5uM4NbBao0WtqEBb+TKbsisXtLldo6yeiFgdvI+QaadX17Nb2/8vC+MakXAzrzpjO/crLy6dicWt7JTeHm7tZuD4eY1f82u55dv28xbTmxrnzXkdQRRj9AGAT8SlmSBHvThjs7M4J0zYRa8AG8QEcyQuOjRls2cVXrqk1qbO+jdpSseZqyyxbzhtZpCpT3Ou9bcmL1kn0cJvt5wlf7sUF5+YoUOFkQmlenfRcFGkPLORyWFPl7aI9HC/8YOJgvLF59JpsA5lFIlrHhEUv8M397rh6MmcHbId+qn75DZhcnv7z7bvd8OX3OOl9bSqCdcaMdlogF+iQ6eUqKHbAlWQ+0TtcylbTnP+LSfdk=
+sidebar_class_name: "put api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename a snippet folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/snippets/folders/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rename a snippet folder
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"oldName":{"type":"string"},"newName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder renamed."},"400":{"description":"Invalid request."},"404":{"description":"Folder not found."},"409":{"description":"A folder with the new name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

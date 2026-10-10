@@ -1,0 +1,69 @@
+---
+id: form-login
+title: "Form login"
+description: "Checks what the user typed for a form login method, then issues a session or asks for a second factor."
+sidebar_label: "Form login"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv20YM/isEnzbgJrtFsQe9ZcMKpBuwYHERDIExXE60dZN0px6pOJqh/z7wpDhujRToS19si/p4/D4e+fmIFbFLvhcfA5b4a02uYTjUVkBqgoEpgYw9VbCLCax+dtDGvQ/QkdSxMooL4JkHYrDAxOxjAEVzw0sak4uhgp11ElOBBsXuGct7vBqkxq3B3ibbkVDS6BG9kumt1Ggw2I6wxLncdYUGE30afKIKS0kDGWRXU2exPKJSxRJZkg97nKatgrmPgYn1/dv1Wr8+F/1HlsODc8S8G1oDl5zBMzyXLXAy+G795vKkuxTDHlyiioJ42/ICfXcJ/RiaEA/hs14WOE1mEar6IwuauQ0lrvQueGUHqVfH52ZMq0dKfjeiQab0+Ny+IbVY4nEOTWi+qP13HBJsKHX+CWYMGny0yduHdu7TEs2sd3ZoBUusRXouVyvJiQU92a5vqXCxwyl3mskNycuYKTyQTZTy9Zb328kc0cXYeDqP2N7/TuMpcnbErd7oTOX8oNMFKxdcLl6fZxCa5cf7mDqrnD/cbS7U3y4TKrGhAExBwIc87VokJv+fVSTUZCvSKYZf8qFgQ5VhOTHf7LmkE7dZFZp5iGfIyxj/e5BXGX2428CMByYBK8B+H37yoYA7XbI+kdI14AXENsQacTpsjiA+6qq+oiKzPW/3N3fy6uYaGhqBxSbxYQ8HLzVI9/TPhZwT9Ntb29Bo4FB7V8+F+KVMAdcC1glr2oKFeAhLtrMhxAzQ9zaMMRBQyzQvlQ+7mFV7aVXmMv1XN9c6+pR4pv725+LNulhfSNrUBC4mgpe8An6zroa+HXSBq+iGjoIweGGlBSkOQrMB6CJ3Nmj9ZQren2z0y1K6J0EoyHd143kWhJ5k1bfWB2WdTeS42M89ZvtBg2pAaLA88+PFg7YGa7Ws8h6PxwfL9DG106ThTwMltYXti81kk6g86+8Ky51tmb7Sih/+Wsz3R3iN7/P6hTG7WTvoExpsaDz/+5i25x578+ftBqfpf5HTbbM=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Form login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/{methodId}/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks what the user typed for a form login method, then issues a session or asks for a second factor.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"methodId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful, or a second factor is required."},"401":{"description":"Wrong credentials."},"404":{"description":"Unknown login method."}}}
+>
+  
+</StatusCodes>
+
+
+      

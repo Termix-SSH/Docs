@@ -1,0 +1,35 @@
+---
+title: API
+slug: /
+hide_table_of_contents: true
+---
+
+import ApiIndex from "@site/src/components/ApiIndex";
+
+# API
+
+Everything the Termix app does goes through this HTTP API, so scripts can do it too. The [CLI](/cli) is built on it.
+
+## Sign in
+
+Send an [API key](/guide/api-keys) as a bearer token:
+
+```bash
+curl -H "Authorization: Bearer tmx_your_key" https://termix.example.com/host/db/host
+```
+
+A key acts as the user who made it, with their permissions.
+
+## Paths
+
+| Path | What is there |
+| --- | --- |
+| `/host`, `/users`, `/rbac`, `/plugins`, ... | Core routes. |
+| `/plugin-api/<id>/...` | A plugin's routes. Only there while the plugin is installed and on. A disabled plugin answers 503. |
+| `/plugin-ws/<id>/...` | A plugin's WebSockets. |
+
+## The APIs
+
+Each plugin documents its own routes. These pages are made from the code of each release.
+
+<ApiIndex />

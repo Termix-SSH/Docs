@@ -1,0 +1,68 @@
+---
+id: execute-a-file
+title: "Execute a file"
+description: "Executes a file on the remote host."
+sidebar_label: "Execute a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu20YQ/ZXBPK8lN2hf+GYXMeoUQYVKhVEYQjAix+Ja5C6zO9SlhP69mF1aUmwHSPggkcszM2duhwNWHMtgO7HeYYEf91z2whEInmzD4B1IzRC49cJQ+ygTNCi0jlg84p1CPpOjNQdcGgz8tecot746YDGkRxu4wkJCzwZL74Sd6CvqusaWpFGnz1FDDxjLmlvSOzl0jAX61TOXgga74DsOYjkmHMdovbuvLqBRgnVrPBpU2jOS+p2X6VKWsfMuZmcfrq/179sqpLw4lcJ6B4Fj38hEvf/6HvyzjdG6NbzkCx0Falk4RPAB5vM/oPTOcZm8OS9AW7INrRpOTn97lwPZhisQPxLh1JAJagYtS+0rLLDzMdUn5YvTrunX1l1RZ6cKvmpza6ajB00LDUYOWw7awAH70GCBQz46onlF4l/fB1hwaO0eMgYNbilY5T42I50m+k/UN4IF1iJdLKZTSYYT3lPbNTwpfas9WCqDsg9WDonCiilwuOk1hcfl0QxYer+xfHlCnf2TD6eTCxdzHZpM5dLRqffKRXNOMCxGEJrx5s6HlpTzp4fFm+znedBA/IYdRHYCNu+DBvHB/pcGGGqmigNQhNvkFMhVCZYMU4svUzpxy1mhQavRMgQNOkpMn3fyXUafHhaQ8RBZgASiXbsr6ybwULODLrDSNWAFhDYc9aTkil3J4LccvptFYntZ7p+u5M3sHjZ8gCgURNdiZ6UGafdf3qRzgv58aTd8MLCrbVnnQPEcZgL3AlRKVLMRC37nRuuSXFrBUvQ9uYN3DNzEcbdUjf4+69jHPLyvdOdFUi7l5kKDrHvyqXJW1PQbnYSb2b0uEYeYi/DL5Hpy/aY0t8HvIhvgykqi3fptloCYGzi/W8wMWFc2faVVjhLIrmuBp+Bb0JzyaqqCkPNSj71VyWgpCe44aKPmj5L/mslwlu0f/TrkeRHey7RryDoNm4RmGJXqEc9KNdbwRavQ4KVaLQ2qWzUZhhVF/ic0x6Mef+05qIAsz4KU1QLzzCRt2fABC/w9J3C1UGIKb/q8fq++QaorJ2md/TVXRViN37LWV2oTaIcm/RaIBn0qUlKfdDZgQ27d0zotcPKp1/8Rl5FU
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Execute a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/executeFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Executes a file on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"filePath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"File execution result."},"400":{"description":"Missing required parameters or SSH connection not available."},"500":{"description":"Failed to execute file."}}}
+>
+  
+</StatusCodes>
+
+
+      

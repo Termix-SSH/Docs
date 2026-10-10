@@ -1,0 +1,62 @@
+---
+id: list-installed-plugins-and-their-runtime-state
+title: "List installed plugins and their runtime state"
+description: "Returns every plugin known to the database, merged with the loader's live state so the UI can tell 'enabled but failed' from 'disabled'. Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users."
+sidebar_label: "List installed plugins and their runtime state"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFvGzcM/iuEXrYB10vWhz0Yw4AO67Z0wxa06YqiDmpaon2qddJN5MXxDP/3gdI5cdruoQ97y5PPlEh+JD9S3BtHbLMfxKdoZuYlyZgjA91Q3sEQxrWPsIlpG0ESSEfgUHCJTA30lNfkYOulKychoaP8FUPwNwQsKARclV5fgMUIQiHA3FDEZSAHy1FghT6QmxtY5dTD3DjP5XBuWvhzoOIW4w5wlI6ieItCDkam3EBMAh9GFkDX+8iz4gqHAbhTRxZDYJDOM6Q4RcTE7FOx6sh6R7DtvO2mSJ/YFCX75ag+BJcMGB1k9AG8UM+qlmntWdQ9J1ij+LgGL7CkzkdXkbTVGrc9RlwTbNMYHCwz4aZArPBWKUNM8UlRKRFxO49/HCUMaxJIMexg26GcKEYixy28USkea+QZMIS0VeAJXGqqVocMS6II64xR6qGXEta22+lnLQBgJkgDZVQiYABHgj5widLigEsfvHjiplriBgKyPM855WJtGJfB25dpFOJizEcbRkeuhqDBdik4ygxp9dk0tQ9tBM/CJepfr64uYUDpajk42Q3JUQB5jFFrMOWBKd8QF1KmUcCmTMrIpGe2I7tp5/GqI6VbFIoOVp6CY3BZSavuljltufB4Mll5PYPFUWcBjLuCTeNUEMsxukCAAouziUrITMJn33v3w9lRsf3AzQIW5egvysrEhRrwwmDRdgQb2jWwsMyTDwSWXSDuiARY7y2JlbZempKNRUgWA/HiJGEB43rENalh4M4PDF9r181NUbm9ff/27TctLBwNFB1F61W/WEtDrf9PD44CyUmHA1rxN9rdx7gYfKwExZ4gZb1U/moxMrhESm3TGME1m9k7c1krb64bk4mHFJnYzPbm6fm5/jycSb97FiXNkS7mcGhMT9IlZ2ZmTWIao2wwMzMln01jqm/1tjdjDmZm9lV0MM1HDt6mMcMV5d7fTpBNY24we51EBdckLdBWOAYxM9OJDDw7O5Oi2NIt9kOg1qbeHA6Ha0Vgx+xlVyAsCTPlZ6PCfHd9aPbGprTxdCrBwf9GuzvJiYlXtqO+Qjk1tDeyG2jCojGXa2Y2XTLN9PFzyj0q5hdvrj6J/tXdSNyQ9k+UYzXVScr+nzIToKNafIYfi9FCGL1WFFtzaB6EdIetRmUa49VbvWIaE7Eg/bCV/0T04s0V1PvAJNpd7NfxiY86/CjCkEnhNkpzwQ2xSiwpbQnSzUTCz0VR0J6m+4sz+ezyQptVn7lc3oD6DPa37z8J5+7ql6e2jIP6QhVHfO+mhQvRTmRVm+5C2sZJ22LU5xGt6DnGXYoEFJhq+/i4SiVqL0HDnNj/7PJCqV9Hk5mZp9+1356355+EpBNURyvc67XwHO8eUnDJjj1FqbNN14dcxnpJ/JBYeozqf2JBaXEfWTDoYzR18TENPuuUF99PW8XHcLSXdA7J4wLzuMA8LjCPC8z/uMDUV0LoVs6GgD7qPCvrxX7aQd6Z4X656RKLivZ7nTivczgcVPz3SFnXguv7NaPuAPdrzS/Pr8zh8C9xXNzJ
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List installed plugins and their runtime state"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns every plugin known to the database, merged with the loader's live state so the UI can tell "enabled but failed" from "disabled". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.
+Non-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.
+The frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships ("en" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.
+
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"List of plugins."}}}
+>
+  
+</StatusCodes>
+
+
+      

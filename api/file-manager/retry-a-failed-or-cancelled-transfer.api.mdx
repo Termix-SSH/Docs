@@ -1,0 +1,69 @@
+---
+id: retry-a-failed-or-cancelled-transfer
+title: "Retry a failed or cancelled transfer"
+description: "Retry a failed or cancelled transfer"
+sidebar_label: "Retry a failed or cancelled transfer"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v1DAQ/SujOYHk7i6IU27lUKkgoKKLKlSt0DSZ3ZhN7GBPug1R/juaOPtRFiQ4JbHfjN88z7z0KLSJmN3jla0YPpCjDQdcGWwoUM3CQXd7tA4zbEhKNOioZsxQArm45nBdoMHAP1obuMBMQssGY15yTZj1KF2j6CjBug0Ow0rBsfEuctT914uFPgqOebCNWK8nLUuGfX6IQkG4ANqQdTMcDL5ZvDqP+egFot04LuAAe/MnGMQ2L4/p1z6AlDZCGznMcBjMbxGfWUIHBGuyFRfgA+Tkcq70Y58FDdYspS9UJh8FTVIrw3lTtRvrLqix87Wt+KJOIs/3oWP6eX+Uc0CDkcPjXvs2VJhhn5Z08zm9r74NsORQ2ydIGDT4SMHSQ5UknlZHKdbUVoIZliJNzOZzGQNn/ER1U/Es9zUO4yVFzttgpRspPDAFDpetVnS/GkyPufdby6cr1Nj33B1WTlLcajMkKqeJDr2hXHDqGf1OIDTTy5UPNSnnd3fLs+pvOUbrHYjfsoPITsA6kJJBD/HB/iRFQslUcACK8HZMCuSKETYGju1yWtKBW6oKTZqABDnOwPed/JXRu7slJDxEFqDUnRfWzeCuZAdNYKVrwAoIbTnqSs4Fu5zBP3L4axUj21O5/1vJy5tr2HKXRsu6DeyslCD107ezcg7Q/5d2y52BXWnzMh0Uj8fM4FqAcokaNmHB79wUnZNzfgToPrnOOwauIqf5tG7tx6qtVFrmqXnB5c21DgCHmAp4NVvMFmdlvQ1+F9kAF1bGI2v/yKADGpP4t1fLGwPW5VVbqEJRAtlNKbAOvgblk8YKxAM5L+V0Lzr9NTmlNzXJP/rHM36HGxV+knlTkXWafLSCfrKWezxaCxo8NRc0+Mxe0KgxH/x6ZbBUk8ruse8fKPKXUA2DLv9oOejIr44WMhpAYaO+F5itqYp8xjb3Tthpa734PP0KXoKy+FMV+9Fy3ehUVatfaHDL3fP/yrAaTnz15tPtEofhF/ibUd0=
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retry a failed or cancelled transfer"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/transferRetry/{transferId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retry a failed or cancelled transfer
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"transferId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The transfer started again."},"401":{"description":"Not signed in."},"404":{"description":"No such transfer for this user."}}}
+>
+  
+</StatusCodes>
+
+
+      

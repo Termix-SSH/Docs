@@ -1,0 +1,68 @@
+---
+id: keep-a-metrics-viewer-alive
+title: "Keep a metrics viewer alive"
+description: "A viewer without a heartbeat for two minutes is dropped."
+sidebar_label: "Keep a metrics viewer alive"
+hide_title: true
+hide_table_of_contents: true
+api: eJyllVFv2zYQx7/K4Z4ZOxv6pLe02Na0G2YsyYIhMIazdLEYSyRLnux4gr97caRqu0n7UEwPskzdkf//HfnTiA2nOtog1jus8Aq2lnccYWel9YMAQcsUZcUk8OgjyM5Db90gnMAmaKIPgZsZGhRaJ6we8L1PAn+wRFsnXBqM/GngJG99s8dqzH9t5AYriQMbrL0TdqKvKITO1qRS5k9J9YyY6pZ70ifZB8YK/eqJa0GDIfrAUSwnfVtk33BK1rvr5iwhSbRujYd8qZwUvEsl6+fLS/35ugbvj4aH0JCou4PBN98KvXZb6mwDL1afEt68Tvi7VDeVSHBeqzo4zTgY7Fla32CFwadskaTFCuehG9bWXVCw89YnuehLdedffo8tQoOJ45ajdmLEIXZY4ViGDmheiPnHDxFuOfb2GUoMGtxStLTqSn2m0WzjkYZOsMJWJKRqPpecOONn6kPHs9r3WuOlKqiHaGWfJayYIserQY08LA9mxNr7jeXzEQr2I++PI2dT3Gj3i5TziY69VS3qOYdhNQWhmR5+9bEn1fzh/vaV+6lbIH7DDhI7AetAWgZdxEf7X96Juv8bjkAJ3uZJgVyTw3JibvW5paO24goNWl2thKBBR1np006+q+jD/S2UeEgsQALJrt2FdTO4b9lBiKxyDVgBoQ0nHam5YVcz+C3H77rIas/L/cOVvFpcw4b3kISiWLfOoADpn/99ZecY+uOl3fDewK61dVsWSqdlZnAtQLUkTZtiwe/clF2T00NFteh7cnvvGLhLXE6YYuWvE5B+KZv3mwA5gkM7+Ohzraxo8FeIg6vFtR4bjqnY/ml2Obt8VYzf7Zbh3eLOQM+9j3sDjU0bA45l5+Mma/9tcad2JRkI3ZBAvO/0Dj05WjPs9bwqAFLuo0Kip0zJaVN9ZA5AMGHhC8qps1t+KWg8gfd/Qb/sHuFnmYeOrFNhGTvjRK8HPNELDZ7zCzPxpqcTw5YlSlPHcUWJ72J3OOjwp4GjYmV5wlRhCJadlImz4T1W+K64u7hVgRreDeVQvvjEKG2O2F38eaOcWE2fqt43mhNphybfK0SDPlcwMymPjdiRWw+0zsc6z6nXZwq4kB0=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep a metrics viewer alive"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/metrics/heartbeat"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A viewer without a heartbeat for two minutes is dropped.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Heartbeat updated."},"400":{"description":"Invalid viewerSessionId."},"404":{"description":"Viewer session not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

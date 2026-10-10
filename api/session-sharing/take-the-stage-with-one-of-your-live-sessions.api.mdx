@@ -1,0 +1,70 @@
+---
+id: take-the-stage-with-one-of-your-live-sessions
+title: "Take the stage with one of your live sessions"
+description: "Any member may take over the stage; the previous stage share is revoked. The caller must own the live session and sharing must be enabled for the host."
+sidebar_label: "Take the stage with one of your live sessions"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v4zYQ/SuDuXQLKLb7cal6yi5aINtDg42LoAiMgpbGFmOK1JIjO6qg/14MKVuOnV2gPTWX2NJ8vnnzxj2WFAqvG9bOYo63toOa6jV5qFUHrHYEbk8euCIIrLb0c/zYeNpr14b0DEKlPIEO4GnvdlTOYFkRFMoYCdQGBnew0dHoPUGgELSzoGwZXbXdJqs1AVm1NlTCxqWklQs8wwxZbQPmT/jBGaPWuMowUNF6zR3mTz2uSXnyty1XmD+thlWGjfKqJiYfooGW9hrFFWZoVU2Yoy4xQ0+fW+2pxJx9SxmGoqJaYd4jd41YBZb6cJCYYkyB37uyE4tL38JZJsvySjWN0YUSWOfPQbDtr0O79TMV/KqIJ2y8Y1c4g9JhxOlO6hQc7krpu/GuIc+agoQ6mV9VnCHZtpaQIUjXvmwww70tBE0ylhhXw3mS655PaadX2jJtyeMQ/6T00DgbUjHfLxby7zWnhAqWDokqEvPHxQ/XVg8jD0odIgEycB6s48S8VOM3QXgkySXIT2+nSowsKmW3VEJNyh4qbQil2Jq4cqUQwQXBPfIhx3lj2q22N6rR8zHVzcjLuXeuDvNel8O88RRkvIKZ3x+J1XqDOfbp0YDZRUl/utbDknytXyDZyBCU19JlBG18GpvZqNYw5lgxNyGfzzk6zuhF1Y2hWeFqAf6M/A/CqRTnfAVO45JAOLJavicjzMYPvzpfK0n48XF5VfrDuKbsdmRBWgedtliSOK//jvyGilRJHlSA9zFo3Gsxi44zmVbh3E7TRW2q0b9Rh1nazWQybefzgb9Y0cfHJSR7CMSgGILe2httZ/BYkYVxUhlojhoW5ElBJdniTM/e6iJWmwr7j0je3t/BjjrhoWdh9EFzBVy//HXVzsn030O7oy6DQ6WLKiUKU5oZ3DGogoO4jbZpb6J3oayslSpY3ivbOUtAJtAsroiI1adJ5n5JzHutNKOgnCnHpDlHwVgMMteNiwhqlhCn8R13/fb+TpaBfEh4fDdbzBbXQ4/H5fxwBFh3YLTdiUbEvpV1XJGHNpDPYpsjBSYXdqBg613bCNQ1URxOXO84dJGEWkWhHhm4lOt3OnwpkYDlNtDJVr8q6bLsfroG/+ermrjN9MLzxihtBYmoaP0ojk84ieM086M8ylkRBDHDPJ7To0auEhPEv+/XKtAf3gyDPP7ckpebvZpkMOroUfgx3ygT6Ctwvvs0nstv4UstHBXGdlFtTSvfMMMddenwD3L60nbF7OnFh5TjZinuk+PVMRcFPt2S+98fRDvX44+C2pXi49VBwFGHlNjFPqJOx2c9GmW3rVzEHFNM2T71WnMuNCZW+mZrfZ8slqK4w3DqNCqwNDsM/wDqBnBs
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Take the stage with one of your live sessions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/present"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Any member may take over the stage; the previous stage share is revoked. The caller must own the live session and sharing must be enabled for the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["protocol","sessionId","hostId"],"properties":{"protocol":{"type":"string","enum":["ssh","rdp","vnc","telnet"]},"sessionId":{"type":"string"},"hostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new stage"},"403":{"description":"Sharing disabled, or not the session's owner"},"409":{"description":"The stage changed meanwhile"}}}
+>
+  
+</StatusCodes>
+
+
+      

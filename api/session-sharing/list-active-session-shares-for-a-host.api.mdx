@@ -1,0 +1,69 @@
+---
+id: list-active-session-shares-for-a-host
+title: "List active session shares for a host"
+description: "Returns active (non-revoked, non-expired) shares owned by the caller for the given host."
+sidebar_label: "List active session shares for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P20YM/SsETwkwa2+L9qLbFkgCpz0E2S0WhWEUsxItTS3NKBzKa1fQfy84I6/3s0AL5GRp9IZ8fCSfR6wolux6ccFjgV9JBvYRbCluT/DOB3/BtA87qgzoCx16x1S9h9hYpgjh3lMFd0eQhqC0bUsM28DptXZ78tCEKAs0KLaOWKzxmmJ0wcN1Y9n5GjcGI5UDOzlisR7xjiwTXw3SYLHeTBuDvWXbkRDHBHBKtLfSoEFvO8ICNceqQoNM3wblh4XwQAZj2VBnsRhRjr0inReqiXHSwEyxDz5SVMCPl5f681SP31wUCNuTHrlonAz+9Bp65fe2dVUqGVyluJ9fw10T74mBmIMyMdiRNKHCAmsSNLm4Apd9O9TOX9jeLWNW7SJm1ZaaYjnmuqdlpoeqpEbOOg3cYoFjPprQPCPxRxgYbog7d4CMQYN7y87etVmR+TTR39qhFVVapI/Fcinp4oIOtutbWpShwylpeurltSqf4zzu6EMjNBDODdL3DEIzP3wM3FlN+Pn25gX10whJ2JGHSF7A+TRymiSw+9sqEhqyFTHYCL+koGB9lWDp4kL7U4awc/SMm+3dr3REk0ctQ87D9te9vMno8+0NZDxEErAC0dX+wvkF3DbkoWdSugacgNgdRT0pqSJfEgQdireqSGwzsf+p5NWXFezoCFEsi/M13DtpQLrDny/KeYD+d2l3dDRw37iyyYniOc0CVqKbFPXajE0Gkm+X1vuQAPrd+mPwBNRGWqQdcX4bUtVOWnok+ewjcPVlpQNMHHMNPywuF5cvG6UbDG1a5hwgqnu1zu8gcOZqfZCGGIZIbBK1uW3nKxLAQs1h6FWejigJyiF0MTWqD1E665XvPDXJSU42MlOfPVT90ibTeE53xDJ4IS/f2ZrzIAkdZNm31nktIdnHOHvRGs9elGzmiRuhwZl98eDEsyVt5k/FGsfxzkb6ndtp0uNvA7E6/ubsOsm2Khf1ucJia9tI/6LIu6+z27+Ht4o4LbQ/JnNrB31Dgzs6nv82ps1jC/70QQ3HPt2xZzuViL4aexwz4kYdZpoeUiXH0UzT9A9Kw5UA
+sidebar_class_name: "get api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List active session shares for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/session-sharing/host/{hostId}/active"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns active (non-revoked, non-expired) shares owned by the caller for the given host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"List of active shares"},"400":{"description":"Invalid host id"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

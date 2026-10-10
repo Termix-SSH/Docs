@@ -1,0 +1,68 @@
+---
+id: turn-plugin-developer-mode-on-or-off
+title: "Turn plugin developer mode on or off"
+description: "Turning it off drops any file that was uploaded but not installed yet. Plugins already installed from a file keep running and stay marked unverified."
+sidebar_label: "Turn plugin developer mode on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v20YQ/SuDOdOUmxY98JYEKeD0YjQOjMIwihF3JK613GV2ZyWzhP57MUtGUuzkkFt5ETWcj/dmdt5OaDi10Q5ig8cG73L01m/BCoTNBkwMQwLyI2ysY5COBA6UIA8ukGED6yzgg4D1Scg5NjCy1HDr8tb6BOQikxkvPm9i6IHmdDvmAWL2pSJ5A0lohJ7ijg1kv+doN5ZNjRUKbRM2D7gkxscKI3/JnORdMCM2U/lrIxtsJGausA1e2It+omFwtiWluHpKynPC1Hbck77JODA2GNZP3ApWF4kekD2tHRstN8QwcBTLSYO+fjjHr0NwTB6P5dE0aQg+ze5vrq/150WvO4ZEezawJ5e5xmOFv33PcSkGNpVeEyy1lohfv5+61YZHcNTuEpDpra+HuXt1T562WvBYYc/SBYMNDlnZDyQdNrhaXFeG9+yU+VUfDGOFieOeow5jwhwdNjjNpiNWL1D8HXKEO469fYbZByvcU7RKp/RlsRb8G8pOsMFOZEjNaiUlsOZn6gfHdRt67e2jImhztDIWCGumyPFtVtQPj8dqwjaEneVLCw32Tx5PlosUn/QUzFAuE52GqliUc3HTIRcnrJaXP0LsSTF/vL97xf4Tp2SDBwk79pDY65aAdAxaJET7bzmR0DEZjkAJ3pWkZRPUrQSWGV9SOmGbWWGFVqvNLlihp4L06SA/RPTx/g5mf0gsQALJbv2V9TXcd+xhiKxwK1UBoR0ntbRs2LcMYc/xhywK2st2/3Qn397ewI5HlYIoqgsHKx1I//zPKzon159v7Y7HCg6dbbu5UDqXqeFGgFpJGrb4Qjj4JbolX3awFf1OfgyegV1atknl5a+zMH2YD+83iqHydNSpbULpjxV1wGVP3t7e6JJwTDPJN7/Xv1zX16/Ilw0PkeEcV8MHajuYNxdMaHPPXhJYSUoAYsjCqYxoCEl6KkK4nBcV/lPo150H3XkIHkLU6+AliOkssv/fi2M+fsLPshocWa/0i25Ni9Y94KJ1hd43avdYYReSqM80rSnx5+iORzV/yRxVgB7PgjarDc5nrmjTjkds8P3co6s7RaLuLs/r++JSUl06ifHtZxWU9XK3FTANRjro/UQHbBArDGUMRbyKbUJHfptpW/a/pNTnP2C3wP8=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn plugin developer mode on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/developer-mode"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turning it off drops any file that was uploaded but not installed yet. Plugins already installed from a file keep running and stay marked unverified.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["enabled"],"properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved value."},"400":{"description":"enabled is not a boolean."},"403":{"description":"The caller lacks admin.plugins.manage."}}}
+>
+  
+</StatusCodes>
+
+
+      

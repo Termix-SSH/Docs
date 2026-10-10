@@ -1,0 +1,70 @@
+---
+id: share-a-fleets-current-member-hosts-with-users-or-roles
+title: "Share a fleet's current member hosts with users or roles"
+description: "Snapshot at share time - grants host access for every current member host to each target. Hosts added to the fleet later are not automatically shared; re-run this route to extend sharing to new members."
+sidebar_label: "Share a fleet's current member hosts with users or roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v40YM/SsEL20BxXaLPbmnbNHtZlugi02KoAiMgpZoa2JpRjuk4qiC/nvBGSf2xk2BvVYXS5w3/OajR6xYyug6dcHjEq89dVIHBVKQmiKDupbhAraRvArUQRSoLFkENiECP3AcoOxjZK/QcrvmmEEagKmsQSluWWfwPogKUFVxZWdaM2waZoWGlCOYKW92ew0tqSupaYbsQvUjRL6IvQetnUAMvXJS/6jsq4RxfmsSz/uDDzLDApW2gss7fGd2BFcFdhSpZeVo8hGdhdyR1ligp5Zxia7CAiN/7l3kCpcaey5QyppbwuWIOnQJ5ZW3HHGaVhnNom9DNRjk5eUyeGWvdkRd17iSLNfze7GEj+e6w/qeS8UCuxg6jupY0mnKo5wAKUYasECn3Mq5gmkqsOPYOhEX/G/8wM0JSNSShlOBVR+TR+9DH0/V+N4SiVN6LErpgpfszA+Lhf182TspzYeSzUzzm8Wb11BW6k3ovQGnAlvWOlRWjCApdKvJEudd02+dv6DOzVOzyHx01TRPNrBA4fjwVMs+NrjEMYsmLF6Y/TP0EW4sHY+QMVjgA0VH6ybHdJAmhzfUN4pLrFU7Wc7nmi7O+JHaruFZGVrLy8o8KPvodEgurJkix8vefL9bTcWIZQg7x6cS6tyvPDxLTlRcWyNkV04VPdfDfMFDL9p3BmFxeHkXYkvm84fbm7Porzk1AWjYsQexWXU+zaAZCdH9nVoAaqbKhlHgbVIK5KsESxdTUU9DOrZiisp60axlyHGm7vf6qkcfbm8g40E4047b+gvnZ3Bbs4cusrlbgFNQ2rGYpOSKfckQHji+GkXy9jTdX53Jy49XsOMBRCmqUczeaQ3aPv51Fs4z9OtTu+OhgH3tyjobkqOZGVwZ2xpvyhMWwt4fbpfkE2WWaufkh+AZuBHOQ2UM8+nITT/n5v2CS+5G68AzlnhihzNyWExW4k1ISpyatgO7wuXHK5sojpIz8v1sMVuc5emXGPouLQgB5zXkHSApHGP4MrQt+UoK6Kjc0ZYtOhd8Rmxcw6CRvGw4CgQP1DQQNpab1non+JJT3Y1HWkoEe2jC67TNKBv8Rv5tZx0y30tSHiEGo4YXIYxHQv+fbcs8HMqPOu8act7ymFh1PPDxHR75GAvMpcMCl2lpZlJeFWgBGXgc1yT8R2ymycSfe47Gk6sj7ybWrJzYe4XLDTXC/5Hubz8dVut38Jq/T3zkh0TvTW9fWOCOh7zcp9VUYJ7FZD0f/JRtXNzY9ePFs31t0/K8qz7+fm1Muz7s/TZUdifS3v5B0D4bDimOxOpJNmJDftvTNhFj0mnPP+3lUy0=
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share a fleet's current member hosts with users or roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Snapshot at share time - grants host access for every current member host to each target. Hosts added to the fleet later are not automatically shared; re-run this route to extend sharing to new members.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"targets":{"type":"array","items":{"type":"object"}},"permissionLevel":{"type":"string"},"durationHours":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Fleet shared."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

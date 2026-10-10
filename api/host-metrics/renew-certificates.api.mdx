@@ -1,0 +1,70 @@
+---
+id: renew-certificates
+title: "Renew certificates"
+description: "Renew certificates"
+sidebar_label: "Renew certificates"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVclu4zgQ/ZVCnWYAxs5sF93SjVnSswWJg2AQGANaKluMKVJNluxoDP37oEh5ayeH1sGWirW8Wvhqh6xXEYtn/M1Hhj+JgykjzhW2OuiGmIKc7tA4LLDVXKNCpxvCAk2FCgN97kygCgsOHSmMZU2NxmKH3LdJyzGtKOAwzLM2Rf7gq15UvjQuvWNyLEe6ba0pNRvvpi/RO5Fd+PaLFyr5DMUzltaID0kh+JYCG4piM8qP1pGDcStUSK5rkiUFXnjxp8uGJrHG+aCwCv19507sFt5b0g6H9Ejw2HoXc5Tvr6/lr6JYBtMKfCxwVhMEcrSFQLGzPMFB4Y9vad66jbamAuPabq/2w6XaXx6oMgy6LClGYA9cE9Q+CngfgCxtUu2gImeommDhOmsHhT+9h6/0TaNdBUttLFXg3cHlBCXLc4v7lI0UzCylTRRRYUNc+0rmJANJ41LgtLXdyrgr3Zqp+Ltq8pSdfzTa6RWFOI3RTnemGqapYqgwUtjsx7ALFgvcZdGAX8L6x3cBZhQa8wpZBxVudDB6YXN/RmkqwVJ3lrHAmrmNxXTKyXBCr7ppLU1K30iP54Kg7ILhPkFYkA4UbjrJ7Xk+qB2W3q8NnUp0a36n/iA5cfEgM5yhnDo6DJdgwfEapWFLSqjGl198aLRg/vQ0u8j+gWKUnrNfk4NIjsHkNkoQH8x/eSZq0hUF0BE+JKcgfRe1ZJim7jSlA7acFapMBlnlSAcvW34X0aenGWR9iMSgGaJZuSvjJvBUk4M2kMBVYBhYrymKpKSKXEngNxTezSKhPS33V1fy5u4W1tRDZB3YuBVsDdfAzeu/F+kcVL++tGvqFWxrU9Y5UDyGmcCt3GSOYjbqgt+60brUzvmkIOfa9d4RkI2U76WQ4/2RVn/Ow3tKeCe8tucyodtB+rj0qWKGxeRsB8DN3a1cHgoxJ//d5HpyfVGSP8yG4OPdo4KGGh96BZWJawWOeOvDOmXw692jJM1RQWs7oStvE2nlOw+93Fohg5i6KezR6MS442i9yTZnOA5dZ3rlaWu1ceIq0cVuJKJnPBIRKjxln8vPPR3JBEWLCotx3QknzbO6uNztFjrSY7DDIOLPHQWhifmRdhJpVCbKe4XFUttIF+gPmw+/uR932beA6u2s9tfR9YndbCdfqHBNfV7Lg+ytPIopej74mGNczcT8aHixaYWuDlR+9/eDEM1i3NiNr8QmaCFm+U2BfcojkVqS7dBqt+r0KvFC8inP/wBM578=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Renew certificates"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/ssl/{id}/renew"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Renew certificates
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["client"],"properties":{"client":{"type":"string","enum":["certbot","acme.sh"]},"dryRun":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The renew result."},"400":{"description":"Invalid input."},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -4,12 +4,15 @@ Alerts, sessions, user administration, API keys, and a couple of commands for ch
 
 ## termix alerts
 
-Your alerts. See [Alerts](/features/networking/alerts).
+Your alerts. See [Alerts](/plugins/alerts).
 
 ```bash
-termix alerts                  # list active alerts
-termix alerts dismiss <id>
-termix alerts undismiss <id>
+termix alerts                  # list your alerts, newest first
+termix alerts --unread         # only unread ones
+termix alerts --limit 10
+termix alerts dismiss <id>     # mark as read
+termix alerts undismiss <id>   # mark as unread again
+termix alerts delete <id>      # remove it from your inbox
 ```
 
 ## termix sessions
@@ -28,14 +31,14 @@ termix sessions revoke-all
 
 ## termix status
 
-Host metrics from the shell.
+Whether your hosts are up.
 
 ```bash
 termix status          # every host
 termix status 3        # one host
 ```
 
-Shows CPU, memory, disk, and whether the host is up. Good for a quick look without opening the dashboard.
+Shows each host's status and when it was last checked. Good for a quick look without opening the dashboard.
 
 ## termix version
 
@@ -43,7 +46,7 @@ Shows CPU, memory, disk, and whether the host is up. Good for a quick look witho
 termix version
 ```
 
-Prints the CLI version, the server you are pointed at, and whether that server is reachable. This is the first thing to run when something is not working.
+Prints the CLI version, the server you are pointed at, whether that server is reachable, its version and how many plugins it is running. This is the first thing to run when something is not working.
 
 ## termix whoami
 
@@ -100,7 +103,7 @@ The key is printed once when you create it and cannot be shown again. Copy it st
 
 Give a key an expiry date where you can, and one per system rather than one shared everywhere, so you can revoke a single one without breaking everything else.
 
-See [API Keys](/features/api/api-keys).
+See [API Keys](/guide/api-keys).
 
 ## When a command does not work
 
@@ -111,3 +114,4 @@ See [API Keys](/features/api/api-keys).
 | 5         | Check the id is right                                      |
 | 6         | Check the server address with `termix version`             |
 | 7         | Unlock your data in the web app                            |
+| 8         | Ask an admin to install or turn on the plugin it names     |

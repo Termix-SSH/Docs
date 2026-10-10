@@ -1,0 +1,79 @@
+---
+title: Database
+description: Use SQLite, PostgreSQL or MySQL.
+---
+
+import { Compose } from "@site/src/components/install/Compose";
+import { CoreEnv } from "@site/src/components/EnvTable";
+
+# Database
+
+Termix uses SQLite by default. There is nothing to set up, and it is the right pick for one Termix server.
+
+Use PostgreSQL or MySQL when you want the data on a database server you already run and back up, or when you run more than one Termix server against the same data.
+
+Plugins keep their tables in the same database, so this one setting covers everything.
+
+## Settings
+
+<CoreEnv group="database" />
+
+## PostgreSQL
+
+<Compose variant="postgres" />
+
+`DATABASE_URL` takes `postgres://` or `postgresql://`. Termix makes and updates its tables itself, so the user needs rights to create tables in its database.
+
+If you use a database server you already have:
+
+```sql
+CREATE DATABASE termix;
+CREATE USER termix WITH PASSWORD 'change-me';
+GRANT ALL PRIVILEGES ON DATABASE termix TO termix;
+```
+
+## MySQL and MariaDB
+
+<Compose variant="mysql" />
+
+`DATABASE_URL` takes `mysql://` or `mariadb://`.
+
+```sql
+CREATE DATABASE termix;
+CREATE USER 'termix'@'%' IDENTIFIED BY 'change-me';
+GRANT ALL PRIVILEGES ON termix.* TO 'termix'@'%';
+```
+
+## TLS to the database
+
+`DATABASE_SSL` is off unless you set it.
+
+| Value | What it does |
+| --- | --- |
+| `require` | Encrypt and check the server's certificate. |
+| `no-verify` | Encrypt, but don't check the certificate. For a self-signed one on a private network. |
+| `disable` | No TLS. Same as not setting it. |
+
+Any other value stops Termix at startup, so a typo can't quietly turn TLS off.
+
+## Keep the data volume
+
+Even on PostgreSQL or MySQL, keep the `/app/data` volume. It holds the keys that decrypt your passwords and SSH keys, plus plugins, certificates and recordings.
+
+## Move an existing install
+
+1. On the old install, open **Settings**, **Database** and press **Export Database**. You get a portable `.sqlite` file.
+2. Start a new install on the new database.
+3. Make the admin account, open **Settings**, **Database** and import the file.
+
+The export has your secrets in it, decrypted. Delete it when you are done.
+
+## Encryption
+
+Passwords, keys and other secrets are encrypted before they are written, on every database.
+
+`DB_FILE_ENCRYPTION` is extra. It encrypts the whole SQLite file on disk, so it only applies to SQLite. On PostgreSQL or MySQL, keep the server on a private network, give Termix its own user, and use `DATABASE_SSL` if the network isn't yours.
+
+## The desktop app
+
+The desktop app's own server always uses SQLite. It can still link to a server that uses PostgreSQL or MySQL. See [desktop sync](/configure/desktop-sync).

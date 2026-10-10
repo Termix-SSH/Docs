@@ -1,0 +1,68 @@
+---
+id: unlock-user-data
+title: "Unlock user data"
+description: "Re-authenticates user with password to unlock encrypted data."
+sidebar_label: "Unlock user data"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFu20YQ/ZXBnGnKCdoeeHPaBHB6qBHLMApBKFbLsbgWucvsDC2zhP69mF1akuPkEJQHiRy+2XlvdudxwprYRteLCx4r/EIXZpCGvDhrhBgGpgh7Jw30hnkfYg0SYPBtsDsgb+PYC9VQGzElFihmy1it8I4pMq4LjPR1IJYPoR6xmtKji1RjJXGgAm3wQl70len7Vou64BePrGwmZNtQZ/ROxp6wwrB5JCtYYB9DT1Ecsb594XaGZInOb/GQLuXBffCc4e8vL/XvtfQ/jJhZGNXAg7XE/DC07VjiocBfvpdz89ITx/AibUa/e4u+9k+mdfWxkwn56/fW/WRcS+edzv1VIR1JE2qssA+cGmGkwQoXulG8yPALhWOBTPFJ96FaTTjEFiuccuiAxTcV/w5DhCXFzj1DxmCBTyY6s2lz0+Zo4vpghlawwkak52qxkJRY0rPp+pZKGzpt/FoZ2CE6GROFDZlI8WpQwqv1oZjQhrBzdB4xvfuTxmPkbIlbPQuZyvlCxw1XLqo5wbCaQVjMN59C7Ixy/ny/fKP+lphd8CBhRx6YvIDzIA2BFgnR/ZvOJTRkaopgGD6kRcH4OsFSYtrPc0lHblkVFui0WoZggd4kpo97+SGjz/dLyHhgEjAC7Lb+wvkS7hvy0EdSugU4ATE7Yo1YqslbgvBE8YcqEtvzdv90J69urmFHI7CYKM5vs09I9/zPGzlH6M+3dkdjAfvG2SYX4lOZEq4FjBXWtBkLYe/nbGu8Dwmg740fgyeglilPkprMl5M9fcyH97WdHG1Et+4hpCY5URTOw3J1c62TQpGz0ve/le8uy8s3HVg2BDZEglNeCR+NbaBvh63zUAc7dOSFwQmrCohhEOK0TzrsnUmeOB+au2wMyZ/ncX9VcDp56/939XwuhJ5l0bfGeaWUDGWa/WeFyX+wwHMHWhfYqEtVK5ymjWG6i+3hoOGvA0U1hfXJZLIDYD4HyS92NGKFv2cZF0slofB2yCP1zedCveJojjd/3eqUb+bPThdqzYlmj0X6rRALDKlVyVFSbMLW+O1gtmko05p6/QdwP3wN
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlock user data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/unlock-data"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Re-authenticates user with password to unlock encrypted data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Data unlocked successfully."},"400":{"description":"Password is required."},"401":{"description":"Invalid password."},"500":{"description":"Failed to unlock data."}}}
+>
+  
+</StatusCodes>
+
+
+      

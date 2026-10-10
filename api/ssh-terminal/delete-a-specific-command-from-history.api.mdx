@@ -1,0 +1,68 @@
+---
+id: delete-a-specific-command-from-history
+title: "Delete a specific command from history"
+description: "Deletes one command from the caller's history for a host."
+sidebar_label: "Delete a specific command from history"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v4zYQ/SuDufQi22nRXnTLtl1stiga1CmCIjAKmhpbjCmSyxklcQX/92Io+WOT3cOiOtgSOR/vzQwfB2yIbXZJXAxY4y/kSYghBgIbu86EBjY5diAtgTXeU/6OoXUsMe9hEzMYaCPLHCsUs2WsH/COcueC8biqMNOnnljexWaP9VA+XaYGa8k9VWhjEAqiWyYl76xRHItHVjADsm2pM/om+0RYY1w/khWsMOWYKIsj1l1FcNNc2LkgtKWMB01RWFxssmQXtngoj0LkFAOPkX64utK/z4vy81SIphSnAe6tJeZN7/1+rjl+/JLX747ZhS0cOUMy2XQklLk4/fQlp/fGeWpA4pTs2IQ5KtSOpI0N1pgilyoYabHGRfL91oWZSW7B3M5kasBicp5N/VqMMbFCpvxEWbs1YJ891jiMSwesXiH6O/YZSktfYLTBCp9Mdmbtx5pNq4XLxvResMZWJHG9WBQoL3N6MV3yNLex07qvFIHts5N9gbAmkylf98rmYXWoBrQx7hxdrpjkfqP9aeUixFKnZIRyGejUb8WinIsZ1pMRVtPL+5g7o5g/3t+9Yb8kZhcDSNxRAKYg4EI5DJokZvdvmVhoyTSUwTC8K0FB50XNiuN8HMQzpRO2kRVW6DTbaIIVBlOQPj7LVxF9vL+D0R6YBIwAu22YuTCH+5YCpEwKtwInIGZHrCuWGgqWID5R/iqLgvay3N9cyevbG9jRHlhMFj0Dz05akO7lnzd0TqbfXtod7St4bp1tx0R8TjOHGwFjhdVtsoX4HCZva0KIxUD3Tdir3JFnGo+Zys+fZ+H6dRzeS6G5utCVk55oEzexlMuJ2uNy+QGOagjXtzd6cijzyPz7+dX86m17lx/geH6Bx14fiZk1V8DJOwG2mShURyWuoDM2Ry7sDPhojT+HmcraEO8kJjAplRariHSmCO00b6P6gwFOZN3G2c/vgCnZa8zDWcb/3/0xDpnQiyySNy4oyKJOw6R0D3hWOp3DC63DU0dmlzCL3q2q0jj1H4a1Yfor+8NBlz/1lFWCVmdJG/UGx6kr6rSjfbkECsfZnaJUc9+PB/jVtaXKdNLp2z+Wqinr6frrYqM+2TxjVX5rxApjqWPRr7I2oDdh25ttkYASU5//AEmdq9g=
+sidebar_class_name: "post api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a specific command from history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ssh-terminal/command-history/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes one command from the caller's history for a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Command deleted successfully."},"400":{"description":"Missing required parameters."},"500":{"description":"Failed to delete command."}}}
+>
+  
+</StatusCodes>
+
+
+      

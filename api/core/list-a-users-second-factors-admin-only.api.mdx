@@ -1,0 +1,69 @@
+---
+id: list-a-users-second-factors-admin-only
+title: "List a user's second factors (admin only)"
+description: "Every second factor the user is enrolled in, and whether the plugin behind it is running."
+sidebar_label: "List a user's second factors (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P20YM/SsEL02AieymQQ+6bYFtsWkPQeNgUSyMYnZEW1NLM8qQWq9q6L8H1MgfXTcFcujJEvU4fI9DPh+wInbJd+JjwBJvnygNwORiqGBjncQEUhP0TAk8A4UUm4Yq8MGADRXsa5KaMqhr+q0P8Ei1DxV40YTUh+DDtkCDYreM5QN+YkqMa4OdTbYl0bfy4YBeCXRWajQYbEtYopa9q9Bgos+9T1RhKakng+xqai2WB5ShUyRL8mGL47hWMHcxMLF+f7tc6s8LmUcZWSIXOBp8t/zhGnlTtT6AdY6Y4chihr+7hqs2CFFgE/uguNFgS1LHCkvckqDJCktcqDZeWD1/cchCx0Xu/JuZFhpkSk/HBvWpwRIPOTSieVH7j9gnWFFq/TNkDBp8ssnbxyb3Yo5OrDe2bwRLrEU6LhcLmRILerZt11DhYovj1E0m1ycvw0ThkWyidNOrhIf1aA7oYtx5uozYzv9KwylyccRHvbVM5fKg0yUqF5wvV98zCM388HNMrVXO7+9XV+o/ErOPASTuKABTEPBhGkstEpP/2yoSarIVJbAMP02HTlOssClxutlLSSduWRWaPKYZch7Uv/byVUbv71eQ8cAkYAXYb8MbHwq4rylAl0jpGt0YsTtijTiqKDiC+DQv17+pmNhetvubO3nz4Q52NACLTeLDFvZeapD2+c8rOSfot7d2R4OBfe1dnQvxuUwBdwLWCWvajIW4D3O2s0G3yTrR7zYMMRBQw5RXy4dNnFR7aVTmPP03H+509Clxpv72x+L7ZbG8krSqCVxMBOe8Am6tq49WVkXXtxSEwQsrLUixF8p+0UWW1gatP0/Bb54F7GSW3/E/XZTh1bTqEEMzvH7JRNcoCAX5vy04T4fQsyy6xvqgOiZbOcy+9DB5rjrPRBcNlicTfmFOa4N1ZNGcw+HRMn1KzThq+HNPSf1iffafyT0qz/pcYbmxDdN/NOHV77PVvoav0T7uZRgmm2t6fUODOxrO/xzj+tKAf7ld4Th+AcZKZmM=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List a user's second factors (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/users/admin/{userId}/second-factors"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every second factor the user is enrolled in, and whether the plugin behind it is running.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Enrolled factors."},"403":{"description":"Admin access required."},"404":{"description":"User not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

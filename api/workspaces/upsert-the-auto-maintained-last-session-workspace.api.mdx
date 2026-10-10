@@ -1,0 +1,68 @@
+---
+id: upsert-the-auto-maintained-last-session-workspace
+title: "Upsert the auto-maintained 'Last Session' workspace"
+description: "Always overwrites the single Last Session row for the caller - never creates a second one. Called by the frontend's debounced auto-save effect."
+sidebar_label: "Upsert the auto-maintained 'Last Session' workspace"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1vGzcQ/SuDufSykpyip705QQs46cFobBiFYwQj7khLi0sy5Kzk7UL/vRiuog+7OeRWHaTV8A3nvRny7YgNZ5NsFBs81njtdjRkCFtOu2SFM0jLkK1fO4Y/KQt85pxt8JDCDlYhlXVDznGCGXjecgKTmDSVILMJvoHgeQ4fFNTAcigpqxS8sG9+ydDwMvTecAPUS5hl2jLwasVG5lih0Dpj/YgPIW1yJMMZnypM/K3nLO9DM2A9lr82cYO1pJ4rNGVz0SWK0VlDqm/xnFXkiNm03JE+yRAZawzLZzaCFcYUIiexnHU10uACNW+B+/JRGjkGnyf0r1dX+nPZ0Iue7b5rABXZzHFf4W//lXXjt+RsAweZsAzNMEet2LG0ocEaY1/4krRY4yK6fm39jKJdHIvkhaMsszwVxwozpy0n7eaIfXJY4ziF9li9IvB36BPccersC0wYrHBLydLSTWoP0UJ9Rb0TrLEVibleLKQkzvmFuuh4bkKnHXtSBqZPVoZCYcmUOF33quDxaV+NaELYWD6PULSfeDhGzrb4rDOcqJxvdJyUclHNBYb1AYTV4eGPkDpSzh8f7t6o/z4vCRv2kNkLWF+OrRYJyf5TzhO0TA0noAzvy6ZAvimwkljGey7pyG1ShRVarTZBsEJPhenzTn7I6OPDHUx4yCxAAtmu/cz6OTy07CEmVroVWAGhDWeNGG7YGy63+ocqCtvzdv90J69vb2DDA2ShJNavYWelBelevr6Rc4T+fGs3PFSwa61pp0L5VGYONwJkJGvaAQth5w/ZhrwPBaDr5IfgGdhlnm6WmsNfJ1v5fTq8lzagOOtXoXTHii6fGRNc397oNeGUJ5nv5lfzq7ezVIMb9IKFyB6Elrnwy9FZAUdD6GWKJJ4QLXfaJeVrnDWbMqsYsnRU/OxwcO5j5iRFeXHSjqwXsp4b+HJhRF/wZEWv6Y0n8/w/vg2mIyn8IovoyHrtRPGy8eCFj3jyQqzw5IZY4YUfPlXYhiyaMY5Lynyf3H6v4W89J7Wop5PlTX6E06ks7rXhAWv8MPVqdqe8FO766YK/eumocx2t+/ZeLWd5eHd1odGURDusyneNWGEo4yj2VmIjOvLrntbFIcqW+vkX4Vm20A==
+sidebar_class_name: "put api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upsert the auto-maintained 'Last Session' workspace"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/workspaces/last-session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Always overwrites the single Last Session row for the caller - never creates a second one. Called by the frontend's debounced auto-save effect.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"payload":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Last Session workspace saved."},"400":{"description":"Invalid request body."}}}
+>
+  
+</StatusCodes>
+
+
+      

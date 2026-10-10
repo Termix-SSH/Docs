@@ -1,0 +1,68 @@
+---
+id: preview-a-host-defaults-change
+title: "Preview a host defaults change"
+description: "How many hosts would change if a level were saved with these values. Nothing is written."
+sidebar_label: "Preview a host defaults change"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lU2P4zYMhv8KwbPXSbdFD77NtlvsbIHtoJNiUARBwdhMrIkteSU6GdfIfy8oOR8zwR72UB8SWyLFl6T0aMSKQ+lNJ8ZZLPCTO0BLdoDaBQlwcH1TQVmT3TKYDRA0vOcGDuwZAu25goORGqTmwLCnpueQwxcntbFbMAEO3oiwzTFDoW3AYomfXBD4lTfUNxJwlaHnrz0H+eCqAYsxfhrPFRbie86wdFbYik5R1zWmJNU6ew4qeMRQ1tySvsnQMRbo1s9cCmbYedexF8NBZ6PwK7Mg3tgtZsi2b1UXVa2xmGEf2GOGG9dU7HF1PL3eV1fexgpv2eMxw8ByG/2YYW9fz5D3NGCGRrgNt0KO6dFyhM7ZkFS/n8/173WTFjWD7ds1e3CbqVNSk7xqV64afpr/eOv+xQlQ07gDVyDu1N24QCxSjiqjZaldhQV2LsRqktRY4EzDzaqpfbPO897wAbUMfs9eOzxi7xsscExDR8zeCPjb9R4W7FvzAskGM9yTN7RuUtrTaJQeI2GBtUgXitlMomPOL9R2Deela7V2K1VQ9t7IECWsmTz7u15FL1fHbMTSuZ3h6xHqzO88nEeulnjUTZWkXC907plq0ZyjGRaTEWbTy2/Ot6SaPz8tbrJ/5BCMsyBuxxYCWwFj9QSBBnHe/Bs3ONRMFXugAB/iokC2imbRMbb3OqXLPotZ6UbTaMkEM7QUlT4f5JuKPj8tINlDYAESCGZr3xmbw1PNFjrPKjcDIyC046AjJVdsSwa3Z//NLKLa63J/dyXvHu5hxwMEIS8Kl8Sd9uWfm3TOpt9f2h0PGRxqU9YpULiEyeFegEoJ6jbZgjvYybska1000Hmyg7MM3AROp0lp9eeFcx/T5r3i0hk/F9jMT2y5wGR5ooViydiNi5U0okvhdKLuHu71OLEPqRzvf85/mOfzmzIpRUrnGS5+OXyksoau6bfGQuXKvmUrAYwETRW864VDbKZSoaVI4GlnPSQUAEUiwQkRE1/ehh8vXP9fL520y4RfZNY1ZGwks48XQSLaEusEuJPgeHMkqq2yNFkscRzXFPgv3xyPOvy1Z6+gWV3AlaiCaW9FBu14wAJ/SXm+W6gUNW/6dEzf3GXKnzN0H/54VHKspzuxdZX6eFLS6m+BmKGLtYyUimMjNmS3PW3jQY9r6vMfUQq7tQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Preview a host defaults change"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/defaults/preview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+How many hosts would change if a level were saved with these values. Nothing is written.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"level":{"type":"string","enum":["admin","user","folder"]},"folderId":{"type":"integer"},"set":{"type":"object"},"unset":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The number of hosts that would change."},"403":{"description":"Not allowed to change that level."}}}
+>
+  
+</StatusCodes>
+
+
+      

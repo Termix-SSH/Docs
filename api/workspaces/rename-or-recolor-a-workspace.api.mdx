@@ -1,0 +1,69 @@
+---
+id: rename-or-recolor-a-workspace
+title: "Rename or recolor a workspace"
+description: "Does not accept a payload - use PUT /workspaces/{id}/content to overwrite a workspace's saved tab arrangement. Rejects the Last Session workspace."
+sidebar_label: "Rename or recolor a workspace"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v4zYQ/SuDubQFFDkt9qRb2qJotj0EWS+CIjCKiTSxuJZILmdkRzX034uhHNu7aQLsrSdRw0fOm6/HPTYsdXJRXfBY4a+BBXxQoLrmqEAQaewCNXABgzDcfFzCYhfSRiLVLIu9a6ZFHbyyV9AAYctpl5wyEBxh3wkIbbkBpQeglMivuWevJdzyJ65VQFuGP0kUPrCIC/50tsQCldaC1T3eHf3iqsBIiXpWTra3R2f0I2mLBXrqGSt0DRaY+PPgEjdYaRq4QKlb7gmrPeoYM8orrznhNK0MLTF4YTHAT5eX9vkyQ0cSMMSGlJsSpwLf/Rf02m+pcw0YBRYtICRQSmtWcG/HnG9895Zzq9FjGLy5nwrsWdvQzBmoLQU5ExUuYjesnb+g6L4uGxYonLbP+RtShxXuZ5Ntfun5rzAkWHLq3RPMGCxwS8nRQzdn62DNnB9p6BQrbFWjVIuF5oMlP1EfOy7r0OOU8y1cD8npmCk8MCVOV4Mxv19NxR7rEDaOzy0U3R88Hi1nV3ywws5Uzi861tm44KH+9j+DsDgsfgupJ+P8/m75IvrnEmnYsAexZnc+V9CchOT+IUNCy9RwAhL4OV8K5JsMywdzXc9DOnKbo8Ji7uIZcurjTzt9ldH7uyXMeBBWIAVxa3/hfAl3LXuIiY1uAU5BacNilpob9jXnaX01isz2PN3fnMmrm2vY8AiilNT5NeyctqD9098vwjlCvz21Gx4L2LWubmdHcnJTwrUpmYodO2Ah7PzhdE1+ljq1ffJj8AzcCc8z5fxjyFE77fh8+ASubq6t/TnJTP/H8rK8fFkj2jKMNjghsjf1k+xXYucUOhrDoLMl8YxoubfojUfduXqTaxCDaE/eqBwa4pZtYXKSuA5dSOdq+zUNm6Ksz/9beZ+7SvlJF7Ej5y3oLEf7g4zd40nGsMATQSywco29Bm0QNeB+/0DCH1M3TWb+PHAycVmdxCpLTePE1g1Wj9QJv5Gy728PD8gP8BrX5yH2Y9bEbrA/LHDD4/wKTatzib65Wv7yO07Tv6ctmf0=
+sidebar_class_name: "patch api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename or recolor a workspace"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugin-api/workspaces/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Does not accept a payload - use PUT /workspaces/\{id\}/content to overwrite a workspace's saved tab arrangement. Rejects the Last Session workspace.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Workspace updated."},"400":{"description":"Invalid request, or target is the Last Session workspace."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

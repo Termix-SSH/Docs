@@ -1,0 +1,69 @@
+---
+id: update-ssh-host
+title: "Update SSH host"
+description: "Updates an existing SSH host configuration."
+sidebar_label: "Update SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v3DgM/SsET13A9WT7dfAtBbZI2kvQmSBYBIOCY3HG2rElV6KScQ3/94UkJzNtmgI5WaIexfcokh5Rsa+d7kVbgxVe94qEPZABPmgv2uxgubyAxnqB2pqt3gVHEVxigUI7j9UtLpcXuC6wJ0cdC7toHFHHC3uSBgs01DFWqBUW6Ph70I4VVuICF+jrhjvCakQZ+oQywjt2OE3riPa9NZ59BLw5O4ufnzlfRG4hEVfgQ12z99vQtkOJU4Hvfudyae6o1SpJUyQ0I98+RZ6n60Cx0axm2LtnOBgrsLXBZNz73wX+RLplBWJnwqcMpgI7lsaqmLYgWOTkVbiI2V+oTf6OWk1YoGd395Dp4FqscMymePhz0H9tcLBi1+kDZAwWeEdO06bNeZ2tie6WQitYYSPS+2qxkORY8oG6vuWyth1O6WU818FpGRKFDZNjdx4i4dv1VIxYW7vXfGqhXn/h4dFycsUylkCmcnrRY0VELjhXStxnEBbz4pN1HUXOn29WT9Qv2XttDYjdswHPRkAbkIYhBrFO/0j1DA2TYgfk4WO6FMioBEuO6UlPJT1yy6qwyPWeIceK/+9enmX0+WYFGQ+eBUjA6515rU0JNw0b6B1HugVoAaE9+2ipWbGpGewdu2dVJLan6X5xJs+vLmHPA3ghl6bAvZYGpDt8eyLnEfry1O55KOC+0XWTA/ljmBIuBagWH91mLNh7M3vXZGK7US3xnMxgDQO3nnMjabO1SbWWNsqcq//86jKWPjufqb/5UP59Vp49kbRqGGrrGI5+JfxDdQN9G3bagLJ16NiIBy0+0gJng7BPie+tl45MjD9XwfWx2WMP/xovNosRNvLyCZxfVfggi74lbWL8NA7GeXrc4kPEDRYP60qrOLDTrrrFcdyQ52vXTlM0fw/sYlevj1Mi9bjSPq4VVltqPf9BxKuv84z/C54j+dA9ZkjDqA1xhwXuecg/iml9OhCvrlc4Tf8D+LZIYw==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates an existing SSH host configuration.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host updated successfully."},"400":{"description":"Invalid SSH data."},"403":{"description":"Access denied."},"404":{"description":"Host not found."},"500":{"description":"Failed to update SSH data."}}}
+>
+  
+</StatusCodes>
+
+
+      

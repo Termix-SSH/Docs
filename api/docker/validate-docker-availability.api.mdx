@@ -1,0 +1,69 @@
+---
+id: validate-docker-availability
+title: "Validate Docker availability"
+description: "Checks that the container runtime is installed and its daemon answers."
+sidebar_label: "Validate Docker availability"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVV1v6zYM/SsEnzZAN+mGPfmt+7y9w4Bi6VYMRTCwNhtrsSlfkU6bBf7vgyQ3SdfbARfYkyWKlM7hx/EBG9Y6+sF8EKzwu5brrYK1ZGAtQx3EyAtHiKOY7xm8ghc16jpugKQBbwoNcR8ESPSRoy7QodFGsbrD70O95YhrhwNF6tk4JvsBfXpuIGvRoVDPWKGyqg9y1aDDyB9HH7nByuLIDrVuuSesDmj7ITtb9LLBaVonZx2CKGs6//riIn1e8iowgHbkO7r3nbc9qJGNusDJ4Tefilmt3sMMCSQYPIRRGggxb+ogwrVxs8BpctiztaHBCjds6AqvCpdDN268vKPBL5uMYLmjzjdkvDwc2U7oUDnunjMzxg4rPBRTOnwJ648wRrjh2PsnKD7ocEfR031XMjBbM6EHGjvDCluzQavl0nLggp+oHzpe1KHHKedQuR6jt32GcM8UOV6OicXdenIHrEPYej630OB/5v3RcnbFKtWqQDm/6Fi6hAXnkqZ9cUI3L34MsaeE+cPtzSv2q7kgFrYsoCwGXnKrpkdC9H9T8oSWqUkFV/g2X5pbNbnlwFz0c0pHbIUVutKfxeXUoX892puIPtzeQPEHZQMyUL+Rd14WcNuywBA5wXXgDYy2rMlSc8NSM4QdxzdZZLTn6f7sTF5eX8GWc8tH87KBR28tWP/05ys6R9fPT+2W9w4eW1+35SE9PbOAKwOqTVPY7AvhUebomiQNFdWWzkn2QRi4Uy7T5eUhZNbeOj5N8+X1VWp9jlqgf7W4WFy8IvQLCW0YnhVAGrgOTU9y0jaFILBPY9UGNS3FWK3eu4K/Cxt1WS00h1OK1NBxrssQ1HqSBG9ukt/nEYdPiM6/0aXBEmOx/1V7S3MYP9ly6MhLwplV5TAr0x2elClBKiKdZKRAR4fVSY3XDlNiUtjhcE/Kv8VumpL548gxKcb6pEBZPxqvad1g9UCd8n+Q/uLXWei/hLeQP0+m7AvCMe3Q4Zb3L34a0/pciH/64Qan6R8hamMM
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Validate Docker availability"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/validate/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks that the container runtime is installed and its daemon answers.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Docker availability status."},"400":{"description":"SSH session not found or not connected."}}}
+>
+  
+</StatusCodes>
+
+
+      

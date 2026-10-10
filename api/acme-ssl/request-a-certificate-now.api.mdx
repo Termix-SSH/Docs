@@ -1,0 +1,59 @@
+---
+id: request-a-certificate-now
+title: "Request a certificate now"
+description: "Runs an ACME order for the configured domain, installs the certificate and reloads HTTPS."
+sidebar_label: "Request a certificate now"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lE1v20gMhv8KwUsvipxuuxfd3KC7m35gg8ZFUATGgpFoa9YSR52h4qiC/nsxM2rs1O2hh55sjF4OH5LDd8SKfelMp8YKFvihFw8ksLx4/xqsq9jBxjrQmqG0sjHb3nEFlW3JSAZGvFLT+PSdnZqNKUkZSCpw3FiqPPyzWl1d55ih0tZjcYvx7ouD2uM6Q8e+s+LZYzHiH+fn4ecp2lEEGO97rmKamYGrHKcMX/4ocgmOP/cmkHtWNbIF46E13hvZzmEvTsPeJ0EsjsqWz7xv8paEtgwduxhvJcb/+aO0q5qf9JFMopwybFlrW2GBnfWKGXakNRa46Jp+a+SMOrP4lnER2DmqPLt7dqGHI/auwQLHdDRh9l3uT7Z3sAqQD5A0mOE9OUN3TerxfBqpN9Q3igXWqp0vFguNgTk/UNs1nJe2xWma1oGg7J3RISLcMTl2yz6g366nbMTS2p3h4xPqzFseHk+Orrgua24TyvFFI+rQ8cwSao4yLGYRZvOfv6xrKTC/uVmdVH/NcTSgdscCnkXBSJxjSGKd+UJBCTVTmAx5eBUvjQ8qyGJgnOxxSY9sqSrM0IRsSYIZCkXS//f6U6I3NytI+vAUgRS82cqZkRxuahboHAfcDIyC0o59OCm5YikZ7D27n1YRaY/b/cudXF5dwo4H8EouLsneaA3aPvx3Us6j9Ndbu+Mhg31tyjol8oc0OVwqUKk+hM1asHuZo0sSsVEQvpMMVhi48Zx2ysjGxqqNNqHME5uB5dVl2AJ2PlXxPD/Pz09q+5s1ZZ/XJ/rXE3fbONvCO9ZnHl5L6YZOwQbEIa175+y9qWZox8J7H8YZfHSwfZxTWPuWJODOj+ZD2nKgJ5nE7r/nC1smyqK/263T41F+0EXXkJHAHV1nnO3qFg92hRl+MywMZp4sa51hHQyuuMVxvCPPH10zTeH4c88uuMj64ErJMg7WePXv9Qqn6Sv670s5
+sidebar_class_name: "post api-method"
+info_path: api/acme-ssl/acme-certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Request a certificate now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/acme-ssl/request"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs an ACME order for the configured domain, installs the certificate and reloads HTTPS.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Certificate issued and installed."},"400":{"description":"A required setting is missing."},"403":{"description":"Missing the acme-ssl.manage permission."},"500":{"description":"The ACME order failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

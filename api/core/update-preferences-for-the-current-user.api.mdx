@@ -1,0 +1,68 @@
+---
+id: update-preferences-for-the-current-user
+title: "Update preferences for the current user"
+description: "showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign. Values that moved into a feature's own user settings are ignored too."
+sidebar_label: "Update preferences for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVk1z2zgM/SsYXnqR7WwPe/AtzXSnH7sbT+O0s9PJ7MAULLGWSJaE4rie/PcdkKqlxMqh5/XBlgEQegSB93hUJUUdjGfjrFqqWLv9Oxd5jVUsoJangIdre9UYvStAu9ajZon4bGgPaEuIjNzFK9e4cKNragkwEFgHjbMVBUCtyTOVUFMgmM2AazpA6+6pBHawul3DQl40i6akDYaFD7SlQFZTBIzgMTC4rSyDPgQClRRNZefwGZuOInCN3Oc0lh0gbAm5C/Qqgttb6CIFiMRsbBUTQFNZFxIEN1eFYqyiWn5VtxK4GhCou0IF+t5R5DeuPKjlMf01gUq15NBRobSzTJbFhd43RqMUc/EtSkWPKkpRUJ744Ektldt8I82qUD44T4ENxZzWebJr3MRr+6erjB0t2TjXEFr1WCiWEo9ckYOxlXi2zvKN+THtlFOwnE5p0t+grTqsphdHdgEr+suV037t2hZtucKGmOmtxU0j5ZmC74299P4TmmbaTw8ebdmHXNt37p7CdKS06uqU7U3H7F4oWWmiILr1JTJd1aR303Ha2a0J7Ro3V42LNB1Um7IkK6+Uo5ouRxfZtR/psDG2lIY7jyqezd2Hm+u/Z2S1K6kEDAEPP1teOvdVhJwTdkPSObxFXQNqSQEmgpadyfIKjY2cB6ampulnQBDENLLi8RiwJaYQAcE3XWUslKQbDBRh6wIYjmnJXD2mj8xB9M7G3K6vLy7k5+k2RoMDXSp3CbHTmmLcdk1zkFyFaolrV6ql8l0aA+RaLdVCdjobDb8qVKRwT0EG86i60KilOmbT41kF/3FdgDWF1jxAjlGFusdg5OgT4t6aQG+xa1gtVc3s43Kx4LRwTg/Y+obm2rWy6ztBoLtg+JAgbAgDhctO8H69eyyOSju3MzS2oDcf6XCyjFJkdkxQxolOrSFYZM86T3gfpIr+4Q8XWhTMH76sz3Z/QzFKG7DbkYVIlsHYdM7yEhfMj0RKUBOWwskR3qSkp3ZIC+d5CoYtnbDlXalCCS31IapQFhPSb3t+EdGHL2vI8cK/gAxC3DNj5/ClJgs+kMAtwDAw7iiKRVMpLQAy/S/uIqEdl/uXK3m5ei8TJRIWRBlgb7gGbh/+PdvOKfTXS7ujQwH72ug6vygOr5nDe5YJTkLXx8qs9qs1WutSgPjRHpwloCZSniNRmE+DNr3NzfuClmSt6tVjoKFBNAbbE60YzINEDLYnyjCYXxCEjGEsAdkyTfrZN03z2TdF7CdNfkrl2fycvEeIzzl7xOjGbl3qL8NSYNXzzOXqvZAMhZib5PXv898u5hdnzbOuCbQLBMO6nr1/Eq/TXUuWY2JdIevgOqaYWty7yC0mbevnLW8YxhclYWxpIN2FIC0qZPocx3G4qvyPL3qZIpgeeOEbNEnUk7YceyX6qs6U6K5Qglx8x+MGI92G5vFRzN87CiIOd4PYZCVQmQ+SbuzooJbqKhd/thYEEt50mVqf3RlFM04SuboVst/0V882z1nAvSrS91KpQrl0vvkSKbbjeFRzSvn8B4whNcE=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update preferences for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user-preferences"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are no longer accepted here -- they moved to PUT /host-sidebar/preferences as part of the sidebar redesign. Values that moved into a feature's own user settings are ignored too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"reopenTabsOnLogin":{"type":"boolean"},"theme":{"type":"string"},"fontSize":{"type":"string"},"accentColor":{"type":"string"},"language":{"type":"string"},"storageMode":{"type":"string"},"commandPaletteEnabled":{"type":"boolean"},"pinAppRail":{"type":"boolean"},"expandAppRailOnHover":{"type":"boolean"},"showPinAppRailButton":{"type":"boolean"},"disableUpdateCheck":{"type":"boolean"},"confirmTabClose":{"type":"boolean"},"hiddenRailTabs":{"type":"string"},"customKeybindings":{"type":"string","description":"JSON-encoded array of the user's custom keybindings. Each action is checked against the shell's own types and the parameters a plugin declares for its type."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Preferences updated successfully."}}}
+>
+  
+</StatusCodes>
+
+
+      

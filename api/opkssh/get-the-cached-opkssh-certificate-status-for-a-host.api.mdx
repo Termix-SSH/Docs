@@ -1,0 +1,69 @@
+---
+id: get-the-cached-opkssh-certificate-status-for-a-host
+title: "Get the cached OPKSSH certificate status for a host"
+description: "Whether the current user has a valid cached certificate for this host, and when it expires."
+sidebar_label: "Get the cached OPKSSH certificate status for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P2zYQ/SuDObUAV94GOem2DfLh5JBFdotFsTACmhpbrCVSIUe2VUH/vRhS3nXiJEAOPUkcvSHfG848jVhRNMF2bL3DEh9q4poCcE1g+hDIMfSRAtQ6goa9bmwFRpuaKjAU2G6s0Uyw8ZJjI9Q+sgLtKjjU5MAy0LGzgWKBCllvI5aP+PH2w93dO1wp7HTQLTEFiY/odEtYomyyrFChFU6d5hoVBvrS20AVlhx6UhhNTa3GckQeOsmyjmlLAadpJejYeRcpCuDF9bU8vpb66ox+ZM19LHBS+PJ72KXLyoUY2GoGvrwEvhOA8wwb37sKfEgLbQzFaNcNFThNClvi2ldY4pYYVRZY4qJr+q11V7qzC9/tYqwX7HfkFmOux4QKI4X9qVh9aLDEMYfk49dU/vZ9gHsKrT1CxqDCvQ5Wr5tcljmaRGx037CUnrmL5WLBKbGgo267hgrjW5xSYSOZPlgeEoU16UDhphf+j6tJjWi831k6j+jOfqDhKXK2xZ3cYKZyvtHThQoXnC9a1hmEan5540OrhfP7h/sL9XdScO8gVRCi9LF1qa3lEB/sv1qQUJOuKICO8GfaNLWuwFJiuuhzSU/csqpTi2YIqlMD/3PgHzJ6/3APGQ+RGDRDtFt3ZV0BDzIyXSChq2R2WO8oSsRQRc4Q+P08nN9Tkdiel/uXK3lzu4QdDTIPga3bwsFyDdweP1/IeYL+eml3NCg41NbU+aD4fEwBSxkXjpI2Y8Ef3JxttMvzxPJdu8E7AmriPFfWbXxSbbkRmdln4OZ2Ka1PIWbqfxTXxfWFoFfeOTIM7NOYz6Ri7QNfNXZPFXzsyN32a6Ek2575XwS9YQrpJqVs1uXsQWbQVuTY8gBd8Ht7uqfOR261E7pz07wlzr6b7XUmby5sKpmtTiS/FSHz55gc//9WnhuL6ciLrtHWiabkSOPsZ4/47GeoMDuaZMpgocJydvmVSn4vCeO41pH+Cs00SfhLT0F8ZvXsW8l1KhvlvcJyo5tIP6nBb5/mn8bv8CPOp3l2Q7LHppcVKtzR8Pwnmlbnrv329T1O038KLYCF
+sidebar_class_name: "get api-method"
+info_path: api/opkssh/opkssh-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the cached OPKSSH certificate status for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/opkssh/token/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether the current user has a valid cached certificate for this host, and when it expires.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"hostId","in":"path","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Certificate status."},"400":{"description":"Invalid host id."},"404":{"description":"Host not found or not accessible."}}}
+>
+  
+</StatusCodes>
+
+
+      

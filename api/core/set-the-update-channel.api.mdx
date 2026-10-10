@@ -1,0 +1,68 @@
+---
+id: set-the-update-channel
+title: "Set the update channel"
+description: "Admin only. Switches which Termix releases update checks and the Updates page offer. It does not change the running build."
+sidebar_label: "Set the update channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20gM/SsEz6qcFosedEsX7SItsAgaB8HCMAp6REsTSzPqDBXHK+i/LziSP9J0Dz1VF8scfrxHDp8GLDmaYDux3mGB12VrHXjXHHK421sxNUfY19bUsOTQ2mcI3DBFjtB3JQmDqdnsIpArQWqG+2SN0FHF4LdbDjncCJSeIzgvYGpyFSfX0DtnXQWb3jZljhkKVRGLFf7FjgM1uM4w8Peeo3zw5QGLIf21gUssJPScofFO2IkeUdc11pDyWDxGJTNgNDW3pG9y6BgL9JtHNoLZRaIVKiTHqVwXfMdBLEcNOh6c46ME6yrMkF3famwU2jSMGW5YCNdjejR97LyLU5p3V1f687LRy5phzg+0FQ6pJVN3chwz/ONnUX97AYKd83t3jM5RC7YstS+xwK5Xeh1JjQUunjhEbciRSYaRgxqxWA3YhwYLHCbTiNkPxf7xfThOffLBDJ8oWKWcmM3WBHNLfSNYYC3SxWKxkBSY8zO1XcO58S2O47hWBKYPVg4JwoYpcLjuFe5qPWYDGu93li8t1NkvfDhZLlLc6XwnKJeJTuNSLMo5uWExO6Vp6csnH1pSzJ8flq/Y33HU1oH4HTuI7ASsS0PSIj7Yf9Ndg5qp5AAU4UNKetqEFJhGeUnphG1ihRlarTa5YIaOEtLHvfwvos8PS5j8IbIACURbuTfW5fBQs4MusMLNwAoI7XQZAxsu2RkG/zRftZ+xSGgv2/3Lnby+vYEdHyAKBdHl3lupQdrnb6/onFx/vbU7PmSzKqVC8VwmqQ0ZiRo2+4LfuznakFMVIiN6Tu7gHQM3kac1UuH4epacj9PlfaEFx5UfdXJbn3pkRZ1w3pXr2xtdlGn1sMB37/O3V/nVqwYkCfCB4RyXw0cyNXRNX1kHpTd9y04iWIlKAoLvhWMaU+ejtJRkbr4zdyyJ8UmYjzv/ouxwFs3frPbTzRJ+lkXXkHXKKknSMOvX6tTE7FKkax9FD4dhQ5HvQzOOav7ec1BRWZ9FalIQnO5R0psdH7DAP6cOvFkqBHVv+mklf/iEqNaclPX2XkViM3+JWl9qSKC9fk1ojwVihj41OQlSsg3YkKt6qtJOp5T6/AdV55a6
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the update channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/version/channel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Admin only. Switches which Termix releases update checks and the Updates page offer. It does not change the running build.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["channel"],"properties":{"channel":{"type":"string","enum":["stable","beta"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The channel after the change."},"400":{"description":"Not a known channel."}}}
+>
+  
+</StatusCodes>
+
+
+      

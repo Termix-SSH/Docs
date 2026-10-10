@@ -1,0 +1,70 @@
+---
+id: install-or-upgrade-a-package-or-upgrade-everything
+title: "Install or upgrade a package, or upgrade everything"
+description: "Install or upgrade a package, or upgrade everything"
+sidebar_label: "Install or upgrade a package, or upgrade everything"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVttu4zYQ/ZXBPLUAY6e3F71lF71k226DjYOgCIyCEScSY4nUkiM7WkP/XgypWM46i2LrF4vDufPMIffIuopY3OFvPjL8SRxsGXGtsNNBt8QUZHeP1mGBneYaFTrdEhZoDSoM9LG3gQwWHHpSGMuaWo3FHnnokpZjqijgOK6zNkV+480gKp8bl94xOZYt3XWNLTVb75aP0TuRnfj2949U8oss7lCXYpRKCL6jwJZi8pjls3XkYF2FCsn1rVhaF1k3DSrsuypoQ/PXmcjXo8JuU73mwlAsg+1yBFzVBJ0uN7oikGYt4L1ncESGDDz4AEdeFzimnxQRO+9izvb783P5O/Vb+rbVzoDvuet5gaPCH1/TvXRb3VgD1s1qP5yqvfdAxjLosqQYgT1wTVD7KG31AaihbToFMOQsmQUWrm+aUeFP/5Xhg7YNGfDu4FJq/bxXl7npMHcF9HPz1LGUthQGrnO/W+LaG4FkzjQhs8Bl1/SVdWe6s0sJeNZmQL9ctNrpikJcTmHicm/NuJwAojBS2D7jvg8NFrjPovHkpP/2fYAVhdY+QdZBhVsdrL5v8kFO0tSpB903jAXWzF0slktOhgt60m3X0KL0rYBhLRmUfbA8pBTuSQcKF71UeLce1R5L7zeWjiW6s7/TcJAcubiWocmpHDs6QFhywWluZZ2VUE0fv/jQasn53e3qpPprilGgwX5DDiI5BptPW4L4YD9l6NSkDQXQEd4kpyDwELVkmMB5XNIht1wVqsw+WWXmn8cdfzGjd7cryPoQiUEzRFu5M+sWcFuTgy6QpKvAMrDeUBRJSYZcSeC3FL5YRcr2uN1f3cmLq0vY0ACRdWDrKthZroHbp39Oyjmofn1rNzQo2NW2rHOgOIdZwKUMPEcxm3TB79xkXWrnfFKQfe0G7wioiZTHV9j4w8zjP2fwHjPsEZEmunymyVEO8sGnllkWmxe3DlxcXcr0UIjZzXeL88X5SU/+sFuCt1c3ClpqfRgUGBs3ChzxzodNKuHXqxupmqOCrumF1nyTyC2PPgwytsIJMR2nkEir090wYev/sdKLRA+4YHriZddo6yRWIpT9RFh3OBMWKjxmqdPlM20lusvEhQqLdA3Pl16i7uIO9/t7HekmNOMo4o89BaGT9UxPiVyMjfJtsHjQTaSTGg5XMn7zYbpkvwVUr9f2PLZuSCzY9LJChRsa8nthlCs0QzZFzxtvc4yzlZjPhidPAKG1A/Ff/XUthHQ/PSVab8Qm6J08B/QuB/apjkR+SbbHRruq11Xij+RTfv8CP9Adkw==
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install or upgrade a package, or upgrade everything"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/packages/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Install or upgrade a package, or upgrade everything
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action"],"properties":{"action":{"type":"string","enum":["install","upgrade","upgrade-all"]},"pkg":{"type":"string","description":"The package name. Not needed for upgrade-all."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The command output."},"400":{"description":"Invalid input."},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: pull-the-same-remote-path-from-every-host-in-a-fleet
+title: "Pull the same remote path from every host in a fleet"
+description: "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>-<hostId>/<filename>).` Single file only, up to 200 MB per host."
+sidebar_label: "Pull the same remote path from every host in a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVm1vGzcM/isEP7WA/NKin4yiQDqsQzqsDZIM3VYYK3NH+1TrpKvEc3I1/N8HSufYTdAN/T5/8R2PLw9J8aF2WHOqou3EBo8LvOx9guCh70ACPJtDE5IkIAECsS0boCqGlIC3HAfg1YorsVuGltsbjlkdpGGoyDl9pwRcW5k43rIDqipOCSQYiEx1gshtEL4gaWBrCa7eXF/AKoYWmKrGAPkaIksffQKCZP3aMXy1HVCsGg17a6WB4BnYSxyg4wipz0FWvStoPj15qf/vqOVXk/x4Xr+avVxZx15lT6ef4Kp4VhkE7wYzFuD5fA6/vc5u1XCKBoXWCRcf8Y1jloRLgx1Falk4qnyHVuvYkTRoUAPgAm2NBiN/6W3kGhcSezaYqoZbwsUOZeiylhdec8T9flm0OcnrUA+q8tC4Cl7Yi36irnO2Im3g7HPSLu4e+w43n7kSNNjF0HEUy6m4PZT/RDdJtH6N+/xTJKkLPhWD5/O5/n17aP46aYgCI+utX+dj0HGc5C50vXNc5wonA53rE5CHPya5jJPrSD6tOE4uOfVOEjRMNcfS3m/8vL16/w5i1oLUty3FYYp7gy/mLx4Dy87BB4FV6H09Rc2nZWlCrT0KKVckZ4+zzvVr6yfU2dkq93a2s/V+JiO0mWaABhPH7aHVfXS4wF0R7dE8CP9n6CNcc2ztHRQdNLilaOnGlXKO0gx8Rb0TXGAj0qXFbCbZcMp31HaOp1VotSVLRVD10cqQIdwwRY5nvebwcbk3O6xC2Fg+lVBnf+XhXnLi4krPSYFy6uj+KCgWHI+qvhclNOPDmxBbUsxvP1w/yv6KU7LBg4QNe0jsBazPzdQgIdqv+cweWk0JXmeneehVLRvm5p6mdI+tZIWmDFxROY7c51v5LqK3H66h6ENiUXJLdu0n1k/hQ8MeusgK14AVENpwUknFNfuKIWw5fjeLjPa03D9cybOLc9jwAEkoik5RGYH27u9H6dyr/nhpNzwYuG1s1ZRA6RhmCucCVCnpp4MuhFs/WlfkdZ6oEv1Ofsjk6xKX4VICujxS18/l8D6kmnuK0eatQi6TFdUbaRXOLs51Vjimkuuz6Xw6f1SBX2Lou3FFWS8ByuCWtdF7qELbkq+VcKja0JoVtw2+aGS2P4x33nrkHISVZt3qqQi+4txRZYqWMrOOx+uidy5XJ1HL4xYDZZJxe+XtmAnLeqCC6yH83ZHF/9+7/713yxwJ38msc2S9NiYT8G6k8I94pHA0WM4CGlzk9XtotDK+MvnSoLpWs93uhhL/Ht1+r+IvPUcl1+WRrDPV1jbpc42LFbnE/9LNJ5fjun4K30N+IDE/5J3gen1DgxseyoVhv9wbLAOco5cPP5UYk2s1Pxo+ugMoyd8vuov3V0rPN+Ndog212kS61VsJ3ZbAIedRbgUq26Ejv+5pndk0+9TfP0RZidM=
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pull the same remote path from every host in a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/transfer/pull"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to, reads remotePath via SFTP from each, and returns a single zip archive with one entry per successful host `(<hostName>-<hostId>/<filename>).` Single file only, up to 200 MB per host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"remotePath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Zip archive containing the per-host pulled files, plus an X-Fleet-Transfer-Results header with the per-host JSON result summary."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

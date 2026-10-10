@@ -1,0 +1,69 @@
+---
+id: get-container-logs
+title: "Get container logs"
+description: "The container's log output."
+sidebar_label: "Get container logs"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vdtu40YM/RWCL22BWSstti96Sy+7my0KBLUXQREYBSMx0tTSjHaGSqIK+vdiRrKk3dh7KdAn2zQPeUieIXvM2WdON6KtwRR3JUNmjZA27L7xUNkCbCtNKxtUKFR4TG/xF5sd2OFeYUOOahZ2wd6jDjEakhIVGqoZU/TsvbbmKkeFjt+32nGOqbiWFfqs5Jow7VG6JjqL06bAYVAnY83M/mO09y27bgknpCs8gdNGuGD3CaCu2QvVjT8Fv7O2YjLn4V6bjE8hP0e4NXKa8Qzch7b4xhrPPvz/w8VF+PhwyD8f2xjG6zc4KHx5ym+7fQPT+MBYgXvbmhysiz8yawxnwvmEf/mpPDM6Ov94Ktkr0hXnIBYKlkWDR4qDwpqltDmmWLCgGqWRYtJUbaHNC2p0kkddJjPYJ/0svyHpV/IZkhA3tJLdw1G9raswxX40Dag+YvinbR3s2NX6CUYfVPhATtNdNXZ7ssba7qmtBFMsRRqfJolE4IafqG4q3mS2xiHOy3PWOi1dpHDH5NhdtqG0233QQWbtQfPaQo3+jbvZsgqxDboYqawDzTIJXI7yiUqNTqimL6+sqylwfnuze1b9dhKC2AMb8GwEtAEpGUIS6/Q/FDyhZMrZAXn4KQYFMnl0i8A4/3VJM7exKlSj8EeXRfl/P8pZRm9vdjD6g2cBEvC6MC+02cBNyQYax4GuAi0gdGAfLBnnbDIG+8DubBWR7brdX93Jy+srOHAHXsiJNgU8ailB6qe/npUzu359aw/cKXgsdVaOifySZgNXApSJD7DJF+yjmdAZmfA2KZPwP5nOGgauPI9PTpt7G6vWUoUyx8UPl9dXQfrs/Ej9+83F5uJZQb+ToYJhwoRs1zavySyP24M10IVnVVovfhzGdvtGjfzDE1WhosDe5EAB6W3FcS6N9VKTCfQmkbx+tjg+5tTHE8JGPn/qxjkLP0nSVKRNSBkXRD9tnltcNk/IM95EtRypkD1dn7/0w/sVCe4VhtpDuL6/I8/vXDUMwTzu/rAUcu3DiskxvafKs8IDd8v5eqCqDVQx7IZzruuD9SWA44n6Et/jVVp898tePF3A2aF8+8d01L+Dc0M47gvTrXPOxOd+n2T8/yVez3bYr8/V6193OAz/AlOcN8A=
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get container logs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/containers/{sessionId}/{containerId}/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The container's log output.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}},{"in":"query","name":"tail","schema":{"type":"integer"}},{"in":"query","name":"timestamps","schema":{"type":"boolean"}},{"in":"query","name":"since","schema":{"type":"string"}},{"in":"query","name":"until","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Container logs."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"Failed to get container logs."}}}
+>
+  
+</StatusCodes>
+
+
+      

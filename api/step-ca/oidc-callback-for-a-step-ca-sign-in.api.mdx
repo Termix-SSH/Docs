@@ -1,0 +1,69 @@
+---
+id: oidc-callback-for-a-step-ca-sign-in
+title: "OIDC callback for a Step CA sign-in"
+description: "Public. The redirect URI registered with the identity provider behind the CA's OIDC provisioner. Exchanges the code, has the CA sign the key and tells the terminal to reconnect."
+sidebar_label: "OIDC callback for a Step CA sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU2PIzUQ/SulunDpSQbEqTmFYWGzgBiRrEZoFKGKu9Jt4rYbu5JJiPq/o2p3PthhJPbIKZ2q5/Krr+cTVpxMtJ3Y4LHEx93aWTOBZcMQubKRjcDHX+cQubZJOHIFL1YakIbBVuzFyhG6GPa24ghrbqyvBufD7IsEv8y/e8jeZIPnOIF3B9OQrzkNIBMqLqChNB6BZGs/fG/5CKSh2LnsFY6t9eRAAkQ2wXs2MsECheqE5TMuhDt4mOGqwI4itSwc1XFCTy1jiUlIGAu0mumfO45HLDCZhlvC8oRy7DIqWl9j3xeXg0rzv59bFRg5dcEnTur/6v5ef/5Z6IWtPVdg/TdAHt4vf/4JOqp5yHQdw0viCIY8GBcST7Av8Ot/C6N90prdWQ8bso4rCBFsAh/ABV9zBDJi9xqiL7BlaUKFJdYsqGWSBkucdm5XW39HnZ0m4e7O0NSQc2syW82U4/5cyV10WOIpm3osPqHzW9hFWGqjDpAxWOCeoqW1y8UYrUMiG9o5wRIbkS6V0+nQ4cOED9R2jicmtNgP5UxsdtHKcaCwZoocZzul/rzSLpkQtpZvLdTZH/l4sdyEWGjbMpXbQJcuKpdzd/V/BmExfnwfYkvK+cPT8lX2C0465iBhyx4SewGbp1kvCdH+RYqEhkmXhRJ8OwTNg64jrgeHZt+mdOGWszoPYoZgcR7SP17kTUYfnpaQ8ZBYgOQ8NBN4athDF1npFmAFhLac1GK4Ym8Ywp7jm1kMbG/L/dmVnD3Oh21PQlGsr0d9aQ+/v0rnAv380m75WMBLY02TL0rXayYwF92SBKMO6RXhxY+nDXkfBoD6yR+DZ2CXxpWyfhOGrK04TXNUIZg9znX2OabM/cvJ/eT+VUYPWcZU05qQzqxSE6LcObvnChaL92A4it1YQ8IJNjG0QJBack63FcaVHRduaEgXkrTkldc4HYMSn5caNiECwZnqOAufktPF8sJe/q/vQp5D4YNMO0fWa2UGATuNyveMV+XTUc2FxAIv6rcqUPui0NNpTYk/Rtf3as7vgApSZZPKW4XlhlziArd8vHlt9uR2ygNVmN7Ajg/MFbq6ymbWtKt0//BuiX3/NxXXp+A=
+sidebar_class_name: "get api-method"
+info_path: api/step-ca/step-ca-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OIDC callback for a Step CA sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/step-ca/callback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The redirect URI registered with the identity provider behind the CA's OIDC provisioner. Exchanges the code, has the CA sign the key and tells the terminal to reconnect.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"state","in":"query","schema":{"type":"string"}},{"name":"code","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Signed in; an HTML page the browser can close."},"400":{"description":"The sign-in failed or is no longer active."}}}
+>
+  
+</StatusCodes>
+
+
+      

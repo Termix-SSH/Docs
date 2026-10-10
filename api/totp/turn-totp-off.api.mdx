@@ -1,0 +1,68 @@
+---
+id: turn-totp-off
+title: "Turn TOTP off"
+description: "Turn TOTP off"
+sidebar_label: "Turn TOTP off"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv20YM/isEny92WuxlekuHDUiLosHiIRgCo6Al2rpYurveUXE0wf994J3meE77UD/YMu8j+ZE8fppQaJewesTVl9Udrg1G/jZwkg++GbGa8l8bucFK4sAGa++EnegRhdDZmsR6t3xK3qkt1S33pE8yBsYK/eaJa0GDIfrAUSynfOolfK19w2fQJNG6HR7zR4mk4F0q+PfX1/rTcKqjDZoSq0wZ/Ha7wKPBX76H+GxTsm4Hmgl8hOxhEzgv4N3s9+6t3617ps422a+g3v/6nfzeQ09uhEP0c5K0QOV+gRuig//IosGepfUNVhh8yq0habHCZeiGnXVXFOxS+7NsbKJNx2gwcXzmqHOacIgdVjgV0xEvk/3thwgrjr19gYJBg88UrYbKvZytuZwtDZ1gha1ISNVyKdlxwS/Uh44Xte91HmtlUA/RypgpbJgix5tBaT+uj2bC2vu95XMLBfuJx5PlLMS93pFC5TzQ6R4oF605w7CaQWjmhz987Ek5f3xYvan+nlOy3oH4PTtI7ASsA2kZNImP9p98X6FlajgCJfiQgwK5JsOyYx75eUknbqUqNGg1W4GgQUeZ6dNBfsjo48MKCh4SC5BAsjt3Zd0CHlp2ECIrXQNWQGjPSS01N+xqBv/M8YdVZLbn7f7pTt7c3cKeR0hCUXRfDlZakP7l65tyTtCfb+2eRwOH1tZtSZRe0yzgVoBqSeo2Y8Ef3Oxdk9ONpVr0nNzoHQN3icu2qfj8+Spbv5fLeyEzJ3nR2W19PrWisKIjN3e3uigcUyn03eJ6cf2m/NXBX22pFh/z+LQDuQgqErONvgdyQIO07ETV0UegEEyBbajeD+GkFCYrQE9ZOuc7dCkW/8t/mqzwiyxDR9ZplCwJ06wjj/iqI2hyCzTMrCVrg62qTvWI07ShxH/F7nhU87eBo673+lUuyi5jmWje/D2PWOFv5SVwtVIyCu+GshwXLwTd+pPY3X25133dzC+Wvkwl0gFN/q4QDfpcaNaGbJuwI7cbaJfXK8fUz78Oy09q
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn TOTP off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/disable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turn TOTP off
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"TOTP off."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."},"429":{"description":"Too many wrong codes."}}}
+>
+  
+</StatusCodes>
+
+
+      

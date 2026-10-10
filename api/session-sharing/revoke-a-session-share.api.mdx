@@ -1,0 +1,69 @@
+---
+id: revoke-a-session-share
+title: "Revoke a session share"
+description: "Revokes a share. Owner or admin only. Best-effort kick of live SSH participants; remote desktop viewers are not force-disconnected."
+sidebar_label: "Revoke a session share"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsET11Alt12e1FPWWyKZlu0i7WLoAiMgpFoayppRsuh7LiC/nsxM0qcj02B9tSTpBE/Hh/JNyNW7EsxvRpnscBPfHANeyDwNQnn8OvRsoAToKozFpxtTzm8Y68L3u2cKDSmbMDtoDUHhvX6R+hJ1JSmJ6v+exDunDJU7Bt1PRwMH1k8kDBYp7BzUvKiMr501nKpXOWYodLeY3GDa/beOAvrmsTYPW4z9FwOYvSExc2It0zCcjFojcXNdtpm2JNQx8rio4EJNfWkNWZoqWMsMNZ1VWGGwp8HI1xhoTJwhr6suSMsRtRTH001Zp1CYGHfO+vZh//frFbh8ZS6AJJBIoEVThm+XX370uoXp0CD1k7MX1yButkDtDY+kZ58376WIdE22Jjjuy8iYTmwAIs4wWnKsGOtXYUFVtyyMmaJkwKXfTvsjV1Qb5Y+kb3wiezlODM1YWA9REycDtJigWM6Cj+fJv/dDQIbls7cQbLBDA8khm7bxN58GmHvaGgVC6xVe18slxodc76jrm85L12HU+T/vu/r0KQU53H3H3oWAuHcy/CdjDCbX35w0lFI+OF68wL6/bipa9iCZ6tgLGjNcDF3jIIl1EwVC5CHdzEokK2iWXTMQ19K5xrDz7BRb37iE2ZpLJPJeTD/POqriD5cbyDZg2cFUvBmbxfG5nBds4VeOMDNwCgohQXuhUuu2JYMLgzDa1VEtAnYf2Ty4uMVNHwCr2Hx7R6ORmvQ7u6PF+U8mP57ahs+ZXCsTVmnRP6cJocrBSrVB7fZFlzUreBdkg0rQ6WG/2RPzjJw6zmPu2HszsWqjbb8iPJZc+Di41UYYBafavg6X+Wrl42Kqxk1cN4jD7cnaI1tgnhGrGSd1iwweJYsQpvbdnZRBwR7cUMf6OmYI6HiXOdjo3rntSMb8M5TkwQ76PWMO0nIM3wjls4qW/3/SHwaMuU7XfYtGRvKi9IyzuJ0g2dxihL0RJ4ww+JeyrcZ1s5rcBnHW/L8m7TTFI4/DyzhqtieJShqWGV8eK+w2FHr+R/Y+urTfEu8gddQ32+3PUWla4fwhRk2fHp030zbx0L8/vLny80lZkhPl+7ZkkWwX4w/jsliEyRnmh7SRQkKyabpb/rXunQ=
+sidebar_class_name: "delete api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke a session share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/session-sharing/{shareId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes a share. Owner or admin only. Best-effort kick of live SSH participants; remote desktop viewers are not force-disconnected.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"shareId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Share revoked"},"403":{"description":"Not authorized to revoke this share"},"404":{"description":"Share not found"},"500":{"description":"Server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: update-proxmox-stats-viewer-heartbeat
+title: "Update Proxmox stats viewer heartbeat"
+description: "Keeps a Proxmox stats viewer session alive."
+sidebar_label: "Update Proxmox stats viewer heartbeat"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zgQ/SuDOTN2dtGTbumii3V72GCTNlgEQTGWJhZjiWTJkT9W8H9fDKnazkcP0cGWRjOc996QTyM2nOpog1jvsMIvzCEBwXX0u97vIAlJgo3lLUdInJL1DqizG56hQaFVwuoep2x8MBj5x8BJPvpmj9WYH23kBiuJAxusvRN2oq8ohM7WpI3nT0m7j5jqlnvSO9kHxgr98olrQYMh+sBRLCd9WwDdFDyL5qwgSbRuhYd8KZwUvEul6vfLS/17zvgvpihLJoEhNCTczPBg8MNbqQu3oc428KL7VPDhdcG357o5L/DoB6cVB4M9S+sbrDD4lCmStFjhPHTDyroLCnYeirDzPIZ5+xMqGkwcNxxV/RGH2GGFYwkd0LxA8a8fItxy7O0OSg4a3FC0tOyKMFM043+koROssBUJqZrPJRfOeEd96HhW+17FfVAE9RCt7DOEJVPkeDUog/uHgxmx9n5t+TxCwX7h/TFytsSNjr1AOV/oOFTFopxzGlZTEprp5k8fe1LMn+9uX7GfxgTi1+wgsROwDqRl0CY+2v/yFoSWqeEIlOBjXhTINTktF+YZn1M6Yius0KDVbiUFDTrKSJ+28ktEn+9uoeRDYgESSHblLqybwV3LDkJkhWvACgitOWmk5oZdzeA3HH/JIqM9l/vdSl5dL2DNez3/UaxbwdZKC9Lvvr+ic0x9v7Rr3hvYtrZuS6N0ajODhQDVkrRsygW/dVN1TU5PE9Wi78ntvWPgLnE5Wuon/5yc6FPZvG86x9ExdIKPPmtlRZN/2hpcXS/0xHBMhfFvs8vZ5SsdFn3wUY7O+e0TrLR/JtD6JMnAmjkomV51SntXZy5bkroF5xsudpunp57QUzbFaSt9zfb0tjOfO8MzVOPJcd/r7WXDCO9kHjqyTlFlpxknp7rHk1MVh84fAYN5YTR4QvVgUCXQmnFcUuKvsTscNPxj4KgW8nCypOIXWHZNdpc177HCPwqTi1tFpundUA7gi++IOsvRW6//vlFPWE7fo943WhNpiyb/VogGfVYr+0+OjdiRWw20ykc4r6nX/xcJgcw=
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update Proxmox stats viewer heartbeat"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/stats/heartbeat"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Keeps a Proxmox stats viewer session alive.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Heartbeat updated."},"400":{"description":"Invalid viewerSessionId."},"404":{"description":"Viewer session not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

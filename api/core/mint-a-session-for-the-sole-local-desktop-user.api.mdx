@@ -1,0 +1,59 @@
+---
+id: mint-a-session-for-the-sole-local-desktop-user
+title: "Mint a session for the sole local desktop user"
+description: "Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key."
+sidebar_label: "Mint a session for the sole local desktop user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv20YQ/iuDvbQFKNpNHwf1lAIxkLRFDMSBURhGMVqOxK2Ws+zOUDYj6L8Hs6RsJU5Q5O6TxOE8vvnmxb1rSHwOvYbEbuneCzWwGkFbgleRvObE0JBsNfWAfQ+aQLahLwoxbQLDOuUOiDVkiiPctcSQB+bAGxBFbjAmJsANBhYtdtStqGmogZg8Rlih3xI3NbzlOALuMERcRYK0owwxpd4UavgzbQQCA0pxIinS7GAQypBpg7mJJAJpDUEFfKbGcGGU3yCsZ8hm0KDiCoWgRYEuZQJtkcFwFl/fU72pIVNPqNRAhzxgtAhBNKNR9UMFDSnlLnAQDR5jHI2PU4TYdPbgfRpYK0h5Sh5zDCS6mNxRpuaoYyDZQASZjRcLwFOau0EUmIwY7HvCbOKTxGYqYeDGVHgEH7IfOiuEp5nhhnwMTGLhPlBOJywK0H0QBVTAGCu4a4NvgVPujLW5DfqcdkFCKiWewPQ5NYMnqeHy+HLiIJOkuKOmeP9OCvMLYp/H0nGwpdFgdEHEvK1obdXoAqs9ljqTmLsKOlTfmtQijpC0Le1h3PSorXElFNeLljAK4APzVluFPtMupEHiCMTWe0MPd0FbQNhhDM0xDqwGBU4wSOnBT6HWrnKKG3HLG5uULO62cpmkTywkbrl3L87P7efToXo3u/a59FPtDpX7+fynp4oXKa9C0xCXbuEvVKbY/vKlIBcYIjU2n1OYY0K1Oxwq15G2qXFL1ydRVzljzC3dWXF9FlgpM8YzHDQtZkNXOaG8syyXN3s35OiWbj+JDq76LPzfachwZQNxD5OOq9wOczAaCzWztABf4xDVLV2r2svy7KxM0n1N99j1kWqfOnc4HG4NgR9y0LFAWBFmyi8Hg35ze6j2zqe0DXQqwT78QeOD5MTFO99SN0E5dbR3OvY0Y7Gci5pbzkqumv9c2BAY5jfXV0+yP1ZY05YYhGyWubSvBUk5fChbA1rCMpgCvxengNwUtWJYinua0gO2KStXuWDRJhVXOcaC9N87/SqiN9dXMOmDUBlsCRteBK7h2lZ1n8ngVhAUFLckJvG2OP28gb+WRUF7Svc3M/ny8nVZAKKYy7yXgdTu/p8n6Tyofju1WxqPi6wEkscwNbxWQK9yXNkWIt3xbO2RORUFe4882m6mKDTNVOB1KlkHjZbm3P0vL19b61OWCfqLX+sfz+vzJyldtQTett2jXQ2v0LfQx8G2WpP80BGrlGuW7hhyGpSkEG9z3CFb/LkL/gqsgA977HgYTu7kcYHb0H8Ox2aJlVifPwKePwKePwL+7yNgWnRK93rWRwxsI1ku5H4+rTeuUFlW9nRcXeU+Oa+3lWvtGC9v3H5vjfg+x8PBxP8NlO3i3T5e0Om8PZ7xy7fvrtzh8BGieDAP
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mint a session for the sole local desktop user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/internal/auto-session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Used by the Electron desktop app to skip the login form entirely when running standalone against the embedded local backend. Only available over loopback. Logs in as the sole local user regardless of its credentials; if the local database has more than one user (e.g. repeated manual registration), deterministically logs in as the admin account, or the earliest-registered account if none is admin -- a login form must never appear for the local backend under any circumstance. Only declines if zero local users exist at all, which normal desktop provisioning never produces. Provisions the resolved user's data-encryption key if missing before minting the session, matching every other login path -- self-heals an account that previously ended up with a valid session but no usable encryption key.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session created."},"403":{"description":"Forbidden, or no local users exist."},"500":{"description":"Failed to create session."}}}
+>
+  
+</StatusCodes>
+
+
+      

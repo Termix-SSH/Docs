@@ -49,7 +49,7 @@ A modal opens. If this is your first GINERNET VPS, leave it on **Create a new VD
 
 On the **Basic configuration** screen:
 
-- **Location:** Whatever is avaliable to you
+- **Location:** Whatever is available to you
 - **Server type:** AMD EPYC/Ryzen
 - **Hostname:** `termix`
 - **Operating system:** Debian 13 (Ubuntu works too)
@@ -188,7 +188,7 @@ Start it:
 sudo docker compose up -d
 ```
 
-The first start takes a while as the images download. It is ready when you see `Container Termix started`.
+The first start takes a while as the images download. It is ready when you see `Container termix Started`.
 
 ### Open Termix
 

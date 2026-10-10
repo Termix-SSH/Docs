@@ -1,0 +1,69 @@
+---
+id: get-the-hosts-health-checks-and-their-last-results
+title: "Get the host's health checks and their last results"
+description: "Get the host's health checks and their last results"
+sidebar_label: "Get the host's health checks and their last results"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtuIzcM/RWCL20BxU5vL/OWFm2a7QVB10FQBEahzNAe1RppVuTY8Rrz7wUl31JvHrZPM6Io8hyRPNqh2CVj9YS/RBb4nSS5mnFusLfJdiSUdHeHLmCFvZUWDQbbEVboGjSY6MPgEjVYSRrIINctdRarHcq2z15BaEkJx3Gu3tzHwMTq8M31tX4a4jq5XlzUFLOWoI5h4ZZDogbqluoVo0FpySXQYGltPdjQQCIevPAEqzB4Pxr87lMB78LaeteAC/0gE8xu3166/RHB1jUxg0SQlqCNLGgwJiBPa6tu0FBw1JwSfv82g65TiAvrPDUQwzHkBMfR/OfELclx/wuGlqyXdk89My3kvWU5kEaDHUkbG6xwSQo016bCae+HpQtXtndTjXfVlZK+XnQ22CUlnpZc051rRjTIlNaHgg/JY4W7YtLN15j/ikOCGaXOvUDxQYNrm5x99qW8e2u+n4UdvGCFrUjP1XQq+eCEXmzXe5rUscMxNwhTPSQn2wzhmWyidDMosaf5aHZYx7hydG6xvfuVtkfLWYj32okFynmgY2MqFtw3rK6LE5r9z88xdVYxv3ucXbB/T8zaEBJXFIApCLhSY00Sk/tYGqYl21ACy/BDDnqoZjmYu/Gc0hFbYYWmjF1xOQ3ePxt5E9G7xxkUf2ASsALsluHKhQk8thSgT6RwDTgBsStitdTUUKgJ4prSmywy2vPr/uybvLm/gxVtgcUmcWEJGyctSPfy9wWdo+vnX+2KtgY2ravbkohPaSZwJ2BrYT2294W4CfvTtQ0hZgfdt2EbAwF5pjK0LixiZu3EK81zxYSb+zsdAEpcCHw9uZ5cX9D6za0Jfrx/MNBRF9PWQON4ZSCQbGJaZRS39w8KXNhA7wfVo+izKpWhha1Onk4z54r0kaWzQYHt2+P/yckroMfSCr3ItPfWBc2VNWG3l5onPEkNGjzXl8vlQXB0J+NBg5Vr9KHJQls94W73bJkekh9HNX8YKKkMzE+ykkWhcaz/DVYL65kugNcxCAVtty//3L9NX4E+IJ8idBi3sM3q5QddocEVbcsDN87HM6W9/WmG4/gvOjl8NA==
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the host's health checks and their last results"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/health/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get the host's health checks and their last results
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The configured checks","their interval and results.":null},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

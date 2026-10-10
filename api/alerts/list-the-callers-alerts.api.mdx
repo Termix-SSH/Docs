@@ -1,0 +1,69 @@
+---
+id: list-the-callers-alerts
+title: "List the caller's alerts"
+description: "Newest first. Brings in any Termix announcement the caller has not seen yet."
+sidebar_label: "List the caller's alerts"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUuPGzcM/isEL70o4+3j5NsGbYpNXwHiYlEsjEKeoT2qNdJU5Ng7NfzfA0p+JbteZA892eB8FD++Pu6wIa6T68XFgFP8nbbEAkuXWCp4m1xYMbgANowwo9S5R7AhxCHU1FEQkJagtt5TgtYyhCjARAFGkgoNil0xTh/w1lMSxrnB3ibbkVBS+w6dBv13oDSiwWA7wikOIZFt0CDXLXUWpzuUsdcvixg92YD7vXneleOQanrOlUVzecGTNpScjC/4GqQwdJqOC8uowKGuiRkNbm0KBVInJ662HudXQ3nXOXkujgtCK0rXSS5oGZOm93nT/gh+BJtLDFsnLVjwcUsJXGNgGRP0duXCqno55txgIu5jYGIFfHdzoz+fh5q1dIxkQ5PbX9oFdRyCVLg3+MPN908df3PMLqyyR3mgGpig15lidjFUmjZ2JG1scIor0hL1Vlqc4qT3w8qFN7Z3k+I8cUKdVp4pbY7DNCSPU9wV0/5Jmf6KQzoOccGgwY1Nzi58SflgzeSXdvCCU2xFep5OJpIdK3q0Xe+pqmOH+1w0pnrIk6MUFmQTpdtBaT/MtY91jGtHlxbbu19oPFkunvio3SlULh86NUu5HJtY5kFBaA5/3sXUWeX8/n72JPuPlMsMEtcUgHV5Xcjt0CAxuf+sIqEl21ACy/A2P3rqc3bMDb5M6cStZIWmDG6BnCf3n61cZfT+fgYFD0wCVoDdKrxxoYL7lgL0iZSuAScgdk2slpoaCjVB3FC6mkVme1nuV1fy9sMdrGkEFptE5zfvl3SPfz9J5wR9fWnXNBrYtq5uSyA+h6ngTsDWum98xELchoN3rWqcAfrdhjEGAvJMZZ2yUGnWTrymWXQYbj/c6ehT4kL92+qmunlGVghcWMTHrCGqjweV0ezKHplCtCHv8meJsKVFG+OaDQRZjgZ+dFzH1GS21Fnnc1P6yNLZoNwOE/Kr48tz8g0fZOJLWrpRQSjI/3CtymwIPcqk99YFZZpFZXdQogc8KxEaPDEsajQ32EYWhe12C8v0Z/L7vZqLjqtANI5VbhqcLq1nMrim8fLmbawflASqUlwBn67cV4HPh+1r4Mfj9DL2akdecYqerXYhcbpzZxbzs1QXHT2fip9/muF+/wmo6gRk
+sidebar_class_name: "get api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the caller's alerts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/alerts/items"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Newest first. Brings in any Termix announcement the caller has not seen yet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"unread","schema":{"type":"boolean"}},{"in":"query","name":"source","schema":{"type":"string"}},{"in":"query","name":"severity","schema":{"type":"string","enum":["info","success","warning","critical"]}},{"in":"query","name":"limit","schema":{"type":"integer"}},{"in":"query","name":"before","description":"Only alerts with a lower id, for paging.","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The alerts and the unread count."},"403":{"description":"Missing the alerts.use permission."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: import-user-data
+title: "Import user data"
+description: "Imports user data from a SQLite database file."
+sidebar_label: "Import user data"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVUtv3EYM/isEz7LWCdoedHPaBnBatC68hVEYi2J2xF1NVppROJTXqrD/PeCM9gHbOaS6aMT5SH58asKaomXXiwseK7zt+sASYYjEUBsxsOHQgYH7v353Qkm0NpFg41oqsUAx24jVI/4yX+CqQKYvA0X5EOoRqyl9OqYaK+GBCrTBC3nRq25oxfWGZbEJ3F2pdRVH21CXTjL2hBWG9WeyggX2HHpicRT1VklcoKKw81ssUI0ZwQrXzhse8VBgb2LcB65fww/pUdaxDz5my++vr/X1IjneMnXkxbTgUqLAhq5vSaiGOFhLMW6Gth1L9fjDWyb+CClzMPRtMDXVEBiO1OCYKNgEnh3Mlt69RebJtK4+aSfkj2/5/GhcSzVIOJK+qGWJGnpH0oQaK+xDTFk20mCFi2O1F1kRC4zET8Ra8QkHbrHCKYsOWLxw+08YGJbEnXuGjMECnww7s25zkmdpIrwxQ6sVa0T6WC0WkhRLejaa4NKGTgu1UgZ2YCdjorAmw8Q3g9J9XB2KCW0IO0eXEtO732g8SS5M3GubZSqXhk4Nolw05gTTbkogLObDx2OXfXpYvor+nmJ0wYOEHXmI5AWcB2kI1Elg959RJDRkamIwET4ko2B8nWBJMRX1MqQTtxwVFujUW4Zggd4kpp/38k1Gnx6WkPEQScAIRLf1V86X8NCQh55J6RbgBMTsKKrEUk3eEoQn4m9Gkdhepvu7M3lzdws7GiGKYXF+C3snDUj3/O+rcE7Q70/tjsYC9o2zTXYUz25KuBUwVqKqzVgIez9rW+N9SAC9N34MnoDaSHmOnN+EFLUTXUw4d//N3a22PnHM1N//VL67Lq9fhbRsCGxggrNeCb8a20DfDlvnoQ520P0TwUlUWsBhEIop8Tq7nfHqf+6CvMzPu/ylw+m8iv/H4s+VFXqWRd8a55VDWgnTvD8e8aikbZo3yKrARndM9YjTpFd/c3s4qPjLQKxDvToviTzBmOuY5n1HI1b4c2Z9tVQKCm8HpfLWz0TH/bTd7v6810Fdz/+lLtSqpuA5O6ejOj4cvgKXpXdt
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import user data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/database/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Imports user data from a SQLite database file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"file":{"type":"string","format":"binary"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Incremental import completed successfully."},"400":{"description":"No file uploaded or password required for import."},"401":{"description":"Invalid password."},"500":{"description":"Failed to import SQLite data."}}}
+>
+  
+</StatusCodes>
+
+
+      

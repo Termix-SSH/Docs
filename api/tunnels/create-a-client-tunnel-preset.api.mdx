@@ -1,0 +1,68 @@
+---
+id: create-a-client-tunnel-preset
+title: "Create a client tunnel preset"
+description: "Create a client tunnel preset"
+sidebar_label: "Create a client tunnel preset"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEn90kN+xlfusNG9YbsBVrhmIIgoGxmViNLekkuokX5L8PlHyJe1kxnB9ih/pI8aPITycU2kUsV7jsreU24rrAwJ97jvLR1QOWp/TXBK6xlNBzgZWzwlZ0ibxvTUVinJ2/RGfVFquGO9IvGTxjiW7zwpVggT44z0EMR1211PEEFSUYu8Nzir81u8kShUADFmiEu3gb+Hwu0LckWxe6dwJ2vhcOv/33julR1tE7G3Ny3y0+6KvmWAXjlR+W+Bg4skAVmITrmYb+frG4xT3YV2pNDcoQXIBMaMT/cIu/B58jH4w0IA1JdqU2MNUD8NFEibNE9K3njykVIKhaw1ZA0iGO4bDAjqVxNZboXUwnQNJgiXPf9jtj78ibeXaJ8+wTscDI4ZWDNsUJ+9BiiadsOuPX+//l+gBLDp05QsZgga8UDG3aXMjRmjhvqW8FS2xEfCznc0mOMz5S51ueVa7Tw1hrBlUfjAwphQ1T4HDfa+ar9bk4YeXc3vDUQt78ysPFMgnxpN2YU5kGujSB5qKcEwzLEYTF+PGzCx1pzp+elzfsnzhG4yyI27OFqAdgLEjDoJu4YP5JkwENU80BKMLHFBTI1gmWHGe5Ra+Urn2fWGnj624ZgsU4OPhykHcz+vS8hIwH7SsSiGZn74ydwXPDNjeIlQKMgNCeo1oqrtlWDO6Vw7ssUrbTcn9zJe8fH2DPA0ShIMbuxq7vjn/f0LlAv720ex4KODSmavJG8brNDB4EqJKobiMW3MGO3hVZ6xJA18kOzjJwGzkPoMrcH1eB/Ck371XQvsjKVcdWJ23Iq0JNEVNhmiiWsVuXSmtEY38RZ7h/fNAB4xBzgT7MFrPFbRc8/QLeBYGtCwcKtRY5qUrgylnLSt1ZMPo62AJ828e3ChJhG1yXilNz3IvzQN6ns1cl6chOCP+fCL1J7tIuwkeZ+5aM1ahJZ06jPq3wqk9Y4JhSukCyRq0LbFTQyhWeThuK/Gdoz2c1f+45qGysrzKUNQJzpyRF2fOgaedr7G6p+Si87fPQfXWl6eFddPTx9yfVgc14NXauVp9AByzSb4lYoEtck+Yk2wlbsruedmlsU0x9/gWdM5nq
+sidebar_class_name: "post api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a client tunnel preset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tunnels/presets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a client tunnel preset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"config":{"type":"array","items":{"type":"object"}},"platform":{"type":"string"},"computerName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Preset created."},"400":{"description":"Invalid name or config."},"409":{"description":"A preset with that name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

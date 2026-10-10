@@ -1,0 +1,69 @@
+---
+id: delete-an-api-key-admin-only
+title: "Delete an API key (admin only)"
+description: "Permanently deletes an API key. It can no longer be used to authenticate."
+sidebar_label: "Delete an API key (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v3EYM/SsETwmgaLdp2oNuDuwAm+RgNFsYhbEIaIm7mqw0owwp26qg/17MjPYjcdwiQE+rnXkk36PIpxErltKbTo2zWOA1+5YsW20GqLhhZQGycHG9gj0POawUSrJgHTTO7tjDHUMvXIE6oF5rtmpKUs4xQ6WdYHGLIfgDD4KbDDvy1LKyDzcjmlCzI60xQ0stY4F7HlYVZuj5a288V1io7zlDKWtuCYsRdegCUNQbu8Mp+07CumZYXYLbgtZ8YB74JT05TpuQXTpnhSUkfL1chp9v0xwCU1SVh0Jvlr/+AFi1xgKVJYvAgfUMf/N8XusUtq63Cfrbjyi8I9Ok1iYSx9eA05Rhy1q7CgtMl5ilRha46IW9LKgzr/Y8yGKMLZ0wQ2F/f2h97xsscExH4fLb2n+53sOafWseIWEww3vyhu6a1LX5NLLeUt8oFlirdlIsFhoDc36ktms4L12L0xT6Llz23ugQKdwxefYXfWB9u5myEUvn9obPT6gzH3g4npyl+BQGIlE5T3Scj8AF57kJ/xMIs/nhnfMtBc7vb9ZP1H9iEeMsqNuzBWGrYGyap15r583fFJBQM1XsgQTexqRAtoqwGBjf7LmkI7ekCrO0AAlyWoEvD/oso/c3a0h4EFYgBTE7+8rYHG5qttB5DnQzMApKe5ZwUnLFtmRw9+yfVRHZnrf7pzt5GG1R8mrsDh6M1qDt4+cnco7Qn2/tnocMHmpT1qmQnMpEf6JSJYTNWHAPdo4uyYato1LDPdnBWQZuhNNCGbt1UbXRJsicp//iehVGn70k6q9/z39Z5ssnkoLvlM4znOJyuKKyhq7pd8ZC5cq+ZasCRiXQAu96ZYmN75xoSzbUn6fgMu38yX3hBUWrcbYZXn5fPuyOVbb6f5t4GgHlR110DRkbyEbvGGe/ucXoNxiHJzoOZlgkG99kWDvRABrHOxL+0zfTFI6/9uyDC2xOrhI9oTISnissttQI/4vKF3/MXvsS/tPyn9Fx2EY7RHNr+vAPs/ANOn6Jps25115efbxaX+E0/QPQZXWx
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an API key (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/api-keys/{keyId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permanently deletes an API key. It can no longer be used to authenticate.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"keyId","required":true,"schema":{"type":"string"},"description":"The ID of the API key to delete."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"API key deleted."},"403":{"description":"Admin access required."},"404":{"description":"API key not found."},"500":{"description":"Failed to delete API key."}}}
+>
+  
+</StatusCodes>
+
+
+      

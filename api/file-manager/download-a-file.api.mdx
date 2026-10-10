@@ -1,0 +1,68 @@
+---
+id: download-a-file
+title: "Download a file"
+description: "Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP."
+sidebar_label: "Download a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv4zYQ/iuDObUAY7tFe9Et2TZAtl3UaLwIiiAoJtJEYiyRWnIUxxX83xdDyo889rC36mBL5Mzw++bxccSKYxlsL9Y7LPA3v3GtpyoCwYNtGR6C70AahsCdF4bGR5nB58gRrj8soeWayi10vmL4oSQB/8QB+JnLH2HTsEuu6gMNRYhl/2d2YEf3LVcGvDQcNjYyDCnm5Wo5Q4NCdcTiFi8VwydyVHPAO4OBvwwc5cJXWyzG9GkDV1hIGNhg6Z2wE92ivm9tScpr/hiV3IixbLgjfZNtz1igv3/kUtBgH3zPQSzHZMcxWu+uqhPTKMG6GncGe5Lm3Q3l+cLHOmEFvjM4RA7vxkuPEou9dzGf//NioX8vS7NqOJdkIjnTsL+8Z/nJxmhdDfvsQE+BOhYOEXzIQcR7aCnUnML8+l6YS7ItVyAeqqkrkusMFW/H0vgKC+x9TAlMScF53w61dWfU27kan3W5dvN9CC0oGowcnjhoiUccQosFjnlph+YVjH/8EGDFobPPkG3Q4BMFqx00lSutJgIPNLSCBTYifSzmc0mOM36mrm95VvpOU36nCMohWNkmCPdMgcP5oBxu73ZmxNL7teXTFertH7w9rJyEuNa2ylBOAx1KrViUczLDYjJCM71c+tCRYv54s3rD/jq3Iohfs4PITsDmqdJDfLD/pRaHhqniABThIgUFclUyS46pyKeUDtgyKzRo9bRsggYdJaSPG/kmoo83K8j2EFmABKKt3Zl1M7jRye8DK1wDVkBozVFXSq7YlZxl4lssEtrTdH93Js+XV7DmLUShIDoKGysNSPf87xs6B9PvT+2atwY2jS2bfFA8HjODKwEqJarbZAt+4ybvkpzzyUD3yW29Y+A2TsOlevX3Uel+z837Spn2CnKYvcP3XocWR9k5USnrHnxKqRWN+UJi4Xx5pdPFIebs/DRbzBZvcnYR/CayAa6sJD6df8riFHNlVcYNWFe2Q6XpjxLI1o3k60TJ5plVcSGX7oBUdBWTjpJWTx24v5Cm++g1lPEo+f+fuyv3qvCzzPuWrEv6ryI3TqW6xaNMosFToVSCp1J5l8upPuN4T5E/h3a30+UvAwdVr7ujGmapwtywSdjWvMUCP+Qcna0UmZq3Q579V1ekitpB2Jd/Xasc3U9XraYJCwy0QZN+C0SDPtUhSV9aG7ElVw9UJ/VIMfX5Colm6PA=
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/downloadFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads a file from the remote host. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"hostId":{"type":"integer"},"userId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The file content."},"400":{"description":"Missing required parameters or file too large."},"500":{"description":"Failed to download file."}}}
+>
+  
+</StatusCodes>
+
+
+      

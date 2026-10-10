@@ -1,0 +1,68 @@
+---
+id: disconnect-ssh-session
+title: "Disconnect SSH session"
+description: "Closes the caller's Docker SSH session."
+sidebar_label: "Disconnect SSH session"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu20YQ/ZXBXHpZU06RE29O3SBKEcSIXBiFIRQrckKuRe4yO0PLKqF/L2aXllS7OZgHiRy+2Xlvdudxwpq4im4QFzyW+FsXmBikJahs11H8heE6VFuKsFp9AiZmF3yBBsU2jOU95re4Nhjpx0gsH0K9x3JKjy5SjaXEkQxWwQt50Vd2GDpXWa25eGAtPCFXLfVW72Q/EJYYNg9UCRocYhgoiiNOuExhWZ9BWaLzDR7SpUR4CJ4z/tfLS/37r8wzLVA7roL3VAnVBR4Mvv/fjBm9vAbH8KytQK3Xk7ShxhKHwImwlRZLXAzd2Dh/YQe3qFOXFszt4lQPDTLFR4rayAnH2GGJUw4d0Lxg8FcYI9xS7N0TZAwafLTR2U333JoUTdy/27ETLLEVGbhcLCQlFvRk+6Gjogq9tmutDKoxOtknChuykeLVqPzv1wczYRXC1tF5xA7uD9ofI2dLrHQLM5XzhY7bpFxUc4JhOYPQzDcfQ+ytcv58d/tK/XP/JWzJA5MXcD6dUy0SovsnHSdoydYUwTJ8SIuC9XWCpcS0v+eSjtyyKjTotFqGoEFvE9OHnfyU0ee7W8h4YBKwAuwaf+F8AXcteRgiKV0DTkDsllgjFdXkK4LwSPGnKhLb83a/uZNXN0vY0h5YbBTnG9g5aUH6p79fyTlC397aLe0N7FpXtbkQn8oUsBSwlbCmzVgIOz9nV9b7kAD63vp98ATUMeXBUm/4dnKV3/PhfeECx+nXvfseUpecKGz2Jri6WeqoUOQs9V1xWVy+asAX621Dz26n7G5C3VsPalzWeYoMwcNex7ANLJw3b7X6ZLLeLjRstAOq1tdgNZNDR2kf1Rt6m6xuPlTXRyM499aXvKaTcb7FnfM5EXqSxdBZ55VCMphptqd7PNmT1sw2bpC51ceTSa0NqlzNmKaNZfozdoeDhn+MFNU31icfyiaB+agkS9nSXplnDRe3ykvh3Zin7sWHQO3kaKc3X1dqBJv5g9KHWnOi3aFJvyWiwZD6lEwnxSbsrG9G26S5TWvq9S9VIGUm
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect SSH session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/ssh/disconnect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Closes the caller's Docker SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH session disconnected."},"400":{"description":"Session ID is required."}}}
+>
+  
+</StatusCodes>
+
+
+      

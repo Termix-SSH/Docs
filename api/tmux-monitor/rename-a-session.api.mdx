@@ -1,0 +1,69 @@
+---
+id: rename-a-session
+title: "Rename a session"
+description: "Saved tags follow the session to its new name, for every user monitoring this host."
+sidebar_label: "Rename a session"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20gM/SsET1tgInuLXqpbelggXSwaNC6CRWAUE4m2Zi3NqEPKtlbQf19QI38gQRbooSdL1BvyPQ75PGBJXETXigsec3yweypB7JZhE+o6HEAqAiZmFzxIACcMng7gbUMGNiEC7Sn20DFFaIJ3EqLzW5DKMVSBJUODmg/zJ1w13RH+SiBcG2xttA0JRf06oFMGrZUKDWp+zFEz3JVoMNKPzkUqMZfYkUEuKmos5gNK3yrSeaEtRRzHtaK5DZ6JFfB+udSfF0JnSZG0UpnhaPDD8sPbQB8ENqHzJ+jH19Dbc6MOTqrUAs0Oto5kyx7o6Fg4w3E02JBUoVTBgQVN0p3joq27rfM3tnULabrjzdzTxZBaMS4SYzTIFPen1nWxxhyHFBrRvGD2d+girCg27ggJgwb3Njr7XKcmzdFJ08Z2tWjzRVrOFwuZDmZ0tE1bU1aEBsepzUxFF530E4VnspHibacyntajGbAIYefoOmJb9yf158hVige9z0TlOtH5epULzteu7wmEZn74I8TGKufPj6tX6h/O47sjD0xewPlpsLVIiO5fq0ioyJYUwTJ8mpKC9eUEmw5O934t6cwtqUKTBjhBLiP8z0HeZPT5cQUJD0wCVoDd1t84n8FjRR7aSErXgBMQuyPWSEEl+YIg7Cm+qWJie93un+7k7f0d7KgHFhtFVzoNdXP8/krOGfrzrd1Rb+BQuaJKhfhSJoM7AVsI67EZC+Hg59OF9bqTthD9bn0fPAHVTGm/nN+ESbWTWmVeew/c3t/pAlDkJOD3bJktX8n6FMOBKRULXmKoQVfytOVs4OB8GQ48QVrricEWMTBDrwunG8vTReiON9Yrn3kqvlJyhlOyl8V1e7yQl19nymkchI6yaGvrvBKdfGSYzegJL2akB67sCA3mV948iVqbya713DA8W6ZvsR5HDf/oKKpJrC+mM1lG6VifS8w3tmb6nxb89nX2/3fwFvXTMvp+8ra60zc0uKP+8kcyrq+t9/7LwwrH8T/rvXBY
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rename a session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/rename"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saved tags follow the session to its new name, for every user monitoring this host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session renamed."},"404":{"description":"Session not found."},"409":{"description":"A session with this name already exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

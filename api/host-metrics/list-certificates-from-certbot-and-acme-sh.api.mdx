@@ -1,0 +1,69 @@
+---
+id: list-certificates-from-certbot-and-acme-sh
+title: "List certificates from certbot and acme.sh"
+description: "List certificates from certbot and acme.sh"
+sidebar_label: "List certificates from certbot and acme.sh"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zgQ/SuDOW0BRs52dy+6ZYtum34sgq2DYBEYBSONLdYUqXJGdlRD/30xlOM46+aQk8ThI/keZ+Zxh2JXjOUtvo8s8JkkuYpxYbCzybYklHR2hy5giZ2VBg0G2xKW6Go0mOh77xLVWErqySBXDbUWyx3K0GVUEFpRwnFcKJq7GJhYAa/Pz/VTE1fJdeKiHjFvCFxgsd5TDRdvPr+FyjsKwmBDDRUlcUtXWSEucDT4+882uQwb610NLnS97GG/ncL+jmCriphBIkhD0EQWNBgTkKeNVRjUFBzVBZah9340+MdzrKvYtkpxaZ1Sj+GwZYHjaP634pNjeaIGlim2OXIXJWu1VUsF64W3JE2sscQVKb+chhJnne9XLpzZzs30mLN2yt7TQWuDXVHiGbOf7Vw9okGmtHlIbJ88lribQjr5lOe/sU8wp9S6e5gwaHBjk7N3fkrjPprvZGl7L1hiI9JxOZtJXljQvW07T0UVWxxzITBVfXIyZAp3ZBOli15V3S5Gs8MqxrWj44jt3EcaDpGjLb5oxU1Ujjc6FKBywX1h6ngCodn//BVTa5Xzh5v5ifovxKxFIHFNAZiCgJvyqofE5H5MRdKQrSmBZfgzb5rzp7C8MFfgsaQDt0kVmqm9Jshjg33byrOMPtzMYcIDk4AVYLcKZy4UcNNQgC6R0jXgBMSuiTVSUU2hIogbSs+qyGyPr/vFN3lxdQlrGoDFJnFhBVsnDUh7//VEzgH68qtd02Bg27iqmQ7ix2MKuBSwlXoGP2AhbsN+dWVDiBmg8zYMMRCQZ5oa1YVlzKqdeJV57IxwcXWpDUCJJwG/FufF+YmsT25D8Obq2kBLbUyDgdrx2kAg2ca0zizeXV0rcWEDne/Vg6LPTjR1LAzaedrKk9F1kaW1QYnty+NFFvKE3yGjQvcy67x1QY/IVrDb28stPtoLGjz2lNPhg8lodbBHg6Wr9RHJhlre4m53Z5mukx9HDX/vKWnrLx6tJBtB7Vj/ayyX1jOdsK5iEApaYr/8s393XgGan6t5aLEwZMfyvY7Q4JqG6fEaF+ORtb57O8dx/A8w/m8H
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List certificates from certbot and acme.sh"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/ssl/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List certificates from certbot and acme.sh
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The installed ACME clients and certificates."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

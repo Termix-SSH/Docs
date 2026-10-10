@@ -1,0 +1,69 @@
+---
+id: delete-an-ldap-directory
+title: "Delete an LDAP directory"
+description: "Refused while users still sign in with it. Needs ldap.manage."
+sidebar_label: "Delete an LDAP directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9v2zYQ/lcO97QBrOx1fZneXCQD0nZD0KYIhsAoGPFscZZIlTzZ0QT978ORcuzOSIECexJ1+u743a9PIxqKVbAdW++wxI+06SMZONS2IegjhQiRbdNAtFsH1sHBcg2WC/iTyERojO6KVju9pQIVst5GLB/ww9XqFtcKOx10S0xBrCNauaPTXKNCp1vCEq1BhYG+9jaQwZJDTwpjVVOrsRyRhy6hHNOWAk7TWtCx8y5SFMDr5VIe36ZxZQNV7MMAhhpiMgVOCt8sf72E/mFjtG4LHYVWjt7N2DffC+s8w8b37hj4t0vw51Q8HWguYGPdjgywl+rhNClsiWtvsMRMElUuTYmLrum31r3SnV1IgRdd8HtrKMTFaM2ECiOF/bGofWiwxDGb5OO3PP7yfYA7ye4JMgYV7nWw+rHJJZytKYON7hvGEmvmLpaLBSfHgp502zVUVL7FKTUhUtUHy0Oi8Eg6UFj1wv5hPakRK+93ls4turPvaXi2nIX4JN3OVM4DPTdfuOA8FPKeQajmw+8+tFo4v7u/u8j+E6WeAvsdOYjkWIaYawK5xAf7jxYk1KQNBdAR3qagoJ1JsOSYunye0jO3nBWqPNoZchruvw/8IqN393eQ8RCJQXNasVfWFXBfk4MukNBVYBlY7yiKpSJDriLwewovZpHYnpf7hyu5ur2BHQ0QWQeW7Uhbz+3Tl4t0nqE/XtodDUqUpqrzRfF0TQE3DLriKG4zFvzBzd6VdrKBumL5rt3gHQE1kfJiWbfxKWvLjaQpagSr2xsZfAoxE/+lWBbLy+6cy9wgq5OcfYBVxXZPcNIAUUfpc2LU6RgPPmQ96HzkVjuhMA/CVdpw0C6HM8cg/71fFscxOf4/tDj3nOmJF12jrRNqSSzGWWge8CQ0qFD8RYSOYoMKS2tExmsfWeDj+KgjfQ7NNIn5a09BBGB9EpQkB8ZGORssN7qJ9J0cf/o4K//P8BLj46K5IelW08sbKtzRkH8f0/pcS6+uP1zfXeM0/QtrXFqO
+sidebar_class_name: "delete api-method"
+info_path: api/ldap/ldap-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an LDAP directory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/ldap/providers/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refused while users still sign in with it. Needs ldap.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Directory deleted."},"403":{"description":"Missing permission."},"404":{"description":"Directory not found."},"409":{"description":"Users are still linked to it."}}}
+>
+  
+</StatusCodes>
+
+
+      

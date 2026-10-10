@@ -1,0 +1,55 @@
+---
+title: HTTPS
+description: Serve Termix over HTTPS with its own certificate.
+---
+
+import { Compose } from "@site/src/components/install/Compose";
+
+# HTTPS
+
+Always serve Termix over HTTPS when it is reachable from other machines. Passwords and keys go over that connection.
+
+You can do it two ways:
+
+- **A reverse proxy** handles HTTPS in front of Termix. This is the usual way. See [reverse proxy](/configure/reverse-proxy).
+- **Termix serves HTTPS itself.** This page.
+
+## Turn it on
+
+<Compose variant="https" />
+
+On first start Termix makes a self-signed certificate for `SSL_DOMAIN`. Browsers warn about self-signed certificates, so swap it for a real one.
+
+| Port | What it is |
+| --- | --- |
+| `8443` | HTTPS. |
+| `8080` | Plain HTTP. It redirects to HTTPS. |
+
+## Use your own certificate
+
+Admins can upload one in **Settings**, **SSL**. Paste the certificate (with the full chain) and the private key, then press **Upload & Install Certificate**. In Docker it is served right away. No restart needed.
+
+You can also put the files in place yourself and restart Termix:
+
+| File | Default path |
+| --- | --- |
+| Certificate | `/app/data/ssl/termix.crt` |
+| Private key | `/app/data/ssl/termix.key` |
+
+Change them with `SSL_CERT_PATH` and `SSL_KEY_PATH`.
+
+## Let's Encrypt
+
+The [ACME Certificates](/plugins/acme-ssl) plugin gets a certificate from Let's Encrypt or any ACME provider and renews it for you. Install it, then set it up in **Settings**, under **ACME Certificates**.
+
+The **SSL** page shows when the certificate expires and whether anything renews it.
+
+## Settings
+
+| Variable | Default | What it does |
+| --- | --- | --- |
+| `ENABLE_SSL` | `false` | Serve HTTPS. |
+| `SSL_PORT` | `8443` | HTTPS port. |
+| `SSL_DOMAIN` | `localhost` | Name in the self-signed certificate. |
+| `SSL_CERT_PATH` | `/app/data/ssl/termix.crt` | Certificate file. |
+| `SSL_KEY_PATH` | `/app/data/ssl/termix.key` | Private key file. |

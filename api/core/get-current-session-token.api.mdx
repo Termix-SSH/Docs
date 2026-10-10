@@ -1,0 +1,59 @@
+---
+id: get-current-session-token
+title: "Get current session token"
+description: "Returns the JWT for the currently authenticated native Mobile or Desktop client. Browser sessions cannot export their HTTP-only cookie."
+sidebar_label: "Get current session token"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE2P2zYQ/SuDOSuykwY96LZp03QTNFg0DhbFwihoetbiWiIVzsi2Kvi/B0Nqvd41csitvpgYzcd7j8M34prYRteJCx4r/Jukj55BaoKPtwu4DzGdbR8jeWkGML3U5MVZI7QGb8TtCP4KK9cQhAi/E28ldGAbR15KeBfDnikCE7MLnsEa74MAHboQRXu7CH8uFjevgm8GsCFsHZVYoJgNY3WHX5ki47LASNwFz8RYjfhmPte/5+B/yyAfZ4GELXntZYMX8qIVpusaxe6Cnz2wlo3ItqbW6EmGjrDCsHogK1hgF0NHUVwemvqdpbFE5zd4TL8C385fX2L6HOS5ZCWm1F8uUxfa/lEYx6AymZ1xjVk1BBJgNWmZteUSdWpLUoc1VrihhNhIjRXOepVt1tIsgy6QKe5UyepuxD42WOGYQ0csXgD5J/QRFhRbd4CcgwXuTHQKJCkxRROFe9M3ghXWIh1Xs5mkwpIOpu0aKm1oVaGlIrB9dDIkCCsykeJVr2jvlsdixHz15xHTuU80nCJnLb7ojWUo541ON6NYlHNKw2pKwmI6/BFiaxTzx9vFBfsv59sDrAvlfHoEOiRE91/aHqjJrCmCYXiXmoLx65Q2rd2xeEbphC2zwgKdTsspWKA3CenDXn6ISB9kzgcmASPAbuNfOV/CbU0eukgKtwAnIGZLrBFLa/KWIOwo/pBFQnsu908reXVzDVsagMVEcX4Deyc1SHv494LOKfXnpd3SUMC+drbOg/hpTAnXAsYKa9mUC2Hvp+rJdowV/W78EDwBNUz5FTl/HxJrJ43SnLb/6uZaV58iZ+hvfi1fz8v5BaWFWmSIBE91Jbw3toau6TfOwzrYvtVHC05YYUEMvRAn4bvA0prkLNMWfCB5tNznbvZy8vjkbf8n7867I3SQWdcY55VlMp1xMqg7TAaF6l9akLgtC6wDi34dx5Vh+hqb41HD33qK6hvLJx/KJoF5VZKlbGnQ7bKWOkmG1fT5vb1wfDWSk2t+eL/A4/E7JG50OQ==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get current session token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/users/me/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the JWT for the currently authenticated native Mobile or Desktop client. Browser sessions cannot export their HTTP-only cookie.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Current session token.","content":{"application/json":{"schema":{"type":"object","properties":{"token":{"type":"string"}}}}}},"401":{"description":"Not authenticated."},"403":{"description":"Token export is not available to browser clients."}}}
+>
+  
+</StatusCodes>
+
+
+      

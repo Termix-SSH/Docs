@@ -14,42 +14,52 @@ import MDXContent from "@theme/MDXContent";
 import type { Props } from "@theme/DocItem/Content";
 
 import SupportFooter from "@site/src/components/SupportFooter";
+import PluginHeader from "@site/src/components/plugins/PluginHeader";
+import PluginCatalog from "@site/src/components/plugins/PluginCatalog";
+import { findPlugin } from "@site/src/components/plugins/data";
 
-/**
- Title can be declared inside md content or declared through
- front matter and added manually. To make both cases consistent,
- the added title is added under the same div.markdown block
- See https://github.com/facebook/docusaurus/pull/4882#issuecomment-853021120
+interface TermixFrontMatter {
+  hide_title?: boolean;
+  hide_support?: boolean;
+  catalog?: boolean;
+  plugin_id?: string;
+  plugin_version?: string;
+  sidebar_position?: number;
+}
 
- We render a "synthetic title" if:
- - user doesn't ask to hide it with front matter
- - the markdown content does not already contain a top-level h1 heading
-*/
 function useSyntheticTitle(): string | null {
   const { metadata, frontMatter, contentTitle } = useDoc();
   const shouldRender =
     !frontMatter.hide_title && typeof contentTitle === "undefined";
-  if (!shouldRender) {
-    return null;
-  }
-  return metadata.title;
+  return shouldRender ? metadata.title : null;
 }
 
 export default function DocItemContent({ children }: Props): ReactNode {
   const syntheticTitle = useSyntheticTitle();
-  const { frontMatter } = useDoc();
-  // Opt a page out with hide_support: true in its front matter.
-  const hideSupport =
-    (frontMatter as { hide_support?: boolean }).hide_support === true;
+  const frontMatter = useDoc().frontMatter as TermixFrontMatter;
+
+  if (frontMatter.catalog) return <PluginCatalog />;
+
+  const pluginId = frontMatter.plugin_id;
+  const plugin = pluginId ? findPlugin(pluginId) : undefined;
   return (
     <div className={clsx(ThemeClassNames.docs.docMarkdown, "markdown")}>
+      {pluginId && (
+        <PluginHeader
+          id={pluginId}
+          version={frontMatter.plugin_version ?? ""}
+          overview={frontMatter.sidebar_position === 0}
+        />
+      )}
       {syntheticTitle && (
         <header>
           <Heading as="h1">{syntheticTitle}</Heading>
         </header>
       )}
       <MDXContent>{children}</MDXContent>
-      {!hideSupport && <SupportFooter />}
+      {!frontMatter.hide_support && (
+        <SupportFooter repository={plugin?.repository} />
+      )}
     </div>
   );
 }

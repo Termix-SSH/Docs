@@ -1,0 +1,68 @@
+---
+id: upload-a-file
+title: "Upload a file"
+description: "Uploads a file to the remote host."
+sidebar_label: "Upload a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu4zYQ/ZXBPDNyumhf9JYUDZottg1qL4IiMIqxNLYYS6SWHMVxBf97MaRie5MssKsHWxrO5cztcMSaYxVsL9Y7LPFz33qqIxCsbcsgHqRhCNx5YWh8lAINCm0ilg94oyqfyNGGAy4NBv4ycJRrX++xHNOnDVxjKWFgg5V3wk70iPq+tRVp0Nlj1MgjxqrhjvRN9j1jiX71yJWgwT74noNYjkmPY7Te3dZnqlGCdRs8GOxJmncPzqK/OdNc/6SO3zlMj6YWe+9iRvDh8lL/vq5cKsaQysc1xKGqOMb10Lb7QkP8/J7NJxujdRt4qRT0FKhj4RDBB5jPf4fKO8eV6oPzAhyFVq2NDdfJ7S/vQiHbcq3Ny3hSLwvUPDqWxtdYYu9jKm0qF876dthYd0G9nanyRZe7OssONDc0GDk8cdDWjziEFkscs+iA5hWEf/wQYMGhs8+QddDgEwVLq/aljUmawK9paAVLbET6WM5mkgwLfqaub7mofKeNWCqCaghW9gnCiilwuBo0g4flwYxYeb+1fC6h3v7B+6PkzMVcxy1DOXd0HADFojknNSwnJTTTy40PHSnmj/eLN9nP84iC+C07iOwErEubpEF8sP+l0YeGqeYAFOE6OQVydVJLhkUe21NKR2w5KzRoNVpWQYMujTA+7uSbiD7eLyDrQ2QBEoh24y6sK+C+YQd9YIVrwAoIbTmqpOKaXcXgnzh8M4uE9rzcP1zJq7tb2PIeolAQXYudlQake/73TTpH1R8v7Zb3BnaNrZocKJ7CFHArQJVENZt0we/cZF2R0xWkSvSc3N47Bm7jtFrKY3+fGPC3PLyvGOuFV46bd/w+8tNJdKKlM66ybu1Tca2o969IGK7ubnXPOMRcp5+Ky+LyTfWug99FNsC1lZRZ5584kUTMPZ7fLO4MWFe1Q62NiBLIbhqBdfAdaNp5e5ViyHlppvYrqXSU2HyaxXyfTNfJayDjWdLfd/HkgRJ+llnfknUaNDHRONXzAU9MNlXwhcvQ4BmbLQ2qV7UYxxVF/hzaw0HFXwYOSjDLE2FlNsE8U4l7trzHEn/N8C8WikvV2yGv56vbTXnnyLx3f82VMVbTLdn5Wm0C7dCk3xLRoE8lSuyUZCO25DYDbdKCJ5/6/A/4a69v
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/uploadFile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Uploads a file to the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"content":{"type":"string"},"fileName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"File uploaded successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to upload file."}}}
+>
+  
+</StatusCodes>
+
+
+      

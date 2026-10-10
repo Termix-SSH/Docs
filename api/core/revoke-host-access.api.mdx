@@ -1,0 +1,69 @@
+---
+id: revoke-host-access
+title: "Revoke host access"
+description: "Revokes a user's or role's access to a host."
+sidebar_label: "Revoke host access"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDuSQFWMpNPw68KYkDKO0hcFQYhSEUY3IsbrXcZXaHslmB/72YXVpWajuAe+hJ5PDNzJuvpwM2HOtgejHeYYUXvPc7jkAwRA6vIvgAwVt+FYHqmmME8UDQ+iglFii0jVhd4cXb5TvcFNhToI6Fg1oPaDRkT9JigY46xgpNgwUG/jKYwA1WEgYuMNYtd4TVAWXsE8oJbzngNBVPRslcVi+MtVF07L2LHBXw5uxMf77uwDKXGVIjGohDer8ZrB1LnAr86SmnlduTNQ2s3s+YHx9j3pG1HKCjEZwX6MjRliG2FIzbgncgrYlzZ6cCf34qzwcylhudQeY3D6XURmHH0voGK2zYsjAWuWkVLsI11QuNvDiYZlpkp8XhvosTFhg57O/HNgSLFR6yST9+TeIPPwRYc+jMHWQMFrinYOja5sbO1kT/hgYrWGEr0sdqsZDkWPIddb3lsvYdTmk0keshGBkThWumwGE5KP+rjW5B7f3O8KmFevMrj0fLSYjPugOZymmg40ooF5xXRd8zCIv54YMPHSnnj5frR9V/5hiNTsvv2EFkJ2B0dgyaxAfzNykSWqaGA1CEtykokGsSLDmmEZ+WdOSWq8Iir32GPCz+X7fyLKOPl2vIeIgsQALRbN33xpVw2bKDPrDSLcAICOmV94FrbtjVDH7P4dkqEtvTdr+4k8tPK9jxCFEoiO77rZEWpLv781E5R+jLW7vjsYDb1tRtThQf0pSwEqBaorrNWPC3bvauyelRUi36ndzoHQPbyPm0jLvxqWojVsuct3/5aaWrzyFm6m9+KX84K88elbRuGWofGB78SjinuoXeDlvjoPH10LGTCEai0oLgB+GYGt/7KB05zT9vQVbppBWzAvw7pd6LE3byHzQ9T1b4Tha9JeOUQ5KEwywoV6iCggWqCxZYJVE/EqmO6ryZIdUVHg7XFPn3YKdJzV8GDnrpmwflSHffmKjPDVY3ZCN/o6rXF7PwfwfPkb6/KDcmgbKDvmGBOx7zP5GqyP+Y8diXaXMq1+/Pfztfn+M0/QO5S5Lc
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke host access"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/host/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes a user's or role's access to a host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Access revoked successfully."},"400":{"description":"Invalid ID."},"403":{"description":"Caller may not manage sharing on this host."},"500":{"description":"Failed to revoke access."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: proxy-the-opkssh-provider-chooser-page-and-its-resources
+title: "Proxy the OPKSSH provider chooser page and its resources"
+description: "Public. Serves OPKSSH's local chooser for one sign-in, rewriting its URLs to this path. Any subpath is proxied too."
+sidebar_label: "Proxy the OPKSSH provider chooser page and its resources"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVduO2zYQ/ZXBvLQFuLKbpi962wa9bFIgxnqDRbEwCpoaW6xlUuGM1lYM/XtBUr5s3S2Qpz7ZGs4Mz5nL4QErYhNsK9Y7LHHWLRtrCphTeCaGj7MP8/lv3zA03ugGTO09U4CVD+AdAdu1u7FOQaBdsGLdGqwwfLr/nUE8SG0ZWi11AbeuB+6W8QOiMfi9pQrE+wIVil4zlk+Yr8OFwlYHvSWhEO0HdHpLWGKgzx2x3FWo0Ea4MR+qZLeBKiwldKSQTU1bjeUBpW9jIEuwbo3DsIjO3HrHxPH8zXQaf14W4d1Is9VrAuOdkJMCB4U/TN9ce99TZQMZyYwJbEVOrPSR5LOtKIAP6cDopllqs4HGspCjkHK+nb69zjnPhQXnBVa+c1Vy/fHfrs81g8pWyVs73lEAzUD7loxQDB0UbklqX2GJaxJUuXAlTtqmW1t3o1s78e2GuZ6MPZ4cTsUeUCHHeRib0YUGSzxkUzx8CegP3wV4oLC1e8g+qPBZB6uXTS76aE1UVrprBEusRVouJxNJgQXt9bZtqDB+i0NqG5PpgpU+QViSDhRuu0jiaTGoAxrvN5YuLbq1H6g/WS5SzON4ZCiXiU7TErHgOEXxOzuhGv/84sNWR8zvHx+u2M+J2XoH4jfkgMkJWJfaHy/xwX7R0RNq0lXu008pKWhXJbcUmNp9SemELbM6zn92QXVckL928iqi948PkP2BSUDLcX0LeKzJQRsowlVgBURvKG4pGarIGQL/TOFVFgntZbm/upK3szvYUA8sOiQZ2VmpQbb7P6/onFy/vrQb6hXsamvqfBGfryngTkAb4Rg2+oLfuTHaaJeWy0g8166P6kcNU14u61Y+sbbS0Hknb2d3cfQpcIb+fTEtpleE3nnnRvmoPR9Bce2D3DT2mSr42JKbdcsIKaY1FMSurNFCDHolFFInk/q6HN3HHbwSotSn1rNstYtwx6GZBb/vE+kR90m4zKUQxjpEdQ/EvguG+J9M4hImrfz/3pE8dUJ7mbSNti4STnJ1GBXvCc+Khwqz5qHCEREqLM+PzEJh7EiMOhyWmulTaIYhmj93FKISLc7KlnSpshz/V1iudMP0HwX69n58s76D14AfN971SUCbLn6hwg31L97CYXGp77/+/IDD8Dd8Nbcd
+sidebar_class_name: "get api-method"
+info_path: api/opkssh/opkssh-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy the OPKSSH provider chooser page and its resources"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/opkssh/chooser/{requestId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Serves OPKSSH's local chooser for one sign-in, rewriting its URLs to this path. Any subpath is proxied too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"requestId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Chooser page content."},"302":{"description":"Redirect to the identity provider or the callback listener."},"404":{"description":"Sign-in not found."},"502":{"description":"OPKSSH did not answer as expected."}}}
+>
+  
+</StatusCodes>
+
+
+      

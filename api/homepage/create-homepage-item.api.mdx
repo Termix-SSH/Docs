@@ -1,0 +1,68 @@
+---
+id: create-homepage-item
+title: "Create homepage item"
+description: "Creates a new homepage widget item for the authenticated user."
+sidebar_label: "Create homepage item"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v40YM/SsEz4rsLdqLbtlFF/X20KBJERRBsKA1jDSxNKOdoeK4gv97wRn5o3H2sEB9scR5JB8p8s2EhmMd7CDWO6zwU2ASjkDgeAut73mghmFrTcMCVriHJx9AWgYapWUntiZhA2PkUGKBQk3E6gF/m13xscDA30aO8tGbHVZTerWBDVYSRi6w9k7YiR7RMHQa0Hq3eI7KaMJYt9yTPsluYKzQr5+5FizOAj2ks5XRbEPwAwexHA8+K3PmHSVY1+C+QLHS8bsntXdPtrlMuU8/TRwH72LO8NPyg/79t4+H8nPL6tRVU2rsn5fLS/jKvVBnDRgSSqhf3kN9JtuxAfFzwNP30SwlKrWepfUGKxx81B4NJC1WuBi6sbHuiga7OHgt1CtigZHDCwf9bBOOocMKp2zaY/GGwt9+DHDHobevkDFY4AsFS+sut2O2JvJPNHaCFbYiQ6wWC0mOJb9SP3Rc1r7Xlj4qg3oMVnaJwpopcLgelfjD476YsPZ+Y/ncQoP9nXdHy1mIWx2XTOU80PFTKhetOcGwmkFYzA+ffehJOX+5v7uo/pZjtN6B+A07iOwErEvLoEl8sP+k0YWWyXAAivAxBQVyJsGSY5lH7FTSkVuuCgu0mi1DsEBHienzVr7L6Mv9HWQ8RBYggWgbd2VdCfctOxgCK90CrIDQhqNaajbsagb/wuG7VSS25+3+4U5e36xgwzuIQkGsa2BrpQXpX79elHOE/nhrN7wrYNvaus2J4ilNCSsBqiWq24wFv3Wzd03O+QTQc3I77xi4i5w3SnXoz5OC/ZqH91xbDspxlJST4agkGsm6J5/8ZtRRJK5vVrpGHGJuw4dyWS4vmwMmUJMom+CHgyinCCrKO93NeZcTSp9tzbGAoRvj4RU66zbxKOOGYrv2FLI6qWr0lHR3nrpP70jNW2rTScP/hxskT5fwqyyGjqxTXkmWplnNHvCkZljgIYfuTVK0R7VFUeA0rSnyX6Hb79X8beSgIvN4Eq2sKJjnKunPhndaR67o6k7pKLwb84q+uaFUe46ie/PHrarGer7pem/UJ9BWbyvaYoVYoE9dSwqVbBN25JpRK6gwx9TfvyqLo8U=
+sidebar_class_name: "post api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create homepage item"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/homepage/items"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new homepage widget item for the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["typeId"],"properties":{"typeId":{"type":"string"},"title":{"type":"string"},"config":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Homepage item created."},"400":{"description":"Invalid data."},"500":{"description":"Failed to create homepage item."}}}
+>
+  
+</StatusCodes>
+
+
+      

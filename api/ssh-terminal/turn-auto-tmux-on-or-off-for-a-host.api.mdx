@@ -1,0 +1,70 @@
+---
+id: turn-auto-tmux-on-or-off-for-a-host
+title: "Turn auto tmux on or off for a host"
+description: "Sets the host's autoTmux terminal setting. Used by the 'enable Auto-Tmux' action shown when a persisted session expires. Needs edit access to the host."
+sidebar_label: "Turn auto tmux on or off for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP4kYQ/iuluiSRDEweJ26zUaKdjbQaLYxG0SyKCrvAPdjdvV1twLH831fV9gAZMpH2Fi5Avfqr11cdFix5MD4aZ3GOC44CsWQoncTvBKiJblk3R4gcamOpAuEYjd1O4UG4gHWbrD8jW1pXDLdNdBN1+IxAuQYFKd3BwqFkCwSegxiJXICwiKr56E1gmcJH5kKACxOB8pxFILoTlClmGGkrOH/C5QgFVxl6ClRz5KCaDo3m4CmWmKGlmnGO6n1XYIaBvzQmcIHzGBrOUPKSa8J5h7H1amls5C0H7PvVYM0S37miVZPXzrmzkW1UFXlfmZw019mzaBW769hu/cx5xAx9cJ5DNCyqHapWXBiunauYLPbpozjEOyuD+U83N/r1qmW052KKfYa//Jv6zu6pMkWqIpgCXIA9VQ2PHj9fe3x0b3dBIdUcS1dooZuUkZZ7jjNfNVtjJ+TNTKScvAzMTB1l1g196Gc6UZNYN0fMUDjsX1rXhArn2A2iHrNXoP50TYDU+SMMNpjhnoLRAqbijNKUzoaaKmrzY/Qyn80SmOOUj1T7iqe5q7XAK0WQN8HENkFYMwUOt43m87Tqsw5z53aGLyXkzR/cniQXIRba8wHKZaBTZxULjmOXOp2MMBt//O5CTYr5w+PyKvvFuCzR7diCsI1gbGqLPuKC+TvNH5RMBQcggXcpKJAtkllyTC2/TOmEbcgKs2GBBpPzCj0f4puIPjwuYbBXZgCKIGZrJ8ZO4VFX3gdWuBmYCJF2LCrJuWCbM7g9hzezSGgvy/3Nlby9v4MdtyCRgnIWHEwsIdbHv67SOZl+e2l33GZwKE1eDg/J+Zkp3OkaRVG30RbcwY7eOVnrkoHqybbOMnAlPOyZksmnMw39NgzvP2hDyajXrm1cqo+JaoCLxXt4YUm4vb/TVVHiTan+OL2Z3lz3c/H+kuNTc18yobVkIL4yESQPzDaD0kh0oc2gpjw4SekQVC6n6hxmrGPBsovOA3mfeuqdxJoST44DtmyCTacGlBjAWWUpt9nAxgWgRD2vAXdnCv5/H61hZCMf48xXZKxWIHFdNzLnE56ZU6f6gjsxS+dLMMP56Y6dCXQ1qDVE161J+CFUfa/iLw0H5bTVmSMTwxVGxsnZUCX8HzX9/tN48X6At7J44Q7bJiquGv2HGe64Pd/dftVnOOxOQjAofx3emSw1xNn56pQqv57Ozf2DEuN6vMi1K9Ql0EFvOx2Gt11KJZFwknVYkd02tE08lkLq5yvRqRz/
+sidebar_class_name: "put api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn auto tmux on or off for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ssh-terminal/hosts/{hostId}/auto-tmux"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets the host's autoTmux terminal setting. Used by the "enable Auto-Tmux" action shown when a persisted session expires. Needs edit access to the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"400":{"description":"Invalid host id or value."},"403":{"description":"No edit access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

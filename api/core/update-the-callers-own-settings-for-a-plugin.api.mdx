@@ -1,0 +1,70 @@
+---
+id: update-the-callers-own-settings-for-a-plugin
+title: "Update the caller's own settings for a plugin"
+description: "Writes user-scope values for the authenticated user. The scope is always the caller, so one user can never write another's settings."
+sidebar_label: "Update the caller's own settings for a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9v20YM/lcIvnQDLnZWFHvQWzp0QDpgC9oEwRAYw1mirYulO/VIxfEE/e8F7+Qfi5sCfZtfLFEfyY888rsBK+Iyuk5c8FjgfXRCDD1TvOAydARPtumJYRUiSE1ge6nJiyutUJVwM7itCTLYMdhma3ecsKVtGooGOEDwlMBQWg+enijCVlOB9UFqim8YmEScX/MMDYpdMxYPeNP0a+cZFwY7G21LQlE/DOiUbWelRoPetoQFugoNRvrSu0gVFhJ7MshlTa3FYkDZdYpiic6vcRwXGUws70O1U8RL3zJ4IS/6yXZdozW74OePrK0azkOH5SOVguM4jhqbu+CZWAFvLy/177+91rb1XZUaeSx+NPjuW+i/PEGI0IZIsHLUVAxbigSRNClVk+e7c88/A3Bf1tClZs5Q2bUkdai0hb2gyY0scJ4hPB9cNc73nOZ6cGiQKT7t29/HBgscsmlE8yLl36GPcEuxdc+QMWjwyUZnl03uyGRNZFe2bwQLrEU6LuZzSY4zerZt19CsDK32dKEMyj462SUKS7KR4lWvzB8WoxmwDGHj6NRiO/cH7Q6WkxCf9fAyldNAh7NULjiNj75nEJrp4fcQW6ucP97fnlX/mZhd8CBhQx6YvIDzaSM0SYju3zRIUJOtKIJleJ+CgvVVgiXHdKCnJR245arQ5CXIkOMaPG7lVUYf728h43XiwAqwW/sL52dwX5OHLpLSNeAExG6I1VJSRb4kCLq1r1WR2J62+4c7eXVzDRvaAYuNOnewdVKDtM//nJVzgP54aze0M7CtXVnnRHxMM4NrAVsKq9uEhbD1k3dpvQ8JoN+t36mmUcOUN0pV4dNRTz7k4cViGPWcViF1xImacNqMq5trXQuKnMt6++vsl8vZ5Vm5KhSl7v3RbwYf7GGloQpl35IXBieslCGGXiirSRdYWpsUa5qQuyQ6JxL9JjvtFz6JvZ2Cv2QzHGXxf3Nb5EETepZ511jnteykUMOkbA84KRsaLNI9sfdHg0neFgbrwKLQYVhaprvYjKOav/QUVXEWRwVL+lM51ucKi5VtmL7Tpp8+TRfLz/Aa2/1m+10SyqbXNzS4oV2+2cbFaDBPdcqeP/yWc1zcqvvR8ey2UuU7SP7NnUrWcrr02lCpS7RbvT3tNucNqYwkj8k2YGP9urfrpDAppP6+Aq4w3Do=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the caller's own settings for a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/{id}/settings/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes user-scope values for the authenticated user. The scope is always the caller, so one user can never write another's settings.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated settings."},"400":{"description":"One or more fields were rejected."},"404":{"description":"No such plugin."}}}
+>
+  
+</StatusCodes>
+
+
+      

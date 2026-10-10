@@ -1,0 +1,69 @@
+---
+id: get-a-hosts-tmux-sessions-windows-and-panes
+title: "Get a host's tmux sessions, windows and panes"
+description: "Get a host's tmux sessions, windows and panes"
+sidebar_label: "Get a host's tmux sessions, windows and panes"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu20YQ/ZXBvKQB1pKa9IlvDpCmThAgSBQYhSEUa3IkbkXuMjtDyyzBfy9ml5bUKEHhJ5HDuZwzl6MRxe4Yiztct/0jfAzeSYi4MdjZaFsSivp1ROexwM5KjQa9bQkLrAPLTYUGI33rXaQKC4k9GeSyptZiMaIMnXo6L7SjiNO0UW/ugmdidXi1WulPRVxG14kLWmZdE4jCCQ8UHxwdYBsiSO0YtOYCJ4O/rV5fBv4RWMAHgW3ofWXSoy1LYnb3DRlIWQjazBIcQ+XY3jdUpQpOU0/mu6TvSMCmwi84w2JNGDwbODhfhQOD9RV01hOjwZakDhUWuCNBk3tW4LJr+p3zV7ZzS01yNYNYjrmN0/KJLBpkig9Pje9jgwWO2TTh9+j+DH2ENcXWKS71QYMPNjqllVo8W1OztrZvREcn0nGxXEoKXNCjbbuGFmVocUpDYir76GRIEO7JRorXvRK520xmxDKEvaNzi+3cBxqOlrMUX3QbMpTzRMflUCw4L42+Zyc088PvIbZWMb+/XV+w/5InARL25IHJCzifZqxFQnT/WPWEmmxFESzDm5Q0DUzdUmBaqHNKR2yZFZq8/tnldAB/H+SniN7friH7A+sCCbDb+SvnF3Bbk4cuksI14ATE7onVUlJFvqS09z9lkdCet/vZnbz+dAN7GoDFRnF+BwcnNUj7+NcFnaPr81u7p8HAoXZlnQvxqcwCbvQwhTVs9oVw8HN0aX2+XNHv1g/BE1DDlM/T+W1IrJ00SvNcueD6040eAEXOBH5drBarC1pvYjgw5WLBSwzN/1422DIGZhj04PRmOQ2iCyyt9Ypn3orn6sV/kB1nKfQoy66xzmuVJALjrCV3eNISNHiuJmiwOMryUVA2Jmm1Ro7jvWX6GptpUvO3nqLe+OakGenin2QRi61tmC5AatPI6y798nkW/5egWH4E/umW/JCkqen1DQ3uaTj9i0yb6Uw6371d4zT9CyJ8S6o=
+sidebar_class_name: "get api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a host's tmux sessions, windows and panes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/tmux-monitor/{hostId}/overview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a host's tmux sessions, windows and panes
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The tmux overview for this host."},"403":{"description":"Host not found, not accessible, or the monitor is disabled for it."}}}
+>
+  
+</StatusCodes>
+
+
+      

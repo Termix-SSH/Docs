@@ -1,0 +1,69 @@
+---
+id: get-session-recording-content
+title: "Get session recording content"
+description: "Returns the raw content of a session recording file."
+sidebar_label: "Get session recording content"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v3DgM/SsETy2geKaL7sW3LNAW6V6KJItgEQwKxuKM1bElV6Iz8Rr+74Ukz8dmkgLtyTb1KL1Hkc8jag6VN50YZ7HEa5be2wBSM3jaQeWssBVwayAIHIJxFjxXzmtjN7A2DReoUGgTsLzHmxlxvUfgSmFHnloW9hEyoonndCQ1KrTUMpZoNCr0/L03njWW4ntWGKqaW8JyRBm6hLLCG/Y4TauIDp2zgUME/LFcxsczKbQ7YToLKXBS+H75/hx+cybO+aQPrBNYu97qlPznS2d9JNOwBnHgmfR5oQqcJoUtS+00lrhhQZVrUOKia/qNsRfUmcWceHFIXIxGT4uZPCoM7B/3hex9gyWOOTShesbpX9d7uGXfmifIGFT4SN7QQ5PLNkeTmjX1jWCJtUgXysVCUmLBT9R2DReVa3FKhQ9c9d7IkCg8MHn2l30Ucr+a1IiVc1vDpxHqzN88HCInW9zEG85UTjc6XHjkgnMjxO8MQjW/fHS+pcj5893tmfr9dYrbsoUQe9jY1NbxEOfNfxSRUDNp9kAB/kqbAlmdYCkx3fippAO3rApVbucMOTb0t528yujz3S1kPAQWIIFgNvbC2ALuarbQeY50FRgBoS2HGKlYs60Y3CP7V1Uktqfl/uVKXn65gi0PEIS8xBnYGalB2qevZ3IO0F8v7ZYHBbvaVHU+KByPKeBKgCoJMW3GgtvZObsiG6eRKonrZAdnGbgJnAfM2LVLqo00fFLygx3B5ZerOAXsQ1bxrlgWyzNtGQ9pBiw16WjPrRMGzWErrtuPeEhrXUNDZNvCA1XbaBza7WzjSOdoQzLfTueCtGQjyblVPrG8YKzHif8fszhfeeH3rTp3hPCTLLqGjI20kpWMsyPd49GRkuU88yRUWCbH3nNZKaxdkJg5jg8U+B/fTFMMf+/ZR6dYHZ0n+YY2Ib5rLNfUBP6JyjfX82/hLbxGfj+RdkgG1/TxCxVuecj/lml1ar6fPtziNP0AqAdr3w==
+sidebar_class_name: "get api-method"
+info_path: api/session-recording/session-recording-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get session recording content"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/session-recording/{id}/content"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the raw content of a session recording file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Raw recording content."},"404":{"description":"Session recording or file not found."},"500":{"description":"Failed to read session recording."}}}
+>
+  
+</StatusCodes>
+
+
+      

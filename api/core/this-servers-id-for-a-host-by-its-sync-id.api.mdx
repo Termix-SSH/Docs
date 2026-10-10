@@ -1,0 +1,69 @@
+---
+id: this-servers-id-for-a-host-by-its-sync-id
+title: "This server's id for a host, by its sync id"
+description: "For a linked desktop that asks the server to act on a host (a tunnel through it), which needs the server's own id. Only for hosts the caller can connect to."
+sidebar_label: "This server's id for a host, by its sync id"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu3DYQ/ZXBXJIArHZrBDno5gJJ4RRog3oLIzAWAU2Nl6ykoUKObCuC/j0gqXg3NRwgx54kDd+Q781wnmZsKJrgBnGescZ3PoCGznFLDTQUW/EDiNUCOrYRxBJECncUQDxoI+AZNFgfBV5qkJGZOhAb/Hiw4OSVgnvrjAUmak7TX0Tw9wyuqeAv7ia49SHvUjBGdx0FMJrBeGYyAuIrVCj6ELG+xsuJDe4VDjronoRCis7okoRBi0WFrHvCGuPE5qJBhYE+jy5Qg7WEkRRGY6nXWM8o05CREhwfcFn2CRwHz5FiWj/bbtPj+0LtLGXCLyK4BjQ3kA6scFH4evv6Kf5PD3E0tpTqBxqXRWFPYn2DNR5IUBVBNW6SlM3d2SbXaTMXZQsqLCUtJRhDhzXOJZQWv6fx0Y8BdhR697B2AhXe6eD0TVfUrtEs4FaPnWCNVmSI9WYjObGiB90PHVXG97jkekUyY3AyZQo3pAOF8zGxvt4vakbjfevoNKIH9wdNj5GTLS5TXwqV040e25S44Nq+9F1AqNaXdz70OnF+f7V7ov6SYnSeQXxLDJFYwHHuRjrEB/dFJyRY0g0F0BF+y5vm/iZYTsxNPpX0yK2oQlUuYoEcr+K/9/Iso/dXOyh4iCSgBaI78C+OK7iyxDAESnQVOAHRLcUUMdQQGwKf5/EZFZntabl/upLnHy6gpQmi6CCOD3DvxIL0D5+eyHmE/nxpW5q+mUU+KB6PqeBCktnElLZik32s2UYz+wxI65onzwTURSrT5PjWZ9VOuiRzvf3nHy7S1acQC/WzN9Wv22r7RFIadOMDwTGvgrfaWBi68eAYGm/GnlgiOCmuFvwoFHPhBx+l15zOX2/Bzrp4NEHXZOsrFqrgZsqbpNEG1/yXSxokFmL5Hxh1uWJCD7IZOu04FSN707z62XW25tSCM1SYt0SF9erX+xJKsHm+0ZH+Cd2ypPDnkULymf3Rt7LrNC6m9wbrW91F+kHpXv69/gpewXNMv80zT9keuzF9ocKWpuM/ZdmfevXvb3e4LF8BpLeDbA==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"This server's id for a host, by its sync id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/sync/v2/hosts/{syncId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For a linked desktop that asks the server to act on a host (a tunnel through it), which needs the server's own id. Only for hosts the caller can connect to.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"syncId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The host's id and name."},"404":{"description":"No such host the caller can connect to."}}}
+>
+  
+</StatusCodes>
+
+
+      

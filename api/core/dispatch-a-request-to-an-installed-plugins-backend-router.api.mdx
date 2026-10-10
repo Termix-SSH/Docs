@@ -1,0 +1,70 @@
+---
+id: dispatch-a-request-to-an-installed-plugins-backend-router
+title: "Dispatch a request to an installed plugin's backend router"
+description: "Forwards the request to the router the plugin with the given id registered through ctx.http.router(). Returns 404 if the plugin is not installed or serves no routes, and 503 if it is installed but not currently running. All HTTP methods are dispatched the same way."
+sidebar_label: "Dispatch a request to an installed plugin's backend router"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVVFv20YM/isEX9YCquy26R70lmHtlg4YgtRDMKRGcZYY62bpTj1ScVxD/33gnWIrcTusL3vak3Q88u4j+fG7PVbEZbCdWO+wwHc+bE2oGKQmCPS5JxYQn5a+Fwrxt2v6tXWwtVLH9drekQNbQaC1ZaFAFUgdfL+uoZT7vBbp8hT/7HkOVyR9cAxn8zOwt9MTLYPzAtaxmKahCnwApnBHak8IOAPjKngzf62xVjTm6L/qJZ5Q9iGQk2YHoXfOunUO500Dvy4Wl9CS1L5iMIGgstwZKesImIBNS7A1u/yjwwzFrBmLG7yM4BiXGXYmmJaEgm7s0WrROiM1ZuhMS7qKzhcVZqgFtIEqLCT0lCGXNbUGiz3KrlNflmDdGoch+/pRafXvj1mqM3feMbHuv5rP9fO4x1ejB9wG306K/wOPLc5xyPBs/vI09LyXmpzY0qgBHoCNAWenAb/7J1zRZlWPWhaD38xfnwZfHjhx2t+HrmrtMDUUC1yTYJbKVuAs3fzCdHa2f+jKMNvr9oAZRl6NfexDgwXuk0k3HyP50/cBFhRae5/oGDDDOxOsWTWp0qM15nBr+kawQGU9F7OZxMCc7k3bNZSXvsUh9oqp7IOVXYSwIhMoaIWxuFkqI0rvN5amFtPZ32h3sEyO+KCcSFCmBx0oolhwpI6ukxNm4887H1qjmN9fL06y/0DM2m7xG3LA5HRAI3H0Eh/sl0SHmkxFAQzDT/HQOKfqFgNjn6cpHbClrDBLI5BcjkPw11a+iej99QKSPzAJGAG2a/fCuhyua3LQBVK4mcqEmA2xWkqqyJUE/m5Us69lEdFOy/3dlTy/vIAN7YDFBLFuPU5Ae//pJJ2D6/eXdkO7DLa1Let0ER+vyeFCwJTCGjb6gt+6Mbo0TgfJlKL7xu28I6CGKc2Udbc+Zm2l0TRH9p9fXij1KXCC/urH/OU8n5+ktKgJSh8IjnE5vDVl/aAHlS/7lpwwWGGFNap7LHznWVrj9P6RBT+POg1m+iwZN5GGg4qtTLkhV41q9hSazpUTcvL/c/f0uUsEF7qXWdcY67QVURn3o6be4FFTMcNi8tYV0WOZYe1Z1HO/XxmmP0IzDGr+3FNQoVsehTPKXmVZ/yssbk3D9A/NenY1PjfP4VtgHwTF7aI+N72uMMMN7aYvs0rpf3mvVmZYTh+qX94ucBj+Bp9SSxw=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Dispatch a request to an installed plugin's backend router"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/{pluginId}/{path}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Forwards the request to the router the plugin with the given id registered through ctx.http.router(). Returns 404 if the plugin is not installed or serves no routes, and 503 if it is installed but not currently running. All HTTP methods are dispatched the same way.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"pluginId","required":true,"schema":{"type":"string"}},{"in":"path","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Response from the plugin's router."},"401":{"description":"Authentication required."},"404":{"description":"No plugin with this id is installed."},"503":{"description":"Plugin is installed but not running."}}}
+>
+  
+</StatusCodes>
+
+
+      

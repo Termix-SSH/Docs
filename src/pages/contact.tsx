@@ -1,23 +1,30 @@
 import type { ReactNode } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-import Heading from "@theme/Heading";
+import styles from "./simple.module.css";
 
 export default function Contact(): ReactNode {
   return (
-    <Layout title="Contact" description="Contact Termix">
-      <main>
-        <div className="container margin-vert--xl">
-          <div className="row">
-            <div className="col col--8 col--offset-2 text--center">
-              <Heading as="h1">Contact</Heading>
-              <p>
-                For all inquiries, including business and support, reach out at{" "}
-                <Link href="mailto:mail@termix.site">mail@termix.site</Link>.
-              </p>
-            </div>
-          </div>
-        </div>
+    <Layout title="Contact" description="How to reach the Termix team.">
+      <main className={styles.page}>
+        <h1>Contact</h1>
+        <p>
+          Email <Link href="mailto:mail@termix.site">mail@termix.site</Link> for
+          business, sponsorship and anything else.
+        </p>
+        <p>
+          For bugs and ideas, open an{" "}
+          <Link href="https://github.com/Termix-SSH/Termix/issues/new/choose">
+            issue on GitHub
+          </Link>
+          . For questions, join the{" "}
+          <Link href="https://discord.gg/jVQGdvHDrf">Discord</Link>. Report
+          security problems privately through{" "}
+          <Link href="https://github.com/Termix-SSH/Termix/security/advisories/new">
+            GitHub security advisories
+          </Link>
+          .
+        </p>
       </main>
     </Layout>
   );

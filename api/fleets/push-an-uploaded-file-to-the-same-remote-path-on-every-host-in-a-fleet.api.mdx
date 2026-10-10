@@ -1,0 +1,70 @@
+---
+id: push-an-uploaded-file-to-the-same-remote-path-on-every-host-in-a-fleet
+title: "Push an uploaded file to the same remote path on every host in a fleet"
+description: "Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP."
+sidebar_label: "Push an uploaded file to the same remote path on every host in a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v40YM/SsET7uA/JFiT75lC6TI9lBjkyIoAqOgJcqa9WhGO0M5UQ3994Iz/mrcFNhrfbE0eiQfyeHjHiuOZTCdGO9wgV97F8E76DsQDzdzaHyUCCRAIKblAqgMPkbgHYcBuK65FLNjaLldc0hwkIahJGv1nSJwZWRieccWqCw5RhA/hQfjNpahNpbBOzvAh93NR5gk43RoIqz7uubAFXhXMkQOOw6TaCoGchW8BCPCTokylU2OvTMED3ePyykWKLSJuHjGO8ssEVcFdhSoZeGg53s0mnJH0mCBjlrGBZoKCwz8vTeBK1xI6LnAWDbcEi72KEOXUE54wwHHcZXRHOWzrwaFvDUuvRN2op/a3orpKMis9qGdVCTJ6ZV7v/7GpWCBXfAdBzEc9auW5QIVJRi3wQLVGQkucG0chQFH5dR64aWmdmUwpp9iYuddzL5/ms/175+3Yclhkqra9bGBwLG3Eqfq/9P80zU81RmcF6h976opapSWpfGV1tnHlFLihLPO9hvjJtSZWZ36M9ubapxJIBdrDjMNiQXmpud29cHiAvf5aMTiTfg/fB/gkUNrXg93BQvcUTC0tjnJw2kiXlNvtWaNSBcXs5kkwym/UttZnpa+1UKtlEHZByNDorBmChxue83heTUWeyy93xq+PKHO/MrD6eTCxYM2OlO5dHRqkHLBw3XT9wzC4vBwd+zzl6fHq+wfOEbjdRq27CCyEzAuTZMG8cH8RYqEhqniABThc3KaRklhyTA19zKlE7ecFRZ5aDLkPDbfXuRdRl+eHiHjIbKolkSzcRPjpvDUsIMusNItwAgIbTnqSckV69D7HYd3s0hsL8v9w5W8Xd7DlgeIQkGM28CLkQakff3zKp0T9MdLu+WhgJfGlE0OFM9hpnAvQKVqbDxiwb+4g3VJTueJStHv5AbvGNhGzsNlXO1T1kZUGg5KB7fLe736HGKmfjOdT+dXCf0SfN8dBN448ZDnMMUNvYPSty25KhbQUbmlDSsN411GJI0+TmvaGWQt+FqTaLXJqtmpQTr4LTnlebgtS5UT0i1jPVV8dOZTASK1DFm/QMVCXedtk6TIOKDM9G1C+7PU/s/2WL7Twq8y6ywZp1VNYrg/yOkznuVUF0JeeAUu0jo7dknVV1V1VaDGULP9fk2Rfw92HPX4e89BhW51Fs4ke5WJ+lzhoiYb+T8K/+HrYf19hPeYHwXFDUmfba9vWOCWh7yAx9VYYB6mFD1/+DnHmDyq+dnw33aqau5p7yx/e1C1XB/Wc+srNVNwwhbnR1XrcfwbaIIjSA==
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Push an uploaded file to the same remote path on every host in a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/transfer/push"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs on up to 10 hosts at a time, across every effective member host the caller has edit-level access to. Single file only (v1) - the file is buffered once server-side and written to each host via SFTP.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"file":{"type":"string","format":"binary"},"remotePath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Per-host push results."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

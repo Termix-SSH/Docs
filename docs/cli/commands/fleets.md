@@ -1,6 +1,6 @@
 # termix fleets
 
-Work with [fleets](/features/fleets/overview), which are groups of hosts you act on together.
+Work with [fleets](/plugins/fleets), which are groups of hosts you act on together.
 
 The reason to use this is `termix fleets exec`. One command, every server in the group, results for each one.
 

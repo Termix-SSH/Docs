@@ -1,0 +1,68 @@
+---
+id: update-folder-metadata
+title: "Update folder metadata"
+description: "Updates the metadata (color, icon, assigned credential) of a folder."
+sidebar_label: "Update folder metadata"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9v2zYQ/lcO97QBrOwV2x70lnYtlvZhwZIgGAJjoKmzxZgiVfIURxP8vxdHOrbzowUKTA+2dLzjfffx7uOEDSUTbc82eKzxum80UwJuCTpi3WjW8JMJLkQF1gSvQKdk154aMJEa8my1+xnCCjSsgmsoVqiQ9TphfYuXl3/iQmGkLwMlfheaEespf9pIDdYcB1JogmfyLEu67501WtDM7pJAmjCZljotbzz2hDWG5R0ZRoV9DD1FtpRk1euOTrwSR+vXuJP9XYivrkhFr4ccajtvThysZ1pTRIV+cE4vHZUadgpdMNr95d144r4MwZH2qJ6x/AelDYcegndjBZ+J+sJ4IRC0b8BygjYkThA8cGsTNHRvDYH1iUk3wngavbF+LaFdhbv8CNmpDz4VTt7O5/L3NP3HkuZwvkM+9AbSYAyltBqcGyth4dfvRAvbYBM8HmYO+O3VAG0dNcBhn+ixzMf8Al1hR9yGBmvsh3y0mluscSYczEpAmj1GoMJE8Z6iNNmEQ3RY41RMuxds/xOGCFcUO/sAxQcV3uto5fwyS3trRr7Sg2OssWXuUz2bcQ6s6EF3vaPKhE6YXggCM0TLY4awJB0png0C+naxUxOaEDaWTi26t59pPFhOtriUDi9QTjc69JFgkZqzm/RVdkK1f/kYYqcF86ebqxfVX1JKVnoobMhDIs9gfe42SRKi/S9PG7Skc+8leJc3zV0objmwKnN0LOmArVSFCq1kKy4yH3kY8W7L30T06eYKij8kYtAMIixvrK/gpiUPfSSBq8AysN5QEouRuTQE4Z7iN6vIaE/p/mEmzy7OYUMjJNaRZca2llvg7uHfF+UcXH+c2g2NCratNW1JlI5pKjhn0IaThO19IWz9Ptpo70N2kHXtx+AJyCUqwyTS+fdRdD+U5j2K5KPSHbTxaCiSeOLwRAnnT4RuL33Wr0Lm2LIkwf2snV2cy6BRTIWot79Xv8yr+QsCr1oCEyLBMa6CD9q00LthbT00wQwdeU5ZFcPWQwwDU8rH3IfEnfYntV2/qjLP007Ha+d/u/VKjzE98Kx32nrBl8Vp2uvZLYqeocK9omHWvYJvocpifYvTtNSJrqPb7cT8ZaAoMrM4ylbRFCydlRVoQyPW+L7U9OZKoIi7G8qQPrtWRX0OintxLbKx3N/OXWgkJOotqvxbIyoMmbYsUdk2odN+Peh1nvK8pTxfAXES4VA=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update folder metadata"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/folders/metadata"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates the metadata (color, icon, assigned credential) of a folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"color":{"type":"string"},"icon":{"type":"string"},"credentialId":{"type":"integer","nullable":true},"localOnly":{"type":"boolean","description":"Desktop only. Keeps the folder and its hosts on this device instead of syncing them."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder metadata updated successfully."},"400":{"description":"Folder name is required."},"500":{"description":"Failed to update folder metadata."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: open-the-native-rdp-client
+title: "Open the native RDP client"
+description: "Opens the operating system's own RDP client (mstsc) for an address. The password is never passed; the client asks for it. Windows desktop app only."
+sidebar_label: "Open the native RDP client"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlVFv4zYMx78KwZdtgOt0wz15T73rBvSG3RVttmIIgkGx2ViNLelEuqln5LsPlN3Gl3YP29PykkQiqb9I6scBK+Iy2iDWOyzwcyDHIDWBDxSNWLcF7lmo/YbB7x3cXF5D2VhyAt+2LFx+B/c+gnFgqioScw7LmiAY5r2PFVgGR48U0wpVP6bYUwDDO07eVnK4s67ye4aKeCc+gAkBvGv6HDMUs2UsVnhDrReCy9EE1xkylV200mOxGnBDJlK86KTGYrU+rDOM9KUjlve+6rEY0l8bqcJCYkcZlt4JOdEtE0JjS6NpWDyw5mJALmtqjf6SPhAW6DcPVApms0ArrD2LSglRUyaWWD3S6tGTJVq3xUOGwcf5hnVCW4q60zFFZ1p6063yrbHuja30UUUcvOPx8B/Oz/Xr69Le1SQ1xXkBfCBHVa7x373l8qtl1g7Qy0xW715bffICsXNOLa1L8WdFzFHltSS1r7DAoHnJMBgtEi5C022tOzPBLmIq7tnkunBG7COdxSqgljk+UuRU5S42WOAwLh0wO1Hzh+8iLCm29glGG8zw0URrNs2YnWk13ePedI1ggbVI4GKxkOSY05NpQ0N56VvN8KzRbrUnxjjzdnspiwZSwckMi8kIs+nHzz62Rg/8eLd8Jf2WmK13IH5HDlgrNOVTD/HR/pX6E2oyFUUwDO9TUDCuSmbJMRWq9H5n6USbCfYX6jFDbaTJBDMcew4f9vKPij7eLWG0ByYBI8B2686sy+GuJgchksrNwAqI2RHrSkkVuZLAP05d99YtktpR2H/M5MX1FeyoBxYTE6/2VmqQ9unPV9d5Mf33qd1Rn8G+tmU9HsTHY3K4EjClsLpNtsrKybs0zvlkoPvG9d4RUMM0vgyFzc0RUz+NnXdEyPNDfybH+RwUx81nPsyQYd29T/m0ogFP6AkX11f6MijymJzv8/P8/FXKbi6vM/j904d0lSU1jgR47ArWFPb63DbR75liNuakbGzYeBOrDO5tQyDROL7Xba6NikuxIpU+VtZt85GKLK1JfJtuppMoZXMEwWzwnGocjhz/v86vsaOFnmQRGq2T4l45NkwkXOGRhGm+zFmY3ugLDdfZ1BkrHIaNYfotNoeDLn/pKOokXB+BlwZhhmNbJ3zuqMcCP4wZO1uqMjVvupEQJ1NQ0ffC7uvPtwqtzTRNW1+pTzR7VWz2WCBm6FNVEiDT2oCNcdvObBNjUkxte/P1Yz953EnpM7VcP1M4DKPFUlF3UPyPF0row8P6cDj8DXp2EJM=
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open the native RDP client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/native-rdp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens the operating system's own RDP client (mstsc) for an address. The password is never passed; the client asks for it. Windows desktop app only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["host"],"properties":{"host":{"type":"string"},"port":{"type":"integer"},"username":{"type":"string"},"domain":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether the client opened."},"400":{"description":"Missing host."},"404":{"description":"Not running in the desktop app."}}}
+>
+  
+</StatusCodes>
+
+
+      

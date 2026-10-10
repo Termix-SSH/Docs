@@ -1,0 +1,59 @@
+---
+id: keep-a-linked-desktops-session-from-expiring
+title: "Keep a linked desktop's session from expiring"
+description: "Returns a fresh desktop session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the desktop keeps its token."
+sidebar_label: "Keep a linked desktop's session from expiring"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVEFv1EwM/SuWL1yG7FIhDrkVCaTCgYouqlC1+jRN3M2wiSfMOLsbovz3T54J20LFgRunRM6z/Z5jvwlrilVwvTjPWOJnkiFwBAsPgWIDNcW9+B4ixeg8w7EhBmkIqiEEYgHPBMR1hKOTxjG8WUNtx2jAcp0/KNq3tSIL+CQNhaOLBGHpxEPbJrDifrbbE/URnEQQvycu0KDYXcTyDm9GrnBrMFDsPUeKWE54sV7r41ctm4aA6ZhLGPAh9SpwNvh6/eo5/mbRGOjg91RrAp16F6gucJ4NdiSNr7HE3kdBg72VBktcxZGr1eFitcxoFSjNDg1GCgcKSnvCIbRY4pRDM5rfmn/1Q4ANhc6dIGPQ4MEGZ+/brHGJJtoPdmgFS2xE+liuVpISCzrZrm+pqHyH8zxvlUE1BCdjonBPNlC4HJT23XY2E1be7x09jdjefaTxHHlS4qZqqMtUnhaaUMaeFi6qOcGwXEBolpf3PnRWOX+43TxT/3P06VdB1MVyec+0iQ/uh1UkNGRrCmAjvE1Fz4uzrMlsfpF05pZVoUGn3TIEDbJNTL8d5Y+MPtxuIOMhkoAViG7HLx0XcKu30AdSugacgNg9RY1UVBNXBP5A4Y8qEtun4/7rSV5eX8GeRohigzjepRsE6U7/PZNzhv79aPc0Gjg2rmpyo/jYpoArAVtJ1LQFC/7IS3ZlmX0C6HfLYzKLNlK+J8cPPql20qrMZfsvr6909SnETP3iTfFqXayfSdLzrnwgeMwr4J2tGujbYecYal8NHbFkI/FHhuAHoZgGrzfcWdb+yxZ8JOrBQutYj39xohfxbH0PwXfZEBzvfmejp8RCLP+2h+b9EjrJqm+tY51EMqZpcbM7VDfT+V8k/0qMUd02e9rWYKPuV97hNN3bSF9CO88a/j5QUJvZPtpW9pRH37z+dLPBef4fMns+1g==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep a linked desktop's session from expiring"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/session/refresh"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a fresh desktop session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the desktop keeps its token.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new token, or null."},"401":{"description":"Session revoked or expired."}}}
+>
+  
+</StatusCodes>
+
+
+      

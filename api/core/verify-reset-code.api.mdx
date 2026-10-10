@@ -1,0 +1,68 @@
+---
+id: verify-reset-code
+title: "Verify reset code"
+description: "Verifies the password reset code."
+sidebar_label: "Verify reset code"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SuDOdOUG7Q98OYECeD0UCNWYhSCUKzIsbgWucvsDCWxhP57MbusvuwADS+iZt/svPl6HLEiLoPtxHqHBX6jYJ8tMUhN0BnmnQ8VBGISKH1FOWYoZs1YLPArU2BcZhjoe08s7301YDHGvzZQhYWEnjIsvRNyokem6xpbGg02e2GNOCKXNbVG32ToCAv0qxcqBTPsgu8oiCXW054pONPSGZIlWLfGg1Jgkg++eus0PhHSecfpsne3t/pzmfyXY5qwTXWocr3817fA925rGluBD0D7TvO9KNMhw9/ecvtkbEMViE8hhkunQ4YtSe0rLLDzHItgpMYCZ5o+z5LTTXS6USfMkClstRPFYsQ+NFjgmEwHzK6i/+X7AHMKrd1DwmCGWxOsWTWpMJM18n42fSNYYC3ScTGbSXTMaW/arqG89K0Wd6kMyj5YGSKFFZlA4a5X2ovlIRux9H5j6dxiOvsHDUfL2RWPOg2JyvlFx6YqF805wrCYQJhNL598aI1y/vw0f5X9IzFb70D8hhwwOQHr4qRrEB/sP3EyoSZTUQDD8D5eCsZVERYdY2/PUzpyS1lhhlajJQhmmIYWX3byQ0afn+aQ8KDTYATYrt2NdTk81eSg04Y7ycAKiNkQq6WkilxJ4LcUfphFZHte7p+u5N3DPWxoABYTxLo17KzUIO3+71fpHKE/X9oNDRnsalvWKRCfwuRwL2BKYXWbsOB3bvIujXM+AvTcuME7Amp42ieVmS8ngfqYhvdSUP6TigsdOVMX6559rJwVdcVpg+4e7nV9KHBK/93v+S+3+e2rssxrgtIHgpNfDh9NWUPX9GvroPJl35ITBiusqUHwvRDH5qkOtCZK5cT227VyXEccT5r7/xQ9TYTQXmZdY6zTuFFKxkl/FrFanNK9UqBlhrVqVbHAcVwZpq+hORzU/L2noKKwPIlMUgBMcxD1YkMDFvghEb6ZKxWFN31aqasPhmrFUSIf/nzULV9NH5429S2YnXbS7LBAzNDHokRFibYRG+PWvVnHpYx36vMvw8txFg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify reset code"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/verify-reset-code"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Verifies the password reset code.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"resetCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Reset code verified."},"400":{"description":"Invalid or expired reset code."},"500":{"description":"Failed to verify reset code."}}}
+>
+  
+</StatusCodes>
+
+
+      

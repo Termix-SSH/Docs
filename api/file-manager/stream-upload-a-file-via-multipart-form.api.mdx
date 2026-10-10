@@ -1,0 +1,68 @@
+---
+id: stream-upload-a-file-via-multipart-form
+title: "Stream-upload a file via multipart form"
+description: "Uploads a file to the remote host by streaming multipart form data directly into an SFTP write stream, avoiding full in-memory buffering."
+sidebar_label: "Stream-upload a file via multipart form"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv2zgQ/iuDOdN2tti96JYsEDQtig1gF8EiCBZjaWyxlkiVHNnRGv7viyHlR+P00NvmEpmcx/fN4+MeK45lsJ1Y77DAr13jqYpAsLINg3iQmiFw64Wh9lFgOUCUwNRat4a2b8R2FARWPrRQkRBUNnApzQDWiQdyML9fPMIuWOHR0wBtva00wKpvGrBu0nLrwwDLfrXiYN16igaF1hGLZ7xXJF/I0ZoDvhgM/L3nKHe+GrDYp582cIWFhJ4Nlt4JO9GrE7yZwpsoPD2OZc1t+pKhYyzQL79xKWguYj1j5Bitdw8VGuxIajSoNVEEXfAdB7EcU7iT4TliFGWBh9H1vYsU7OrCoEIlwQKX1lEY8JD+FFvsvIs554ebG/33Y/NSofrUQa4g9mXJMWqFh6km/P09ny82Rm3EkTl0FKhl4RDBB5jPP0LpneNS7cF5AY5Cy8bGmqsU9o93oZBtuNL5yXjSOE1RebQsta+wwM5HOda2wFnX9GvrJtTZmRpP2tzxWQ6g3OZpetBg5LDloMOxxz40WOA+Hx3QvAHyt+8DLDi09hWyDRrcUrC0bI7tS6eJwor6Rktfi3SxmM0kOU75ldqu4WnpW23HiyIo+2BlSBCWTIHDba88nl8OZo+l9xvLlyfU2c88nE4uQsx1GjOUy0CnwVAsyjmZ6VgkIzTjx/1xXD49La7Yz/NogvgNO4jsBKxLK61JfLD/UuprzVRxAIpwl4ICuSqZJcfU5ktKJ2yZFRq0mi2boEFHCem3nfwU0aenBWR7iCxAAtGu3cS6KTzV7KALrHANWAGhDUc9KbliVzL4LYefskhoL8v9y5W8fXyADavOURBdjp2VGqR9/eeKzsn010u74cHArrZlnRPFc5opPAhQKVHdRlvwOzd6l+R0EakUvSc3eMfATRwXzLqVT6ytqML8oJ9w+/igC8AhZgK/TW+mN1e07oLfRTbAlZWUsvVbTjscc/FV0w1YVzZ90vEogey6FlgF34LiyWsF6QnwUo990Z1vySm8cUjyUk9GmRjfna2lN2/LW4j7s87/vx6tPGrCrzLrGrJOWSeN2o9K94xnpRvflKPWocErtXsxqBTUb79fUuSvoTkc9Ph7z0EF6OUsaFltMM9c0qYND1jgn7lWk4WiU/OmV5TvvY8qTSeJfvxrrqKyHJ/a1lfqpsbJ1pw/NfHh8B/2d+d3
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stream-upload a file via multipart form"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/uploadFileStream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Uploads a file to the remote host by streaming multipart form data directly into an SFTP write stream, avoiding full in-memory buffering.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","required":["sessionId","path","file"],"properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"file":{"type":"string","format":"binary"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"File uploaded successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to upload file."}}}
+>
+  
+</StatusCodes>
+
+
+      

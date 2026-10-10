@@ -1,0 +1,69 @@
+---
+id: get-cached-proxmox-node-stats-for-a-host
+title: "Get cached Proxmox node stats for a host"
+description: "Returns the most recently polled Proxmox stats snapshot for a host, or an empty skeleton if none has been collected yet."
+sidebar_label: "Get cached Proxmox node stats for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU2P2zYQ/SuDOTUAI7tBTrptgTTY9LLIbrooFkbBpcYWY4lkyNHaqqH/Xgyp2Eq3GyCnnESNHsn35uPphA0lE21g6x3W+JF4iC4BtwS9TwyRDDnuRgi+66iBm+iPvT9CYs0JktMhtZ5h6yNoaH1iBbJ0QH3gEdKeOmLvwG7BeUfQ6gSPRA6MnGeYGhiJK1TIepewfsD5BtwoDDrqnpiifDihFYZBc4sKne4Ja7QNKoz0ZbCRGqw5DqQwmZZ6jfUJeQwZ5Zh2FHGaNoJOwbtESQBv1mt5fJuE/9dY4aTw7frtc/xtxjnPoJ+07fRjRyIqZ0ISKWkBWxBbP7imwmlS2BO3vsEad8SoirAaV6Ebdta91sGuQiGyykRWJ9tMqDBRfPqakSF2WOOphOTjt8T+8kOEO4q9PULBoMInHa1QzPrnaJa01UPHWGPLHFK9WnHeWNFR96Gjyvgep5zBRGaIlsdM4ZF0pHg1CPmHzaROaLzfW1pGdLB/0HiOLI64lVIVKsuDzpUTLjhXVN4LCNW8+N3HXgvnD/d3z9TfUkrWO2C/JweJHIN1uSByiY/2Hy1IaEk3FEEn+C0fCto1GZY35rIvJZ25FVWoSl8WyKUzPx/4RUYf7u+g4CERg2ZIdudeW1fBfUsOQiShq8AysN5Tkoihhpwh8E8UX1SR2S7T/cOZvLq5hj2N0vyRrdvBwXIL3B//fibnDP3x1O5pVHBorWnLRelyTQXXDNpwkm0zFvzBzbuNdnnSDMt37UZxFeoSlaGybuuzassdLWb56uZaep9iKtx/rdbV+pmi6z74yGeT+/Md7AZKhYpMcVKwJwpCqxfFaXQmszpoNi0431BxjVyH4BP32gmduSneE4PRpl0Y6WXPwkT/S0yGyjE5/skWXVqJ6cir0GnrRGX2oNNsXw94sS/xtNnLFWYyqLC2jTh7Flk/4On0qBN9it00SfjLQFFsZXOxqWwyjU2ybrDe6i7Rd7Lzy8f5Z/AKXiL8dXzdmN2wG+QNFe5pLH+UabN05/fv7nCa/gVIR30x
+sidebar_class_name: "get api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get cached Proxmox node stats for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/proxmox/stats/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the most recently polled Proxmox stats snapshot for a host, or an empty skeleton if none has been collected yet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Proxmox stats snapshot."},"404":{"description":"Stats not available yet, or the host is not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

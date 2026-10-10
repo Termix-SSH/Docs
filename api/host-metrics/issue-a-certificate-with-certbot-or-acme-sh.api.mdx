@@ -1,0 +1,70 @@
+---
+id: issue-a-certificate-with-certbot-or-acme-sh
+title: "Issue a certificate with certbot or acme.sh"
+description: "Issue a certificate with certbot or acme.sh"
+sidebar_label: "Issue a certificate with certbot or acme.sh"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVttu4zgM/RWCT7uAmnRvL37rDPbS2VswbVEsimCh2GysRpY8opzUE/jfF5SSOGnaBeqXRBQvhxR5pC1GvWQsHvA3zxH+pBhMyThX2OqgG4oUZHeLxmGBrY41KnS6ISzQVKgw0JfOBKqwiKEjhVzW1Ggsthj7Nmm5SEsKOAzzrE0cP/iqF5WXxqV3kVyULd221pQ6Gu+mT+ydyM58+8UTlfEExQOW1ogPhZVvtHGMCstaW0tuSSmx4FsK0RCLp5326JNjMG6JCsl1TfJHIS68ONRlQxOucT6MzkdDHYLuUaGJ1PC5w2E4xvE/8eoY2wuO2lXaekeosmRDi+ATjMpxgrCXnIdKOrPg16ai8BoU+aRq3HrHuRDfX17KT0VcBtNK3bHA25rAMHcEgbizcSK+f3xN89qttTUVGNd2e7UfztX+8kCViaDLkpgheog1Qe1ZEvMByNI6HTpU5AxVEyxcZ+2g8Ke38JW+abSr4FEbSxV4d3A5SUV/gTNlo0FO1TxKhxFsTKxhd8zgA+zPWWFDsfaVdH5GmAagwGlru6VxF7o1Uwl00eS5OV002uklBZ4y2+nWVMM0lRIVMoX1frC6YLHAbRYN+BLvP74LcEuhMc+QdVDhWgejFzYf3E6aavOoOxuxSB3DxXQak+GEnnXTWpqUvpHDnwuCsgsm9gnCgnSgcNVJbg/zQW2x9H5l6FiiW/M79QfJkYsbmcoM5djRoekEC+6IQdZZCdXuzy8+NFowf7q/Pcv+hpilGaJfkQMmF8Hk85UgPpivuVlq0hUF0AwfklOQhhC1ZJja8TilcWZTVjK0Ei2rjAT3tIlvIvp0fwtZH5gi6Ahslu7CuAnc1+SgDSRwFZgIUa+IRVJSRa4k8GsKb2aR0B6X+92VvJpdw4p64KhDNG6ZGzw2z/+epXNQfX9pV9Qr2NSmrHMgHsNM4FpGPLKY7XTBb9zOutTO+aQg+9r13hGQZcoDK3T/ebwofs7Ne0zWR5x84OGHPbvNT3j2FTo98ObIvSd0eUSjxj36dAAmCoKTSxKuZtcyixQ41/K7yeXk8qzCf5g1wcfZnYKGGh96BZXhlQJHcePDKhXk19md1DCygtZ2QoveJnLMFAK9kIBwC6fmEDJqdLoSd536PlY7AXjorkjPcdpabZzESLS03RHeA46EJ/fREcudL/e0J53KFhUW6aGQuW+e1cXldrvQTHfBDoOIv3QUhI7mI70lcqoMy/8Ki0dtmc7QH94M+M3n3SvgW0D1elb7sXd9YlHbyQoVrqjPD5pBLtbc8il63viYY1zcivloePZGEVo8XBmzv2+E0Ba7t07jK7EJeiPvFb3JgX3KI5Fnkm3RarfsdGrd7FO+/wDlRFTR
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Issue a certificate with certbot or acme.sh"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/ssl/{id}/issue"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Issue a certificate with certbot or acme.sh
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["client","domains","challenge"],"properties":{"client":{"type":"string","enum":["certbot","acme.sh"]},"domains":{"type":"array","items":{"type":"string"}},"challenge":{"type":"string","enum":["http-standalone","http-webroot","dns"]},"webroot":{"type":"string"},"dnsProvider":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The issue result."},"400":{"description":"Invalid input."},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

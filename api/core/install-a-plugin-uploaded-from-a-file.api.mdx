@@ -1,0 +1,71 @@
+---
+id: install-a-plugin-uploaded-from-a-file
+title: "Install a plugin uploaded from a file"
+description: "Developer mode only. capabilities must list exactly what the upload asks for, as the consent prompt showed it. The plugin is installed, granted those capabilities and started, and is marked unverified for as long as it stays installed."
+sidebar_label: "Install a plugin uploaded from a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVk1v40YM/SsEL20BrZxuFwWqW7bdAtkeGuymCIrUKGiJtiaWZrQzlG1V8H8vOCN/JE4K7Lm+yBoNyUfy8c2MWHEovenEOIsF/sIbblzHHlpXMTjbDDmU1NHCNEYMB2j7INCYIMA7KqUZYFuTgNQMfdc4qoDCOsDS+QwoxPXS2cBWoPOu7QRC7bZcgZEc7mqGrulXxoIJYGwQahquMlh5ssIVSO0CPwVAtoIg5EX36YsJ0JJfcwW93bA3S8OVxtfwjbMrfRpRm+EsRv6XxQyFVgGLB7yNIALOM+zIU8vCXj+MaLQsHUmNGVpqGQsUt2Y19vylN54rLMT3nGEoa24JixFl6HRjEG/sCvf7edrMQd67atAdz21LZ4Wt6CfqusaUpB2ZPQZty3jp2i0euZQnIB7wvE4xFa+tjG/F+PTryRN5TwNmaITb8BL4+NNAodNGxj1vr6708ZQ82s1jfWHDPhhnY4vk2OdvgjZCOMd9hu9e8nJjN9SYCmKVwflT94fIu8nyh0vLZ+Q1AdxymUEwK8vVFD8AeYZD0TL1HymqmD00VK4DUNUam0/785YsrQ54372c9cR83nXqVZ1a3rAH3pkgXE3GP71sfBiPynEA6wRakrLOIi4T6S20ZhuxJjAVLAYgaIxV1gf2G/Y5apNaltpVylgXlB2RuAXOpmRmCehsjMXdz6ZuYYbJSaJ87xsscExLe8yeYf7T9R7u2LdmN8XGDDfkDS2axI5pNWa7pL4RLLAW6UIxm0k0zHlHbddwXrpWKTZXBGXvjQwRwoLJs7/uFf3DfJ+NWDq3Nny+Qp35jYfjypmLzzotCcq5oyO1FQtO86rvaRNm059fnW9JMX+8v7vI/jOHSOtEz9g4Y2OvNIjz5p84uVAzVRw16H10epyDaBgZcZ7SaRxjVjqPGi1tOUnP41ZeRfTx/g7SfggsQBKZ/8bYHO5rttB5VriZiqEyKuhKyRXbksEpXV/LIqI9L/dXV/L69gbWPCThNnYFWyM1SLv7+yKd49avL+2ahwy2tSnrFCicwuRwI0ClhMOhpCHc1k7WJVmdPCpFv5MdnGXgJnAaK5XhTycB/5DIeymqDwfVnO+1gUsXS2VE9+I0Mte3NzovSR2xwLc/5t9f5VcXdUjS4BlOdjl8oLI+nJiVK/uWrejpFjQX8K4XDrFbOv8txbNjos5NmnWgg33SAj0rvWuBYGkafo5iPB1M/7+7QaK48E5mXUPGal2jNo6Trj7gpKuYYUoQMywO14ODuM4zrFWNiwccxwUF/sM3+70uf+nZq97NT/oZ1a8yQf9XWCypCfwfPfn203SSfQevIT7oih2iTDe9vmGGax6Od5m98jWNVQSQvv2cwry5Uw8n24v7iUrv8eC5/f2ziuZiuucoVbBAT1u9q9A2xXYxlSjQcW3Ehuyqp1XUuOhTf/8CzyC2Qg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install a plugin uploaded from a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/upload/{token}/install"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Developer mode only. capabilities must list exactly what the upload asks for, as the consent prompt showed it. The plugin is installed, granted those capabilities and started, and is marked unverified for as long as it stays installed.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["capabilities"],"properties":{"capabilities":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The installed version and the plugin's state."},"400":{"description":"Invalid token or capability list."},"403":{"description":"Developer mode is off, signed plugins are required, or the caller lacks admin.plugins.manage."},"404":{"description":"The upload expired or never existed."},"409":{"description":"The consent does not match, the id is taken, or managed by a linked server."}}}
+>
+  
+</StatusCodes>
+
+
+      

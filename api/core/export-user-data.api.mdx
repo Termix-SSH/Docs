@@ -1,0 +1,68 @@
+---
+id: export-user-data
+title: "Export user data"
+description: "Exports the user's data as a SQLite database file."
+sidebar_label: "Export user data"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVVFv20YM/isEX/ZyldOi24Pe0i0F0hZotrgIhsAYzhJtXSzdqUcqtif4vw+8U2w3aR86P9gy7yP5kTx+GrEmrqLrxQWPJV7t+hCFQRqCgSn+wlBbsWAZLNz++ckJJcPSMsHKtVSgQbFrxvIe/5gOcGEw0teBWN6Feo/lmP66SDWWEgcyWAUv5EWPbN+3rrJKYPbAymJErhrqrD7JvicsMSwfqBI02MfQUxRHrKe9Zd6GWJ8hWaLzazykj/LgPnjO8DcXF/rzbclfmGIuklLxVAMPVUXMq6Ft9wUeDL79nuPNlByeioNViFOQyev1S69r/2hbV8MT9YT89Xvx31vXUg0SpphpIIlpgVpaR9KEGkvsA6fWWGmwxNnTfGbZDQ0yxUeKOqMRh9hiiWM2HdA8S/p3GCLMKXZuBxmDBh9tdHbZ5iZO1kR3ZYdWsMRGpOdyNpPkWNDOdn1LRRU6HcRCGVRDdLJPFJZkI8XLQeneLw5mxCqEjaNzi+3dR9ofLWchbvVuZCrngY4XQLlozQmG5QRCMz28D7GzyvnD3fxF9bfE7IIHCRvywOQFnE/LoElCdP+mewoN2ZqibsW7FBSsrxMsOaaRnpd05JarQoNOs2UIGvQ2MX3Yyg8ZfbibQ8YDk4AVYLf2r5wv4K4hD30kpWvACYjdEKulopp8RRAeKf6wisT2vN0/3cnLm2vY0B5YbBTn17B10oB0u39elHOE/nxrN7Q3sG1c1eREfEpTwLWArYTVbcJC2PrJu7LehwRIOub3wRNQy5T3SEXnr5NcXeXL+628HGVFR7cKqUlOFIXTslzeXOumUORc6ZvfitcXxcWLDswbgipEgpNfAVe2aqBvh7XzUIdq6MgLgxPWKiCGQYjTnHTVO5s0cro0V8+04XnC8aS1/1Pd82UQ2smsb63zyiOpyDhJzj0+OaHBSXQWBhuVpfIex1GPvsT2cFDz14Gi6sDipCt56TGPPknEhvZY4u+Z+au5UlB4O+QtevbGUHk4quHN51td7OX05ulCrT7RbtGk7xLRYEjdSSKSbCO21q8Hu057mGLq5z+nxHe1
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export user data"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/database/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Exports the user's data as a SQLite database file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User data exported successfully."},"400":{"description":"Password required for export."},"401":{"description":"Invalid password."},"500":{"description":"Failed to export user data."}}}
+>
+  
+</StatusCodes>
+
+
+      

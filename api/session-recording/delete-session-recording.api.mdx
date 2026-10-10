@@ -1,0 +1,69 @@
+---
+id: delete-session-recording
+title: "Delete session recording"
+description: "Deletes one of the caller's session recordings and its file. Admins only, since a recording is a record of what happened on the host."
+sidebar_label: "Delete session recording"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v5DYM/SsEL20BxzNttxffskgWyLZAF5sUQREMCsbijNWRJa9EZ+Ia/u8LSZ6PzWyK7q0n2/Qj+UiRTyMqDrXXnWhnscIrNiwcwFkGtwZpGGoyhv13AQKHoJ0Fz7XzSttNALIKtARYa8MlXKpW2+hrhgKCtjUDHdGgw+Ezxt41JNBQ17FlBc6mZI0LUmKBQpuA1QPezjk/7qPgqsCOPLUs7CNkRB2JdyQNFmipZaxQKyzQ86dee1ZYie+5wFA33BJWI8rQJZQV3rDHaVpFdOicDRwi4KflMj6+7M3ty/pBpW6pEqcC3yx/Pnf53ZoBKLelJjs7nHRwdn3zX7JZJ7B2vc35fvkaxXekDSsQt890dmYlTlOBLUvjFFaYYVjk/lW46Ey/0faCOr2YfS8OvotRqwkLDOyf9s3vvcEKx2yKP78k9KfrPdyxb/UzZAwW+ERe06PJrZ6tqZQ19UawwkakC9ViIcmx5GdqO8Nl7Vqc0mEFrnuvZUgUHpk8+8s+FvCwmooRa+e2mk8t1OlfeThYTkLcxqnIVE4DHYYkcsF5eOJ3BmExv7xzvqXI+f393Vn1+zMUt2ULga2AznMekziv/6GIhIZJsQcK8DYFTXsVYckxHfdpSQduuSos8gpkyHEJ/t7Jq4ze399BxkNgARIIemMvtC3hvmELnedItwAtILTlEC01K45L7Z7Yv1pFYnva7m/u5OWHG9jyAEHISxz8nZYGpH3+66ycA/TbW7vloYBdo+smJwrHNCXcCFAtIbrNWHA7O3vXZOMqUi3xP9khiiWbwHm3tF27VLUWwyctP0gYXH64iVvAPuQqfiyX5fKstoyHtAOWTErtuXXCoDhsxXX77c463BkaItsWHqnegvOg3M4aRypbDcl8Op0L0pKNJOdRuXpFLV6Siqtlha38n66KPF3Cz7LoDGkbS0yyNM6q9oBHVUvy9ULXsMBKq3izxJgRP46PFPgPb6Ypmj/17KPWrI7alZRH6RDfFVZrMoH/pVnff5wvox/gNcr7nbZDkkjTxy8scMtDvtGm1alyX13/dn13jdP0GS+cshQ=
+sidebar_class_name: "delete api-method"
+info_path: api/session-recording/session-recording-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete session recording"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/session-recording/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes one of the caller's session recordings and its file. Admins only, since a recording is a record of what happened on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session recording deleted."},"403":{"description":"Only admins can delete recordings."},"404":{"description":"Session recording not found."},"500":{"description":"Failed to delete session recording."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: redirect-login-callback
+title: "Redirect login callback"
+description: "Where a redirect login method's provider sends the browser back. Redirects to the app with a session, a second-factor step, or an error."
+sidebar_label: "Redirect login callback"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVMFu3EYM/RWClybAROsmQA+6OUBSOL0EzhZGYSwKrkSvpivNKCTl9Xahfy9mJK/lGi6QW0874jwO3+OS74Q1ayW+Nx8DlnjTsDAQCNdeuDJo484H6NiaWP+k0Eu89zULKIdawRqGrcSDssCWqn0B13OigsV8TX0PB28NECir+hhcPlYx1O/uqLIooMa9gyhAAVgkSoEOjXaK5S1eDtbgxmFPQh0bS4qe0Ce6PVmDDgN1jCVOLK9qdCj8ffDCNZYmAzvUquGOsDyhHfuEVRMfdjiOmwTWPgZlTfcfLt6nn+dt+UjVfiGowHF0czkscceGbuJS4mpQFl3RYM3q9MhoXFXUtqlD6FBZ7h9VDNJiiacpNKL7V90/4iCwZun8A0wYdHhP4mnbTnTnaGZ8R0NrWGJj1mu5WllOLPiBur7looodjlmwcjWIt2OmsGUSltzl8nYzuhNWMe49LyPU+9/4eI4snviWGjtRWT507nPignP/0/cEQjcfPkfpKHH+crN+of7bNC9gcc8hTZyBD/k/SEWi+L8pIaFhSiNJCh/zo0ChzrCcWODonkk6c5tUoZtmaYI8TdNfB3uV0ZebNUx4UDYgA/W78M6HAm4aDtALJ7oOvIHRntPicMU1h4oh3rO8qiKzXbb7hzt5+fUK9nwENRLzYTdtn3UPf76Qc4b+eGv3fHRwaHzVTIX0qUwBVwaULID0EQvxEObsikKIGZDuKRxjYOBWedoqH+5iVu2tTTLn6b/8epVGn0Un6u9/KX6+KC5eSFo3DFUUhqe8Aj5R1UDfDsnK6lgNHQdT8KaJFkgcjDU3vo9qHYVUf56C6+dGuFjjZ3XT0gTjYP8zD51Gx/jBVn1LPiSR2XNOs1/dYvYrdJgcCx2WCxc9q904bKJagp9OW1L+XdpxTOHvA0vykc2TL2VXqb2mc43lHbXK/9GuN9ezV7+F1xg/7ms4Zvtrh/SFDvd8XNr+uFm68q+f1jiO/wDOnGC4
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Redirect login callback"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/users/auth/{methodId}/callback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Where a redirect login method's provider sends the browser back. Redirects to the app with a session, a second-factor step, or an error.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"methodId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"302":{"description":"Back to the app."}}}
+>
+  
+</StatusCodes>
+
+
+      

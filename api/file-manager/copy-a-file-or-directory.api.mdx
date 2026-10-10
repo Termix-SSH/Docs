@@ -1,0 +1,68 @@
+---
+id: copy-a-file-or-directory
+title: "Copy a file or directory"
+description: "Copies a file or directory on the remote host."
+sidebar_label: "Copy a file or directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVUtv4zYQ/iuDOTO2W7QX3ZJtg3qLRY3aRVAERkFTY4mxRGrJURxV8H8vhnRsJ/EetjrY0nAe37w+jlhSNMF2bL3DAj/5zlIEDVvbEPgApQ1k2IcBvAOuCQK1nglqH3mCCllXEYtHvBf9L9rpigKuFQb62lPkO18OWIzp0wYqseDQk0LjHZNjOdJd11ijBcD0KQqKEaOpqdXyxkNHWKDfPJFhVNgF31FgSzHpUYzWu3l5oRo5WFfhQWH0fTC00FxfPWYdKuJfbLh6Kgm+8WsdkyR3UNhHCldjpkeSj513MWP8cTaTv7d1njO1YKTYJcTeGIpx2zfNMBH3P12z+GJjtK6C10pCp4NuiSlE6dNy+RsY7xwZ0QfnGSiy3jQ21lQmtz9fc3uvbUMlsBc0A1imdoKSQ0tc+xIL7HxMhU9lxGnX9JV1N7qzU5mRmzb3fCrmkhUqjBSeKchYjNiHBgscs+iA6l34v30fYEWhtS+QdVDhsw5Wb5rXFidpAr7VfcNYYM3cxWI65WQ4oRfddg1NjG+lBWtBYPpgeUgQNqQDhdte8D+uD2pE4/3O0qVEd/Z3Gk6SCxdLGcUM5dLRqfWCRXJOalgclVAdX+59aLVg/vyw+pD9Mo8vsN+Rg0iOweYtkyA+2H/TWkBNuqQAOsJdcgralUktGabmXqZ0wpazQoVWomUVVOh0Qvq0528i+vywgqwPkRg0Q7SVu7FuAg81OegCCVwFloH1jqJIDJXkDIF/pvDNLBLay3J/dyVvF3PY0QCRdWBZib3lGrh9+edDOifV7y/tjgYF+9qaOgeK5zATmDNow1HMjrrg9+5obbST9dOG5Vy7wTsCaiLlxRKO+/PMjr/m4X3HZq+M8pbEztIL7joLXylrdmaoC0KzbutTtS1LuDeMDbeLuSwehZgL98NkNpl9KOdd8PtICqi0nFJt/TOlqyLmpi/vVwsF1pmmL6UzkYO2Vc2wDb4FqUNeZ+Eb7TzXx3kQjml1ov7jcH4SNrpyDb3HNJ6vkv9xeeXBY3rhaddo6xK5C2ONR757xDPfocJLxkNZuiPnrXPxRX8cNzrSX6E5HET8tacgNLQ+01rmHMyTlxhqR0OCnxK5WQkqUW/6vMTv7kdhpxM7L/5YCq9sjvds60uxCXqPKv0WiAp9KlbisCQbsdGu6nWVaCD5lOc/9n/LJw==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Copy a file or directory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/copyItem"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Copies a file or directory on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"sourcePath":{"type":"string"},"targetDir":{"type":"string"},"hostId":{"type":"integer"},"userId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Item copied successfully."},"400":{"description":"Missing required parameters or SSH connection not established."},"500":{"description":"Failed to copy item."}}}
+>
+  
+</StatusCodes>
+
+
+      

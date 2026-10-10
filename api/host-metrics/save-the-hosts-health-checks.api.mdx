@@ -1,0 +1,70 @@
+---
+id: save-the-hosts-health-checks
+title: "Save the host's health checks"
+description: "Save the host's health checks"
+sidebar_label: "Save the host's health checks"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVttu4zgM/RWCL7sLuEn29uK3zmAvnb0V0xbFIggWrM3GamzJI9FJvYH/fUHJuU1SLKYvjalDijwij7RFoWXAfI6/uiDwB4s3RcBFhi15aljY6+oWjcUcW5IKM7TUMOZoSszQ86fOeC4xF99xhqGouCHMtyh9G1FWeMkeh2GR0BzknSt7hXzuXDgrbEWXqG1rU5AYZ6cvwVm1ncV2Ty9cyEkWcywqLlapBO9a9mI4qM9oP3iT99Rjhka4CZeinvqb8ggTxBu7xGFHxoWFZLi0QH7JcnGpdV4ucZcl6s9dhmHIIsyvqb7jwtkyXCQ/IT2H1tmQCvpuNtN/JYfCm1aZxhzvK4ZAay4h8TXRzX+4hLyxa6pNCca2nYyw789hfzqgouAQQBxIxVC5oOQ6D1zzOp4wlGwNlxPMbVfXQ4Y/vpVa4ZqGbAnPZGouwdl9yAlqgaced7TmPeCrABVTLdVYGWbYsFSu1MZOOSWScdrW3dLYK2rNVD2vmjQWpx8NWVqyD9MUdbo15TAtnH02S8wwsF/vZqfzNea4TaYBP8/yb9d5uGffmFdIGMxwTd7QU51OarRGRp6pqwVzrETakE+nEh0n/EpNW/OkcI2e9kIzKDpvpI8pPDF59ted1jdfDNkWC+dWho8t1JrfuN9bjkLc6eClVI4D7dtMc8Fx9vU7gTAbf/zsfEOa84fH+7Pq7zgEbQFxK7YQ2AqYdKq6ifPm39QiFVPJHijAuxgUtA0UFh1j/x2XdJjyWJWOue6WIAcNe9nImxl9eLyHhIfAAiQQzNJeGTuBx4ottJ413QyMgNCKg1oKLtkWDG7N/s0qYrbHdH8xk9e3N7DiHoKQF2OXsDFSgTSv/5yVs4d+ObUr7jPYVKao0kbhsM0EbgSokKBuIxbcxo7eBVnrIkDXyfbOMnAdOI2pKvrHw13wU2reY5WeJ8HdCd3+wPbfp0J4UNWDJYnpbD/WO81cXFDMWZTRZxePwojmcnIjwvXtjU4l+5BY/XYym8zOuP7drBne3z5k0HDjfJ9BacIqA8uycX4Vqfnl9kHZlJBBW3cqi66O4pgEBXqVA1WapL0qTQ3F+2+k4P9U7SSlfWcJv8q0rclYjRolaTsyM8eD4GGGxyp3/rmTPV2JG2OGeXwKjNq3SC4adrt9osAPvh4GNX/q2KscLQ7yFg+6NEF/l5g/Ux34rIL9swC//jhe9N/AoQVOK9uNve2jitadfmGGK+7Tm2VYDDH1UhV1vh0X3qc9ru7V/eB49gzR7tlfG7d/3amgPY3PmcaV6uNpo08S2qSNXawjime0bbEmu+xoGfUnxtS//wAVrkfm
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the host's health checks"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/health/{id}/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Save the host's health checks
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["checks"],"properties":{"checks":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"},"target":{"type":"string"},"port":{"type":"integer"},"path":{"type":"string"}}}},"intervalSeconds":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved checks."},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

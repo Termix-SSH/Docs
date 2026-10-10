@@ -1,0 +1,70 @@
+---
+id: update-a-channel
+title: "Update a channel"
+description: "Update a channel"
+sidebar_label: "Update a channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEnzZATbrhnvzWu21Ab8BW3KUohiIYGJuJ1diST6KbeoH/+0DJddJlfbi8JKFI6vso8uMRhXYRi0e8aThIxLXBjgK1LBzUfkTrsMCOpEaDjlrGAm2FBgN/623gCgsJPRuMZc0tYXFEGbrk5YR3HHAc19mbo3z01aAupXfCTvQndV1jSxLr3fIpeqe2i1x+88SloMEu+I6DWI56mvHMXlGCdTsczWT474FBdn2rbA+8qb3fKyXZDmiwsrH0QXlxS7bB9WgU5NbuLlGMmoc2jXKfzzbeN0wOx/RRwrHzLmacP19f61fFsQy2U6pY4Kpm6LuKhCsoa3KOm4Xm/vCe8+QENoLzAs/U2GqK+HAZ8YeH2Jf1HLX1AUSzUNNwWKCCfBtxn8AAvYagwZal9pU2QJ+qr21Q4LJr+p11V9TZJaW+WU4hcXm01YgGI4fn1w7qQ4MFHrNJD99e+5fvA6w4tPYFsg8afKZgtcSpfJM1UdxS3wgWWIt0sVguJQUu+IXaruFF6Vt9grUiKPtgZUgQNkyBw02v8B/Xo9EO9HvL5xbq7O88zJazFF+1HTOU80Tz2ysWnCYg9UJyQjP9+M2HlhTz54fVBfuvHKP1DsTv2UFkJ2Bdeii9xAf7TxoNqJkqDkARPqakQK5KbikwtcE5pRlbZoUmz3F2OU3y00HeRfT5YQXZHyILkEC0O3dl3QIeanbQBVa4BqyA0J6jWkqu2JUM/pnDuywS2vNyf3clb+5uYc8DRKEg1u3gYKUGaV/+vqAzu35/afc8GDjUtqzzRfF0zQJuBaiUqGGTL/iDm6JLcjqiVIqekxu8Y+Amcp471bkvJ0X8NTfvSdFOgjXV5aRXsyidq5Aq8KhPvPWpmFY026TpcHN3qxPFIeaK/LS4Xlxf1OlPx2Ddxr8kpeBnDgOk4dai5fE0mX/FjU3H4mECFg2okBr4JetoKkJS0vTWnY/Skjsj+D9a8wbO3BHCL7LsGrJOEyUpOU469IgnHUKDWYm0RJMWocHCVrrSah9F/Y/HDUW+D804qvlbz0H1YX3Sm6QWlY1TYbfURL6ANm8v/OHLtAV/hNNjvYX8OoduSLLW9PoPDe55yKt01F2TezDdng8+5TuuVhp+CrzYlqpTs0rf3avAbKYl2/pKQwIddF3TId/rE40kZsl2xIbcrqdd0oOUUj//AhKbyBA=
+sidebar_class_name: "put api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/alerts/channels/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a channel
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"type":{"type":"string","enum":["webhook","ntfy","discord","email"]},"config":{"type":"object"},"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated channel."},"400":{"description":"The channel is not valid."},"404":{"description":"No such channel for the caller."}}}
+>
+  
+</StatusCodes>
+
+
+      

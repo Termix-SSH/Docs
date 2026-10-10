@@ -1,0 +1,68 @@
+---
+id: continue-after-a-browser-sign-in
+title: "Continue after a browser sign-in"
+description: "Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example)."
+sidebar_label: "Continue after a browser sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsEL22BiZ0Weyh0y+622GxRNKhTBEUQFLTEWBNLM9ohFccV/N8LjuQPxNnDnmoYsDwih4+P5OOAFUuZfKc+BizwQwzqQ88CBGUMgUsFelROoDVDL5zg0QcvNVcgfhV8WIEP9rX3yxQ3ZvI9BVgsPsGKlDe0/U6Aui7FZ2ocPMYE/EJt1/APM3SotBIs7vFjLNec8MFh4i89i76P1RaLIf/1iSssNPXssIxBOai9oq5rfEmGff4klsCAUtbckj3ptmMsMC6fuFR0Jxfdo7CIj+G6soBdih0n9Sz5gsOr4x2iyYcV7vLHbpIuBhntf7q8tJ8zHo07rhzEBBSi1pygS7HtdIY7h+/e8lqMoeH6I+zBZn/jdoIFXiBEhQ15NfKNTjoQbyW58GGK8O48wm3Nh7ryS2cRJuOf3zauoyhUvspBKciGU662b3mGxkXLWscKC+yiGMsdaY0FzrumX/lwQZ2fV7m0c5F6PsW+mABfTIDRoXB65mStMGCfGixwGI926F7h+jv2CW45tf4FRht0+EzJ07LZ1zCf5oweqW8UC6xVOynmc82Os6kHZ2Vsra4PhqDsk9dthrBkSpyuekvm/mHnBixjXHs+PaHO/8bbw8nJFQtrwhHK6UWHfjIslnM2w2IyQjc9/BpTS4b5893tWfb7JtG45gDCQffjZ0Fi8v/mgYCaqeIEJPA+XwoUqmyWHXPVT1M6YBuzQofeoo0m6DBQRvq00a8i+nx3C6M9CCuQHvoR7moO0CU2uA68gtKaxU5KrjiUDPF5Epm3sshoT+n+Ziavbq5hzVsQpZQHZ+O1Bm1f/jlL52D67dSueetgU/uyHgPJMcwMrhWoVDG3yRbiJkzeJYU8Yaa3AhS2MTBwI9OUmbr9edTFX8bmfSVXB5my2j3GzJJXM5vUFa5urm1UOMmY6o+zy9nlGQG/U6AVw+Rj6G5i1VIw5VDygZNADLC1MTR9kLF4i8UnN+bbxJU4Y8CyDdW4SyQ2nOtoQtFSFuupqfZbZ1o1Z3r2GuFwXAL/x8YaO0/5ReddQz5YUlmyhkn97vGofoZ9XG0ORWrMC+xNDXxwaGya+zAsSfiv1Ox2dvyl52Sy9HCUuVGDcOzErFhr3k50cNCLWwNp5k0/DvWrTWlqdZDumz8WpjPLaeO2sTKfRBvbmrTBAtFhzORnTctnAzYUVj2tsizkO+3zH8IS5Q0=
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Continue after a browser sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/ssh/connect-browser-sign-in"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId"],"properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or another prompt."},"400":{"description":"Session ID required, or the session is not waiting for a browser sign-in."},"404":{"description":"The connect expired."},"408":{"description":"The host did not answer in time."}}}
+>
+  
+</StatusCodes>
+
+
+      

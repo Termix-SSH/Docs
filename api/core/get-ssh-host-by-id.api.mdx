@@ -1,0 +1,69 @@
+---
+id: get-ssh-host-by-id
+title: "Get SSH host by ID"
+description: "Retrieves a specific SSH host by its ID."
+sidebar_label: "Get SSH host by ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv0zAQ/iunewLJpAMBD3kbYoPCC6JFE5oq5NrXxjSxg31pF6L8d2Q76zrGkPYU5/Ld3Xfnuy8DagrKm5aNs1jiV2JvaE8BJISWlNkYBYvFR6hcYFj3YDjA/H2BAlluA5bXuFh8xJXAVnrZEJOPxgFNjNZKrlCglQ1hiUajQE+/OuNJY8m+I4FBVdRILAfkvk0oy7Qlj+O4iujQOhsoRMCrs7P4uE94WRHEmBSY9JFpgaPA1//Cz+1e1kZDF8jPNTif8HM9ebx+6HGs3jqGjetsxr75V/RLaWrSwA42xKo65TMKbIgrp7HELTGK3J0SZxEw0+v8HIweUWAgv79tZedrLHHIpvjxfs7vrvOwJN+YG8gYFLiX3sh1nRs3WRPbjexqxhIr5jaUsxknx4JuZNPWVCjX4JhaH0h13nCfKKxJevLnXSR8vRrFgMq5naFTi2zNZ+qPlpMQi3jHmcppoOOVRy44jUJ8zyAU0+HS+UZGzp+ulg+qX1AIxllgtyMLgSyDscAVQUzivPktIxIqkpo8yADvUlCQVidYckw3elrSkVuuCkUe6Ay5G+mfB36U0aerJWQ8BGKQDMFs7QtjC7iqyELrKdIVYBhY7ihEiyJNVhG4PflHq0hsT9v95E6ef5nDjnoILD0bu4WD4Qq4ufnxoJwj9Omt3VEv4FAZVeVE4S5NAXMGqThEtwkL7mAnbyVt3DapOH6XtneWgOpAeZGM3bhUteE6ljlN//mXeRx98iFTf/W2eHlWnD0oKWqGcp7gzq+AC6kqaOtuayxop7qGLIckd+5gwbuOKaTGty5wI23MP03BB+J7Gjl//3fKuC+WyfITJTbfKtMNz9paGhvzJzkYJvW4xugV061R3J5Lo6Mip7fyGodhLQN98/U4RvOvjnzc6tWdSqQd1ybEs8ZyI+tA/6ng2ddJxJ/DYyRvt8f2SYzqLr6hwB31+U8wrk4F8cPFEsfxDzMFOcw=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get SSH host by ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves a specific SSH host by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The requested SSH host."},"400":{"description":"Invalid userId or hostId."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to fetch SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

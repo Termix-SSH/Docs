@@ -1,0 +1,69 @@
+---
+id: delete-ssh-host
+title: "Delete SSH host"
+description: "Deletes an SSH host by its ID."
+sidebar_label: "Delete SSH host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v2zYQ/lcO97QBrJwV7R70liIp6m4PxewhGAKjoMWzxVkiVd4pjibofx9IKo7TNEX7JPL43d13PzWiIa6C7cR6hyVeUUNCDNrBavUBas8C2wGsMCyvClQoes9Y3uJq9QE3CjsddEtCIQpHtNFGp6VGhU63hCVagwoDfeltIIOlhJ4UclVTq7EcUYYuoZzQngJO0yaiufOOiSPg9cVF/DyleeJmEl8D3FcVMe/6phkKnBS++Zba0t3pxhromcLSgA9gzYx+8x0nzgvsfO8y9u23LL/XtiED4mdGp+wVOE0KW5LaGywxv6LKSSpxETELs83f0ZoJFTKFu4eM9qHBEscsio9P/f7j+wBrCq29h4xBhXc6WL1tcv5maWK8030jWGIt0nG5WEhSLOhet11DReVbnFIFmKo+WBkShS3pQOGyj4RvN5MasfL+YOlcojv7Bw0nyZmJVSx1pnJu6FT5yAXnjoj3DEI1H9770OrI+ePN+ln0K2K23oH4AzlgcgLWgdQE0YkP9j8dkVCTNhRAM7xLRkE7k2BJMVX1PKQTtxwVqtzXGfLY2f8e5UVGH2/WkPHAJKAF2O7dK+sKuKnJQRco0lVgBUQfiKOkIkOuIvB3FF6MIrE9T/dPZ/Ly0xIONACLDmLdHo5WapD2/vOzcE7Qn0/tgQYFx9pWdXbEj24KWAroSjiqzVjwRzdrV9rFidOVxHftBu8IqGHKs2TdzqeorTQxzLn7Lz8tY+tT4Ez99e/FbxfFxbOQ1jVB5QPBo14B17qqoWv6vXVgfNW35ITT1vNHB8H3QpwS33mWVrvof+6Cq6fz/rW/OCxOyMkPLddcSKF7WXSNti66TBtgnBfGLT442aJ6OJfWxF2cbuUtjuNWM/0dmmmK4i89hTjIm8fFkMbaWI5ng+VON0zf4f3LX/P6/hVeIvkwMG5I+6fp4w0VHmjI/4Bpc74Gr67/vF5f4zT9D3czNVs=
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete SSH host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/host/db/host/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes an SSH host by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH host deleted successfully."},"400":{"description":"Invalid userId or id."},"404":{"description":"SSH host not found."},"500":{"description":"Failed to delete SSH host."}}}
+>
+  
+</StatusCodes>
+
+
+      

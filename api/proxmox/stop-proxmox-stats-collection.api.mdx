@@ -1,0 +1,70 @@
+---
+id: stop-proxmox-stats-collection
+title: "Stop Proxmox stats collection"
+description: "Unregisters a viewer session for a host's Proxmox node stats polling."
+sidebar_label: "Stop Proxmox stats collection"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v4zYQ/SuDubQFFDvtUbdssQW8PdTYZBsUgbGgqbHEWCK55Ci2Kui/F0MqtlM3hwWqiyRyvt7jzOOIFUUdjGfjLJb4xQaqTWQKERS8GDpQgEgxGmdh5wIoaFzkHyKsgzt27gjWVQSRFUfwrm2NrRdYIKs6YvmEsxVuCvQqqI4kMpZPIxpJ5xU3WKBVHWGJpsICA33rTaAKSw49FRh1Q53CckQefLKyTDUFnKZNtqbIH1w1iMnZeafaSAVqZ5ksy57yvjVaCdDlcxS043Vwt30mzVigD85TYENRdjMR95mHVXXhEDkYW+OUHqknemdj9vrl9lZebxleZ5IgsvOeKoi91hTjrm/bYYESoyNuXCXsuJhKEZJKXPq2r429Ud4sfaZ1mXhfSqjlaKoJC4wUXl4p7kOLJY55STbfVvKX6wM8UOjMEbINFviiglHbNgOYVxOGnepbxhIbZh/L5ZKT44KOqvMtLbTrhISNVKD7YHhIJWxJBQp3vSB42kzFiNq5vaHLFeXN7zScVi5C3Mvx5FIuA53Il1pwbhH5z0ZYzB+/udApqfnT48MV+vkwgd2eLESyDMYCNwSSxAXzd2oVaEhVFEBF+JCCgrJVMkuOC5yKN5BOtWVUWORGzybnVn8+8LsVfXp8gGwPkRgUQzS1vTF2AY8NWfCBpNwCDAOrPUVZ0VSR1QTuhcK7KFK1l3R/N5N36xXsaZCBDyxtfDDcAHfHr1dwTqbfT+2ehgIOjdFNThTPaRawYlCao7jNtuAOdvbWylqXDGRf2cFZAmoj5dGSuf98loyPuXn/c8JPky0nuHOJK8Ni/CpqcLdeycRQiBnxz4vbxe0VD6vOu8AnvfzzI9SSPwEQLY0F7Im8gOmEpzhYnbAcFOvmQl/T6YkmdCqJ19xK9+z8KXoWYu3alnTK/69qxrMi/n9an1uI6chL3ypjpc6kPeOsXU941q6srelSKDDFSm8n7VeaSm4KySpO47hVkb6Edppk+VtPQVRlc1appDGVifJ9Fv13Ef/4eb4ffoL36n6dXjskMWx7+cMC9zTkG2raTAXmzk3Z88avOcfNg7ifHa/uHFG3k76v/7gXXdrOl1fnKvEJ6iDXoDrkxC7hSBqY1kZsla17VScZSTHl+QdHTrZ/
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop Proxmox stats collection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/stats/stop/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Unregisters a viewer session for a host's Proxmox node stats polling.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"viewerSessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Polling stopped successfully."}}}
+>
+  
+</StatusCodes>
+
+
+      

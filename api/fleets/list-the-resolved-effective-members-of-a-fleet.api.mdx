@@ -1,0 +1,69 @@
+---
+id: list-the-resolved-effective-members-of-a-fleet
+title: "List the resolved effective members of a fleet"
+description: "Returns the union of statically-added hosts and hosts matched by the fleet's tag rules, each annotated with the caller's permission level on that host."
+sidebar_label: "List the resolved effective members of a fleet"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v4zYQ/SuDuWwLMLZb7Em3FOgusu1hsZsiKAKjGEsjizVFajkjJ6qh/16QlBMjQQrsrSdRo8eZN19PJ2xY6mgHtcFjhV9Yx+gFtGMYvQ0eQguipLYm56YrahpuoAuiAuTPp5607riB3ZQvto5Z3wko7SGOjsUAU90BeR+UlBt4sNplaPLK8Z3AwLG3Iimi4yM7CB60I80RVmhQaS9Y3eOH5Fxwa3CgSD0rx2Q/oU38B9IODXrqGSu0DRqM/G20kRusNI5sUOqOe8LqhDoNGeWV9xxxnrcJLUPwwpIAP2826fGyRBLckRvoud9xLCVY4Wzw/eb9a3jmCz4otGH0zQrn2WDP2oUGK9yzoimsK1wPbtxbf0WDXecayvpkm3ldAgkaFI7Hc75jdFjhqZhmNC/i/hnGCLepqo9QMGjwSNHSzpXsFmtm3NLoFCvsVAep1mvNF1f8SP3geFWHHudcH+F6jFanTGHHFDlej4n9/XY2J6xDOFi+tNBgf+PpyXLh4mtqRKFy6eipL4kLLv1K7wWEZjl8CLGnxPnT3e2r7L9ymSUNB/Yg7BWszxOXgoRo/6GEhI6p4Qgk8Et2moc6wfLF3NXLlJ64lazQlKkrkOe5+/tB32T06e4WCh6EFUhB7N5fWb+Cu449DJETXQNWQenAkiw1N+xrhnDk+GYWme1lub+7ktefb+DAU1r4qNbvlz3tH/96lc4T9PtLe+DJwENn664EkucwK7hRoDqJi5yxEB78crvOCpIA6Tv5KXgGdsJlq6xvQ87aquPz6glcf75Jo89RCvWfVpvV5lVCH2MYh0XPrNdQVKyoXBw91KHvyTdiYKD6QHtONGzwBdFax6CRvLQcJYkXOZe0UzvuU5ODrzk3aAiiPfnEc5mW361oTjaelYXblmu1R140RpInKoxeEk8755W9/r/Vuwyi8qOuB0fWp1JkBTst6nePz+qHBkv10WCVRfwsgVuDyWWCn047Ev4junlO5m8jx6RK22eVyxrVWEnnBquWnPB/VO+HL8uf4kd4i/F5+/2UxdSN6Q0NHngqv5t5e6nuH3+9xXn+F2l6kZE=
+sidebar_class_name: "get api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the resolved effective members of a fleet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/fleets/{id}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the union of statically-added hosts and hosts matched by the fleet's tag rules, each annotated with the caller's permission level on that host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Resolved member hosts."},"404":{"description":"Fleet not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

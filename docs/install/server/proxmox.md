@@ -1,23 +1,24 @@
+---
+title: Proxmox
+description: Install Termix in a Proxmox LXC container.
+---
+
 # Proxmox
 
-Termix is light. It idles at about 118 MB of RAM, and 1 core with 1 GB covers most setups. See [Benchmarks](/benchmarks) if you are picking container resources or running a larger fleet.
+The [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts?id=termix) project has a script that makes an LXC container with Termix in it. It is run by the community, not by Termix.
 
-## Proxmox VE Helper-Scripts
-
-[Link](https://community-scripts.github.io/ProxmoxVE/scripts?id=termix)
-
-**Install/Update:**
+Run this in the Proxmox host shell:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/termix.sh)"
 ```
 
-## Database
+Run the same command again inside the container to update it.
 
-The helper script sets Termix up with SQLite, which needs no configuration.
+The container uses SQLite, so there is nothing else to set up. Then do the [first run](/install/first-run).
 
-If you want the data in PostgreSQL or MySQL instead, set `DATABASE_DIALECT` and `DATABASE_URL` inside the container and restart Termix. This is handy on Proxmox if you already run a database server elsewhere on the host. See [Database](/setup/database).
+## Settings
 
-## Environment Variables
+Set [environment variables](/configure/environment-variables) in the container the same way the script set up the service. To use a database server you already run, set `DATABASE_DIALECT` and `DATABASE_URL`. See [database](/configure/database).
 
-See [docs](/setup/environment-variables).
+If something in the script itself breaks, report it to the [helper scripts repo](https://github.com/community-scripts/ProxmoxVE).

@@ -1,0 +1,69 @@
+---
+id: send-a-wake-on-lan-magic-packet-to-a-host
+title: "Send a Wake-on-LAN magic packet to a host"
+description: "Send a Wake-on-LAN magic packet to a host"
+sidebar_label: "Send a Wake-on-LAN magic packet to a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zAM/SsETxugJt2wk2/ZgGHtvoq1QzEUwcDaTKzFljyJbpoZ/u8DZTdxl/XQky36UXqPIp87FFpHzG7wmjZ84t3Jp8UXXBpsKFDNwkE/dmgdZtiQlGjQUc2YoS3QYODfrQ1cYCahZYMxL7kmzDqUXZNQTnjNAft+qejYeBc5KuD16ak+Co55sI1Yr0dcUL5hgchOsDf45n+YLx7uqLIFfF68AyqKwDFC7t3KrlulkvLeHOd98FHAeYGVb12BfW/+AVyyK4BgUgmoaW1zaAZW4oGg9FHQYM1S+kKLMqxTbTKcN1W7tu6EGjvfjvtU5OaaNe9s0acoGowc7h6K24YKM+yGUI//0vrh2wBXHGp7DwMGDd5RsHRbDaUco0nxitpKMMNSpInZfC4pccb3VDcVz3JfY58uI3LeBiu7ROGWKXBYtCriZtmbDnPvN5anEWrsR97tI5MtLvXWByrTjfZNoFxwbA5dDyA048t7H2pSzufXV0fqLzlG6x2I37BLjQHWgZQMeogP9g8pEkqmggNQhLdpUyBXJFhKnGlXTCXtuQ2q0AwtPkAOTf5rK08yOr++ggEPkQVIINq1O7FuBtclO2gCK10DVkBow1EjORfscgZ/x+FJFYnttNzPruTi4gw2vIMoFMS6NWytlCD1/c8jOXvo80u74Z2BbWnzcjgoHo6ZwZkA5RI1bcSC37oxOyenk0i56HdyO+8YuIo8S3Np3con1VYqlTkdycXFmfY/hzjwfzU7nZ0eqdIMiBVzo+prykvrOMJt0llo7PGgH0ZcSrZh6i3pNnTMa3JKamyN57jFI277yxS+l3lTkXV6QnKBbjSSGzwYCRqcWAkaHDfNkgMnP1mOwewGu+6WIn8PVd9r+HfLQUd8ebCMNPCFjfpeYLaiKvIRxdw7URPO8MW30eNfApr/U38YJbdLzlS1ukKDG94NP4p+2U8s8+Lr5RX2/V/RwDYw
+sidebar_class_name: "post api-method"
+info_path: api/wake-on-lan/wake-on-lan-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a Wake-on-LAN magic packet to a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wake-on-lan/host/{id}/wake"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send a Wake-on-LAN magic packet to a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Packet sent"},"400":{"description":"No valid MAC address configured"},"404":{"description":"Host not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

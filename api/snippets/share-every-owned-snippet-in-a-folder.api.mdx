@@ -1,0 +1,68 @@
+---
+id: share-every-owned-snippet-in-a-folder
+title: "Share every owned snippet in a folder"
+description: "Also shares snippets in subfolders ('Parent / Child')."
+sidebar_label: "Share every owned snippet in a folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU2P2zgM/SsET7uAJ0mLnnxLi10g7WXQmcFgMQ0Wis2JNZElVaKTeI389wUl52My7QLF+mKbIsXHJ+pxwJpiFbRn7SyWODfRQWxUoAjRau+JI2gLsVs9O1NTiPDbN7xVgSzDFD412tTf8PcJFshqHbF8wrsxDJcFBvreUeSPru6xHNKvDlRjyaGjAitnmSzLkvLe6EoJjOlLFCwDxqqhVskX956wRLd6oYqxQB+cp8CaoqxmZBd+kYO2azwIqLAmvk/m6+UCyXatQO4iBSwwOEO4PEU9RAqL+j+2/eoMvXLQlmlNQTxo73WgOOcfxKdHyIne2ZhreD+byev1aYxUQi4wn0s9ke0//Mh9YbfK6BpG1icoWVrixtVYou8Sc4obLHHqTbfW9kZ5PT2e8zSnmaY0WGCksKUgZzpgFwyWOGTTAYurzH+5LsA9hVbvIftggVsVtFqZXN9oTZifVWcYS2yYfSynU06BE9qr1huaVK4VjpaCoOqC5j5BWJEKFOad4H9aHooBK+c2mi4tyusv1J8sF1vcSS9lKJcbnc5GsEjNyQ3L0QmL8eNPF1olmD8/3r+p/o5i1M4Cuw1ZiHI1tAVuCCSJC/qf1NfQkJJjVBE+pk1B2Tq5pcB0rpclnbDlqrBALdmyCxZoVUL6suOfIvr8eA/ZHyIxKIao1/ZG2wk8NmTBBxK4BWgGVhuKYqmoJlsRuC2Fn1aR0F7S/ctMzm8XsKEeIqvA2q5hp7kBbvd/vynn5Prr1G6oL2DX6KrJieI5zQQWDKriKGGjL7idHaMrZa1LDrKubO8sAZlI+V6JSH09y9sfuXkv5eisM5cqdBSb1xpz7XuUltkrJblQIG2fXSJds2Q9qS7Mbxdy9yjEzN27yWwye9sgakup5sq1rbJ1hN51EDoL7pnJJgLkjxtqhXEF6ZJaZcAFcBZaZXtoXMzjQaipjK42qS28i9yqJOFjj96JpABtKWSG6+NwyXuPjF2BHM7z4X/NpUw7056n3ihtBWLSs2FUwyc8q6F07nGAFXgCljVxWaCULBHDsFKRHoI5HMT8vaMgMrU8y17WJMydmRRsQz2W+CkXdZPaQdxNly/51QAU9TqJ9+2DyM5qnKOtqyUkqJ1MLbXDErFAl3hLEpdsAxpl151aJ5VIW8rzL3ZmwS0=
+sidebar_class_name: "put api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Share every owned snippet in a folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/snippets/folder/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Also shares snippets in subfolders ("Parent / Child").
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"folder":{"type":"string"},"targetType":{"type":"string","enum":["user","role"]},"targetUserId":{"type":"string"},"targetRoleId":{"type":"integer"},"expiresAt":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet folder shared."},"400":{"description":"Invalid request."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: finish-a-login-with-a-second-factor-2-8-route
+title: "Finish a login with a second factor (2.8 route)"
+description: "Kept for clients built against 2.8, such as Termix-Mobile. Verifies the pending login against the factor named in `factor`, or the user's first enrolled factor, the same way as /users/auth/second-factor/{factorId}/verify."
+sidebar_label: "Finish a login with a second factor (2.8 route)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVd9v2zYQ/lcO97INoOU0GIZCb+nQAmk3LFi8BUMQpDR1thhLpEqe7GiC//fhSMV2k/Shr9ODJR+/O373gx9HrCiaYDu23mGJn6hjWPkAprHkOMKytw2DXmvrIsN58VZB7E0NOsKCQmsfZ7/7pW2ogL8p2JWlCFwTdOQq69bQ+LV1B3dZWWnDPoDTLVVgHXzOhs8KfEiAPlL4IcLKhshALvimoWpyUwkRdUuw04OQmAs8znXP9TyS8a6aZeh8zO/Laj/fCrWhQIWs1xHLW7zoucY7hYG+9BT5na8GLMf01waqsOTQk0LjHZNjWdJd11ijpU7zhyjFGjGamlotXzx0hCX65QMZRoVd8B0FthTTKrXdPfsNuRNs5GDdGvcK2XN3b3xFr67mNF5ZSo+kEDvvYt7p/OxMXl839bfUhJV1NtZUFRL059dwC2EI2lUgZEAHgqeCTE5vXjpduq1ubAWSow86DJASlW5KlAKFY0tc+wpL7HxM5dFcY4lT8yT/qUezNDCoMFLYUpBejdiHBkscs2mP6hmDf3wfpmGEjEGFWx2sXja5KpM1cV/pvmEssWbuYjmfc3Is6FG3XUOF8a1U9k4YmD5YHhKFJelAIU1NeXu3VyMa7zeWTi26s59oOFhOQlzLnGQqp4EOHRUuknOCYTmBUE0fH3xotXD+eLN4kf01xWi9m6oeybGcKjkmsokP9t80s1CTrijIkXmXgqY+Cyw5pv6epnTglrNChVZ2yxBUKOcXS3zY8TcZfbxZQMZDJAbNEO3azawr4KYmB10goavAMrDeUBSLoYqcIfBbCt/MIrE9Lfd3V/Li6hI2NEBkHViEame5Bm4f71+kc4B+f2k3NCjY1dbUeaN43KaASwZtOIrbhAW/c5O30c75BJB17QbvCKiJ03kSAfrzKF3v8/A+l5onpfhKYY7GJ2E50RrrVj5FsSzhcDpVF1eXcqQoxFyS81+KN2fF2YtSLWoC4wPB0a+A99rU0DW9aFDlTd+me8VylHQh+J4ppoaKNrQ6SeQ0XR+SZIGerpFUPA1Z5p8ukh/Pi7c5yk/P+YxH/f7/X2x5/pkeed412jqpaBLOcVLbW0wRp2nI/Twq7p3CWrS5vMVxXOpIf4Vmvxfzl56CiODdUVSz4mGe+6SPGxqwxF9zuWcLISPwps8S8uzqFG08XAlXf1yLqi2nK7jNUxr0DlX6LREV+tTSpKDJNmKj3brX6yRCKaY8/wHjURIW
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Finish a login with a second factor (2.8 route)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/totp/verify-login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Kept for clients built against 2.8, such as Termix-Mobile. Verifies the pending login against the factor named in `factor`, or the user's first enrolled factor, the same way as /users/auth/second-factor/\{factorId\}/verify.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"temp_token":{"type":"string"},"totp_code":{"type":"string"},"factor":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login finished."},"400":{"description":"Token and code are required."},"401":{"description":"Invalid temporary token or code."}}}
+>
+  
+</StatusCodes>
+
+
+      

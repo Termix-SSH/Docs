@@ -1,64 +1,214 @@
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-color: oklch(0.165 0.003 128.73);
-  color: oklch(0.985 0 0);
-  border-bottom: 1px solid oklch(1 0 0 / 12%);
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-[data-theme="light"] .heroBanner {
-  background-color: oklch(0.97 0 0);
-  color: oklch(0.1802 0.0043 128.73);
-  border-bottom: 1px solid oklch(0.922 0 0);
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
-.heroBanner :global(.hero__title),
-.heroBanner :global(.hero__subtitle) {
-  color: inherit;
+.kicker {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid color-mix(in oklch, var(--accent-brand) 45%, transparent);
+  color: var(--accent-brand);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  letter-spacing: -0.03em;
+}
+
+.tagline {
+  margin: 0.25rem 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.lede {
+  max-width: 60ch;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
 }
 
-.buttons :global(.button--primary) {
-  background-color: #f59145;
-  color: #ffffff;
-  border: none;
-  border-radius: 0;
-  font-family: inherit;
+.primary,
+.secondary {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: 1px solid var(--accent-brand);
+}
+
+.primary {
+  background: var(--accent-brand);
+  color: #fff !important;
+}
+
+.primary:hover {
+  background: #f37e25;
+}
+
+.secondary {
+  border-color: var(--border);
+  color: var(--foreground) !important;
+  background: var(--background);
+}
+
+.secondary:hover {
+  border-color: var(--accent-brand);
+}
+
+.section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.sectionHead h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.sectionHead a {
+  font-size: 0.78rem;
+}
+
+.parts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border);
+}
+
+.part {
+  padding: 1.25rem;
+  border-right: 1px solid var(--border);
+  color: var(--foreground) !important;
+  text-decoration: none !important;
+  background: var(--card);
+}
+
+.part:last-child {
+  border-right: 0;
+}
+
+.part:hover {
+  background: var(--surface-dim);
+}
+
+.part h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.part p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.categoryTitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
   font-weight: 600;
-  letter-spacing: 0.03em;
 }
 
-.buttons :global(.button--primary):hover {
-  background-color: #f37e25;
-  color: #ffffff;
+.names {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.buttons :global(.button--secondary) {
-  background-color: transparent;
-  color: inherit;
-  border: 1px solid currentColor;
-  border-radius: 0;
-  font-family: inherit;
+.names li {
+  margin: 0.25rem 0;
+}
+
+.names a {
+  color: var(--foreground);
+  font-size: 0.95rem;
+}
+
+.names a:hover {
+  color: var(--accent-brand);
+}
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.platform {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground) !important;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  text-decoration: none !important;
 }
 
-.buttons :global(.button--secondary):hover {
-  background-color: oklch(1 0 0 / 10%);
-  color: inherit;
+.platform:hover {
+  border-color: var(--accent-brand);
+}
+
+.muted {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 996px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .parts {
+    grid-template-columns: 1fr;
+  }
+
+  .part {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .part:last-child {
+    border-bottom: 0;
+  }
 }

@@ -1,0 +1,69 @@
+---
+id: start-a-second-factor
+title: "Start a second factor"
+description: "Returns whatever the factor needs the client to have before the user answers, for a login waiting on a second factor."
+sidebar_label: "Start a second factor"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu20YQ/ZXBnFpgQylB0ANvTtEAToHWiFUYhSEUY3IkbkXuMjtDy6rAfy9mSVuq1RTIqSeJw7e7772deTxizVIl36uPAUv8zDqkILBvSPmRE2jDsKFKY4LAXEsuVK3noKARGnpkeOBNTJzfDMIJKMiekzjYxAQEbdz6AHvy6sMWYgAC4SqGet64QIdKW8HyHq8GbXDtsKdEHSsnqx7RG7eetEGHgTrGEqe11zU6TPxl8IlrLDUN7FCqhjvC8oh66A0rmnzY4jiuDSx9DMJi798tl/bzTw9+bKhtOWwZalIqcHT4fvn2EvdLhJ5DbaKyxBn5/hL5cTYwKnCgh5brbI02XrJjBY6jw461ibUJjaLoJr0lLgwhCxq0WUy+vZm0L47PHoyL6pkzOhROj8/GDanFEo9TaUT3itjvcUiw4tT5J5gw6PCRkjeS2aG5miVtaGgVS2xUeykXC80LC36irm+5qGKHY/ZYuBqS10Om8MCUOOWLLe/XoztiFePO83mFev8zH14qZ1vc2l1OVM43erla44LzldvzBEI3//kYU0fG+dPd6kL9LYv4GEDjjgOItbQPuY3tkJj8X2RIaJhqa2uBD3lToFBnWF6Yr/1c0gu3SRW6qX0nyKmB/9zrVxl9ulvBhAdhBVIQvw1vfCjgruEAfWKj68ArKO1YrFJxzaFiiM9z+28qMttzu7/Zyauba9jxAUQp5Ynee21Au6c/LuS8QL/d2h0fHOwbXzXTQXI6poBrBapUbNmMhbgP8+qKgg0aVWrvKRxiYOBWeJoyHzYxq/bamsy5+69urq31OclE/d0PxdtlsbyQtLL4s7Q7rSvgJ6oa6NvBcq6O1dBxUAGvYrQgxUFZsvE22R0FO3/uglsT9zoRX59qIxOUg/6fCT11ifKTLvqWfDA9OV6Oc1LdY04qdGhZlYPoLK3QYXmW2afAWjtsLPDKezweH0j4t9SOo5W/DJwsQ9anTMqJUnvJIWobtsL/YdZ3n+dPw/fwNQnPsxoOOfrawZ7Q4Y4P51+ZcX2e0De/3q5wHP8GCraBVg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a second factor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/second-factor/{factorId}/challenge"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns whatever the factor needs the client to have before the user answers, for a login waiting on a second factor.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"factorId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Challenge data."},"401":{"description":"No pending login."},"404":{"description":"Factor not enabled for this user."}}}
+>
+  
+</StatusCodes>
+
+
+      

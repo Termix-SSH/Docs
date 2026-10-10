@@ -1,0 +1,69 @@
+---
+id: check-ssh-session-status
+title: "Check SSH session status"
+description: "Whether the caller's Docker SSH session is connected."
+sidebar_label: "Check SSH session status"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVFFv20YM/isEX7oCFzkt+qS3bN0WpygQzCmCIQiGi8RYN0t36pFKohn67wPvZMdJlgDFXmSZ+nj8viP5bbEmrqLrxQWPJV42JA1FkIagsm1L8R3D51BtKMJqdQpMzC54cAxV8J4qobpAg2LXjOUVZiheG+xttB0JRY1v0enp3weKIxr0tiMscT5sWaPBSN8HF6nGUuJABrlqqLNYblHGPoElOr/GabpWMPfBM7F+/3h8rD9PdaxmnixWBi5wMvjpLdzys0rakShwmgx2JE2oscQ1CaogabDERd8Oa+ePbO8WdVK7YG4WuRAaZIp3O9FDbLHEbQ5NaJ4V/zMMES4odu4BMgYN3tno7E2btc3RRPvWDq1giY1Iz+ViISmxoAfb9S0VVehwSrfDVA3RyZgo3JCNFE8G5X51PZktViFsHB1GbO++0LiPHByx0i5kKocH7ZuiXHBulv7PIDTzy28hdlY5n11evFC/u3oJG/LA5AWcT4OnRUJ0/1hFQkO2pgiW4ed0KFhfJ1hKTK09lLTnllWhyaOXIY+z9/e9vMro7PICMh6YBKwAu7U/cr6Ay4Y89JGUrgEnIHZDrJGKavIVQbib1+e/VCS2h9f9wzd5cr6EDY062FGcX8O9kwake/jrhZw99MevdkOjgfvGVU0uxI9lClgK2EpY02YshHs/Z1fW+5AA+t36MXgCapnyTjl/G5JqJ63KnK3l5Hypo0+RM/UPxXFx/ELQV+vtmnZ2pNXOQ91Zr1Yk1nmKDMHDqGvVBBbOzVitTk3m34Y1m+QJnNKtZnJoKfWlDyyd9UpvHpJfGqo2T3xvv+ZPmOlSeSEv/8dB8xwIPciib63zSikZyHa2nit8tB5lkK3WIHOjz8zs2qBKV/R2e2OZvsV2mjSczVc9oXasDlNjeWtbpjfE/PTH7Ijv4TWKGxqfWfmdbQfFoTrJzs6y1zx66u+/XuA0/QuKTj3n
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check SSH session status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/ssh/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether the caller's Docker SSH session is connected.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session status."},"400":{"description":"Session ID is required."}}}
+>
+  
+</StatusCodes>
+
+
+      

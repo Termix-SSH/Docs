@@ -1,0 +1,68 @@
+---
+id: answer-a-verification-prompt
+title: "Answer a verification prompt"
+description: "Sends the code (or password) the host asked for and waits for the next step of the connect."
+sidebar_label: "Answer a verification prompt"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUtv40YM/isETy2g2Gmxh0K37KOotyga1C6CIjCKsURbE0szs0Mqtiv4vy84o9jeePewh+pii+Lj4+vjgDVxFW0Q6x2WOCdXM0hDUPma4AcfIRjmnY/1j0nceBYwvKUa1j6CcTXsjBVOb6rgaC/AQgH8enTkHFUywQLFbBjLR3zvqy1FXBYY6VNPLG99fcBySK82Uo2lxJ4KrLwTcqKfTAitrYzinD6xgh2Qq4Y6o//kEAhL9KsnqgSLC0ePyMRsvZvVisBLeOdr0tgh+kBRLHHyddI6u2OJ1m3weGF3/TE9GpGDd5yd/Xx7qz9f1vZdLgTVBaTKeWkoQoi+CzLRIG++ZjXPuGD2PhU7teUlu+RIazyCB8vgvKSOWLfJHUomo/831/4X5xYB7YO6HZV/+bpymoDa1imScbyjCNaB2E6jHAvsSBpfY4nBs/YiGGmwxGlo+411NybYaZ0GYMrcTMfYN1phLJApPlPUKRmwjy2WOGTREYtXYP7xfYQFxc7uIetggc8mWrNqX3qapCmNtelbwRIbkcDldCrJcEJ704WWJpXvtJVLRVD10cohQViRiRTves3gcXksBqy831q6lJhgf6fDSXLhYq7zmaFcOjqNkGLRnJMalqMSFuOfX33sjGL++LC4yv5lLsRvyQGTk9SFhkCD+Gj/S7sCDZmaIhiGt8lpmiJVS4ap1ZcpnbDlrLBAq9GyChboTEL6tJNvIvr4sICsD0wCRoDtxt1YN4GHhhyESAq3ACsgZkuskopqchWBf6b4zSwS2styf3cl7+5nsKUDsJiYVmRnpQHp9v9epXNS/f7SbulQwK6xVZMD8TnMBGYCphJWs1EX/M6N1pVxaa0qJVkw7uAdAbU8rpYS319nyvyQh/cVfb0w0yVrXVCZdWufKmdFTUcyhrv7ma4PRc7p/zS5ndxeFeUP48yGYLRRxPe+7oxTChFjHUUG7+Cgq6lEwbmh8/lvRa5B6zdcaFW0Aq5O9OTYt5mhlDE6k7h9HLS7TDAGnina9XgARtJ8jW4434v/+5DlqRPayzS0xjoFn+hqGOnuEc90pzjzxSuQucF0186ktyxQwajNMKwM09+xPR5V/KmnqDy0PPNaJh3Mo5coakuHfFw085uFIlP1ts9b/OpqKj2dCPr+z7kSy2q8vl0elWh2ekHNDkvEAn2qbiKxJBuwNW7Tm03igeRTn8/7wOAS
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Answer a verification prompt"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/ssh/connect-totp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sends the code (or password) the host asked for and waits for the next step of the connect.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","totpCode"],"properties":{"sessionId":{"type":"string"},"totpCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or another prompt."},"400":{"description":"Session ID and code required, or the session is not waiting for a code."},"404":{"description":"The connect expired."},"408":{"description":"The host did not answer in time."}}}
+>
+  
+</StatusCodes>
+
+
+      

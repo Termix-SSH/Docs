@@ -1,0 +1,68 @@
+---
+id: delete-user-admin-only
+title: "Delete user (admin only)"
+description: "Allows an admin to delete another user and all related data."
+sidebar_label: "Delete user (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVVFv20YM/isEnzZAkbOu24Pe3DUF0g1DsboIhsAYLhJtXXy6U49UHE3wfx94p9pu0jwU04Mt8T7yPpLH7yZsiOtoe7HBY4VL58KewXgwTWc9SICGHAmB8UFaijAwRTC+AeMcRHJGqIHGiCmxQDFbxuoWPzFFxnWBkT4PxPImNCNWU/q0kRqsJA5UYB28kBddMn3vbG2Ux+KelcyEXLfUGX2TsSesMNzdUy1YYB9DT1Essa4qJ286OkOyROu3eEiP8uA+eM7wV5eX+vd15kp5zrUBHuqamDeDc2OJhwJfv+Si24Jl+JIZhAi18T7Il8KNYYhMbjPH+fl5nD+DgBmkDdH++60IzrDkfswxXr9AX302YfBNwv3yLc7vjHXUnPVVa1ei1qgjaUODFeYVrbKRFitcKIYX2XyhH1ggU3zQJle3Ew7RYYVTNh2weLLn32GIsKLY2UfIGCzwwURr7lzuyGxNbDdmcIIVtiI9V4uFJMeSHk3XOyrr0GlX18qgHqKVMVG4IxMpLgclfLs+FBPWIewsnVtMb3+n8Wg5C/FRD1qmch7oeJqUi+acYFjNICzml3chdkY5v79ZPcv+IzHboKO0Iw9MXkAHqyVYzj1Phx5aMo2OFsObFDQNmcKSY+roeUpHbjkrLNDqbhmCBeZ5wPu9vMjo/c0KMh6YBIwA262/sL6Em5Y89JGUbgFWQMyOWC01NeRrgvBA8cUsEtvzcn93JZcfrmFHI7CYKNZvYW+lBeke/3mWzhH6/aXd0VjAvrV1mzfi0zYlXAuYWljdZiyEvZ+95wk1tei68WPwBOSY8iypgv110r6rfHi/1qqjRmnrNiEVyYqicB6W5YdrnRSKnDN99Wv502V5+awCq5agDpHg5FfClalb6N2wtR6aUA8deWGwwpoFxDAIcepTH1g6kwR3Jvb2JA3wQ74Ignfjj083nk4C/r9vjnw8hB5l0TtjvTJLujLNMnSbSseJw0mI1gW2gUWXp+nOMH2K7nBQ8+eBomrD+qQ1WQgwH4ckGzsascLfchYXKyWhcDfkyXpyJalkHFXy7dUfV6srPbnz5daFRr2i2WORfivEAkOqVZKWZJvQGb8dzDZNZ4qqz3+e2ZyQ
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/delete-user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Allows an admin to delete another user and all related data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User deleted successfully."},"400":{"description":"Username is required or cannot delete yourself."},"403":{"description":"Not authorized or cannot delete last admin."},"404":{"description":"User not found."},"500":{"description":"Failed to delete user."}}}
+>
+  
+</StatusCodes>
+
+
+      

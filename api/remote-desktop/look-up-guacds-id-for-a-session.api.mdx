@@ -1,0 +1,69 @@
+---
+id: look-up-guacds-id-for-a-session
+title: "Look up guacd's id for a session"
+description: "Returns the guacamole connection id for a connect request, once guacd has opened it. Only the session's owner gets an answer."
+sidebar_label: "Look up guacd's id for a session"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu4zYQ/ZXBXLYFGNtb9KRbutsW2RbbIOs2KAJjQUtji7VEajmjOKqgfy+GtGMnaQq0p54kkcOZ995wnkasiMvoOnHBY4E3JH30DFITbHtb2jY0BGXwnkoNAVfBJkSwxzWI9KUnFgPBl/lMBbVlCB15qsDJDH7xzZAyMjG74N8whL2nCFsSBuvBet5TnKFBsVvG4g5vqA1C8J54J6HDlUGmso9OBizuRlyTjRQve6mxuFtNK4OdjbYlocgpwCmZzkqNBr1tCQs8AL6q0KCCdpEqLCT2ZJDLmlqLxYgydBrMEp3f4qSpI3EXPBPr/jeLhT6eqrasCVxlIETwfdPAvnbNuRY+yFGPMxlmOBn8dvH2Zb6PQYDdNumnYZPBlqQOFRa4JUGTqRU475p+6/yF7dw8JskuqizZ/NSz+fhIfUIVMt4fZepjgwWOeUk3n+L4PfQRlhRb9wA5Bg3e2+jsuslyHFYTg43tG8ECa5GOi/lc0sEZPdi2a2hWhhanJOixlZ9U9ZznvKGPTdBEeGiOfucgNIeXH0JsrRb8cLt8Af1T1hgk7MgDkxdwPqmvRUJ0f9p0n2uyFUWwDN+lpGB9blI6mFpUhrBz9Ayb7dxPNKDJNy2HnO7aH3t5FdGH2yXkeGASsLnVF87P4LYmD10khWvACYjdEetKSRXpfIV7iq+ySGgzsP+o5OX1FexoABYbxfkt7J3UIO3D5xd0HkP/vbQ7GozOSFnnQnwqM4MrAVuqLfAx9mAWerq0XmfJlqL71g/BE1DDlIfE+U1IrJ00lNzs3EXg8vpK7y9FzhTezhazxQtiN++vDfz28V0quKTGkxwnlpXooEOxjmHPFE1GXjauWwcbKwMbnXyJ1vNGt7m2aiQpV6QyxMr5bepTF1ha6xXu4dL8HMIO+i77xhs+We2h+nOko1qakJf/g2/neyb0IPOusc4rxeQu48Gr7vDkVcmBz90KDZ6wosHiZNYrg3Vg0QTjuLZMv8ZmmnT5S09RfwerkyclU6sc63uFxcY2TP+g2lc3h//A1/Aah+O4+yFZX9PrFxrc0fDknzKtzk36x+/VkezTIXw2dAnr36YfxxyxVAuapsdqyZK00jT9BeItrUc=
+sidebar_class_name: "get api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Look up guacd's id for a session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/remote-desktop/connection/{connectId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the guacamole connection id for a connect request, once guacd has opened it. Only the session's owner gets an answer.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"connectId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The id, or null while guacd has not opened the session."},"401":{"description":"Not signed in."}}}
+>
+  
+</StatusCodes>
+
+
+      

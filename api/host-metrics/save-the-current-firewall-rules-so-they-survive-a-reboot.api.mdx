@@ -1,0 +1,69 @@
+---
+id: save-the-current-firewall-rules-so-they-survive-a-reboot
+title: "Save the current firewall rules so they survive a reboot"
+description: "Save the current firewall rules so they survive a reboot"
+sidebar_label: "Save the current firewall rules so they survive a reboot"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v4zYQ/SuDObUAI2e37UW3tEC72X4ZjYOgCIyCkcYW1xSp5YzsqIb+ezGU7XjXm8OiJ4mjR857nJmnPYpdM5aP+C6ywO8kyVWMS4OdTbYloaRf9+gClthZadBgsC1hia5Gg4k+9i5RjaWkngxy1VBrsdyjDF1GBaE1JRzHpaK5i4GJFfD2+lofNXGVXCcuaopFQ8B2S5CIey8Fjga//xLwNmytdzW40PVH2HeXsD8iUO0EbFURM0gEaQiayIIGYwLytLWKhZqCo7rAMvTejwZ/eI1eFdvWhhpW1nmqIYbTkQWOo/lsx52KUUDVp0RBYOUS7az3kHpPDJwZDcB92rotgYVETzEqvZakibXe+0Q3X3+Js873axeubOdmmvWqnar26aK1wa4p8eyYb7Z39TjrKLHLpzGl7bG6ffJY4n4Kjfi5hr9jn2BBqXXPMGHQ4NYmZ5/8VMtDNN/XyvZesMRGpONyNpO8saBn23aeiiq2OOZuYKr65GTIFJ7IJko3vUp8XI5mj1WMG0fnEdu5X2k4Rc6OuNO2m6icH3TqQuWCh+7U9QRCc3j5OabWKuf3D4sL9XfErA0icUMBWGvoppprkpjcv1MDNWRrSmAZfsyHgjaJwvLG3KLnkk7cJlVophmbIC9T9mEnrzJ6/7CACQ9MAlaA3TpcuVDAQ0MBukRK14ATELsh1khFNYWKIG4pvaoisz2/7q++yZv5LWy0r8UmcWENOycNSPv8z4WcE/Trr3ZDg4Fd46pmSsQvaQq41bEX1m0HLMRdOOyubAgxA/S7DUMMBOSZpiF2YRWzaideZZ7bI9zMb3UAdJSygDfFdXF9Ies3Heef5vcGWmpjGgzUjjcGAskupk1m8cv8XokLG+h8r/4UfXapaXxh0MnTueZcETWC1gYldmiP/2Evn7A91VfoWWadty5owmwM+4PzPOKL86DBc7u5XB79Bw0eKaHBMv80jia0nHbpyfv9k2W6T34cNfyxp6S+sHzxmewStWN9r7FcWc90IaKKQSho/33z1+HP9C2g+bK44/yFIduZ73WFBjc0TL+3cTmeufD8z7sFjuN/mcB9Ow==
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the current firewall rules so they survive a reboot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/persist"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Save the current firewall rules so they survive a reboot
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The save result."},"400":{"description":"Invalid input."},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

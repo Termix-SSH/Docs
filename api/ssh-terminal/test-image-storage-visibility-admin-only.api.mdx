@@ -1,0 +1,68 @@
+---
+id: test-image-storage-visibility-admin-only
+title: "Test image storage visibility (admin only)"
+description: "Reports which storage mode an upload would take for one of the caller's already-connected terminal sessions. Uses the bounded local-mapping probe only; it never opens new connections."
+sidebar_label: "Test image storage visibility (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlU1vGzcQhv/KYC5tgZXkfl02J6doEKcoakROjcAwihF3rKXFJRkO1/JG0H8vhruWVDs55FgdpBV3OHzn6+EOGxaTbMw2eKzxPceQssC2taYFySHRmqELDQN56KML1MA29K6BTBuGu5AgeIZwB7llMOQcp+8EyCWmZpiZ4D2bzA1kTp315EBYxAYvc/ggLGXbKvS+4QZcMORmHcVo/RpiCiuG4N3wCmwGzw+cIET2Ap63MLkurrDCTGvB+gavpnPwtsLEn3qW/Do0A9a78tcmbrDOqecKTfCZfdZXFKOzhtTb4l40FTsU03JH+pSHyFhjWN2zyVhhTCFyypZF31ovmbzhi+bEVnKyfo378lElEoOXccNPZ2f689/M/23FrqyzeYDMkiGx9C7PcV/hL1+y/9OKaJae5xWOcqbNP7/cfN501gMZwyLwlJZi/uuXznpD1mkJA6Tel4qpxDlqZB3nNjRYYwxSckO5xRoX0fVr62cU7UKknT3JXNiO1jybOmuhfrBC4fTASeu3wz45rHE3Lu2xeqblY+gTlCI/wmiDFT5QsrRyY3qn1RLFHfUuY41tzlHqxaLIeJzzI3XR8dyETkt0qwpMn2weioQVU+J03mskN7f7aocmhI3l0xWK9g8eDisnLpbaN6OUU0eH1lAtGnMxw3oywmp6eBNSR6r53fXVi+iXU5Fz2LAHYZ/BjhXRQ0Kyn0sPQ8vUcAISeF2cAvlmLJxuLJU+DemgbYwKK7R62miCFXoqSu+3+auK3l1fwWgPwhkog9i1n1k/h+uWPcTEKrfSUVZ0iK4YbtgbhqCj/bUoitrTdH9zJs8vL2DDA0imlHVotja3kLvHf16EczD99tRueKgO4KRC0adj5nCRgUwW3TbZQtj6abch70Mx0PfkB0UqO+FxxBRI748o+31s3ufoOSBHi3cXSppsVjtcLt/CExfh/PJCJ4aTjBH/OD+bn70s6/LtS2RPAdFKKpDobAYxidlX0Fqd6KGCjkwKUqKikedHN1M6G5ZNDhEoxlJaBUdHBblTn10pAAsoDlfQwxGP31Ohl14MPzzXvTtC/f98l43tnfkxL6Ij6zVNhYu7ia83eOSrTsAJYXV4Txmr/pSytxW2iuj6Bne7FQl/SG6/1+VPPScF3+0RpCPlcOz1wsQND1jjb2N2Z1eqUM1dP2Lj2fWpPDzcDJd/LZVkq+ka1gpgjYm2WJXvGrHCUCpYqFnWdujIr3sNoMbRp37+BYa0DQQ=
+sidebar_class_name: "post api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Test image storage visibility (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ssh-terminal/image-storage/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports which storage mode an upload would take for one of the caller's already-connected terminal sessions. Uses the bounded local-mapping probe only; it never opens new connections.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"instanceId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Visibility test result."},"400":{"description":"Missing terminal session instanceId."},"403":{"description":"Admin access required."},"500":{"description":"Failed to run the test."}}}
+>
+  
+</StatusCodes>
+
+
+      

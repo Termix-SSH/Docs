@@ -49,11 +49,12 @@ termix ssh <hostId>
 
 Opens a proper interactive terminal, the same connection the web app uses. Full colour, resizing, and Ctrl+C all work as normal.
 
-| Option                | What it does                        |
-| --------------------- | ----------------------------------- |
-| `--command <command>` | Run this instead of opening a shell |
-| `--path <path>`       | Start in this directory             |
-| `--tmux <session>`    | Attach to a tmux session by name    |
+| Option                | What it does                                            |
+| --------------------- | ------------------------------------------------------- |
+| `--command <command>` | Run this instead of opening a shell                     |
+| `--path <path>`       | Start in this directory                                 |
+| `--tmux <session>`    | Attach to a tmux session by name                        |
+| `--trust-host-key`    | Trust a host key seen for the first time without asking |
 
 ```bash
 termix ssh 3
@@ -61,7 +62,9 @@ termix ssh 3 --path /var/log
 termix ssh 3 --tmux deploy
 ```
 
-If the host's key needs a passphrase, you are asked for it.
+The first time you connect to a host, it shows the host key and asks whether to trust it, the same as the web app. If the key has changed since, you get a warning and have to confirm it yourself. `--trust-host-key` only skips the question for a new key, never a changed one.
+
+If the host's key needs a passphrase, or the host asks for a verification code or password, you are asked for it. Hosts that need a browser sign-in only work from the web app.
 
 ### It needs a real login
 

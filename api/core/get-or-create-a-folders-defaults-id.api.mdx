@@ -1,0 +1,68 @@
+---
+id: get-or-create-a-folders-defaults-id
+title: "Get or create a folder's defaults id"
+description: "A folder can exist only as a path on its hosts. This returns its id, creating the folder row when needed, so its defaults can be edited."
+sidebar_label: "Get or create a folder's defaults id"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu20YQ/ZXBXHrZUG5Q9MCb06atUxQ1ahVGIQjFihyLa5G7zM7QEkvo34PZpSXFTg65lQeJHL7ZeW9253HCmriKrhcXPJZ4DQ+hrSlCZT3QwbFA8O0IlsFCb6WB4MEJQxNYuIBl4xgiyRA9p7irDVSRrDi/BWnoeb0Y9rBvyIMnqqk2wCHha3qwQyucCm4IqHZCdYEGxW4ZyxX+Fljg5xmGa4ORPg7E8i7UI5ZTenSRaiwlDmSwCl7Ii76yfd+6yqq2xSOrwAm5aqizeidjT1hi2DxSJWiwj6GnKI5Y33rb0QWKJTq/xWO6lAP3wXOGvr260r/PO7k8af9Ou1Lg0eAPXwL+4Zi1WXOjtG6BWqMjaUKNJfaBEz8rDZa40NYvnvu2yGmMBpnik96VqwmH2GKJUw4d0byo+U8YIiwpdu4AGYMGn2x0dtNmTXM0sU2VsMRGpOdysZCUWNDBdn1LRRU67ctaGVRDdDImChuykeL1oKRX66OZsAph5+gyYnv3O42nyMUSd7pNmcrlQqf9UC6qOcGwnEFo5ptfQuyscv5wv3yl/o6YXfAgYUcemLyA8+mwapEQ3X/pyEBDVnfEMrxLi4L1dYKlxLSjl5JO3LIqNOi0WoagmU8UPu7lq4w+3C8h44FJwAqw2/o3zhdwr8PTR1K6BpyA2B2xRiqqyVcE4YniV1Uktpft/uZOXt/ewI5GYLExTffeSQPSHf59JecE/fbW7mg0sG9c1eRCfC5TwI2ArYQ1bcZC2Ps5u7LehwRIbuXH4Amo5XmadP7/OjvH+3x4z5N+mnDdtoeQGuREETgPyvXtjU4JRc4q3/5YfH9VXL1Sr5NfhUhwzivgva0a6Nth6zzUoRo68pIdM+w9xDAIcdojHfbO+gtiv5JAiNlVCezZVU7e6eqXJKazDf6vPD0fOaGDLPrWOq+Kk1dNs72tsMlu97wIGny2uLXJL8sVTtPGMv0d2+NRwx8Hiuo667OLZYvBfNCSIe1oxBJ/yn15s1QqCm+HPLMvPhVqRicHvv3zTm1kM39yulBrTrR7NOm3RDQYUu+TZaXYhK3128Fu09SnNfX6BOBYlMk=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get or create a folder's defaults id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/defaults/folders"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A folder can exist only as a path on its hosts. This returns its id, creating the folder row when needed, so its defaults can be edited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The folder's id."},"400":{"description":"Missing folder name."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: bring-a-wire-guard-interface-up-or-down
+title: "Bring a WireGuard interface up or down"
+description: "Bring a WireGuard interface up or down"
+sidebar_label: "Bring a WireGuard interface up or down"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVlv4zYQ/iuDeWoBxnaPJ70li3ab7WVsEgRFYCxoaWIxlkguObKjCvrvxZCK7cS7QFcvNuc+vxmQ9SZi8YC/ucjwJ3EwZcSVQq+DbokpCHdAY7FAr7lGhVa3hAWaChUG+tyZQBUWHDpSGMuaWo3FgNz7JGWZNhRwHFdZmiJfuaoXkbfKpbNMloWlvW9Mqdk4O3+KzgrtzLZbP1HJqNAH5ymwoShccRkedUknopGDsRscFepSjJ6zFJLtWilF51Fh5fYWV2P6JPDonY3Z/o+LhfxUFMtgfLaGl8ksBIpdwzNx9PPip3OxvxxQZRh0WVKMwA64JqhdZAUuADW0S0lDRdZQNUPx/trElYQLGu5NoPedDhUcEobOi5UUu8KWuHaV9M3FVCVpX4Fz33QbYy+0N3NxfNHmrr9+tNrqDYU435tAG3EzH0w1zqfyKYwUdi/T0YUGCxwyacS3Ef/jugC3FFrzDFkGFe50MHrd5JJO1FSuR901jAXWzD4W8zknxRk969Y3NCtdi2OapkhlFwz3KYQ16UDhspMUH1ajGrB0bmvolKK9+Z36A+XExI2MVg7l1NBhRiQWnKZb3lkI1fTnVxdaLTF/uL89y/6GYpSOstuShUiWwdjUdnHigvk3d7wmXVEAHeEqGQVtqySWFNNInaZ0iC1nhSrvaBY5bunTnr8a0Yf7W8jyEIlBM0SzsRfGzuC+Jgs+kISrwDCw3lIUSkkV2ZLA7Sh8NYsU7Wm5v7mSl8tr2FIPkXVgGfi94Rq4ff50ls5B9NtLu6Vewb42ZZ0dxaObGVzLmnIUtUkW3N5O2qW21iUB4WvbO0tATaS8soJZH49o90se3jfodISeF1AS7Bmlk48u1cywKL0CZ7hcXsv6UIhZ5YfZYrY4K8ofZkfwbnmnoKXWhV5BZeJWgSXeu7BNObxf3knaHBX4phM0ck3CpLz80MveCirE1E+BkVYn6JyG639D0avYDrPA9Mxz32hjxXwCkWFCqQc8ohQqPIWm8+cLVqHCA1qhwiJdqKm0q6wllodhrSPdhWYchfy5oyAYsjpiUkKUykT5X2HxqJtIZ0kcrhV+93E6ZN8Dqi8n97Krtk/Q13TyQoVb6vMpHVejwjynyXtmvMs+Lm5F/ah4dh0Fyw5wv/z7RlBoPV3Z1lWiE/Re7rXeZ8cu5ZEQL9EGbLTddHqTQCPZlO8/qz/Oyg==
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Bring a WireGuard interface up or down"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/wireguard/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Bring a WireGuard interface up or down
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"interface":{"type":"string"},"action":{"type":"string","enum":["up","down"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Action result."},"403":{"description":"No edit access to the host, or elevation denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

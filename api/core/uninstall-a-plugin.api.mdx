@@ -1,0 +1,70 @@
+---
+id: uninstall-a-plugin
+title: "Uninstall a plugin"
+description: "Stops the plugin, drops its tables, settings, secrets, grants and files, and removes it. A plugin that ships with Termix keeps its files in the image but is marked uninstalled and never loads again until it is installed from the Plugins tab. Refused while a running plugin depends on it."
+sidebar_label: "Uninstall a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVd9v2zYQ/lcO97QBmuJ1xYDpLUMzIN2wBU2KYMiC4iyeLc4SqfJOcVxD//twlJy4NTKs73sSdfzu18fjxz06ljr5Xn0MWOG1xl5AG4a+HdY+FOCSWbwKKC1blgKEVX1Y51WdWKWAdaKgAhQcrHwG2TJxFx/YnEs4nwOCNqQgje8Ftl4buOHU+UfYMM9pcgDISAbf0ZphOSh4gY7Shh0MwQdRalt2OU3gB07QRnICtCYfYAjqW/DZ6Rm7SrHLQa9yJbmhEt7xahB2sG18y0CQhhB8WB/KddxzcAIxWBt/BSxQaS1Y3eEcBu8L7ClRx8rJNvbojcqetMECA3WMFXqHBSb+OPjEDitNAxcodcMdYbVH3fWGEk0+rHEc7w0sfQzCYvuvFgv7fH5Yt0bllmQm2pU4Fvh68cMp8qZhqI2FBC3VGwFynQ/l1KOUHQVa8+z++tT99wgy1M3MyYz76RT3hzacvmBQZgonBguICaZ0DpY7IGh9sEMVTg+cShzHAjvWJjqs0HHLylhMXFZ4Noc823s3YoGT08T5kFqscD+ZbPPz0v6MQzrM2oTBAh8o+TzU1spszU2taGgVK2xUe6nOzjQ7lvxIXd9yWccOx3xIwvWQvO5yCUumxOl8sFrv7sdij3WMG8/HFur9r7x7shyFuLZhmEo5DvQ0G1YLzjNj/xMIi3nxS0wdWc1vb29Our9mER8DaNxwAOGghwtmSWLyn8iQ0DA5TkACP+eg+X4ZLDvmgz9u6am2qSsspsmfIM+z//dWX6zo7e0NTHjTFTBt8OvwnQ8l3DYcoE9s5RZ2m5U2LGap2XGoGaJd/Je6yNUe0/3VTJ5fXcKGdyBKyRRvEiztHj+ctPME/XpqN7wrTH3qZkokz2lKuFSg2pRVDliI2zB71xRCzADbp7CLgYFb4eka+bCKuWuvrbU5T//51aWNPieZSn/1Y/n9olyctJQ1IyaGZ78SLuhJBsDFeujYdN9kO24DpDgoSya+j6IdBcs/T8H7g2wDzRG+TGn3JSgH/f8h+m8P0TTOyo961rfkgxGfdXA/K+YdzoqJBVbe2VPVRFHb2O+XJPw+teNo5o8DJ1Ox+2dVzJrmvNjaYbWiVvhfTuybd/Pr9i28VNtBLcIui2872B8WuOHd9ESO98fy/+bit4ubCxzHfwCwVAHz
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Uninstall a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugins/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops the plugin, drops its tables, settings, secrets, grants and files, and removes it. A plugin that ships with Termix keeps its files in the image but is marked uninstalled and never loads again until it is installed from the Plugins tab. Refused while a running plugin depends on it.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was removed."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin."},"409":{"description":"Other running plugins depend on it, or managed by a linked server."}}}
+>
+  
+</StatusCodes>
+
+
+      

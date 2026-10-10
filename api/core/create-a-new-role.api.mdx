@@ -1,0 +1,68 @@
+---
+id: create-a-new-role
+title: "Create a new role"
+description: "Creates a new role."
+sidebar_label: "Create a new role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv2zgM/isEn70kG3YHnN/SYQO6A+6KNkNxKIJBkdlYjSx5Et3EM/LfD5S8xGvWh/klDvWR/EiRnwesKOpgWjbeYYkfAimmCAoc7SF4SzMskNU2YvmAt1fLD7guMNC3jiJf+arHckh/TaAKSw4dFai9Y3IsR6ptrdFKos+foqQYMOqaGiVv3LeEJfrNE2nGAtvgWwpsKMqpUw1NUJGDcVs8FliZ2FrV//Pq+bSki/P0SA2x9S7mVO8Wb+Xn517cekugU0MqiJ3WFONjZ20/kyTvF4tLl2v3rKypYGwQbHz1A/3XJXqZGgx7wzVwbSJIxaBsIFX1QAcTOSbvP36V65MylipgP3Icb0tqa4hrX2GJrY+pr4prLHEeNkrPBRaxwEjhmYLc64BdsFjikE1HfNFC/M93AVYUGnOAjMECn1UwamNzA0drIvmoOstYYs3cxnI+5+Q4o4NqWksz7Ru5hLUw0F0w3CcKG1KBwrITpg/rYzGg9n5naGpRrfmb+pNlEuJOZipTmQY6Xb5wkZoTDMsRhMX48smHRgnnz/eri+rvKEbjHbDfkYNIjsE44JpAkvhgvqf5hppURQFUhKsUFJSrEiw5pouclnTilqvCAo1kyxAsxvHHpz2/yujz/QoyHiIxKIZotu6NcTO4r8lBG0joFmAYWO0oikVTRU4T+GcKr1aR2E7b/dudXN5cw456iKwCG7cdx7w5fL0o5wT9/dbuqC9gXxtd50TxnGYG1wxKcxS3EQt+70ZvrZzzCSDnyvXeEZCN4wqJWN2eZe5jHt6zLP2QkxdqNDH/VOJZnIx79KmdhiUejmu1vLmWnaIQs8O7P2dvF7PFRaBVTaB9IDj7zeCj0jW0ttsaB5XXXUOOIxiOUi8E3zFlIRE9aJSblJEFf6L3LzMOZzl/7euQB4PpwPPWKuMkU1KUYVSeBxTlwQKz9qwLrEWYygccho2K9CXY41HM3zoKIgfrs7zk3cc8AUkpdtQLl8zqzUqyC9x2eZlefHBEJU56ePPvnez3ZvxwNb4Sn6D2wk3tsUQs0KfKk5Yk24BWuW2ntmkdU0x5/geTj345
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new role.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"displayName":{"type":"string"},"description":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Role created successfully."},"400":{"description":"Invalid request body."},"409":{"description":"A role with this name already exists."},"500":{"description":"Failed to create role."}}}
+>
+  
+</StatusCodes>
+
+
+      

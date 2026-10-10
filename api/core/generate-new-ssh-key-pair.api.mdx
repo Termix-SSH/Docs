@@ -1,0 +1,68 @@
+---
+id: generate-new-ssh-key-pair
+title: "Generate new SSH key pair"
+description: "Generates a new SSH key pair."
+sidebar_label: "Generate new SSH key pair"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu2zgQ/ZXBnBnbW2D3oFtatNt0DxusvQgWgVGMpanEWCJVchRHFfzvi6EUW4lbFNXBFoZvOG8eOU8DFhzzYFux3mGGf7LjQMIRCBwfYL3+CHvuoSUbFmhQqIyY3eO7wAU7sVRH3BoM/LXjKG990WM2YO6dsBN9pbatbU66/fIhao0BY15xQ/omfcuYod89cC5osA2+5SCWo67uud8kwAkYJVhX4tHo2tp+m69ZJ1xy0MWWYmyrQPF7uelRyrH1Lo6V3qxW+vdSi03FSYNz/0eDv38P+YFszQWIh3LS75VwWrBhqXyBGbY+pl5JKsxwmZ+lXD6nX+25v9JUNBg5PHJQ1QfsQo0ZDmPoiOYVj/98F2DDobFPMGLQ4CMFS7t6bHSKpg6+UFcLZliJtDFbLiUlLviJmrbmRe4bFWurDPIuWOkThR1T4HDdKfn77dHoafu95XmEWvsX96fIbIu1Hv1IZb7R6ZCUi/acYJhNIDTTywcfGlLOn+42F92vOUbrHYjfs4PITsA6kIpBi/hgv6VrCBVTwQEowtu0KZArEiwlplOet3TiNnaFBq1WGyFo0FFi+nCQHzL6dLeBEQ+RBUgg2tJdWbeAu4odtIGVrgErILTnqJFcr0XO4B85/LCLxHYu9y8reX17ky5qFApiXQkHKxVI8/T5op0T9Nel3XNv4FDZvBoLxXOZBdwIUC5R0yYs+IObsnNyzieArpPrvWPgOvI4Veop/5zd5/14eV+4x/Pkz0xj9dIjZr5i3RefVLSi2+A0Tde3NzpKHOIoxZs/Fr+tFqsLidQzch8YznkLeE95BW3dldZB4fOuYScRrERtE4LvhGM6SHWGhpJHTrfq2Y8vzPh15Znp/tzER1mEn2TZ1mSd1k7WMkyudI8zV0KDl760NVipj2X3OAw7ivxvqI9HDX/tOKhVbM/WM/oCjrcjuciee8zw3Uj5Kp2TwutuHLRX3wx1kJN93v691tnfTd+axheaE+iAJv1miAZ9kiX5TIoNWJMrOyrTqKY99fkf/sBqyg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate new SSH key pair"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/generate-key-pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a new SSH key pair.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"keyType":{"type":"string"},"keySize":{"type":"integer"},"passphrase":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new key pair."},"500":{"description":"Failed to generate SSH key pair."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: find-this-servers-id-for-a-synced-host
+title: "Find this server's id for a synced host"
+description: "A desktop presents a host by its sync id; this returns the matching host the caller may connect to."
+sidebar_label: "Find this server's id for a synced host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDubQFGNtb7Ek9ZYtukV1gsWhcBEVgLMbSxGQtkVrOKIlq6L8XJOXYaZoCe+lJ0vCRfG8+ng7YsNTR9eqCxwovoWHZa+ihjyzsVYDABlHYjuBUQEZfg2t+ArVOILIO0QuoZehIa+v8rsBTpKa25QgdjVAH77lW0LBAg0o7weoWfw5tS1vcGOwpUsfKMcUP6BKXntSiQU8dY4Xp4qsGDUb+OrjIDVYaBzYoteWOsDqgjn1GanR+h9O0SWDpgxeWtP7japUezxWvLRfGrlngZPDt6s1L0KegIG7nuQHnZ9jbf4NBZKotbdv50AenFtSSHhO3wGky2LHa0GCFO1Y0RWmFy74dds5fUO+WwiIu+AuxlNQsO2Z1fneRTl0eSjImNCgc749ZG2KLFR5KKC0+Z/dHGCKsOXbuEQoGDd5TdIluTtAczbruaGgVK7SqvVTLpeaNC36krm95UYcOp5xi4XqITsdMYcsUOV4OSc/tZjIHrEPYOz6PUO8+8vgUOTviOpWyUDk/6KmyiQvOFU/fBYRmfnkfYkeJ84eb9Qv11yWhoGHPHlJrg/O5TdMlIbq/KCHBMjUcgQTe5UOBfJNheWOu/bmkJ25FFZrSuwVy6t4/H/RVRh9u1lDwIKxApdUunF/AjWV/nEQDTkFpz5IiNTfsa4Zwz/FVFZntebq/OZOXn69gzyOIUkz9Nzd09/jlhZwn6Lends+jgQfralsuktM1C7hSoDr5kByxEB78vLsm70MGpHXyY/AM3AqXOXP+LmTVTls+S/l1mSq4/HyVZoCjFA1vFqvF6mWhLEWG1t2nAuUDJNlh6/weQixcyQe1HGEQjiZTm8t22qIBCHYxDH1KzzzQEEPoJBeqD6Id+cR37pr3LifIyTyv3wm4Bu5CBMp+wk12mX8STkPnlb3+f4Zeukr5UZd9S84nPdmODrO53eLJ3LJtPbM3TJZ4Mjg0WM1+vzGYI9UtHg5bEv49ttOUwl8Hjsl0NicTyxbUOEnvDVZ31Ar/R26+/23+lfwAr2k4Drcfs1e2Q/pCg3seT/+kaXNu6b/+ssZp+htQ/Yv7
+sidebar_class_name: "get api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Find this server's id for a synced host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/session-sharing/meeting-host/{syncId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A desktop presents a host by its sync id; this returns the matching host the caller may connect to.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"syncId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The host id."},"401":{"description":"Not signed in."},"404":{"description":"No reachable host with that sync id."}}}
+>
+  
+</StatusCodes>
+
+
+      

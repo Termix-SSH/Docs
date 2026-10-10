@@ -1,0 +1,68 @@
+---
+id: link-a-desktop-to-this-account
+title: "Link a desktop to this account"
+description: "Trades the short login session the desktop just signed in with for a long-lived desktop session, which shows in the account's sessions list and is revoked like any other. The login session is ended."
+sidebar_label: "Link a desktop to this account"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v40YM/SsEL70osjctetAtW2yBbItt0LgIisAoxiPGmkia0Q4pO6rh/15wpDiKjT3stT4YAsWPx0fy6YAlsY2uExc8FriKpiQGqQi4ClGgCVvngYnZBZ/sJXEtoYPnngXYbT2V4DzsnVTwFCIYaILfXjVuR+XJeUqQwb5yttLce9YoTWisDb2XH/jVi6FxLGB8CY4h0i7UVELjagLjBwhSUcxhVdEZOsdAvqQyxwzFbBmLR7wfvMV1hpG+9sTyMZQDFge0wQt50UfTdY2zRglYPLOycEC2FbVGn2ToCAsMm2eyghl2MXQUxRHr25J2ztIX09LMlyU6v8Vj+mll7oLnMeB6uRzj3pE+Y/XEdKjJJwpmFIET2JDSyyAhx2OGPy0/XCb8EmaTmdx+vHS7ubuFmgYGa7wPAo3zNZhXKDkq+pakCiUW2AVO/RupsMAFD94udtcLjcEMmeKOojJ+wD42WOBhNB0xO6v6d+gjrCi27gVGH8xwZ6Izm2YkabImvE+mbwQLrEQ6LhYLSYE5vZi2ayi3oVWi14rA9tHJkCBsyESKN71ifVwfMx14qB3NLaZzv9FwssxS3Ov0RyjzRKcBKxbtOblhMTlhNj38GmJrFPPnh9VF9/fv5sukQx3PQIuE6P5NmwgVmZIiGIaPKelpFVJgmum8pRO2sSvM0Gm10QUz9GlF8Xkv30T0+WEFoz8wCZhxha6cz+GhIg9dJIWb6RKKqYnVYqkkbwnCjuI3u0ho53R/N5PTpgKLieL8dlQbaV/+uWjn5Pr91NY0nARKC/FbmRxuBYwV1rDJF8LeT9HTARkr+t74IXgCapjGI1JZ+fNNgD6Ny3suICfh0OE9hUSTE/XD6Vxu7m71Vijy2Ov1z/mHZb684EAFxYZI8BaXwydjK+iaXhWzDLZvyQuDE9Y+IIZeiNOk9NJbk3RwWpvf3wkDSACpHL+q0nn5mbr+j74n48IKvciia4zzylRSusOkiY+omqjzucYMky6uM6xUNotHPBw2humv2ByPav7aU1SpWr9J36hLOG5nUrGaBizwl5HMq5UiUPemHw/97LOlCnZS67s/7lV7NtPnrg2lxkSzxyz9F4gZhjSwpHPJdsDG+G1vtkkqUk79/Qd37dZX
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Link a desktop to this account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/link"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Trades the short login session the desktop just signed in with for a long-lived desktop session, which shows in the account's sessions list and is revoked like any other. The login session is ended.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"deviceName":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The desktop session token and the account it belongs to."},"401":{"description":"Not signed in."},"403":{"description":"API keys cannot link a desktop."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: connect-or-disconnect-tailscale-on-a-host
+title: "Connect or disconnect Tailscale on a host"
+description: "Needs edit access to the host."
+sidebar_label: "Connect or disconnect Tailscale on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVW2P2zYM/isEP22A8rKXT/52LTbsOqA7NDcchkMwKBYv1sWWXIlOLjP83wtKTpw2u6L1F9vSQ4oPKT7s0VAsg23ZeocFvicyEchYBl2WFCOwB64IKh95jgpZbyMWj3ivbR1LXROuFbY66IaYgmz1aMVTq7lChU43hAVagwoDfexsIIMFh44UxrKiRmPRIx/bhHJMWwo4DOuMpshvvDkK5Evj0jsmx7Kl27a2pRYKi+coPPpr337zTCWjwjb4lgJbism2zMzPuMjBui0qJNc1wrRrUaHxB4frIT0SWmy9i9nDz8ulvD7P401yC4FiV/McB4W/Ln+5hr33r+VagQ9ANe0TLTDkLJk5yukNceWNpNjHREgyXeCirbutdTPd2gWfqrMQX7OGONgyzhrt9JbCordmWIzMFUYK+1PpulBjgX1eGoT4Z/H+47sA9xQa+wIZgwr3Oli9qXM2xtXE9El3NWOBFXMbi8WCk+GcXnTT1jQvfYNDKnWksguWjymEDelA4aYTUo/rQfVYer+zdLmiW/snHc8rFy5WUvccyqWjc3klFhyvnvxnEKrx43cfGi0xv3u4v2K/ohilGOx35CCSY7AuVUwO8cH+l4tVkTYUQEd4k5yCdibBkmG6DZeUzrFlVqhyA2XI1ELPB341oncP95DxEIlBM0S7dTPr5vBQkYM2kISrwDKw3lGUlZIMuZLA7ym8yiJFe5nu787kzd0t7OgIkXVg67ZwsFwBNy//XtE5Q78/tTs6KjhUtqzyQXE6Zg630mEcxWzEgj+40brUzvkEkH3tjt4RUB0pd5sIyodJin7Ll/dSOkQhBinak0/psSz7k0LCzd2ttAmFmPE/zZfz5TV5Y0D61hGDob0tKQUsDRxzoN45KjkTm7yvVn+kIokaNDpJ2Xhj3o4GPoCx8WQ+WXoHOvn/MpZ+UtdvmAj5OjC98KKttXUSTNKRfpSmR5ykKY2Q0+hQ+H/yhAqLNC/GBK8zTPz0/UZH+jvUwyDLHzsKIhrrSYSShBgb5dtg8aTrSF9h98OHcaz8CK9ROTWnOyatqzv5Q4U7OubBNqwHhfliptPzxtt8xuxezCfDq1kl4nVW9Lu/ViI7m3HmNd6ITdAHmZ76kA/2iUeSuLTWY63dttPbpBLJpzyfAHAQtfo=
+sidebar_class_name: "post api-method"
+info_path: api/tailscale/tailscale-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Connect or disconnect Tailscale on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tailscale/host-metrics-manager/{id}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs edit access to the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","enum":["up","down"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Action result."},"403":{"description":"No edit access to the host, or elevation denied."}}}
+>
+  
+</StatusCodes>
+
+
+      

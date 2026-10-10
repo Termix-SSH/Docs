@@ -1,0 +1,70 @@
+---
+id: reset-a-host-to-its-defaults
+title: "Reset a host to its defaults"
+description: "Hands keys the host set itself back to its host defaults. `all`, or `namespaces` ('core' or a plugin id), or `keys` as 'namespace.key'."
+sidebar_label: "Reset a host to its defaults"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv3DYQ/iuDOSWArHXTogfdnCZFnAKtYbswCnsRz0rjFb0SqZAjrzeC/nsxpPbhOC7gW3WRNA/O6+M3A1YcSm86Mc5igZ/IVgFWvAkgNUPtgkBgASOBmztYULkCcfqbdBXfUd9IyOGWmuY2A+fh1lLLoaOSwy28ucHSeb5B1RB0Tb80Fkz1NplqpFugADe488pXvLnBHDMUWgYsrvGThvowhcJ5hh15alnYq3pAo6l3JDVm8Rgs0FSYoeevvfFcYSG+5wxDWXNLWAwomy5aWeElexzHebLmIO9dtVGT751LZ4WtqIq6rjElac9m90EbNzw/2y3uuRTMsPOuYy+GQ/RtmgOjhXMNk8Ux29cfDvTkPW0wQyPcHsqDeGOXOI4Zagtf4xEfrTZ0zoYU7d3xsb6eYuGcA0uuqf3yI/WfTmpjlwoHf2D5848sgSsjQGXJIajDFlt5rKBlqV2lI3QhNkwnWeBMLWbVIr0HU42zGOhoCzrMMLB/2KKg9w0WOCTRiNl3Wfzjeg+X7FvzCMkGM3wgb2jRpC5M0ph/jIAF1iJdKGYziY45P1LbNZyXrtVWzjWDsvdGNjGFBZNnf9Jr/tfzMRuwdG5l+FBCnfmDNzvJwREXCqGUyuFBuxFqLjihOIInGmE2ffzufEua8+ery2fVX3AIxlkQt2ILga2AsXEOGsR58y3CGWqmir3eyPfxUCBbRbPoGGd8WNIedrEqxZ1GSyb723i/lhcz+nx1Cck+Mg0JBLO0R8bmcFWzhU6HbiUDIyC04qCSkiu2JYN7YP9iFTHbw3a/upMnZ6dKhhCEvCjY10ZqkPbxy7Nydqavb+2KNxmsa1PWKVDYh8nhVO+NBHWbbMGt7eRdkrUuGqie7MZZBm4Cp4ul3HS+Z7WPCbw7Fkq8dsg711uamG95ZS8ZdbZ3LnbRiB6D0206OTvVq8Q+pFa8+zX/6Tg/ftaiy5pBlwHs/XL4SGW9XQuVK/uWrYS4YNzagne9cIiDVHJoKXLthKpIUEBpE01b6YAbngQf9vz9f1tyCZLCjzLrGjJxGUQuGyYmvMY6EWO1wGz7XUwb7gkhzid1cY3DsKDAf/tmHFX8tWevHDXfc15krMoE/a6wuKMm8H907c35tBDfwktZb7nAbiK1Nr3+YYRSWsmjoijdgxg9KX5LMY4u1X3v+GzLKlfudsXZXxfKcotpW7euUh9Pa+0KrVNgF+uIjBplAzZklz0tIynFM/X5F7AkGb4=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reset a host to its defaults"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/host/db/host/{id}/reset-defaults"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Hands keys the host set itself back to its host defaults. `all`, or `namespaces` ("core" or a plugin id), or `keys` as "namespace.key".
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"all":{"type":"boolean"},"namespaces":{"type":"array","items":{"type":"string"}},"keys":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Reset."},"400":{"description":"Nothing to reset."},"403":{"description":"No edit access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

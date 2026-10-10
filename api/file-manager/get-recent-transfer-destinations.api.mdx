@@ -1,0 +1,69 @@
+---
+id: get-recent-transfer-destinations
+title: "Get recent transfer destinations"
+description: "Retrieves recently used host-to-host transfer destinations for a source host."
+sidebar_label: "Get recent transfer destinations"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v40YM/SsETy0wttNie9EtCzRbb7FAsHERFEFQTCTKmno0ox1SdrSG/vuCGiVx87HAHnqSTT2S75EzT0esiMvkOnExYIGfSZKjPTEkKimIH6BnqqCJLAuJC32CJBu4pgQVsbhgNZehjgkscOxTSRN+iQbFbhmLG7xwnuCTDXZLCW8NdjbZloSSvj2i095fekoDGgy2JSwwV/ojsqwrNJjoS+8SVVhI6skglw21FosjytAp3gUhrT6Ot4rmLgYmVsCvZ2f6+K/Sc/COBWI9K31d1RJHg+9ey1+HvfWu0vGkdQUxwSnhKe+31/IurPNUgUSoScrmofuzpqPBlqSJFRa4JUGdmDRY4Krz/daFhe3cqnaeFm0e6uqB/iIXRINMaf8w4D55LPCYQyOaZ6T+jn2CDaXW3UPGoMG9Tc7e+TzDOTrJqW3vBQtsRDouViuZEpd0b9vO07KMLY7TFpjKPjkZJgp3ZBOl815l3NyO5ohljDtHpxHbuT9peIyclLjSdWcqp4Uet69ccD4V+j+D0Mw/LmJqrXL+eL15of6KmF0MIHFHAVjX4QJIQ6BNYnJfp71AQ7aiBJbh/VQUbKgm2JQ4rfxU0iO3rApNPuYZ8nTO/z3Im4w+Xm8g44FJwAqw24aFC0u4bihAl0jpGnACYnfEGimpolASxD2lN1VMbE/H/cOTPL9cw44GYLFJXNjCwUkD0t7/80LOI/THR7ujwcChcWWTG/FTmyWsBWwprGkzFuIhzNmlDSFOAH1vwxADAXmmfL1cqOOk2olXmacOBeeXa70AlDgL+GV5tjx7Iet9igcmA1Q5mVq2cU+gt5Lz8K8uNpcGXCh9X+mEWJJ120agTrEF5ZOvlbqBDVGaeS9dZGltUHrzIflA8l2fes5NL1cQ9YH/wdPzORG6l1XnrQtKeTKY4+xSN/jkUmjw1Kc0/5lT3RrU0pp2PN5Zpr+SH0cN5y+CmkflWK2owqK2nuk7an/6PH8ofoa3uO5oePl92VvfKxTVdR6sL/vSkxV/+H2D4/gNtAyEEQ==
+sidebar_class_name: "get api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get recent transfer destinations"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/file-manager/transfer-recent"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves recently used host-to-host transfer destinations for a source host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"sourceHostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of recent transfer destinations."},"400":{"description":"Invalid userId or sourceHostId."},"500":{"description":"Failed to fetch recent destinations."}}}
+>
+  
+</StatusCodes>
+
+
+      

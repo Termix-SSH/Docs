@@ -1,0 +1,68 @@
+---
+id: create-a-snippet
+title: "Create a snippet"
+description: "Create a snippet"
+sidebar_label: "Create a snippet"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu20gM/RWCp11Asd1iT7qli10gLdAGTRZBEQQFPWKsiaWZ6QwVWzX87wuOZFuJ00N9sGWSQz6+IZ92KLRKWN7jjbMhsCR8KDDyj46TfPBVj+Uu/7WRKywldlyg8U7YiboohMYaEuvd/Cl5p7Zkam5Jn6QPjCX65RMbwQJD9IGjWE7qddTyJCpJtG6F+xf5z3wVJxNt0IJv+h99U3F80+XjS491wiuO6rLps5cpmKX3DZPDVwXxrmYHmQWQmiENpIFNQOC8MPxhfOjngZIweNf0hZqhspGNND3wlk0ntGzUCwS1T/LnDPf5o8Sn4F0a+Hm/eKc/LwGM1wQmMglXM0X/12JxHviZWgZyFYxsAkWGw01qxdet/Z0zAh2awgJbltpXWGLwKd8fSY0lzkPTray7oGDn6TA2BSaOzxx1mHbYxQZL3A2m/RmN33wX4ZZja7cwxGCBzxStMpObH625rUfqGsESa5GQyvlc8sEZb6kNDc+Mb5XAB0VgumilzxCWTJHjZaeQ7x/2xQ6N92vLUwsF+4n7o2WS4kaHeIAyTXQcEMWiPecwHZgchMX48K+PLSnmj3e3Z93fcErWOxC/ZgdJL8e6PE9axEf7My8U1EwVR6AEH3LSfJ0alg/OhlU5tXTENnSFBVqtNoRgMe4bPm3kl4g+3t3CEA+JBUgg2ZW7sG4GefJDZIVbgBUQWnNSi+GKnWHwzxx/2UVGO6X7t5m8vL6CNfeQhKJYt4KNlRqk3X4/a+cY+vvUrrkvYFNbUw+F0qnMDK4EyEjSY2Ms+I0bTxtyuupkRP3keu8YuEk8LJuq49eTrv4zDO9JBw9CNZG/k+lle0fzQexOllHjFidJU7FShXOPPpNuRase5R4ur6909zimIfm72WK2OB8Qeubcs/FtS65K0PsOYufAPwq7TID+k5pbZZwgL6mjBnxUqWvJ9VntkrqVGtNYs85joerSkptw8YYWvS38wluZh4as00RZdXajTN3jSaZ0vibvN8WhAbvdkhL/F5v9Xs0/Oo6qHQ8nLRqEAodxybKy5l4BDnd0caswNLzphs179TpUSTmq6PWXGxWD5fhabX2lZyJtsMjfJeoN5haz8GTbDhtyq45WeXdzTv38D4+YrZw=
+sidebar_class_name: "post api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a snippet"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/snippets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a snippet
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"content":{"type":"string"},"description":{"type":"string"},"folder":{"type":"string"},"order":{"type":"integer"},"isNote":{"type":"boolean","description":"When true, the snippet is a note (copy/paste only, not directly executable on a host)."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Snippet created."},"400":{"description":"Name and content are required."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: update-the-servers-host-defaults
+title: "Update the server's host defaults"
+description: "Sets and clears server-wide host defaults. Every inheriting host is updated in the background; poll the returned job."
+sidebar_label: "Update the server's host defaults"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDufRCU25a9MCenNRFnaKoEds1CkUIVsuJuBa5y+wMJbOE/nsxS+rDVnrIqTpI1HBm9r35eDtgSWyja8UFjwXekTAYX4KtyUQGpriheLF1JUEVWKCkz6arhXO43lDswfmKohPnV+N7x9C1pREqwXmQimBp7HoVQ+fLn6ENdZ2MkaSLnkp4CsscMxSzYizm+Jvm+GU6AxcZRvrSEcvbUPZYDOmvi1RiIbGjDG3wQl70lWnb2lmjRGZPrGwGZFtRY/RJ+pawwLB8IiuYYRtDS1EccfIj+ZrTy9r8ZeqOGJY9fERvGuLWWMrX1H/EHHcZdv5lGhOj6TFDJ9TwiZ0lOr/C3fhRitwGzyOSN5eX+vOqK2ZDZQ4fUtF4KqANTdsJaQXBlQnBj18L/tMThAhNiASbkcKWomZQlrSP/OE88g/HrI01ZeN8ziTaZs4b482KclTsDUkVSiyw7VJVjVRY4ExHYbYflVmKxwzHYdI+D9jFGgscRtPurNZ/hy7CPcXGPU8ziBluTHRmWe9blqwJdDoHC6xEWi5mM0mBOT2bpq0pt6HRai8Uge2ikz5BWJKJFK86hTxf7LIBbQhrR6cW07rfqT9YTlLc6WiNUE4THbqsWJRzcsNicsJsevg1xMYo5veP92fs74jZBQ8S1uSByct+mfSQEN0/acyhIlNSBMPwNiVNm6tuKTA19pTScTITKx1NPW10wSwNNRb4tD2f/T2i94/3MPoDk4ARYLfyF87n8FiRhzaSws3ACYhZE6vFUkneEoQNxf9kkdCelvubK3l1ewNr6oHFxCRIWycVSPP86YzOwfXbS7umPoNt5Ww1HsTHY3K4ETBWFZT3vhC2foq2xvuQHPS98X3wBFTztEqqWR+Oanc9Du9RnY4KM99LyGKnLfwcUrGcqDdOS3N1e6MbQ5FHxm9+yr+/zC/PKnFfEViVhmNcDtfGVtDW3cp5KIPtGvLC4ISVDcTQCXHqVxtYGpOkdhqehyT+if24od/xy4vjNYLhqOH/3+0zDprQs8za2jif5FwVapgkbY6aP2E/0BhlbZGNr4o5DsPSMD3EerdT85eOoirN4qhco6zgOFxJhNbUY4HvxhJc3CsQda+7cU9fXWkqQAfJvX1Q5VhON2MTSg2JZotZ+i4QMwypykmlkm3A2vhVZ1Zp0VNK/fwLMIrLOQ==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the server's host defaults"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/defaults/admin"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets and clears server-wide host defaults. Every inheriting host is updated in the background; poll the returned job.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"set":{"type":"object","description":"Values by \"namespace.key\"."},"unset":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved. Returns the recompute job id."},"400":{"description":"One or more values were rejected."},"403":{"description":"Missing admin.settings.manage."}}}
+>
+  
+</StatusCodes>
+
+
+      

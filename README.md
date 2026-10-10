@@ -21,6 +21,8 @@
 
 This is the source for [docs.termix.site](https://docs.termix.site/), the docs for [Termix](https://github.com/Termix-SSH/Termix). Termix is self-hosted, plugin-based server management.
 
+Core pages live here. Each official plugin keeps its own docs in its repo, and a sync job pulls them in at every release, along with the API reference and the environment variable list.
+
 Want to try Termix first? Use the [demo](https://demo.termix.site/), any username and password works.
 
 <br />
@@ -79,7 +81,7 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 ## Support
 
-To report a bug or request a feature, open a [support ticket](https://github.com/Termix-SSH/Support/issues/new/choose). You need to be logged in to GitHub. Please be as detailed as possible, preferably in English.
+Each Termix repo handles its own issues. A problem with these docs goes in this repo's [issues](https://github.com/Termix-SSH/Docs/issues). A problem with Termix itself goes in [Termix-SSH/Termix](https://github.com/Termix-SSH/Termix/issues/new/choose), and a plugin bug goes in that plugin's `Plugin-<Name>` repo. See [getting help](https://github.com/Termix-SSH/.github/blob/main/SUPPORT.md) for where everything goes.
 
 For discussions and questions, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
 

@@ -1,0 +1,69 @@
+---
+id: proxy-and-parse-an-rss-atom-feed
+title: "Proxy and parse an RSS/Atom feed"
+description: "Proxy and parse an RSS/Atom feed"
+sidebar_label: "Proxy and parse an RSS/Atom feed"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P20YM/SsETy2g2E7RXnRzgabdtIfF7gaLYrEouBJtTS3NKEPKtmrovxccyR+NHaA5SaIeycePeXNApbVg/oK/hYZbWjO+ZthSpIaVo/05oPOY4+eOY48ZemoYc+xijRlG/ty5yCXmGjvOUIqKG8L8gNq3BhONzq9xGLLbYRra4w0355XXHDHDklfU1Yr5+8UwvFpGaYMXFkP/sFjYo2QpomvVBcuwjJF6CCtYMZfglBuZ4ZDhj7fAd35LtSshRGiciPNr+PTwR8L/dAv/gVzNJWiAFWtRmV9LURi04pRwZrV+4XQfw74H8uWEJQ8Pj4/zpYYm+WCGDWsVSsxxzYo2AK0wx3lbd2vn31Hr5tU0n3kUsZZx3B7nY7PI8TCaBvwy/Z+hi/DEsXF7GDGY4Zaio7d67ONkTdVO7cZKtZV8PtfkOOM9NW3NsyI0OKRJCBdddNonCm9MkeOyM9ovrzbtIoSN40sLte537k+WixCPNv+RymWg0zoYl+Oa2PcIwmx6+RBiQ8b54/PTVfWPLOKCBw0b9iDsFZxP47IkIbp/yJBQMZUcgQR+TkHTvAyWHNNGXJZ04jZWhdm43iPkvN9/7/SrjD4+P8GIB2EFUhC39u+cn8FzxR7ayEY3A6egtGExS8El+4IhbDl+tYrE9rLd39zJ5f0dbLgHUYpqp2LntAJt9n9dlXOCfntrN9xnsKtcUY2J5JxmBncKVKiY24SFsPOTd0HehwSw/+T74Bm4Fh7Pn/OrkKp2WluZR3GD5f2dLT9HGcm/ny1mi+uSoIy0TonKGFrYuXLNCinCKkTo7URNJzCh7N0VLBm0dSfHT6id30jysApKkuotUCzTeNog2pA3ltOu/A+Z+A/N01CV9zpva3LeAic1OEwS8oJnCcEMjyJi0i1iUl8FUYMdDm8k/CnWw2DmUabtZJdOTCdKzFdUC19xKIJX9rYz3z1Mt8H3gNltbhvuT3fHlurOEGjacJVlRI7Xwxn5ehauUVXOwvnrL084DP8C+VpU9A==
+sidebar_class_name: "get api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy and parse an RSS/Atom feed"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/homepage/rss"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Proxy and parse an RSS/Atom feed
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"url","required":true,"schema":{"type":"string"}},{"in":"query","name":"max","schema":{"type":"integer","default":10}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Array of feed items."},"400":{"description":"Invalid or missing URL."},"500":{"description":"Failed to fetch or parse the feed."}}}
+>
+  
+</StatusCodes>
+
+
+      

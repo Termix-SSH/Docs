@@ -1,0 +1,69 @@
+---
+id: answer-an-acme-http-01-challenge
+title: "Answer an ACME http-01 challenge"
+description: "Public. Serves the key authorization a plugin published through ctx.system.publishHttpChallenge while it proves control of the domain."
+sidebar_label: "Answer an ACME http-01 challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P2zYQ/SuDObUAV3aCoAfd3GCTboIUi66LRbEwCq40NllTpMIZra0a+u8FKa0/ut0AufUkiZwh33sz83TAmriKthUbPJZ42z06WxVwR/GJGMQQbKkH3YkJ0f6tUxhoaF23sR7aFM2GahATQ7cxUMm+4J6FmmLa/EWkfW+0c+Q3BDtjHYEVaGNIF1TBSwwOwjrfVYdGW1+gQtEbxvIBP5KnqB2uFLY66oaEYto4oE14Wy0GFXrdEJYoYUseFUb62tlINZYSO1LIlaFGY3lA6dsUyBKt3+AwrFIwt8Ezcdp/O5+nx6Uoy/9SQYFmENrLrHUZ86Dw3fzdy+xfA1RH/pbPRFuHCGIsQ8Zd4DAobEhMqLHEDQmqkV+Js2JHzl1tfdj5ma4aujoeOTvk7AEVcirapE4XHZZ4GJfS5iWoP0IXYUmxsXsYY1Dhk45WP7pRiWk101nrzgmWaERaLmczyYkF7XXTOiqq0OCQtWSqumilzxAeSUeKiy4xeFgN6oBVCFtL5yu6tZ+pP66cHXGXajZCOT/oWMKEBafSpu8xCNX08iHERifMn+6XL9jfEXNq5KwcMHkB63MDLi4a3ZCuKaZC/5wPBe3rHPZcMHVB6YhtZIVq7NEx5NSlf+3kVUSf7pcwxgOTgBZgu/FX1hdwb8hDGynBVWmERG+J00pFNfmKIDxRfJVFRnsu93crubi9yWPAoqNYv4GdFQPS7P98QecY+v3SbqlXySYqM17Ep2sKuBHQlXAevWkow85P2ZX2PuSAtK99HzwBOaZxsqxfh8zaiks0p+5f3N6k1qfII/S3PxVv5sX8BaVkAlWIBKe8Aq51ZZ7NsA5V15AXBiucYEEMnRBn4dvA0mif7p+6YOF5l4HD4v2Xa0hFuJq/OVnFvwGk6fFCXv5XLj120MkGE9dsPYfJuh7wzLpQ4aV5ocJyNO2VQhNYUsLh8KiZfo9uGNLy145iMpTVyaCyvdSW03uN5Vo7pm/I9cNv0//gR3gN8/Pg+j77oOvSFyrcUn/8rwyrc3/+eL3EYfgHVz6GUw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Answer an ACME http-01 challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/.well-known/acme-challenge/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Serves the key authorization a plugin published through ctx.system.publishHttpChallenge while it proves control of the domain.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The key authorization, as text/plain."},"404":{"description":"No challenge is published for this token."}}}
+>
+  
+</StatusCodes>
+
+
+      

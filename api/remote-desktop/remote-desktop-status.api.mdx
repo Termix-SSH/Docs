@@ -1,0 +1,69 @@
+---
+id: remote-desktop-status
+title: "Remote Desktop status"
+description: "Whether Remote Desktop is turned on, and whether guacd answers at the configured address."
+sidebar_label: "Remote Desktop status"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VtFu4zYQ/JXFPit2WqAv7lPaa4tcgSK4uA2KwChoci2xlkgddxXHNfTvxZJ2nDhxiitwL44jDbkzu8Ohd+iIbfK9+BhwhncNSUMJPlEXheAD8VpiD55BhhTIQQwVmOBgswfWg7EOTOANJQYjIA2BjWHl6yGRA+NcIuYJViimZpzd48u9cVEhkx2Sly3O7ne4JJMoXQ3S4Ox+MS4q7E0yHQklzgCvRD8PlLZYYTAd4Qz7FJeEFbJtqDM426Fse33BknyocaxOhN6SgES41A9e+x6cN60PdRE0wbF6u1ATWa7dW5V8EKopvVHKPJADXQibJjLte8Yk4kPNwE0cWgdLAtuQXZP7HhJ9Hnwihj5FiTa2uefGWmJWxtIYyTueJ3pY+U5TKqQwdDqS5Hqs8CFYHRO1gQQXo7Y+EfcxMLGu/vbyUv+8VDdvCFiMDKxc8LtzmKwNVsa3pO0dK+xImuhwhjUJ6pR14jjt26H24cL0fpqyUy5cccq0lFFBlB4ObhhSizPclUcjnjb/zzgkmFPq/CMUjAo1yZtlW1Ttn2bSKzO0olMW6Xk2nUpeOKFH0/UtTWzscMx9OTj2Vltb9nnu26dO60aHCej/BYTV/svPMXVGC368m7+ifkvMPgaQuKYATEHAh3y+tEhM/h+jSGjIOEpgGH7Im2avKCwvzFOxMa49nXAzvf+V1DHZPgVy9M/fGznL6OPdHApeXaynnn0dLnyYwF1DAfpESrcCLyBmnX1MlhwFSxAfKJ1VkdkWYv+zk1c317CmrXoy6fmCjZcGpHv865WcJ+iXt3ZN2wo2jbdNKcTHMhO4FjBWWJftsRA3Yb/amhBiBuh7E7YxEFDLVA6FD6uYVXtpVeZJEF/dXKt/KXGR8M3kcnL5StinDzcV/PHbj7ngPJ9n4DI7VqFbPRTLFDdMqSrMbev7ZTTJVbDyLYEkE3ilr7kxmhZ5r0Q2JudDnefUR5bOBKW7N80J26cD+4LeDm0MQkG+9n1TjCP0KNO+NT4o5xwXu33Y3OMxbFDD7nncqNkK/0WVY1/xu93SMP2e2nHUxyVzNYacZ00Uh7OVaZnekfxfN88Z4mvaPrvnHkw7KCbH/xfU/qpX0bvMny7O96k/yTxcXkf44hjc+ZfBsxvkl580Ps3LxDhJiDymQ/SF7bOtd7uCmGtejnqHFBY5P3FcjOP4LwSWKzM=
+sidebar_class_name: "get api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remote Desktop status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/remote-desktop/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether Remote Desktop is turned on, and whether guacd answers at the configured address.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"probe","schema":{"type":"string"},"description":"Set to 0 to skip dialing guacd."},{"in":"query","name":"hostId","schema":{"type":"integer"},"description":"Saved host whose guacd settings should be checked; requires protocol and access to that host."},{"in":"query","name":"protocol","schema":{"type":"string","enum":["rdp","vnc","telnet"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"500":{"description":"The check failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

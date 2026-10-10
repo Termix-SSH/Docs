@@ -1,0 +1,70 @@
+---
+id: invite-users-to-a-room-host-only
+title: "Invite users to a room (host only)"
+description: "Roles expand to their current members, a snapshot."
+sidebar_label: "Invite users to a room (host only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v4zYQ/SuDOe0CjO22e9Jtd9EC2QJtkKQICsMoxtLEYiyRWnIURxX034shlTiJN0W7vtgm5+vNm3kcseJYBtuJ9Q4LvPQNR+CHjlwF4kFqtgHKPgR2Ai23Ww7RAEF01MXaywINCu0iFmv87JuGtrgxGLnsg5UBi/WIW6bA4WMvNRbrzbQx2FGgloVDTAZWM3ckNRp01DIWaCs0GPhrbwNXWEjo2WAsa24JixFl6NQqSrBuh5PGVGOO8slXg1q89i29E3aiV9R1jS1JES/vosIeT0P77R2Xgga74DsOYjnqbR85nFfxmSGFQAMatMJt/FZtBoNv+L85WSe844BT/iiq2HkXc/IfVyv9esnYubu3whVOBj+sfjq9/82Lsgi1j5KNPpwaXXrfGlBw4ANoveC8wK3vXZUgtCy1r5QmDWMyWwUuu6bfWXdGnV1GjtF6dxZrUuTL4H0bl6OtpuU8N6iDEe4fae9DgwWO+WhC86qmP30f4JpDax8g26DBewqWtk3ux3ya0NxS3wgWWIt0sVguJTku+IHaruFF6Vtt6rPRvFLGc5znA/pEhQbCeeb0fzZCM//4xYeWNOGXm+uT0q9yK0D8nh1EXR3rEguaxAf7d5o+qJkqDkARPqWgkLau5uy4ULpK7/eWX9VGnf2V0/xotmxy3J27g7xZ0Zeba8j2EFmABKLduTPrFnBTs4MusJZrwAoI7TnqSckVu5LB33N4E0WqNhf2nZ38eHEOex4gCgWxbgcHKzVI+/DXCZwn0//f2j0PBg61LeucKB7TLOBcgEqJ6jbbgj+42bskp0tBpeg9ucE7Bm4iL9KKqJRcHkXo5zx5L0Rj/agKm2eisF5tJmXy1qeeWVGnJ8Ku8jbBx4tzHX8OMXfgh8VqsTqluabA0Nh7pTcFiLAdoLFur4udkJLzUnNI224SsJn0o4t4INgF33fa3JY50ZEWOtGsItBSEs555rIKpZizu1rDO1Ud8K4Z3r+udTxK8ne+Onm6hB9k2TVknVaWNGWc5WmNR3lK2vNCoPSBUURosEjPzaNKbQwmsSzWOI5bivxHaKZJj7/2HPRN2xyFKClZZaP+rrC4pSbyvyB9dzm/S+/hLQiPO+6GpHdNr//Q4J6H/DBOOi95vlP2fPE55zi7Vvej48ljpxr4pOYXv1+pem3nR7P1lfoEOmhz6JAT+4QjKWU6G7Eht+tpl8QmxdT5p5db/2rLU6XfhDaO2eJaNW+anpAmDVSw0/QPDIT8yw==
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Invite users to a room (host only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Roles expand to their current members, a snapshot.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"userIds":{"type":"array","items":{"type":"string"}},"roleIds":{"type":"array","items":{"type":"integer"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Invited"},"403":{"description":"Not the host"},"404":{"description":"Room, user or role not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: revoke-a-previously-granted-plugin-capability
+title: "Revoke a previously granted plugin capability"
+description: "Revoke a previously granted plugin capability"
+sidebar_label: "Revoke a previously granted plugin capability"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCpxaYyu520YNuKTYFsi2KYNdFUARGwUiMNfVoRjtD2VEF/XtBSbGV9eaQS0+SOI/kI4d86lFolzC/x1vX7qxPuDXYUKSahaMe9Gg95tiQVGjQU82Yoy3RYOQvrY1cYi6xZYOpqLgmzHuUrlFUkmj9DofBfDNIQQ09WGele1OwrYJTE3zipOfv1mt9lJyKaBuxQTNtKoZzfLAJfAAX/I4j7CJ54TLDweD79U+vOTvHERwV+wRU1tZnzdShrCZPO57d31+6/xEgtUUFE95AiCAv6RxJ+ciCyWC+CvKJD2HPQNBEPtjQJtc9w+fA8KJ/NUsVSsyxZMfCaKZm57iaaa96Ww6rMURa9WffAQ0mjofn226jwxz7yaSHL3n9FdoIG461fYIJgwYPFC09uOk+ZuvYlkdqnWCOlUiT8tVKRseMn6huHGdFqHEYbzRx0UatRCk8MEWOV63yv9/q9BQh7C0vLdTY37g7WRYhPuvkTFSWgU6DpFxwHjD9nkBo5pdfQ6xJOX+821xU/5lTssGDhD17SOwFrB9vV5OEaP8lRULFVHIESvDLGBTIlyNsdBxHZ1nSidtUFZppXSbIeWH+OcqrjD7ebWDCQ2IBEkh253+wPoO7ir2OkdI1YAWE9pzUUnDJvmAIB46vVjGyXbb7zZ28ur2BPXeQhKJYv4OjlQqkfvr7opwT9O2t3XNn4FjZopoSpXOaDG4EqJCkbjMWwtHP3gV53UYqRM/Jd8EzsEs8Lab1j2Gs2orTMufpv7q90dHnmCbq737Oflxn64uSRjUJkeHsl8E1nQQCylC0NXtJYCUpLYihFU5j45uQpCav+ecpeKsyvGBzujvhJ1k1jqzXLOPS97Nk3OMsGWgwH5V+Ug39XETeGqxCEsX3/QMl/jO6YVDzl5ajbvL2rAzjXpc26XuJ+SO5xBfUiuCFvU7Md5/m38H3gObblJ83xnejALlWv9DgnrvpB6Uq8T9mXHRm2A4LQf5w/fv15hqH4T+AE48b
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke a previously granted plugin capability"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugins/{id}/grants/{capability}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke a previously granted plugin capability
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"capability","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The capability is no longer granted."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such plugin, or the capability was not granted."}}}
+>
+  
+</StatusCodes>
+
+
+      

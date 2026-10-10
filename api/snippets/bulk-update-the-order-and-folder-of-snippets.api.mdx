@@ -1,0 +1,68 @@
+---
+id: bulk-update-the-order-and-folder-of-snippets
+title: "Bulk update the order and folder of snippets"
+description: "Accepts a 'snippets' array, and the legacy 'updates' key."
+sidebar_label: "Bulk update the order and folder of snippets"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFu4zYQ/ZXBnBXZXfSkW1K0QHYvQZNFUCRGMZbGFmOJ5JIjO6rgfy+Gki0n2UWxqC62ho+c94YzTwNWHMtgvBhnscDrsmQvEQieMVrjPUt8RqAQqM+AbAVSMzS8pbKHZ+x8RcKK2HGfY4ZC24jFE95Pe3GVYeBvHUe5cVWPxZBeTeAKCwkdZ1g6K2xFl8j7xpSkXBYvUQkNGMuaW9J/0nvGAt36hUvBDH1wnoMYjgl3yjgjE2vM0Ai38b9PMNUFxljhLQc8ZuhCxeH7SxvXvF2LEozd4vH0qPronY1jik/Lpf68rfmpVhA4peIq17N//R721u6pMRVMNc1RU7QstauwQN8lVSQ1FrjwTbc19oq8WZyKs5hSYIaRw56DXtaAXWiwwGEMHTF7l/Qv1wV44NCaVxgxmOGegqF1MxV/jCa6G+oawQJrER+LxULSxpxfqfUN56VrtTwrZVB2wUifKKyZAofrTqk/rY7ZgKVzO8OXEfLmC/fnyMUR99okI5XLg87XolxUc4JhMYEwm/784UJLyvnz48MH9fcco3EWxO3YQmQrYGwaA03igvknNSzUTBUHoAg36dDztKSN6UovJc1dmlRpm2q2EYIZWkpMXw7yQ0afHx9gxENkARKIZmuvjM3hsWYLPrDSzcAICO04aqTkim3J4PYcfqgisb0s909X8vruVj0BolAQY7dwMFKDtK9/f5Bzhv58aXfcZ3CoTVmPieKcJodbASrVy+IJC+5gp90lWesSQNfJ9s4ycBN5HCl1nz9n3/p9bN63PvM0Wsby7BDL2RDORrA66sVuXCqhET1jHvjru1udJA5xrMQv+TJffrxu2nNSULq2JVtF6F0HobPgNsI2ydE3qbnV+hGkkbPUgAvgLLRke6hdlKjLKrRsTLlLl+xdlJaS004dd9M1OxiNPWVN4lKSURy4DZyL8I7rMLv5//+UjA0n/CoL35CxSjc51TBZ3BPOFqc9OZM62dwqQ9Wt0GFYU+SvoTkeNfyt46DOs5qdbLQZHJstXe+Oeyzwt1HS1YMSUnjTjXP77mOlhnS24ruv6iTr6ZvXukq3BDooOTpggZihS1VLrpViAzZktx1t0+CnI/X5F1qPphE=
+sidebar_class_name: "put api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Bulk update the order and folder of snippets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/snippets/reorder"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Accepts a "snippets" array, and the legacy "updates" key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"snippets":{"type":"array","items":{"type":"object","properties":{"id":{"type":"integer"},"order":{"type":"integer"},"folder":{"type":"string"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippets reordered."},"400":{"description":"Invalid request."}}}
+>
+  
+</StatusCodes>
+
+
+      

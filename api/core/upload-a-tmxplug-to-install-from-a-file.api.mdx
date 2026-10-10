@@ -1,0 +1,69 @@
+---
+id: upload-a-tmxplug-to-install-from-a-file
+title: "Upload a .tmxplug to install from a file"
+description: "Developer mode only. The body is the raw .tmxplug (at most 50 MB). The file is checked (archive, manifest, plugin API) and held for 30 minutes, but nothing is loaded. The answer lists what it asks for so the admin can agree, then POST /plugins/upload/{token}/install installs it. A file can replace an earlier upload with the same id, never a bundled or registry plugin."
+sidebar_label: "Upload a .tmxplug to install from a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v3DYQ/SuDuTQBGK2TtAWqm9MPICnaGoiDoHCNYlaaXbFLkQo52rWy0H8vhpTtrZ0UyKmXnlZLDWfekO+90RFbTk20g9jgscYfeM8uDByhDy1D8G6q4LJjWId2AptAOoZIB6ikvxncuIUnJNCHJPDNGfzy6mmJ3ljHGt103Oy4hScUm87u2UBP3m44iQHdbT2cX7x+CuRb6Ni1sAkRXp5Bb/0onAysRwEfpLN+q/lcoJbbUoN8OnAEZ5MkOHQkYAUo7VJOkkKGSm1vPTTkgbaR2eiih4vf3l7CqgBIq3HQtKujhB37eWV9EnIOlt8EVio4Ly1posiDo0brA1N0liOUDHCw0uWqiXoG2xrwvOcIBOvRt45bCBEib22SOC39V394NCi0TVhf4UWBhNcGI38YOcmr0E5YH/NfG7nFWuLIBpvghb3oKxoGZxvSG1yFRlieJYlMvb5LTcc96ZNMA2ONSaL1WzS4CbEnwRrX1lOccJ7nWaumIfjESbe8ODvTn38y5BzyOSn8wobSx1epNEw9G9hzTDb4fK0NDbS2zorlVOFs8OtPZf01CBDsydn2nloh3tFl2fny8c4HjLUJwmZjINmt53YBl4Aiw+0RGk2syBtyThlEzS4VplRLfNWTpy0vVb97XFUJaFtYswt+m0DCv16yOTkoJTy0gZPyGnqSpjNLp7TlFtYTEDjrVTaJ455jQfH8E72fSs1R3LL2Rb5IsUK90J6lCy3WOIQkaHAg6bDGB+RHg6WWsvCIY3RY47EszWgelP09jBEuOfb2ZoGIBvcULa1dYc6ymgFvaHTKs05kSPVqJXljxTfUD46rJvTKvWtF0IzRypQhrJkix/NR0V5dz+aITQg7y6crNNifebpbOUnxVmlfoJwmulOBYtGec5hqIAehWR5+utXGm/eXj7p/yymTu8ggsRewPl+wFgnRfsxShI6pVfEneJWTZjVoWN6YL/W0pTtspSs0aLVaCUGDqiys8a+DfBbRm/eXUOIhsQBJVsEz6yt4r7Y3RFa4Ro1SaMdJVxpu2TcMYc/xs11ktKfH/cUnqazf8QRJKIq6eTHL/ubPR+3chX750e54MnDobNOVQum+TAWvBaiRpNuWWAgHv+xuyKseqdEZAuSn4BnYJS4ysn4TctdWnLa5sP/84rVSv9gd1vji2+r5WXX2qCUVahMiw/2+Cn6kprs1hTY0Y89edNokhQUx6ATMB6/S7clr/YUF78rAoXuvlHA7sGATQw+UjeEhkOP93Ph/1P9Ho77oRvhGVoMj6/WGs+EeF3O+wgUuGlzs+dpgp/5dX+HxuKbE76KbZ13+MHJUx7y+d+Bij1hEks10xxPW+H25+meXikDD3Vj85jOfD2qod+NDz1FVvXyOKGWwxsyxeZ7/BldUkHo=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a .tmxplug to install from a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/upload"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Developer mode only. The body is the raw .tmxplug (at most 50 MB). The file is checked (archive, manifest, plugin API) and held for 30 minutes, but nothing is loaded. The answer lists what it asks for so the admin can agree, then POST /plugins/upload/\{token\}/install installs it. A file can replace an earlier upload with the same id, never a bundled or registry plugin.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/octet-stream":{"schema":{"type":"string","format":"binary"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A token plus the plugin's id, name, version and capabilities."},"400":{"description":"Not a valid .tmxplug or manifest."},"403":{"description":"Developer mode is off, signed plugins are required, or the caller lacks admin.plugins.manage."},"409":{"description":"The id belongs to a bundled or registry plugin, the plugin API does not match, or managed by a linked server."},"413":{"description":"The file is larger than 50 MB."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: list-users
+title: "List users"
+description: "Retrieves users in the system. Without `limit` the full list is returned, which is what the sharing pickers rely on. Pass `limit` (and optionally `offset`/`search`) to page through large directories."
+sidebar_label: "List users"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVd+P2zYM/lcIPm2A62Tduge/3YZ2uG7oDu0Vh+F2WHQ2E2mRJVekc+cG/t8HSfm1S1Nc9rgn2zRFfvz4iVxjQ1wH04nxDit8TxIMrYihZwoMxoFoAh5YqC3hxoj2vcDMmtbILP2b99aCNSxgGAJJHxw1BTxoU+toetBKchCtgnEL6Ey9jLED2QG8K+FKMe9CfqNcAz7hUdYOMPPzOZPMJjMmFWo9+xbEQ6cWBKKD7xcarAoLgsYEqsUHQ1z+6bBAUQvG6hY/xkrwrsBOBdWSxK/qdo0mFvyppzBggU61hBXmHFhgoE+9CdRgNVeWqUCuNbUKqzXK0CVXidXgWDyh8GfF9MI4JsdGzIoSkzE8cH+fD8HcWKFQ4lh8GUbi4lkojBNaUMACW/Vo2r7F6tV0egTqKvLF5jOV8HtrJFKYWwW0ojAkjKfh5BachecIwbu+vacAfr5RlnjgpelKeJ9j7hRQ4ngXM3HnHRPH2C+n0/j4d8CLLLptwAIejOgkNPGiLLRKah3Jrn3vJBaHP0y/P47zzguoXrQP5jM1ye/Vl/K9UcZSE3GnvClpieNYYEuifYMVLhJJnRKNFU6SxyQ6Y4FMYbUVXh8sVrjOphGfMvWH7wNcU2jNI2QfLHClglH3NvOxsSaIc9VbwQq1SMfVZCLpYEmPqu0slbVvcRwjo0x1H4wMCcI9qUDhoo9Ib+9i32vvl4YOLaozv9KwsxyE+BC7nqEcBtqJIGLBjTjid3bCYvPyxodWRcxvb66Pqv9AzMY7EL8kB0xOtkPoYtMkFT1Bk2oogGL4KQWFODdy95fkUhsPS9phy1VhkYWeXfZK//tBTiJ6e3MN2R+YBJQAm4V7YVwJN5ocdIEi3ALi/VJL4mipqSFXE/gVhZNVJLSHdJ/N5MXVJSxpABYVJIo+X4b28a+jcnau51O7pGE72FMi3qcp4VJA1cLx2MYX/IPbnK6Vcz45xP/KDd4RkGXKN8i4uU9VG7GxzI36L64uo/QpcIb+8sfyu2k5PSrpWhPUPhDsz5XwWtUaOtsvjIPG131LThiMcIQFwfdCnIjvPEurXMy/UcFvuwv+NFW8J07Iyf9tV2a5CT3KpLPKuEhMmlPrzTy7xS0haaLdFag9S7Sv1/eK6WOw4xjNeXfEIdMYjiNrvy1OUnnOzjwBdknD4f5eKdtHp7TTng/keXvyqxC2u/s/IjhjT34Vxm5n73Hc7ddInvH7zfXL62scx38AQKyAVA==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List users"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/users/list"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieves users in the system. Without `limit` the full list is returned, which is what the sharing pickers rely on. Pass `limit` (and optionally `offset`/`search`) to page through large directories.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"search","required":false,"schema":{"type":"string"},"description":"Case-insensitive username substring filter."},{"in":"query","name":"limit","required":false,"schema":{"type":"integer","maximum":500},"description":"Page size. Omit to return every user."},{"in":"query","name":"offset","required":false,"schema":{"type":"integer"},"description":"Number of users to skip. Requires `limit`."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of users, with the total matching count."},"403":{"description":"Not authorized."},"500":{"description":"Failed to list users."}}}
+>
+  
+</StatusCodes>
+
+
+      

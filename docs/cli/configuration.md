@@ -59,21 +59,11 @@ Set `NO_COLOR` to anything, or `TERM=dumb`, to turn colour off. `--no-color` doe
 
 If your server uses a certificate your machine does not trust, use `--insecure` or set `TERMIX_INSECURE_TLS=true`. This turns off certificate checking, so only do it on a network you trust, and prefer fixing the certificate.
 
-## Running against a server without a reverse proxy
+## One address for everything
 
-Normally Termix sits behind nginx and everything is on one address, which is all the CLI needs.
+Termix serves the web app, the API and every plugin from one address, with or without a reverse proxy, so `TERMIX_URL` is all the CLI needs.
 
-If you run the backend directly with no proxy, its parts listen on separate ports and you have to say where each one is:
-
-| Variable              | Used by  | Default port |
-| --------------------- | -------- | ------------ |
-| `TERMIX_TERMINAL_URL` | `ssh`    | 30002        |
-| `TERMIX_TUNNEL_URL`   | `tunnel` | 30003        |
-| `TERMIX_FILES_URL`    | `files`  | 30004        |
-| `TERMIX_METRICS_URL`  | `status` | 30005        |
-| `TERMIX_DOCKER_URL`   | `docker` | 30007        |
-
-If a command fails with a not found error and mentions one of these, that is the fix. Commands you are not using need no variable.
+Older CLI versions read `TERMIX_TERMINAL_URL`, `TERMIX_TUNNEL_URL`, `TERMIX_FILES_URL`, `TERMIX_METRICS_URL` and `TERMIX_DOCKER_URL` for Termix 2.8, where some parts listened on their own ports. They are ignored now, and the CLI prints a note if one is set.
 
 ## Global options
 

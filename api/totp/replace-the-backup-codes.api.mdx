@@ -1,0 +1,68 @@
+---
+id: replace-the-backup-codes
+title: "Replace the backup codes"
+description: "Replace the backup codes"
+sidebar_label: "Replace the backup codes"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv2zgM/isEn5WkG/ZyfusOG9AN24o1h+JQBANjs7EaW9IkuqkvyH8/UPLSrLkdMD8kNvVR/EiKn/YotElY3eHyy/IaVwYjfx84yVvfjFjt86eN3GAlcWCDtXfCTnSJQuhsTWK9Wzwk79SW6pZ70jcZA2OFfv3AtaDBEH3gKJZTXvUSvtW+4RNokmjdBg/5USIpeJcK/vXFhf41nOpog4bECj/zDtZUb4cAulWa48Hgm/9CfrIpWbfJMPARNFmwCZwX8G7ye3Xud+UeqbNN9iuo13+co5beQ09uhF30UxDlcjAvcF85dFQzSMs/8UaDPUvrG6ww+JSrRdJihYvQDRvrZhTsQku2KG6zH26J4yNH7d8eh9hhhftiOuDL4H/7IcKSY2+foGDQ4CNFS+uu1Hiy5vTuaegEK2xFQqoWC8mOc36iPnQ8r32vfVopg3qIVsZMYc0UOV4Oyv1udTB7rL3fWj61ULAfeTxaTra40bNTqJxudDwfykVzzjCsJhCa6eW9jz0p5w+3y7Psbzgl6x2I37KDxE7AutwIDeKj/SefY2iZGo5ACd7mTYFck2HZMR+B05SO3EpWaNBqtAJBg44y04ed/JLRh9slFDwkFiCBZDduZt0cblt2ECIrXQNWQGjLSS01N+xqBv/I8ZdZZLan5f7tSl5eX8GWR0hCUXR+dlZakP7p21k6R+jvl3bLo4Fda+u2BErPYeZwJUC1JHWbsOB3bvKuyekEUy26Tm70joG7xGX6VJS+PsvZu3J4X8jPUXa0d/c+r1pRWJZEuLy+0kHhmEqir+YX84uz9Jc7P7unWnzM7dMK5CSoSM599D2QAxqkZSeqmj4ChWAK7EzFVAZ6ypI6naH/EY+fqBybLPwki9CRdbphVof9pCt3+KwraHI1tPmn2rIy2KoUVXe4368p8V+xOxzU/H3gqOO+epaPMttYOpyVYMsjVvhnuSxmS2Wk8G4ow/Li4lAVOCrg9Zcbnd/1dAH1pUuRdmjyb4Vo0Odss1Zk2x47cpuBNnnc8p76/AtDI19c
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace the backup codes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/backup-codes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replace the backup codes
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"New backup codes."},"400":{"description":"Missing code or TOTP is not on."},"401":{"description":"Invalid code."},"429":{"description":"Too many wrong codes."}}}
+>
+  
+</StatusCodes>
+
+
+      

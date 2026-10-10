@@ -1,0 +1,68 @@
+---
+id: update-audit-log-forwarding-settings-admin-only
+title: "Update audit log forwarding settings (admin only)"
+description: "Sets the collector URL audit entries are shipped to. An empty URL disables forwarding and clears the stored token. Omitting token keeps the stored one."
+sidebar_label: "Update audit log forwarding settings (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v20YQ/SuDObUATSlp0QNvSpCiTorWiGUYhSEEa3IsrkXubnaGlllB/72YXUZSrOSQW3mQyN03s2++3u6wIa6jDWK9wwqvSRikJah911EtPsLNxz/BDI0VICfREoOJBNzaEKgB8SUsHFAfZEzQxrK574jhwcetiY11azCugbojE7NvFh+T6YZcCX/3VkRR6Rs2ROErmHdUYoFi1ozVHd4wRcZVgZE+D8TyxjcjVrv0aSM1WEkcqMDaOyEnumVC6GxtNMTZI2ucO+S6pd7om4yBsEJ//0i1YIEh+kBRLLHuDrE7AbFE69a4LzCR/cZOepQcB+84+3g9n+vfWaZT1ENojFBTqtNf57+cA//yAmaQ1kf7b8LtC+xJWt9ghcFI3SppIy1WOBs0O7NUrotjAbBApvikiavupphwl5f2WLw48B8/RFhS7O0zZAwW+GSiTXVNycurieqDGTrBCluRwNVsJsmwpGfTh47K2vealJUyqIdoZUwU7slEiotBWd+t9sUOa+83lk5XTLAfaDysnLi41uJlKqeODsVQLhpzgmE1gbCYXn73sTfK+f3t8iz6a2K23k3dyOQErEv9uJiKkBoJWjINRTAMb5LT1OQKy22t5TwN6cAtR4UFWj0tQ7BAZxLTx618l9H72yVkPDAJGAG2a3dhXQm3LTkIkZRuAVZAzIZYV2pqyNUE/onid6NIbE/T/cOZXFxdwoZGYDExtfXWSgvSP386C+cA/fHUbmgsYNvaus0H8fGYEi4FTC2sZhMW/NZN1rVxzieA7hs3ekdAHVOeJ1WFj0c9eZeb9zD/X6b7MPYnQmDdg08Js6IWOA3O4upSp4Yi56hf/1a+mpfzs2wsk9ZGgqNdCe9M3ULohrV10Ph66MkJgxXWiCD6QYhTzYJn6U3SoamBbpKcTILd+fWpDHOWHIafTNNbB951488vGe2Oyvl/vg1yewo9yyx0xjrNxqTVWQvvMGkhFnimhqsCW8+imN3u3jDdxG6/1+XPA0UVqNVR8LIaYe7JpF0bGrHCtzlLF0tlovBuyOP94q5R3TrI9dVi+fYPnZ7p0up9o0bRbLFIvxVigT6VIslbWtthZ9x6MOukEMmpPv8BsCOySA==
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update audit log forwarding settings (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/audit-forwarding"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets the collector URL audit entries are shipped to. An empty URL disables forwarding and clears the stored token. Omitting token keeps the stored one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string"},"token":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Setting updated."},"403":{"description":"Not authorized."}}}
+>
+  
+</StatusCodes>
+
+
+      

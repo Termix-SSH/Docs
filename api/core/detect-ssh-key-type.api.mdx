@@ -1,0 +1,68 @@
+---
+id: detect-ssh-key-type
+title: "Detect SSH key type"
+description: "Detects the type of an SSH private key."
+sidebar_label: "Detect SSH key type"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu4zYQ/ZXBnBU5XbQ96Jbd7qLZHGrULoIiMBZjaWIxlkgtObKjCv73YkjF9jrZQ3ywZXKG783jzNOIFYfSm06Ms1jgHyxcSgCpGWToGNwjkIXF4k/ovNmRMGx5yDFDoU3A4gE/ea7YiqEm4CpDz997DvLRVQMWY/xrPFdYiO85w9JZYSu6RV3XmJIUePYUFH3EUNbckj4pOBbo1k9cCmbYedexF8NBdycudzycxQbxxm7wkOGWhzmFsHe+emM/fpRp6JwN6cAP19f686MYdzwkEaqoinEWPIe+kVxBfn0rZX4SCUyAl/Jjwm9vJXwh03AF4iaQmKmgOSrJlqV2FRbYuRBlIKmxwFl5Un2WEq+2PFzFSjMM7Hfs9XpG7H2DBY5p6YDZBf6/rvewZN+aZ0gxmOGOvKF1k6SZViPzR+obwQJrkS4Us5nExJyfqe0azkvXqrwrZVD23sgQKayZPPubXqk/rA7ZiKVzW8PnK9SZOx6OK2dHLLQnEpXzg47Xqly05hiGxRSE2fTwxfmWlPPX++Wr6hccgl6ruC1bCGwFjI3NryDOm/9if0LNVLEHCvAxHgpkqzQjmhhv97ykI7dUFWZoFC2FYIaWItOnvfyU0df7JaR4CCxAAsFs7JWxOdzXbKHzrHQzMAJCWw66UmpTlAxux/6nVUS253K/W8mb+W1s0yDkxdgN7I3UIO3zt1flHEPfL+2Whwz2tSnrBBROMDncCpD6FIWXWHB7O2WXZK2LAbpPdnCWgZswzZSazd8nm/qcmvfSVl7s4sJNzlzG2EcX1TOi6ThN0c38VkeIfUgSfPg9/+U6v34lzbJmKJ1nOOXl8JnKGrqm3xgLlSv7lq0EMBK0PPCuFw7xAtUPWoqmOXVTsu5o1S8ecok5nvz3PU6fukP4WWZdQ8YqfrSVcfKjBzzzowj6oyOtMqzVv4oHHMc1Bf7HN4eDLn/v2atJrE6mkxwBU19E/9jG+/iUqF8tU2E7avo0YhevEfWOo23O/1ro1K+n11HrKs3xtMcsfheIGbooT3SYuDZiQ3bT0yYOaTxTP/8D8CV8kw==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Detect SSH key type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/detect-key-type"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Detects the type of an SSH private key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Private key is required."},"500":{"description":"Failed to detect key type."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -37,7 +37,7 @@ termix logout
 
 Do not put your password in a script. Use an API key instead.
 
-Create one in the web app under **Admin Settings**, then set two environment variables:
+Create one in the web app under **Settings**, **API keys**, then set two environment variables:
 
 ```bash
 export TERMIX_URL=https://termix.example.com
@@ -45,7 +45,7 @@ export TERMIX_API_KEY=tmx_your_key_here
 termix hosts
 ```
 
-With those set you never have to run `termix login`, which is what you want in CI or a cron job. See [API Keys](/features/api/api-keys).
+With those set you never have to run `termix login`, which is what you want in CI or a cron job. See [API Keys](/guide/api-keys).
 
 You can also pass a key for one command:
 

@@ -1,0 +1,69 @@
+---
+id: revoke-a-specific-session
+title: "Revoke a specific session"
+description: "Revokes a specific session by ID."
+sidebar_label: "Revoke a specific session"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v3DYM/lcIPm2A5su6bg9+y5AUuHYYivaKoAgOhSLzzurZkivSSTzD/3shyfcjTa9Yn2zRH8mPIvl5xIrYBNuJ9Q5LfEf3fkcMGrgjYzfWABOz9Q7uBlheFahQ9JaxvMUPTIFxrbDTQbck8VTejmhjoE5LjQqdbglLnGMsK1QY6EtvA1VYSuhJIZuaWo3liDJ0CSzBui1O6htuq5oOZJZXIB5CYovTOkblzjsmjoFeXFzEx1P397NrdqqAe2OIedM3zVDEbC9/5LW8Asuw5z7j/3iO/9cL6F5qH+x/VB1JgtSW9/Rn95fn0zkvsPG9y5n+/B6zV9o2TzIcg08KW5LaV1hiRQ0JocodKXHRx7YtZjAvxkNvJlTIFO73fexDgyWO2RQ/Ps3/0fcBVhRa+wgZgwrvdbD6rsltmK2J+Ub3jWCJtUjH5WIhybGgR912DRXGtzhNsZFMpg9WhkThjnSgcNlH5rfrSY1ovN9ZOrXozr6h4WA5CfE+TlamchroMGiRC84DGM8ZhGp+eeVDqyPn1zerZ9XvGyV+Rw6YnIB1IDXB5dx9HZFQk64ogGb4OwUF7aoES46pu6clHbjlqlDlbcqQ4z59fpCzjF7frCDjgUlAC7Ddut+sK+CmJgddoEhXgRUQHZe9C2SoImcI/D2Fs1UktqfX/dM3efl2CTsagEUHsW4LD1ZqkPbx07NyDtCfv9odDQoeamvqnIiPaQpYCmgjHN1mLPgHN3sb7eLmaSPxu3aDdwTUMOWlsm7jU9VWmljmPP2Xb5dx9Clwpv7ir+L3i+LiWUlRwIwPBEe/Aq61qaFr+q11UHnTt+SEwQpHWhB8L8Tp4jvP0moX889TkMX6O1r9bea4Nk7Iyf9V+NxVoUdZdI22LuZPcjDOMnKLSUaSYmQhQYXlUebXCmvPEoHjeKeZPoRmmqL5S08hLvf6KBZp1SvL8b3CcqMbph9U8Mu7WYV/hbO/hDM17JfLDUmrmj6eUOGOhid/qWl9KqFX1/9cr65xmr4CqA56FA==
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke a specific session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/sessions/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revokes a specific session by ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"},"description":"The session ID to revoke"}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session revoked successfully."},"400":{"description":"Session ID is required."},"403":{"description":"Not authorized to revoke this session."},"404":{"description":"Session not found."},"500":{"description":"Failed to revoke session."}}}
+>
+  
+</StatusCodes>
+
+
+      

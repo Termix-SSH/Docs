@@ -1,0 +1,68 @@
+---
+id: save-network-topology-for-authenticated-user
+title: "Save network topology for authenticated user"
+description: "Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise."
+sidebar_label: "Save network topology for authenticated user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsEz7KdFj3plu0HkC2wDRovgiIIClqirYnlGe2QsqwK/u8FR4rtxLuHva0ukjj8eI/DeTNgyVJE16gLHnN8oD0LhAhtU5KygFYMnrULcQsamlCHTQ+bSE01h8/CAm0jHBXqsHEFzKCInOI8dxC5CLEEtwYfPAMfnKhkp9Tp3/nNq1/QimPnhOeYodJGMH/CT1Pt5VQbnzOM/KVl0Q+h7DEf0q+LXGKuseUMi+CVvdoSNU3tCjJyixcxhgNKUfGO7Ev7hjHHsHrhQjG7SPSEelGviaHhqI4lRb2ufCXD22Z+et+3kpTA4JHzRtyHkgXIl8DlhgWP6TEg0gQvY72fb27s9Tb1aztAaM8lSFsULLJu67rHY4a/fC3mzu+pduVbOGj1dqxVKDHHJojRaEgrzHHR1O3G+Rk1bjHNwOzEPkPhuOdouzRgG2vMcRhNx6tO/BPaCEuOO3eA0Qcz3FN0tKpHlpM1gV5TWyvmWKk2ki8WmgLnfKBdU/O8CDvr1LMhKNrotE8QVkyR421r0J+ej9mARQhbx5cWatyf3J8sFykebCpGKJeJTltsWIxzcsN8csJs+vgjxB0Z5o+Pyyv2DyziggcNW/Yg7BWcTyfLioTo/ksTChVTyRFI4ENKmibD3FLg3Db2ktIJ28gKM3RWbXTBDD0lpC/d9WS+Ivr4uITRH4QVSEHcxs+cn8NjxR6ayAY3A6egtGUxS8El+4Ih7Dl+k0VCe9nu7+7k7f0dbLkHUYpJJjqnFeju8O8VnZPr97d2y30GXeWKaiwk5zJzuFOgQsXCJl8InZ+iC/I+JAdbJ98njatNvuxMmdz8fRaq38fhfScg5uj8OiSzU1u/Ujy4vb+z08JRRrY/zW/mN1c9+C1SJ9DbQauCqJwY1s5vBVasHXNqzS7hhdrtOQPnlSMV6vY8ybptnOnAjpJcTlNkF8P1RbAOEajVir2azHIJraS9fINtOEvyD3TBjNOofNBFU5PzxjvJ2DDp3xOe9c+O03sFfM7QOm2Ow7Ai4c+xPh7N/KXlaKL0fBa5UYFwnMOkV1vuMcdfx87MlgbH3Ot2PNLvLi7TqpNM3//1YCqzmi7AXSgtJlJnlxh1mCNmGFL3k6Il24A1+U1LmyQKKac9/wOLYtPF
+sidebar_class_name: "post api-method"
+info_path: api/network-topology/network-topology-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save network topology for authenticated user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/network-topology"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves or updates the network topology graph. Uses upsert logic - creates new record if none exists, updates existing record otherwise.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["topology"],"properties":{"topology":{"type":"object","description":"Network topology data containing nodes and edges"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Topology saved successfully"},"400":{"description":"Invalid topology data"}}}
+>
+  
+</StatusCodes>
+
+
+      

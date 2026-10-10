@@ -1,0 +1,68 @@
+---
+id: create-a-new-user
+title: "Create a new user"
+description: "Creates a new user with a username and password."
+sidebar_label: "Create a new user"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVd9v2zgM/lcIPntJb/cDOL91hw3o7uGKNUNxCIJBkdlYjS15It3EZ+R/P1Byk6xZD9j5IbEpUvz4ifw0YkVso+vEBY8l/hHJCDEY8LSDninCzkkNJr170xIYX0FnmHchVjMsUMyGsVziZ6bIuCow0teeWN6FasByTJ8uUoWlxJ4KtMELedEl03WNs0Zzzx9ZAYzItqbW6JsMHWGJYf1IVrDALoaOojhiXX3Gc+bJEp3f4KHAZ3zfWUyPguQueM57vb260r9vqdB6wCY+KuDeWmJ+6JtmmGmGX14LueAITCR4JmGK/fky9hNtHEtMZIBjsH2M5KUZoHJs1s0x9vf/yttEMtUAtHcsnAJ+/R7QD8Y1VIGEqcB0ujNUYlqSOlRYYhc4sW6kxhLn6sHz7I4FMsUnPe9yOWIfGyxxzKYDFi+S/R36CAuKrdtD9sECn0x0WlXif7ImmA+mbwRLrEU6LudzSYEz2pu2a2hmQ6tnuFIEto9OhgRhTSZSvO4V63J1KEa0IWwdnVtM5/6k4Wg52+JOey5DOd/o2DuKRWtOblhOTlhMLx9CbI1i/ni/uKj+jpj1SCVsyQOTF3AepCbQJCG6f/KR12QqimAY3qVNUw+pWwpMR3le0hFbrgoLdJotu2CBeTTwcSevIvp4v4DsD0wCRoDdxr9xfgb3NXnoIincApyAmC2xWixV5C1BeKL4ahUJ7TndP8zk9e0NbGkAFhPF+U1WIWn3Xy7KObr+OLVbGgrY1c7WORGf0szgRsBYYQ2bfCHs/BRtjfchOei68UPwBNQw5SFSMft0ksH3uXm/la1nRTpXqzMJc/4hJOKcaCROA3R9e6PTQ5Fz9W9/m/10Nbu6YGVRE9gQCU5xM3hvbA1d02+chyrYviUvDE5YK4MYeqEsGjr7rUl6PIHNF8PZvfAy43gS9v91i+T+ENrLvGuM8wojCcs4SdAyccdY4CRCqwJr1ahyieO4NkyfY3M4qPlrT1F1YXXSmSwCmFshScaWBoWaQb9ZaH51b/o8VS9uJpWLozTe/nWng76ebrg2VBoTzQ6L9FsiFhgSMUlUkm3ExvhNbzZpLtOe+vwLwVGa1A==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/create"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new user with a username and password.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User created successfully."},"400":{"description":"Username and password are required."},"403":{"description":"Registration is currently disabled."},"409":{"description":"Username already exists."},"500":{"description":"Failed to create user."}}}
+>
+  
+</StatusCodes>
+
+
+      

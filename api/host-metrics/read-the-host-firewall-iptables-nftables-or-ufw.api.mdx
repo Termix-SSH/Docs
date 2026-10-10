@@ -1,0 +1,69 @@
+---
+id: read-the-host-firewall-iptables-nftables-or-ufw
+title: "Read the host firewall (iptables, nftables or ufw)"
+description: "Read the host firewall (iptables, nftables or ufw)"
+sidebar_label: "Read the host firewall (iptables, nftables or ufw)"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtu5DYM/RWCT7uAMpPeXvyWFu022wuC3QmCIhgUis0ZqyNLXpGeidfwvxeU55bO5mH7ZIs6Ig8p8mhAsWvG4hF/jSzwB0lyJePSYGuTbUgo6e6ALmCBrZUaDQbbEBboKjSY6FPnElVYSOrIIJc1NRaLAaVvMyoIrSnhOC4VzW0MTKyAb6+v9VMRl8m14qKGWNQEK5doZ72H7MIgi5WOwYYKUueJZ1iEzvvR4PdfcnEbtta7ClxoO5lhhn13Cfszgi1LYgaJIDVBHVnQYExAnrZWYVBRcFSdAv7wGucyNo0SXFnnqYIYji5nOI7mPyc+kK2OgFO+b1wr9skTGwir6Q9igm61e4sGG5I6VljgmpRnvowC563v1i5c2dbN1dtVM93hy0Vjg11T4vkh1nxw1ai1pbQ93HGXPBY4TCbdfEn6r9glWFBq3DNMGDS4tcllolqWvTUXaGU7L1hgLdJyMZ9LPjijZ9u0nmZlbHDMPcFUdslJnyk8kU2UbjpN7XE5mgHLGDeOzi22db9Rf7ScufiozTdROXd07EXlgvse1fUEQrP/+SWmxirn9w+Li+w/ErN2hMQNBWAKAm66ZA0Sk/s8dUxNtqIEluHH7DS3rcLywdyO5ykduU1ZoZkmbYKcZu2fnbzK6P3DAiY8MAlYAXbrcOXCDB5qCtAmUroGnIDYDbFaSqoolARxS+nVLDLb83J/dSVv7m5hQz2w2CQurGHnpAZpnv++SOcI/frSbqg3sKtdWU+B+BRmBrcCthTWY3ssxF3Yny5tCDEDdN+GPgYC8kzT1LqwijlrJ17TPBdJuLm71QGgxFMC38yuZ9cXaf3utgQ/3d0baKiJqTdQOd4YCCS7mDaZxbu7eyUubKD1nQpS9FmWprGFXidP55nzjbSRpbFBie3b43/pyQuex5sVepZ5660LGipLwrDXmkc8aQ0aPBeYy+VBcdDggQ8aLFylj0uW2uIRh+HJMt0nP45q/tRRUh1YnnQlq0LlWP8rLFbWM11QL2MQCtpvbz7s36O3gObLKR3mLfRZvnynKzS4oX561MbleCa2735e4Dj+C8Yrdy8=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read the host firewall (iptables, nftables or ufw)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/firewall/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Read the host firewall (iptables, nftables or ufw)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The firewall type","status and rules.":null},"400":{"description":"Invalid input."},"403":{"description":"No access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: replace-the-ssh-users-crontab
+title: "Replace the SSH user's crontab"
+description: "Replace the SSH user's crontab"
+sidebar_label: "Replace the SSH user's crontab"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVllv4zYQ/iuDeekWYOz0etFbdtF2s72CHAgKw1jQ0sRiTJFacmRHFfTfiyF91gmK1Yutuc9vNCDrZcRihh99ZPiDOJgy4lxhq4NuiCkId0DjsMBWc40KnW4ICzQVKgz0pTOBKiw4dKQwljU1GosBuW+TlGNaUsBxnGdpivzeV72I/Fe59I7JsbB021pTajbeTZ+jd0I7s+0Xz1TySRQzJMfBUM4h+JYCy1sx7BkHfR2C7lGhYWria3ZPDYj/qrN0JBk5GLfEUWJvGu2qV3nk9MLSMW/hvSXtcNw9kkNsvYvZ1feXl/JTUSyDaaUKWOB9TVAG71gvYKMjbIJhJjcRFz++pnDt1tqaCoxrO96K/XAu9qcHqgyDLkuKEdgD1wS1j1ICH4AsrVMnoCJnqJpg4TprR4U/vRlmrgY8aWOpAu/2JicoyZ5q3FJrdUlJ5u7uI3SRwjdxlysqbIhrX8kE5qDSIBY4bW23NO5Ct2Yqti+aPL+nL412ekkhTsXedDDViAojhfVutrtgscAhk4R5Gt3fvgtwT6ExL5BlUOFaByNNzYORqakST7qzjAXWzG0splNOihN60U1raVL6Rpo+lwjKLhjuUwgL0oHCVSdpzeajGrD0fmXomKJb8xv1e8qRiTtZjBzKsaH9tEksuN3NNH1JCNX2zy8+NFpi/vR4f5b9HcUorWe/IgeRHIPJ3RQnPph/8mjUpCsKoCO8T0ZB2i9iSXGSV+SQ0mEHU1ayhOItixww5nnDb0b06fEesjxEYtAM0SzdhXETeKzJQRtIwlVgGFivKAqlpIpcSeDXFN7MIkV7XO6vruTVzTWsqIfIOrBxS9gYroGbl89n6exFv760K+oVbGpT1tlRPLiZwLUsNEdR28qC37itdqmd80lA+Nr13hGQjZTXUxD39oDVP+fhPQHR2TEe7rDuCAYPpD36CciP81Fa/eRTUQ0n7ePbA1c317JfFGKuz3eTy8nlWdV+N2uCDzcPChpqfOgVVCauFDjijQ+rlOSvNw9SF44KWtsJsHmb4C0jAvSy2AIVMTVcsKXR6dJsp+9/cekkpv2QML3wtLXaODGb0GXYQtYMD5CFCo9x6vx1B1xS1uAdKixMJXctQXMxw2FY6EgPwY6jkL90FARO5gd4Sn2qTNx24EnbSGdh788uvrvdHtJvAdXr6ezW1vUJBW0nb6hwRX3+JkgdziObvGfGh+zj4l7UD4pnZ15gbY/2N3/dCSAttp8Lja9EJ+iNnHy9yY59yiOBX6INaLVbdnqZ8CPZlOdfkCkTTw==
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace the SSH user's crontab"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/cron/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replace the SSH user's crontab
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["entries"],"properties":{"entries":{"type":"array","items":{"type":"object","properties":{"schedule":{"type":"string"},"command":{"type":"string"},"enabled":{"type":"boolean"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The crontab was written."},"400":{"description":"Invalid input."},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"The command failed on the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

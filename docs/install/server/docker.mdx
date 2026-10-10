@@ -1,169 +1,101 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+---
+title: Docker
+description: Run Termix with Docker Compose or docker run.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { Compose, DockerRun, Image } from "@site/src/components/install/Compose";
 
 # Docker
 
-The simplest way to get Termix server up and running is with Docker.
+Docker is the easy way to run Termix. The image has the web UI, the server and every official plugin in it.
 
-Termix is light. It idles at about 118 MB of RAM, and 1 core with 1 GB covers most setups. See [Benchmarks](/benchmarks) for measured usage and how much to allocate for larger fleets.
+## Start it
 
-## Installation
+<Tabs>
+  <TabItem value="full" label="Compose with remote desktop" default>
 
-<Tabs defaultValue="guacd">
-  <TabItem value="guacd" label="Docker Compose with guacd (Recommended)">
+This runs Termix and guacd. guacd is what the [Remote Desktop](/plugins/remote-desktop) plugin uses for RDP, VNC and Telnet.
 
-```yaml
-services:
-  termix:
-    image: ghcr.io/lukegus/termix:latest
-    container_name: termix
-    restart: unless-stopped
-    ports:
-      - '8080:8080'
-    volumes:
-      - termix-data:/app/data
-    environment:
-      PORT: '8080'
-    depends_on:
-      - guacd
-    networks:
-      - termix-net
-
-  guacd:
-    image: guacamole/guacd:1.6.0
-    container_name: guacd
-    restart: unless-stopped
-    ports:
-      - "4822:4822"
-    networks:
-      - termix-net
-
-volumes:
-  termix-data:
-    driver: local
-
-networks:
-  termix-net:
-    driver: bridge
-```
-
-To start the containers, run:
-
-```bash
-docker-compose up -d
-```
+<Compose variant="full" />
 
   </TabItem>
-  <TabItem value="compose" label="Docker Compose (Remote Desktop Not Supported)">
+  <TabItem value="minimal" label="Compose without remote desktop">
 
-```yaml
-services:
-  termix:
-    image: ghcr.io/lukegus/termix:latest
-    container_name: termix
-    restart: unless-stopped
-    ports:
-      - '8080:8080'
-    volumes:
-      - termix-data:/app/data
-    environment:
-      PORT: '8080'
+Use this if you only need SSH. You can add guacd later.
 
-volumes:
-  termix-data:
-    driver: local
-```
-
-To start the container, run:
-
-```bash
-docker-compose up -d
-```
+<Compose variant="minimal" />
 
   </TabItem>
-  <TabItem value="run" label="Docker Run (Remote Desktop Not Supported)">
+  <TabItem value="run" label="docker run">
 
-```bash
-# Step 1: Create the volume
-docker volume create termix-data
-
-# Step 2: Run the container
-docker run -d \
-  --name termix \
-  --restart unless-stopped \
-  -p 8080:8080 \
-  -v termix-data:/app/data \
-  -e PORT=8080 \
-  ghcr.io/lukegus/termix:latest
-```
+<DockerRun />
 
   </TabItem>
 </Tabs>
 
-## Docker Hub Mirror
+Then start it:
 
-As an alternative to GHCR, you can also use the Docker Hub mirror by replacing `ghcr.io/lukegus/termix:latest` with `bugattiguy527/termix:latest` in any of the configurations above.
-
-## Specific Version
-
-By default, `:latest` always points to the newest release. If you want to pin a specific version instead, replace `:latest` in your docker run/compose with one of these tag formats, swapping in the version you want:
-
-- `:x.x.x`, for example `:2.4.0`
-- `:release-x.x.x`, for example `:release-2.4.0`
-
-Both formats point to the same image for a given version, so use whichever you prefer. See a list of all versions [here](https://github.com/Termix-SSH/Termix/releases), or browse every published tag on [GitHub](https://github.com/users/LukeGus/packages/container/package/termix).
-
-## Beta Builds
-
-:::info Want to try what's coming next?
-Betas are early builds of the next Termix version. They come out on Tuesdays and Fridays when there is something new, and your feedback is what makes the stable release better.
-:::
-
-To join, replace `:latest` with `:beta` in any of the configurations above and restart the container:
-
-```
-ghcr.io/termix-ssh/termix:beta
+```bash
+docker compose up -d
 ```
 
-`:beta` always follows the newest beta. Each beta also has its own tag, like `:26.11.0-beta.2`, if you want to stay on one. Desktop betas are on the [releases page](https://github.com/Termix-SSH/Termix/releases), marked as pre-releases.
+Open `http://your-server:8080` and do the [first run](/install/first-run).
 
-In Termix, an admin can open **Settings > Updates** and turn on **Termix betas** to be told about new betas. The same page lists the newest stable and beta releases.
+## Images
 
-:::warning
-Betas can have bugs, and a beta can change the database. Keep a backup of the `termix-data` volume before you switch. To go back, switch to `:latest` once a stable release newer than your beta is out.
-:::
+The image is on two registries. They are the same image.
 
-### Plugin betas
+| Registry | Image |
+| --- | --- |
+| GitHub | <Image /> |
+| Docker Hub | <Image hub /> |
 
-Each plugin can use betas on its own, so you can try a fix for one plugin without changing anything else. Open the plugin in **Plugins** and press **Try beta**, or turn on **Beta versions** on its page. **Settings > Updates** lists every plugin on a beta and can move them all at once.
+## Tags
 
-Turning **Beta versions** off keeps the beta you have until a newer stable release of that plugin comes out, then it updates as normal.
+| Tag | What you get |
+| --- | --- |
+| `latest` | The newest stable release. |
+| `26.10.0` | One exact version. Use this to stay on a version until you choose to update. |
+| `beta` | The newest beta. See [betas](/configure/betas). |
 
-### Feedback
+## Your data
 
-Use **Send beta feedback** in **Settings > Updates**, on a plugin's page, or in the command palette. It opens a short form with your versions already filled in. You can also talk about betas in the [Discord](https://discord.gg/jVQGdvHDrf) server.
+Everything Termix keeps is in `/app/data`: the database, its keys, plugins, uploads and recordings. Keep that volume. If you lose it, you lose your hosts and credentials.
 
-## Database
-
-The compose files above use SQLite, which is the default and needs no setup. The database lives in the `termix-data` volume.
-
-If you would rather keep the data in PostgreSQL or MySQL, add two variables to the `termix` service:
+If you use a bind mount instead of a named volume, make sure the folder is owned by the user the container runs as. Set `PUID` and `PGID` to match:
 
 ```yaml
-environment:
-  PORT: '8080'
-  DATABASE_DIALECT: postgres
-  DATABASE_URL: postgres://termix:yourpassword@db:5432/termix
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - ./termix-data:/app/data
 ```
 
-Keep the `termix-data` volume either way. Termix still uses it for encryption keys, SSL certificates, and session recordings.
+See [backup and restore](/install/backup) for how to back it up.
 
-See [Database](/setup/database) for a full compose example with a Postgres service, MySQL setup, and TLS options.
+## Ports
 
-## Environment Variables
+| Port | What it is |
+| --- | --- |
+| `8080` | The web UI and API. Change it with `PORT`. |
+| `8443` | HTTPS, when `ENABLE_SSL` is on. Change it with `SSL_PORT`. |
 
-See [docs](/setup/environment-variables).
+guacd listens on `4822`, but only Termix needs to reach it. Don't publish it.
 
-## Usage
+## Update
 
-Once installed, Termix will be available at `http://localhost:8080` (or whichever port you configured).
+```bash
+docker compose pull
+docker compose up -d
+```
+
+Back up `/app/data` first. See [updating](/install/updating).
+
+## Next
+
+- [Environment variables](/configure/environment-variables) for everything you can set.
+- [Reverse proxy](/configure/reverse-proxy) to put it on a domain.
+- [Database](/configure/database) to use PostgreSQL or MySQL instead of SQLite.

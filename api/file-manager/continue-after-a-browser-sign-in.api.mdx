@@ -1,0 +1,68 @@
+---
+id: continue-after-a-browser-sign-in
+title: "Continue after a browser sign-in"
+description: "Answers the parked keyboard-interactive round once the user finished signing in in the browser (an SSH gateway's approval, for example)."
+sidebar_label: "Continue after a browser sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtu4zYQ/ZXBvLQF6MsW+1DozVk0aLYoGtQpgiIIirE0lhhLpJYc+VLB/74YSrGdZBeLfatgwBI5MzxnLoc9FhzzYFux3mGGCxd3HCJIxdBS2HABGz6sPIViYp1woFzsliH4zhXgXc7JtIscYG2djRUXEG3prCvBOv3p/ir4nZr8SA6Wy9+gJOEdHX6IQG0b/JZqA2sfgPfUtDX/NEWDQmXE7AGvbc3wBzkqOeCjwcCfOo5y5YsDZn36tIELzCR0bDD3TtiJblHb1jYnpTZ7isqvx5hX3JC+yaFlzNCvnjgXNBeBHjByjNa7m0IPbINvOYjlmAKcts4xogTrSjymRyPF1rs42P88n+vfyzQvbem4AOtMSkfuneNc94Cj0KpOeZzi0eD7+bu37otOKnYycoM12ZoL8AE6R51UPtj/Tu7vv3z6xDoYqQDvWyU+OvzybQexDftOpqhsG5bKF5hh66PmsSWpMMNZW3eldRNq7Wxta540QwlnI9nJ2BOTOARHg5HDloMWvccu1JhhPywd0bxC9I/vAtxxaOweBhs0uKVgaVU/1ymtJi5r6mrBDCuRNmazmSTH6dht09w3WrtHRZB3wcohQVgxBQ6aa8weHo+mx9z7jeXLFWrt73w4rVyEWGqjDVAuA516RrEo52SG2WiEZny59qEhxfzx/u4N++VzHfyGtSpOngdtMZZ/aIyKqeAAFOEqBQVyRTJLjqnel5RO2AZWaNDqaYMJGnSUkD7t5KuIPt7fwWAPkQVIYCzvFO4rdtAGVrgGrIDQhqOu5FywKonfcvgqi4T2Mt3fncnF7Y2KGUShIKpPOysVSLP/9w2dk+n3p3bDBwO7yubVcFA8HzOFGwHKJarbaAt+50bvnJzzyUD3yR28Y+A68jBnqmB/nbXv16F5X0nSSYq0dmufsmRFzV7oKCxub3RgOMSB8LvpfDp/k4arNKIGuLCSIDZ+y6DTHIdiLa/vbg1Yl9ddoRmNEsiWlcA6+AYU/zCGIB7IeanGOqpUNJQEeWyqD96JdR0DrUXzcboyzvLwAlt/Fvr/1aU1tKTwXmZtTdYp26Rl/SiMD3gWRjR4KY2Ybq8viuOjwUrlNXvAvl9R5L9DfTzq8qeOg+rV41n/BnHCoUWTlG34MOaYnUzuFKSa190w7a+uSZWxk6rf/rlUAVqN123jC/UJtNMrk3aYIRr0qSpJ7NJajzW5sqMy6UWKqc9nrmryXA==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Continue after a browser sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/connect-browser-sign-in"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Answers the parked keyboard-interactive round once the user finished signing in in the browser (an SSH gateway's approval, for example).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId"],"properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Signed in, SSH connection established."},"401":{"description":"Authentication failed or unauthorized."},"404":{"description":"Sign-in session expired."},"408":{"description":"Sign-in session timeout."}}}
+>
+  
+</StatusCodes>
+
+
+      

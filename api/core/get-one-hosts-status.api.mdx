@@ -1,0 +1,69 @@
+---
+id: get-one-hosts-status
+title: "Get one host's status"
+description: "Returns the status of one host the user can connect to."
+sidebar_label: "Get one host's status"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1v3DgM/SsEL9sCXk9aFD34lgL9SHspOlMEi2BQKDIzVseWXJGexDX83xeUnMl0s1mg2JNt+ol8jyLfhDWxja4XFzxW+IVkiJ5BGgIWIwNDuIHgCZrAksIDUwRrPNjgPVkBCSUWKGbHWF3hev0BtwX2JpqOhKIGJ3SavDfSYIHedIQVuhoLjPRjcJFqrCQOVCDbhjqD1YQy9gnlhXYUcZ63iuY+eCZWwMuzM338yn/TZKZ/8D198hLHEucCX/3bgQt/MK2rszxXL8BXj4HrnM4HAXMwrjXXLZU4zwV2JE2oscIdCRZZZYUrzbjKJFaTq2cskCke7jsyxBYrnHJIf/5a7q8wRNhQ7NwdZAwWeDDRad2kf4kmojdmaAUrbER6rlYrSQdLujNd31JpQ4dz6iCTHaKTMVG4JhMpng/K92o7FxPaEPaOTiOmd59oPEZOUqz1qjKV00THm1MuuNyofmcQFsvLuxA7o5w/Xm4eqV8TswseJOzJA5MXcD5NnxYJ0f00ioSGTE0RDMOblBSMrxMsHUyXeSrpyC2rwiLPZYY8TOb3W3mS0cfLDWQ8MAkYAXY7/6fzJVw25KGPpHQLcAJi9sQasVSTtwThQPFJFYntabt/u5Pnny9gT6NOfhTnd3DrpAHp7r49knOE/n5r9zQWcNs42+RC/FCmhAsBY4X12IKFcOuX09b4tD5W9L/xo/oKtbzskfM3Ial20qrMZfrPP1/o6FPkTP3l6/LFWXn2SJKuvg2R4OFcCW+NbaBvh53zUAc7dOSFwQkrLYhhEOLU+D6wdMZr/WUK3pMcje9oJ/+sqivjhbz8P+/M9yx0J6u+Nc4ro2QQ02InV6g5dAjuaVSuVp9N4eoKp+naMH2N7Txr+MdAUZd8+2AaaeVrx/peY3VjWqb/UPPsy2LNz+EphvfL5MfkTe2gX1jgnsbs7/P21B7fv93gPP8NG3M2fg==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get one host's status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/status/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the status of one host the user can connect to.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The host's status entry."},"400":{"description":"Invalid host id."},"404":{"description":"Status not available."}}}
+>
+  
+</StatusCodes>
+
+
+      

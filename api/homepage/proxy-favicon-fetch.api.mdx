@@ -1,0 +1,69 @@
+---
+id: proxy-favicon-fetch
+title: "Proxy favicon fetch"
+description: "Fetches and caches a site favicon server-side to avoid CORS issues."
+sidebar_label: "Proxy favicon fetch"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFFv20YM/isEn1ZAsbNie9FbNrRb2gELkhTBEAQDI9HSzdKdeqRsa4b+e8GT7BhJU6BAn3TifXf8PpL37bFkKaLr1AWPOb5nLWoWIF9CQdMSxCnDijauCB6E44bjmbiSQQPQJrgSfv/7+gacSM+ywAyVKsH8Hv8MLXdUMT5k2FGklpWj7ezRWbbPPccBM/TUMubYxwYzjPy5d5FLzDX2nKEUNbeE+R516AwmGp2vcBwfDCxd8MJi+2/Pz+3zTNHM27VU8QLHDH/5GuzSb6hxJXy6/iuBfv36Xa7h0mSvrE6HmixwHDNsWetQYo4VK5perTHHZdf0lfNn1LllPZdjOZ/DDKdqTiUx+Tnup9CI2bPk/4Q+wi3H1u3mJmCGG4qOHptJ/xxNtFfUN4o51qqd5MulpoML3lHbNbwoQotjqqBw0UenQ6LwyBQ5XvRG/f5hzPZYhLB2fBqhzn3k4Rg5ueLGOjVROb3o2DjjgnND7X8CYTYv3ofYknH+cHf7Qv0Ni7jgQcOabQi9gvOgNYMlCdH9T4aEmqnkCCTwW7o0TbLB0sHU2lNJR26TKsymwZwgT5P531ZfZfTh7hYmPAgrkIK4yp85v4C7mj10kY1uBk5Bac1ikYJL9gVD2HB8VUVie1ru767kxdUlrHkAUYrqfAVbpzVou/v3hZwj9PtLu+Yhg23tinpKJE9pFnCpQIWKHZuxELZ+Pl2Q9yEBbJ/8EDwDN8LTk3J+FZJqp43JPPgJXFxd2vBzlIn8z4vzxflLSVBGqlKiMoYOtq6sWCHdsAoRBntR8wtMKFu7giWDrunl8AuN82tJJ0xBSVI/Boplak8XRFvyxnKelasYdsPRLpNRPGdmz8ore/1xjjvNhfJOl11Dzhu3ZCj72Ynu8cmJMMODF2GGBzd6sKioQff7RxL+FJtxtPDk02YQpROzmxLzFTXC39D10/Xs42/gNX5rHo6uv6GmNwSaoRxcbbKcJ2f9490tjuMXM6RP1A==
+sidebar_class_name: "get api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Proxy favicon fetch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/homepage/favicon"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches and caches a site favicon server-side to avoid CORS issues.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"url","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Favicon image."},"400":{"description":"Invalid URL."},"500":{"description":"Failed to fetch favicon."}}}
+>
+  
+</StatusCodes>
+
+
+      

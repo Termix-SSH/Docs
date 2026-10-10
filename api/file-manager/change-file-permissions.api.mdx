@@ -1,0 +1,68 @@
+---
+id: change-file-permissions
+title: "Change file permissions"
+description: "Changes the permissions of a file on the remote host."
+sidebar_label: "Change file permissions"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVV1v6zYM/SsEn9WkGzZg8Fs7rFjvcLFgyVAMRTAoMmOrsSVfiU6aGfnvAyU3cT/ugDs/JLZEUodH5OGAJUUTbMfWOyzw51q7iiJwTdBRaG2M1rsIfgsatrYh8C5tBmo9E9Q+8gwVsq4iFo94JyaftdMVBVwrDPSlp8i3vjxiMaRPG6jEgkNPCo13TI5lS3ddY40WHPOnKGAGjKamVssbHzvCAv3miQyjwi74jgJbismOEsz7cmIaOVhX4Ulhp7n+eOOS4Af76ZEMYuddzAd9f30tf685W0x4Mom/EmJvDMW47ZvmOJOzfvjI87O4uQpeaIFOB90SU4jgAyyXv4LxzpERe3CeQe+1bfSmoTHoT/8FZ0QDbFsqwfecnH78CMmdtg2VwP7FZ8LNDIWHlrj2JRbY+ZhuILGK867pK+uudGfnUh9Xbb78eY4z4QYVRgp7ClIoA/ahwQKHvHRC9QbQX74PsBLvZ8g2qHCvg5Xkx0tPqymVre4bxgJr5i4W8zknxxk967ZraGZ8K/e5FgSmD5aPCcKGdKBw00sij+uTGtB4v7M0XdGd/Y2O55VJiKUUZ4YyDXSuI8EiOSczLEYjVOPLnQ+tFsyfHlbvsl/mggb2O3IQyTHY3HdyiA/2n9QoUJMuKYCOcJuCgnZlMkuO6bqnKZ2x5axQoZXTsgkqdDohfTrwVxF9elhBtodIDJoh2spdWTeDh5ocdIEErgLLwHpHUVYMleQMgd9T+GoWCe2U7m9m8mZxDzs6QmQdWPrqYLkGbp//fpfO2fTbqd3RUcGhtqbOB8XLMTO4Z9CGo7iNtuAPbvQ22qUeNiz72h29I6AmUu4wUb0/Lnr5Sy7eN/r2Ik/nBrx8T9VsonLWbX0i07JEeyXRcLO4l76iEDMv382uZ9fv2LoN/hBJAZWWUyat31MaBzHf6fJutVBgnWn6UoiPHLStaoZt8C1ImrlbRWC081yP1y1a0uqk9WPt5QGUR033SjxeQRouo+P/z6xcXUzPPO8abZ0gSrI0jOQ+4kXdUOFU31Dhe4VbK5Tg4jgMGx3pz9CcTrL8pacgorO+iFhWGMx1lvRoR0dJJyd2tRJ4Yt70uWXfzEfRorMoL35fiopsxjnb+lJ8gj6gSr8FokKfyEuKldYGbLSrel2lpk8x5fkXbJvRlw==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change file permissions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/changePermissions"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Changes the permissions of a file on the remote host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"path":{"type":"string"},"permissions":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Permissions changed successfully."},"400":{"description":"Missing required parameters or SSH connection not available."},"408":{"description":"Permission change timed out."},"500":{"description":"Failed to change permissions."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -8,7 +8,7 @@ There are two ways to install: through npm, or by downloading a single file that
 npm install -g @termix-ssh/cli
 ```
 
-This needs Node.js 20.11 or newer. Check what you have with `node --version`.
+This needs Node.js 22.12 or newer. Check what you have with `node --version`.
 
 Then make sure it worked:
 

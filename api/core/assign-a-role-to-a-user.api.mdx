@@ -1,0 +1,70 @@
+---
+id: assign-a-role-to-a-user
+title: "Assign a role to a user"
+description: "Assigns a role to a user."
+sidebar_label: "Assign a role to a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu20YQ/ZXBPLUAI7lpWqB8s9MEUPpQw3ZgFIYQjMiRuBa5y+wOLbME/72YXVpSrShA+CJxOJcztzMDlhwKb1oxzmKOlyGYjQ1A4F3NIA4IusB+hhkKbQLmD3hzdfkelxm25KlhYa/SAY3atyQVZmipYcxRLRclZuj5a2c8l5iL7zjDUFTcEOYDSt+qZhBv7AbHcZmUOciVK3vVeG1bOCtsRT9R29amIMU+fwyawHDq2q0euRDMsPWuZS+GQ3Tral6UR3rGCm/Y4xgfhRFaZ0PSfntxoT//L9aNlohixbiE0BUFh7Du6rqf4Zjhu7M2iz/BBHhJbFL+9VT5tg/CTWxFgIKsdQIrhoZsR3Xd72NPHt6devgc2IPzqZtqvnadfdH/41xKtWcqX7n/7VvZfCRTcxnHJOrGODPU8jUslSt1JFyI1dfJyHHuV1TMdTDCfEjzMc5jgphhYP/0Mk6drzHHIYlGzF5F/sd1Hu7YN+YZkg5m+ETe0KpOLZukEfOaulowx0qkDfl8LtFwxs/UtDXPCtdo25eKoOi8kT5CWDF59pedAn9YjtmAhXNbw8cSas1f3O8lRy5udRATlGNH+3lTLDitgr4nJcymPx+db0gxf7q/O8n+lkMwzoK4LVsIbAWMBakYNIjz5t+4FFAxleyBAlxFp0C2jGrRMPb1OKU9tpQVZmmpk8phrR93chbRp/s7SPoQWIAEdC7eGDuD+4ottJ4VbgZGQGjLQSUFl2wLBvfE/mwWEe1xuX+4kpfXC9hyD0HIi7Eb2BmpQJrnLyfp7FV/vLRb7jPYVaaoUqBwCDODhQAVEtRs0gW3s5P1tOFUiH4n2zvLwHWYNkoZ7ubAjR/S8B5z2cWoHVu7WBsj+hGnHbm8XuiCsA8pwbe/z365mF2cJH5XMRTOMxzsZvCBigrautsYC6UruoatBDASFDx41wmH2B7d9YYiD0+zkg7KyT15HXc40Pr3b1DquPCzzNuajNWokSqGiWEeUBkGs3h8lFTywxWKNLPMsFJKyh9wGFYU+LOvx1HFXzv2uvnLA5NEHihN0P8l5muqA38H+k83E6f/DOfAvmyY7SNh1Z2+YYZb7g8Xc1yOGaYJiwjSx/cpzps7dXEwPrmCykJ7+r3++1b5YzVd08aVauNppwWhXQruYi7pLqpswJrspqNNXPfoU5//AE5JzkA=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Assign a role to a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rbac/users/{userId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Assigns a role to a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"roleId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Role assigned successfully."},"400":{"description":"Role ID is required."},"403":{"description":"System roles cannot be manually assigned."},"404":{"description":"User or role not found."},"409":{"description":"Role already assigned."},"500":{"description":"Failed to assign role."}}}
+>
+  
+</StatusCodes>
+
+
+      

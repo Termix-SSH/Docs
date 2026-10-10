@@ -1,0 +1,70 @@
+---
+id: serve-a-plugins-frontend-bundle-stylesheet-or-locale-file
+title: "Serve a plugin's frontend bundle, stylesheet or locale file"
+description: "Public, like the app's own /assets, because a module import cannot send an auth header and plugin frontends are not secret. Serves only the directory holding the plugin's frontend bundle and its locales directory. A `v` query parameter (the assetVersion from GET /plugins) makes the response cacheable for a year."
+sidebar_label: "Serve a plugin's frontend bundle, stylesheet or locale file"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVUtvGzcQ/iuDuSQBmJUbBD3szQXcwOnFqJUahWs0FHekZcUlN+Ss7K2w/70YciUrdVzAKNBTT9IO5/XN45s9NpRMtD3b4LHGq2HlrFHg7JaAWwLd968ShHsPC50ScVKwIqOHRKChC83gCGzXh8hgtPeBIZFvQHvQA7fQkm4ogvYN9G7YWA/rGDyTbxLoSFAMTCSu4JrijhIE78YcurGRDIc4QhtcY/0mS4ubV+noCFaDbxzlGJYTuGC0o/RoXsE5fN59hi8DxRF6HXVHTBFeZ3wC6heKyYacWwcfLpawKFHSG+j0llIOHCn1wScCo01LeuUI1iGChpF0rH7zqJD1JmF9i1fFGu8UHsPJwx6tFLnX3KJCrzuSr6x82aDCSF8GG6nBmuNACpNpqdNY75HHXnQTR+s3OE3q267K18vd5NI8+tnhPxndSYRSiyTv787O5OfrQVq2BGvrqMJJ4fuz9081Pvmtl7kKERKHvqfDiCgR+QBpMO3Bx6SwI25DgzVuiFEVrDXOnXpbhnOxP1RzWuxFYxIkMldz/YfosMZ9Ecnj1zn9GoYIS4qdfYCigwp3OlppdwY7SzOatR4cY40tc5/qxYKzYUUPuusdVSZ0OOVyJTJDtDzmFFakI8XzQdK/vZMWmBC2lk4lurc/0XiUnLi4lraUVE4dHbskuRy6J99FCdX858cQOy05f7xZPkF/TSmvAYctedljBuvz7EuQEO2fWjSPS53gh+w0r56oZcPc8VNIx9wKKlRl5orK49D9cc/PZvTxZglFHxIxaIZkN/6t9RXctOShjyTpKrAMnDe2j2SoIW8Iwo7isyhytqflfnElz68uYUsjJNaRhaXuLbfA3cPvT+AcVV9e2i2NCu5ba9oSKD2GqeCSQRtOYjbrCmPP1jMta8Pyrv0YPAG5NK+V9euQUVt2AnOe/vOrSxn9QoxY47vvq+/OqrMnkGTPTYgEj3YVXGjTHvi+CWboyHPK5CwLH8PAlHLh+5C4017iz1OQjwDoZ2leQeLRUWqJWHiisH2mib/nJoslpvz/Xfu3d61sBNMDL3qnrZfeZSrdzzx8i1/xMCqsT+5anZXuFLYhsSjv9yud6FN00yTicn6EHBubJIMG67V2iRRuaZwP0k67QbJAocMDJ3/b6NkxeP3zfBrfwHOwDlzlx9OYh0SOoISl/8u4UsDp7vQMfrhY4jT9BRJ8YqU=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Serve a plugin's frontend bundle, stylesheet or locale file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-assets/{pluginId}/{path}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public, like the app's own /assets, because a module import cannot send an auth header and plugin frontends are not secret. Serves only the directory holding the plugin's frontend bundle and its locales directory. A `v` query parameter (the assetVersion from GET /plugins) makes the response cacheable for a year.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"pluginId","required":true,"schema":{"type":"string"}},{"in":"path","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"v","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The file."},"404":{"description":"Unknown or stopped plugin, or no such file."}}}
+>
+  
+</StatusCodes>
+
+
+      

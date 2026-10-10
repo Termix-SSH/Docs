@@ -1,0 +1,246 @@
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+
+const sidebar: SidebarsConfig = {
+  apisidebar: [
+    {
+      type: "doc",
+      id: "host-metrics/host-metrics-api",
+    },
+    {
+      type: "category",
+      label: "Host Metrics",
+      items: [
+        {
+          type: "doc",
+          id: "host-metrics/get-host-metrics",
+          label: "Get host metrics",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/start-metrics-collection",
+          label: "Start metrics collection",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/stop-metrics-collection",
+          label: "Stop metrics collection",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/submit-a-totp-code",
+          label: "Submit a TOTP code",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/keep-a-metrics-viewer-alive",
+          label: "Keep a metrics viewer alive",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/register-a-metrics-viewer",
+          label: "Register a metrics viewer",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/unregister-a-metrics-viewer",
+          label: "Unregister a metrics viewer",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/get-metrics-history",
+          label: "Get metrics history",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/get-the-host-metrics-layout-for-a-host",
+          label: "Get the Host Metrics layout for a host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/save-the-host-metrics-layout-for-a-host",
+          label: "Save the Host Metrics layout for a host",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/get-wire-guard-interfaces-and-peers",
+          label: "Get WireGuard interfaces and peers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/bring-a-wire-guard-interface-up-or-down",
+          label: "Bring a WireGuard interface up or down",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-local-users-and-groups",
+          label: "List local users and groups",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/create-or-delete-a-user-or-change-a-users-groups",
+          label: "Create or delete a user, or change a user's groups",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-certificates-from-certbot-and-acme-sh",
+          label: "List certificates from certbot and acme.sh",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/issue-a-certificate-with-certbot-or-acme-sh",
+          label: "Issue a certificate with certbot or acme.sh",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/renew-certificates",
+          label: "Renew certificates",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/revoke-and-remove-an-issued-certificate-certbot-or-acme-sh",
+          label: "Revoke and remove an issued certificate (certbot or acme.sh)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-the-processes-using-the-most-memory",
+          label: "List the processes using the most memory",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-systemd-timers",
+          label: "List systemd timers",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-mounted-filesystems-and-their-usage",
+          label: "List mounted filesystems and their usage",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-systemd-services",
+          label: "List systemd services",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/start-stop-restart-enable-disable-a-systemd-service",
+          label: "Start/stop/restart/enable/disable a systemd service",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-processes-rich-sortable-filterable-client-side",
+          label: "List processes (rich, sortable, filterable client-side)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/send-a-signal-to-a-process-term-kill-hup-int",
+          label: "Send a signal to a process (TERM/KILL/HUP/INT)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-upgradable-packages-and-the-package-manager",
+          label: "List upgradable packages and the package manager",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/install-or-upgrade-a-package-or-upgrade-everything",
+          label: "Install or upgrade a package, or upgrade everything",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-readable-log-files-under-var-log",
+          label: "List readable log files under /var/log",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/tail-a-log-file-or-a-systemd-units-journal",
+          label: "Tail a log file or a systemd unit's journal",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/detect-available-management-tooling-on-a-host",
+          label: "Detect available management tooling on a host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/get-the-hosts-health-checks-and-their-last-results",
+          label: "Get the host's health checks and their last results",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/save-the-hosts-health-checks",
+          label: "Save the host's health checks",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/run-the-hosts-health-checks-now",
+          label: "Run the host's health checks now",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/read-the-host-firewall-iptables-nftables-or-ufw",
+          label: "Read the host firewall (iptables, nftables or ufw)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/add-or-delete-an-input-rule",
+          label: "Add or delete an input rule",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/save-the-current-firewall-rules-so-they-survive-a-reboot",
+          label: "Save the current firewall rules so they survive a reboot",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-the-ssh-users-crontab-entries",
+          label: "List the SSH user's crontab entries",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/replace-the-ssh-users-crontab",
+          label: "Replace the SSH user's crontab",
+          className: "api-method post",
+        },
+      ],
+    },
+  ],
+};
+
+export default sidebar.apisidebar;

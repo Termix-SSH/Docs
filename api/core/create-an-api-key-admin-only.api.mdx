@@ -1,0 +1,68 @@
+---
+id: create-an-api-key-admin-only
+title: "Create an API key (admin only)"
+description: "Creates a new API key scoped to a specific user. The full token is returned only once."
+sidebar_label: "Create an API key (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vttu20YQ/ZXBPCUARcmq3bR8c9IEVQI0Rq3CaA2jWC9H4lrkLrM7tKwS+vdidqlLLAdFHqoXUcu5nj1zRj2WFLQ3LRtnscB3nhRTAAWW1nB5NYMVbSBo11IJ7EBBaEmbhdHQBfI5zCuCRVfXwG5FFkwAT9x5SyU4W2/AWU05ZshqGbC4RQn5iTYB7zL09KWjwG9ducGijz+NpxIL9h1lqJ1lsiyvVNvWRispcvwQpNIeg66oUfLEm5awQHf/QJoxOwp0i1Y1hBlKsbNSkrbeteTZUBDX+PoQIrA3donZM1R+7RplR55Uqe5rAnGChfPAFQk+OW73Gf4z1uwXcIvoKR7AlQkRYxMOMMeA9NQaT+GSX4q5cL5RjAWWimnEJjb5daLP8UHVEANF7ECsc/hN7qshZcOuA7D0SB6GlDlu40eQDK2zIWE1nZzJ19dZdhTRkThlDu+cZWWG0EfMeBUqt7YHUryOTZ5PJqcxZ/ZR1aYEY9uOB7MfXkhdNsaC0pqCsC7d+WB+fmo+V35JnFC3jmHhOpvML14q4oMydeJ8am03DAJOhg1x5UossHVBKNcqrrDAsUQPY9Wa0UpInmEg/0heqN9j52sssE9H25ML+9N1HubkG/MEyQYzfFTeCOniDQynsdaF6mohQMXchmI85uiY05Nq2ppy7Rq5xTupQHfe8CaWcE/Kk7/spNrbu23Wo3ZuZej4RLXmE232J0chrmXkUinHgfb0lFqk52iGxWCE2fDwYUfajzfzk+6vKQShaGJLIMtgbCSRJHHe/JMoXJEqyYMK8DYGBWXLaBYd430et7SvLXWFGRrJlkwwGwQAH9b8zYo+3swh2UMgBsUQzNKOjM3hpiILrScpNwPDwGpFQU40lWQ1gXsk/80uYrXHcH83knuFZuXZ2CWsDVfAzdPfJ+3sTb8f2hVtMlhXRlcpUTikyWHGoDQHcdupiVvbwVsrK7OmNMt7ZTfOElAdKI2RaPnvhy3wPpH3IMwHwdvJ6+HkSB9xOpmejyZvRtOf52cXxcVZMf0pn7w5+0vwNXbhIrKGJTQOE3Z5NZPxIh8SPNMf87NJPjmBTRacdp7g4JfDe6UraOtuaSyUTncNWQ5gOEjr4F3HUUWzKA+NskcdpQ0Lyu636ysVhUyU8fXz9P1hC/6PuzlxjumJx22tjI37TMSqH4TtNuIveraXtrsMK9G+4hb7/l4F+sPX260cf+nIi9rcHdQrSQsmgkUhWtFGWkrNjeZSgZjXXZrVZ+teRGgvuVefr0U+7oe/DY0rxcertax+tcYCMUMXAYxSFc96rJVddmoZpz3GlM+/FY4VEw==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an API key (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/api-keys"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new API key scoped to a specific user. The full token is returned only once.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","userId"],"properties":{"name":{"type":"string","description":"Human-readable name for the key."},"userId":{"type":"string","description":"ID of the user this key is scoped to."},"expiresAt":{"type":"string","format":"date-time","description":"Optional expiration date. Null means the key never expires."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"API key created. Contains the full token (shown only once)."},"400":{"description":"Invalid input."},"403":{"description":"Admin access required."},"404":{"description":"Target user not found."},"500":{"description":"Failed to create API key."}}}
+>
+  
+</StatusCodes>
+
+
+      

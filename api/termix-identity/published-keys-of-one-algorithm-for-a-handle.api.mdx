@@ -1,0 +1,69 @@
+---
+id: published-keys-of-one-algorithm-for-a-handle
+title: "Published keys of one algorithm for a handle"
+description: "Public. Like /u/{handle}, keeping only keys whose algorithm group matches (RSA, ED25519, ECDSA and so on)."
+sidebar_label: "Published keys of one algorithm for a handle"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDOSXAmlKC5BDe1NpNnKaBEakwCkMo1uRI3IjcZXaHllmC/72YXVqS4bqALzmRnJ3ZeW8+HgcsKRTetGycxRyvutvaFBl8MTuCWTcbKm3LmkYFO6LW2C04W/ewoz7AvnKBQNdb5w1XDWy961poNBcVBXj1bblQcHH+9v37Nx8UXPx6vlyAtiUEB86+zlAh623A/AZX5BtzD5fnuFbYaq8bYvJyNKARVK3mChVa3RDmmCChQk8/OuOpxJx9RwpDUVGjMR+Q+1Y8A3tjtziO6j8vEugvumYtzqF1NlCQ87fzuTwel3BVUSqCVCsWSgdgumdwHj6t/viS4ajw3fzd09CvDkJXVJAYZgIcG+LKlZjjlhhVYpDjrK27rbFnujUzjuU7MyVZNtyfdG02CMURFQbydw8l7XyNOQ7JJIePQfzlOg9TS5IPKrzT3ujbOtGerBH+Rnc1S1OY25DPJjAZ3eumrSkrXINjLFygovOG+wjhlrQnv+iEy81a2lM4tzN0atGt+Z36g+XkiqU0KEE5vejQL8GCUx/lOzmhml5+c77Rgvnz9eoJ+yWFYJwFdjuyEMgyGAtcEUgS580/WjyhIl2Sl9b+Ei+Noy1uMTC2+JTSAVtihSrNY3I5TuT3PT+L6PP1CpI/BGLQDMFs7ZmxGVxXZKH1JHAVGAbWOwpiKagkWxC4O/LPsohoT8v94kouri5l1CGw9ixzvzdcATf3fz+hc3B9eWl31CvYV6aoUqJwTJPBJYMuOC1b8gW3t1N0oa110UHOte2dJaA6TDtm7MZF1oZrofkgSNNGweLqUnaAfEgc3mTzbP6EWdTOUEEvC7RcfoI2imnSgM5GTg+2tKARm+9sCnF7G8MK8mw2ptBMoFNluI89al3gRluBOg3MlJPKlMVtQJgdNXnjJOlBMR8BlqWzTJZ/uu6n4RJNnLW1Nla4RVUaJn27waO+ScBjhUOFHSrMD7TyqORrhZULLNHDcKsD/enrcRTzj468CM/6KGRRhkoT5L3EfKPrQP9Tn1ffpp/Ea3iOwMOC2z7qZd3JFyrcUX/8aYmw/cSssS7j+vQ38vFiheP4L7gAuTg=
+sidebar_class_name: "get api-method"
+info_path: api/termix-identity/termix-identity-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Published keys of one algorithm for a handle"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/termix-identity/u/{handle}/{algo}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Like /u/\{handle\}, keeping only keys whose algorithm group matches (RSA, ED25519, ECDSA and so on).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"handle","required":true,"schema":{"type":"string"}},{"in":"path","name":"algo","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The matching keys as text or HTML."},"404":{"description":"No such handle."}}}
+>
+  
+</StatusCodes>
+
+
+      

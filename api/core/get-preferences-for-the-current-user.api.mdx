@@ -1,0 +1,59 @@
+---
+id: get-preferences-for-the-current-user
+title: "Get preferences for the current user"
+description: "showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are legacy fields, kept here read-only for backward compatibility; the authoritative copy is GET /host-sidebar/preferences."
+sidebar_label: "Get preferences for the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVsFuIzcM/RVCl71M7HQPPbgnb5Bmk22boHG6KBZBwdHQM4o1kipx4swa/veCGtd2nSwwe20uGUuP5CNFPmmjKko6msDGOzVTqfHrjz7xAutUQCNfEftbd2GNXhWgfRtQsyD+MLQGdBUkRu7Shbc+3uuGWgKMBJZq1D0sDdkqFbCiwNBQJIiE1Zl3toelj1CiXq0xVoNnNqWxhvufgBsC7Ljx0TCyeSbQPvRgElxdLmAqxM6SqajEOA2RlhTJaUoTVSjGOqnZF/WQKMLdYU89FipSCt4lSmq2Ue/Pz+XffwuQrU48au+YHAsYQ7BGo4CnT0ksNipJ1ihf3AdSM+XLJ9KsChWiDxTZDPEi+UBugWW6db/42rgjk9J7S+jUtlAsNTzaShyNq1WhXGctlpbUjGNH20ItveN783UcGLUmx/mYRuEturrDepzzxD5iTb/6ahxe+7ZFV92hJWa6dLJZvVGOt0Iddeg4i5MuHmcUjJuH8DsaOw5PLwFdtTO5dR/9M8XxCd3to33omP1bnfGGZWWS/H4IFTJdNDQ2N+3d0sR2geWF9YlGVtFUFTmhKB089pSP1WJkOU7lZFyoLrFvP1FfGlcZV48gWJxM/s397W9n5LSvqAKMEXvwyyxEXaL4LsEQA1aHIBOYO0AtDt4lkHCiUN7Rv5apIWvfJfBrBz7mHYRgu9o4qEhbjJTAOBCFiabsmNLk4H+ePaeJ2g5/hWqJG1+pmaop6wtyo2ZqKgTPjkRLFSpRfKYoQrhRXbRqpjbD0ladJv6n7yIsKLbmBQaMKtQzRiO1yoXcrWaxXGJnWc1UwxzSbDrlbDihF2yDpYn2rdB9FAa6i4b7TKEkjBTnnfD98rgtNkp7vzJ0vILBfKJ+v3LkYmiETOXY0f6EhYvkvOuXHUgVu4+ffWxRON98XrzK/p5SMt4B+xU5SORYDkQObz7cP1+z2kNDWFEETPAhO813n8Cy4UTlfj+ktOc2ZKUKJXq/g0gvYmb6tOZvMrr5vIABD4kYkCGZ2p0ZN4HPDTm5pYRuAYaBcUVJVjRV0gIg+vPNLDLb43J/dyXnd9cyCHL5RzauhrXhBrh9+etVOnvo95d2RX0B68boZgiUDmEmcM0yeknMdlgZs521Rud8Bsg+ul5Gj2wiGSY5i6XPWRsWOVC77p/fXUvrU0wD9fc/Tn44n5y/SmnRyHskEhzsJnCJutnPttddS44TGB6mP/o83FL44BO3mDV+1wVXxMdvjvwykpx0F6NUTeb7lMTm8Cz5X7zahv5jeuFpsGjyUygL12Ync1/UK5l7HC532dtsSkz0EO12K8t/dxRFeR4PSjbIjBqaLYvSinrpT60pcJY82w0Te/LGEynaK+/V5UJtt/8Ae6n2uQ==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get preferences for the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user-preferences"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+showHostTags, hostTrayOnClick, compactHostView and statusColorScheme are legacy fields, kept here read-only for backward compatibility; the authoritative copy is GET /host-sidebar/preferences.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"User preferences.","content":{"application/json":{"schema":{"type":"object","properties":{"reopenTabsOnLogin":{"type":"boolean"},"theme":{"type":"string","nullable":true},"fontSize":{"type":"string","nullable":true},"accentColor":{"type":"string","nullable":true},"language":{"type":"string","nullable":true},"storageMode":{"type":"string","nullable":true},"commandPaletteEnabled":{"type":"boolean","nullable":true},"showHostTags":{"type":"boolean","nullable":true},"hostTrayOnClick":{"type":"boolean","nullable":true},"pinAppRail":{"type":"boolean","nullable":true},"expandAppRailOnHover":{"type":"boolean","nullable":true},"showPinAppRailButton":{"type":"boolean","nullable":true},"disableUpdateCheck":{"type":"boolean","nullable":true},"confirmTabClose":{"type":"boolean","nullable":true},"hiddenRailTabs":{"type":"string","nullable":true},"compactHostView":{"type":"boolean","nullable":true},"statusColorScheme":{"type":"string","nullable":true},"customKeybindings":{"type":"string","nullable":true,"description":"JSON-encoded array of the user's custom keybindings. An action's type is one of the shell's own or one a plugin declares in contributes.keybindingActions."}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

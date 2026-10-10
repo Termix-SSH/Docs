@@ -1,0 +1,69 @@
+---
+id: update-an-ldap-directory
+title: "Update an LDAP directory"
+description: "Config fields are merged over the stored ones; an empty bind password keeps the stored one. Needs ldap.manage."
+sidebar_label: "Update an LDAP directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDOTUAQ7lpTuxJTVDA+SiMxoZRGEIx5o7Ercjdze5QMivwvxezpCwljgPk1BOXwzc7b74eD2g41dEGsd5hhW+8W9sNrC23JgFFho7jhg34HUeQhiGJj/ruOP0K5IC7IAPcW2cgUEp7Hw1smUP6Cl3CH8wmQWsolB052nCJBQptElZ3+OHt8gpXBQaK1LFwVOsBrZIKJA0W6KhjrNAaLDDy595GNlhJ7LnAVDfcEVYHlCFklBPecMRxXCk6Be8SJwW8urjQx5d5v7WRa/FxgD4YEjYljgW+/hb0o03JumONZtwvz+MCx06P3s3Y198L77zA2vdOCYwFdiyNN1qDXrCYKlHhIrT9xrqXFOxC67kI0e+s4ZgWB2tGLDBx3B1r2McWKzxMJv34Zey/fB/hWkk+wITBAncULd23U8Vma2a9pr4VrLARCalaLCQ7lvxAXWi5rH2HY6554rqPVoZM4Z4pclz2yv5uNRYHrL3fWj63ULDveXi0nF3xSZs7UTm/6LHXygXnGdD3CYTFfPjdx46U87vb6yfZf+LcGhC/ZQeJnYB1eXQ1iI/2X1IkNEyGI1CC3/KlQM5kWHbMnT1P6ZHblBUW0yRPkNMs/7OXZxm9u72GCQ+JBUgg2Y17aV0Jtw07CJGVbgFWQGjLSS01G3Y1n9b1W1lktufl/uFKLq8uYcsDJKEoOuR7Kw1I9/D3k3QeoT9e2i0PBewbWzdToHQKU8KlANWS1G3Ggt+72bsmp4tEteh3coN3DNwmnrbKurXPWVtpNU0VH1heXergc0wT8Z/Li/LiaXfsxmkamcmgq5OdfYRlLXbHcKYkiaP2OTM6amOuffBJOnJKYR6Em6w6qqf5OnO85Ov4ujhO2Mn/otXTkAg/yCK0ZJ3mktXlMCvTHZ6UCQtUf1WtozphgZU1KvONT6Lww+GeEt/EdhzV/LnnqIqxOilQ1g9jk54NVmtqE3+nKD/9Of8ZXsBzjI+b6YYsdG2vb1jglofp9zKuzpX36uYax/E/hyZ3lw==
+sidebar_class_name: "put api-method"
+info_path: api/ldap/ldap-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update an LDAP directory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ldap/providers/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Config fields are merged over the stored ones; an empty bind password keeps the stored one. Needs ldap.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Directory updated."},"400":{"description":"Missing fields."},"403":{"description":"Missing permission."},"404":{"description":"Directory not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

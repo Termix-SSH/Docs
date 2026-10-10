@@ -1,0 +1,70 @@
+---
+id: overwrite-a-workspaces-saved-tab-arrangement-with-a-new-payload
+title: "Overwrite a workspace's saved tab arrangement with a new payload"
+description: "Used by 'Update with current' in the Workspaces panel. Rejects the Last Session workspace."
+sidebar_label: "Overwrite a workspace's saved tab arrangement with a new payload"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v4zYQ/SuDubQFFDst9uRbtmiBbAs0yCYIiqxRjKWJxVgiueTIjirovy+GlD82bhbYQ32xTb7hvHnDeRyw4lgG48U4iwu8j1zBqodPeO8rEoadkRrKLgS28gnBWJCa4cGFTfRUcgRPlpsZ3PIzlxLT7p8UBT5yjMZZ2O2hMyxQaB1x8YjHeFwW6ClQy8JB9wY0SsST1FigpZZxgabCAgN/7kzgChcSOi4wljW3hIsBpfcJZYXXHHAclxnNUd67qlfI6+DSWWErukXeN6YkVWD+HFWG4fxst9L6sEAfnOcghqPueuobR9U5cEwfpRG9szGjf7m81K+vJT9oARMn6JL01QzHAt/9V8i13VJjKphqhJWr+gn97lsJrBN4cp3Vo8cCW5baVSp2lypTyRc49023NvaCvJkfmhfng6nG+V61AiOH7b5hXWhwgUNeGrF4lf9v1wW449CaF8gYLHBLwdCqybpMq4n5E3WN4AJrER8X87mkwBm/UOsbnpWuVW2XyqDsgpE+UVgxBQ5XnVbwuByLAUvnNoZPV8ibP7g/rJwc8VG7namcHnToqXLB6cLp/wzCYvrxuwstKecPD3dn1e/nQNyGLUTt7zREmsQF82+6eVAzVRyAIrxPhwLZKsFSYOruaUkHbrkqLPLYZMhxcJ538iajDw93kPEQWYAEolnbC2Nn8FCzBR9Y6RZgBIQ2OuuBS67Ylgxuy+HNKhLbU7m/W8mrm2vYcA9RKIix6+xD0r78c1bOAfr90m64L2BXm7LOieIxzQyuBUgdjeIeC25np+iSrA4TlaL7ZHtnGbiJnCdLbeT2aEC/5cv7tWEoztgnl9QxotsnvghXN9c6JhxiLvPn2eXs8ryXtGXodcCcZwtCq5j4Rd8YgYZ610leCZwRNbeqkvItG1NuUq+8i9JScr7p4vy15bALRhjoaOE/RIi05UrzAIVAds2typ5kI7C8g32Br5gOR8f93x+ZfNWEX2TuGzJWK0weNUwe94hHj8MCjy6HBS7SW7MnuyywdlE0ZBhWFPk+NOOoy587Duo9y6OXJSeqTNTfFS6eqIn8DRl+vJ3epJ/gLdb7Gbd9ssym039Y4Ib7/CqOy7HAfL9T9rzxa85xcafhx8Czh0498PAI3Nyrea2m97J1lYYE2unLS7uc16UyklGmtQEbsuuO1slr0pH6+QJY7+VC
+sidebar_class_name: "put api-method"
+info_path: api/workspaces/workspaces-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Overwrite a workspace's saved tab arrangement with a new payload"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/workspaces/{id}/content"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Used by "Update with current" in the Workspaces panel. Rejects the Last Session workspace.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"payload":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Workspace content updated."},"400":{"description":"Invalid request body."},"404":{"description":"Workspace not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

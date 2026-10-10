@@ -1,0 +1,69 @@
+---
+id: get-a-transfers-progress
+title: "Get a transfer's progress"
+description: "Get a transfer's progress"
+sidebar_label: "Get a transfer's progress"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv20YM/isEX7YBF9st+qS3FGiKdFgRLB6CITCKi0RLN0t36pGK4wn67wN1sq3U7YA+Wbr7SH4fRX7uUWzJmD3ijasJ/rDelhRxY7C10TYkFPW2R+cxw9ZKhQa9bQgzlGg9byneFmgw0tfORSowk9iRQc4raixmPcqhVTRLdL7EYdgomNvgmVjv365W+lMQ59G14oJWWlcEx/y/MLBY6RisL6CNoYzEvMDB4LvVm8vYz0GAXempAOcn2LvvwYC7vDqVgW2IIJVj6JjiAofBfBPxkQTsnNaRCxpsSKpQYIYlCZrUqQyXbd2Vzl/Z1i23rqarJjV4eUxyPwpb9udeDmiQKT4fG9/FGjPs05Fevub0d+girCk27gUSBg0+2+jsU536O52O+re2qwUzrERazpZLGQMX9GKbtqZFHhocxi/ElHfRyWGk8EQ2UrzuVNLjZjA95iHsHM1PbOt+p8PpZJbiXichUZknOg2GcsFpYPQ9gdBMDzchNlY5f3pYX6i/J2YXPEjYkQcmL+A8SEWgRUJ0/1pFQkW2oAiW4f2YdJwkhY2B44zMJZ24JVVo0vgnyHkB/tnLDxl9elhDwgPr2KSRvHJ+AQ8VeWgjKV0DTkDsjnSYKKeCfE4Qnin+UMXIdt7un+7k9d0t7OigWxXF+RL2TiqQ5uXLhZwT9Odbu6ODgX3l8ioV4nOZBdwK2FxYwyYshL2fonPrfRgBem/9IXgCqpnSUjq/DaNqJ7XKnDsXXN/d6gJQ5CTgzWK1WF3Ieh/DnskAFU7Gkk14JtAN5dT8+5v1nQHn87ortEMs0bqyEtjG0IDySWsFEsD6INX0XdrA0liv9KYh+T/TeEXq9BmFXmTZ1tZ5zTjufz8ZyiOeDQUNzi0FDb42FTTqxSeL3hisAovm6Psny/RXrIdBj792FHXRN2fjGNe+cKzPBWZbWzNd0M2DF/I6UL/+Obn/b6A0vifjuFD+MPpT3ekbGtzR4fVfybAZZm768cMah+E/YSNMzA==
+sidebar_class_name: "get api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a transfer's progress"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/file-manager/transferStatus/{transferId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a transfer's progress
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"transferId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The transfer's status and progress."},"401":{"description":"Not signed in."},"404":{"description":"No such transfer for this user."}}}
+>
+  
+</StatusCodes>
+
+
+      

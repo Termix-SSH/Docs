@@ -1,0 +1,68 @@
+---
+id: detect-ssh-public-key-type
+title: "Detect SSH public key type"
+description: "Detects the type of an SSH public key."
+sidebar_label: "Detect SSH public key type"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v2zgQ/SuDOdNytuj2oFuaTdE0hw1qL4JFYBQ0NbEYS6RKjuJoBf/3xZCq7ebjEB1saTTDeW8+nkasKJpgO7beYYl/EZPhCFwT8NAR+HvQDhaLr9D168Ya2NJQoELWm4jlHV4Eqsix1U3ElcJAP3uK/NlXA5ZjerSBKiw59KTQeMfkWF7prmus0ZJ3/hAl+YjR1NRquZPcWKJfP5BhVNgF31FgS1HeZijXNJy4Rg7WbXCfLgESO+9i9v9wdiZ/v1O9piFTrBJn6x0Ein3DBe4Vfnwt5OZQArARfpFL/n++5v9F24YqYD/lOKlhSl2gQG2Ja19hiZ2PiavmGkucm2Np5zl+luNnWxpmibbCSOGRgrRixD40WOKYTXtUz9D86/sASwqtfYLsgwofdbB63eQ6TdbE4173DWOJNXMXy/mcU2BBT7rtGiqMb6XWK0Fg+mB5SBDWpAOF814Y3K32akTj/dbSqUV39pqGg+XkiIX0P0M5PejQY8EinJMblpMTqunmiw+tFszfbpcv2C8oRukx+y05iOQYrEtzLkl8sP+lWYSadEUBdITP6VDQrsrrIIGp16eUDtgyK1RoJVt2QYVOJ6QPO34T0bfbJWR/iMSgGaLduJl1BdzW5KALJHAVWAbWW4piMTIbhsA/UniTRUJ7Wu53V/L85ipNa2Qd2LoN7CzXwO3Tjxd0Dq7vL+2WBgW72po6J4rHNAVcMWiRJB1/+YLfuSnaaOd8cpD32g3eEVATp9USYfl+lKTLPLzPJOQgHdK7e5+qZFnccNqW85srWRUKMVP98Kn446w4e1GCZU1gfCA4xhVwqU0NXdNvrIPKm74lxxEsR6EBwfdMMTVK1r/VSQinqclq/Ex9Ydr831KPR2l9h4bnWWB64nnXaOsERRKRcRKhOzwRoZTzVRlaKaxFu8o7HMe1jvRPaPZ7Mf/sKYgyrI5Kk2UA8zAk0dimLlxkArNlpveomz7v1bPvhAjGQTJv/l7Iqq+n703rK4kJeocq/ZaICn0qUpKVZBux0W7T603azHSmXP8DeGZxQw==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Detect SSH public key type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/credentials/detect-public-key-type"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Detects the type of an SSH public key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"publicKey":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Key type detection result."},"400":{"description":"Public key is required."},"500":{"description":"Failed to detect public key type."}}}
+>
+  
+</StatusCodes>
+
+
+      

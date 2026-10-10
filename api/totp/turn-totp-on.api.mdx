@@ -1,0 +1,68 @@
+---
+id: turn-totp-on
+title: "Turn TOTP on"
+description: "Checks a code from the secret /setup returned, turns TOTP on and returns backup codes. Signs the caller out everywhere else."
+sidebar_label: "Turn TOTP on"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFuGzcQ/ZXBnGnJCXrp3pygBZygiFGrMApDCCjuWEtrl2SGs5LVhf69GO5GUqz6kFP3oF2Rj8P3hjOPA9aUHfskPgas8GNDbpPBgos1wRPHDqQhyOSYBOaZpE/AJD0Hqg3oO8Piy+IOYgAb6mkuw8q6TZ9KmDyDe78OuURytm2JIfYCtCXe7xpiAmozzdCg2HXG6hE1Ii4NMn3rKcuHWO+xGspfz1RjJdyTQReDUBCdsim13lmVMX/OqmXA7BrqrH7JPhFWGFfP5AQNJo6JWDzlMhslfVWmZ9As7MMaD+VRIjnFkEf8++trff2YuSkJBnZemh/l48HgL/+15g+fsw/rAjNgWyZb70uQyDDmOkSBLJaF6inOu8s4t2FrW1+XOBPq10vUx8gEdaRcgtq2jTs92BhqeLJOImdgv24EQtzNUFV3JE2sscIUc0mblQYrnKe2X/twZZOfa+7mFOyqJTSYibfEeoQD9txihcM4dEDzis3fsWdYEHf+BUYMGtxa9hqqpHkaLTqebN8KVtiIpFzN51IWzujFdqmlmYudHtVSGbievewLhRVZJr7plfXj8mAGdDFuPJ2P2OQ/0/44chbiXstnpHIe6FgiykU1FxhWEwjN9PF75M4q508Piwv195SzjwEkbihApiDgQ2kQ3SSy/6eUMjRka2KwGT6UoKXHFFYWlrM+l3TkNqpCg153GyFoMNjC9HknbzL69LCAEa8VCFYg+3W48mEGDw0FSExK14AXELuhrCOOagqOIG6J31RR2J6n+6czeXN3Cxvajw2hjVN6TbqXrxdyjtCfT+2G9gZ2jXfNuFE+bTODWwHrJOuyCQtxF6bVzobSWk503oZ9DN+9TdtJfenPk6P9NhbvKwc6Oo+e3VMss14UNlrMzd2tNgpxHoW+m13Pri/kL3bxamzqcnyagSLi3NhtANtLQ0HUOCODTekt+1ID6Gxx1amGFj2H787/evvh5Mz/+40yVpjQi8xTa31QNcWahsnOHvFkZ7ogllqcLG1psFHvqx5xGFY201/cHg46/K0nVpdZnlxrtBQcC6sY0Ib2xXhLMq4WykXhbT/26KsrS83naLl3X+7VNlbT1deNxcF2h6b8VogGY0l4sagyNmBrw7q369LlJaY+/wI8RLzh
+sidebar_class_name: "post api-method"
+info_path: api/totp/totp-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn TOTP on"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/totp/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks a code from the secret /setup returned, turns TOTP on and returns backup codes. Signs the caller out everywhere else.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"totp_code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"TOTP on, with backup codes."},"400":{"description":"Missing code, already on, or setup not started."},"401":{"description":"Invalid code."},"409":{"description":"Core does not allow second factors right now."}}}
+>
+  
+</StatusCodes>
+
+
+      

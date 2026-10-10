@@ -1,0 +1,69 @@
+---
+id: remove-a-role-from-a-user
+title: "Remove a role from a user"
+description: "Removes a role from a user."
+sidebar_label: "Remove a role from a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDOTUAS7lp2gNvTuIASnoIbBVGYQjFihyJG5G7zM5QNkvwvwezy0hqbLfNpSdRwzczb74eR6yIy2A7sd5hgdfU+gMxGAi+IdgG34KBninkmKGYHWNxh9evL9/gOsPOBNOSUFDriFYjdEZqzNCZlrBA9VxWmGGgz70NVGEhoacMuaypNViMKEOnSJZg3Q6nKXsykNL5b4GsE9pRwGlaK5o775hYAS8vLvTnm4q1zhDLroD7siTmbd80Q45Thq+eclm6g2lslVq0fDsDf34MvBlYqI04htI45wU2x2yz36tnOCl463uXcL88ReSdsQ1VIH4OGTPl2kNsSWpfYYEVNSSEWepngYuwMeVC58KLMY1nWkSGizE1ecIMmcLh61j70GCBYzLpy7+T+MP3AVYUWvsACYMZHkywZtOkvs/WSH9r+kawwFqk42KxkOiY04Npu4by0rc4xckxlX2wMkQKGzKBwmWvFdytdUVK7/eWzi2msx9oOFrOQtzoiiQq54GOG6NccN4k/Z9AmM0P73xojXJ+f7t6VP0NMVvvQPyeHDA5AetAagJN4oP9yygSajIVBTAMr2NQMK6KsOgYR3xe0pFbqgqzdBMJcrqKT/fyLKP3tytIeGASMAJsd+5H63K4rclBF0jpZmAFxOyJ1VJSRa4k8AcKz1YR2Z63+7s7eflxCXsagMUEsW4H91ZqkPbhz0flHKHf39o9DRnc17asUyI+pclhKWBKYXWbseDv3ew936opRd8bN3hHQA3Px2Xd1seqrTRa5rz9lx+XuvoUOFF/+Wv+00V+8aikVU1Q+kBw8svhypQ1dE2/sw4qX/YtOWGwwkoLgu+FODa+8yytcZp/3oIk2k9o9reZ9WyckJN/V/o0T6EHWXSNsU4zRyEYZyG5QxUSzKLEM2ZYnLRe1UQts2ivM6w9i/qM48Yw/R6aaVLz556CXvj6pBjx3ivL+lxhsTUN0z+U8cP1/D14Ac/R/npJbojC1PT6DzPc03D6QqmC/I9Z585M63Opfnv129XqCqfpC2l9lho=
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a role from a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/users/{userId}/roles/{roleId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a role from a user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}},{"in":"path","name":"roleId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Role removed successfully."},"400":{"description":"Invalid role ID."},"403":{"description":"System roles cannot be removed."},"404":{"description":"Role not found."},"500":{"description":"Failed to remove role."}}}
+>
+  
+</StatusCodes>
+
+
+      

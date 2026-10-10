@@ -1,0 +1,70 @@
+---
+id: add-a-host-to-a-fleets-static-membership
+title: "Add a host to a fleet's static membership"
+description: "Add a host to a fleet's static membership"
+sidebar_label: "Add a host to a fleet's static membership"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEX7YBapIN9+S33rDbentYce1QDEUwMDYTq7Eln0Q39Qz/94GSm2TN7qF+sU19FD9S5KcRhXYRi0f81DBLxLXBjgK1LBzUPqJ1WGBHUqNBRy1jgbZCg4G/9jZwhYWEng3GsuaWsBhRhi6hnPCOA07TOqM5ykdfDQp561x6J+xEl6jrGluSWO+WT9E7tV3s7TdPXAoa7ILvOIjlqKu1j3JTneFc324SBX2URey8ixn802qlr4pjGWyn8bDA33wUoKriaoGTwQ+rD5eYVCrwATQcOC+w9b1Th8m8gV5XFVDGiQeCrbp+FyEKiS2hZaUXa9uhwZal9pUW28eUmta8wGXX9Dvrrqizy+Qel6OtpuXsiwYjh+fX0+pDgwWO2TThWz5/+T7APYfWvkDGoMFnCpY2Ta7KbE1Jb6lvBAusRbpYLJeSHBf8Qm3X8KL0rVZ2rQzKPlgZEoUNU+Bw3Sv7x/VkRiy931s+t1Bnf+fhaDnb4k6POlM53+h4osoF527T/wxCM3988qEl5fz54f4i+zuO0XoH4vfsILITsA6kZtAgPth/UttBzVRxAIrwMW0K5KoES46pMc5TOnLLWaHJM5Mhp6l5Osg3GX1+uIeMh8gCJBDtzl1Zt4CHmh10gZWuASsgtOeolpIrdiWDf+bwzSwS2/Nyv7uS17c3sOdBezaIdTs4WKlB2pe/L9I5Qt9f2j0PBg61LescKJ7CLOBGgEqJ6jZjwR/c7F2S0xmkUnSd3OAdAzeR80Cqhnw5qc8vuXnP1WI16YltfaqNFV2c5RCub290QDjEnOCPi9VidZH2r8H3XZryCNaJz2MeE7vQOyh925KrooGOyj3tWMla7zJiaxsGCeTilkME74CaBvxWU221FbwrOR2jCkNLSRHnnnqPvvyH87ELhF9k2TVknUZI8jHO0vOIJ+lBgzkpNFgk/X/Vn7VJhVT4OG4o8p+hmSY1f+05qCSsTxKTBKKyUb8rLLbURL5gdrwM8Psv8z3xA6D5f8avo+eGpGRNr39ocM9Dvqmm9WQwt12Knhd+zjGu7tX95Hhx+ag0HYX59o87FZXNfIm1vlKfQAe9DumQA/uURxKwZBuxIbfraZc0IO2pz7/RqpPH
+sidebar_class_name: "post api-method"
+info_path: api/fleets/fleets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a host to a fleet's static membership"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/fleets/{id}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a host to a fleet's static membership
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"number"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host added."},"404":{"description":"Fleet or host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

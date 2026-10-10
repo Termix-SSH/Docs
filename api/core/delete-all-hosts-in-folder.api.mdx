@@ -1,0 +1,69 @@
+---
+id: delete-all-hosts-in-folder
+title: "Delete all hosts in folder"
+description: "Deletes all SSH hosts within a specific folder."
+sidebar_label: "Delete all hosts in folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu3DYQ/ZXBnFqA0bpB04NuLuLATnIIulsYhbEoaGp2xS5FKpyRbVXQvxck5fXWjgukJ1GjR857M5ynCRtiE20vNnis8T05EmLQzsF6fQltYGG4t9JaDxq4J2N31sAuuIZihQpF7xnrG1yvL3GrsNdRdyQUU3BCmw7ttbSo0OuOsC4PhZG+DjZSg7XEgRSyaanTWE8oY59wLNH6Pc7zNoG5D56J0/e3Z2fp8W/il5lok+k3wIMxxLwbnBsrnBX+/K09V/5OO9ssYiARy+B33wJ/0NZRAxKWJEtprD/WYp4VdiRtaLDGAkJVxNe4SvBVgfJqSrnmHGNUyBTvHis2RIc1TiU0o3pG448wRNhQ7OwDFAwqvNPR6ltXyrNEs4CdHpxgja1Iz/VqJXljRQ+66x1VJnQ45wIzmSFaGTOFW9KR4vmQiN9sZzWhCeFg6TSie/uJxmPk5Ih1amShcnrQsa+JCy79Tu8FhGpZfAix04nzx+vNC/VrYrbBg4QDeWDykhogLUFKEqL9WycktKRTRzXDr/lQ0L7JsLwxN/lU0pFbUYWq3NsCebq5f93Lq4w+Xm+g4IFJQAuw3fs31ldw3ZKHPlKiq8AKiD4Qp4ihhrwhCHcUX1WR2Z6W+7sref7lCg40AouOYv0+zzNI9/DnCzlH6PeX9kCjgvvWmrYk4qc0FVwJaCOcti1YCPd+2W209yED0nftx+AJyDGVmbJ+F7JqKy7JXG7/+ZerdPUpcqH+9pfqp7Pq7IWkTUtgQiR42lfBhTYt9G7YWw9NMENHPg2zcKIFMQxCnAvfB5ZO+5R/uQXFIrNDPrOA56nT3HghL//PWEuThR5k1TttfaKT3WFaTOUG0ymocLEVVFgv7lqcZVsWCTlNt5rp9+jmOYW/DhTTsG+fzCOPfmM5rRusd9ox/YegH35bDPxHeI3s41D5MXuUG9IbKjzQ+PgfmLenpvn+4vPF5gLn+R8Q+kOs
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete all hosts in folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/host/folders/{name}/hosts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes all SSH hosts within a specific folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Hosts deleted successfully."},"400":{"description":"Invalid folder name."},"500":{"description":"Failed to delete hosts in folder."}}}
+>
+  
+</StatusCodes>
+
+
+      

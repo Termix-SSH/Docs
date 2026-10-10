@@ -1,0 +1,68 @@
+---
+id: create-an-automation
+title: "Create an automation"
+description: "Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time, and a webhook trigger returns its token once."
+sidebar_label: "Create an automation"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU2P4zYM/SsEzx4nW/TkW7ZogdkeOthJOygGg4KxmVgTW9JK9CSpkf9eUPIm3gn2sMf6kNgSPx4fxacRG451MF6Ms1jhX9SZhoQjSMsgwex2HIBsA/zG4QRR2MOGty4wRHHB2F2ybHhrrNEgJawg1i03QzcL0EUHgXcmCocIRiJYPgo0A4OYnouUguDAm9a5/cUvsAzBZgdxe7bgbM0lFii0i1g942oQ15MmjvhSYOAvA0f56JoTVmP6NIEbrCQMXGDtrLAV3SLvO1Mnz8Vr1OJHVNw96ZucPGOFbvPKtWCBPjjPQQxH3bXU88wqivKA5wKvNNwGOadHIUbvbMyRflp+0L9vm7BuGerAJNwAXeorNcHPy+Wt/dQ04yxsyXTclKiJepbWNVihdzHVQNJihQvfDTtj78ibBc3YKzByeOOgtI44hA4rHPPSGYt3Kf92Q4A1h94cIdtggW8UDG26XNm0msBuaegEK2xFfKwWC0mOJR+p9x2XteuVnRdFUA/ByClB2DAFDqtBUT+/nIsRa+f2hucr5M3vfLqszEI8ai8zlHmgS1cUi9aczLCajLCYXn5zoSfF/OlpfVP9I8eobOcjGdkKGJvmQJO4YP7N3WiZGj39ET6moOmUp8FSx9TQeUkXbLkqLNBotmyCxXTs8PUg30X06WkN2R4iC5BANDt7Z2wJTy1b8IEVbgFGQGjPUVdqbtjWDO6Nw3erSGjndP8wk6uHe9izaggFUeE4GGlB+uM/N+VcTH+c2j2fCji0pm5zonhNU8K9ANUS1W2yBXewk3dN1rpkoPtkT84ycBc5j5OKxOervPyaD+9VDr7KwDsVUFdjty4RZkQ95qIFq4d7HR0OMZf+oVyWyxtCPg82aW8EZ+Gkw9e6KOmLrnLrAhy0y9Hp7CvFLXnPNqbmqQz0ZGeIf0kiA2RnMvM+9XgVzf/R7ZBPpvBRFr4jY7X+JGnjJIPPeJVBLJC+vUaUXLUZxw1F/jN057Mufxk4qDa9XLUuCxHm45hka88npTaTdrdWJGreDXmy3906KlkXoX7441HFZjPdXr1r1CfQAYv0WyEW6HyGqdebro3Ykd0NtEvakGLq8x82IMGg
+sidebar_class_name: "post api-method"
+info_path: api/automations/automations-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an automation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/automations"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validates the trigger and every step before storing the definition. A schedule trigger also registers its next due time, and a webhook trigger returns its token once.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"definition":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The created automation."},"400":{"description":"Validation failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

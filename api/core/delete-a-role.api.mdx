@@ -1,0 +1,69 @@
+---
+id: delete-a-role
+title: "Delete a role"
+description: "Deletes a role by its ID."
+sidebar_label: "Delete a role"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVV1v1EoM/SuWn0AK2fL5kLdCi7TAAyp7VV1VKzSbeDfDJjNh7HSbG+W/X3kmbRdKQTwl8Rzbxx77ZMSKuAy2E+sdFnhGDQkxGAi+IdgMYIVheZZjhmJ2jMUVXrw9fYfrDDsTTEtCQa0jWvXvjNSYoTMtYYG2wgwDfe9toAoLCT1lyGVNrcFiRBm6iHJCOwo4TWtFc+cdEyvgxcmJPn6keKHEqsizAu7Lkpi3fdMMOU4ZvvqVy9Jdm8ZWqSYtJgJfPgS+M855maMDDyzURi+efV49wke9tr53VcS9/hWJ98Y2VIH42/AaN8dpyrAlqX2FBaYTzFIfC1yEjSkXkcBitNWEGTKF69uW96HBAsdk0sMfM/7r+wArCq29gYTBDK9NsGbTpAbP1sh1a/pGsMBapONisZDomNONabuG8tK3OMUrYir7YGWIFDZkAoXTXuleradsxNL7vaVji+nsRxruLEchvugsJCrHge5GQ7ngPDL6nUCYzS/vfWiNcv5wuXpQ/Rditt6B+D05YHIC1oHUBJrEB/ufUSTUZCoKYBjexqBgXBVh0THe53FJd9xSVZilwU+Q+9H/dpBHGX24XEHCA5OAEWC7c8+sy+GyJgddIKWbgRUQsydWS0kVuZLAX1N4tIrI9rjdf93J089L2NMALCaIdTs4WKlB2puvD8q5g/59a/c0ZHCobVmnRHyfJoelgCmF1W3Ggj+42btMG2pK0XPjBu8IqOF5k6zb+li1lUbLnKf/9PNSR58CJ+ov3uTPT/KTByWtaoLSB4J7vxzOTVlD1/Q766DyZd+SE4666A8Ogu9llofOs7TGaf55CpKczmr6czZdFSfk5E+6m25Q6EYWXWOs01xx9cdZJ65QdUK1VpUCMyxspQpdexY9HceNYfonNNOk5u89Bd3e9b0axF2uLOt7hcXWNEy/ofvkYhb1p/AYwdstcUMUnabXL8xwT0P6M0zrY+U7O/90vjrHafofblA8dw==
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/rbac/roles/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes a role by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Role deleted successfully."},"400":{"description":"Invalid role ID."},"403":{"description":"Cannot delete system roles."},"404":{"description":"Role not found."},"500":{"description":"Failed to delete role."}}}
+>
+  
+</StatusCodes>
+
+
+      

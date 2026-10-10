@@ -1,0 +1,68 @@
+---
+id: user-login
+title: "User login"
+description: "Authenticates a user and returns a JWT."
+sidebar_label: "User login"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtu4zYQ/ZXBPHPtbHoBqrdssQWSFmjQeBEUhlHQ0sRiLJFaziiOKvjfiyEV21lvHlI92NJwLmduhyNWxGV0nbjgscCrXmry4korxGChZ4pgfQWRpI9eRTf3ixkaFLthLJb4hSkyrgxG+toTy6dQDViM6dNFqrCQ2JPBMnghL3pku67RCC74+SNr3BG5rKm1+iZDR1hgWD9SKWiwi6GjKI5YTxWQty2daLJE5ze4N9hZ5l2I1XcO06MguQues6/Liwv9e12BP8LGeeC+LIn5oW9m6vjH72le+yfbuApeIEGI8IJgsvr4v6x+OLe6nTTAHhvkggfHUPYxkpdmgMqxXTc0ubn85dzNIgRorR+gSVlaEWo74WTw09vVeLAuu90bbEnqUGGBXeDUHis1FjjXfHie/KJBpvikc1EsR+xjgwWOWbRH802Iv0MfYUGxdc+QddDgk41Oc0l9mqQJ3IPtG8ECa5GOi/lckuGMnm3bNTQrQ6u9XimCso9OhgRhTTZS1OHGYrnamxHLELaOTiW2c7/TcJCcuLjT2cxQTh0dZkyxaM5JDYtJCc308luIrVXMN/eLs+zviFkbKWFLHpi8gPMgNYEGCdH9mxtdk610FRk+JadpKVUtGaYGnqZ0wJazQoNOo2UVNJhXCB938iaim/sFZH1gErAC7Db+g/MzuK/JQxdJ4RpwAmK3xCopqSJfEoQnim9mkdCelvvdlby6vYYtDcBiozi/gZ2TGqR9/ucsnYPq+0u7pcHArnZlnQPxMcwMrgVsKaxmky6EnZ+sS+t9SAp6bv0QPAE1THmHlPT+OtLl5zy8r+nthblOWe2E6px/CKlwTtQSpwW6ur3W7aHIOfvLn2cfL2YXZ1VZ1ARliARHuxl8tmUNXdPryleh7FvywuCENTOIoRfKVKGr39rE2xNYvQXgZflfhRqPzP+e2yXPg9CzzLvGOq9hE5GME+MsU60YDeawK4O1MlKxxHFcW6YvsdnvVfy1p6g0sDrSSt55zJ1PDLGlAQv8NUP9sNDwqt70eYm+ubCUHQ5EePvnne71err42lCpTbQ7NOm3QDQYUjkShyTZiI31m95u0homn/r8B2+rnrg=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"User login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Authenticates a user and returns a JWT.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Login successful."},"400":{"description":"Invalid username or password."},"401":{"description":"Invalid username or password."},"403":{"description":"Password authentication is currently disabled."},"429":{"description":"Too many login attempts."},"500":{"description":"Login failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

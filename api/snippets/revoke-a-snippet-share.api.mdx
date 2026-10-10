@@ -1,0 +1,69 @@
+---
+id: revoke-a-snippet-share
+title: "Revoke a snippet share"
+description: "Revoke a snippet share"
+sidebar_label: "Revoke a snippet share"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3DYQ/SuDuTQBmF2n7Uk3F3GATYsiiF0YhbEoaGm8YlciFc5obVXQfw+G1H6kax98yWnF4ePMm6+3I4rdMBZ3eO1d15Ewrg12NtqWhKLejOg8FthZqdGgty1hga5Cg5G+9i5ShYXEngxyWVNrsRhRhi6hvNCGIk6TedaLLUtiXr3S11rR3AXPxAr4+eJCfyriMrpOXNBAczqQQ0CkXdhStcDJ4K/P4Vd+ZxtXgfIglhn4yznwzyAgNQHnAD8xhEdPcaFJ/g/6JQUFu8cC1zYSGmxJ6lBhgRU1JGpJdSlw2TX9xvl3tnPL+REvR1dNy5zHctyXbEKDTHG371EfGyxwzCa9/J7K36GPcEOxdU+QMWhwZ6Oz902u4mxN+T7YvhEssBbpuFguJT1c0JNtu4YWZWhxSn1gKvvoZEgU7slGipe9ZnK31paXIWwdnVps536n4WA5cXGtDc9UTh0d+q9ccJ4LPWcQmvnjY4itVc6fbm/Osr8mZhc8SNiSByYv4HzqogYJ0f1nFQk12YoiWIbfklOwvkqw9DDNxGlKB245KzR5xjPkOOX/PsqLjD7d3kDGA+u0CrDb+HfOL+C2Jg9dJKVrwAmI3RKrpaSKfEkQdhRfzCKxPS33qyt5+XkFWxqAxUZxfgOPTmqQ9umfs3QO0NeXdkuDgcfalXUOxMcwC1jpAgvrsxmbty29Lq33IQH03voheAJqmPIuOv8QUtZOGjoqAsPl55UOP0XO5N8vLhYX5x2yO0pBy9C21lcMQ+gh9h7Cg5BPDPQkNbWasoW0Jd42ECIED631A9SBhfVauZWNK7epL11gaa1XevOQvKgV37E69FDoSZZdY51Xd2n5x1lE7vAoItrmva4bLJJqZwXR40F+1waVqL4dx3vL9FdspknNX3uKut3ro1qkXa8c63eFxYNtmM5olsELeZ2iN19mZX8LaJ6nv98iPyRRano9ocEtDfmvRpXjB0Y81GVaTydi/eHqj6ubK5ymb4yceRY=
+sidebar_class_name: "delete api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke a snippet share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/snippets/{id}/access/{accessId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke a snippet share
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"accessId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Snippet access revoked."},"400":{"description":"Invalid request."},"403":{"description":"Not the snippet's owner."}}}
+>
+  
+</StatusCodes>
+
+
+      

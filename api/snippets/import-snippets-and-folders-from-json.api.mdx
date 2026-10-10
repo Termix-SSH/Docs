@@ -1,0 +1,68 @@
+---
+id: import-snippets-and-folders-from-json
+title: "Import snippets and folders from JSON"
+description: "Existing folders are skipped. Existing snippets, matched by name and folder, are skipped or overwritten."
+sidebar_label: "Import snippets and folders from JSON"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCZ0VOFz3pli22QFJgN6hTBEVgFLREWxOPZrQzlG1V8L8XHMm2Ntk97KU62BKHHL5Hct4MWHEsg2nFeIcFfjqaKMZtYeNtxSECBYa4M23LVQ6X1ejUIjGDhqSsuYJ1D44aBnLVFJvNY8EH8HsOh2BE2OWYodA2YvGCy2kvXGUY+GvHUT76qsdiSJ8mcIWFhI4zLL0TdqJL1LbWlKSwF69RsQ8Yy5ob0jfpW8YC/fqVS8EM2+BbDmI4Jr9zxqsnhUA9njKceH9v6YyfZ4tr7y2Tw1N6lEBsvYtjng+3t/r3bYXvm9YHgcCxsxLhYKSG0ndOYq5Jfv1ujNuTNRVM5YG1r/ocNV/DUvsKC2x9TERJaixw0dpua9wNtWZxZrtYd3Z3Y1J6zDBy2CeiLwN2wWKBw2g6YfYm/d++C/DEoTFHGH0wwz0FQ2s7VXS0JuAb6qxggbVIG4vFQlJgzkdqWst56Rut1koRlF0w0icIa6bA4a5T+C+rUzZg6f3O8NxCrfmD+4tltsVSOz9CmW90aZNiUc7JTduWnDCbXn73oSHF/PD89I79kmM03oH4HTuI7ASMA6kZNIkP5t80hVAzVRyAInxMm6ajoG4pMDV3Tuk6X4kVZmg02+iCGeppwgJfD/JDRA/PTzD6Q2QBEohm626My+G5ZgdtYIWbgREQ2nFUS8kVu5LTafwhi4R2Xu6fruTd4z3suIcoFJJkpEGX5vjPOzoX158v7Y77DA61KesxUbymyeFegEqJGjb5gj+4Kbok53xy0HVyvXcMbCOP50ol5c+rGH0ah/db8XhxnbWrmWScDTOhUN06aWs3PhXRiO5y0Ty4e7zXs8QhjrX4Jb/Nb983nPacOJS+achVEXrfQegc+I2wS4T0S2putIIE6dA5skl3HTTkeqh9lKjLSrW0ptylNqtyNJQEdJq5SaLOTGeaHmETfAMPyy+f34Icrur8v94i41gKH2XRWjJOKSU9GyYxfMGrGOrknvuX4VwQVxlqfdR9GNYU+a9gTyc1f+04qEatrpo3ChKOY5nka8c9FvjbWIGbJwWl7rYbT/ibu0ql66Lcj1+WKjrr6c5rfKUxgQ6Ypd8CMUOfqpwELtkGtOS2HW2TRqQ99fkP/gK8fA==
+sidebar_class_name: "post api-method"
+info_path: api/snippets/snippets-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import snippets and folders from JSON"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/snippets/bulk-import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Existing folders are skipped. Existing snippets, matched by name and folder, are skipped or overwritten.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"snippets":{"type":"array"},"folders":{"type":"array"},"overwrite":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Import results with counts."},"400":{"description":"Invalid request body."}}}
+>
+  
+</StatusCodes>
+
+
+      

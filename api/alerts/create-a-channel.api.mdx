@@ -1,0 +1,68 @@
+---
+id: create-a-channel
+title: "Create a channel"
+description: "Create a channel"
+sidebar_label: "Create a channel"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P2zYQ/SuDOXNtp+hJt02bApsesui6WBSGUYylscW1RCrkyLYq+L8XQyq2EyeH+GJ7OB9v3nAeRxTaRSxW+NhwkIhrg4E/9xzlva8GLMb01wausJDQs8HSO2EnekRd19iSxHo3f4veqS2WNbekv2ToGAv0mzcuBc1NohU6ahlNdkkpt3antbvgOw5iOWqG5HXNFCVYt8PzFHd3YJBd32r6I29q7/do0Ml2QIOVjaUPlbq0ZBtcny9V75CeNQ9tGkV6Odt43zA5PKePNhM772LG+cvinX5VHMtgO6UDC1zWDI6PUNbkHDczzfvrYvF9x8kJbATnBQ7U2GqGWuhr398CkzDQlwA02LLUvsICOx+V5o6kxgLnXdPvrHugzs4pzXY+xUQ0GDkcOOjgR+xDgwWO2XTGb0v+4/sASw6tPUH2QYMHClYpSu1P1tTYlvpGsMBapIvFfC4pcMYnaruGZ6VvlcK1Iij7YGVIEDZMgcNjr8hX67MZsfR+b/nWQp39k4eL5SbFi165DOU20WV2ikV7Tm46y+SEZvrxhw8tKeaPr8u77l84RusdiN+zg8hOwDqQmkGL+GD/S9cfaqaKA1CE9ykpkKuSWwpMw79t6YItd4UGrVbLLnpt083Ht6P8ENHH1yVkf4gsQALR7tyDdTN4rdlBF1jhGrACQnuOaim5Ylcy+AOHH3aR0N7S/dNMPj4/wZ4HiEJBrNvB0UoN0p7+vWvn4vrz1O55MHCsbVnnQvFaZgZPAlRK1LDJF/zRTdElOV0zKkXPyQ3eMXATOe+catlfVxX8kC/vVZGugjPxctWbi6jcqogK51lHvPWJTCuabZJceHx+0o3iEDMj72aL2eKOp0+OwbqNP8HWB+ADhwHSXitpeT1N7r/ixqZj8TABiwZUCA38nnUwkZCUMM1alaMld9Pgd3TmKziXGyF8knnXkHWaKEnJOEnQCq8ShAazCClFX2RobbBWzSpWOI4bivx3aM5nNX/uOagyrK9Kk2UA82VIorHnQZHm5+hhmZ+SAzV93qtvniYVjItUPn960VXfTE9c6yuNCXTUZ4qOWCAa9KnXJCvJNmJDbtfTLm1myqmf/wG1qIDR
+sidebar_class_name: "post api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a channel"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/alerts/channels"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a channel
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","type","config"],"properties":{"name":{"type":"string"},"type":{"type":"string","enum":["webhook","ntfy","discord","email"]},"config":{"type":"object"},"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The new channel."},"400":{"description":"The channel is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: enable-rotate-or-disable-the-rooms-anonymous-guest-link-host-only
+title: "Enable, rotate or disable the room's anonymous guest link (host only)"
+description: "Enable, rotate or disable the room's anonymous guest link (host only)"
+sidebar_label: "Enable, rotate or disable the room's anonymous guest link (host only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu20YQ/ZXBvDQBqEsvT3xzggRwCrRGrMIoBKEYkWNxLXKX2R1aZgn+ezC7tGRZyUOL6EXS7pnrmTk7oNAuYL7G966uaYubDAMXnTfSY74ecMvk2V91UmG+3oybDFvy1LCwDxFgLObYklSYoaWGMUdTYoaev3TGc4m5+I4zDEXFDWE+oPStooJ4Y3c4qk8Fc5B3ruwV8dq2cFbYil5R29amIDHOLh6Cs3p24dptH7iQsyTWyJa2NZdaYetdy14MBzV6vjjZb52rmSyO8aNuQutsSPBflkv9KjkU3rSaCOa4qhgsH0Dcnm0GzoPt6hoOFVsoTUgBxgx/W/56afyHE5CKoXJBUOOdX3+I+WXgnZCw+p48RiPvXPNTALLO9o3rAuy0k1Abu4c36hGcrfu3mGHDUrlS2dI4WSItx0VbdztjZ9SaReAQjLOzUJGSs1DnYTGYclxEtzN1izoi/vF5ADpfY45DOhrxdfZ/u87Din1jniBhMMNH8kYriA2dTmNb7qmrBXOsRNqQLxYSDef8RE1b87xwjZLyYkhvlfvk5+WoHqlURzhNX6Q2gjCbfnx0viEN+OludZH6bepGIhUCWwFjY9M1iPPm3ziHUDGV7IECvItOgWwZYdFwrrwXzu0Nv8qNWvM795ilHUqQ0xY9HOS7GX26W0HCQ2ABEghmZ2fGzuFOR671rOlmYASE9hz0pOCSbcHgHtl/t4qYbUrsf3by6uYa9txDEPJi7A4ORiqQ5umfi3KO0P/e2j33GRwqU1QpUDiFmcO1ABUS1GzCgjvYyboga10E6D3Z3lkGrgPP4+6pqHw+ydGHNHlnOqGiNCpr9y72x4gCjuTcpuWBq5trHXX2IVX783w5X15SWpFnqM2jUhkdBNj2aX+dT1WRdVKxhy6wz2IRE8EnE3FAsPOua7WRDXNsfdzfSKnufENRLqf5+lGyclbOcVqEn2TR1mSsRo8aMUyKs8aT4kQtOdMcVW3NGjPM40PyQng2GUaNzNc4DFsK/Jevx1GPv3Ts9cHanLQlitNRe/N7qgNfZHt8WfDN5+mteAuYfbuK57W1fZSwutN/mOGe+/TqjZsxwzSyMXq6eJ9izFZqfjK8eMlU1o4affPnrQrSdnoRG1eqjaeD9ocOKbCLdUTxi2cD1mR3He2ifkSfOtJ0vsivFjdm+s3ShiEhVipj43isNMqaFjuOXwGUPduO
+sidebar_class_name: "post api-method"
+info_path: api/session-sharing/session-sharing-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enable, rotate or disable the room's anonymous guest link (host only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/session-sharing/rooms/{id}/guest-link"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enable, rotate or disable the room's anonymous guest link (host only)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["enabled"],"properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new token, or null when disabled"},"403":{"description":"Not the host"}}}
+>
+  
+</StatusCodes>
+
+
+      
