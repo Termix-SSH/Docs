@@ -6,7 +6,7 @@ const moved: Record<string, string> = {
   "/install/connector/macos": "/install/apps/macos",
   "/install/connector/ios": "/install/apps/ios",
   "/install/connector/android": "/install/apps/android",
-  "/benchmarks": "/install",
+  "/benchmarks": "/install/benchmarks",
   "/server-stats": "/plugins/host-metrics",
 
   "/setup/reverse-proxy": "/configure/reverse-proxy",
