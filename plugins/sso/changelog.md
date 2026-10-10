@@ -6,9 +6,16 @@ slug: "/sso/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sso"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Fixed
+
+- Providers set up before 2.9 send the old redirect URI again, so identity providers stop rejecting sign in
+- The old callback and back-channel logout URLs work again
+
 ## 1.0.0
 
 ### Added

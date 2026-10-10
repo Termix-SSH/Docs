@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/sso/reference"
 custom_edit_url: null
 plugin_id: "sso"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 ## Settings
@@ -38,6 +38,7 @@ Set these on the Termix server, for example under `environment:` in your compose
 | `OIDC_GROUP_CLAIM` |  | Claim with the groups, if not groups, roles or group. |
 | `OIDC_ROLE_MAP` |  | Groups to Termix roles as group:role pairs, comma separated. Works for every OIDC provider, not just this one. |
 | `OIDC_ENV_OVERRIDE` | `false` | true makes the provider above the only one, even when providers are set up in the app. |
+| `OIDC_LEGACY_CALLBACK` | `true` | false makes the provider above send the new redirect URI, /plugin-api/sso/callback, instead of the 2.8 one, /users/oidc/callback. |
 | `OIDC_SILENT_LOGIN_DEFAULT` |  | true or false. Sends visitors straight to SSO, and locks the setting. |
 
 ## Permissions

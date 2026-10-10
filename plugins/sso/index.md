@@ -7,7 +7,7 @@ description: "Sign in with any OpenID Connect provider, GitHub or Google."
 hide_title: true
 custom_edit_url: null
 plugin_id: "sso"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, plus GitHub and Google.
@@ -23,6 +23,10 @@ You can add several providers. Each gets its own button on the sign in page.
 5. Fill in the fields below, turn on **Enabled** and press **Save Provider**.
 
 GitHub and Google only need a **Client ID** and **Client Secret**. Termix knows their URLs.
+
+## Upgrading from before 2.9
+
+Providers set up before Termix 2.9 keep the old redirect URI, `https://termix.example.com/users/oidc/callback`, so your identity provider needs no change. To move one to the new URI, add the new one in your identity provider first, then open the provider and turn off **Keep the old redirect URI**. A provider set through `OIDC_*` environment variables uses the old URI unless `OIDC_LEGACY_CALLBACK` is `false`.
 
 ## OIDC fields
 

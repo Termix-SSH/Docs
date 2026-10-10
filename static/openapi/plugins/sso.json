@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Single sign-on API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Sign in with any OpenID Connect provider, GitHub or Google."
   },
   "servers": [
@@ -228,7 +228,7 @@
     "/plugin-api/sso/providers/{id}": {
       "put": {
         "summary": "Update an SSO provider",
-        "description": "Changes a provider. Config fields are merged over the stored ones; an empty client secret keeps the stored secret. Needs sso.manage.",
+        "description": "Changes a provider. Config fields are merged over the stored ones; an empty client secret keeps the stored secret. legacyCallback false moves it to the new redirect URI. Needs sso.manage.",
         "tags": [
           "SSO"
         ],

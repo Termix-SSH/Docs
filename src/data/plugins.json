@@ -867,7 +867,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-SSO",
     "docs": "https://docs.termix.site/plugins/sso",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Any OpenID Connect provider, plus GitHub and Google",
       "More than one provider, each with its own login button",
@@ -946,6 +946,11 @@
         "default": "false"
       },
       {
+        "name": "OIDC_LEGACY_CALLBACK",
+        "description": "false makes the provider above send the new redirect URI, /plugin-api/sso/callback, instead of the 2.8 one, /users/oidc/callback.",
+        "default": "true"
+      },
+      {
         "name": "OIDC_SILENT_LOGIN_DEFAULT",
         "description": "true or false. Sends visitors straight to SSO, and locks the setting."
       }
@@ -955,8 +960,14 @@
     "apiPath": "/api/sso/single-sign-on-api",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-10T20:59:32.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-10T02:57:03.000Z"
       }
