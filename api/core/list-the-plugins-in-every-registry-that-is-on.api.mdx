@@ -1,0 +1,70 @@
+---
+id: list-the-plugins-in-every-registry-that-is-on
+title: "List the plugins in every registry that is on"
+description: "Fetches the index of every registry that is on (each cached for 15 minutes unless refresh is set), with each one's status under registries, and merges them with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices."
+sidebar_label: "List the plugins in every registry that is on"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVUtv20YQ/iuDubQFGFpxmx54c4CkcNqDgbgwCtcoRsuRuBW5y+4MJasC/3sxXEpW4hpBgB57IjE7j29e3xywZnHJ9+pjwArfs7qGBbRh8KHmR4gr4C2nPSRee9G0B21IwQvEAN8yuQYcuYZrWMUEr99A58OgLDCElkUg8SqxNGYgrN8VsPPawGQXA38jIEo6mHrN6RjEsxRAoYaO0zrD6bLhbg7ugyi1LdfQcOJqBnyUbTmJj6GYxIF3LAqJWyZh0MYLLAff1uAoQBpCAbuGteEEFGDoa1IGko1MGQXegaOelr71esJlfnsfpn8aNL6azVwTvWMpfw9YoNJasLrHm3ZY+yD4UGBPiTpWTvZwQG81/2vgtMcCA3WMFc4FwwLFNdwRVgfUfW9PyxhbpoDj+FBgYuljEBZTuFws7PNpM28bfupa60V9WJc4FvjD4vt/13ZWvgQtuY0A1Z0PZZ/Blx0FWvNk/mZx+YVgLg5tDSEqLE06zUeJ41hgx9rEGitcs6LVQxus8GKOcnH0YNlz2h7rNKQWKzxk0YjFZ7F/i0OCW06df4SsgwVuKXlatrk+s3RCvaKhVaywUe2lurjQybDkR+r6lksXOxynCgu7IXndTxCWTInT1WB47x/G4oAuxo3ncwn1/mfenyRnLj5aKzOUc0enzhqWY8enTk9KWMw/72PqyDB/uLt9lv1HFht20LjhAMJBwYdpQi1ITP5vMk1omGzFSODt5PQ0yJPh1NnzlE7YclZY5GnNKk/j+udOX0T04e4Wsr7tPpCC+HV45UMJdw0H6BMb3AK8gtKGxSSOaw6OIW45vZjFhPa83F9dyauba9jw3ugn2WJketHu8Y9n6ZxUv760G94bu3jX5EDyFKaEawVyKmY260LchdnaUbD9Iaf2TmEfAwO3wnmPfFjFKWuvraU5T//VzbWNfqY/rPDyx/L1olw8S2la9pgYnuxKeGeknDcR6uiGjoMKeBWDBSkarU+F76NoR8Hiz1PwixfNpJgX2cr04tn4HI2tUlAO+v8B+o8PUF4J5Ue96FvywZo3celhZt57nBuGdlBm7n0osImi9no4LEn419SOo4nzqTI6rL0YudZYragVLnDD+0+O15bawYKj0eCRizNRPh2Bn97d4jj+AwmT+0Q=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the plugins in every registry that is on"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/registry"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the index of every registry that is on (each cached for 15 minutes unless refresh is set), with each one's status under registries, and merges them with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"refresh","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The registry listing."},"403":{"description":"The caller lacks admin.plugins.manage."},"502":{"description":"The registry could not be reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

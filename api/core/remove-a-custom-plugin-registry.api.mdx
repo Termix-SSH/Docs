@@ -1,0 +1,69 @@
+---
+id: remove-a-custom-plugin-registry
+title: "Remove a custom plugin registry"
+description: "Refused with 409 REGISTRY_IN_USE while plugins installed from it remain, since its key has to stay trusted for them to load."
+sidebar_label: "Remove a custom plugin registry"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtu20YQ/ZXBPLUAS7mpUSB8c1G1UFqkhq3ACAzDGJMjcavlLrMztMwI/Pdil9QlVVwgb30SNXtm58zt7A4rljKYVo13WOANrzrhCrZGa7i8eAs3898Xt8ubj4+L948fbuewrY1laG23Nk7AOFGylitYBd+AUQjckHEZiHElg1GBDfdQk4B6EKUeNHSi0cMH0JqbeGA9VTlmqLQWLO7xerwfHzJsKVDDyiEe7NBEli1pjRk6ahgLNBVmGPhTZwJXWGjoOEMpa24Iix1q30aUaDBujcPwEMHSeics8fzNxUX8+bIOy5oh8NqIhh62JDEv/8xVjkOGl1/z+Gu1MqUhC+QqKH3TdM5oDyU58M728MSgXXBcgV+tpmt++nrgMpY0gKVyI0BVY1w+FTxvyNGaJ/fLc/f3HqQr6wP3Cfn2HDmV+NA4CgyixtpjU3Mchgwb1tpXWGDFlpUxG8tf4GwiNZuCGZbZzlQDZigcnvcd64LFAnejKR5+yeOj7wIsOTTmBUYMZvhMwdCTHRs0WVMGK+qsYoG1aivFbKbJMecXalrLeekbHFKLhcsuGO0ThSemwOGqi7TvH4Zsh6X3G8OnFmrNH9wfLCdX3MZRGqmcXnSYrMgFp4mL/0cQZtPHbz40FDm/u1ueZX/LIsY7UL9hB8JOwbi4FhCD+GA+U0RCzVRxABL4JV2apizCkmPq8mlKB25jVpiNezNCjpvz91ZfZfTubgkjHoQVSEHM2v1gXA53NTtoA0e6WZwdpQ1LtJRccdx7/8zh1SwS29Nyf3Mlr64XSVZEKahx61GutHl5PEvnAP320m64z6LelfUYSI5hclgoUKkS3SYs+K2bvEtyzidAPCfXe8fAVnjcKONWPmVt1MY0p+m/ul7E0ecgI/U3P+c/XuQXZyklifCB4eiXw5zKepJlqHzZNexUkv76rYPgO2VJhW+9aEMuxp+m4CZJGxCUnahv9rfsJeTf8ePyOGWn/4PnYhwb5RedtZaMiwkmvdlNInWPU+z0ROxlCjMsTBVfl9qLRtRu90TCH4Idhmj+1HGI0vFwlKIkJJWR+F1hsSIr/B+V+e5mepC+h9eI7lfU9UnxbBf/YYYb7sdXbXg4ld9f53/Ol3Mchn8AFUCn8g==
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a custom plugin registry"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugins/registries/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refused with 409 REGISTRY_IN_USE while plugins installed from it remain, since its key has to stay trusted for them to load.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The registry was removed."},"400":{"description":"Official and community can only be turned off."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such registry."},"409":{"description":"Plugins from it are still installed."}}}
+>
+  
+</StatusCodes>
+
+
+      

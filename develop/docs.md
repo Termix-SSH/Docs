@@ -39,9 +39,9 @@ The site adds these from your plugin for you, so don't repeat them by hand:
 
 - The header: name, description, version, category, links.
 - **Features**, from `features` in your manifest.
-- A **Reference** page: settings at every scope, permissions, capabilities, environment variables, services and the plugins it works with. Labels come from your `locales/en.json`.
-- An **API reference** from your `@openapi` comments.
-- A **Changelog** page from `CHANGELOG.md`.
+- A Reference page: settings at every scope, permissions, capabilities, environment variables, services and the plugins it works with. Labels come from your `locales/en.json`.
+- An API reference from your `@openapi` comments.
+- A Changelog page from `CHANGELOG.md`.
 
 ## Official plugins
 
@@ -55,7 +55,7 @@ Community plugins host their own docs anywhere: a `docs/` folder on GitHub, a si
 "docs": "https://github.com/you/termix-plugin-hello/tree/main/docs"
 ```
 
-Termix shows it as **Documentation** on your plugin's page and as a book icon in its settings. It must be https.
+Termix shows it as Documentation on your plugin's page and as a book icon in its settings. It must be https.
 
 ## Link to your docs from the app
 

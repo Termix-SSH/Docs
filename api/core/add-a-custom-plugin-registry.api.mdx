@@ -1,0 +1,68 @@
+---
+id: add-a-custom-plugin-registry
+title: "Add a custom plugin registry"
+description: "Reads the index again and pins the key it names. keyId must be the fingerprint the preview showed, otherwise the answer is 409 KEY_MISMATCH and nothing is saved. Every plugin installed from it must be signed by that key."
+sidebar_label: "Add a custom plugin registry"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVUtv3DYQ/iuDOSvarZsWiG6bwEUdN61hb2AEhhHMimOJXolUyJHXysL/vRhK+6jtHHKtLpLIeXzz+maLhmMZbCfWOyzwkslEkJrBOsOPQBVZB+QMdNaNF2sewAo4ajnm+ndmoO2jwIrT/Z11FYcuWCfpvwv8YHkDsfYbNhl4qTlsbBylycUNB7AR3s7fwfnpl6+fzq4+LZYf/kxenZfaukrvIz2wyeH0gcMAXdNX1oF1Uahp2MBd8K3C2iGJtnJsYDWA1CQKM8cMhaqIxQ1eJPWItxkG/tZzlPfeDFhs068NbLCQ0HOGpXfCTvSKuq6xJWmmZvdR07XFWNbckn7J0DEW6Ff3XApmR4ZusA8NZphSpS674DsOYjmqol4e9KME6yp82om/vEmP2o+dd3G0cTKf6+u/tVxqeo1hA4ErGyUMudp9+5rs316AHNQiXYTPl39l4Dx0/aqx5TkPGfgA4j205IadNctxsvfr675LrUyAhsp1BDKtdflYtpi35KjiSf3dS/VFE5jMMMIfvU+dV9bkKjYQrSv5uL+Ssd/mJ69jGbu59H2Teko7RD3kqKlsWWpvsMDORy1dR1JjgbMJ7ewQMGYYOTxw0C6aSofb8egJs2eOv/g+wJJDax9hlMEMHyhYWjVj3abTBPmO+kawwFSDYjaTpJjzI7Vdw3npW639rSIo+2BlSBBWTIHDolfEN7dP2RZL79eWj0+os+c87E+OTFxp+45Qjg3te06xaMxJDItJCLPp4w8fWlLMH6+XL6K/4hitdyB+zQ4iOwHrUsXUiQ/2exolqJkMB6AI75PRNPcqlhRTWY9D2mMbo8IMrXobRTBD5SUs8H4jP0T08XoJozxEFiBJbPHGuhyua3baUQo3Uz4RWnPUk5INa8v5Bw4/jCKhPU73T2dycXGW+jwKBVHm21ipQdrHry/C2Yv+fGrXOtOb2pb16Cge3ORwJkClRFXbTZ3fuEm7JKfzQ6XoPbnBOwZuIo+jpLx4eWDU07F59zS3I7E9ux3xnXV3PiXMimrgNDiLizOdGg5xjPrk9/yXeT5/kY3EOD4wHPRyOKWy3u0K48u+ZScRrESNCILvZSIxnfyWEqVPDbQwBgjKPopvdyZ2PPrc+fawJv73G3RsZ+FHmXUNWafZm1bYyJs3OPFmWoJ75rzNsFZ6LW5wu11R5M+heXrS4289ByWz2wM5jsyFY/8mnlvzgAV+GNP8ZqkoVLzpRyp4tpmV4/asfvHPlbLTatrwrTeqE2ijAGmDBWKGPpUyMWE622JDruqpSmSSbOrzL3IuLx0=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a custom plugin registry"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/registries"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads the index again and pins the key it names. keyId must be the fingerprint the preview showed, otherwise the answer is 409 KEY_MISMATCH and nothing is saved. Every plugin installed from it must be signed by that key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["url","keyId"],"properties":{"url":{"type":"string"},"keyId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The added registry."},"400":{"description":"Not an https URL, no publicKey, or too many registries."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"Already added, or the key changed since the preview."},"502":{"description":"The index could not be read."}}}
+>
+  
+</StatusCodes>
+
+
+      

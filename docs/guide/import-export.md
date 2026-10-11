@@ -5,11 +5,11 @@ description: Move hosts in and out of Termix.
 
 # Import and export
 
-Open **Import / Export** in the Hosts panel.
+Open Import / Export in the Hosts panel.
 
 ## Export
 
-**Export...** opens a window where you pick:
+Export... opens a window where you pick:
 
 - **Scope**: all hosts or only the ones you selected.
 - **Include**: connection, credentials, notes, tags and pin, proxy, jump hosts, feature flags and advanced settings.
@@ -18,9 +18,9 @@ You get a JSON file. If you include credentials, it has passwords and keys in it
 
 ## Import
 
-Import a JSON file in the same format. **Import (skip existing)** leaves hosts you already have alone. **Import (overwrite)** replaces them. **Download Sample** gives you an example file.
+Import a JSON file in the same format. Import (skip existing) leaves hosts you already have alone. Import (overwrite) replaces them. Download Sample gives you an example file.
 
-**Import from SSH config** reads hosts from an OpenSSH `~/.ssh/config` file.
+Import from SSH config reads hosts from an OpenSSH `~/.ssh/config` file.
 
 ## The JSON format
 
@@ -79,4 +79,4 @@ An export has many more fields, for jump hosts, proxies and every plugin's setti
 
 ## Whole account
 
-To move everything, not just hosts, use the exports in **Settings**. See [backup and restore](/install/backup#export-from-the-app).
+To move everything, not just hosts, use the exports in Settings. See [backup and restore](/install/backup#export-from-the-app).

@@ -48,8 +48,8 @@ docker compose start termix
 
 There are also exports inside Termix. They are handy, but they are not a full backup.
 
-- **Settings**, **Database**: admins download a portable `.sqlite` copy of all hosts, credentials and settings. It can be imported on any database type.
-- **Settings**, **Data and sync**: each user can export and import their own hosts, credentials and settings.
+- **Settings**, Database: admins download a portable `.sqlite` copy of all hosts, credentials and settings. It can be imported on any database type.
+- **Settings**, Data and sync: each user can export and import their own hosts, credentials and settings.
 - **Manage**: export hosts to JSON. See [import and export](/guide/import-export).
 
 These exports have your secrets in them, decrypted. Treat them like passwords.

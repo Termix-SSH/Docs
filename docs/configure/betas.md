@@ -21,14 +21,14 @@ Then `docker compose pull && docker compose up -d`. To go back, change the tag t
 
 ### Desktop
 
-Admins can turn on **Termix betas** in **Settings**, **Updates**. You then hear about new betas, with a download link.
+Admins can turn on Termix betas in Settings, Updates. You then hear about new betas, with a download link.
 
 ## Plugin betas
 
-Each plugin can use betas on its own. Open a plugin in the **Plugins** tab and press **Try beta**. **Back to stable** returns it to the stable channel. It stays on the beta until a stable release is newer.
+Each plugin can use betas on its own. Open a plugin in the Plugins tab and press Try beta. Back to stable returns it to the stable channel. It stays on the beta until a stable release is newer.
 
-**Settings**, **Updates** also has buttons to move all plugins to betas or back.
+Settings, Updates also has buttons to move all plugins to betas or back.
 
 ## Feedback
 
-Beta builds show a **Send beta feedback** button. It opens a GitHub issue with your version filled in. Plugin betas have their own feedback link on the plugin's page.
+Beta builds show a Send beta feedback button. It opens a GitHub issue with your version filled in. Plugin betas have their own feedback link on the plugin's page.

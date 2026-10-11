@@ -21,11 +21,11 @@ Every new account gets `user`. Admins get `admin` too. You can edit what these t
 
 ## Make a role
 
-In **Settings**, **Roles**, press **New Role**. Give it a name, a display name and a description. Then add users to it from their page in **Settings**, **Users**.
+In Settings, Roles, press New Role. Give it a name, a display name and a description. Then add users to it from their page in Settings, Users.
 
 ## Permissions
 
-Press **Edit permissions** on a role. Permissions are grouped:
+Press Edit permissions on a role. Permissions are grouped:
 
 | Group          | Permissions                                                                                                                              |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |

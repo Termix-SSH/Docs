@@ -23,7 +23,7 @@ Both halves only talk to Termix through the plugin SDK, [`@termix-ssh/plugin-sdk
 2. [Project layout](/develop/project-layout): what every file in a plugin is for.
 3. [How it works](/develop/how-it-works): capabilities, permissions, the lifecycle and what Termix does and does not protect.
 
-Then pick what your plugin needs from **Building**, and read **Shipping** when you are ready to release it.
+Then pick what your plugin needs from Building, and read Shipping when you are ready to release it.
 
 ## Look at real plugins
 

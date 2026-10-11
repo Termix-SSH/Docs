@@ -1,0 +1,70 @@
+---
+id: turn-a-plugin-registry-on-or-off
+title: "Turn a plugin registry on or off"
+description: "Works for community and custom registries. Plugins already installed from a registry that is off keep running but get no updates."
+sidebar_label: "Turn a plugin registry on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v20YQ/SuDOTUAQ7lp0INuTpCiToHCSFQYhSEUo+WIXIvcZXaHllmC/72YJfXhKC6QW3SRtDtv5s3X2wELjibYVqx3uMQ7H3YRtj6A8U3TOSs9kCvAdFF8A4FLGyVYjjnc1l1pXQSqA1PRg3VRqK65gG3wDdDBuAepSMBG8Nst7JhbCJ1z1pWw6QRKFnAeurYg4ZhjhkJlxOU9zgFwnWFLgRoWDnoxoFWqLUmFGTpqGJdoC8ww8JfOBi5wKaHjDKOpuCFcDih9q1bK3ZU4juvJmKO880WvFl9jjXfCTvSK2ra2hrREi4eodRouXfvNAxt5RuIe2dGm5iKlEHzLQSxHBR0uTviN9zWTwzF91E1svYuT+ZurK/163qtVxaca7ymCqciVXOQ4Zvj2W4gb90i1LWDjiz4DH0Aq1q5YY6k++prxv3w7otEeB6jJ7CJQ0ViXt1Oj8oYclTzD317C//QQO1OdBxozbFgqX0wNNdrR1NglLma3i9PQLQZbjJhh5PB4mIUu1LjEYTrSy+cx//ZdgBWHxj7BZIMZPlKwWv9U2/k0sd1SVwsusRJp43KxkATM+Ymatubc+Eb7s1YGpgtW+kRhwxQ4XHdK+349ZgMa73eWz0+otX9wfzw5c/FZJ2micu7oOBjKBedZToOSjDCbf/zmQ0PK+ePd6iL7zxyj9Q7E79hBZCdgXeq6BvHB/pumGiqmggNQhHfJadp5NUvA1NHzlI7cpqwwmzZyMjnt5MNeXmT08W4Fkz1EFiCBaEv32roc7ip20AZWuhlYAaEdRz0xXLAzDP6Rw4tZJLbn5f7uSl7f3sCOe4hCQVSn9lYqkObpn4t0jqbfX9od9xnsK2uqKVA8hcnhRoCMRIXNtuD3bkYbcs4nA70n13vHwHXkaaFUoj6dxO3DNLzPVEclbtSubX2qjxU1wHlPrm9vdEk4xCnJN7/mP1/lVxfJJznwgeGEy+EDmQqm1YXCm65hJxGsRE0Agu+Syo8Ztj5KQ0lM53lZdcEBHcBHafNOpcpvt18TGE4i/WM8XNOYCT/Joq3JOk0z6dMwi9o9zqKW3okDJcxwadMjUfkoajUMG4r8V6jHUY+/dBxUatYn6UrCU9g4N3RLdeT/Kc9Pn+ZX6RW8RPSw0q5PCll3+g8z3HE/va/jesxwGucUfbp4P8V4vVL4CXjxZqrkHaX+9nr1/nddvPnxbXyhoEB7LQztp8g+JZKUMZ0NWJMrOyqTuCSn+vkPwsgL8w==
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a plugin registry on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugins/registries/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Works for community and custom registries. Plugins already installed from a registry that is off keep running but get no updates.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["enabled"],"properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The registry was changed."},"400":{"description":"Invalid body, or the official registry."},"403":{"description":"The caller lacks admin.plugins.manage."},"404":{"description":"No such registry."}}}
+>
+  
+</StatusCodes>
+
+
+      

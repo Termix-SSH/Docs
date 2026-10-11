@@ -5,14 +5,14 @@ description: Where every setting lives.
 
 # Settings
 
-**Settings** opens as a tab from the bottom of the rail. The pages are in four groups. Search at the top finds any setting by name. Each page has a book icon that opens its docs.
+Settings opens as a tab from the bottom of the rail. The pages are in four groups. Search at the top finds any setting by name. Each page has a book icon that opens its docs.
 
-| Group            | Pages                                                                           |
-| ---------------- | ------------------------------------------------------------------------------- |
-| **Your account** | Account, Security, API keys, Data and sync. See [your account](/guide/account). |
-| **This app**     | Interface, Appearance, Keybindings.                                             |
-| **Plugins**      | One page for each plugin that has settings.                                     |
-| **This server**  | Admin pages. See [admin settings](/guide/admin-settings).                       |
+| Group        | Pages                                                                           |
+| ------------ | ------------------------------------------------------------------------------- |
+| Your account | Account, Security, API keys, Data and sync. See [your account](/guide/account). |
+| This app     | Interface, Appearance, Keybindings.                                             |
+| Plugins      | One page for each plugin that has settings.                                     |
+| This server  | Admin pages. See [admin settings](/guide/admin-settings).                       |
 
 ## Interface {#interface}
 
@@ -34,4 +34,4 @@ Change shortcuts for the app and for plugins, like terminal copy and paste.
 
 ## Plugin settings
 
-Each plugin with settings gets a page under **Plugins**. Your own settings show for everyone. Admin settings for the whole server show only to admins. Each plugin's settings are listed in its reference page, like [the Docker reference](/plugins/docker/reference).
+Each plugin with settings gets a page under Plugins. Your own settings show for everyone. Admin settings for the whole server show only to admins. Each plugin's settings are listed in its reference page, like [the Docker reference](/plugins/docker/reference).

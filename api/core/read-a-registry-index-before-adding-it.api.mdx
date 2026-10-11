@@ -1,0 +1,68 @@
+---
+id: read-a-registry-index-before-adding-it
+title: "Read a registry index before adding it"
+description: "Fetches the index at url and returns its name, the id it would get, how many plugins it lists and the fingerprint of the key it signs with. Nothing is saved. The index must list a publicKey."
+sidebar_label: "Read a registry index before adding it"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdld9v20YMx/8Vgs+qnGU/gOktHVog7dAFSYpgMIKB1jHSxdKdekfF0Qz/7wPvNNlr0oe+zg+2TJG8L8m7z+3RcKyDHcR6hxW+Z6lbjiAtg3WGn4EExtABOQOBZQwugpUIjnouspsBK7DzY2egYSmg9TvoyU0wdGNjkz90NkpMSTTkwbqGwxCsE/APybTlSf2ibVyEnZW2hE9eWusasBEiPbEp4XZR1Y8xJwWCYdx0tv7IU4kFCjURqzVe5bXxvsDAX0aO8tabCat9+msDG6wkjFxg7Z2wE31Fw9DZmrQXq8eoDdljrFvuSZ9kGhgr9JtHrgWLk0RrHEOnSw3BDxzEctQANR7jogTrGjykj0bHwbuYPc/PzvTnv7O4a0lSbwI3NkqY5iZvGMgYNkCxxEOBP70W/MkLkINWZIjw+fr3Anw4mWpLEZw/bV1K9OPLRNrzmrqOA3RUbyOQ6a0r59mWPTlqeA7/9fXwRb+NQF1gMlOuIIX9fHb+elhWWqeanRetW2NL1Pb1LK03WOHgow5jIGmxwtWsazWvaTmuhsBPlndYYOTwxEH3xzwc3GfTAYuvBPzpxwC3HHr7DNkHC3yiYGnT5ZnN1iT9gcZOsMLU7mq1khRY8jP1Q8dl7Xud+70qqMdgZUoSNkyBw8Woytf3h2KPtfdby6cWGuxHnhbLSYob3ZhZymmiZb+pFq05uWE1O2ExP7z3oSfV/OHu9kX1Nxyj9Q7Eb9lBZCdgXdo+uogP9u90SKBlMhyAIrxNSZcTngLTeE9LWrTlqrBAq6tlFyxQoYIVPu7km4o+3N1C9ofIonRSZLyxroS7lh0MgVVuoTAR2nJUS82GXc3gnzh8s4qk9rTd393Ji6vLxLEoFETJpRwD6Z//elHO4vr9rd3yVMCutXWbF4rHZUq4FKBaSRsXqvqdm6NrcnqOqBZ9T27yjoG7yPlIKfGuj6x8lzfvArIFYDq1B5/6Y0UdcD4nF1eXekg4xFzk+S/lD2fl2YviE1J8YDjGlfCO6na+McD4euzZSb5q/M5B8KNwxp0e+J4Sm+f9cs1kgE4wk8Cx4Qddg4xJl8iLLbU/kv9/cO3lnSr8LKuhI+u0U/P9k9G4xllXurn+haOSc8bjfYGtsrRa436/ocifQ3c4qPnLyEGJdX8kYMYT5k2aYLblCSv8Lbf0za3qUfduzOf9q4tVQbYg/OqPG0XQZr6ge280JpAiW78rxAJ9GlvCXbLtsSPXjNQkYqSc+vkHSp8QAQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a registry index before adding it"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/registries/preview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the index at url and returns its name, the id it would get, how many plugins it lists and the fingerprint of the key it signs with. Nothing is saved. The index must list a publicKey.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["url"],"properties":{"url":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What the registry would be added as."},"400":{"description":"Not an https URL, or the index has no publicKey."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"The registry is already added."},"502":{"description":"The index could not be read."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -364,7 +364,7 @@
     "/sync/v2/plugins": {
       "get": {
         "summary": "The features this server runs, for a linked desktop to mirror",
-        "description": "Every installed plugin with its version, where it came from, whether it is on, how a desktop should treat it and which sync entities it owns.",
+        "description": "Every installed plugin with its version, where it came from, whether it is on, how a desktop should treat it and which sync entities it owns. registryKeys lists the signing keys of the custom registries an admin added, so plugins from them load on the desktop.",
         "tags": [
           "Sync"
         ],
@@ -3830,7 +3830,7 @@
     "/plugins": {
       "get": {
         "summary": "List installed plugins and their runtime state",
-        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\n",
+        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose.\n",
         "tags": [
           "Plugins"
         ],
@@ -3912,6 +3912,198 @@
           },
           "500": {
             "description": "The choices could not be applied."
+          }
+        }
+      }
+    },
+    "/plugins/registries": {
+      "get": {
+        "summary": "List the plugin registries",
+        "description": "The official registry, which is always on, the community registry and whether it is on, and every custom registry an admin added with its pinned key fingerprint.",
+        "tags": [
+          "Plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "The registries."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a custom plugin registry",
+        "description": "Reads the index again and pins the key it names. keyId must be the fingerprint the preview showed, otherwise the answer is 409 KEY_MISMATCH and nothing is saved. Every plugin installed from it must be signed by that key.",
+        "tags": [
+          "Plugins"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "keyId"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "keyId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The added registry."
+          },
+          "400": {
+            "description": "Not an https URL, no publicKey, or too many registries."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "409": {
+            "description": "Already added, or the key changed since the preview."
+          },
+          "502": {
+            "description": "The index could not be read."
+          }
+        }
+      }
+    },
+    "/plugins/registries/preview": {
+      "post": {
+        "summary": "Read a registry index before adding it",
+        "description": "Fetches the index at url and returns its name, the id it would get, how many plugins it lists and the fingerprint of the key it signs with. Nothing is saved. The index must list a publicKey.",
+        "tags": [
+          "Plugins"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What the registry would be added as."
+          },
+          "400": {
+            "description": "Not an https URL, or the index has no publicKey."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "409": {
+            "description": "The registry is already added."
+          },
+          "502": {
+            "description": "The index could not be read."
+          }
+        }
+      }
+    },
+    "/plugins/registries/{id}": {
+      "patch": {
+        "summary": "Turn a plugin registry on or off",
+        "description": "Works for community and custom registries. Plugins already installed from a registry that is off keep running but get no updates.",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The registry was changed."
+          },
+          "400": {
+            "description": "Invalid body, or the official registry."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "404": {
+            "description": "No such registry."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a custom plugin registry",
+        "description": "Refused with 409 REGISTRY_IN_USE while plugins installed from it remain, since its key has to stay trusted for them to load.",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The registry was removed."
+          },
+          "400": {
+            "description": "Official and community can only be turned off."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "404": {
+            "description": "No such registry."
+          },
+          "409": {
+            "description": "Plugins from it are still installed."
           }
         }
       }
@@ -4378,8 +4570,8 @@
     },
     "/plugins/registry": {
       "get": {
-        "summary": "List the plugins in the official registry",
-        "description": "Fetches the official registry index (cached for 15 minutes unless refresh is set) and merges it with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices.\n",
+        "summary": "List the plugins in every registry that is on",
+        "description": "Fetches the index of every registry that is on (each cached for 15 minutes unless refresh is set), with each one's status under registries, and merges them with what is installed here: the installed version, the newest release this build can run, whether an update asks for new capabilities, and the pin and auto-update choices.\n",
         "tags": [
           "Plugins"
         ],
@@ -4472,8 +4664,8 @@
     },
     "/plugins/{id}/install": {
       "post": {
-        "summary": "Install a plugin from the official registry",
-        "description": "Downloads the release, checks its sha256 and signature against a key this build trusts, loads it, grants the capabilities it declares and starts it along with any installed dependency that is off. Without a version the newest compatible release is used; naming an older one pins the plugin there. A bundled plugin at its shipped version needs no download. capabilities must list exactly what the consent prompt showed; when it differs from what the release asks for, nothing is downloaded and the answer is 409 CONSENT_MISMATCH with the real list.\n",
+        "summary": "Install a plugin from a registry",
+        "description": "Downloads the release, checks its sha256 and signature against the keys of the registry it comes from, loads it, grants the capabilities it declares and starts it along with any installed dependency that is off. Without a version the newest compatible release is used; naming an older one pins the plugin there. A bundled plugin at its shipped version needs no download. capabilities must list exactly what the consent prompt showed; when it differs from what the release asks for, nothing is downloaded and the answer is 409 CONSENT_MISMATCH with the real list.\n",
         "tags": [
           "Plugins"
         ],
@@ -4508,6 +4700,10 @@
                     ],
                     "description": "The channel to follow. beta installs the newest beta when it is newer than stable."
                   },
+                  "registryId": {
+                    "type": "string",
+                    "description": "The registry to install from, official when unset. It must be turned on, and only the official registry can offer an official plugin id."
+                  },
                   "capabilities": {
                     "type": "array",
                     "items": {
@@ -4530,10 +4726,10 @@
             "description": "The caller lacks admin.plugins.manage."
           },
           "404": {
-            "description": "Not in the official registry."
+            "description": "Not in that registry."
           },
           "409": {
-            "description": "Already installed, incompatible, the consent does not match, or managed by a linked server."
+            "description": "Already installed, incompatible, the consent does not match, the registry is off, the id belongs to an official plugin, or managed by a linked server."
           },
           "502": {
             "description": "The registry could not be reached."
@@ -4544,7 +4740,7 @@
     "/plugins/{id}/update": {
       "post": {
         "summary": "Update or change the installed version of a plugin",
-        "description": "Swaps in another release from the official registry, newer or older. If the release declares capabilities the installed one does not, the request must set acceptCapabilities and list exactly those added capabilities in capabilities, otherwise it answers 409 with code CAPABILITIES_ADDED (or CONSENT_MISMATCH) and the list. A running plugin is started again on the new version. Naming a version that is not the newest pins the plugin to it.\n",
+        "description": "Swaps in another release from the registry the plugin came from, newer or older. If the release declares capabilities the installed one does not, the request must set acceptCapabilities and list exactly those added capabilities in capabilities, otherwise it answers 409 with code CAPABILITIES_ADDED (or CONSENT_MISMATCH) and the list. A running plugin is started again on the new version. Naming a version that is not the newest pins the plugin to it.\n",
         "tags": [
           "Plugins"
         ],

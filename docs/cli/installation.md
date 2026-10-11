@@ -63,7 +63,7 @@ On Windows, put the `.exe` in a folder and add that folder to your PATH, or just
 These downloads have everything built in, so they work on servers where you do not want to install Node.
 
 :::info
-macOS may refuse to run a downloaded file the first time. Open **System Settings**, go to **Privacy and Security**, and allow it there.
+macOS may refuse to run a downloaded file the first time. Open System Settings, go to Privacy and Security, and allow it there.
 :::
 
 ## Which one should you pick

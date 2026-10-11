@@ -22,11 +22,11 @@ If you pinned a version tag, change the tag first.
 
 ### Desktop app
 
-From 26.10.1 the desktop app can update itself. Pick how in **Settings**, **Updates**, under **Desktop app**. The app also asks once, the first time you open it on 26.10.1.
+From 26.10.1 the desktop app can update itself. Pick how in Settings, Updates, under Desktop app. The app also asks once, the first time you open it on 26.10.1.
 
 - **Automatic** downloads new versions in the background and installs them the next time Termix restarts.
 - **Ask first** tells you when a new version is out. You choose when to download it and when to restart. This is the default.
-- **Never** does not check. You can still press **Check now** in Settings.
+- **Never** does not check. You can still press Check now in Settings.
 
 Stable installs only get stable releases. A beta install moves to the next beta, then to the stable release.
 
@@ -50,7 +50,7 @@ The apps and the server should be on the same version. When they are not, the ap
 
 ## Plugins
 
-Admins update plugins in the **Plugins** tab, under **Updates**. You can:
+Admins update plugins in the Plugins tab, under Updates. You can:
 
 - Update one plugin, or all of them.
 - Turn on auto update for a plugin.
@@ -60,7 +60,7 @@ An update that asks for new [capabilities](/develop/reference/capabilities) neve
 
 ## Turn off update checks
 
-In **Settings**, **Appearance**, turn on **Disable Update Checks** to stop the update notices.
+In Settings, Appearance, turn on Disable Update Checks to stop the update notices.
 
 ## Coming from 2.8 or older
 
