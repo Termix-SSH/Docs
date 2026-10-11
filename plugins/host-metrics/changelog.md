@@ -6,9 +6,21 @@ slug: "/host-metrics/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "host-metrics"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Added
+
+- AMD GPUs in the GPU card, read from the amdgpu driver
+
+### Fixed
+
+- Metrics now work on OPKSSH hosts
+- Firewall card no longer runs sudo without a saved sudo password, which sent "a password is required" emails
+- Firewall tools are run by full path so sudoers rules match
+
 ## 1.0.0
 
 ### Added

@@ -7,10 +7,10 @@ description: "Live CPU, memory, disk, network and GPU stats, plus tools to manag
 hide_title: true
 custom_edit_url: null
 plugin_id: "host-metrics"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
-Host Metrics shows live stats for your Linux hosts: CPU, memory, disk, network, temperature, NVIDIA GPUs, processes, open ports and logins. It keeps history for charts, runs health checks, and has managers for services, packages, cron jobs, the firewall, users, certificates, logs and WireGuard.
+Host Metrics shows live stats for your Linux hosts: CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, open ports and logins. It keeps history for charts, runs health checks, and has managers for services, packages, cron jobs, the firewall, users, certificates, logs and WireGuard.
 
 Everything is read over SSH. There is no agent to install.
 
@@ -70,7 +70,7 @@ Most stats come from files anyone can read. A few need more:
 | Failed logins          | Read access to `/var/log/auth.log` or `/var/log/secure`. |
 | Process names on ports | sudo, for `ss -tulpn`.                                   |
 | Firewall rules         | sudo, for `iptables` or `nft`.                           |
-| GPU                    | `nvidia-smi` installed.                                  |
+| GPU                    | `nvidia-smi` for NVIDIA, the `amdgpu` driver for AMD.    |
 
 Without them, those parts are empty. The rest still works.
 
