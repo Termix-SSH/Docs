@@ -4,35 +4,35 @@ sidebar_position: 12
 slug: "/automations/steps"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Steps are what an automation does. They run in order, top to bottom.
 
 ## Step types
 
-| Step                       | What it does                                                                                                                          |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **Send an alert**          | Puts an alert in your [Alerts](/plugins/alerts) inbox, with a title, message and severity. **Also send to** picks channels too.       |
-| **Run a command**          | Runs a command on hosts. **Run with sudo** to elevate.                                                                                |
-| **Run a snippet**          | Runs a saved [snippet](/plugins/snippets) and fills in its inputs. Better than pasting a long command, since you fix it in one place. |
-| **Control a container**    | Starts, stops or restarts a container by name.                                                                                        |
-| **Control a tunnel**       | Connects or disconnects a saved tunnel.                                                                                               |
-| **Wake a host**            | Sends a Wake-on-LAN packet.                                                                                                           |
-| **Call a URL**             | Sends an HTTP request with a method, headers and body.                                                                                |
-| **Wait**                   | Pauses for some seconds, like after a restart.                                                                                        |
-| **Set a variable**         | Saves a value for later steps, as `{{vars.name}}`.                                                                                    |
-| **If / otherwise**         | Runs steps when a condition is true, and others when it isn't. Conditions can nest.                                                   |
-| **Run another automation** | Runs another one. Up to 5 levels deep.                                                                                                |
-| **Stop**                   | Ends the run as a success or a failure.                                                                                               |
+| Step                   | What it does                                                                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Send an alert          | Puts an alert in your [Alerts](/plugins/alerts) inbox, with a title, message and severity. Also send to picks channels too.           |
+| Run a command          | Runs a command on hosts. Run with sudo to elevate.                                                                                    |
+| Run a snippet          | Runs a saved [snippet](/plugins/snippets) and fills in its inputs. Better than pasting a long command, since you fix it in one place. |
+| Control a container    | Starts, stops or restarts a container by name.                                                                                        |
+| Control a tunnel       | Connects or disconnects a saved tunnel.                                                                                               |
+| Wake a host            | Sends a Wake-on-LAN packet.                                                                                                           |
+| Call a URL             | Sends an HTTP request with a method, headers and body.                                                                                |
+| Wait                   | Pauses for some seconds, like after a restart.                                                                                        |
+| Set a variable         | Saves a value for later steps, as `{{vars.name}}`.                                                                                    |
+| If / otherwise         | Runs steps when a condition is true, and others when it isn't. Conditions can nest.                                                   |
+| Run another automation | Runs another one. Up to 5 levels deep.                                                                                                |
+| Stop                   | Ends the run as a success or a failure.                                                                                               |
 
-**Call a URL** blocks addresses on your private network by default. Turn on **Allow local network addresses** for a step that calls something on your LAN, and an admin has to allow the host first.
+Call a URL blocks addresses on your private network by default. Turn on Allow local network addresses for a step that calls something on your LAN, and an admin has to allow the host first.
 
 ## Picking hosts
 
 Steps that touch hosts pick them like triggers do: one host, a fleet, or all hosts. They have one more choice:
 
-**Triggering host** acts on whichever host set the automation off. It is usually what you want. One automation that says "when any host's disk fills, clean up that host" covers every host.
+Triggering host acts on whichever host set the automation off. It is usually what you want. One automation that says "when any host's disk fills, clean up that host" covers every host.
 
 ## Templates
 
@@ -62,7 +62,7 @@ When both sides look like numbers they are compared as numbers, so `10` is more 
 
 ## When a step fails
 
-Each step has an **on error** setting:
+Each step has an on error setting:
 
 - **Stop** ends the run. The default.
 - **Continue** moves on to the next step.
@@ -74,7 +74,7 @@ Each step has a timeout, 60 seconds by default, and the whole run stops after 30
 
 Restart nginx when it stops, and only tell someone if that didn't fix it:
 
-1. **Run a command** `systemctl is-active nginx` on the triggering host, on error **Continue**. Id `check`.
+1. **Run a command** `systemctl is-active nginx` on the triggering host, on error Continue. Id `check`.
 2. **If** `{{steps.check.stdout}}` `!=` `active`
    - **Run a command** `systemctl restart nginx`, with sudo
    - **Wait** 10 seconds

@@ -4,7 +4,7 @@ sidebar_position: 11
 slug: "/automations/triggers"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 The trigger decides when an automation runs. Every automation has one.
@@ -30,9 +30,9 @@ Runs when a number crosses a line, like memory used over 90 percent. Needs [Host
 | `processes.total`                                                              | Running processes.             |
 | `network.rxBytes`, `network.txBytes`, `network.rxRateBps`, `network.txRateBps` | Traffic, for one interface.    |
 
-**Sustained for** stops false alarms. The value has to stay over the line that long before anything runs. CPU at 100 percent for two seconds is normal. For five minutes it isn't.
+Sustained for stops false alarms. The value has to stay over the line that long before anything runs. CPU at 100 percent for two seconds is normal. For five minutes it isn't.
 
-**Cooldown** is how long to wait before it can fire again for the same host. 15 minutes by default, so a value that wobbles around the line doesn't message you over and over.
+Cooldown is how long to wait before it can fire again for the same host. 15 minutes by default, so a value that wobbles around the line doesn't message you over and over.
 
 ## Host goes up or down
 
@@ -44,7 +44,7 @@ Runs when a health check from [Host Metrics](/plugins/host-metrics) starts faili
 
 ## On a schedule
 
-Runs on a clock, with a cron expression like `0 3 * * *` (3am every day) or an interval in seconds. Pick a **Time zone** so daily runs land at the right local time, through daylight saving changes too.
+Runs on a clock, with a cron expression like `0 3 * * *` (3am every day) or an interval in seconds. Pick a Time zone so daily runs land at the right local time, through daylight saving changes too.
 
 Schedules are checked every 15 seconds, so a run can start a few seconds late.
 

@@ -7,7 +7,7 @@ description: "Manage Docker and Podman containers on your hosts over SSH, with l
 hide_title: true
 custom_edit_url: null
 plugin_id: "docker"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Docker lets you manage the containers on your hosts from Termix: start, stop, restart, pause and remove them, watch their stats, read their logs and open a shell inside them. It works with Docker and Podman.
@@ -22,9 +22,9 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
    sudo usermod -aG docker $USER
    ```
 
-2. Open the host in **Manage** and turn on **Enable Docker** in the Docker section.
-3. If the host uses Podman, set **Container Runtime** to **Podman**.
-4. Save. Open the host's menu and pick **Docker**.
+2. Open the host in Manage and turn on Enable Docker in the Docker section.
+3. If the host uses Podman, set Container Runtime to Podman.
+4. Save. Open the host's menu and pick Docker.
 
 ## What you can do
 
