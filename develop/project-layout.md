@@ -21,6 +21,7 @@ src/
     index.tsx            activate(app), run in the browser
 locales/
   en.json                every string the plugin shows
+  translated/            other languages, like de_DE.json (optional)
 migrations/
   sqlite/ postgres/ mysql/
   snapshot.json          what the last migration knew about
