@@ -7,7 +7,7 @@ description: "RDP, VNC and Telnet sessions in your browser, with clipboard, file
 hide_title: true
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Remote Desktop opens RDP, VNC and Telnet sessions in your browser, in tabs and split screen like any other session. It has clipboard sync, file transfer through an RDP drive, jump hosts, sharing and recording.
@@ -57,7 +57,7 @@ RDP has settings for color depth, how the screen follows the window size, lossle
 
 ## Jump hosts
 
-A remote desktop host can sit behind SSH jump hosts. Termix opens a tunnel through them for guacd. When guacd runs in its own container, set `GUACD_TUNNEL_HOST` to the address guacd uses to reach Termix (the Termix container's name in Compose).
+A remote desktop host can sit behind SSH jump hosts. Termix opens a tunnel through them for guacd. When guacd runs in its own container, set `GUACD_TUNNEL_HOST` to the address guacd uses to reach Termix (the Termix container's name in Compose). In Kubernetes it defaults to the pod IP, since the Service only forwards its own port.
 
 ## Recording
 

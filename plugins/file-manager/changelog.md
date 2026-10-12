@@ -6,9 +6,15 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Fixed
+
+- On the desktop app, the file manager now connects from the server when the host or the desktop is set to start connections there, like the terminal does
+
 ## 1.0.1
 
 ### Changed

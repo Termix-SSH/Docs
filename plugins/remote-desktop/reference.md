@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
@@ -46,7 +46,7 @@ Set these on the Termix server, for example under `environment:` in your compose
 | `GUACD_HOST` | `localhost` | Host guacd listens on. Overrides the guacd URL setting. |
 | `GUACD_PORT` | `4822` | Port guacd listens on. |
 | `GUACD_URL` |  | guacd as host:port, in place of GUACD_HOST and GUACD_PORT. |
-| `GUACD_TUNNEL_HOST` | `termix` | Address guacd uses to reach Termix for hosts behind jump hosts. In Compose, the Termix container name. |
+| `GUACD_TUNNEL_HOST` | `termix` | Address guacd uses to reach Termix for hosts behind jump hosts and VNC without a username. In Compose, the Termix container name. In Kubernetes it defaults to the pod IP. |
 | `GUACD_RECORDING_PATH` |  | Folder guacd writes recordings to, as guacd sees it. |
 | `GUACD_RECORDING_BACKEND_PATH` | `/app/data/session_recordings/guacamole` | The same folder as Termix sees it. |
 | `GUACD_DRIVE_PATH` | `/drive` | Folder guacd keeps RDP drive files in. Each user gets a folder under it. |
