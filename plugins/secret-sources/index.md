@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/secret-sources"
 description: "Pull host passwords and keys from 1Password when you connect instead of storing them in Termix."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Secret-Sources/edit/main/docs/index.md"
 plugin_id: "secret-sources"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -46,6 +46,6 @@ Your own source is used first. If you don't have one, a shared one is.
 
 ## Troubleshooting
 
-- **No secret source is configured.** Add one, or ask an admin to share one.
-- **No token is stored for this secret source.** The owner opens the source, enters the token again and saves.
-- **Blocked address.** Add the Connect server to the private endpoint allowlist.
+- No secret source is configured: Add one, or ask an admin to share one.
+- No token is stored for this secret source: The owner opens the source, enters the token again and saves.
+- Blocked address: Add the Connect server to the private endpoint allowlist.

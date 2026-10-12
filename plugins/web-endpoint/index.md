@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/web-endpoint"
 description: "Open a host's web UI inside Termix, directly or over an SSH tunnel."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Web-Endpoint/edit/main/docs/index.md"
 plugin_id: "web-endpoint"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -18,16 +18,16 @@ It needs the [Tunnels](/plugins/tunnels) plugin.
 
 1. Open the host in Manage and turn on Enable web endpoints in its Web UI section.
 2. Press Add endpoint and fill in:
-   - **Label**, like `Proxmox`.
-   - **Scheme**, Port and Path, like `https`, `8006` and `/`.
-   - **Access**: Direct, or SSH tunnel.
-   - **Open in**: a Termix tab, or an Isolated desktop window in the desktop app.
+   - Label, like `Proxmox`.
+   - Scheme, Port and Path, like `https`, `8006` and `/`.
+   - Access: Direct, or SSH tunnel.
+   - Open in: a Termix tab, or an Isolated desktop window in the desktop app.
 3. Save, then pick the endpoint from the host's menu.
 
 ## Direct or SSH tunnel
 
-- **Direct**: your browser opens the host's address and port itself. The port has to be reachable from where you are.
-- **SSH tunnel**: Termix forwards the port over the host's SSH connection. Use it for a web UI that only listens on the host itself, or behind a firewall. It needs SSH on for the host.
+- Direct: your browser opens the host's address and port itself. The port has to be reachable from where you are.
+- SSH tunnel: Termix forwards the port over the host's SSH connection. Use it for a web UI that only listens on the host itself, or behind a firewall. It needs SSH on for the host.
 
 For a tunnel, Bind Host is where the forward listens. Leave it blank for `127.0.0.1`. If you set an address others can reach, anyone who can reach that port gets the web UI with no Termix login, so be careful. Local Port is picked for you unless you set one.
 

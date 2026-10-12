@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/tailscale"
 description: "Add tailnet devices as hosts and connect with Tailscale SSH."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tailscale/edit/main/docs/index.md"
 plugin_id: "tailscale"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -41,7 +41,7 @@ With [Host Metrics](/plugins/host-metrics) on, hosts get a Tailscale card: wheth
 
 ## Troubleshooting
 
-- **Tailscale SSH fails.** Check Tailscale runs on the host, SSH is turned on with `tailscale set --ssh`, and your ACL allows the connection from the Termix server's tailnet identity.
-- **No devices.** Check the API key, and the base URL for Headscale.
+- Tailscale SSH fails: Check Tailscale runs on the host, SSH is turned on with `tailscale set --ssh`, and your ACL allows the connection from the Termix server's tailnet identity.
+- No devices: Check the API key, and the base URL for Headscale.
 
 Who can see the device list is set by `tailscale.devices.view`. Only admins have it at first.

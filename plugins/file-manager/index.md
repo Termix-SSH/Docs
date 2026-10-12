@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/file-manager"
 description: "Browse, edit and move files over SFTP, including straight from one server to another."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-File-Manager/edit/main/docs/index.md"
 plugin_id: "file-manager"
 plugin_version: "1.0.2"
 plugin_latest: true

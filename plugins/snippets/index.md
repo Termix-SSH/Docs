@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/snippets"
 description: "Save the commands you run often and run them in a terminal or on many hosts in one click."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Snippets/edit/main/docs/index.md"
 plugin_id: "snippets"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -38,10 +38,10 @@ When a snippet has inputs, Termix asks for them and shows a preview before runni
 
 ## Run one
 
-- **In a terminal.** Click the snippet to send it to the terminal you are in. With several terminals selected, it goes to all of them.
-- **On hosts.** Set Target hosts on the snippet and use Run on target hosts. It runs over SSH on each one, without a terminal, and shows each result.
-- **From a key.** Bind a snippet to a key in Settings, Keybindings.
-- **From the command palette.** Search for it by name.
+- In a terminal: Click the snippet to send it to the terminal you are in. With several terminals selected, it goes to all of them.
+- On hosts: Set Target hosts on the snippet and use Run on target hosts. It runs over SSH on each one, without a terminal, and shows each result.
+- From a key: Bind a snippet to a key in Settings, Keybindings.
+- From the command palette: Search for it by name.
 
 Turn on Confirm before running in your settings to be asked first.
 

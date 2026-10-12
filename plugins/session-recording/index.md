@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/session-recording"
 description: "Record terminal and remote desktop sessions and play them back or download them later."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Session-Recording/edit/main/docs/index.md"
 plugin_id: "session-recording"
 plugin_version: "1.0.1"
 plugin_latest: true

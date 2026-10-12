@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/network-topology"
 description: "Draws your hosts and the links between them as a live, interactive graph."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Network-Topology/edit/main/docs/index.md"
 plugin_id: "network-topology"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -18,9 +18,9 @@ Open Network Graph from the sidebar. There is also a Network Graph card you can 
 
 ## Build the graph
 
-- **Add Host**: pick one of your hosts to add as a node.
-- **Add Group**: make a colored group, like a rack or a VLAN. Groups can nest inside other groups.
-- **Add Link**: draw a line from one host to another, like a jump host to the servers behind it.
+- Add Host: pick one of your hosts to add as a node.
+- Add Group: make a colored group, like a rack or a VLAN. Groups can nest inside other groups.
+- Add Link: draw a line from one host to another, like a jump host to the servers behind it.
 
 Right-click a node for more: move it to a group, open its details, connect it, or remove it. Right-click a group to add a host straight into it.
 

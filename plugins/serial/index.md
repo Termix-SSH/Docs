@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/serial"
 description: "Open a serial console to a router, switch or other device plugged into your computer."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Serial/edit/main/docs/index.md"
 plugin_id: "serial"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -34,8 +34,8 @@ Refresh ports looks again after you plug something in.
 
 ## Troubleshooting
 
-- **No ports listed on Linux.** Your user needs to be in the `dialout` group (or `uucp` on some distros): `sudo usermod -aG dialout $USER`, then sign out and in.
-- **Garbled text.** The baud rate is wrong. Try 115200 or 9600.
-- **Nothing at all.** Press Enter once. Many consoles wait for input before they print anything.
+- No ports listed on Linux: Your user needs to be in the `dialout` group (or `uucp` on some distros): `sudo usermod -aG dialout $USER`, then sign out and in.
+- Garbled text: The baud rate is wrong. Try 115200 or 9600.
+- Nothing at all: Press Enter once. Many consoles wait for input before they print anything.
 
 Don't need it? Hide the Serial icon by right-clicking it in the sidebar.

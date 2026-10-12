@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/fleets"
 description: "Group hosts into fleets and run commands, package actions and file transfers on all of them at once."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Fleets/edit/main/docs/index.md"
 plugin_id: "fleets"
 plugin_version: "1.0.1"
 plugin_latest: true

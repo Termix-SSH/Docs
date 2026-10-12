@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/remote-desktop"
 description: "RDP, VNC and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Remote-Desktop/edit/main/docs/index.md"
 plugin_id: "remote-desktop"
 plugin_version: "1.0.2"
 plugin_latest: true
@@ -84,6 +84,6 @@ With [Session Sharing](/plugins/session-sharing) on, you can share a live sessio
 
 ## Troubleshooting
 
-- **"Could not connect to guacd".** Check `GUACD_HOST` points at guacd and both are on the same Docker network.
-- **RDP fails right away.** Try a different RDP security mode, or turn on Ignore certificate errors for a self-signed certificate.
-- **Recordings are empty or missing.** The two recording paths don't point at the same folder.
+- "Could not connect to guacd": Check `GUACD_HOST` points at guacd and both are on the same Docker network.
+- RDP fails right away: Try a different RDP security mode, or turn on Ignore certificate errors for a self-signed certificate.
+- Recordings are empty or missing: The two recording paths don't point at the same folder.

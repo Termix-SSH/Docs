@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/tunnels"
 description: "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/index.md"
 plugin_id: "tunnels"
 plugin_version: "1.0.2"
 plugin_latest: true
@@ -22,8 +22,8 @@ Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconne
 
 And two places a tunnel can run:
 
-- **On the Termix server** (server to server). Termix holds the tunnel open between a host and an endpoint. It keeps running when you close your browser.
-- **On your computer** (client to server). Only in the desktop app. The tunnel listens on your own machine, like running `ssh -L` yourself.
+- On the Termix server (server to server). Termix holds the tunnel open between a host and an endpoint. It keeps running when you close your browser.
+- On your computer (client to server). Only in the desktop app. The tunnel listens on your own machine, like running `ssh -L` yourself.
 
 ## Add a server tunnel
 

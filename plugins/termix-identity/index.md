@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/termix-identity"
 description: "Publish your SSH public keys under a public handle and run your own SSH certificate authority."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Termix-Identity/edit/main/docs/index.md"
 plugin_id: "termix-identity"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -28,9 +28,9 @@ Anyone can read it, like any public key. It never serves private keys.
 
 Press Add key and pick one of three ways:
 
-- **Generate** a new Ed25519 key pair. The public key is published, the private key is downloaded to you, and you can save it as a [credential](/guide/credentials) at the same time.
-- **Paste** a public key you already have.
-- **Import** the public key of a credential saved in Termix.
+- Generate a new Ed25519 key pair. The public key is published, the private key is downloaded to you, and you can save it as a [credential](/guide/credentials) at the same time.
+- Paste a public key you already have.
+- Import the public key of a credential saved in Termix.
 
 Turn a published key off without removing it.
 

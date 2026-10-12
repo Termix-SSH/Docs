@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/webauthn"
 description: "Sign in with a passkey or security key instead of a password."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-WebAuthn/edit/main/docs/index.md"
 plugin_id: "webauthn"
 plugin_version: "1.0.1"
 plugin_latest: true

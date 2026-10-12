@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/ai"
 description: "An AI assistant that reads your setup and proposes changes for you to approve."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/index.md"
 plugin_id: "ai"
 plugin_version: "1.0.1"
 plugin_latest: true

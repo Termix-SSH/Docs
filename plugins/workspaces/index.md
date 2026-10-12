@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/workspaces"
 description: "Save your open tabs and split layouts and reopen them in one click."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Workspaces/edit/main/docs/index.md"
 plugin_id: "workspaces"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -22,9 +22,9 @@ Click a workspace in the list and confirm. Your current tabs close and the works
 
 ## Change one
 
-- **Update with Current** overwrites a workspace with what you have open now.
-- **Rename**, Duplicate and delete with the buttons on its row.
-- **Set as Default** opens that workspace when you sign in.
+- Update with Current overwrites a workspace with what you have open now.
+- Rename, Duplicate and delete with the buttons on its row.
+- Set as Default opens that workspace when you sign in.
 
 ## Last session
 

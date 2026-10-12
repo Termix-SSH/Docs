@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/ssh-terminal"
 description: "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
 plugin_id: "ssh-terminal"
 plugin_version: "1.0.2"
 plugin_latest: true
@@ -24,10 +24,10 @@ Turn Enable Terminal off for a host that should never get a terminal.
 
 ## Sessions that survive
 
-- **Disconnects.** If your browser drops, the session stays alive on the server for 30 minutes. Reopen the tab and you pick up where you left off. Admins change the time or turn it off in Settings, SSH Terminal.
-- **Reconnect automatically.** Turn it on for a host and Termix reconnects on its own after a network blip or sleep, keeping the scrollback.
-- **Auto tmux.** Turn it on for a host and every connection attaches to a tmux session, or makes one. Use it for sessions that must outlive the 30 minutes.
-- **Mosh.** Turn on Auto mosh to prefer Mosh over SSH when the host has it.
+- Disconnects: If your browser drops, the session stays alive on the server for 30 minutes. Reopen the tab and you pick up where you left off. Admins change the time or turn it off in Settings, SSH Terminal.
+- Reconnect automatically: Turn it on for a host and Termix reconnects on its own after a network blip or sleep, keeping the scrollback.
+- Auto tmux: Turn it on for a host and every connection attaches to a tmux session, or makes one. Use it for sessions that must outlive the 30 minutes.
+- Mosh: Turn on Auto mosh to prefer Mosh over SSH when the host has it.
 
 ## The toolbar
 

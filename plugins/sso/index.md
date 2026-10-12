@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/sso"
 description: "Sign in with any OpenID Connect provider, GitHub or Google."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSO/edit/main/docs/index.md"
 plugin_id: "sso"
 plugin_version: "1.0.2"
 plugin_latest: true
@@ -78,7 +78,7 @@ You can set one OIDC provider with [environment variables](/plugins/sso/referenc
 
 ## Troubleshooting
 
-- **Redirect URI mismatch.** Register the exact Redirect URI from the form. Behind a reverse proxy, make sure it sends `X-Forwarded-Proto`, or set `EXTERNAL_FORCE_HTTPS=true`.
-- **"Not allowed".** Their email isn't in Allowed Users, or new accounts can't be made.
-- **"Login was started in another browser".** A sign in from the web page has to finish in the same browser that started it. Start it again from the sign in page.
-- **Admin rights don't stick.** Check Group Claim and that your provider sends groups in the token.
+- Redirect URI mismatch: Register the exact Redirect URI from the form. Behind a reverse proxy, make sure it sends `X-Forwarded-Proto`, or set `EXTERNAL_FORCE_HTTPS=true`.
+- "Not allowed": Their email isn't in Allowed Users, or new accounts can't be made.
+- "Login was started in another browser": A sign in from the web page has to finish in the same browser that started it. Start it again from the sign in page.
+- Admin rights don't stick: Check Group Claim and that your provider sends groups in the token.

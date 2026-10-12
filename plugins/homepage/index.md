@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/homepage"
 description: "A drag and drop widget page for your servers and services, plus service links for the dashboard."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Homepage/edit/main/docs/index.md"
 plugin_id: "homepage"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -19,7 +19,7 @@ Switch the dashboard's header to Homepage, or open it from the command palette. 
 ## Edit it
 
 1. Press Unlock Layout.
-2. **Add Widget** and pick one. Drag it where you want and drag its corner to resize.
+2. Add Widget and pick one. Drag it where you want and drag its corner to resize.
 3. Click a widget's settings to configure it.
 4. Press Lock Layout when you are done, so nothing moves by accident.
 

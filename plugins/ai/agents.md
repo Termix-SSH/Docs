@@ -2,7 +2,7 @@
 title: "Coding agents"
 sidebar_position: 11
 slug: "/ai/agents"
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/agents.md"
 plugin_id: "ai"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -21,8 +21,8 @@ The agent runs as the SSH user and can run commands and change files in that fol
 
 Termix can set this up for you:
 
-- **Install selected agent and Node.js** installs both for the SSH user, in `~/.local/share/termix-agent`. It only downloads from nodejs.org and registry.npmjs.org and checks what it gets.
-- **Enable Agent forwarding** turns on loopback forwarding in the SSH server config. It needs root or passwordless sudo, backs up the config and checks it before reloading.
+- Install selected agent and Node.js installs both for the SSH user, in `~/.local/share/termix-agent`. It only downloads from nodejs.org and registry.npmjs.org and checks what it gets.
+- Enable Agent forwarding turns on loopback forwarding in the SSH server config. It needs root or passwordless sudo, backs up the config and checks it before reloading.
 
 Your existing agent config on the host is never overwritten.
 
@@ -37,7 +37,7 @@ Claude Code needs an Anthropic provider. Codex needs an OpenAI provider with the
 ## While it works
 
 - When the agent wants to do something that needs your say, it asks. Allow once or Deny.
-- **Interrupt turn** stops what it is doing now. Stop session ends it.
+- Interrupt turn stops what it is doing now. Stop session ends it.
 - Queue more messages while it works.
 - Attach files or paste images, up to 4 at 1 MB each.
 - See its Git changes, diffs and branches from the review panel.

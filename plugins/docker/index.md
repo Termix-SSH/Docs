@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/docker"
 description: "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Docker/edit/main/docs/index.md"
 plugin_id: "docker"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -28,10 +28,10 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
 
 ## What you can do
 
-- **Containers.** See every container with its image, state, ports and uptime. Start, stop, restart, pause, unpause or remove them.
-- **Stats.** Live CPU, memory, network and disk use per container.
-- **Logs.** Read a container's logs, follow them live, and download them.
-- **Console.** Open a shell inside a running container.
+- Containers: See every container with its image, state, ports and uptime. Start, stop, restart, pause, unpause or remove them.
+- Stats: Live CPU, memory, network and disk use per container.
+- Logs: Read a container's logs, follow them live, and download them.
+- Console: Open a shell inside a running container.
 
 ## With other plugins
 
@@ -40,8 +40,8 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
 
 ## Troubleshooting
 
-- **Nothing shows up.** Run `docker ps` as the SSH user in a terminal. If that fails, Docker will fail too.
-- **Permission denied.** The user isn't in the `docker` group, or hasn't signed in again since being added.
-- **The host can't connect.** Open a terminal to it first. Docker uses the same login, so a sign in problem shows up there too.
+- Nothing shows up: Run `docker ps` as the SSH user in a terminal. If that fails, Docker will fail too.
+- Permission denied: The user isn't in the `docker` group, or hasn't signed in again since being added.
+- The host can't connect: Open a terminal to it first. Docker uses the same login, so a sign in problem shows up there too.
 
 Who can use it is set by the `docker.use` permission. Admins and users have it at first.

@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/alerts"
 description: "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-Alerts/edit/main/docs/index.md"
 plugin_id: "alerts"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -41,9 +41,9 @@ Termix blocks sending to private network addresses by default. To send to someth
 
 A rule picks which alerts go to which channels. Under Delivery rules, set:
 
-- **Alerts to send**: `*` for everything, `automations.*` for everything from Automations, or one exact kind.
-- **At least**: the lowest severity to send.
-- **Send to**: one or more of your channels.
+- Alerts to send: `*` for everything, `automations.*` for everything from Automations, or one exact kind.
+- At least: the lowest severity to send.
+- Send to: one or more of your channels.
 
 Without rules, alerts only show in the inbox.
 

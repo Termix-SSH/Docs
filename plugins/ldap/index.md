@@ -5,7 +5,7 @@ sidebar_position: 0
 slug: "/ldap"
 description: "Sign in with your LDAP or Active Directory username and password."
 hide_title: true
-custom_edit_url: null
+custom_edit_url: "https://github.com/Termix-SSH/Plugin-LDAP/edit/main/docs/index.md"
 plugin_id: "ldap"
 plugin_version: "1.0.1"
 plugin_latest: true
@@ -57,9 +57,9 @@ Use `$external.username` as a host's username to fill in the name someone signed
 
 ## Troubleshooting
 
-- **Invalid credentials for everyone.** Check the bind DN and password first, then the search base and filter. The server log shows why a sign in was refused.
-- **Refused even with the right password.** The filter has to match exactly one entry. If it matches several, Termix refuses the sign in rather than guess, so make the filter stricter.
-- **Certificate errors with LDAPS.** Paste your CA under CA certificate.
-- **Too many attempts.** Sign ins are rate limited per user to stop guessing. Wait a few minutes.
+- Invalid credentials for everyone: Check the bind DN and password first, then the search base and filter. The server log shows why a sign in was refused.
+- Refused even with the right password: The filter has to match exactly one entry. If it matches several, Termix refuses the sign in rather than guess, so make the filter stricter.
+- Certificate errors with LDAPS: Paste your CA under CA certificate.
+- Too many attempts: Sign ins are rate limited per user to stop guessing. Wait a few minutes.
 
 Who can add and change directories is set by `ldap.manage`. Only admins have it at first.
