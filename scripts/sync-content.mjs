@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Pulls everything the site does not keep by hand: every official plugin's
- * docs at each release, the plugin and core API specs, the env var list, the
- * plugin SDK reference and the app download list.
+ * docs (the latest from main, older versions from their release tags), the
+ * plugin and core API specs, the env var list, the plugin SDK reference and
+ * the app download list.
  *
  *   node scripts/sync-content.mjs                    from GitHub releases
  *   node scripts/sync-content.mjs --local ../Termix-Plugins --core ../Termix
@@ -467,6 +468,22 @@ async function pluginSource(plugin, version, latest) {
   return { dir: await fetchSource(repo, "HEAD"), ref: "HEAD" };
 }
 
+// The latest version's written docs come from the default branch, so docs
+// fixes go live without a plugin release. main only moves at a release or for
+// small fixes, so it never documents unreleased features.
+async function docsSource(plugin, source, latest) {
+  if (!latest || source.ref === "local" || source.ref === "HEAD") return source;
+  const repo = plugin.repository.replace("https://github.com/", "");
+  try {
+    const dir = await fetchSource(repo, "HEAD");
+    if (fs.existsSync(path.join(dir, "docs", "index.md")))
+      return { dir, ref: "HEAD" };
+  } catch (error) {
+    console.warn(`  ${plugin.id}: docs from main failed: ${error.message}`);
+  }
+  return source;
+}
+
 function settingRows(fields, locale) {
   return (fields ?? [])
     .filter((f) => !f.hidden && f.type !== "custom")
@@ -713,7 +730,8 @@ async function syncPlugin(plugin, capabilities) {
       console.warn(`  ${plugin.id} ${version}: ${error.message}`);
       continue;
     }
-    const docsDir = path.join(source.dir, "docs");
+    const docs = await docsSource(plugin, source, isLatest);
+    const docsDir = path.join(docs.dir, "docs");
     if (!isLatest && !fs.existsSync(path.join(docsDir, "index.md"))) continue;
 
     const manifest = readJsonFile(path.join(source.dir, "manifest.json"));
@@ -767,7 +785,7 @@ async function syncPlugin(plugin, capabilities) {
         description: manifest.description,
         hide_title: true,
         custom_edit_url: index
-          ? editUrl(plugin, source.ref, "docs/index.md")
+          ? editUrl(plugin, docs.ref, "docs/index.md")
           : null,
         ...meta,
       }) +
@@ -794,7 +812,7 @@ async function syncPlugin(plugin, capabilities) {
             sidebar_position: 10 + (Number(data.order) || 50),
             slug: `${slug}/${page}`,
             description: data.description,
-            custom_edit_url: editUrl(plugin, source.ref, `docs/${name}`),
+            custom_edit_url: editUrl(plugin, docs.ref, `docs/${name}`),
             ...meta,
           }) +
             body.trim() +
