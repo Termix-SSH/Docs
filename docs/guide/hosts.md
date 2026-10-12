@@ -38,10 +38,10 @@ Plugins add more, like short-lived certificates from [Vault](/plugins/vault), [S
 
 Other useful switches:
 
-- **Force Keyboard Interactive** asks for the password every time.
-- **Allow Legacy Algorithms** connects to old devices that only speak old SSH algorithms. It is less secure.
-- **SSH Agent Forwarding** lets the remote host use your agent for the next hop.
-- **Sudo Password** fills sudo prompts in the terminal and in plugins that run sudo.
+- Force Keyboard Interactive asks for the password every time.
+- Allow Legacy Algorithms connects to old devices that only speak old SSH algorithms. It is less secure.
+- SSH Agent Forwarding lets the remote host use your agent for the next hop.
+- Sudo Password fills sudo prompts in the terminal and in plugins that run sudo.
 
 ## Folders and sub-hosts
 
@@ -58,8 +58,8 @@ Tags filter and group the host list. Admins can set suggested tags in Settings, 
 
 ## Jump hosts and proxies
 
-- **Jump Host Chain** connects through one or more other hosts first.
-- **Use SOCKS5 Proxy** goes through a SOCKS5 proxy or a chain of them.
+- Jump Host Chain connects through one or more other hosts first.
+- Use SOCKS5 Proxy goes through a SOCKS5 proxy or a chain of them.
 
 ## Port knocking {#port-knocking}
 
@@ -75,8 +75,8 @@ Checks over SSH can trip aggressive Fail2Ban rules. Turn Enable Status Checks of
 
 In the linked desktop app:
 
-- **Connection Origin** picks whether the host is reached from your computer or through the server.
-- **Keep on this device only** keeps the host off the server.
+- Connection Origin picks whether the host is reached from your computer or through the server.
+- Keep on this device only keeps the host off the server.
 
 See [desktop sync](/configure/desktop-sync).
 

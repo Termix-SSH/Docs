@@ -102,8 +102,8 @@ export async function activate(ctx: PluginContext) {
 
 Two rules for code that works on every database:
 
-- **Call `ctx.db.persist()` after you write.** With SQLite the database lives in memory and only reaches disk when something asks. A write without it can be lost on restart. For frequent low value writes, `persist({ lazy: true })` lets the next save pick it up.
-- **Don't use `.returning()`.** MySQL doesn't have it. Read a new row back by a key you chose.
+- Call `ctx.db.persist()` after you write: With SQLite the database lives in memory and only reaches disk when something asks. A write without it can be lost on restart. For frequent low value writes, `persist({ lazy: true })` lets the next save pick it up.
+- Don't use `.returning()`: MySQL doesn't have it. Read a new row back by a key you chose.
 
 `ctx.db.dialect` tells you which database is running, if you ever need it.
 

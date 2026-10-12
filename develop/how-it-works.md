@@ -46,10 +46,10 @@ For background work with no request, like a timer, use `ctx.asUser(userId, fn)`.
 
 Rules that keep this working:
 
-- **Create everything inside `activate`.** No servers, timers or connections at the top of a module. A disable and enable runs `activate` again on the same module.
-- **Register cleanup.** Things made through `ctx` and `app` are cleaned up for you. Anything you make yourself goes in `ctx.disposables.add(fn)` or `app.onDispose(fn)`.
-- **Never touch `process.exit` or signals.** Termix stops plugins in order on shutdown.
-- **Enable, disable, enable must work** without a restart.
+- Create everything inside `activate`: No servers, timers or connections at the top of a module. A disable and enable runs `activate` again on the same module.
+- Register cleanup: Things made through `ctx` and `app` are cleaned up for you. Anything you make yourself goes in `ctx.disposables.add(fn)` or `app.onDispose(fn)`.
+- Never touch `process.exit` or signals: Termix stops plugins in order on shutdown.
+- Enable, disable, enable must work without a restart.
 
 ## When things go wrong
 

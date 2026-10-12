@@ -11,9 +11,9 @@ Every feature in Termix past hosts, credentials, users and sharing is a plugin. 
 
 A plugin is:
 
-- **A manifest**, `manifest.json`. It says what the plugin is, what it adds and what it is allowed to do.
-- **A backend**, run inside the Termix server. It gets a `ctx` object with everything it may use: its own tables, settings, HTTP routes, SSH connections to hosts and more.
-- **A frontend**, run in the browser. It gets an `app` object to add tabs, panels, buttons and settings to the UI.
+- A manifest, `manifest.json`. It says what the plugin is, what it adds and what it is allowed to do.
+- A backend, run inside the Termix server. It gets a `ctx` object with everything it may use: its own tables, settings, HTTP routes, SSH connections to hosts and more.
+- A frontend, run in the browser. It gets an `app` object to add tabs, panels, buttons and settings to the UI.
 
 Both halves only talk to Termix through the plugin SDK, [`@termix-ssh/plugin-sdk`](https://www.npmjs.com/package/@termix-ssh/plugin-sdk). They never import Termix's own code.
 

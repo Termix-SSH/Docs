@@ -38,7 +38,7 @@ Pages are plain Markdown. No MDX, no components, no HTML scripts.
 The site adds these from your plugin for you, so don't repeat them by hand:
 
 - The header: name, description, version, category, links.
-- **Features**, from `features` in your manifest.
+- Features, from `features` in your manifest.
 - A Reference page: settings at every scope, permissions, capabilities, environment variables, services and the plugins it works with. Labels come from your `locales/en.json`.
 - An API reference from your `@openapi` comments.
 - A Changelog page from `CHANGELOG.md`.
@@ -129,5 +129,5 @@ Write like you talk to a friend who is good with computers.
 - Short sentences. One idea each.
 - Plain words. "Use", not "utilize".
 - Tell people what to do, step by step.
-- Name buttons and fields exactly as the UI does, in bold.
+- Name buttons and fields exactly as the UI does, in plain text. No bold.
 - No em dashes.

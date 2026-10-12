@@ -20,11 +20,11 @@ The list of exports is fixed and checked in Termix's CI. Anything listed here is
 
 ## Design rules
 
-- **Square.** Panels, cards and buttons have no rounded corners.
-- **Flat.** Borders, not shadows.
-- **Small type.** Most text is 11 to 13px. Section headers are 10 to 11px uppercase with wide letter spacing.
-- **One accent.** Orange (`text-accent-brand`) for the thing that matters. Don't add colors.
-- **No new modal dialogs.** Open things inside the panel or tab with `InlineView`, ask with `useConfirm()`, and use `PanePrompt` for small prompts.
+- Square: Panels, cards and buttons have no rounded corners.
+- Flat: Borders, not shadows.
+- Small type: Most text is 11 to 13px. Section headers are 10 to 11px uppercase with wide letter spacing.
+- One accent: Orange (`text-accent-brand`) for the thing that matters. Don't add colors.
+- No new modal dialogs: Open things inside the panel or tab with `InlineView`, ask with `useConfirm()`, and use `PanePrompt` for small prompts.
 
 ## Panels and tabs
 

@@ -16,11 +16,11 @@ Settings opens as a tab from the bottom of the rail. The pages are in four group
 
 ## Interface {#interface}
 
-- **Preset**: Simple, Balanced or Advanced. See [the interface](/guide/interface#how-much-is-shown).
-- **Navigation**: which icons show in the rail.
+- Preset: Simple, Balanced or Advanced. See [the interface](/guide/interface#how-much-is-shown).
+- Navigation: which icons show in the rail.
 - Tabs, the command palette, update checks and other behavior.
-- **Preference Storage**: keep settings in this browser only, or in your account so they follow you.
-- **Run setup** walks through the first run setup again.
+- Preference Storage: keep settings in this browser only, or in your account so they follow you.
+- Run setup walks through the first run setup again.
 
 ## Appearance {#appearance}
 

@@ -11,19 +11,19 @@ Host defaults let you set something once, like a terminal font or a status check
 
 A host takes each setting from the first level that sets it:
 
-1. **The host itself.**
-2. **Its folder**, then the folder above it, and so on up.
-3. **My defaults**, your own defaults.
-4. **Server**, the admin's defaults for everyone.
-5. **Built-in**, Termix's own value.
+1. The host itself.
+2. Its folder, then the folder above it, and so on up.
+3. My defaults, your own defaults.
+4. Server, the admin's defaults for everyone.
+5. Built-in, Termix's own value.
 
 There are no admin locks. A user or a host can always set its own value.
 
 ## Edit them
 
-- **Server**: admins, in Settings, Host defaults, or in Manage, Defaults.
-- **My defaults**: in Manage, Defaults.
-- **A folder**: Folder defaults in the folder's menu.
+- Server: admins, in Settings, Host defaults, or in Manage, Defaults.
+- My defaults: in Manage, Defaults.
+- A folder: Folder defaults in the folder's menu.
 
 Change a field to set it at that level. Clear it to leave it unset. When you save, Termix tells you how many hosts will change.
 

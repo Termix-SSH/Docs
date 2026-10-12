@@ -11,9 +11,9 @@ A credential is a username with a password, an SSH key, or both. Save it once an
 
 Open [Manage](/guide/manage), pick Credentials and press +. Or use Add Credential in the Credentials panel.
 
-- **Password**, Key, or both. Termix can make a key pair for you.
-- **Key Password** if the key has a passphrase.
-- **CA Certificate**: a `-cert.pub` file, for servers that use SSH certificates.
+- Password, Key, or both. Termix can make a key pair for you.
+- Key Password if the key has a passphrase.
+- CA Certificate: a `-cert.pub` file, for servers that use SSH certificates.
 
 You can also turn a host's own login into a credential with Create Credential in the host editor.
 

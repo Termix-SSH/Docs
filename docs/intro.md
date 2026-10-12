@@ -10,8 +10,8 @@ Termix is a self-hosted server manager. You run it on your own machine and open 
 
 It is built from two parts:
 
-- **The core.** Hosts, credentials, users, roles, sharing and sign in. This is the same on every install.
-- **Plugins.** Everything else. The SSH terminal, file manager, remote desktop, tunnels, Docker, metrics, single sign-on and more are all plugins. You pick the ones you want.
+- The core: Hosts, credentials, users, roles, sharing and sign in. This is the same on every install.
+- Plugins: Everything else. The SSH terminal, file manager, remote desktop, tunnels, Docker, metrics, single sign-on and more are all plugins. You pick the ones you want.
 
 The official plugins ship with Termix. You can turn each one on or off, and install updates for it on its own.
 

@@ -53,7 +53,7 @@ Status checks for a user's hosts start once that user opens the app. They only o
 
 ## Host Metrics
 
-Host Metrics only collects while someone is looking at a host. If no one is, then it utilizes no resources.
+Host Metrics only collects while someone is looking at a host. Otherwise it uses nothing.
 
 Watching hosts, out of 100 saved:
 

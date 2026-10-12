@@ -13,8 +13,8 @@ Your username, role, how you sign in and the Termix version. Delete Account remo
 
 ## Security {#security}
 
-- **Change Password.**
-- **Second factors** from plugins: an authenticator app with [TOTP](/plugins/totp), or a passkey or security key with [Passkeys](/plugins/webauthn). Each shows here once its plugin is on.
+- Change Password.
+- Second factors from plugins: an authenticator app with [TOTP](/plugins/totp), or a passkey or security key with [Passkeys](/plugins/webauthn). Each shows here once its plugin is on.
 
 ## Sign in methods
 
@@ -26,8 +26,8 @@ If you sign in with SSO or LDAP, use `$external.username` as a host's username t
 
 In Data and sync:
 
-- **Export My Data** downloads your hosts, credentials and settings as a `.sqlite` file.
-- **Import My Data** loads one back, on this server or another.
+- Export My Data downloads your hosts, credentials and settings as a `.sqlite` file.
+- Import My Data loads one back, on this server or another.
 
 The export has your secrets in it, decrypted. Keep it safe.
 

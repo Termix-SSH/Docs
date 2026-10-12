@@ -32,7 +32,7 @@ Updates come from the registry the plugin was installed from, not from a new Ter
 
 - Press Update on one plugin, or update all from Updates.
 - Turn on Update on its own for a plugin to get new versions by itself.
-- **Stay on this version** pins a plugin so it skips updates. Pick any version from its page.
+- Stay on this version pins a plugin so it skips updates. Pick any version from its page.
 
 An update that wants new capabilities never installs by itself. It waits in Updates for you to review it.
 

@@ -7,8 +7,8 @@ description: Group users and decide what they can do.
 
 A role is a group of users with a set of permissions. Roles are used two ways:
 
-- **Permissions.** What people with the role can do in Termix.
-- **Sharing.** Share a host or credential with a role instead of one person at a time. See [sharing](/guide/sharing).
+- Permissions: What people with the role can do in Termix.
+- Sharing: Share a host or credential with a role instead of one person at a time. See [sharing](/guide/sharing).
 
 ## Built in roles
 

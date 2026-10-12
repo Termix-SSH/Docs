@@ -9,9 +9,9 @@ Manage is where you edit everything about a connection. Open it from the rail or
 
 The left side lists one of three things. Switch at the top:
 
-- **Hosts**, in their folders. See [hosts](/guide/hosts).
-- **Credentials**, the passwords and keys hosts can share. See [credentials](/guide/credentials).
-- **Defaults**, the settings hosts start with. See [host defaults](/guide/host-defaults).
+- Hosts, in their folders. See [hosts](/guide/hosts).
+- Credentials, the passwords and keys hosts can share. See [credentials](/guide/credentials).
+- Defaults, the settings hosts start with. See [host defaults](/guide/host-defaults).
 
 Pick an item and its editor opens on the right. The editor has a list of sections on the side and one form you scroll through. Search settings finds a field by name. Changes are saved when you press Save.
 

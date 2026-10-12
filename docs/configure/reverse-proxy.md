@@ -9,9 +9,9 @@ A reverse proxy puts Termix on a domain with HTTPS. Point it at port `8080` of t
 
 Every proxy needs three things for Termix:
 
-- **WebSockets.** Terminals, remote desktop and live updates all use them.
-- **Long timeouts.** A terminal can sit idle for hours. Short timeouts drop it.
-- **Big uploads.** The file manager sends large files. Don't cap the body size.
+- WebSockets: Terminals, remote desktop and live updates all use them.
+- Long timeouts: A terminal can sit idle for hours. Short timeouts drop it.
+- Big uploads: The file manager sends large files. Don't cap the body size.
 
 ## nginx
 

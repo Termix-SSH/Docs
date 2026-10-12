@@ -29,7 +29,7 @@ Want to try Termix first? Use the [demo](https://demo.termix.site/), any usernam
 
 ## Sponsors
 
-Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
+For a paid sponsor spot, email [mail@termix.site](mailto:mail@termix.site).
 
 <!-- SPONSORS:START -->
 
@@ -81,4 +81,4 @@ For discussions and questions, join the [Discord](https://discord.gg/jVQGdvHDrf)
 
 ## License
 
-Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for more information.
+Apache License 2.0. See [LICENSE](LICENSE).

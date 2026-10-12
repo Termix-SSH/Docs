@@ -37,4 +37,4 @@ That pulls every local plugin's docs, builds the API pages and starts the dev se
 
 ## Writing
 
-Short sentences, plain words, no em dashes. Name buttons and fields the way the app does, in bold. Tell people what to do.
+Short sentences, plain words, no em dashes. Name buttons and fields the way the app does, no bold. Tell people what to do.

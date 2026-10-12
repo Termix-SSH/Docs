@@ -11,8 +11,8 @@ Open Import / Export in the Hosts panel.
 
 Export... opens a window where you pick:
 
-- **Scope**: all hosts or only the ones you selected.
-- **Include**: connection, credentials, notes, tags and pin, proxy, jump hosts, feature flags and advanced settings.
+- Scope: all hosts or only the ones you selected.
+- Include: connection, credentials, notes, tags and pin, proxy, jump hosts, feature flags and advanced settings.
 
 You get a JSON file. If you include credentials, it has passwords and keys in it, decrypted. Keep it safe.
 

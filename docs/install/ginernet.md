@@ -6,14 +6,14 @@ GINERNET is a paid sponsor of Termix. This page was created as part of that spon
 
 ## Benefits
 
-Running the Termix server on a cloud VPS instead of inside your own network has a few advantages:
+Why run Termix on a VPS instead of inside your own network:
 
-- **Out-of-band access:** If Termix runs inside the network it manages, an outage takes Termix with it, and your hosts, credentials, and saved sessions are stuck inside the system you are trying to fix. An external VPS stays reachable no matter what happens to your network.
-- **Independent failure:** A VPS does not share power, network, hypervisor, or storage with the machines it manages. One failure cannot take out both your infrastructure and the tool you fix it with.
-- **Reachable from anywhere:** A public endpoint means no VPN or port forward to reach your hosts from a laptop, a phone, or someone else's network.
-- **Static IP:** A fixed address is easy to allowlist in firewalls and `sshd` configs, and it does not change when a home ISP re-leases your address.
-- **No hardware to maintain:** Backups and rebuilds are handled by GINERNET.
-- **Better uptime:** Datacenter power, cooling, and network redundancy usually beat a homelab or office rack.
+- Out-of-band access: if Termix runs inside the network it manages, an outage takes it down too, along with your hosts and credentials. A VPS stays reachable.
+- Separate failure: a VPS doesn't share power, network or storage with your machines, so one failure can't take out both.
+- Reachable from anywhere: no VPN or port forward needed from a laptop, a phone or another network.
+- Static IP: easy to allowlist in firewalls and `sshd` configs, and it doesn't change when your ISP hands out a new address.
+- No hardware to maintain: GINERNET handles backups and rebuilds.
+- Better uptime: datacenter power, cooling and network usually beat a homelab or office rack.
 
 ## Setup
 
@@ -21,7 +21,7 @@ Running the Termix server on a cloud VPS instead of inside your own network has 
 
 Go to [manager.ginernet.com](https://manager.ginernet.com) and create an account with a username and password.
 
-Once you are in, open the billing tab and fill in your billing details. You will also need to complete identity verification before you can create a server.
+Then fill in your billing details in the billing tab and complete identity verification. You need both before you can create a server.
 
 ### Add an SSH key
 
@@ -49,11 +49,11 @@ A modal opens. If this is your first GINERNET VPS, leave it on Create a new VDC 
 
 On the Basic configuration screen:
 
-- **Location:** Whatever is available to you
-- **Server type:** AMD EPYC/Ryzen
-- **Hostname:** `termix`
-- **Operating system:** Debian 13 (Ubuntu works too)
-- **Management type:** Unmanaged
+- Location: Whatever is available to you
+- Server type: AMD EPYC/Ryzen
+- Hostname: `termix`
+- Operating system: Debian 13 (Ubuntu works too)
+- Management type: Unmanaged
 
 ![The Basic configuration step of the VPS wizard](/img/ginernet/wizard-1-basic-configuration.png)
 
@@ -71,11 +71,11 @@ Skip the Licenses tab. On the SSH Keys tab, tick the key you just added.
 
 ![The SSH Keys step with the Termix SSH Key selected](/img/ginernet/wizard-5-ssh-keys.png)
 
-Click Create VPS. It takes about 30 seconds to provision. You can watch progress in the top right and on the progress bar at the bottom.
+Click Create VPS. It takes about 30 seconds. Progress shows in the top right and in the bar at the bottom.
 
 ![The provisioning task page showing a status of Succeeded](/img/ginernet/provision-succeeded.png)
 
-Once it shows as succeeded, open the VPSs tab and select your server. From here you can manage it, see your costs, network information, and public IP. Backups, stats, and the remote console are also here.
+When it succeeds, open the VPSs tab and select your server. This page has costs, network info, the public IP, backups, stats and the remote console.
 
 ![The VPS overview page with the Access box highlighted](/img/ginernet/vps-overview.png)
 
@@ -89,16 +89,16 @@ Open the Firewall tab at the top and click New rule in the rules box at the bott
 
 Fill in the rule:
 
-- **Direction:** IN
-- **Action:** ACCEPT
-- **Protocol:** tcp
-- **Source:** Any IP, or just your own IP if you want to lock it down
-- **Destination:** Any IP
-- **Source port:** leave empty
-- **Destination port:** 8080
-- **Description:** `Allow Termix NGINX`
+- Direction: IN
+- Action: ACCEPT
+- Protocol: tcp
+- Source: Any IP, or just your own IP if you want to lock it down
+- Destination: Any IP
+- Source port: leave empty
+- Destination port: 8080
+- Description: `Allow Termix NGINX`
 
-Then hit Save.
+Click Save.
 
 ![The Edit firewall rule dialog filled in to allow inbound TCP traffic to the Termix port](/img/ginernet/firewall-rule-modal.png)
 
@@ -110,7 +110,7 @@ Copy the IPv4 address and username into your SSH client and connect using the ke
 
 ### Create a user (optional)
 
-Logging in as root is not ideal. To create your own user:
+Better not to log in as root. To make your own user:
 
 ```bash
 adduser termix
@@ -200,4 +200,4 @@ Enter a username and password. This creates your first admin user, and Termix is
 
 ### Scaling up
 
-If your instance starts feeling laggy as you add hosts, go to the VPS overview page and click Modify resources in the resources box to add more CPU or RAM.
+If it gets slow as you add hosts, click Modify resources on the VPS overview page to add CPU or RAM.

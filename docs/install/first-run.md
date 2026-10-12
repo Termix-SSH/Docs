@@ -26,9 +26,9 @@ Termix then walks you through a short setup. You can skip any step and change it
 
 Each plugin can be:
 
-- **On.** It runs and you can use it.
-- **Off.** It stays installed but does nothing. Turn it on any time.
-- **Remove.** It is deleted from the server with its data. You can install it again from the Plugins tab.
+- On: It runs and you can use it.
+- Off: It stays installed but does nothing. Turn it on any time.
+- Remove: It is deleted from the server with its data. You can install it again from the Plugins tab.
 
 The recommended set covers what most people want: the SSH terminal, the file manager, metrics and a few more. Read about each one in the [plugin list](/plugins).
 

@@ -43,7 +43,7 @@ Replace "Termix" on the sign in page and browser tab with your own name, a tagli
 
 ## Database {#database}
 
-- **Export Database** downloads a portable `.sqlite` copy of all hosts, credentials and settings.
-- **Import Database** loads one, on any database type. Use it to move between SQLite, PostgreSQL and MySQL. See [database](/configure/database#move-an-existing-install).
+- Export Database downloads a portable `.sqlite` copy of all hosts, credentials and settings.
+- Import Database loads one, on any database type. Use it to move between SQLite, PostgreSQL and MySQL. See [database](/configure/database#move-an-existing-install).
 
 The export has every secret in it, decrypted.
