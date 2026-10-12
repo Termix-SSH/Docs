@@ -4,6 +4,12 @@ sidebar_position: 9
 ---
 Changes to `@termix-ssh/plugin-sdk`. A release that bumps the plugin API says so at the top.
 
+## 1.0.6
+
+### Added
+
+- `PLUGIN-GUIDE.md`, a guide to building, testing and releasing a plugin, written so AI coding tools can read it too
+
 ## 1.0.5
 
 ### Fixed
