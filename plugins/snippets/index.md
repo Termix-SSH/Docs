@@ -7,16 +7,16 @@ description: "Save the commands you run often and run them in a terminal or on m
 hide_title: true
 custom_edit_url: null
 plugin_id: "snippets"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Snippets are commands you save so you don't type them again: a restart, a log tail, a long diagnostic one-liner. Run them in a terminal, in several terminals at once, or straight on a set of hosts with no terminal open.
 
 ## Make one
 
-Open **Snippets** from the sidebar and add one with a name and the command. Put snippets in folders and drag them into the order you want.
+Open Snippets from the sidebar and add one with a name and the command. Put snippets in folders and drag them into the order you want.
 
-A snippet can also be a **Note**: text that is pasted into the terminal without running, like a config block.
+A snippet can also be a Note: text that is pasted into the terminal without running, like a config block.
 
 ## Variables
 
@@ -39,19 +39,19 @@ When a snippet has inputs, Termix asks for them and shows a preview before runni
 ## Run one
 
 - **In a terminal.** Click the snippet to send it to the terminal you are in. With several terminals selected, it goes to all of them.
-- **On hosts.** Set **Target hosts** on the snippet and use **Run on target hosts**. It runs over SSH on each one, without a terminal, and shows each result.
-- **From a key.** Bind a snippet to a key in **Settings**, **Keybindings**.
+- **On hosts.** Set Target hosts on the snippet and use Run on target hosts. It runs over SSH on each one, without a terminal, and shows each result.
+- **From a key.** Bind a snippet to a key in Settings, Keybindings.
 - **From the command palette.** Search for it by name.
 
-Turn on **Confirm before running** in your settings to be asked first.
+Turn on Confirm before running in your settings to be asked first.
 
 ## On connect
 
-Set a **Startup Snippet** on a host and it runs in the terminal every time you connect. A snippet that asks for inputs is skipped.
+Set a Startup Snippet on a host and it runs in the terminal every time you connect. A snippet that asks for inputs is skipped.
 
 ## Quick actions
 
-**Quick Actions** on a host are snippet buttons in that host's [Host Metrics](/plugins/host-metrics) toolbar, for one click jobs.
+Quick Actions on a host are snippet buttons in that host's [Host Metrics](/plugins/host-metrics) toolbar, for one click jobs.
 
 ## Share
 
@@ -59,7 +59,7 @@ Share a snippet or a whole folder with users or roles. They can run it but not c
 
 ## Import and export
 
-The Snippets panel has **Export** and **Import**. The file is JSON:
+The Snippets panel has Export and Import. The file is JSON:
 
 ```json
 {

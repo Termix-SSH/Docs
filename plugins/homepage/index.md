@@ -7,23 +7,23 @@ description: "A drag and drop widget page for your servers and services, plus se
 hide_title: true
 custom_edit_url: null
 plugin_id: "homepage"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Homepage is a page of widgets you arrange yourself: your servers' status, links to your services, bookmarks, a clock, the weather, notes, an RSS feed, even a live terminal. Think of it as a start page for your homelab.
 
 ## Open it
 
-Switch the dashboard's header to **Homepage**, or open it from the command palette. It also adds two dashboard cards: **Service Links** and **Homepage Preview**.
+Switch the dashboard's header to Homepage, or open it from the command palette. It also adds two dashboard cards: Service Links and Homepage Preview.
 
 ## Edit it
 
-1. Press **Unlock Layout**.
+1. Press Unlock Layout.
 2. **Add Widget** and pick one. Drag it where you want and drag its corner to resize.
 3. Click a widget's settings to configure it.
-4. Press **Lock Layout** when you are done, so nothing moves by accident.
+4. Press Lock Layout when you are done, so nothing moves by accident.
 
-Use a **Folder** widget as a background card to group widgets together.
+Use a Folder widget as a background card to group widgets together.
 
 ## Widgets
 
@@ -44,13 +44,13 @@ Use a **Folder** widget as a background card to group widgets together.
 | Custom API                                       | Data from any JSON API.                                            |
 | Recent Activity, System Overview, Termix Uptime  | What is happening in Termix.                                       |
 
-Other plugins add their own: **Docker Manager**, **File Manager**, **Tunnel Manager**, **Metrics Chart** and **Alert Feed** show up when those plugins are on.
+Other plugins add their own: Docker Manager, File Manager, Tunnel Manager, Metrics Chart and Alert Feed show up when those plugins are on.
 
 ## Private addresses
 
-Ping Status and Custom API run from the Termix server. To keep them from poking around your internal network, private and loopback addresses are blocked unless an admin allows them. In **Settings**, **Homepage**, list exact hostnames or IPs under **Allowed private hosts**, without schemes, ports or paths.
+Ping Status and Custom API run from the Termix server. To keep them from poking around your internal network, private and loopback addresses are blocked unless an admin allows them. In Settings, Homepage, list exact hostnames or IPs under Allowed private hosts, without schemes, ports or paths.
 
-If those hosts use a certificate from your own CA, paste it under **Private certificate authority**. Certificates are still checked.
+If those hosts use a certificate from your own CA, paste it under Private certificate authority. Certificates are still checked.
 
 ## Sync
 

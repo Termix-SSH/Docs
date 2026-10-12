@@ -6,9 +6,15 @@ slug: "/session-recording/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "session-recording"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Fixed
+
+- Recordings broke after upgrading from 2.8 because the old table had no username column
+
 ## 1.0.0
 
 ### Added

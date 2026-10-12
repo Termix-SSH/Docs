@@ -7,7 +7,7 @@ description: "RDP, VNC and Telnet sessions in your browser, with clipboard, file
 hide_title: true
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Remote Desktop opens RDP, VNC and Telnet sessions in your browser, in tabs and split screen like any other session. It has clipboard sync, file transfer through an RDP drive, jump hosts, sharing and recording.
@@ -33,16 +33,16 @@ guacd:
 
 guacd only needs to be reachable from Termix. Don't publish its port.
 
-A host can use its own guacd under **guacd Proxy** in the host editor. Only admins can set or change it, since it decides where the server connects. Everyone else sees it read only. In the desktop app, a host set to This device can still keep its own guacd.
+A host can use its own guacd under guacd Proxy in the host editor. Only admins can set or change it, since it decides where the server connects. Everyone else sees it read only. In the desktop app, a host set to This device can still keep its own guacd.
 
-Without Docker, install guacd from your distro or [build it](https://guacamole.apache.org/doc/gug/installing-guacamole.html), then set `GUACD_HOST` and `GUACD_PORT`, or the **guacd URL** in **Settings**, **Remote Desktop**.
+Without Docker, install guacd from your distro or [build it](https://guacamole.apache.org/doc/gug/installing-guacamole.html), then set `GUACD_HOST` and `GUACD_PORT`, or the guacd URL in Settings, Remote Desktop.
 
 ## Add a host
 
-1. Open a host in **Manage**, or make a new one.
-2. In **General**, turn on **RDP**, **VNC** or **Telnet**. A host can have SSH and these at once.
+1. Open a host in Manage, or make a new one.
+2. In General, turn on RDP, VNC or Telnet. A host can have SSH and these at once.
 3. Open the protocol's section. Fill in the port, username and password, and for RDP the domain and security mode.
-4. Save, then pick **RDP**, **VNC** or **Telnet** from the host's menu.
+4. Save, then pick RDP, VNC or Telnet from the host's menu.
 
 The login is stored encrypted, like SSH logins, and can be [shared](/guide/sharing) with the host.
 
@@ -53,7 +53,7 @@ RDP has settings for color depth, how the screen follows the window size, lossle
 ## Clipboard and files
 
 - Copy and paste works both ways through the toolbar.
-- Turn on **Enable Drive Redirection** to get a drive in the RDP session for moving files. Each user gets their own folder under `GUACD_DRIVE_PATH`.
+- Turn on Enable Drive Redirection to get a drive in the RDP session for moving files. Each user gets their own folder under `GUACD_DRIVE_PATH`.
 
 ## Jump hosts
 
@@ -85,5 +85,5 @@ With [Session Sharing](/plugins/session-sharing) on, you can share a live sessio
 ## Troubleshooting
 
 - **"Could not connect to guacd".** Check `GUACD_HOST` points at guacd and both are on the same Docker network.
-- **RDP fails right away.** Try a different **RDP security mode**, or turn on **Ignore certificate errors** for a self-signed certificate.
+- **RDP fails right away.** Try a different RDP security mode, or turn on Ignore certificate errors for a self-signed certificate.
 - **Recordings are empty or missing.** The two recording paths don't point at the same folder.

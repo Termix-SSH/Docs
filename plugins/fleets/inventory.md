@@ -4,14 +4,14 @@ sidebar_position: 11
 slug: "/fleets/inventory"
 custom_edit_url: null
 plugin_id: "fleets"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Inventory answers a simple question: what is actually running on these machines? It collects the basics from every host in a fleet so you can see them side by side instead of connecting to each one.
 
 ## Collecting inventory
 
-Open a fleet, go to the **Inventory** tab, and press refresh. Termix connects to each host, reads a few facts, and stores them.
+Open a fleet, go to the Inventory tab, and press refresh. Termix connects to each host, reads a few facts, and stores them.
 
 For each host it records:
 

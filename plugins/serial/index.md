@@ -7,7 +7,7 @@ description: "Open a serial console to a router, switch or other device plugged 
 hide_title: true
 custom_edit_url: null
 plugin_id: "serial"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Serial opens a console to a device plugged into your computer: a router, a switch, a Raspberry Pi, a UPS. It is a terminal over a serial cable or USB adapter, next to your SSH sessions.
@@ -25,12 +25,12 @@ In the desktop app each computer decides for itself whether Serial is on, even w
 
 ## Connect
 
-1. Open **Serial** from the sidebar.
-2. Pick the **Port**, like `/dev/ttyUSB0` on Linux, `/dev/tty.usbserial-*` on macOS or `COM3` on Windows. In a browser, press **Connect to Serial** and the browser asks you to pick the device.
-3. Set the **Baud Rate**, **Data** bits, **Stop** bits and **Parity** to match the device. Most network gear uses 9600 baud, 8 data bits, no parity, 1 stop bit.
-4. Press **Connect to Serial**.
+1. Open Serial from the sidebar.
+2. Pick the Port, like `/dev/ttyUSB0` on Linux, `/dev/tty.usbserial-*` on macOS or `COM3` on Windows. In a browser, press Connect to Serial and the browser asks you to pick the device.
+3. Set the Baud Rate, Data bits, Stop bits and Parity to match the device. Most network gear uses 9600 baud, 8 data bits, no parity, 1 stop bit.
+4. Press Connect to Serial.
 
-**Refresh ports** looks again after you plug something in.
+Refresh ports looks again after you plug something in.
 
 ## Troubleshooting
 
@@ -38,4 +38,4 @@ In the desktop app each computer decides for itself whether Serial is on, even w
 - **Garbled text.** The baud rate is wrong. Try 115200 or 9600.
 - **Nothing at all.** Press Enter once. Many consoles wait for input before they print anything.
 
-Don't need it? Hide the **Serial** icon by right-clicking it in the sidebar.
+Don't need it? Hide the Serial icon by right-clicking it in the sidebar.

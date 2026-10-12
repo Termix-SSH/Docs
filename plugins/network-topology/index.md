@@ -7,14 +7,14 @@ description: "Draws your hosts and the links between them as a live, interactive
 hide_title: true
 custom_edit_url: null
 plugin_id: "network-topology"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Network Topology draws your hosts and the links between them as a graph. You build it by hand, so it shows your network the way you think about it: the router, the switch behind it, the servers in each rack. Each host shows its live status.
 
 ## Open it
 
-Open **Network Graph** from the sidebar. There is also a **Network Graph** card you can add to the dashboard.
+Open Network Graph from the sidebar. There is also a Network Graph card you can add to the dashboard.
 
 ## Build the graph
 
@@ -24,7 +24,7 @@ Open **Network Graph** from the sidebar. There is also a **Network Graph** card 
 
 Right-click a node for more: move it to a group, open its details, connect it, or remove it. Right-click a group to add a host straight into it.
 
-Drag nodes around. **Zoom In**, **Zoom Out** and **Reset View** help with big graphs.
+Drag nodes around. Zoom In, Zoom Out and Reset View help with big graphs.
 
 ## Status
 
@@ -32,7 +32,7 @@ Each node shows whether the host is online, from Termix's host status checks. Ri
 
 ## Save and share
 
-The graph saves as you edit, to your account, and syncs with the desktop app. **Export JSON** downloads it and **Import JSON** loads one back, for a backup or to move it to another server.
+The graph saves as you edit, to your account, and syncs with the desktop app. Export JSON downloads it and Import JSON loads one back, for a backup or to move it to another server.
 
 ## With other plugins
 

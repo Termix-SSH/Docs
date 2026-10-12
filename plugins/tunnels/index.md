@@ -7,18 +7,18 @@ description: "SSH port forwarding that reconnects on its own, plus client tunnel
 hide_title: true
 custom_edit_url: null
 plugin_id: "tunnels"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconnects on its own. Tunnels can start when Termix starts, so they are always there, and the desktop app can run tunnels on your own computer.
 
 ## Kinds of tunnel
 
-| Mode        | Like     | What it does                                                                                  |
-| ----------- | -------- | --------------------------------------------------------------------------------------------- |
-| **Local**   | `ssh -L` | Opens a port and forwards it to a port on the remote side, or a machine the remote can reach. |
-| **Remote**  | `ssh -R` | Opens a port on the remote side and forwards it back.                                         |
-| **Dynamic** | `ssh -D` | Opens a SOCKS5 proxy. Anything you point at it goes out through the host.                     |
+| Mode    | Like     | What it does                                                                                  |
+| ------- | -------- | --------------------------------------------------------------------------------------------- |
+| Local   | `ssh -L` | Opens a port and forwards it to a port on the remote side, or a machine the remote can reach. |
+| Remote  | `ssh -R` | Opens a port on the remote side and forwards it back.                                         |
+| Dynamic | `ssh -D` | Opens a SOCKS5 proxy. Anything you point at it goes out through the host.                     |
 
 And two places a tunnel can run:
 
@@ -27,12 +27,12 @@ And two places a tunnel can run:
 
 ## Add a server tunnel
 
-1. Open a host in **Manage** and turn on **Enable tunnels** in its Tunnels section.
-2. Add a tunnel. Pick the mode, the ports, and the **Endpoint Host**: the same host, another of your hosts, or any address the host can reach.
-3. Turn on **Auto-start** to bring it up whenever Termix starts. Termix connects on its own, so nobody has to be signed in.
+1. Open a host in Manage and turn on Enable tunnels in its Tunnels section.
+2. Add a tunnel. Pick the mode, the ports, and the Endpoint Host: the same host, another of your hosts, or any address the host can reach.
+3. Turn on Auto-start to bring it up whenever Termix starts. Termix connects on its own, so nobody has to be signed in.
 4. Save.
 
-Start, stop and watch tunnels from the **Forwarding** panel in the sidebar, or the **Tunnels** tab on a host.
+Start, stop and watch tunnels from the Forwarding panel in the sidebar, or the Tunnels tab on a host.
 
 ### Through a second host
 
@@ -44,7 +44,7 @@ When a tunnel drops, Termix retries up to the max retries you set, with the dela
 
 ## Client tunnels in the desktop app
 
-Open **Forwarding** in the desktop app and add a tunnel that runs on your computer. Save sets of them as **Client Tunnel Presets**. Presets are stored on the server, so you can load them on another computer.
+Open Forwarding in the desktop app and add a tunnel that runs on your computer. Save sets of them as Client Tunnel Presets. Presets are stored on the server, so you can load them on another computer.
 
 ## What the host needs
 
@@ -60,7 +60,7 @@ For a remote tunnel that listens on anything other than localhost, also set `Gat
 
 - [Web Endpoint](/plugins/web-endpoint) opens a host's web UI through a tunnel.
 - [Automations](/plugins/automations) can start or stop a tunnel, and run when one drops.
-- [Homepage](/plugins/homepage) has a **Tunnel Manager** widget.
+- [Homepage](/plugins/homepage) has a Tunnel Manager widget.
 - The dashboard shows how many tunnels are up.
 
 Who can use tunnels is set by the `tunnels.use` permission. Admins and users have it at first.

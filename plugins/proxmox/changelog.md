@@ -6,9 +6,15 @@ slug: "/proxmox/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "proxmox"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Fixed
+
+- Stats, guests and discovery work when the SSH user is not root, using sudo with the saved sudo password or passwordless sudo
+
 ## 1.0.0
 
 ### Added

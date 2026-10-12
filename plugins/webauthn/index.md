@@ -7,24 +7,24 @@ description: "Sign in with a passkey or security key instead of a password."
 hide_title: true
 custom_edit_url: null
 plugin_id: "webauthn"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Passkeys lets you sign in to Termix with a passkey or a security key instead of a password: Face ID, Touch ID, Windows Hello, a YubiKey, or a passkey synced by your password manager. Passkeys can't be phished, since they only work on the site they were made for.
 
 ## Add a passkey
 
-1. Install the plugin from the **Plugins** tab.
-2. Open **Settings**, **Security** and press **Add Passkey**.
+1. Install the plugin from the Plugins tab.
+2. Open Settings, Security and press Add Passkey.
 3. Give it a name, like `MacBook` or `YubiKey`, and follow your browser's prompt.
 
-The list next to the name sets whether the passkey checks your PIN, fingerprint or face: **Required**, **Preferred** (the default) or **Discouraged**.
+The list next to the name sets whether the passkey checks your PIN, fingerprint or face: Required, Preferred (the default) or Discouraged.
 
-You can add as many as you like. Synced passkeys are marked **synced**. Remove one with **Delete passkey**.
+You can add as many as you like. Synced passkeys are marked synced. Remove one with Delete passkey.
 
 ## Sign in
 
-Press **Sign in with passkey** on the sign in page and pick your passkey. No username or password needed.
+Press Sign in with passkey on the sign in page and pick your passkey. No username or password needed.
 
 An account that only signs in through SSO or LDAP can't use a passkey to sign in on its own, so disabling the user at the identity provider always locks them out. Accounts that also have a password are not affected.
 
@@ -36,4 +36,4 @@ A passkey that checks your PIN, fingerprint or face counts as a second factor on
 
 - Passkeys are tied to the address you use for Termix, like `termix.example.com`. If you change the address, add your passkeys again.
 - Browsers only allow passkeys over HTTPS, or on `localhost`. See [HTTPS](/configure/https).
-- Lost every passkey? Sign in with your password, or ask an admin to reset your second factors in **Settings**, **Users**.
+- Lost every passkey? Sign in with your password, or ask an admin to reset your second factors in Settings, Users.

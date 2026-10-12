@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/totp/reference"
 custom_edit_url: null
 plugin_id: "totp"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 ## Capabilities
