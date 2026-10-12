@@ -21,9 +21,9 @@ There are no admin locks. A user or a host can always set its own value.
 
 ## Edit them
 
-- **Server**: admins, in **Settings**, **Host defaults**, or in **Manage**, **Defaults**.
-- **My defaults**: in **Manage**, **Defaults**.
-- **A folder**: **Folder defaults** in the folder's menu.
+- **Server**: admins, in Settings, Host defaults, or in Manage, Defaults.
+- **My defaults**: in Manage, Defaults.
+- **A folder**: Folder defaults in the folder's menu.
 
 Change a field to set it at that level. Clear it to leave it unset. When you save, Termix tells you how many hosts will change.
 
@@ -31,9 +31,9 @@ Every setting a host has can be a default, including the ones plugins add. Secre
 
 ## In the host editor
 
-Each field shows where its value comes from, like **Folder Production** or **Server**. Set a field on the host to override it. The reset button next to it hands it back to the default.
+Each field shows where its value comes from, like Folder Production or Server. Set a field on the host to override it. The reset button next to it hands it back to the default.
 
-To reset many hosts at once, select them and use **Reset** to put everything, or just the connection and SSH settings, back to their defaults.
+To reset many hosts at once, select them and use Reset to put everything, or just the connection and SSH settings, back to their defaults.
 
 ## Shared hosts
 

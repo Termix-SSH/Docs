@@ -1074,6 +1074,36 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/list-the-plugin-registries",
+          label: "List the plugin registries",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/add-a-custom-plugin-registry",
+          label: "Add a custom plugin registry",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/read-a-registry-index-before-adding-it",
+          label: "Read a registry index before adding it",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/turn-a-plugin-registry-on-or-off",
+          label: "Turn a plugin registry on or off",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "core/remove-a-custom-plugin-registry",
+          label: "Remove a custom plugin registry",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "core/enable-or-disable-a-plugin",
           label: "Enable or disable a plugin",
           className: "api-method patch",
@@ -1146,8 +1176,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "core/list-the-plugins-in-the-official-registry",
-          label: "List the plugins in the official registry",
+          id: "core/list-the-plugins-in-every-registry-that-is-on",
+          label: "List the plugins in every registry that is on",
           className: "api-method get",
         },
         {
@@ -1164,8 +1194,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "core/install-a-plugin-from-the-official-registry",
-          label: "Install a plugin from the official registry",
+          id: "core/install-a-plugin-from-a-registry",
+          label: "Install a plugin from a registry",
           className: "api-method post",
         },
         {

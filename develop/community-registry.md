@@ -7,7 +7,7 @@ description: Submit your plugin so it is listed for everyone.
 
 The community registry lists plugins made by anyone. A person reviews every version before it is listed. It lives in [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry) next to the official plugins, in `community/`.
 
-Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry already has plugins when it ships. Until then, people can install your plugin from a `.tmxplug` file with [developer mode](/develop/quick-start) on.
+Admins turn the community registry on in Plugins, Registries. Your plugin then shows in Browse with a Community badge.
 
 ## Before you submit
 

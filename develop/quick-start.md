@@ -12,7 +12,7 @@ You need:
 
 ## 1. Make your repo
 
-Open the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template) and press **Use this template**. Clone your new repo.
+Open the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template) and press Use this template. Clone your new repo.
 
 ```bash
 git clone https://github.com/you/termix-plugin-hello
@@ -39,9 +39,9 @@ npm run migrations
 
 ## 3. Turn on developer mode
 
-In Termix, open **Settings**, **General** and turn on **Plugin developer mode**. This lets admins install plugins that are not from the registry.
+In Termix, open Settings, General and turn on Plugin developer mode. This lets admins install plugins that are not from the registry.
 
-Then make an API key in **Settings**, **API keys**.
+Then make an API key in Settings, API keys.
 
 ## 4. Run it
 

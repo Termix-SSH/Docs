@@ -5,35 +5,35 @@ description: Server-wide settings for admins.
 
 # Admin settings
 
-Admins see a **This server** group in **Settings**.
+Admins see a This server group in Settings.
 
-| Page              | What is on it                                                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **General**       | Sign in options, session length, status check interval, log level, plugin developer mode.                                                      |
-| **Updates**       | The beta program and plugin betas. See [betas](/configure/betas).                                                                              |
-| **Users**         | See [users](/guide/users).                                                                                                                     |
-| **Sessions**      | Every signed in session. Sign any of them out.                                                                                                 |
-| **Roles**         | See [roles](/guide/roles).                                                                                                                     |
-| **Host defaults** | The server level of [host defaults](/guide/host-defaults), and **Predefined host tags**, the tags users see as suggestions in the host editor. |
-| **Branding**      | Your own name, tagline and logo.                                                                                                               |
-| **Database**      | Export and import the whole database.                                                                                                          |
-| **SSL**           | The HTTPS certificate. See [HTTPS](/configure/https).                                                                                          |
-| **API keys**      | Every user's API keys.                                                                                                                         |
-| **Audit log**     | See [audit log](/guide/audit-log).                                                                                                             |
+| Page          | What is on it                                                                                                                              |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| General       | Sign in options, session length, status check interval, log level, plugin developer mode.                                                  |
+| Updates       | The beta program and plugin betas. See [betas](/configure/betas).                                                                          |
+| Users         | See [users](/guide/users).                                                                                                                 |
+| Sessions      | Every signed in session. Sign any of them out.                                                                                             |
+| Roles         | See [roles](/guide/roles).                                                                                                                 |
+| Host defaults | The server level of [host defaults](/guide/host-defaults), and Predefined host tags, the tags users see as suggestions in the host editor. |
+| Branding      | Your own name, tagline and logo.                                                                                                           |
+| Database      | Export and import the whole database.                                                                                                      |
+| SSL           | The HTTPS certificate. See [HTTPS](/configure/https).                                                                                      |
+| API keys      | Every user's API keys.                                                                                                                     |
+| Audit log     | See [audit log](/guide/audit-log).                                                                                                         |
 
 ## General
 
-| Setting                                           | What it does                                                                                                      |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Allow User Registration**                       | Let people make their own account on the sign in page.                                                            |
-| **Allow Password Login**                          | Sign in with a username and password. Termix keeps it on if no other way in is set up, so nobody gets locked out. |
-| **Auto-create external accounts**                 | Make an account the first time someone signs in with SSO or LDAP, even with registration off.                     |
-| **Ask for a second factor after external logins** | Also ask for TOTP or a passkey after SSO and LDAP sign ins.                                                       |
-| **Allow Password Reset**                          | Allow the reset code flow on the sign in page.                                                                    |
-| **Session Timeout**                               | How long a sign in lasts, from 1 to 720 hours.                                                                    |
-| **Status Check**                                  | How often hosts are checked, unless a host sets its own interval.                                                 |
-| **Log Level**                                     | How much the server logs.                                                                                         |
-| **Plugin developer mode**                         | Lets admins install plugins from a `.tmxplug` file. See [managing plugins](/guide/plugins#install-from-a-file).   |
+| Setting                                       | What it does                                                                                                      |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Allow User Registration                       | Let people make their own account on the sign in page.                                                            |
+| Allow Password Login                          | Sign in with a username and password. Termix keeps it on if no other way in is set up, so nobody gets locked out. |
+| Auto-create external accounts                 | Make an account the first time someone signs in with SSO or LDAP, even with registration off.                     |
+| Ask for a second factor after external logins | Also ask for TOTP or a passkey after SSO and LDAP sign ins.                                                       |
+| Allow Password Reset                          | Allow the reset code flow on the sign in page.                                                                    |
+| Session Timeout                               | How long a sign in lasts, from 1 to 720 hours.                                                                    |
+| Status Check                                  | How often hosts are checked, unless a host sets its own interval.                                                 |
+| Log Level                                     | How much the server logs.                                                                                         |
+| Plugin developer mode                         | Lets admins install plugins from a `.tmxplug` file. See [managing plugins](/guide/plugins#install-from-a-file).   |
 
 Some of these can be set with [environment variables](/configure/environment-variables) instead. When one is set, it wins.
 

@@ -38,8 +38,8 @@ Declare settings in your manifest and Termix draws the form, stores the values, 
 
 | Scope   | Who sets it                  | Where it shows                                         |
 | ------- | ---------------------------- | ------------------------------------------------------ |
-| `admin` | Admins, for everyone.        | Your page in **Settings**, for admins.                 |
-| `user`  | Each person, for themselves. | Your page in **Settings**.                             |
+| `admin` | Admins, for everyone.        | Your page in Settings, for admins.                     |
+| `user`  | Each person, for themselves. | Your page in Settings.                                 |
 | `host`  | Per host.                    | A section in the host editor, named after your plugin. |
 
 A host section's `enableKey` is a switch shown first. It gates the rest, and Termix uses it for the feature filter and bulk on and off in the host list.

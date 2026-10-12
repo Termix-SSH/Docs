@@ -35,7 +35,9 @@ export default function Downloads({
     .map((asset) => {
       const m = /^termix_([a-z]+)_([a-z0-9]+)_([a-z]+)\./.exec(asset.name);
       if (!m || m[1] !== platform) return null;
-      if (m[3] === "mas") return null;
+      // App Store builds and the desktop updater's own files are not downloads.
+      if (m[3] === "mas" || m[3] === "update") return null;
+      if (asset.name.endsWith(".blockmap")) return null;
       return { ...asset, arch: m[2], kind: m[3] };
     })
     .filter(Boolean) as {

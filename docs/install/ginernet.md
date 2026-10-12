@@ -25,11 +25,11 @@ Once you are in, open the billing tab and fill in your billing details. You will
 
 ### Add an SSH key
 
-Open the **SSH Keys** tab in the left sidebar and click **Generate SSH key**, or **Add SSH key** if you already have one.
+Open the SSH Keys tab in the left sidebar and click Generate SSH key, or Add SSH key if you already have one.
 
 ![The SSH Keys page in the GINERNET Manager, with the Generate SSH key button highlighted](/img/ginernet/ssh-keys-page.png)
 
-Name it something like `Termix SSH Key` and click **Generate**.
+Name it something like `Termix SSH Key` and click Generate.
 
 ![The Generate SSH key dialog with the name set to Termix SSH Key](/img/ginernet/generate-ssh-key.png)
 
@@ -39,15 +39,15 @@ If you generate a new key, copy the private key now. It is only shown once.
 
 ### Create the VPS
 
-Open the **VPSs** tab and click **Create your first VPS**, or **Create a VPS** in the top right if you already have one.
+Open the VPSs tab and click Create your first VPS, or Create a VPS in the top right if you already have one.
 
 ![The empty VPS list with the Create your first VPS button highlighted](/img/ginernet/vps-list-empty.png)
 
-A modal opens. If this is your first GINERNET VPS, leave it on **Create a new VDC** and name it something like `Termix VDC`, then click **Continue**.
+A modal opens. If this is your first GINERNET VPS, leave it on Create a new VDC and name it something like `Termix VDC`, then click Continue.
 
 ![The Create VPS dialog with Create a new VDC selected and the name set to Termix VDC](/img/ginernet/create-vps-vdc.png)
 
-On the **Basic configuration** screen:
+On the Basic configuration screen:
 
 - **Location:** Whatever is available to you
 - **Server type:** AMD EPYC/Ryzen
@@ -57,25 +57,25 @@ On the **Basic configuration** screen:
 
 ![The Basic configuration step of the VPS wizard](/img/ginernet/wizard-1-basic-configuration.png)
 
-Click **Next**.
+Click Next.
 
-For **Resources**, 1 vCore and 1 GB of RAM is enough for 0 to 20 hosts. Scale up as you add more. The default 10 GB disk is plenty. Click **Next**.
+For Resources, 1 vCore and 1 GB of RAM is enough for 0 to 20 hosts. Scale up as you add more. The default 10 GB disk is plenty. Click Next.
 
 ![The Resources step with CPU and RAM set to 1 vCore and 1 GB](/img/ginernet/wizard-2-resources.png)
 
-For **Network**, set **Primary IPv4** to **New IP (/32)**. Leave traffic billing on pay as you go unless you want a monthly quota. Click **Next**.
+For Network, set Primary IPv4 to New IP (/32). Leave traffic billing on pay as you go unless you want a monthly quota. Click Next.
 
 ![The Network step with Primary IPv4 set to New IP](/img/ginernet/wizard-3-network.png)
 
-Skip the **Licenses** tab. On the **SSH Keys** tab, tick the key you just added.
+Skip the Licenses tab. On the SSH Keys tab, tick the key you just added.
 
 ![The SSH Keys step with the Termix SSH Key selected](/img/ginernet/wizard-5-ssh-keys.png)
 
-Click **Create VPS**. It takes about 30 seconds to provision. You can watch progress in the top right and on the progress bar at the bottom.
+Click Create VPS. It takes about 30 seconds to provision. You can watch progress in the top right and on the progress bar at the bottom.
 
 ![The provisioning task page showing a status of Succeeded](/img/ginernet/provision-succeeded.png)
 
-Once it shows as succeeded, open the **VPSs** tab and select your server. From here you can manage it, see your costs, network information, and public IP. Backups, stats, and the remote console are also here.
+Once it shows as succeeded, open the VPSs tab and select your server. From here you can manage it, see your costs, network information, and public IP. Backups, stats, and the remote console are also here.
 
 ![The VPS overview page with the Access box highlighted](/img/ginernet/vps-overview.png)
 
@@ -83,7 +83,7 @@ Once it shows as succeeded, open the **VPSs** tab and select your server. From h
 
 Termix runs on port 8080, so you need to allow it.
 
-Open the **Firewall** tab at the top and click **New rule** in the rules box at the bottom.
+Open the Firewall tab at the top and click New rule in the rules box at the bottom.
 
 ![The Rules box on the Firewall tab with the New rule button highlighted](/img/ginernet/firewall-new-rule-button.png)
 
@@ -98,15 +98,15 @@ Fill in the rule:
 - **Destination port:** 8080
 - **Description:** `Allow Termix NGINX`
 
-Then hit **Save**.
+Then hit Save.
 
 ![The Edit firewall rule dialog filled in to allow inbound TCP traffic to the Termix port](/img/ginernet/firewall-rule-modal.png)
 
 ### Connect to the server
 
-Go back to the overview page. The **Access** box on the left has your public IPv4 and IPv6 and the username.
+Go back to the overview page. The Access box on the left has your public IPv4 and IPv6 and the username.
 
-Copy the IPv4 address and username into your SSH client and connect using the key you generated. If you do not have an SSH client set up, click **Open console** and work from the built in console instead. In the console, press enter, then log in with the username and password shown in the **Access** box.
+Copy the IPv4 address and username into your SSH client and connect using the key you generated. If you do not have an SSH client set up, click Open console and work from the built in console instead. In the console, press enter, then log in with the username and password shown in the Access box.
 
 ### Create a user (optional)
 
@@ -192,7 +192,7 @@ The first start takes a while as the images download. It is ready when you see `
 
 ### Open Termix
 
-Termix is now running on port 8080. Open `http://YOUR_IP:8080` in a browser, using the IPv4 address from the **Access** box.
+Termix is now running on port 8080. Open `http://YOUR_IP:8080` in a browser, using the IPv4 address from the Access box.
 
 Enter a username and password. This creates your first admin user, and Termix is ready to use.
 
@@ -200,4 +200,4 @@ Enter a username and password. This creates your first admin user, and Termix is
 
 ### Scaling up
 
-If your instance starts feeling laggy as you add hosts, go to the VPS overview page and click **Modify resources** in the resources box to add more CPU or RAM.
+If your instance starts feeling laggy as you add hosts, go to the VPS overview page and click Modify resources in the resources box to add more CPU or RAM.

@@ -41,31 +41,31 @@ npm run validate
 npm run pack
 ```
 
-This writes `<id>-<version>.tmxplug`. Install it on a server with developer mode on, from **Plugins**, **Install from file**.
+This writes `<id>-<version>.tmxplug`. Install it on a server with developer mode on, from Plugins, Install from file.
 
 ## Sign it
 
 ```bash
 npx termix-plugin keygen
-TERMIX_PLUGIN_SIGNING_KEY=termix-plugin-signing.key npx termix-plugin sign hello-1.1.0.tmxplug
+TERMIX_PLUGIN_SIGNING_KEY="$(cat termix-plugin-signing.key)" npx termix-plugin sign hello-1.1.0.tmxplug
 ```
 
 `keygen` writes a private key and prints the public key. Keep the private key secret and out of git. `sign` writes `hello-1.1.0.tmxplug.sig`. `termix-plugin verify` checks one.
 
-Termix only trusts signatures from keys built into it. Your own signature proves to your users the file came from you, but Termix still treats your plugin as unverified. You don't need to sign a plugin you submit to the [community registry](/develop/community-registry). The registry signs it after review.
+Termix trusts the official and community keys built into it, and the key of each custom registry an admin added. A signed file installed by hand is still treated as unverified. To have Termix check your signature, list your plugin in [your own registry](/develop/registries#host-your-own-registry). You don't need to sign a plugin you submit to the [community registry](/develop/community-registry). The registry signs it after review.
 
 ## The release workflow
 
-The template has a **Release** workflow that does all of this on GitHub. It calls a shared workflow in [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry), so fixes reach every plugin at once.
+The template has a Release workflow that does all of this on GitHub. It calls a shared workflow in [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry), so fixes reach every plugin at once.
 
-Work happens on a `dev-X.Y.Z` branch named after the version it will ship as. Run **Release** by hand from that branch:
+Work happens on a `dev-X.Y.Z` branch named after the version it will ship as. Run Release by hand from that branch:
 
-| Choice        | What it does                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------ |
-| **stable**    | Tests, builds and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
-| **beta**      | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                      |
-| **overwrite** | Releases the manifest version again from this commit, replacing its files.                             |
-| **dry-run**   | Builds and packs without publishing.                                                                   |
+| Choice    | What it does                                                                                           |
+| --------- | ------------------------------------------------------------------------------------------------------ |
+| stable    | Tests, builds and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
+| beta      | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                      |
+| overwrite | Releases the manifest version again from this commit, replacing its files.                             |
+| dry-run   | Builds and packs without publishing.                                                                   |
 
 The release notes come from your changelog. No secrets are needed: the workflow records GitHub build provenance for the file instead of signing it. To also sign it with your own key, set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 

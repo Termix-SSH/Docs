@@ -14,9 +14,9 @@ Press the edit button in the dashboard header.
 - Drag cards to reorder them.
 - Drag the column divider to change column widths.
 - Drag the bottom edge of a card to change its height.
-- **Add a section** lists cards you don't have yet. **From plugins** shows the ones plugins add.
+- **Add a section** lists cards you don't have yet. From plugins shows the ones plugins add.
 
-**Reset** puts the default layout back. The layout is saved to your account.
+Reset puts the default layout back. The layout is saved to your account.
 
 ## Links
 

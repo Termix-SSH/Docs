@@ -9,9 +9,9 @@ An API key lets a script or the [CLI](/cli) use Termix as you.
 
 ## Make one
 
-In **Settings**, **API keys**, press **New Key**. Give it a name and, if you want, an expiry date. Copy the key right away. It is only shown once.
+In Settings, API keys, press New Key. Give it a name and, if you want, an expiry date. Copy the key right away. It is only shown once.
 
-Admins can also make keys for other users in **Settings**, **API keys** under **This server**, and revoke any key.
+Admins can also make keys for other users in Settings, API keys under This server, and revoke any key.
 
 ## Use it
 
@@ -27,4 +27,4 @@ See the [API reference](/api) for every route. Each plugin's routes are listed u
 
 ## Revoke
 
-Press **Revoke** next to a key. It stops working at once.
+Press Revoke next to a key. It stops working at once.

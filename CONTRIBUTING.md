@@ -25,7 +25,7 @@ npm run format
 
 ## Plugin docs
 
-A plugin's docs are in its own repo under `docs/`. Edit them there. The **Sync Docs** workflow pulls them in when a plugin is released, and once a day.
+A plugin's docs are in its own repo under `docs/`. Edit them there. The Sync Docs workflow pulls them in when a plugin is released, and once a day.
 
 To see plugin docs you are writing before a release, clone the plugin repos into `../Termix-Plugins` and core into `../Termix`, build the SDK there (`npm run build:sdk`), then:
 

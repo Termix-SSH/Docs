@@ -71,7 +71,7 @@ migrations/mysql/0002_add_pinned.sql
 
 Read them before you commit. A rename or a type change is refused rather than guessed, since that decides what happens to data. Write those by hand.
 
-Termix applies migrations before `activate` runs, and records each one with a checksum. **Never edit a migration that has shipped.** Termix would refuse to start your plugin. Add a new one.
+Termix applies migrations before `activate` runs, and records each one with a checksum. Never edit a migration that has shipped. Termix would refuse to start your plugin. Add a new one.
 
 A migration may only touch your own tables.
 

@@ -5,11 +5,11 @@ description: Password, second factors and your data.
 
 # Your account
 
-Open **Settings** from the bottom of the rail. The pages under **Your account** are about you.
+Open Settings from the bottom of the rail. The pages under Your account are about you.
 
 ## Account
 
-Your username, role, how you sign in and the Termix version. **Delete Account** removes your account and everything in it, for good.
+Your username, role, how you sign in and the Termix version. Delete Account removes your account and everything in it, for good.
 
 ## Security {#security}
 
@@ -24,7 +24,7 @@ If you sign in with SSO or LDAP, use `$external.username` as a host's username t
 
 ## Your data {#your-data}
 
-In **Data and sync**:
+In Data and sync:
 
 - **Export My Data** downloads your hosts, credentials and settings as a `.sqlite` file.
 - **Import My Data** loads one back, on this server or another.
@@ -35,4 +35,4 @@ In the desktop app this page also has [desktop sync](/configure/desktop-sync).
 
 ## Forgot your password
 
-If **Allow Password Reset** is on, use **Forgot password** on the sign in page. Termix prints a reset code in the server logs, so you need access to them, or an admin who has. An admin can also reset your password in **Settings**, **Users**.
+If Allow Password Reset is on, use Forgot password on the sign in page. Termix prints a reset code in the server logs, so you need access to them, or an admin who has. An admin can also reset your password in Settings, Users.

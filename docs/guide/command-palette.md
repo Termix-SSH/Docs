@@ -5,7 +5,7 @@ description: Search hosts, tabs and actions from the keyboard.
 
 # Command palette
 
-Press **Shift** twice quickly to open the command palette. Or click the search box at the top of the rail.
+Press Shift twice quickly to open the command palette. Or click the search box at the top of the rail.
 
 Type to search:
 
@@ -17,4 +17,4 @@ Type to search:
 
 Use the arrow keys to move and Enter to pick. Esc closes it.
 
-Turn the shortcut off in **Settings**, **Appearance** with **Command Palette**, or change it in **Settings**, **Keybindings**.
+Turn the shortcut off in Settings, Appearance with Command Palette, or change it in Settings, Keybindings.

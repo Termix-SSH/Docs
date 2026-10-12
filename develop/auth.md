@@ -55,7 +55,7 @@ ctx.auth.registerSecondFactor({
 
 Call `ctx.auth.recordEnrollment(userId, "hello-code")` when a user sets it up. Termix keeps that record even if your plugin is removed, so it refuses the sign in instead of quietly skipping the factor.
 
-`app.registerSecondFactorUI` draws the challenge and the setup screen in **Settings**, **Security**.
+`app.registerSecondFactorUI` draws the challenge and the setup screen in Settings, Security.
 
 ## SSH auth types
 
@@ -77,7 +77,7 @@ ctx.auth.registerSshAuthProvider({
 });
 ```
 
-The type shows up in the host editor's **Authentication Method** list. `fields` are drawn for you. Set `quickConnect`, `supportsBackground` and `needsUserInteraction` to say where it can be used. `@termix-ssh/plugin-sdk/ssh-certs` has `applyCertificateAuth()` for certificate based types.
+The type shows up in the host editor's Authentication Method list. `fields` are drawn for you. Set `quickConnect`, `supportsBackground` and `needsUserInteraction` to say where it can be used. `@termix-ssh/plugin-sdk/ssh-certs` has `applyCertificateAuth()` for certificate based types.
 
 Every plugin that connects through `ctx.ssh` gets your type for free.
 

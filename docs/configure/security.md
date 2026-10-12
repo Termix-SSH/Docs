@@ -10,7 +10,7 @@ Report security problems privately through [GitHub security advisories](https://
 ## What you should do
 
 - Serve Termix over HTTPS. See [reverse proxy](/configure/reverse-proxy) or [HTTPS](/configure/https).
-- Turn off **Allow User Registration** unless you want strangers to make accounts.
+- Turn off Allow User Registration unless you want strangers to make accounts.
 - Turn on a second factor with the [TOTP](/plugins/totp) or [Passkeys](/plugins/webauthn) plugin.
 - Back up the data folder and keep the backup private. It holds the keys.
 - Only install plugins you trust. Read what a plugin can do before you install it.
@@ -48,7 +48,7 @@ Never change a key on an install that has data. Termix can't open data made with
 
 ## Sessions
 
-A sign in makes a session. Admins see every session in **Settings**, **Sessions** and can sign any of them out. They set how long sessions last in **Settings**, **General**.
+A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General.
 
 API keys act as the user who owns them. See [API keys](/guide/api-keys).
 

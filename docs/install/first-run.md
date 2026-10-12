@@ -34,16 +34,16 @@ The recommended set covers what most people want: the SSH terminal, the file man
 
 Some plugins need others. Termix keeps those on and tells you why.
 
-You can change all of this later in the **Plugins** tab. See [managing plugins](/guide/plugins).
+You can change all of this later in the Plugins tab. See [managing plugins](/guide/plugins).
 
 ## 3. Add a host
 
-Open **Manage** from the sidebar and press **+**. Fill in the address, port, username and how to sign in. See [hosts](/guide/hosts).
+Open Manage from the sidebar and press +. Fill in the address, port, username and how to sign in. See [hosts](/guide/hosts).
 
 Then click the host in the sidebar to connect.
 
 ## Before you open it to the internet
 
 - Serve it over HTTPS. Use a [reverse proxy](/configure/reverse-proxy) or Termix's own [HTTPS](/configure/https).
-- Decide if people can sign up. Turn off **Allow User Registration** in **Settings**, **General** if you will make accounts yourself.
+- Decide if people can sign up. Turn off Allow User Registration in Settings, General if you will make accounts yourself.
 - Think about a second factor. Turn on the [TOTP](/plugins/totp) or [Passkeys](/plugins/webauthn) plugin.

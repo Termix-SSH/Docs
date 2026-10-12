@@ -76,7 +76,7 @@ app.registerExtension("homepage.widgets", {
 
 ## Keybindings
 
-Declare an action in `contributes.keybindingActions`, register it with `app.registerKeybindingAction`, and give it a default with `app.registerKeybindingDefault`. Users rebind it in **Settings**, **Keybindings**.
+Declare an action in `contributes.keybindingActions`, register it with `app.registerKeybindingAction`, and give it a default with `app.registerKeybindingDefault`. Users rebind it in Settings, Keybindings.
 
 ## Command palette
 

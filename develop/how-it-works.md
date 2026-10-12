@@ -9,8 +9,8 @@ description: Capabilities, permissions, the lifecycle and the trust model.
 
 A plugin runs in two places:
 
-- Its **backend** runs inside the Termix server process.
-- Its **frontend** runs in the browser, in the same page as the rest of Termix.
+- Its backend runs inside the Termix server process.
+- Its frontend runs in the browser, in the same page as the rest of Termix.
 
 There is no sandbox. Every plugin, official or not, runs the same way.
 
@@ -62,7 +62,7 @@ A plugin is in one of four states:
 | `blocked`  | A plugin it needs is missing or off.          |
 | `failed`   | `activate` threw, or it hit its error budget. |
 
-Errors from your routes, sockets, event listeners and timers count against an error budget. Five inside a minute and Termix turns the plugin off, so a plugin that throws on every call can't drag the server down. An admin can press **Restart** to try again. A 4xx you send on purpose does not count.
+Errors from your routes, sockets, event listeners and timers count against an error budget. Five inside a minute and Termix turns the plugin off, so a plugin that throws on every call can't drag the server down. An admin can press Restart to try again. A 4xx you send on purpose does not count.
 
 ## What Termix protects, and what it doesn't
 
