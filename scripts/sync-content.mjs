@@ -10,6 +10,7 @@
  *
  * Options:
  *   --registry <path|url>  plugin index (default: the official registry)
+ *   --community <path|url> community plugin index (default: the community registry)
  *   --local <dir>          read each plugin's latest docs from Plugin-* folders here
  *   --core <dir>           read core from a checkout instead of its latest release
  *   --sdk <dir>            plugin SDK folder with a built dist/ (default: --core's)
@@ -28,6 +29,8 @@ import * as tar from "tar";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY_URL =
   "https://raw.githubusercontent.com/Termix-SSH/Termix-Registry/main/official/index.json";
+const COMMUNITY_URL =
+  "https://raw.githubusercontent.com/Termix-SSH/Termix-Registry/main/community/index.json";
 const CORE_REPO = "Termix-SSH/Termix";
 const CACHE = path.join(ROOT, ".cache", "sources");
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
@@ -47,6 +50,7 @@ function option(name, fallback = null) {
 
 const args = {
   registry: option("--registry", REGISTRY_URL),
+  community: option("--community", COMMUNITY_URL),
   local: option("--local"),
   core: option("--core"),
   sdk: option("--sdk"),
@@ -965,6 +969,35 @@ async function writeIcons(plugins) {
   );
 }
 
+/** Community plugins have no pages here, so only what the catalog cards show. */
+async function syncCommunity() {
+  let index;
+  try {
+    index = await readJson(args.community);
+  } catch (err) {
+    console.warn(`community index skipped: ${err.message}`);
+    return [];
+  }
+  return (index.plugins ?? [])
+    .map((p) => {
+      const latest = p.versions?.[0] ?? p.prereleases?.[0];
+      return {
+        id: p.id,
+        name: p.name,
+        description: p.description,
+        category: p.category,
+        icon: p.icon,
+        author: p.author,
+        repository: p.repository,
+        docs: p.docs ?? p.repository,
+        latest: latest?.version ?? "",
+        prerelease: !p.versions?.length,
+        capabilities: latest?.capabilities ?? [],
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 async function main() {
   console.log("core");
   const core = await syncCore();
@@ -994,7 +1027,7 @@ async function main() {
       hide_table_of_contents: true,
       custom_edit_url: null,
       catalog: true,
-    }) + "Every official Termix plugin.\n",
+    }) + "Every official and community Termix plugin.\n",
   );
   writeSidebars(plugins);
   write(path.join(OUT.data, "plugins.json"), JSON.stringify(plugins, null, 2));
@@ -1007,8 +1040,16 @@ async function main() {
     ),
   );
   writeEnv(core, plugins);
-  await writeIcons(plugins);
-  console.log(`done: ${plugins.length} plugins`);
+
+  console.log("community");
+  const community = await syncCommunity();
+  write(
+    path.join(OUT.data, "community-plugins.json"),
+    JSON.stringify(community, null, 2),
+  );
+
+  await writeIcons([...plugins, ...community]);
+  console.log(`done: ${plugins.length} plugins, ${community.length} community`);
 }
 
 await main();

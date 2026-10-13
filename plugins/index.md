@@ -6,4 +6,4 @@ hide_table_of_contents: true
 custom_edit_url: null
 catalog: true
 ---
-Every official Termix plugin.
+Every official and community Termix plugin.

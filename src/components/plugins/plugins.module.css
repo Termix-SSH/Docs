@@ -91,7 +91,6 @@
 /* Catalog */
 
 .catalog {
-  max-width: 860px;
   padding: 0.5rem 0 2rem;
 }
 
@@ -100,14 +99,30 @@
   max-width: 65ch;
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.toolbarEnd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
 .search {
   display: flex;
+  flex: 1 1 260px;
   align-items: center;
   gap: 0.5rem;
   max-width: 420px;
-  margin: 1.5rem 0 1rem;
   padding: 0 0.75rem;
-  height: 2.5rem;
+  height: 2.25rem;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--muted-foreground);
@@ -119,70 +134,226 @@
 
 .search input {
   flex: 1;
+  min-width: 0;
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   border: 0;
   outline: none;
   background: transparent;
   color: var(--foreground);
 }
 
-.group {
-  margin-top: 2rem;
-}
-
-.groupTitle {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-}
-
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border);
-}
-
-.list li {
-  margin: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.row {
+.segmented {
   display: flex;
+  border: 1px solid var(--border);
+}
+
+.segmented button {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 0 0.7rem;
+  height: 2.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.segmented button + button {
+  border-left: 1px solid var(--border);
+}
+
+.segmented button:hover {
+  color: var(--foreground);
+}
+
+.segmented button.active {
+  background: color-mix(in oklch, var(--accent-brand) 10%, transparent);
+  color: var(--accent-brand);
+}
+
+.select {
+  font: inherit;
+  font-size: 0.8rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.chips button {
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.chips button:hover {
+  color: var(--foreground);
+}
+
+.chips button.active {
+  border-color: var(--accent-brand);
+  background: color-mix(in oklch, var(--accent-brand) 10%, transparent);
+  color: var(--accent-brand);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.cardHead {
+  display: flex;
+  flex: 1;
   align-items: flex-start;
-  gap: 0.9rem;
-  padding: 0.8rem 0.25rem;
+  gap: 0.75rem;
+  padding: 0.75rem;
   color: var(--foreground) !important;
   text-decoration: none !important;
 }
 
-.row:hover {
-  background: var(--surface);
-}
-
-.row:hover .rowName {
+.cardHead:hover .cardName {
   color: var(--accent-brand);
 }
 
-.rowIcon {
+.iconBox {
   display: flex;
-  margin-top: 0.15rem;
-  color: var(--muted-foreground);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface-dim);
+  color: var(--accent-brand);
 }
 
-.rowText {
+.cardText {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  gap: 0.25rem;
   min-width: 0;
 }
 
-.rowName {
-  font-weight: 600;
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
 }
 
-.rowDesc {
-  font-size: 0.9rem;
+.cardName {
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color 0.15s;
+}
+
+.badge,
+.badgeBeta {
+  flex-shrink: 0;
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--border);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.badgeBeta {
+  border-color: color-mix(in oklch, var(--accent-brand) 40%, transparent);
+  background: color-mix(in oklch, var(--accent-brand) 10%, transparent);
+  color: var(--accent-brand);
+}
+
+.cardDesc {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.5rem;
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+  opacity: 0.8;
+}
+
+.factSep {
+  width: 1px;
+  height: 0.7rem;
+  background: var(--border);
+}
+
+.cardFoot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.68rem;
+}
+
+.risk {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--muted-foreground);
+}
+
+.footLink {
+  color: var(--muted-foreground) !important;
+}
+
+.footLink:hover,
+.footIcon:hover {
+  color: var(--accent-brand) !important;
+}
+
+.footIcon {
+  display: flex;
+  color: var(--muted-foreground) !important;
+}
+
+.empty {
+  padding: 2rem 0;
   color: var(--muted-foreground);
 }
 

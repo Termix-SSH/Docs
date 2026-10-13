@@ -1,5 +1,6 @@
 import plugins from "@site/src/data/plugins.json";
 import capabilities from "@site/src/data/capabilities.json";
+import community from "@site/src/data/community-plugins.json";
 
 export interface PluginVersionInfo {
   version: string;
@@ -27,6 +28,20 @@ export interface PluginInfo {
   versions: PluginVersionInfo[];
 }
 
+export interface CommunityPluginInfo {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  icon: string;
+  author: string;
+  repository: string;
+  docs: string;
+  latest: string;
+  prerelease: boolean;
+  capabilities: string[];
+}
+
 export interface CapabilityInfo {
   id: string;
   risk: "critical" | "high" | "medium" | "low";
@@ -35,6 +50,7 @@ export interface CapabilityInfo {
 }
 
 export const PLUGINS = plugins as PluginInfo[];
+export const COMMUNITY_PLUGINS = community as CommunityPluginInfo[];
 export const CAPABILITIES = new Map(
   (capabilities as CapabilityInfo[]).map((c) => [c.id, c]),
 );
