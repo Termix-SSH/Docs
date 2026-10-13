@@ -6,7 +6,7 @@
  * the app download list.
  *
  *   node scripts/sync-content.mjs                    from GitHub releases
- *   node scripts/sync-content.mjs --local ../Termix-Plugins --core ../Termix
+ *   node scripts/sync-content.mjs --local ../Plugins --core ../Termix
  *
  * Options:
  *   --registry <path|url>  plugin index (default: the official registry)

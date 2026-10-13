@@ -6,7 +6,7 @@
 // a new repo only needs a normal sponsor section to join in.
 //
 // Layouts:
-//   local  repos sit next to Termix-Docs, addressed by "localDir" in sponsor-targets.json
+//   local  repos sit next to Docs, addressed by "localDir" in sponsor-targets.json
 //   ci     each repo is cloned into one dir, addressed by "repo" name (--root <dir> --by-repo)
 //
 // Usage:

@@ -38,7 +38,7 @@ npm install
 npm run dev
 ```
 
-`npm run dev` builds the SDK and the plugins, runs the server in watch mode and starts the web UI. If you have the plugin repos cloned next to it in `../Termix-Plugins`, it builds those too and reloads them when you save.
+`npm run dev` builds the SDK and the plugins, runs the server in watch mode and starts the web UI. If you have the plugin repos cloned next to it in `../Plugins`, it builds those too and reloads them when you save.
 
 ```bash
 npm run lint
