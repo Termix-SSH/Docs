@@ -73,6 +73,17 @@ export default function PluginHeader({
         {plugin.apiPath && isLatest && <Link to={plugin.apiPath}>API</Link>}
         <Link to={`${base}/changelog`}>Changelog</Link>
       </div>
+      {overview && plugin.videoId && /^[A-Za-z0-9_-]{11}$/.test(plugin.videoId) && (
+        <div className={styles.video}>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${plugin.videoId}?rel=0`}
+            title={`${plugin.name} demo video`}
+            loading="lazy"
+            allow="encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+          />
+        </div>
+      )}
       {overview && isLatest && plugin.features.length > 0 && (
         <ul className={styles.features}>
           {plugin.features.map((f) => (

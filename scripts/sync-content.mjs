@@ -898,6 +898,7 @@ async function syncPlugin(plugin, capabilities) {
     dependencies: plugin.versions?.[0]?.dependencies ?? {},
     hasApi,
     apiPath: apiLink,
+    ...(youtubeId(plugin.video) ? { videoId: youtubeId(plugin.video) } : {}),
     versions: versionInfo.map(
       ({ version, latest: l, prerelease, publishedAt }) => ({
         version,
@@ -907,6 +908,15 @@ async function syncPlugin(plugin, capabilities) {
       }),
     ),
   };
+}
+
+/** The id out of a YouTube watch or youtu.be link, or null. */
+function youtubeId(url) {
+  return (
+    String(url ?? "").match(
+      /^https:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/,
+    )?.[1] ?? null
+  );
 }
 
 /** One sidebar per plugin version, made from the pages written for it. */

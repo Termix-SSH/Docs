@@ -25,6 +25,8 @@ export interface PluginInfo {
   dependencies: Record<string, string>;
   hasApi: boolean;
   apiPath: string | null;
+  /** YouTube id of the plugin's demo video. */
+  videoId?: string;
   versions: PluginVersionInfo[];
 }
 
