@@ -83,6 +83,7 @@ const sidebars: SidebarsConfig = {
     },
     "contributing",
     "translations",
+    "self-hosted-ai",
   ],
   cli: [
     "cli/overview",

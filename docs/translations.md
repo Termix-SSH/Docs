@@ -1,6 +1,6 @@
 # Translations
 
-Termix and its plugins are written in English. Every other language is translated by AI on each release, so new text shows up in every language right away.
+Termix and its plugins are written in English. Every other language is translated by AI on each release, so new text shows up in every language right away. The model runs on a self-hosted server, see [Self-Hosted AI on AWS](./self-hosted-ai.md).
 
 ## Adding or changing text
 
