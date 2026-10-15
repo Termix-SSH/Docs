@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Layout from "@theme/Layout";
 import DonatePage from "@site/src/components/DonatePage";
+import MonthlyDonations from "@site/src/components/MonthlyDonations";
 import styles from "./simple.module.css";
 
 export default function Donate(): ReactNode {
@@ -16,6 +17,7 @@ export default function Donate(): ReactNode {
           donation helps pay for hosting and keeps it going. Scan a code or copy
           an address.
         </p>
+        <MonthlyDonations />
         <DonatePage />
         <p className={styles.muted}>
           A company that wants a paid sponsor spot in the README can email{" "}
