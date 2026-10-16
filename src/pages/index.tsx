@@ -6,6 +6,8 @@ import { PLUGINS } from "../components/plugins/data";
 
 import styles from "./index.module.css";
 
+const OVERVIEW_VIDEO = "vhtkP-UqV5U";
+
 const PARTS = [
   {
     title: "The core",
@@ -51,26 +53,40 @@ export default function Home(): ReactNode {
       description="Termix is a free, self-hosted server manager with SSH, remote desktop, files, Docker and more, built from plugins."
     >
       <header className={styles.hero}>
-        <div className={styles.inner}>
-          <span className={styles.kicker}>Free and open source</span>
-          <h1 className={styles.title}>Termix</h1>
-          <p className={styles.tagline}>
-            Self-hosted, plugin-based server management.
-          </p>
-          <p className={styles.lede}>
-            SSH, remote desktop, files, tunnels, Docker and metrics for all your
-            servers, in one place you run yourself.
-          </p>
-          <div className={styles.buttons}>
-            <Link className={styles.primary} to="/install">
-              Install
-            </Link>
-            <Link className={styles.secondary} to="/intro">
-              Read the docs
-            </Link>
-            <Link className={styles.secondary} href="https://demo.termix.site/">
-              Try the demo
-            </Link>
+        <div className={`${styles.inner} ${styles.heroGrid}`}>
+          <div>
+            <span className={styles.kicker}>Free and open source</span>
+            <h1 className={styles.title}>Termix</h1>
+            <p className={styles.tagline}>
+              Self-hosted, plugin-based server management.
+            </p>
+            <p className={styles.lede}>
+              SSH, remote desktop, files, tunnels, Docker and metrics for all
+              your servers, in one place you run yourself.
+            </p>
+            <div className={styles.buttons}>
+              <Link className={styles.primary} to="/install">
+                Install
+              </Link>
+              <Link className={styles.secondary} to="/intro">
+                Read the docs
+              </Link>
+              <Link
+                className={styles.secondary}
+                href="https://demo.termix.site/"
+              >
+                Try the demo
+              </Link>
+            </div>
+          </div>
+          <div className={styles.video}>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${OVERVIEW_VIDEO}?rel=0`}
+              title="Termix overview video"
+              loading="lazy"
+              allow="encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+            />
           </div>
         </div>
       </header>
