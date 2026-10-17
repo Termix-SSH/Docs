@@ -12,7 +12,7 @@ Real numbers from testing Termix 26.10.0. For the short version, see [what it ne
 - Termix 26.10.0 Docker image, default plugins from the first run
 - Docker 27.4.0, 16 CPU cores, 15.2 GB RAM
 - SQLite, starting empty
-- No remote desktop (guacd)
+- No remote desktop sessions
 - Default settings: status checks every 30s, metrics every 30s, history kept 7 days
 - 12 SSH servers, with hosts added from 1 up to 20,000 spread across them
 - The app open the whole time, so every host gets status checks
