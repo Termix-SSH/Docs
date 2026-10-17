@@ -57,7 +57,7 @@ WantedBy=multi-user.target
 
 ## Remote desktop
 
-The [Remote Desktop](/plugins/remote-desktop) plugin needs guacd. Run it with Docker or install it from your distro, then set `GUACD_HOST` and `GUACD_PORT`.
+The [Remote Desktop](/plugins/remote-desktop) plugin runs RDP, VNC and Telnet itself.
 
 ## Build your own image
 
