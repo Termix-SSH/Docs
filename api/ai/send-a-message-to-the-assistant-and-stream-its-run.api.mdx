@@ -1,0 +1,69 @@
+---
+id: send-a-message-to-the-assistant-and-stream-its-run
+title: "Send a message to the assistant and stream its run"
+description: "Server-sent events, like /chat/stream, plus a tool_progress frame for each host as its command finishes, a targets frame when the assistant changes the targets and a client_action frame when it asks the browser to open a view. reasoning frames carry the model's thinking apart from its tokens, a usage frame follows every model call with its tokens, the context window, its source (override, provider, guess or default) and the tokens kept for the reply, and a compacted frame marks where the history was summarised to fit. The run goes on in the background: closing the stream only stops watching it, and /ops/conversations/{id}/stream picks it up again. There is no step limit; the run ends when the model answers, it is stopped, or it repeats one call with one result five times. One run at a time per conversation. hostIds become the conversation's targets; leave them out to keep the ones it has. Targets, and the tools that run commands on them, need ai.ops.use; without it a non-empty hostIds is refused and the CLI cannot exec on hosts. page is what the user is looking at."
+sidebar_label: "Send a message to the assistant and stream its run"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV0tvGzcQ/isDXtoCa8lpc6lyUoIWUPqIUbsICtcIRrsjLaNdkuHMSt4K/u/FkCtp/SqQnu2DLJHznm8e3JuKuIw2iPXOzMwlxS3FMyYnQFtywgU0dkMwLWuUKUskbAsITceAIN43n0L060jMsIrYEqx8BMKyhtqzADJYYSh926KrYGWd5Zq4UGaMa5ID264mB1ITILNlQSdQ1ujWxOn0QKxCEMrGkpNPWKrVYwFWNW4yyzL6HVME8eADOUDYWtpNIBKyd9atMyNDiTH2iaX1FTXfKLt1G6XAgFFgFX2b3BC/IZeM7xjXdPS4afyONV6xzzKgxKaBnZX6Hp/qKL0TuhXYWVf5XZHu2XexJPjWbylGW1EBIfqtrSgWsO40tj5CRSvsGvkuxSDFJEmFDQVJUdezSKHpi0OYfBuwFKoGQ1uMG9ZARUrEtWXxsYcdMnDXthgtU6UBW1mZwJXK6xysPTF4BzYnaInlZh1956oZlI1njZOeZ2yAd00PLD4w7FDKWq+tZJOmPvC09G5LkVFzx9O9re4GWEGw5UbxAl0AXKN1yYZIYBmcBxYK0NjWypvsa+eAXMUn7OTYo+MdRdbQKqfaEqgqNIZWNEKEog7RKEv6KxJ3jcDKbgnEtsQT+OCyGhQFrG0JAkUYezBJOF9UDEsqfUuHHB8JFE4ZvG+gIdwmihZ8JxroDVFILN5Rcr1GnsBVZihGqfaNwhIlmTOUU8qKSivAEVWAduIDTzqmN8kr1aEVAc67M2qD9EdjLUOkVafpPuh49+sCSnTOC9AtlSpbqXkCQbFuNc4oibTTurIMjfe5TGTytzOFEVyzmV2b+cLcFCbSl45Y3vqqN7N9+mkjVWYmsaPCpEJwolcYQmPLFK7pZ9ZGtDdc1tSifpM+kJkZv/xMpZjChOgDRbHEejuO9aIa0VsntKZo7hJHqqbn7hNuRlcs0bp1uiHWSn/ybojl6A5jxN4Uxgq1/JQqteW+uGe8ElxeJYIn9Oqdlea/jHraTb37HdunGIc/TRoH7zhb8f35uf67PyLmLk+GoeAnKvn1U4QLt8XGVjDgAJa+6gfqHx5T/2Y5tRK0CuDiiNQ0ig5oPiE8lfP9eWEZ/GqlSEw6Xj/WcTHgQHnHuAEF/Upb2mDfj495rx7UNWATCateKxZwaJTqgHeTlOiWpPaVmZngOSUYpTYzMw1Nt7buDIOdos0dsUYl4DR7tYD2pouNmZl9ProzxQNj/vJdhCuKrb2FTGMKs8Vocdnk1A2nyY00N8zM1CKBZ9OpJMYJ3WIbGpqUvlUA3KgFZRet9MmEJWGkOO/U6uubu0JLzW8sjU8w2F+oP56MRFxq+WZTxoKOwFNb1OdEZmYDkSmGLz/72KLa/P7j1SPvL4lZM5AGYAbIMJtUiY/2n5yhmlCTjQxvk9D7kzOleuzSqYyTV1rHqi2TmMK4VDrm806etej9xyvI9MAkOjbYrt2ZTrKPOqRCJDU3jSbBDbGelFSRKwl0+j/rRbJ2HO6vjuT8YgEb0tmMURSoafBJe/vpkTtH0q8P7Yb6Ana1LeusiE9qJrAQwFK3OD7Qgt+5gXuYPVimrRFdrzOZGqZcTjoX/jhNlJ8yeJ+aAOf3G/75sb8fut2orZ+Ojt38+vxm1KUPffhEeGq/D5mTrlOTPTVXRdLKJ3kD53wB82Pjml8stHwpcg7/q8mryfnjpDiYL0btLm8DhBVDr+2ASXRvcpUuj8GzbrbDBq3bYe87XTgwaGwowUkbU4tp2g7YvqS0OA7hUfr7LValD8ua7q2xcw/N3J/m+stj4uUx8fKYeHlM/N/HRO67iu9paNCmtS7tRfthl7o2p13KFAb1wwc2hUkb1U1uxkq33y+R6c/Y3N3p8ZeOoi45N6elKW80Js+1tP9sqDcz8y53s7M0BZS86fKK8ODForvPceO7+HCpW8tyePkokszMRNyZIn3OTLI0gTY9jfRsbxp06y6PpSxT//4Fte453Q==
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a message to the assistant and stream its run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/ops/chat"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Server-sent events, like /chat/stream, plus a tool_progress frame for each host as its command finishes, a targets frame when the assistant changes the targets and a client_action frame when it asks the browser to open a view. reasoning frames carry the model's thinking apart from its tokens, a usage frame follows every model call with its tokens, the context window, its source (override, provider, guess or default) and the tokens kept for the reply, and a compacted frame marks where the history was summarised to fit. The run goes on in the background: closing the stream only stops watching it, and /ops/conversations/\{id\}/stream picks it up again. There is no step limit; the run ends when the model answers, it is stopped, or it repeats one call with one result five times. One run at a time per conversation. hostIds become the conversation's targets; leave them out to keep the ones it has. Targets, and the tools that run commands on them, need ai.ops.use; without it a non-empty hostIds is refused and the CLI cannot exec on hosts. page is what the user is looking at.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"conversationId":{"type":"integer"},"providerId":{"type":"integer"},"model":{"type":"string"},"message":{"type":"string"},"hostIds":{"type":"array","items":{"type":"integer"}},"page":{"type":"object","properties":{"tabType":{"type":"string"},"tabTitle":{"type":"string"},"hostId":{"type":"integer"},"hostName":{"type":"string"}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"An event stream."},"400":{"description":"Invalid request body."},"403":{"description":"Missing ai.use, hostIds sent without ai.ops.use, or the assistant is off.\n"},"404":{"description":"Provider or conversation not found."},"409":{"description":"The conversation already has a run going on."}}}
+>
+  
+</StatusCodes>
+
+
+      

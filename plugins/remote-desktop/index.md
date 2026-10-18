@@ -120,3 +120,7 @@ Apple Remote Desktop (ARD) is a Mac's Screen Sharing. It is its own host type, b
 - Leave the username blank only for a Mac that has a VNC-only password. With an external guacd, Termix then connects through a small compatibility proxy.
 - The port is 5900 unless you changed it.
 - Recording works as it does for VNC.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/remote-desktop/reference#environment-variables) for the list.

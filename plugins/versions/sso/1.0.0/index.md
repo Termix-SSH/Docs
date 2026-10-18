@@ -78,3 +78,7 @@ You can set one OIDC provider with [environment variables](/plugins/sso/referenc
 - **"Not allowed".** Their email isn't in **Allowed Users**, or new accounts can't be made.
 - **"Login was started in another browser".** A sign in from the web page has to finish in the same browser that started it. Start it again from the sign in page.
 - **Admin rights don't stick.** Check **Group Claim** and that your provider sends groups in the token.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/sso/v/1.0.0/reference#environment-variables) for the list.

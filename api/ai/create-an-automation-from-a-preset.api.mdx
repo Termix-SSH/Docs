@@ -1,0 +1,71 @@
+---
+id: create-an-automation-from-a-preset
+title: "Create an automation from a preset"
+description: "Creates it through automations.access as the user: the preset's trigger with the user's changes and one ai_task step. The preset version is recorded so a newer one can be offered later."
+sidebar_label: "Create an automation from a preset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVs1u20YQfpXBXtICDOW06UU3JW0BpShqxC6CIhGCETkSNyJ3mZ2hZUXgc/XeJytmlxZpyw6aY3XRcnf+f76ZoymJi2Bbsd6ZuXkdCIUYrIBUwXfbCrAT36C+c45FQcyADFIRdExhHk9tICZ5xiDBbrcUYG+lOtE8YygqdFtiQFeCdwRoPwryDliozeH6JAJuKLD1DixDoMKHkkpgDwiO9hQib4EO1gR+s6FAJdQoFPIPzmRGcMtm/t4slmaVmRYDNiQU9O5orPrXolQmMw4b0q+oc1mazAT63NlApZlL6CgzXFTUoJkfjRxapWUJ1m1N368SMbG88uVBKR7yFt4JOdEnbNvaFjF6s0+sIT6ei/brT1SIyUwbfEtBLLG+JiMfGpA9yJjGbkzRMwZly+Fn2mBXC4N4+GAWS/jnb/hgYvw1LWKlJg1an5l4/m+KArU+yMB9T8f9KtB3sG5aATW6bYfbO6X3ZJ8FOTNDIZ1Hqc9M5VmuqKZC/OMEGg/nm8NjTpHrGq2R5MoQdM9kVn1mQufW3u8etajB27edu6LCu5InFNYJqaV9/GlxcOsdpxz+cPFC/76WMtgjQxH7rsxV0cuLi3OepbvB2pZ3jZSBD7AYOxMCbTqmmNxmkPLjuZTfLbN1W0Cb+5bzjikK0jQhs2VBJ9p6frMZhLw8F3KZOtV5gY3vXDL6p8fUqaNTI9u629rY28ocOues2+ZGo9aQVL7UnvQcs6KNOjezxPIcWztDO1PM4FmqM54d7/q3n5HDdU0mM0zh5q7ju1CbuTmmq/6soP/yXYBrCo29hURjMnODwaqomL3hNvoVS93MTSXS8nw2k8iY0y02bU154RutgJVaUHTByiGasCYMFBadOvN+1WdHU3i/szS9wdb+RofTzUTElSJFMmUq6FR6aosZsEq/E5HJhsOvPjSoNr95d33m/RVxBFrxO3LApIlPDatKfLBfUnVWhCUFhfxXUegIIcoYcz916WRb8spkCXcTyYi8n/bypEVv3l1DogetMxRgu3XPrcvhXUUuwYyTLA4p3BHrTUEluYLA31B40oto7TTc3xzJxeUSdnQAFgyinZQGXXP78cydE+m3h3ZHhwz2lS2qpIhHNTksBbCQ0xBWFX7vBu4CnbYWFqLv6A46MKlmSl2mI+jtOLx+ScU7DpsRJoeh8NQwGOlOOH0OzPeQeATcE8iOUh5g60WvZbPxMUGDIYslLE4Qtbhcaq+mXcHMzYv8RX5xngEHi+UE2KRCgUBYMhy095mka2PYhhkw7ikbH5RGJxu2bfA3FGtHwalBNwlYWpgA3RTRN8E3gMM8fGjWcdwP/u/rVuodoVuZtTXaONgj6B4H/H5vRvw2mUEblzTecZy7EcVNZuaTPWwA8lUqJpVwPK6R6c9Q971ef+4oKLauRqyOSFta1nNp5husmb4S9O/eDvva9/CUE3cY5g5xJNSdfpnM7OgwXRt73RlSF0cb0vPrpOn5tQoZ2c9WQUX609i7/ONKMXo9rJSNL5Un4F4bBvdJvY/exHkQ747mbqtSSI0y9fcvkTgeSw==
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an automation from a preset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/tasks/presets/{presetId}/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates it through automations.access as the user: the preset's trigger with the user's changes and one ai_task step. The preset version is recorded so a newer one can be offered later.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"presetId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string","description":"The automation's name. Defaults to \"AI · \" and the title.\n"},"title":{"type":"string","description":"The report title. Defaults to the preset's title in the user's language.\n"},"description":{"type":"string"},"trigger":{"type":"object"},"hostSelector":{"type":"object"},"autonomy":{"type":"string","enum":["report","propose"]},"runbook":{"type":"string"},"maxRunSeconds":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The automation was created."},"400":{"description":"Invalid changes, or Automations refused them."},"403":{"description":"Missing ai.ops.use, or the assistant is off."},"404":{"description":"Preset not found."},"503":{"description":"The Automations plugin is not running."}}}
+>
+  
+</StatusCodes>
+
+
+      

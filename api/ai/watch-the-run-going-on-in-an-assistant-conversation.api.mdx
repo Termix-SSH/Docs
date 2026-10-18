@@ -1,0 +1,70 @@
+---
+id: watch-the-run-going-on-in-an-assistant-conversation
+title: "Watch the run going on in an assistant conversation"
+description: "The frames /ops/chat streams. Joining part way, the run's frames so far come first, then it continues live until done. With no run going on the stream is a single done frame, and the stored messages are all there is. Closing it never stops the run."
+sidebar_label: "Watch the run going on in an assistant conversation"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU2P20YM/SsEL22BibwpctLNDdrC20vQbLEoUqPgSrQ1tTQzGVLedQ3994Ia2+tmsQVy7sWWKH68Rw7fHLFlabJP6mPAGu86hk2mgQUWMcmi6UhBNDMNUsFt9MGHLSTKCo90cKAdQx7DN3KOkggbytDEgWHjs+jsE8ArNDGoDyML9H7PMAb1PbQxcAX3XjsI0VLBNlqJGObcpTR4AQLxYdvzHFGqOaDQntxi5hYGFqEtC1BmoL63b5nBSwXv+2jxhiPwnrOFJDnjr/4I6FBpK1h/wuUK1w4TWQ3lbLYjemtPIu3QYaCBsUbfosPMn0efucVa88gOpel4IKyPqIc0ewXlLWecprV5S4pBWMzh+5sb+/v3BJYBeM/h3PUKJ4fvbt69dHwfw56zkL1CiAqbOIa2wmlyOLB2scUat6zoCuwaF6kftz68oeQX5Mt8r5LI4ujbaVHqokPhvD+zH3OPNR6LaUL3BZbf45jhjvPgn6D4oMM9ZU8PfeF6ss4sNjT2ijV2qknqxULnwIqfaEg9V00ccJq7JdyM2ethhvDAlDkvR6PyaT25IzYx7jxfWyj5X/hwsVyl+GhjKVCuE12mZFjwND17L07oTg8/xTyQYb69v3vB/iOL2BA07jiA2PB8Ob5WJGb/dxlSx9RyBhL4YU56Ob5z4Dzpa0oXbIUVunIGi8vzKfzrUV9FdHt/B8UfhBVsl/02vPGhgnvbypTZ4DpbC6Udi1kabjk0DNHW5DUWM9rrdn91J5cfVrDjA4hSVlvNRxMBHZ7+fEHn4vr1rd3xwcFj55uuFJLnMhWsFKhRsbCTL8THcIpuKNhWUaP2ncLBdId74bJiPmzizNprbzSXK1iKeFEKCssPK1sAzlIIvK3eVjcvaQVYroAuUWpim5lagYMtlLCOacaSckxRWKDpKJjAbWI2H9AIlFKOe54HkqLoQMFwnU7HPWnTnWXuWVt9AApXpa914EuctmhBOej//n4oB1z5SRepJx+s5bMyHk8S+wmfJRYdkv3EJGiLfSW06LCeL4+T1q4ddlHU4o/HBxL+LffTZObPI2eTv/WznM5i2Hqx5xbrDfXC/zGxb389XVDfwWsUzjITDrNq96O9ocMdH8otN62v75Sff7zDafoHm6/bMQ==
+sidebar_class_name: "get api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Watch the run going on in an assistant conversation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ai/ops/conversations/{id}/stream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The frames /ops/chat streams. Joining part way, the run's frames so far come first, then it continues live until done. With no run going on the stream is a single done frame, and the stored messages are all there is. Closing it never stops the run.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"An event stream."},"404":{"description":"Conversation not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

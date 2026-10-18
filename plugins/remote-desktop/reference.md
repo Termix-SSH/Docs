@@ -40,7 +40,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 
 ## Environment variables
 
-Set these on the Termix server, for example under `environment:` in your compose file.
+Set these on the Termix server, for example under `environment:` in your compose file. See [environment variables](/configure/environment-variables) for the ones core and other plugins read.
 
 | Variable | Default | What it does |
 | --- | --- | --- |

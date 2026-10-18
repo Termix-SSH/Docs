@@ -57,3 +57,7 @@ Share links only work for sessions that run on a Termix server, not for hosts th
 Rooms keep live state in memory. If you run several Termix servers behind a load balancer, point them all at the same Redis with `REDIS_URL` so rooms work across them.
 
 Who can share and join rooms is set by the `session-sharing.use` permission. Admins and users have it at first.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/session-sharing/v/1.0.1/reference#environment-variables) for the list.

@@ -81,3 +81,7 @@ Without them, those parts are empty. The rest still works.
 - The dashboard's host status card shows each host's numbers.
 
 Who can use it is set by the `host-metrics.use` permission. Admins and users have it at first.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/host-metrics/reference#environment-variables) for the list.

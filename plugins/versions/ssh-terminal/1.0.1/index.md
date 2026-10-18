@@ -64,3 +64,7 @@ Theme, font, cursor, scrollback, background image, syntax highlighting, local ec
 - [Tmux Monitor](/plugins/tmux-monitor) watches tmux sessions across hosts.
 - [Snippets](/plugins/snippets) runs saved commands in the terminal.
 - [AI Assistant](/plugins/ai) can sit next to the terminal and read your history.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/ssh-terminal/v/1.0.1/reference#environment-variables) for the list.

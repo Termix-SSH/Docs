@@ -1,0 +1,69 @@
+---
+id: reject-a-proposed-plan
+title: "Reject a proposed plan"
+description: "Reject a proposed plan"
+sidebar_label: "Reject a proposed plan"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu40YM/RWCpxaYtbPtXqqe3EMBb4E22LgIisAoGIm2Zi3NaIdUHNXQvxccaR23Tg57sSXikXyc4Xs6odJesHjA1Rq3DjtK1LJystgJfcACO9IaHQZqGQv0FTpM/KX3iSssNPXsUMqaW8LihDp0GRWU95xwHLeGli4GYTHADzc39lexlMl36qO1+MSfuVSufoYQtfZhD4nCAkeHH25+vIb/HhWoaeKRK9AIFZe+YogBtPYCXXPO/XCduyE5WBfYxT5UM+6n13scyauR2cUElNuIj1Z7dK8OAARdil0UrjILdNiy1rGyU4yi6KbDLHDZNf3eh3fU+SX5pZIcZHny1bhMuRI6FE5PX++hTw0WeJpCI/6/+1+xT7Dh1PpnmDDo8ImSp8dmOvU5mqfcUd8oFlirdlIsl5oTF/xMbdfwoowtjvnehMs+eR0yhUemxGnVG/2H7ehOWMZ48HwZoc7/xsM5clHizhZkonJZ6LwvxgXnPbL3CYRufvg1ppaM88f7zdX0dyx2LaDxwAGEg4K3VWCwJjH5f8iQUDNVnIAEfslFgUKVYTkxb8LlSGdu01ToJjVMkBc9fD7qm4w+3m9gwoOwAimI34d3PizgvuYAXWKj68ArKB1YLFJyxaFkiE+c3pwis7087m8+ydXtGg48gCilvORHrzVo+/z31Thn6Lcf7YEHB8fal/XUSF7aLGCtQKWKpc1YiMcwZ5cUTKVkqhKgMMTAwI3wJD8fdjFP7bWxMVdrWIl4UQoKq9u1CYCTTAO8X7xf3FyPFWC1BjpnaU0KiakSGExQwtp3mcssaoGyprBnyYYwxN7Mh7ouxSfOF2IabykYr3k73vSF/1A5X57ysy67hnywcln1p9kyHvDFMtAh2U+2DXRYzKacnWPrsDavKR7wdHok4T9TM44W/tJzMjFvX8whS7vyYs8VFjtqhK/IlTEoB1ua7z7Nxv89WPvXSH8VTRiyBzW9vaHDAw/T12Pcjhe2ePvH3QbH8V89ej1A
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reject a proposed plan"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/tasks/{id}/reject"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reject a proposed plan
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Rejected; nothing ran."},"403":{"description":"Not allowed to decide on this plan."},"404":{"description":"Task not found."},"409":{"description":"Not waiting for a decision."}}}
+>
+  
+</StatusCodes>
+
+
+      

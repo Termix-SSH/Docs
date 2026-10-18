@@ -1,0 +1,71 @@
+---
+id: summarise-the-earlier-part-of-an-assistant-conversation
+title: "Summarise the earlier part of an assistant conversation"
+description: "What happens on its own once the context is nearly full, on request: one model call summarises all but the most recent steps, and the summary stands in for them from then on. compacted is false when the conversation is too short to gain anything."
+sidebar_label: "Summarise the earlier part of an assistant conversation"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVt+P2zYM/lcIPm2Am1yL7sVvabEB6YCt6N1wGG7BwLOZWD1bUkX6cl6Q/32glEuCSzugz/NDYouk9PHXR+2wZWmSi+qCxxpvO1LoKEb2AsGDU4Gw9RB8w6AdQxO88pOCE/BMqZ9gPfZ9ZbqJv4wsWkPwDENouYeG+h5kHAZKTljAPu9HzTsNQRQSN+wVRDlKBeTbLCoWE4iSbwWch3VIJhlgncJgbwZpBk0YIjXKreFZUy8MW5MdkD5yEjLPTKwhgHQhKWiADTkP5CftnN/M/vJYodJGsL7DxRJXFUZKNLBysrUdOgtOJO2wQk8DY42uxQrNZ5e4xVrTyBVK0/FAWO9Qp5i1vPKGE+73q6LNou9CO5nKS+McW68mohh712Ts889iqdld7h3uP3OjWGFMIXJSx2LSmMKjazkt26/hqDCn5kwkmpzf4D4/BlJi8FL2enN1ZX8vi4S14wROYUtySsIpgc9V0vNaZ3bm26/t81uAZ6wQUimZg/bbS+335/kM6WTqg8I6jL7Ntj9dvbm0ven4pN+EsW+z1bEywRlMiw1rF1rLdZAcWUt5jfPYjxvnX1F0c3LzEGV+Xl4y37l2Pz8EAisUTo/PpTOmHmvclaU9Vi+g/RnGBDecBvcERQcrfKTk6L4vOTisZqfWNPaKNXaqUer5XLPhjJ9oiD3PmjBYHleGoBmT0ylDuGdKnBaj+XK32lc7bEJ4cHy+QtH9ytNx5WyLa6u7AuV8o2P9GBY8lL59FyWsDi+/hDSQYf5we3Ph/TWLWD41PLAHMS5wpX3tkJDcPyXfHZOljgTe5U2PlZYNc+LPXTpiK15hVRq4qJxa+PNWv4now+0NFH0QViAFcRv/yvkZ3BrFxMQGt7IuUHpgsZWGWzamDI+cvulFRnse7u+O5OLjEh4482NS5zewddqBDk9/X7hzVP3+0D7wVMG2c01XDpLTMTNYKlCjYmYHXZsTB+uGvLUXNWpy8pNNBO6FS5MZoX06UeHPpXhfUtfVkamODGVpXIccMKdmgYslLEScDQqFxcel9Q4nKb6/nr2eXV1GxMNiCXS0Uht5iakVmKwXhXWM2Q2j1WBjq+nIb1jyFJrCaAOEomHlnEvjioEyRx8K6/pILBYcm5OOE0RKCmEN5M+OP+eRl1h3p5Hwv57MpTvMu3nsyXkLeqbV3YGg7/BE0Fgh2U+IgnmmnmgaK6zz2H5m6lWFnRF9fYe73T0J/5H6/d6Wv4ycjDxXJzLOVNo6sfcW6+zUfyTsh0+H8f4jfMuHZ5LyU+b8frQvrPCBp3LB2K/2FZYGzacXwftyxqsbMz8ZXtwZjMSPA+3j79dGv/eHu4dVAdaYaGu3GNqWg0MscbLLia3tsCe/GWmT2TLvac+/RrCRGQ==
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Summarise the earlier part of an assistant conversation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/ops/conversations/{id}/compact"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+What happens on its own once the context is nearly full, on request: one model call summarises all but the most recent steps, and the summary stands in for them from then on. compacted is false when the conversation is too short to gain anything.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"providerId":{"type":"integer"},"model":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether it was compacted, and the context left."},"400":{"description":"No provider or model."},"404":{"description":"Conversation or provider not found."},"502":{"description":"The provider could not summarise it."}}}
+>
+  
+</StatusCodes>
+
+
+      

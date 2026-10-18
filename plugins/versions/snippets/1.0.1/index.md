@@ -91,3 +91,7 @@ The Snippets panel has Export and Import. The file is JSON:
 | `snippets.view`                                       | See your own and shared snippets. |
 | `snippets.create`, `snippets.edit`, `snippets.delete` | Change them.                      |
 | `snippets.share`                                      | Share them with users or roles.   |
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/snippets/v/1.0.1/reference#environment-variables) for the list.

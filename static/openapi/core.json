@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.10.1",
+    "version": "26.10.2",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -262,6 +262,9 @@
         "responses": {
           "200": {
             "description": "A page of changes, the next cursor and whether more remain."
+          },
+          "400": {
+            "description": "The cursor or limit is not a non-negative integer."
           },
           "500": {
             "description": "Failed to read changes."
@@ -3830,7 +3833,7 @@
     "/plugins": {
       "get": {
         "summary": "List installed plugins and their runtime state",
-        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose.\n",
+        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose, and, for admins, `managedByServer` marks plugins whose on/off state the server decides.\n",
         "tags": [
           "Plugins"
         ],
@@ -3864,7 +3867,7 @@
     "/plugins/onboarding/apply": {
       "post": {
         "summary": "Apply the onboarding plugin picker",
-        "description": "Sets every listed plugin to enabled, disabled or removed in one pass. Choices are first raised so that every kept plugin still has its hard dependencies (the adjustments list says which and why). Enabling runs dependencies first, disabling and removing run dependents first, and one plugin failing does not stop the rest. Removing a bundled plugin deletes it and its data; it can be reinstalled from the registry later. Clears the fresh-install pending flag. With dryRun nothing changes and the response lists what would.",
+        "description": "Sets every listed plugin to enabled, disabled or removed in one pass. Choices are first raised so that every kept plugin still has its hard dependencies (the adjustments list says which and why). Enabling runs dependencies first, disabling and removing run dependents first, and one plugin failing does not stop the rest. Removing a bundled plugin deletes it and its data; it can be reinstalled from the registry later. Clears the fresh-install pending flag. With dryRun nothing changes and the response lists what would. On a linked desktop, locally managed plugins require version and capabilities matching the reviewed manifest when enabling.",
         "tags": [
           "Plugins"
         ],
@@ -4111,7 +4114,7 @@
     "/plugins/{id}/state": {
       "patch": {
         "summary": "Enable or disable a plugin",
-        "description": "Persists the new state and starts or stops the plugin immediately. Disabling releases everything the plugin owns, including any port it was listening on. Enabling also starts any installed hard dependency that is off, and disabling also stops the running plugins that depend on it. With dryRun nothing changes and the response lists what would.",
+        "description": "Persists the new state and starts or stops the plugin immediately. Disabling releases everything the plugin owns, including any port it was listening on. Enabling also starts any installed hard dependency that is off, and disabling also stops the running plugins that depend on it. With dryRun nothing changes and the response lists what would. On a linked desktop, locally managed plugins require version and capabilities matching the reviewed manifest when enabling.",
         "tags": [
           "Plugins"
         ],
@@ -4141,6 +4144,15 @@
                 "properties": {
                   "enabled": {
                     "type": "boolean"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "capabilities": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   }
                 }
               }

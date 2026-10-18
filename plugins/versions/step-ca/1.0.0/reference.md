@@ -23,7 +23,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 ## Environment variables
 
-Set these on the Termix server, for example under `environment:` in your compose file.
+Set these on the Termix server, for example under `environment:` in your compose file. See [environment variables](/configure/environment-variables) for the ones core and other plugins read.
 
 | Variable | Default | What it does |
 | --- | --- | --- |

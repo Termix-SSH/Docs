@@ -1,0 +1,70 @@
+---
+id: approve-a-proposed-plan-and-run-it
+title: "Approve a proposed plan and run it"
+description: "The owner, or a holder of ai.ops.use who can connect to every host in the plan, may approve. The plan then runs as the owner, verbatim, per host in order, stopping a host at its first failure, then its verify commands. Answers at once; poll the task for progress."
+sidebar_label: "Approve a proposed plan and run it"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVUtv40YM/isETy0wkbPbvdR7cg8FsgXaoHGxKNKgYCTamlqamR1SdlRD/73gyHGym6bA3nuSRPHx8fXxiA1LnX1SHwMucd0yxEPg7CBmIGhj13CGuAHyVUxSDcJwaCPUFKCOIXCtoBF4z3mENoqCD6AtQ+ooOOhpBEopxz1XsD6J7X+APAQBkqJ8CrnnfE/qeweJ89lbzI39FI0p+bAtqESBFLwKbHwWhQ35bsjsZtcm33P2mxHq2PcUGqlgFeTAWcwuhprfQ4pdV6IryQ42MUPKcZtZpPojoEOlreDyFldXeOcwUaaelbPJjuitWom0RYeBesYl+gYdZv40+MwNLjUP7FDqlnvC5RF1TEUrKG854zTdmbakGITFFN5evrXH5w1ZzcVr3p+LCl6sdsGHbYWTw3eX3700+zkqUNfFAzfWnoZr3zBEK72X4uZk++6l7drKEaLCJg6hOel9/+8xDuTVerIp02JhxMfggB+SVWGeokHjRUxiwBMNwo3Vd5oc9qxtbKyQURTdXM8lLlI3bH24oOQX5BfWHlkcfTMtTqOEDoXz/rEXQ+5wicdZNKH7Aufvcciw5tz7B5h10OGesqf7bq78SVoy3NDQKS6xVU2yXCy0GFb8QH3quKpjj1PpnXA9ZK9jgXDPlDmvBsN/eze5I9Yx7jw/l1DyP/F4ljxzcWNDMkN57ug8M4YFT7Nk37MSutPLjzH3ZJg/fFy/yP6GxVoCGnccQDicN9SCxOz/JtOElsk2nQR+KE6BQjNvhxmWKXie0hnbnBW6eSNmlaed+OugryL68HENsz4Il30Wvw0XPlTw0bY4ZTa4DryC0o7FJDU3HGqGuOf8ahYF7fNyf3UlV9dXsOMRRCmXAT94bUH7hz9fpHNW/frS7nh0cGh93c6B5ClMBVcKVOuZIi1EocliXVOwDaVa7T+FMQYG7oSrslg+bGLJ2mtnaa6uYCXiRSkorK6vbAE4y5zAm+pNdfkyrQCrK6CzlbakkJkagdEWSliHVLCkHFMUFqhbCluWQgZjHIx4HrnfGmJL3lMwXKfpOJEb0KOPZmY485oH4/EvYdleBeWg/9+qz2/VPN7KD7pIHflgBS+8eDyx6i0+sSo6JF8unOwEHS7L6Xok1zuHBtpMjsd7Ev4td9Nk4k8DZ+O7uyf+LOzXeLH3Bpcb6oT/o2ff/Hq6j9/Ca6gfeSWMhaa7wb7Q4Y7H+chOd89Px/UvN2ucpn8A7PkK4g==
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Approve a proposed plan and run it"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/tasks/{id}/approve"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The owner, or a holder of ai.ops.use who can connect to every host in the plan, may approve. The plan then runs as the owner, verbatim, per host in order, stopping a host at its first failure, then its verify commands. Answers at once; poll the task for progress.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"202":{"description":"Approved; the plan is running."},"403":{"description":"Not allowed to decide on this plan."},"404":{"description":"Task not found."},"409":{"description":"Not waiting for a decision, expired, or auto-ops is paused.\n"}}}
+>
+  
+</StatusCodes>
+
+
+      

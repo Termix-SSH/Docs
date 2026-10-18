@@ -59,14 +59,17 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-AI",
     "docs": "https://docs.termix.site/plugins/ai",
-    "latest": "1.0.1",
+    "latest": "1.1.0",
     "features": [
       "Ask about your hosts, snippets, fleets, alerts, automations and more",
       "Proposes changes instead of making them, and nothing runs until you approve it",
       "Can run safe read-only commands like df and uptime if you allow it",
       "Ask about a host right from its terminal",
       "Works with Ollama, Anthropic, OpenAI, Google Gemini and any OpenAI compatible endpoint",
-      "Run Pi, OpenCode, Claude Code or Codex as a coding agent on an SSH host, using your own provider"
+      "Run Pi, OpenCode, Claude Code or Codex as a coding agent on an SSH host, using your own provider",
+      "One AI assistant, floating on every page or full screen in the AI tab, that manages Termix as you through the bundled Termix CLI and opens views for you",
+      "With the ai.ops.use permission, it also runs shell commands across the hosts, folders, tags or fleets you select",
+      "Auto-ops: automations start the assistant to investigate and report, or propose a plan you approve, with ready-made presets"
     ],
     "capabilities": [
       "hosts:read",
@@ -80,7 +83,9 @@
       "network:serve",
       "ui:surface",
       "users:impersonate",
-      "events:core"
+      "users:read",
+      "events:core",
+      "process:spawn"
     ],
     "env": [],
     "dependencies": {},
@@ -89,8 +94,14 @@
     "videoId": "aof6qLcmJ2E",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T05:22:21.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:28:14.000Z"
       },

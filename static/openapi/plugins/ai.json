@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "AI Assistant API",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "An AI assistant that reads your setup and proposes changes for you to approve."
   },
   "servers": [
@@ -63,6 +63,43 @@
     }
   ],
   "paths": {
+    "/plugin-api/ai/usage": {
+      "get": {
+        "summary": "Token usage, for the current user or everyone",
+        "description": "Totals for today, 7 and 30 days, then per day, per model and per feature over 30 days. scope=all covers every user and adds a per user breakdown; it needs ai.usage.view_all. offset is the browser's time zone offset in minutes, as getTimezoneOffset gives it, so days are the viewer's own.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "me",
+                "all"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The usage summary."
+          },
+          "403": {
+            "description": "Missing ai.use, scope=all without ai.usage.view_all, or the assistant is off.\n"
+          }
+        }
+      }
+    },
     "/plugin-api/ai/status": {
       "get": {
         "summary": "Whether the AI assistant is available to this user",
@@ -153,6 +190,18 @@
                   },
                   "defaultModel": {
                     "type": "string"
+                  },
+                  "modelOverrides": {
+                    "type": "object",
+                    "description": "Per model id, a contextWindow in tokens that replaces what the provider reports.\n",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "contextWindow": {
+                          "type": "integer"
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -185,6 +234,44 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "defaultModel": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "modelOverrides": {
+                    "type": "object",
+                    "description": "Replaces every override. Per model id, a contextWindow in tokens; null or a model left out goes back to what the provider reports.\n",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "contextWindow": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Provider updated."
@@ -282,6 +369,48 @@
           },
           "502": {
             "description": "The provider could not be reached."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/providers/{id}/context": {
+      "get": {
+        "summary": "The context window of a provider's models, and where it came from",
+        "description": "For the provider's default model, every model with an override, every model the user has called through it, and any named in models. source is override, provider (reported by the provider), guess (from the model's family) or default (128k). refresh asks the provider again instead of using what it said in the last six hours.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "models",
+            "schema": {
+              "type": "string"
+            },
+            "description": "More model ids, comma separated."
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per model."
+          },
+          "404": {
+            "description": "Provider not found."
           }
         }
       }
@@ -490,6 +619,597 @@
           },
           "404": {
             "description": "Proposal not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks": {
+      "get": {
+        "summary": "Auto-ops tasks and plans waiting for a decision",
+        "description": "tasks are the user's own, newest first. approvals are proposed plans and plans being run that the user may decide on: their own, and everyone's for a holder of ai.ops.use.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The tasks and the approvals."
+          },
+          "403": {
+            "description": "Missing ai.use, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/preferences": {
+      "get": {
+        "summary": "The provider, model and language the user's tasks use",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The preferences."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save the provider, model and language for the user's tasks",
+        "description": "Fields left out keep their value. language is the user's interface language, which reports are written in.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerId": {
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "model": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "language": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved preferences."
+          },
+          "400": {
+            "description": "Invalid field."
+          },
+          "404": {
+            "description": "Provider not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/presets": {
+      "get": {
+        "summary": "Shipped and saved auto-ops presets, with what is enabled",
+        "description": "Each preset lists the automations made from it and whether the shipped version is newer than the one they were made from. automationsAvailable is false while the Automations plugin is not running, and presets cannot be enabled then.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Presets."
+          },
+          "403": {
+            "description": "Missing ai.ops.use, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/presets/{presetId}/enable": {
+      "post": {
+        "summary": "Create an automation from a preset",
+        "description": "Creates it through automations.access as the user: the preset's trigger with the user's changes and one ai_task step. The preset version is recorded so a newer one can be offered later.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "presetId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The automation's name. Defaults to \"AI · \" and the title.\n"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "The report title. Defaults to the preset's title in the user's language.\n"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "trigger": {
+                    "type": "object"
+                  },
+                  "hostSelector": {
+                    "type": "object"
+                  },
+                  "autonomy": {
+                    "type": "string",
+                    "enum": [
+                      "report",
+                      "propose"
+                    ]
+                  },
+                  "runbook": {
+                    "type": "string"
+                  },
+                  "maxRunSeconds": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The automation was created."
+          },
+          "400": {
+            "description": "Invalid changes, or Automations refused them."
+          },
+          "403": {
+            "description": "Missing ai.ops.use, or the assistant is off."
+          },
+          "404": {
+            "description": "Preset not found."
+          },
+          "503": {
+            "description": "The Automations plugin is not running."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/custom-presets": {
+      "post": {
+        "summary": "Save an auto-ops configuration as a preset",
+        "description": "shared makes it a preset for everyone who may use auto-ops; only its creator can delete it.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "shared": {
+                    "type": "boolean"
+                  },
+                  "config": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The saved preset."
+          },
+          "400": {
+            "description": "Missing name or an unusable config."
+          },
+          "403": {
+            "description": "Missing ai.ops.use, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/custom-presets/{id}": {
+      "delete": {
+        "summary": "Delete a preset the user saved",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Not found, or saved by someone else."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/{id}": {
+      "get": {
+        "summary": "One auto-ops task with its report and plan",
+        "description": "Visible to its owner and to holders of ai.ops.use. canDecide says whether the user may approve or reject its plan.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The task."
+          },
+          "404": {
+            "description": "Task not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/{id}/approve": {
+      "post": {
+        "summary": "Approve a proposed plan and run it",
+        "description": "The owner, or a holder of ai.ops.use who can connect to every host in the plan, may approve. The plan then runs as the owner, verbatim, per host in order, stopping a host at its first failure, then its verify commands. Answers at once; poll the task for progress.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Approved; the plan is running."
+          },
+          "403": {
+            "description": "Not allowed to decide on this plan."
+          },
+          "404": {
+            "description": "Task not found."
+          },
+          "409": {
+            "description": "Not waiting for a decision, expired, or auto-ops is paused.\n"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/tasks/{id}/reject": {
+      "post": {
+        "summary": "Reject a proposed plan",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rejected; nothing ran."
+          },
+          "403": {
+            "description": "Not allowed to decide on this plan."
+          },
+          "404": {
+            "description": "Task not found."
+          },
+          "409": {
+            "description": "Not waiting for a decision."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/fleets": {
+      "get": {
+        "summary": "The user's fleets with their member host ids",
+        "description": "For the assistant's target picker. available is false while the fleets plugin is not running or the user may not read fleets.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Fleets and whether the fleets plugin is available."
+          },
+          "403": {
+            "description": "Missing ai.use, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/conversations": {
+      "get": {
+        "summary": "The assistant's conversations, newest first",
+        "description": "Shared by the floating assistant and the AI tab.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversations with their targets, the tokens each has used and whether a run is going on in it.\n"
+          },
+          "403": {
+            "description": "Missing ai.use, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/conversations/{id}": {
+      "get": {
+        "summary": "One assistant conversation with its messages and targets",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The conversation, with the tokens it has used, how much of the model's context its latest call took and whether a run is going on in it.\n"
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an assistant conversation and its run records",
+        "description": "A run going on in it is stopped first.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/conversations/{id}/stream": {
+      "get": {
+        "summary": "Watch the run going on in an assistant conversation",
+        "description": "The frames /ops/chat streams. Joining part way, the run's frames so far come first, then it continues live until done. With no run going on the stream is a single done frame, and the stored messages are all there is. Closing it never stops the run.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/conversations/{id}/stop": {
+      "post": {
+        "summary": "Stop the run going on in an assistant conversation",
+        "description": "Ends the model call and any command or CLI call it has running, and answers once the run has ended. stopped is false when there was none.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether a run was stopped."
+          },
+          "404": {
+            "description": "Conversation not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/conversations/{id}/compact": {
+      "post": {
+        "summary": "Summarise the earlier part of an assistant conversation",
+        "description": "What happens on its own once the context is nearly full, on request: one model call summarises all but the most recent steps, and the summary stands in for them from then on. compacted is false when the conversation is too short to gain anything.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Whether it was compacted, and the context left."
+          },
+          "400": {
+            "description": "No provider or model."
+          },
+          "404": {
+            "description": "Conversation or provider not found."
+          },
+          "502": {
+            "description": "The provider could not summarise it."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/ops/chat": {
+      "post": {
+        "summary": "Send a message to the assistant and stream its run",
+        "description": "Server-sent events, like /chat/stream, plus a tool_progress frame for each host as its command finishes, a targets frame when the assistant changes the targets and a client_action frame when it asks the browser to open a view. reasoning frames carry the model's thinking apart from its tokens, a usage frame follows every model call with its tokens, the context window, its source (override, provider, guess or default) and the tokens kept for the reply, and a compacted frame marks where the history was summarised to fit. The run goes on in the background: closing the stream only stops watching it, and /ops/conversations/{id}/stream picks it up again. There is no step limit; the run ends when the model answers, it is stopped, or it repeats one call with one result five times. One run at a time per conversation. hostIds become the conversation's targets; leave them out to keep the ones it has. Targets, and the tools that run commands on them, need ai.ops.use; without it a non-empty hostIds is refused and the CLI cannot exec on hosts. page is what the user is looking at.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "conversationId": {
+                    "type": "integer"
+                  },
+                  "providerId": {
+                    "type": "integer"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "page": {
+                    "type": "object",
+                    "properties": {
+                      "tabType": {
+                        "type": "string"
+                      },
+                      "tabTitle": {
+                        "type": "string"
+                      },
+                      "hostId": {
+                        "type": "integer"
+                      },
+                      "hostName": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "403": {
+            "description": "Missing ai.use, hostIds sent without ai.ops.use, or the assistant is off.\n"
+          },
+          "404": {
+            "description": "Provider or conversation not found."
+          },
+          "409": {
+            "description": "The conversation already has a run going on."
           }
         }
       }

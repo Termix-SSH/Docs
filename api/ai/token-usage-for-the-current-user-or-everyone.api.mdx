@@ -1,0 +1,70 @@
+---
+id: token-usage-for-the-current-user-or-everyone
+title: "Token usage, for the current user or everyone"
+description: "Totals for today, 7 and 30 days, then per day, per model and per feature over 30 days. scope=all covers every user and adds a per user breakdown; it needs ai.usage.view_all. offset is the browser's time zone offset in minutes, as getTimezoneOffset gives it, so days are the viewer's own."
+sidebar_label: "Token usage, for the current user or everyone"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVU2P20YM/SsEL71M5E1ToICLHlwgLZyiaIC4WBRbI+BKtDW1NKMOKXsVQ/894MhrG7tZILn34g/OGw4fPx6PWLGUyXfqY8A5rqJSI7CJCTRWNDj4EShU8OYGKhrEgdYcoOME+dB+tLHiJoPs34ZJ+8QQ95webxUgZez4Z2oaKO1AgPecBuiFU75JVSVA2UG23SemXRUP4SfwCoHZjn3RC2252Hs+fKSmKSBuNsIKXiwsuE/xIJy+E1DfMnyKgc+IAK0PvbI4IIEt68q3bIg/J8DW71nAqwOJOWagxNmrvZadxkMo/gnoUGkrOL/DxRLXDjtK1LJyMtsRvWXxv57TgA4DtYxzzOzRoZQ1t4TzI+rQ5QNNPmzRIYe+NZetwahpcD2O7svOJkZf8uaD8pYTjuPaYWLpYhAWA3x/c2NfT0pdM+SEgvRtS2kocHT4w82b59A/vIgP26kE7K7KefBax16fF8eBtVDNQCJelEIuU9xsLIfj6LBlrWOFc9xmNh1pjXOcdU2/9eEVdX5GfpZ9GldO+8cM96nBOR4n04juSax/xz7BilPrH2DCoMM9JU/3zZSNkzWz3FDfKM6xVu1kPptpvljwA7Vdw0UZWxxzPoXLPnkdcgj3TInToreQ79ZWqTLGnedrC3X+dx7OlisXH6xwUyjXjs51tFge62v/JxC6049fY2rJYn53u3rG/gOL+BhA444DCIfc+1YHeyQm/4kMCTVTZbMn8Et2mqfQYPli7oRrSufYJlboptacIJfe/PegL0b07nYFEx5s4EhB/Da88qGA26wpiS1cZwOvtGMxS8kVh/KkJi+xyNFep/ubM7l4v4QdDyBKSa3Rra1B24ePz+icod+e2h0PDg61L+vpIbk8U8BSgUoVu3bCmuCcbpcUQswAO6cwmLRxI1zkUfJhEzNrr43RXCxhcZ66xfulDQAnmQi8Ll4XN89pBVgsr2ZVa1JITJXAYAMlrH03iXyKXRQWKGsKW552xRB70AjUdSnuOReki6ItBYvr1B2r3JN5pN20YWqGsk/JUpllP6ZpMcTATyO0EQvKQf9fUl+3pKYJUH7QWdeQD1aTLJ3Hk9be4UVrbevYx6S3a4d1FDXI8XhPwn+lZhzNPO0ik8DKiwlqhfMNNcIOdzxcrbo9Nb29jyaFL2DPm+wCXl+ketLRy5r47e0Kx/EzjGQBoA==
+sidebar_class_name: "get api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Token usage, for the current user or everyone"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ai/usage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Totals for today, 7 and 30 days, then per day, per model and per feature over 30 days. scope=all covers every user and adds a per user breakdown; it needs ai.usage.view_all. offset is the browser's time zone offset in minutes, as getTimezoneOffset gives it, so days are the viewer's own.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"scope","schema":{"type":"string","enum":["me","all"]}},{"in":"query","name":"offset","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The usage summary."},"403":{"description":"Missing ai.use, scope=all without ai.usage.view_all, or the assistant is off.\n"}}}
+>
+  
+</StatusCodes>
+
+
+      

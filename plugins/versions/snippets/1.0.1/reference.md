@@ -23,7 +23,7 @@ Each person sets these for themselves in **Settings**.
 
 ## Environment variables
 
-Set these on the Termix server, for example under `environment:` in your compose file.
+Set these on the Termix server, for example under `environment:` in your compose file. See [environment variables](/configure/environment-variables) for the ones core and other plugins read.
 
 | Variable | Default | What it does |
 | --- | --- | --- |

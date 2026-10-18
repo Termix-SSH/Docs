@@ -54,3 +54,7 @@ The certificate is kept for 24 hours, so you sign in about once a day. It works 
 - The config file can't be written: In Docker, make sure `/app/data` is a volume the container's user can write.
 - The provider says the redirect URI is wrong: Register the exact Redirect URI from settings, including the scheme. Behind a reverse proxy, make sure it sends `X-Forwarded-Proto`.
 - The host refuses the certificate: Check the host's OPKSSH policy lists your email and provider.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/opkssh/reference#environment-variables) for the list.

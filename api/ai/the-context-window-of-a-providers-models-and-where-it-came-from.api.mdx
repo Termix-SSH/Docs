@@ -1,0 +1,70 @@
+---
+id: the-context-window-of-a-providers-models-and-where-it-came-from
+title: "The context window of a provider's models, and where it came from"
+description: "For the provider's default model, every model with an override, every model the user has called through it, and any named in models. source is override, provider (reported by the provider), guess (from the model's family) or default (128k). refresh asks the provider again instead of using what it said in the last six hours."
+sidebar_label: "The context window of a provider's models, and where it came from"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v40YM/SsEL5sAWjtZ7KHQzQW6hbcoGnRTBEVqFIxEW1NLM9ohZUc19N8XHPkryabFAj324o/RI/keOSS1w5KliK5VFzzm+CFE0IqhjWHjSo5vBEpeUlcrNKHkOgPecOzHP7B1WgF5CBuO0ZX89Kn56YQjVCRQUF1zCVrF0K0qcJoB+RLI9+Cp4RKcH81kAhK6WDA4OXN8IAQXkdsQlUt46J9Qvcxg1bEIXCxjaNKj5PCNwJIaV/eXEOJRzcX1u+/WlxOIvIwsFZCs5Yk7oBU5D86LMpUQltCJ8yvYVqTgFIRcIm02NYmCuEeoQhdl8ofHDJVWgvk9zua4yLClSA0rRzvbobNct6QVZmjyMUdXYoaRP3cucom5xo4zlKLihjDfofZtQnnlFUcchmzv5XPHsT+5GXOIXzEVjc6vcMielfznEPeZAldKBkVoGgJho6xcTvC1UPvUfS3WQwg1k8dhWJgoaYMXFgO8u7qyr6cUfvEM7DX20HIcuVhYfH/1/iX45lAgHxSWofNGcciwYa1CiTmuWDEbs5vjtK27lfNvqXVTctNDdWW6c+UwLYJXfjS4cNwcqtPFGnPcjUcDPk/Y76GLcMuxcY8wYjDDDUVHD/Uocn+aqKfrhjlWqq3k06kmwwk/UtPWPClCg0NKk3DRRad9ovDAFDnOOtNwv7AKFCGsHZ+fUOt+4v54cubik9VjpHLu6Fge43IoWypXAmG2//EhxIaM88e72xfqP7GICx40rNmDsNdDF1iQEN3fZEiomFIXCXyfnKZ2N1gyTOU9l3TkNqrCbLxyI+R05/7a6quMPt7dwogHYQWyllz5t85P4K5iD21ko5tZ9yqtWeyk4JJ9wWnSvKoisT1P9zdncnYzhzX3IEpR0xix0anN458v5Byh357aNfcZbCtXVGMgOYWZwFyBChUz22MhbP3euiBv7USF2nPyfbCWrIXH3nJ+GZJqp7XJnM1hJuJEySvMbubWABxlFHA9uZ5cvZTlYTYHOlqpzdHIVAr01lDC2rWJSxtDG4QFior8igWWIRoGNAC11sGcCtIG0Ya88drfjtuKYd/SsHW+DFub23S+zcb5OC6fbcWR7TYU1DDY1njO2trOK3v9fzX+l6tx7B0r07StyXmrZhq6u/3YvsfT2MYMyT6OoxszzNO2PEzvRYZVEDWz3e6BhH+L9TDY8bixbKCWTmw8l5gvqRb+hzr/6z58RcCa+/P9u6G6M1Bany+ij+DTBj2hF6dd8o3EL37dvz1cwmscDzPW9+cxD3RcicPifJP++MMtDsMXktWDGw==
+sidebar_class_name: "get api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"The context window of a provider's models, and where it came from"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ai/providers/{id}/context"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For the provider's default model, every model with an override, every model the user has called through it, and any named in models. source is override, provider (reported by the provider), guess (from the model's family) or default (128k). refresh asks the provider again instead of using what it said in the last six hours.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"query","name":"models","schema":{"type":"string"},"description":"More model ids, comma separated."},{"in":"query","name":"refresh","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per model."},"404":{"description":"Provider not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

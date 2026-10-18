@@ -43,3 +43,7 @@ During first-run setup, admins can also turn it off on the plugin picker.
 Reports go to Termix's [PostHog](https://posthog.com/) project. To send them to your own PostHog instead, set `POSTHOG_API_KEY` and `POSTHOG_HOST`.
 
 The code that builds the report is in this plugin's repo, so you can read exactly what it does.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/telemetry/reference#environment-variables) for the list.

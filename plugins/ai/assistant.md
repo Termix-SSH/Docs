@@ -4,7 +4,7 @@ sidebar_position: 12
 slug: "/ai/assistant"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/assistant.md"
 plugin_id: "ai"
-plugin_version: "1.0.1"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 The AI assistant works on all of Termix for you: it reads and changes hosts, credentials, snippets, fleets and alerts, opens views, and, if an admin allows it, runs shell commands on the hosts you pick.

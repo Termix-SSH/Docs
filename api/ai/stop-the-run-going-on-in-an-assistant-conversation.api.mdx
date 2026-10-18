@@ -1,0 +1,70 @@
+---
+id: stop-the-run-going-on-in-an-assistant-conversation
+title: "Stop the run going on in an assistant conversation"
+description: "Ends the model call and any command or CLI call it has running, and answers once the run has ended. stopped is false when there was none."
+sidebar_label: "Stop the run going on in an assistant conversation"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu40YM/RWCpxaYtbPFnnRzF13A2wINmhRBkRoFI9HW1NLM7JCK4xr694Ijr6NukAX21outoR5n3iOHTydsWOrsk/oYsMKfQiOgLUMfG+6gpq4DCg1QOEId+96eY4b3v6ynd16hJYE8hODDzp2xcuAsEEPNZa88hILi0HCzANGYEjfgBbbUCcOh5WDAzHAggRADL/4M6FBpJ1jd42qNG4eJMvWsnC12Qm98E2mLDgP1jBX6Bh1m/jT4zA1Wmgd2KHXLPWF1Qj2mggrKO844jhtDS4pBWAzww9WV/f23JHctGzegosMIngUscHT47urdy5T3MTxyFrIlhKiwjUMw/OiwZ21jY9SjKLpJQYXL1A07H95Q8kvyy5hkWc92keXJN+PSTkaHwvnxcxmG3GGFpyk0ovuCyh9xyHDLufdPMGHQ4SNlTw/dJPocLSK2NHSKFbaqSarlUkvigp+oTx0v6tjjWMomXA/Z67FQeGDKnFeDCbnfjO6EdYx7z/MIJf8zHy+R2RY31p+JynyjS7uMC57baOsJhO788CHmnozzx7vbF+pvWMR6oHHPAYSDgi9XDeyQmP0/U49apsZaLPBj2bTcY4OVxNLouaQLt0kVuukyTpDn6/j3QV9l9PHuFiY8CCuQgvhdeOPDAu5sHFJmo+tswpT2LBapuWEbqvjI+VUVhe283N9cydX1GvZ8BFHK6sMODl5b0P7prxdyLtBvL+2ejw4Ora/b6SB5PmYBawWqVSztjIV4COfsmoINFdVq7ykcY2DgTniaMB+2saj22pnM1RpWIl6UgsLqem0DwFkmAW8XbxdXL2UFWK2BLlnakkJmagSONlDCOqTCJeWYorBA3VLYscA2ZsOARqCUcnzk0hCb9p6C8TrfjhuN6WKPu2h1jsFqSGF28twEvqRpcxaUg/7/jHu6cMpPukwd+WAlKE51OhvePT4bHjok+4lJ0AZtZnvosCquXpxv47A116zu8XR6IOHfczeOFv40cDYz2jybW7Gmxos9N1gVxl8p4He/nb8b38NrAj4PfTgWD+0GW6HDPR+nj8+4mRv89a83tziO/wKmNo3U
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop the run going on in an assistant conversation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/ops/conversations/{id}/stop"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Ends the model call and any command or CLI call it has running, and answers once the run has ended. stopped is false when there was none.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether a run was stopped."},"404":{"description":"Conversation not found."}}}
+>
+  
+</StatusCodes>
+
+
+      
