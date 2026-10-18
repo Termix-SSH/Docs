@@ -45,6 +45,8 @@ When a snippet has inputs, Termix asks for them and shows a preview before runni
 
 Turn on Confirm before running in your settings to be asked first.
 
+A snippet run on hosts has no terminal, so sudo cannot ask for a password. Turn on Fill sudo password in your settings and Termix answers the prompt with the host's sudo password, or its SSH password when no sudo password is set.
+
 ## On connect
 
 Set a Startup Snippet on a host and it runs in the terminal every time you connect. A snippet that asks for inputs is skipped.
