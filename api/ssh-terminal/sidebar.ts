@@ -30,6 +30,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "ssh-terminal/the-callers-default-terminal-look",
+          label: "The caller's default terminal look",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "ssh-terminal/save-some-of-the-callers-terminal-settings",
           label: "Save some of the caller's terminal settings",
           className: "api-method put",

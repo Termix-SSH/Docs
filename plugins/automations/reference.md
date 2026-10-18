@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/automations/reference"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
@@ -72,6 +72,7 @@ Services are how plugins call each other. Plugin authors can use these.
 | `docker.events` | ^1.0.0 | yes |
 | `host-metrics.viewers` | ^1.0.0 | yes |
 | `wake-on-lan.send` | ^1.0.0 | yes |
+| `ai.tasks` | ^1.0.0 | yes |
 
 ## API
 

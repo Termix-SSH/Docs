@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "SSH Terminal API",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
   },
   "servers": [
@@ -175,6 +175,23 @@
           },
           "500": {
             "description": "Failed to load settings."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/default-appearance": {
+      "get": {
+        "summary": "The caller's default terminal look",
+        "description": "Theme, font, cursor and the rest of the terminal appearance from the caller's host defaults, then the server's. Used by terminals without a host, like the local terminal.",
+        "tags": [
+          "Terminal"
+        ],
+        "responses": {
+          "200": {
+            "description": "Appearance values keyed by setting name."
+          },
+          "401": {
+            "description": "Not signed in."
           }
         }
       }

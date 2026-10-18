@@ -1,0 +1,68 @@
+---
+id: open-a-tunnel-endpoint-for-a-browser
+title: "Open a tunnel endpoint for a browser"
+description: "Opens the tunnel on 127.0.0.1 and returns a path under /plugin-api/web-endpoint/p/ that serves it to this browser. The path carries a short lived token and is the only credential for it."
+sidebar_label: "Open a tunnel endpoint for a browser"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu40YM/RWCl14U2QkKFNBtd7FFvQW6QZNFUARBQUuMNbE8o+VQsVXB/15wpNhO3Bz2WF9sz3DePD5yHgesOJbiWnXBY4FfW/YRtGbQzntuIHi4vPoln+fz/BLIVyCsnfgIBC1pDZ2vWGDWNt3K+Qtq3WzLywv2VRuc11k7A61JIbI8cwSnoAG0dhGWEraRJYfbmkeokkQcG3Ksgyg07pkr0LBmn252I7Hgmx5K4Yq9OmrgMQg4zTFDpVXE4h7veAmfJwb4kKHw946jfgxVj8WQ/jrhCguVjjMsg1f2alvUto0rycSYPUVTZMBY1rwh+6V9y1hgWD5xqZidAN1jHaIuKszwJfX0ZxM6r9ektdFoJbQs6jga2HTgCOu88ooF968wjvtRxfmVbR9Rz3azN/W8q1k4yTbpDcJU1hzfLRnu08eyi23wcWR7NZ/b12vwVDkJuz7VLzdqP/9X3MI/U+OsdVIdMMMgidPLnVAFjuCDQhcZaOq9HAvfNU1CvTxH/SMoRLfyXIHzORrlDWsdKiywDemaNmmE73enkccMU3eK9c6AnTRY4DAu7c8E/St0ArcsG7cbm1oww2cSR8tmlGpaTXwfqWsUC6xV21jMZpoO5ryjTdtwXoaNyf1gDMpOnPaJwpJJWD50Rv7+YZ8NWIawdny6Qq37nfvDygnEjfXrSOUU6NApxsVyTmFYTEGYTT9+DbIh4/zl7vYs+xuO0QU/PcrIXsH5VEq7JIj7J70dqJnMFijCxwSa3m9yFTuYOuU0pQO3MSvM0NltYwhm6Ckxfdrqu4y+3N3CGA+RFWjsjQvnc7ir2UMrbHSzZEG05mgrpZlIyRCeWd7NIrE9lfuHlfxwvYA19xCVRJ1fwdZpDbrZ/X2WziH0x6Vdc5/BtnZlPV4Uj9fksFCgUqMdm2IhbP10uiRvb49KtX3yffAM3EQeX5UZ4Z9HC/08Nu+ph81fW9bRjE6c6sS/nH8MSUanhvPKr+HD9cJeFEscFbnM5/nVmU42p4DACPwUYctL+LYA56OreHqdGVROuNSmhyBjhcnDzc1vB3fZZ8knNpRsfuqxCXiafgeDsiFDLx76ls1wHCH/8wE69rXyTmdtQ86bRskQh8lL7/FIFDN8NTjShNv1NuqsLhY8DEuK/E2a/d6Wv3csZnEPR8sc/QzHrk7ut+YeC/w0Knpxa5QsvOlGg3gzoM35DrZ//fXGPGs5DfpNqOyM0NaGNW2xQJs9qWrJH9PagA35VUerZDEJ0z7/AkAiKLA=
+sidebar_class_name: "post api-method"
+info_path: api/web-endpoint/web-endpoint-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open a tunnel endpoint for a browser"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-endpoint/proxy"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens the tunnel on 127.0.0.1 and returns a path under /plugin-api/web-endpoint/p/ that serves it to this browser. The path carries a short lived token and is the only credential for it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","endpointId","mountPath"],"properties":{"hostId":{"type":"integer"},"endpointId":{"type":"string"},"mountPath":{"type":"string","description":"Where the browser reaches /plugin-api/web-endpoint"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The proxy path."},"400":{"description":"Invalid request","or the endpoint does not use a tunnel.":null},"401":{"description":"Not signed in."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -6,9 +6,21 @@ slug: "/web-endpoint/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "web-endpoint"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Changed
+
+- In the browser, tunnel endpoints now open through Termix itself, behind your login, and the tunnel only listens on 127.0.0.1
+- Bind Host is ignored unless an admin turns on Allow tunnels on other addresses
+- The plugin name and description show in your language
+
+### Fixed
+
+- Setting Bind Host to an address like 0.0.0.0 published the endpoint's web UI to anyone who could reach the port, with no Termix login (GHSA-ccmp-2wpj-x458)
+
 ## 1.0.1
 
 ### Changed

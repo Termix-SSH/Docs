@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ssh-terminal/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 ## Settings

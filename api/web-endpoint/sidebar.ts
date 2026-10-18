@@ -22,6 +22,12 @@ const sidebar: SidebarsConfig = {
           label: "Open a host's web endpoint in a desktop window",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "web-endpoint/open-a-tunnel-endpoint-for-a-browser",
+          label: "Open a tunnel endpoint for a browser",
+          className: "api-method post",
+        },
       ],
     },
   ],

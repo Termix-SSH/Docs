@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Web Endpoint API",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Open a host's web UI inside Termix, directly or over an SSH tunnel."
   },
   "servers": [
@@ -149,6 +149,54 @@
           },
           "404": {
             "description": "Host not found or access denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/web-endpoint/proxy": {
+      "post": {
+        "summary": "Open a tunnel endpoint for a browser",
+        "description": "Opens the tunnel on 127.0.0.1 and returns a path under /plugin-api/web-endpoint/p/ that serves it to this browser. The path carries a short lived token and is the only credential for it.",
+        "tags": [
+          "Web Endpoint"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "endpointId",
+                  "mountPath"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "endpointId": {
+                    "type": "string"
+                  },
+                  "mountPath": {
+                    "type": "string",
+                    "description": "Where the browser reaches /plugin-api/web-endpoint"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The proxy path."
+          },
+          "400": {
+            "description": "Invalid request",
+            "or the endpoint does not use a tunnel.": null
+          },
+          "401": {
+            "description": "Not signed in."
           }
         }
       }

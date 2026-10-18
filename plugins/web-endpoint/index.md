@@ -7,7 +7,7 @@ description: "Open a host's web UI inside Termix, directly or over an SSH tunnel
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Web-Endpoint/edit/main/docs/index.md"
 plugin_id: "web-endpoint"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Web Endpoint opens a host's web UI inside Termix: Proxmox, a router page, Portainer, Home Assistant, anything with a web interface. Open it in a Termix tab, or in its own window in the desktop app. Reach it directly, or over an SSH tunnel through the host when it isn't reachable otherwise.

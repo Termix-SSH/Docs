@@ -7,7 +7,7 @@ description: "Run steps on your hosts on a schedule or when something happens."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/index.md"
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Automations run steps on your hosts when something happens. Restart a service when it stops answering, clean up a disk when it fills, wake machines in the morning, or send yourself an alert when a container dies.
@@ -48,6 +48,7 @@ Automations works on its own for schedules, webhooks, commands and alerts. Other
 | Wake a host                          | [Wake-on-LAN](/plugins/wake-on-lan)   |
 | A fleet as the target                | [Fleets](/plugins/fleets)             |
 | Run a snippet                        | [Snippets](/plugins/snippets)         |
+| Ask AI                               | [AI Assistant](/plugins/ai)           |
 
 The editor only offers what is available. If a plugin an automation needs is turned off later, the automation shows Needs and its runs are skipped until the plugin is back.
 

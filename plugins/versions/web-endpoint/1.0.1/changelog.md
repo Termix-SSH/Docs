@@ -1,0 +1,25 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+sidebar_position: 99
+slug: "/web-endpoint/v/1.0.1/changelog"
+custom_edit_url: null
+toc_max_heading_level: 2
+plugin_id: "web-endpoint"
+plugin_version: "1.0.1"
+plugin_latest: false
+---
+## 1.0.1
+
+### Changed
+
+- Translated into every supported language
+
+## 1.0.0
+
+### Added
+
+- First release
+- Open a web UI in a Termix tab or its own desktop window
+- Connect directly, or over an SSH tunnel through the host
+- Embedded pages never see your Termix login

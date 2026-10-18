@@ -7,7 +7,7 @@ description: "SSH terminal sessions with tabs, split screen, history, macros and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 SSH Terminal is the terminal in Termix. Click a host and you are in a shell on it, in a tab you can split, rename and keep open across devices. It handles jump hosts, host key checks, tmux and Mosh, and keeps your session alive when your connection drops.
@@ -51,7 +51,9 @@ Paste or drop an image into a terminal and Termix uploads it to the host and typ
 
 ## Local terminal
 
-In the desktop app, open Local Terminal from the rail or the command palette for a shell on your own computer. It uses PowerShell on Windows, zsh on macOS and your `SHELL` on Linux. Set `TERMIX_LOCAL_SHELL` to use another.
+In the desktop app, open Local Terminal from the rail or the command palette for a shell on your own computer. You can also give Open new Local Terminal a shortcut in Settings, Keyboard Shortcuts. It works from anywhere in the app, including an SSH terminal, and each use opens and focuses a new session. It uses PowerShell on Windows, zsh on macOS and your `SHELL` on Linux. Set `TERMIX_LOCAL_SHELL` to use another.
+
+The clipboard settings in SSH Tools also apply to Local Terminal: right-click copy/paste, Ctrl+V paste and automatic copying of selected text. With automatic copying enabled, finishing a selection copies it and right-click pastes.
 
 ## Look and feel
 

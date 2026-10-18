@@ -6,9 +6,19 @@ slug: "/ldap/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ldap"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Added
+
+- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in
+
+### Changed
+
+- The plugin name and description show in your language
+
 ## 1.0.1
 
 ### Changed

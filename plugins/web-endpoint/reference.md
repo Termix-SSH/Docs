@@ -5,10 +5,18 @@ sidebar_position: 90
 slug: "/web-endpoint/reference"
 custom_edit_url: null
 plugin_id: "web-endpoint"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
+
+### Admin
+
+Set by an admin in **Settings**, under the plugin's name. It applies to everyone.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Allow tunnels on other addresses | boolean | `false` | Lets an endpoint's bind address publish its tunnel on this server's network, with no Termix login in front of it. Leave off: browsers reach tunnels through Termix itself. |
 
 ### Host
 

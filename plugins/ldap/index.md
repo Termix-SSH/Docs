@@ -7,7 +7,7 @@ description: "Sign in with your LDAP or Active Directory username and password."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-LDAP/edit/main/docs/index.md"
 plugin_id: "ldap"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 LDAP lets people sign in to Termix with their LDAP or Active Directory username and password. Termix checks the password against your directory. Nobody needs a separate Termix password.
