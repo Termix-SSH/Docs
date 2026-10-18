@@ -5,7 +5,7 @@ description: Run Termix on Kubernetes with plain manifests.
 
 # Kubernetes
 
-Termix runs as one pod. If you use remote desktop, run guacd in the same pod. They then share one volume for recordings and drive files, and you avoid two pods fighting over a `ReadWriteOnce` disk.
+Termix runs as one pod.
 
 Run one replica with SQLite. To run more than one, use [PostgreSQL or MySQL](/configure/database) and set `REDIS_URL` so plugins that keep live state, like Session Sharing, share it across pods.
 
@@ -55,14 +55,6 @@ spec:
           env:
             - name: PORT
               value: "8080"
-            - name: GUACD_HOST
-              value: "127.0.0.1"
-            - name: GUACD_TUNNEL_HOST
-              value: "127.0.0.1"
-            - name: GUACD_RECORDING_PATH
-              value: "/termix-data/session_recordings/guacamole"
-            - name: GUACD_DRIVE_PATH
-              value: "/termix-data/rdp-drive"
           volumeMounts:
             - name: data
               mountPath: /app/data
@@ -71,11 +63,6 @@ spec:
               path: /health
               port: 8080
             initialDelaySeconds: 20
-        - name: guacd
-          image: guacamole/guacd:1.6.0
-          volumeMounts:
-            - name: data
-              mountPath: /termix-data
       volumes:
         - name: data
           persistentVolumeClaim:
@@ -101,7 +88,7 @@ kubectl -n termix port-forward svc/termix 8080:8080
 
 Open `http://localhost:8080` and do the [first run](/install/first-run).
 
-If you don't need remote desktop, remove the `guacd` container and the four `GUACD_` variables.
+To use your own guacd for remote desktop, run it as a second container in the same pod and see [External guacd](/plugins/remote-desktop#external-guacd-optional).
 
 ## Expose it
 

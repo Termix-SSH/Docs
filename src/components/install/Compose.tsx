@@ -1,21 +1,12 @@
 import React from "react";
 import CodeBlock from "@theme/CodeBlock";
-import { GUACD_IMAGE, IMAGE } from "@site/src/data/images";
+import { IMAGE } from "@site/src/data/images";
 
-type Variant = "full" | "minimal" | "postgres" | "mysql" | "https";
+type Variant = "full" | "postgres" | "mysql" | "https";
 
 function compose(variant: Variant, tag: string): string {
   const image = `${IMAGE}:${tag}`;
-  const guacd = variant !== "minimal";
   const env: string[] = ['      PORT: "8080"'];
-  if (guacd) {
-    env.push(
-      '      GUACD_HOST: "guacd"',
-      '      GUACD_TUNNEL_HOST: "termix"',
-      '      GUACD_RECORDING_PATH: "/termix-data/session_recordings/guacamole"',
-      '      GUACD_DRIVE_PATH: "/termix-data/rdp-drive"',
-    );
-  }
   if (variant === "postgres") {
     env.push(
       '      DATABASE_DIALECT: "postgres"',
@@ -37,7 +28,6 @@ function compose(variant: Variant, tag: string): string {
   }
 
   const depends = [
-    ...(guacd ? ["guacd"] : []),
     ...(variant === "postgres" ? ["postgres"] : []),
     ...(variant === "mysql" ? ["mysql"] : []),
   ];
@@ -60,17 +50,6 @@ function compose(variant: Variant, tag: string): string {
       : []),
   ];
 
-  if (guacd) {
-    lines.push(
-      "",
-      "  guacd:",
-      `    image: ${GUACD_IMAGE}`,
-      "    container_name: guacd",
-      "    restart: unless-stopped",
-      "    volumes:",
-      "      - termix-data:/termix-data",
-    );
-  }
   if (variant === "postgres") {
     lines.push(
       "",

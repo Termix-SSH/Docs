@@ -18,6 +18,17 @@ You can pass details up front to skip some of the questions:
 | `--username <name>` | Your username                                  |
 | `--password-stdin`  | Read the password from stdin instead of asking |
 | `--totp <code>`     | Your 2FA code                                  |
+| `--sso [name]`      | Sign in with single sign-on in your browser    |
+
+### Single sign-on
+
+If you sign in to Termix through single sign-on (OIDC, like Entra or Google), use `--sso`:
+
+```bash
+termix login --url https://termix.example.com --sso
+```
+
+Your browser opens on the provider's sign in page and the CLI waits. Once you are done, the browser hands the session back to the CLI on a local port. If your server has more than one provider, name it: `--sso Entra`. On a machine with no browser, open the printed link in a browser on the same machine, or use an API key.
 
 Check who you are signed in as:
 

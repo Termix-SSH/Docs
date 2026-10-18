@@ -110,6 +110,18 @@ const res = await ctx.fetch("https://api.example.com/v1/thing", {
 
 You can use any npm package. It is bundled into `dist/backend.js`. A few come from Termix instead and are never bundled, so you share one copy:
 
-`@termix-ssh/plugin-sdk`, `express`, `ssh2`, `ws`, `multer`, `cookie-parser`, `axios`, `jszip`, `guacamole-lite`, `@anthropic-ai/sdk`, `drizzle-orm`, `sharp`, and every Node builtin.
+`@termix-ssh/plugin-sdk`, `express`, `ssh2`, `ws`, `multer`, `cookie-parser`, `axios`, `drizzle-orm`, `sharp`, and every Node builtin.
+
+### Workers and WebAssembly
+
+Heavy work like decoding or encoding belongs in a worker thread, so it never blocks the server. Name each worker entry in `package.json`:
+
+```json
+"termix": { "workers": { "engine": "src/backend/engine/worker.ts" } }
+```
+
+`termix-plugin build` (SDK 1.0.9 and later) bundles it on its own into `dist/workers/engine.js`. Start it with `new Worker(new URL("./workers/engine.js", import.meta.url))`. A worker bundles everything it imports, so it must not import `@termix-ssh/plugin-sdk`.
+
+Importing a `.wasm`, `.ttf` or `.otf` file gives its bytes as a `Uint8Array`, in builds and in tests. Compile a module once on the main thread with `WebAssembly.compile` and pass it to each worker. The Remote Desktop plugin does this for its engine.
 
 Packages with native `.node` bindings can't be bundled. List them in `nativeDependencies`. A community plugin can't rely on them being on the server yet, so avoid them if you can.

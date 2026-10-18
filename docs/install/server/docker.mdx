@@ -14,18 +14,9 @@ Docker is the easy way to run Termix. The image has the web UI, the server and e
 ## Start it
 
 <Tabs>
-  <TabItem value="full" label="Compose with remote desktop" default>
-
-This runs Termix and guacd. guacd is what the [Remote Desktop](/plugins/remote-desktop) plugin uses for RDP, VNC and Telnet.
+  <TabItem value="full" label="Compose" default>
 
 <Compose variant="full" />
-
-  </TabItem>
-  <TabItem value="minimal" label="Compose without remote desktop">
-
-Use this if you only need SSH. You can add guacd later.
-
-<Compose variant="minimal" />
 
   </TabItem>
   <TabItem value="run" label="docker run">
@@ -83,7 +74,7 @@ See [backup and restore](/install/backup) for how to back it up.
 | `8080` | The web UI and API. Change it with `PORT`. |
 | `8443` | HTTPS, when `ENABLE_SSL` is on. Change it with `SSL_PORT`. |
 
-guacd listens on `4822`, but only Termix needs to reach it. Don't publish it.
+If you run your own guacd for remote desktop instead, see [External guacd](/plugins/remote-desktop#external-guacd-optional). Don't publish its port.
 
 ## Update
 

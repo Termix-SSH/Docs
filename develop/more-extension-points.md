@@ -36,15 +36,16 @@ A button runs its action when pressed. A `component` contribution draws whatever
 
 Some slots you can fill:
 
-| Slot                                                                                   | Where                                                                |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `terminal.toolbar`, `terminal.toolbarStatus`, `terminal.sidePanel`, `terminal.overlay` | The SSH terminal.                                                    |
-| `dashboard.counters`, `dashboard.hostMetrics`                                          | Dashboard cards.                                                     |
-| `admin.userTabs`                                                                       | A tab on a user's page in admin settings.                            |
-| `hosts.importMenu`, `hosts.panel`                                                      | The hosts panel.                                                     |
-| `credentials.badges`                                                                   | Credential rows.                                                     |
-| `shell.overlay`                                                                        | Rendered once at the root of the app, for UI that is always mounted. |
-| `tab.menu`                                                                             | A tab's menu.                                                        |
+| Slot                                                                                   | Where                                                                       |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `terminal.toolbar`, `terminal.toolbarStatus`, `terminal.sidePanel`, `terminal.overlay` | The SSH terminal.                                                           |
+| `dashboard.counters`, `dashboard.hostMetrics`                                          | Dashboard cards.                                                            |
+| `admin.userTabs`                                                                       | A tab on a user's page in admin settings.                                   |
+| `hosts.importMenu`, `hosts.panel`                                                      | The hosts panel.                                                            |
+| `credentials.badges`                                                                   | Credential rows.                                                            |
+| `shell.overlay`                                                                        | Rendered once at the root of the app, for UI that is always mounted.        |
+| `shell.rightEdge`                                                                      | The right edge of the window. Whatever width it takes pushes the page over. |
+| `tab.menu`                                                                             | A tab's menu.                                                               |
 
 ## Components
 
