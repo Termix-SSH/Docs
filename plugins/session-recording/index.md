@@ -7,7 +7,7 @@ description: "Record terminal and remote desktop sessions and play them back or 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Session-Recording/edit/main/docs/index.md"
 plugin_id: "session-recording"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Session Recording saves what happens in your sessions so you can watch them back later: SSH terminals as text, and RDP, VNC and Telnet sessions as video. Use it for audits, for training, or to see what you ran last week.

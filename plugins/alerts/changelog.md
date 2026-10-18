@@ -6,9 +6,19 @@ slug: "/alerts/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "alerts"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Changed
+
+- The plugin name and description show in your language
+
+### Fixed
+
+- ntfy alerts with non-ASCII titles or links arrived garbled or were not sent
+
 ## 1.0.1
 
 ### Changed
