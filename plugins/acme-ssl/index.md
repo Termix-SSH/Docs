@@ -7,7 +7,7 @@ description: "Gets the Termix HTTPS certificate from Let's Encrypt or any ACME p
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-ACME-SSL/edit/main/docs/index.md"
 plugin_id: "acme-ssl"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ACME Certificates gets the HTTPS certificate Termix serves from Let's Encrypt, or any other ACME certificate authority, and renews it before it runs out. The new certificate is swapped in without a restart.
