@@ -7,7 +7,7 @@ description: "A drag and drop widget page for your servers and services, plus se
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Homepage/edit/main/docs/index.md"
 plugin_id: "homepage"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Homepage is a page of widgets you arrange yourself: your servers' status, links to your services, bookmarks, a clock, the weather, notes, an RSS feed, even a live terminal. Think of it as a start page for your homelab.

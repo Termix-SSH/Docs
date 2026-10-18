@@ -7,7 +7,7 @@ description: "SSH port forwarding that reconnects on its own, plus client tunnel
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/index.md"
 plugin_id: "tunnels"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconnects on its own. Tunnels can start when Termix starts, so they are always there, and the desktop app can run tunnels on your own computer.

@@ -7,7 +7,7 @@ description: "Browse and control tmux sessions, windows and panes across your ho
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/edit/main/docs/index.md"
 plugin_id: "tmux-monitor"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 Tmux Monitor shows every tmux session on your hosts in one place, with a live preview of each pane. Create, rename, split and kill sessions, windows and panes without attaching, and attach a terminal in one click when you do want in.

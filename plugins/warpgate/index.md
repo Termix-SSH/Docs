@@ -7,7 +7,7 @@ description: "Connect to hosts through a Warpgate SSH bastion."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Warpgate/edit/main/docs/index.md"
 plugin_id: "warpgate"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Warpgate lets Termix connect to hosts through a [Warpgate](https://github.com/warp-tech/warpgate) SSH bastion. Warpgate can ask you to approve a sign in in the browser. Termix shows that as a sign in dialog in the terminal, and sends your saved password to Warpgate for you.

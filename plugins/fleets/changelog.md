@@ -6,9 +6,19 @@ slug: "/fleets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "fleets"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Added
+
+- Pick a snippet in a fleet's Run command tab to run it on every host in the fleet
+
+### Changed
+
+- The plugin name and description show in your language
+
 ## 1.0.1
 
 ### Fixed

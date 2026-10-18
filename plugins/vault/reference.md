@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/vault/reference"
 custom_edit_url: null
 plugin_id: "vault"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings

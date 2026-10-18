@@ -7,7 +7,7 @@ description: "Browse, edit and move files over SFTP, including straight from one
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-File-Manager/edit/main/docs/index.md"
 plugin_id: "file-manager"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 File Manager lets you browse and change files on your hosts over SFTP. Upload, download, rename, move, delete, edit files in a code editor, preview images and video, and copy files straight from one server to another.

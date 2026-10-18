@@ -6,9 +6,20 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
+## 1.0.3
+
+### Changed
+
+- The plugin name and description show in your language
+
+### Fixed
+
+- When the endpoint host could not reach a client tunnel's target, the error did not say which address it tried. It now names it, like 127.0.0.1:8443, which is what an empty remote address means
+- Starting or stopping a server tunnel from the Tunnels tab said "Client tunnel started" or "Client tunnel stopped"
+
 ## 1.0.2
 
 ### Fixed

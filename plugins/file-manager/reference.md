@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/file-manager/reference"
 custom_edit_url: null
 plugin_id: "file-manager"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 ## Settings

@@ -29,7 +29,11 @@ It needs the [Tunnels](/plugins/tunnels) plugin.
 - Direct: your browser opens the host's address and port itself. The port has to be reachable from where you are.
 - SSH tunnel: Termix forwards the port over the host's SSH connection. Use it for a web UI that only listens on the host itself, or behind a firewall. It needs SSH on for the host.
 
-For a tunnel, Bind Host is where the forward listens. Leave it blank for `127.0.0.1`. If you set an address others can reach, anyone who can reach that port gets the web UI with no Termix login, so be careful. Local Port is picked for you unless you set one.
+A tunnel always listens on `127.0.0.1` on the Termix server. In the browser, Termix serves it to you through its own address, behind your login, using a link that expires when you stop using it. The desktop app opens the tunnel directly.
+
+Apps that load files from absolute paths like `/static/app.js`, or that need WebSockets, may not work through the browser. Use the desktop app for those.
+
+Bind Host lets a tunnel listen on another address, but only when an admin turns on Allow tunnels on other addresses in the plugin's settings. Anyone who can reach that port then gets the web UI with no Termix login. Local Port is picked for you unless you set one.
 
 ## Your Termix login stays safe
 

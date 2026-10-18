@@ -35,9 +35,11 @@ The sign in page now shows a button for the directory. Pressing it asks for an L
 | User Search Base       | Where users live, like `ou=users,dc=example,dc=com`.                                                                                                     |
 | User Search Filter     | How to find a user. `{{username}}` is replaced with what they typed, like `(uid={{username}})`, or `(sAMAccountName={{username}})` for Active Directory. |
 | Username Attribute     | The attribute with the username. It becomes the Termix username. Usually `uid`, or `sAMAccountName` in Active Directory.                                 |
-| Group Search Base      | Where groups live, for the admin check.                                                                                                                  |
+| Group Search Base      | Where groups live, for the admin check and group roles.                                                                                                  |
 | Admin Group            | Members of this group are Termix admins. Its `cn` or full DN; case and spaces in a DN don't matter.                                                      |
 | Allowed Users          | A comma separated list of usernames allowed to sign in. Empty allows anyone the directory accepts.                                                       |
+| Default roles          | Termix roles every user from this directory gets when they sign in, separated by commas.                                                                 |
+| Group roles            | One `group:role` per line, the group as its `cn` or full DN.                                                                                             |
 
 ## How sign in works
 
@@ -48,6 +50,8 @@ The sign in page now shows a button for the directory. Pressing it asks for an L
 If Auto-create external accounts is off in Settings, General, only people who already have an account can sign in this way. An admin can link an LDAP account to an existing local one in Settings, Users.
 
 If you set Group Search Base and Admin Group, admin rights follow the group on every sign in. Add someone to the group and they are an admin next time they sign in. Remove them and they lose it.
+
+Group roles work the same way for custom roles: a user gets each mapped role while they are in its group, from their first sign in on, so new people can reach shared hosts right away. Default roles are given on every sign in and never taken away. Create the roles in Settings, Roles first; a role name that does not exist is skipped.
 
 ## With other sign in options
 

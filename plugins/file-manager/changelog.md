@@ -6,9 +6,16 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
+## 1.0.3
+
+### Changed
+
+- Sorting moved out of the New menu into its own Sort By button
+- The plugin name and description show in your language
+
 ## 1.0.2
 
 ### Fixed

@@ -7,7 +7,7 @@ description: "Connect to hosts with short-lived SSH certificates signed by Hashi
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Vault/edit/main/docs/index.md"
 plugin_id: "vault"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 HashiCorp Vault lets you connect to hosts with short-lived SSH certificates signed by [Vault](https://www.vaultproject.io/). When you connect, you sign in to Vault with OIDC, Vault signs a throwaway key, and Termix uses it for that connection. No Vault token, password or long-lived key is stored in Termix.

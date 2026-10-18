@@ -7,7 +7,7 @@ description: "Sign in with a passkey or security key instead of a password."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-WebAuthn/edit/main/docs/index.md"
 plugin_id: "webauthn"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Passkeys lets you sign in to Termix with a passkey or a security key instead of a password: Face ID, Touch ID, Windows Hello, a YubiKey, or a passkey synced by your password manager. Passkeys can't be phished, since they only work on the site they were made for.
