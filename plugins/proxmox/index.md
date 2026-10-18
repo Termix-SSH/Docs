@@ -7,7 +7,7 @@ description: "Import Proxmox VE guests as hosts, keep them in sync and watch nod
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Proxmox/edit/main/docs/index.md"
 plugin_id: "proxmox"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Proxmox finds the VMs and LXC containers on a Proxmox VE node and imports them as hosts, so you don't add each one by hand. It can keep them in sync as guests come and go, and shows node, guest, storage and cluster stats in their own tab.

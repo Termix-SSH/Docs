@@ -7,7 +7,7 @@ description: "Draws your hosts and the links between them as a live, interactive
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Network-Topology/edit/main/docs/index.md"
 plugin_id: "network-topology"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Network Topology draws your hosts and the links between them as a graph. You build it by hand, so it shows your network the way you think about it: the router, the switch behind it, the servers in each rack. Each host shows its live status.
