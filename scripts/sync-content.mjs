@@ -550,7 +550,7 @@ function referencePage(manifest, locale, capabilities, routeBase, apiLink) {
     parts.push(
       "## Environment variables",
       "",
-      "Set these on the Termix server, for example under `environment:` in your compose file.",
+      "Set these on the Termix server, for example under `environment:` in your compose file. See [environment variables](/configure/environment-variables) for the ones core and other plugins read.",
       "",
       table(
         ["Variable", "Default", "What it does"],
@@ -779,6 +779,11 @@ async function syncPlugin(plugin, capabilities) {
 
     const index = read(path.join(docsDir, "index.md"));
     const parsed = index ? parseMarkdown(index) : null;
+    const envLink = `/plugins${slug}/reference#environment-variables`;
+    const envNote =
+      manifest.env?.length && !parsed?.body.includes(envLink)
+        ? `\n\n## Environment variables\n\nThis plugin reads some environment variables on the Termix server. See the [reference](${envLink}) for the list.`
+        : "";
     write(
       path.join(dir, "index.md"),
       frontMatter({
@@ -795,6 +800,7 @@ async function syncPlugin(plugin, capabilities) {
       }) +
         (parsed?.body.trim() ||
           `${manifest.description}\n\nThis plugin has no docs page yet. See its [repository](${plugin.repository}).`) +
+        envNote +
         "\n",
     );
 
