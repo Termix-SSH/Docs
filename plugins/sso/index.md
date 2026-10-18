@@ -7,7 +7,7 @@ description: "Sign in with any OpenID Connect provider, GitHub or Google."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSO/edit/main/docs/index.md"
 plugin_id: "sso"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, plus GitHub and Google.
