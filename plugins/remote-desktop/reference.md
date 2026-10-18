@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -16,7 +16,8 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
-| Enable Remote Desktop | boolean | `true` | Allow RDP, VNC and Telnet connections through guacd. |
+| Enable Remote Desktop | boolean | `true` | Allow RDP, VNC and Telnet connections. |
+| Use an external guacd | boolean | `false` | Termix runs RDP, VNC and Telnet itself. Turn this on to send them to your own guacd instead. REMOTE_DESKTOP_ENGINE overrides this. |
 | guacd URL | string |  | Where guacd listens, as host:port. The GUACD_URL, GUACD_HOST and GUACD_PORT environment variables override this. |
 
 ### Host
@@ -43,13 +44,15 @@ Set these on the Termix server, for example under `environment:` in your compose
 
 | Variable | Default | What it does |
 | --- | --- | --- |
-| `GUACD_HOST` | `localhost` | Host guacd listens on. Overrides the guacd URL setting. |
-| `GUACD_PORT` | `4822` | Port guacd listens on. |
-| `GUACD_URL` |  | guacd as host:port, in place of GUACD_HOST and GUACD_PORT. |
-| `GUACD_TUNNEL_HOST` | `termix` | Address guacd uses to reach Termix for hosts behind jump hosts and VNC without a username. In Compose, the Termix container name. In Kubernetes it defaults to the pod IP. |
-| `GUACD_RECORDING_PATH` |  | Folder guacd writes recordings to, as guacd sees it. |
-| `GUACD_RECORDING_BACKEND_PATH` | `/app/data/session_recordings/guacamole` | The same folder as Termix sees it. |
-| `GUACD_DRIVE_PATH` | `/drive` | Folder guacd keeps RDP drive files in. Each user gets a folder under it. |
+| `REMOTE_DESKTOP_ENGINE` | `builtin` | builtin runs RDP, VNC and Telnet inside Termix. guacd sends them to an external guacd instead. Overrides the Use external guacd setting. |
+| `RDP_DRIVE_PATH` | `/app/data/rdp-drive` | Folder the built-in engine keeps RDP drive files in. Each user gets a folder under it. |
+| `GUACD_HOST` | `localhost` | Host an external guacd listens on. Only used with Use external guacd. Overrides the guacd URL setting. |
+| `GUACD_PORT` | `4822` | Port an external guacd listens on. |
+| `GUACD_URL` |  | An external guacd as host:port, in place of GUACD_HOST and GUACD_PORT. |
+| `GUACD_TUNNEL_HOST` | `termix` | Address an external guacd uses to reach Termix for hosts behind jump hosts and VNC without a username. In Compose, the Termix container name. In Kubernetes it defaults to the pod IP. |
+| `GUACD_RECORDING_PATH` |  | Folder an external guacd writes recordings to, as guacd sees it. |
+| `GUACD_RECORDING_BACKEND_PATH` | `/app/data/session_recordings/guacamole` | Folder Termix keeps remote desktop recordings in. With an external guacd, the same folder as Termix sees it. |
+| `GUACD_DRIVE_PATH` | `/drive` | Folder an external guacd keeps RDP drive files in. Each user gets a folder under it. |
 | `GUACAMOLE_ENCRYPTION_KEY` |  | Key that encrypts connection tokens, 64 hex characters. Made for you on each start if not set. Set it when you run more than one Termix server. |
 
 ## Permissions
@@ -85,7 +88,7 @@ Services are how plugins call each other. Plugin authors can use these.
 
 | Provides | Version | Permission |
 | --- | --- | --- |
-| `sessions.live` (rdp, vnc, telnet) | 1.0.0 | `remote-desktop.sessions` |
+| `sessions.live` (rdp, vnc, ard, telnet) | 1.0.0 | `remote-desktop.sessions` |
 
 | Uses | Version | Optional |
 | --- | --- | --- |

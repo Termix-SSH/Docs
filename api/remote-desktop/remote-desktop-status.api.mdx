@@ -1,11 +1,11 @@
 ---
 id: remote-desktop-status
 title: "Remote Desktop status"
-description: "Whether Remote Desktop is turned on, and whether guacd answers at the configured address."
+description: "Whether Remote Desktop is turned on, which engine runs sessions (builtin or guacd), and with guacd whether it answers at the configured address. The built-in engine always reports a connected guacd so older clients still connect."
 sidebar_label: "Remote Desktop status"
 hide_title: true
 hide_table_of_contents: true
-api: eJy1Vl1vGzcQ/CuLfT5LboC+qE9u0xROgcKI1RqFIQQUubpjdUdeuHuWVeH+e7GkZNnyR5ACeZHluyF3Znc41A4dsU2+Fx8DzvCmIWkowSfqohC8J15L7MEzyJACOYihAhMcbPbAejDWgQm8ocRgBKQhsDGsfD0kcmCcS8Q8wQrF1IyzW3y6Ny4qZLJD8rLF2e0Ol2QSpYtBGpzdLsZFhb1JpiOhxBngleiXgdIWKwymI5xhn+KSsEK2DXUGZzuUba8vWJIPNY7VidBrEpAI5/rBa9+D86b1oS6CJjhWLxdqIsule6mSD0I1pRdKmTtyoAth00Smfc+YRHyoGbiJQ+tgSWAbsmtyP0GiL4NPxNCnKNHGNvfcWEvMylgaI3nH14keVr7RlAopDJ2OJLkeK7wLVsdEbSDBxaitT8R9DEysq9+dn+ufp+rmDQGLkYGVC/74GiZrg5XxLWl7xwo7kiY6nGFNgjplnThO+3aofTgzvZ+m7JQzV5wyLWVUEKW7gxuG1OIMd+XRiKfN/zsOCeaUOn8PBaNCTfJm2RZV+6eZ9MoMreiURXqeTaeSF07o3nR9SxMbOxxzXw6OvdbWln0e+/ah07rRYQL6fwFhtf/yIabOaMGPN/Nn1K+J2ccAEtcUgCkI+JDPlxaJyf9rFAkNGUcJDMPPedPsFYXlhXkqNsa1pxNupve/kzom26dAjv75ZyOvMvp4M4eCVxfrqWdfhzMfJnDTUIA+kdKtwAuIWWcfkyVHwRLEO0qvqshsC7H/2cmLq0tY01Y9mfR8wcZLA9Ldf34m5wH67a1d07aCTeNtUwrxscwELgWMFdZleyzETdivtiaEmAH63oRtDATUMpVD4cMqZtVeWpV5EsQXV5fqX0pcJPwwOZ+8eybs0/urCv7645dccJ7PM3CZHavQrR6KZYobplQV5rb1/TKa5CpY+ZZAkgm80tfcGE2LvFciG5Pzoc5z6iNLZ4LS3ZvmhO3DgX1Cb4c2BqEg3/u+KcYRupdp3xoflHOOi90+bG7xGDaoYfc4btRshf+iyrGv+N1uaZj+TO046uOSuRpDzrMmisPZyrRMb0j+2s3zCvE1bR/dc3emHRST4/8ban/Xq+hN5g8X59vUH2QeLq8jfHEM7vzL4NEN8tuvGp/maWKcJEQe0yH6wvbR1rtdQcw1L0e9QwqLnJ84LsZx/A8LXis1
+api: eJzlVk1vIzcM/SsETy0wsbMFenFPabctsgWKYOM2KAKjkDX0jGqNNCty4rjG/PcFJTtOnI9iC/TUi+PMPIl85OOjd1gT2+R6cTHgDG9akpYSfKQuCsF74rXEHhyDDClQDTFUsGmdbYFC4wJBGgIDE7OLgeGr5eC8uAAxQTMYW39dgQk1bJy05QFs9iGcgAm8ocRgBKQlsDGsXDMkqsHUdSLmCcxbgnznmQuHkMZvzJYhUR+TMBg9GMgK1fsQHCH6mhJY7ygIA4vz/gCbYIViGsbZLT7liYsKmeyQnGxxdrvDJZlE6WKQFme3i3FRYW+S6UgocQY4LdqngdIWKwymI5xhn+KSsEK2LXUGZzuUba8vWJILDY7VSdGvSUAinOsHr10PtTPehaawmeBYvRyojSyX9UuRXBBqKL0QytxRDXoQNm1kOhSMRFxoGLiNg69hSWBbsmuqv4NEnwaXiKFPUaKNPjfUWEvMmrG0RvKNryd6OPlGUSqkMHTaklT3WOFdsFihSUpPyAcSXIzagETcx8DEesc35+f65ylHlQyLkYE1I/z2NUxmCCvjPGmRxwo7kjbWOMOGBLXX2nec9n5oXDgzvZumrJezuuhlWsIoLUp3B00MyeMMd+XRiKct+CMOCeaUOncPBaN0TXJm6Qur/dOc9MoMXrTXIj3PplPJByd0b7re08TGDsdcl4Nur7XA5Z7H6n2ot1506IP+X0BY7b/8FFNnNOCHm/mz1K/LmIPENQVgCgIu5NHVIDG5v40ioSWj02cYvs+XZsUoLB/MXbExrh2d5GZ69wupbrKICuSoor828mpGH27mUPCqZTUUdk04c2ECNy0F6BNpupW6jph1VjNZqilYgnhH6VUWOduS2L+s5MXVJaxpq5pMOmXFDKW7//MZnQfol5d2TduDM+dAfAwzgUsBY9Uq+YCFuAn709aEEDNA35uwjYGAPFMZChdWMbN24pXmyWq4uLpU/VLiQuHd5N3k/Bmxj++vKvj91x8quOh7T6f7RdOY5yk/rhIXYKujskxxw5Sqwsd61y+jSXUFK+cJJJnAK33NrVEnyXclsjHVLjS5e31k6UxQEnspnYR/GOMnSe/QxiAU5P+0F4u0he5l2nvjgtYvG9pub4e3eLRDVDt+bIg6DqWWiyqvJ8XvdkvD9Fvy46iPy25Qo6wdq+fVOFsZz/RG+f9pQ76S+Jq2j/bxnfGDYvKa+oLY/+nKfDPzhwX/duoPNA9L9ghfHFdL/gXzaMf9/KMavHnqaSceltt0MOewfXT1blcQc3X0UbdcySI7PI6LcRw/A199ms0=
 sidebar_class_name: "get api-method"
 info_path: api/remote-desktop/remote-desktop-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Whether Remote Desktop is turned on, and whether guacd answers at the configured address.
+Whether Remote Desktop is turned on, which engine runs sessions (builtin or guacd), and with guacd whether it answers at the configured address. The built-in engine always reports a connected guacd so older clients still connect.
 
 <Heading
   id={"request"}
@@ -48,7 +48,7 @@ Whether Remote Desktop is turned on, and whether guacd answers at the configured
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"probe","schema":{"type":"string"},"description":"Set to 0 to skip dialing guacd."},{"in":"query","name":"hostId","schema":{"type":"integer"},"description":"Saved host whose guacd settings should be checked; requires protocol and access to that host."},{"in":"query","name":"protocol","schema":{"type":"string","enum":["rdp","vnc","telnet"]}}]}
+  parameters={[{"in":"query","name":"probe","schema":{"type":"string"},"description":"Set to 0 to skip dialing guacd."},{"in":"query","name":"hostId","schema":{"type":"integer"},"description":"Saved host whose guacd settings should be checked; requires protocol and access to that host."},{"in":"query","name":"protocol","schema":{"type":"string","enum":["rdp","vnc","ard","telnet"]}}]}
 >
   
 </ParamsDetails>

@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Remote Desktop API",
-    "version": "1.0.2",
-    "description": "RDP, VNC and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
+    "version": "1.1.0",
+    "description": "RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
   },
   "servers": [
     {
@@ -123,6 +123,7 @@
                     "enum": [
                       "rdp",
                       "vnc",
+                      "ard",
                       "telnet"
                     ]
                   },
@@ -165,7 +166,7 @@
     "/plugin-api/remote-desktop/connect-host/{hostId}": {
       "post": {
         "summary": "Mint a connection token for a saved host",
-        "description": "Resolves the host's RDP, VNC or Telnet login for the caller (a shared recipient gets only what was shared with them), opens a jump tunnel when the host has jump hosts, and returns an encrypted guacamole-lite token.",
+        "description": "Resolves the host's RDP, VNC, ARD or Telnet login for the caller (a shared recipient gets only what was shared with them), opens a jump tunnel when the host has jump hosts, and returns an encrypted guacamole-lite token.",
         "tags": [
           "Remote Desktop"
         ],
@@ -195,6 +196,7 @@
                     "enum": [
                       "rdp",
                       "vnc",
+                      "ard",
                       "telnet"
                     ]
                   },
@@ -326,7 +328,7 @@
     "/plugin-api/remote-desktop/status": {
       "get": {
         "summary": "Remote Desktop status",
-        "description": "Whether Remote Desktop is turned on, and whether guacd answers at the configured address.",
+        "description": "Whether Remote Desktop is turned on, which engine runs sessions (builtin or guacd), and with guacd whether it answers at the configured address. The built-in engine always reports a connected guacd so older clients still connect.",
         "tags": [
           "Remote Desktop"
         ],
@@ -360,6 +362,7 @@
               "enum": [
                 "rdp",
                 "vnc",
+                "ard",
                 "telnet"
               ]
             }
