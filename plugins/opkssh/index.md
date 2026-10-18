@@ -7,7 +7,7 @@ description: "Connect to hosts with short-lived OpenPubkey SSH certificates afte
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-OPKSSH/edit/main/docs/index.md"
 plugin_id: "opkssh"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 OPKSSH lets you connect to hosts with short-lived SSH certificates from [OpenPubkey](https://github.com/openpubkey/opkssh). You sign in with your identity provider, like Google, Microsoft or your own Keycloak, and Termix gets a certificate that lasts 24 hours. No passwords or long-lived keys on your hosts.
