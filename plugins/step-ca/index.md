@@ -7,7 +7,7 @@ description: "Connect to hosts with short-lived SSH certificates from a smallste
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Step-CA/edit/main/docs/index.md"
 plugin_id: "step-ca"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Step CA lets you connect to hosts with short-lived SSH certificates from a [smallstep step-ca](https://smallstep.com/docs/step-ca/) server. You sign in with your identity provider in the browser, the CA signs a certificate, and Termix uses it until it expires. No passwords or long-lived keys on your hosts.

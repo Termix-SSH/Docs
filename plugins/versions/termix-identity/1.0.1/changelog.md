@@ -1,0 +1,26 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+sidebar_position: 99
+slug: "/termix-identity/v/1.0.1/changelog"
+custom_edit_url: null
+toc_max_heading_level: 2
+plugin_id: "termix-identity"
+plugin_version: "1.0.1"
+plugin_latest: false
+---
+## 1.0.1
+
+### Changed
+
+- Translated into every supported language
+
+## 1.0.0
+
+### Added
+
+- First release
+- Publish your public keys under a handle
+- Add your keys to any server with one command
+- Generate new keys or import saved ones
+- Your own SSH certificate authority

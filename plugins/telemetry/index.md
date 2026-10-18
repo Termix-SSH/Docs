@@ -7,7 +7,7 @@ description: "Sends a small anonymous daily report so we can see how Termix is u
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Telemetry/edit/main/docs/index.md"
 plugin_id: "telemetry"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Usage Statistics sends a small anonymous report once a day so the Termix team can see how Termix is used: which platforms it runs on, which features people open, which plugins are on. It helps decide what to work on.

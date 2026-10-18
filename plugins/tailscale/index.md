@@ -7,7 +7,7 @@ description: "Add tailnet devices as hosts and connect with Tailscale SSH."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tailscale/edit/main/docs/index.md"
 plugin_id: "tailscale"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Tailscale connects Termix to your [Tailscale](https://tailscale.com/) tailnet. Add tailnet devices as hosts in a couple of clicks, and connect to them with Tailscale SSH so no passwords or keys are stored in Termix. It works with [Headscale](https://headscale.net/) too.

@@ -7,7 +7,7 @@ description: "Pull host passwords and keys from 1Password when you connect inste
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Secret-Sources/edit/main/docs/index.md"
 plugin_id: "secret-sources"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Secret Sources lets a host's password or key live in 1Password instead of Termix. You write a reference like `op://Servers/web-1/password` in the host's password field, and Termix fetches the real secret each time you connect. It is never stored in Termix.

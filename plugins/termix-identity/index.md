@@ -7,7 +7,7 @@ description: "Publish your SSH public keys under a public handle and run your ow
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Termix-Identity/edit/main/docs/index.md"
 plugin_id: "termix-identity"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Termix Identity gives you a public handle with a URL that serves your current SSH public keys, like GitHub's `github.com/<you>.keys`. Add your keys to any server with one command. It can also run your own SSH certificate authority.

@@ -456,7 +456,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
     "docs": "https://docs.termix.site/plugins/host-metrics",
-    "latest": "1.0.2",
+    "latest": "1.0.3",
     "features": [
       "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
       "History charts for each host",
@@ -477,15 +477,26 @@
       "users:impersonate",
       "notify:send"
     ],
-    "env": [],
+    "env": [
+      {
+        "name": "METRICS_POLL_CONCURRENCY",
+        "description": "How many hosts to poll at the same time, up to 50. Unset scales with the number of hosts, from 5 to 50."
+      }
+    ],
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/host-metrics/host-metrics-api",
     "videoId": "90al7mSOsUc",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.0.3",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T05:00:05.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:29:44.000Z"
       },
@@ -868,7 +879,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
     "docs": "https://docs.termix.site/plugins/secret-sources",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Works with a self-hosted 1Password Connect server",
       "Use op://vault/item/field references in a host's password or key fields",
@@ -890,8 +901,14 @@
     "videoId": "5b_fTbM-sz4",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:55:27.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:29:48.000Z"
       },
@@ -912,7 +929,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Serial",
     "docs": "https://docs.termix.site/plugins/serial",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Set the baud rate, data bits, stop bits and parity",
       "The desktop app talks to the device directly",
@@ -930,8 +947,14 @@
     "videoId": "DGVwYJlFDgw",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:55:25.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:29:50.000Z"
       },
@@ -1003,7 +1026,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
     "docs": "https://docs.termix.site/plugins/session-sharing",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Share terminal, RDP, VNC and Telnet sessions",
       "Share by link with anyone, or with a Termix user",
@@ -1039,8 +1062,14 @@
     "videoId": "7VUOXIKlR5Q",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:57:56.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:06.000Z"
       },
@@ -1189,7 +1218,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
     "docs": "https://docs.termix.site/plugins/snippets",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Save commands and notes in folders",
       "Run them in one or more terminals, or straight on a set of hosts",
@@ -1203,6 +1232,7 @@
       "network:serve",
       "ssh:connect",
       "credentials:use",
+      "credentials:read",
       "hosts:write",
       "ui:surface",
       "events:core",
@@ -1220,8 +1250,14 @@
     "videoId": "g2TJdWLKhJI",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:57:57.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:05.000Z"
       },
@@ -1330,7 +1366,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
     "docs": "https://docs.termix.site/plugins/step-ca",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Adds the Step CA auth type to hosts",
       "Sign in with your identity provider in the browser",
@@ -1362,8 +1398,14 @@
     "videoId": "Sc4bfeCAYEo",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:58:10.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:05.000Z"
       },
@@ -1384,7 +1426,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tailscale",
     "docs": "https://docs.termix.site/plugins/tailscale",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Add tailnet devices as hosts in a couple of clicks",
       "Connect with Tailscale SSH, with no credentials stored",
@@ -1408,8 +1450,14 @@
     "videoId": "EONHzTO1mFQ",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:58:14.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:09.000Z"
       },
@@ -1430,7 +1478,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Termix-Identity",
     "docs": "https://docs.termix.site/plugins/termix-identity",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Publish your public keys under a handle",
       "Add your keys to any server with one command",
@@ -1452,8 +1500,14 @@
     "videoId": "2F_A99YzjNw",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T05:00:14.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:12.000Z"
       },
@@ -1526,7 +1580,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-TOTP",
     "docs": "https://docs.termix.site/plugins/totp",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Works with any authenticator app",
       "Backup codes in case you lose your phone",
@@ -1547,8 +1601,14 @@
     "videoId": "nla4ArQGpfU",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:57:57.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:04.000Z"
       },
@@ -1622,7 +1682,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
     "docs": "https://docs.termix.site/plugins/telemetry",
-    "latest": "1.0.1",
+    "latest": "1.0.2",
     "features": [
       "Never sends usernames, hostnames or credentials",
       "Choose what the report includes, or turn it off",
@@ -1659,8 +1719,14 @@
     "videoId": "qbKqZ1bzpvQ",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.0.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-18T04:58:05.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:06.000Z"
       },

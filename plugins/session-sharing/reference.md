@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/session-sharing/reference"
 custom_edit_url: null
 plugin_id: "session-sharing"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
@@ -17,6 +17,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Allow Session Sharing | boolean | `true` | Allow live terminal, RDP, VNC, and Telnet sessions to be shared instance-wide. Overrides every per-host sharing toggle when disabled. |
+| Public URL for guest links | string |  | The address guests open, when it differs from the one you use, like a public proxy in front of a server on a VPN. Leave empty to use the current address. |
 
 ### Host
 

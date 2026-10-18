@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/snippets/reference"
 custom_edit_url: null
 plugin_id: "snippets"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
@@ -20,6 +20,7 @@ Each person sets these for themselves in **Settings**.
 | Show commands | boolean | `true` | Show the first line of each snippet's command under its name. |
 | Always show buttons | boolean | `true` | Keep the run, copy and edit buttons under each snippet visible. Turn off to show them only on hover. |
 | Confirm before running | boolean | `false` | Ask before a command snippet runs in a terminal. |
+| Fill sudo password | boolean | `false` | When a snippet runs on a host without a terminal, answer its sudo prompt with the host's sudo password, or its SSH password if none is set. |
 
 ## Environment variables
 
@@ -47,6 +48,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |

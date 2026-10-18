@@ -6,9 +6,19 @@ slug: "/step-ca/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "step-ca"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Added
+
+- Require the host username in the certificate, an admin setting that is on by default. Turn it off for a CA that puts other principals in the certificate and lets the server map them
+
+### Changed
+
+- The plugin name and description show in your language
+
 ## 1.0.1
 
 ### Changed

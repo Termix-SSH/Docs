@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/secret-sources/reference"
 custom_edit_url: null
 plugin_id: "secret-sources"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings

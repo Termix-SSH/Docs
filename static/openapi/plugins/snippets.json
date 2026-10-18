@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Snippets API",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Save the commands you run often and run them in a terminal or on many hosts in one click."
   },
   "servers": [
@@ -308,13 +308,28 @@
         },
         "responses": {
           "200": {
-            "description": "Snippet executed."
+            "description": "Snippet ran. A nonzero exit is not an error here: success is false and output/error carry what the command printed.\n"
           },
           "400": {
             "description": "Snippet ID and host ID are required, or the snippet is a note."
           },
           "404": {
             "description": "Snippet or host not found."
+          },
+          "409": {
+            "description": "The host key was rejected (code SSH_HOST_KEY_REJECTED), usually because it changed. Open a Terminal connection to the host to verify and accept the new key.\n"
+          },
+          "422": {
+            "description": "Authentication to the host failed (code SSH_AUTH_FAILED), e.g. \"Authentication failed for root@10.0.0.5\".\n"
+          },
+          "500": {
+            "description": "Internal error."
+          },
+          "502": {
+            "description": "The host could not be reached (code SSH_HOST_UNREACHABLE): connection refused or reset, host or network unreachable, or the hostname could not be resolved.\n"
+          },
+          "504": {
+            "description": "Timed out connecting to the host (code SSH_TIMEOUT), or the command ran past SNIPPET_EXECUTION_TIMEOUT_SECONDS (code COMMAND_TIMEOUT, with the output printed so far in output and errorOutput).\n"
           }
         }
       }

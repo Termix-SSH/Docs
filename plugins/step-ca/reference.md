@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/step-ca/reference"
 custom_edit_url: null
 plugin_id: "step-ca"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 ## Settings
@@ -20,6 +20,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Root fingerprint (SHA-256) | string |  | The root certificate fingerprint, as shown by step ca bootstrap. |
 | OIDC provisioner name | string |  | The name of the CA's OIDC provisioner. Then choose "Step CA" as a host's authentication type. |
 | Allowed private Step CA hosts | textarea |  | Private hosts the Step CA certificate flow may contact: the CA itself and, if internal, your identity provider. Separate them with commas or new lines. |
+| Require the host username in the certificate | boolean | `true` | Turn off when your CA puts other principals in the certificate and the server maps them to the login name, for example with AuthorizedPrincipalsFile. |
 
 ## Environment variables
 

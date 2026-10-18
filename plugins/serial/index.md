@@ -7,7 +7,7 @@ description: "Open a serial console to a router, switch or other device plugged 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Serial/edit/main/docs/index.md"
 plugin_id: "serial"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Serial opens a console to a device plugged into your computer: a router, a switch, a Raspberry Pi, a UPS. It is a terminal over a serial cable or USB adapter, next to your SSH sessions.

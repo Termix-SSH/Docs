@@ -7,7 +7,7 @@ description: "Share live sessions by link or with another user, and present sess
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Session-Sharing/edit/main/docs/index.md"
 plugin_id: "session-sharing"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Session Sharing lets other people watch or join a session you have open: a terminal, or an RDP, VNC or Telnet session. Share it by link, with another Termix user, or present it in a meeting room.

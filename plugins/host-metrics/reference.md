@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/host-metrics/reference"
 custom_edit_url: null
 plugin_id: "host-metrics"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 ## Settings
@@ -26,6 +26,14 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Temperature unit | select | `"celsius"` | How temperatures are shown in Host Metrics. |
+
+## Environment variables
+
+Set these on the Termix server, for example under `environment:` in your compose file.
+
+| Variable | Default | What it does |
+| --- | --- | --- |
+| `METRICS_POLL_CONCURRENCY` |  | How many hosts to poll at the same time, up to 50. Unset scales with the number of hosts, from 5 to 50. |
 
 ## Permissions
 

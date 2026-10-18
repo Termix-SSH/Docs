@@ -7,7 +7,7 @@ description: "Two-factor sign in with a code from an authenticator app, with bac
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-TOTP/edit/main/docs/index.md"
 plugin_id: "totp"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 TOTP adds two-factor sign in with a code from an authenticator app, like Google Authenticator, Authy, 1Password, Bitwarden or Aegis. After your password, Termix asks for the 6-digit code from your app.

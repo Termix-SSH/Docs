@@ -42,6 +42,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "session-sharing/the-base-address-for-guest-links",
+          label: "The base address for guest links",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "session-sharing/revoke-a-session-share",
           label: "Revoke a session share",
           className: "api-method delete",
