@@ -86,6 +86,4 @@ Screens like Settings, Manage and the Dashboard belong to the layout. Register t
 
 If a layout fails to load or crashes twice, Termix opens the [repair screen](/develop/repair-view) instead of a blank page. A fix to a layout is a plugin release, not a Termix release.
 
-For a small example to copy, read [Plugin-Example-Topbar-Layout](https://github.com/Termix-SSH/Plugin-Example-Topbar-Layout): a top bar with search and a host menu, tabs under it and a phone version, built only on `useShell()`, `TabStage` and `@termix-ssh/plugin-sdk/ui`.
-
-For a full example, read [Plugin-Classic-Layout](https://github.com/Termix-SSH/Plugin-Classic-Layout). It reads the shell with `useShellController()`, which exposes more than `useShell()` and can change with Termix. Start from `useShell()` in your own layout.
+For an example, read [Plugin-Classic-Layout](https://github.com/Termix-SSH/Plugin-Classic-Layout). It reads the shell with `useShellController()`, which exposes more than `useShell()` and can change with Termix. Start from `useShell()` in your own layout.

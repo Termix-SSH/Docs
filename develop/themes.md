@@ -47,7 +47,7 @@ The id becomes a class on `<html>`. Put your rules under that class:
 }
 ```
 
-Set the same tokens the built in themes set: `--background`, `--foreground`, `--card`, `--popover`, `--primary`, `--secondary`, `--muted`, `--accent`, `--destructive`, `--border`, `--input`, `--ring`, `--chart-1` to `--chart-5`, the `--sidebar` tokens, `--surface`, `--surface-dim`, `--warning` and `--terminal-bg`. The [Classic Themes](https://github.com/Termix-SSH/Plugin-Classic-Themes) repo has nine complete examples, and [Plugin-Example-Theme](https://github.com/Termix-SSH/Plugin-Example-Theme) is a small one to copy, with one light and one dark theme.
+Set the same tokens the built in themes set: `--background`, `--foreground`, `--card`, `--popover`, `--primary`, `--secondary`, `--muted`, `--accent`, `--destructive`, `--border`, `--input`, `--ring`, `--chart-1` to `--chart-5`, the `--sidebar` tokens, `--surface`, `--surface-dim`, `--warning` and `--terminal-bg`. The [Classic Themes](https://github.com/Termix-SSH/Plugin-Classic-Themes) repo has nine complete examples.
 
 The rules are strict:
 
