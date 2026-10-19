@@ -48,6 +48,7 @@ const sidebars: SidebarsConfig = {
         "configure/database",
         "configure/desktop-sync",
         "configure/trusted-proxy-login",
+        "configure/hosts-config-file",
         "configure/security",
         "configure/betas",
       ],
