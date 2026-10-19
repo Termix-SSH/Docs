@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
         "guide/host-defaults",
         "guide/sharing",
         "guide/import-export",
+        "guide/looks",
         "guide/command-palette",
         "guide/plugins",
         "guide/account",
