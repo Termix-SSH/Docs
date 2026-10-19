@@ -5,7 +5,7 @@ description: Replace the whole Termix interface with a plugin.
 
 # Layouts
 
-A layout draws the whole app: the rail, the sidebar, the tab bar and the screens around the tabs. Termix has no layout of its own. The one people use by default is the bundled [Classic Layout](/plugins/classic-layout) plugin, and you can write another.
+A layout draws the whole app: the rail, the sidebar, the tab bar and the screens around the tabs. Termix has no layout of its own. The one people use by default is the bundled [Classic Layout](https://github.com/Termix-SSH/Plugin-Classic-Layout) plugin, and you can write another.
 
 Layouts need Termix 26.10.3 and `engine.api` `^1.4`.
 
