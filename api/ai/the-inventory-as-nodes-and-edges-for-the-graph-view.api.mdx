@@ -1,0 +1,70 @@
+---
+id: the-inventory-as-nodes-and-edges-for-the-graph-view
+title: "The inventory as nodes and edges for the graph view"
+description: "Live assets with their zone and annotations, and edges of the asked types between them. Containers are folded into their host (counted on it) unless containers is set; external addresses are left out unless external is set."
+sidebar_label: "The inventory as nodes and edges for the graph view"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVMFu20gM/RWCp11AkdMe1ZO3wALu9lCgAYKiGwS0RFuzlkh1SNlRA//7Yka2k26aBXqyQD+S7z0O+YgNWx3D4EEFK/wY9gxkxm5wCN6CtxwifFdhIGmARNQpga3IAW62bKCbBASyHTfg08AGa/YDs6R4X8J7FacgHA0oMmy0a7iBIK6nDq2aw2+1juLcgAoE/x1G6dgM6qfkYGDs74AfnKNQB9Q0kc14rtvxxkFHP2deYHNe+bdggU5bw+orLld4V+BAkXp2jin2iCG58G3kOGGBQj1jhVkQFv+x6r32PV0ZpwKJc3Ji1v4OqOvA28gM6wka3tDYeYkFWt1yT1g95ppYoXkMssUC+YH6oUuhOIrdqxQNDyxN/qxVhGu3e1c8Houfs3xy6WeN1qodk7yefrbq/5PvCoxsg4qxJcDb6+v086Mzok2ax/l1lKkp9uytNljhlh2T7d5ihYuhG7dBrmgICwqL+eUttpGGNhHhuD8PZowdVvg4h44vpvFFxwg3HPvwADMGC9xTDLTuZqqnaGabB4IVtu6DVYuF58TyNISy1h6PWaxxPcbgU6awZoocl2Ni/vUuGVmr7gI/j9AQ/uLpEnlW4nNydabyvNDF5MTlbH42PYOwOH38qbGnxPnD7c0L9Z/ZLKiA644FjMUh5NWD1ERj+J53FlqmhiOQwR+5aB5SguXEEo/FD5Iu3GZVWMwvZ4Y8PZ1/Dv4qow+3NzDj0wICOVjYylWQEm5bFhgiJ7oFBAenHVuK1Nyw1Ay65/iqisz2ud2/7OTy0wp2PIE5RQ+yPV28/uH+hZwL9Net3fFUwKENdTs3sqc2JawcqHZLaScs6EFO2XW+tgmQ/ieZ0hXmznjeqCAbzaqD58OxXMHSLJiTOCw/rdICcLRZwJvybXn9UpbAcpXu/SnLW3KITI3BlBbK2MchcxmiDprObN2SpJO/0Zgw4Ao0DFH3mdW/rx80XQ==
+sidebar_class_name: "get api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"The inventory as nodes and edges for the graph view"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ai/assets/graph"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Live assets with their zone and annotations, and edges of the asked types between them. Containers are folded into their host (counted on it) unless containers is set; external addresses are left out unless external is set.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"types","description":"Comma-separated edge types; all three by default.","schema":{"type":"string","example":"runs_on,depends_on,connects_to"}},{"in":"query","name":"containers","schema":{"type":"boolean"}},{"in":"query","name":"external","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"nodes and edges."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -4,7 +4,7 @@ sidebar_position: 60
 slug: "/ai/assets"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/assets.md"
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 # Asset inventory

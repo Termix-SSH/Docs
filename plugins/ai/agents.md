@@ -4,7 +4,7 @@ sidebar_position: 11
 slug: "/ai/agents"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/agents.md"
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 A coding agent is a tool like Claude Code that reads and changes code. AI Assistant can start one on an SSH host, in a folder you pick, and let you talk to it from Termix. It uses an AI provider you already added, so the host doesn't need its own API key.

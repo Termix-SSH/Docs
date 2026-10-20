@@ -1,0 +1,69 @@
+---
+id: add-a-cidr-zone-rule
+title: "Add a CIDR zone rule"
+description: "Rules come before the built-in ones. The most specific prefix wins, then the higher priority. Every asset not pinned is zoned again."
+sidebar_label: "Add a CIDR zone rule"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP20YM/isEz1p5k/akm5OmgFMUXexusSgco6AlWpq1NDOZofyI4P9ecKTaTtwccqsOtsT5+B5+HLDiWAbjxTiLBT72LUcoXcew5o0LDNIwrHvTyp2x4CzHHJ4bhs5Fgei5NBtTgg+8MQfYGxsz1bBJrTF1wwF8MC4YOebwYcfhCBQjC1gn4I21XIGJ8MXpC9VkbP7JYoZCdcRiifMFrjIM/LnnKO9cdcRiSJ8mcIWFhJ4zLJ0VtqJH5H1rStJ0Zq9Rcxowlg13pG9y9IwFuvUrl4LZlaElWuoYM9waW2GGpamCevbBeQ5iOKp+wlzsRAnG1niatG4OMmTbd2rcWOFgqcUMq+6LHhzOgrJ1vbp0Ow4tHXF1mtz/l6N/i3l1qLZrDnhKjyYVvbNxjPjt/Rv9+7rL2sDQt5yrxZ/v728RC7uj1lSwMdxWE+ynW9jvJkZjayCTp67GvCNLtRo+ZdixNK7CAr2LWm1P0mCBM9/2tbF35M2MzGxUnOkNiJhh5LDjoL0fsA8tFjiMopPW7ivvf7k+wDOHzhxgxGCGOwqG1u2Y/SRNcW+obwULbER8LGYzSYo5H6jzLeel67SCK42g7McSLwdcMwUO814jX65O2YClc1vD1xLy5jc+niVXJp705o2hXBs6t05j0ZwTDIsJhNn08qsLHWnMH1+eb7J/4hiNsyBuyxYiWwEzzp06ccF8SVMADVPFASjCu2QUyFYJlhRTb69TOsc2ZoUZGvU2QjCbRgBf9/LdiD6+PMOIB510EoimtnfG5vCi3OADa7gZGAGhLUeVlFyxLRl0Cr6bRYr2utw/XMn5wwK2fIQoFESv7t5IA9Id/r5J5wz98dJu+ZjBvjFlMzqKFzc5LASolKhqExbc3k7aJVllRipFz8kenWXgNk4jpZT2eCHDD+PlvVDThXlGRromnpFTLogLldyftMsbl+ppRA3ifAHzGE0UsgLzh4WOFoc4luZN/ja/vy2YhflC6X3SkoYEAlMV4aijGll6n7JUVnVRN01DtuYIGxcUA+KAvA9uN3KTEkdH9iq/eVUBwfvFL49pZyQa+zaQ4bIQ/kcLbbynwgeZ+ZaM1fwSwQ0TMS7xQoyYIaWfRI6Y4UiPqwwb5dJiicOwpsh/hvZ0UvHnnoMy1urCgCM94XhJE5lt+YgFvh+Lc/esESm87cd5/2ZzKpGdKfzhjyeloPW0gTtXqU6gvW5R2mOBusFSAxLdJdmALdm6pzoxRrKpzz+nfOwx
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a CIDR zone rule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/assets/zones"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rules come before the built-in ones. The most specific prefix wins, then the higher priority. Every asset not pinned is zoned again.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","kind","cidr"],"properties":{"name":{"type":"string"},"kind":{"type":"string","enum":["internal","dmz","external","cloud","overlay"]},"cidr":{"type":"string"},"priority":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The rule."},"400":{"description":"Invalid field."},"403":{"description":"Missing ai.assets.manage."}}}
+>
+  
+</StatusCodes>
+
+
+      

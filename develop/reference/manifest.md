@@ -40,6 +40,7 @@ This page is made from `manifest.schema.json` in the plugin SDK. Point your edit
 | `locales` |  | string | Locales directory, relative to the plugin root. Defaults to locales. |
 | `platforms` |  | array |  |
 | `desktop` |  | string | How a desktop linked to a server treats this plugin: mirror follows the server, local is decided on each desktop, server never runs on a linked desktop. Defaults to mirror. |
+| `runtime` |  | string | desktop: the plugin only loads on a desktop app's own embedded backend, never on a server. It implies desktop local and may declare desktop:local. |
 | `nativeDependencies` |  | array | Bare npm package names this plugin depends on that carry a native (.node) binding. The build never bundles them: they stay a real dependency in the plugin's own package.json and are resolved from node_modules at runtime, the same as a host-provided package, so the compiled native binary is never copied into the JS bundle. |
 
 ## contributes
@@ -63,6 +64,8 @@ This page is made from `manifest.schema.json` in the plugin SDK. Point your edit
 | `http` | HTTP options for the plugin's /plugin-api/<id>/ router. |
 | `uiPresets` | The plugin's Appearance defaults for each interface preset, read with usePluginUiPreferences. |
 | `uses` | Other plugins' action, slot and extension point ids this plugin calls, fills or extends. |
+| `layouts` | Whole-app layouts the frontend registers with app.registerLayout. Needs the ui:layout capability. |
+| `themes` | Themes: one CSS file each with token rules scoped under .<id>. Needs the ui:theme capability. |
 
 ## Categories
 

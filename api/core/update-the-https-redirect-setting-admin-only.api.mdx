@@ -1,0 +1,68 @@
+---
+id: update-the-https-redirect-setting-admin-only
+title: "Update the HTTPS redirect setting (admin only)"
+description: "Turns the redirect from HTTP to HTTPS and the HSTS header on or off. Off by default so reverse proxies keep working."
+sidebar_label: "Update the HTTPS redirect setting (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDOTUATblJ0QNvSpDCToHWqGgYhSEEK3IkrkXuMLtDSSyh/17MkpFUuTnkFB5Eavlm9735eBywpFB424plhxnmnXcBpCLwVFpPhcDacwN3ef4AwvG+AOPKiLlb5AuoyJTkgR2wB16vU/hzvYZVDyWtTVcLBAZPO/KBoPV8sBRgS9TCnv3Wuk2KCYrZBMye8TGQD7hM0NOXjoK857LHbIh/racSM/EdJViwE3Kir0zb1rYwyn/2ElTEgKGoqDH6JH1LmCGvXqgQTLD13JIXS0HfrtkXdCfShgvsirkm4/AYL6USWnZhjHh7e6u3/yZtQSLWbaBrSyNUpnhM8Jf/A967naltCTtTdzTB3r2G/cECppOKvf0nbndMsCGpuMQMWyNFpUqMVJjhrNOUzSoVcRNGIgETDOQ15Zg9D9j5GjMcxqUjJlfH/c2dh5x8Yw8wYjDBnfHWrOpR9bQaicaaYobxxGw2kxiY0sE0bU1pwY1mbqkMis5b6SOFFRlPft4p5+flMRmwYN5aulwxrf2d+tPKxRYLredI5XKjU8mUi2qOMC1hBGEyPfzGvjHK+dNT/kr9gkKw7EB4Sw4COQHrYnfPpxLE3vra5ibA+7jpaQhiYCzmpaQTt1EVJmj1tBGCCToTmb7s5ZuMPj3lMOIhkIARCHbjbqxL4akiB60npZuAFRCzpaArBZXkCgLekf+misj2Mt3fncn5wz1sqYcgxsfe31upQJrD51dyTtDvT+2W+gT2lS2q8aBwPiaFewFTSNCwCQu8d1N0YZzjCND3xvXsCKgONE6TGsVfZ4v5ODbvtSWo1xy1cGuOKbKiGJxGZf5wr3NCPow63/6a/nybvnulP68ICvYE57gUPpqigrbuNtZByUXXkJMAVoJqAM+dUIhVajlIY6KrTS3zGF1m9N/oxiennsYffjJlYx2wq/s313SGs3f+MLMfW03oILO2NtapzuhRw+RqzxhdDRO88rVlghUHUcQwrEygR18fj7r8pSOvVrM8W9foKzhSji60pR4z/DAm4CZXHgqvu3FQrz4k6kAn232Y5x/udA6mL1LDpQZ5s8ck/maICXLMcjSquDZgbdymM5s463FTvf4FliKV6A==
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the HTTPS redirect setting (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/https-settings"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turns the redirect from HTTP to HTTPS and the HSTS header on or off. Off by default so reverse proxies keep working.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"forceHttps":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Setting updated."},"400":{"description":"Invalid value."},"403":{"description":"Not authorized."}}}
+>
+  
+</StatusCodes>
+
+
+      

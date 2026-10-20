@@ -1,0 +1,70 @@
+---
+id: unlock-a-field-for-the-annotation
+title: "Unlock a field for the annotation"
+description: "The field keeps its value until the next annotation run, which picks the asset up and fills it."
+sidebar_label: "Unlock a field for the annotation"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcGO20YM/RWCpxZQ7G2Qk24uugWcFkXQOFgUG6PgSrQ1tTQzGVLedQ39e8GR1na6u0FyycWWRo+c98jhmyPWLFVyUV3wWOKqYdg4bmvYMUcBpwJ7anuG3qtrQRsGzw8K5H1QsihIvS/gvnFVA9FVO8kgEmGFPgL5GjaubS3X7KPHApW2guUtLpa4LjBSoo6Vk60d0RmLSNpggZ46xhJdjQUm/tS7xDWWmnouUKqGO8LyiHqIGeWVt5xwGIpns2RVX5NINDm/xQLZ953xTKFlLNB1MSQlX9mLHES5w/UwrC2lxOCFxbK8vrqyv6dlzRWZ4VDgm+cgfwQFGms/gd48BwLpq+aUayiwY21CjSXW3LIat6y7xHls+63zryi6Obl5DpH50dXD/Ny8+THvOJgkTvvHLvSpxRKP45J9/JzGX6FPsOLUuQcYMVjgnpKju3aswrSaBWyobxVLbFSjlPO55sAZP1AXW55VocMh11G46pPTQ6Zwx5Q4LXrTcru2plYh7BxfrlB0v/HhtHKR4r11daRymejUZOOCU/PtfQRhMT38GlJHxvntzeqJ+vcsYudew449CHsF5/Oht01Ccv+Oc9Ew1ZyABH7OSfMoGCwH5iZfSjpxG1XZibPdRsj5HP9zry8yenuzghEPNn2kIG7rXzk/g5uGPcTERrcAp6C0Y7GVimv2FUPYc3pRRWZ7We5vruTi3RJ2fABRSur8Fu6dNqDdw99P5Jyg317aHR8evShvJOdtZrBUoErFwiYshHs/RVd5KAxg38kfgmfgVngcM+c3Iat22prMxRIWIk6UvMLi3dIGgJOMAn6avZ5dPZXlYbG00Z2itCGFxFQLHGyghHXyy5hCDMICVUN+ywKbkAwDGoBiTGHPuSExiHbkjdd0Oj74NlS7RyPJcdmNTwP/f1Y2Vl7Z6/cy//HUKD/oPLbkvOnIdnOcjOsWz8aFBVL+yeaFBZb5MvhMTjk6+7rAJoha/PF4R8IfUjsMtvyp52Sesj57VHaY2ok911huqBX+QmF++HO6NH6ElyQ8zq4/ZCtse3vDAnd8GK8w86vvuONYlGF9eUP8cv379eoah+E/JYi7OQ==
+sidebar_class_name: "delete api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlock a field for the annotation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/ai/assets/{id}/annotation/{field}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The field keeps its value until the next annotation run, which picks the asset up and fills it.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"field","required":true,"schema":{"type":"string","enum":["role","importance","system"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The asset."},"400":{"description":"Not a field."},"404":{"description":"No such asset."}}}
+>
+  
+</StatusCodes>
+
+
+      

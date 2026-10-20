@@ -1,0 +1,70 @@
+---
+id: the-asset-inventory
+title: "The asset inventory"
+description: "Hosts, Proxmox guests, containers and external addresses, with their zone and counts of what was collected. Removed assets are left out unless includeRemoved is set."
+sidebar_label: "The asset inventory"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1vG0cM/SsEz5OVm/akmwr0QykCGI2LoHCFgN6ltFPtzqyHXH1E2P9ecFaW5MoOkt56sSzqceY9cvh4wIqlTL5THwNO8dcoKg5uU9y1cQernvP3MgYlHzgJUKiAd8opUANUVYlFWBxsvdagNfsEn2PgjCtjH1QgLmFbk8KWBMrYNFwqVwX8zm3ccAUkwipAiaHhpULsFfrQsAj4UDZ9xU9ILyCsxV8BHSqtBKf3OJvjwmFHiVpWThY7oDctjz2nPToM1DJO0VihQylrbgmnB9R9Z3HR5MMKh8G9nLf2ofpCnkMOfWtM6iiKDnPN0OGpZgY5FgwXr17ziO5fvXhPWtYsYAAHa95DTEDhqejFfxHzvKAvnfAQY8MUcBgWDhNLF4OwGODtzY19PCd5V/OxgQUODn+4+f4a896L+LAC8sURuvG8dSZHx3QvSkGtv3G5LIw+tqx1rHCKK7ZqdqQ1TnHSNf3KhzfU+Qn5yXicyeC0eWp+nxqc4mEMDVdl/TP2Ce44tX4HIwYdbih5emhGocdo1rGkvlGcYq3ayXQy0ZxY8I7aruGijC0OuVTCZZ+87jOFB6bEadYb5/uFNaOMce35MkKd/433p8jFER+sJyOVy4NOLTIuT63LLcsgdMd/fo6pJeP87uPdlfoPLOJjAI1rDiBsVQ+5DXZJTP4zGRJqpooTkMCP+dA8zwbLibnXl5JO3EZV6MbXN0LOz+/vrb7K6N3HOxjxNuRACuJX4Y0PBXysOUCX2Og68ApKaxaLlFxxKBnihtOrKjLby3J/cyVnt/M8gKKU1J7y6Hbt7tOVnBP020u75r2Dbe3LerxIztcUMFeg0mxSnrAQt+GYXVIIMQPsdwp7c2BuhMdZ8mEZs2qvjcmczWF2GrrZ7dwGgJOMAr4r3hY317ICzOYXo6pm6ImpEtjbQAlr32UuXYpdFBYoaworFljGZBjQCNR1KW44N6SLoi0F43V8HScvAR82HDRm53rG45BtlYP+v3bV+NqUdzrpGvLB9GebOhyN7R7PxoYOKf8ZzW3hxs0yvcfD4YGE/0jNMFh49Hbzm8qLuVeF0yU1wg7XvD+vvA01vd2PZjuvQI9b7svQV1vxFavqxRqMdz9+Jcer5XVOWpwtfPTX8/745ac7HIZ/AB4pFBs=
+sidebar_class_name: "get api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"The asset inventory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ai/assets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Hosts, Proxmox guests, containers and external addresses, with their zone and counts of what was collected. Removed assets are left out unless includeRemoved is set.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"zone","schema":{"type":"string"}},{"in":"query","name":"kind","schema":{"type":"string","enum":["host","guest","container","external"]}},{"in":"query","name":"q","description":"Matches name, key or an address.","schema":{"type":"string"}},{"in":"query","name":"includeRemoved","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The assets."},"403":{"description":"Missing ai.assets.view, or the assistant is off."}}}
+>
+  
+</StatusCodes>
+
+
+      

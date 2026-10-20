@@ -6,9 +6,22 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Asset inventory: an Assets view in the AI tab lists hosts, Proxmox guests, containers and the external addresses they talk to, collected daily, on host changes or on request by one read-only script per host; zones come from built-in and your own CIDR rules, hosts in more than one zone are marked, and the new `ai.assets.view` and `ai.assets.manage` permissions are admins only by default
+- Asset annotations: after each collection a model writes each changed asset's role, importance (with who depends on it) and business system in the collector's language, a host and its containers in one call and several hosts per call; only assets whose summary changed and their neighbours are sent, never external addresses, environments or command lines
+- The model can suggest `depends_on` relations, kept only when they cite a connection, a container port or a `runs_on` the collector saw
+- Edit role, importance and system yourself to lock them against later runs, and unlock them to hand them back; the table shows each with an AI or Locked mark
+- A Graph view of the inventory, grouped by zone and sized by importance, with containers folded into their host and edge type filters; a node's panel shows its annotations, facts and edges
+- Impact analysis: what fails with an asset, through `runs_on` and `depends_on` and, weaker, `connects_to`, with the path to each and counts by importance, highlighted on the graph
+- Annotation runs are recorded with their tokens, counted as Asset annotation usage, stop at their own token budget and when auto-ops is paused, and use a provider and model you can pick for assets, by default the collector's auto-ops choice
+- Internet entries in the Assets view: a read-only list, for hosts you manage, of services that may be reachable from the internet, found from listening ports, Docker published ports, port forwards and reverse proxies or tunnels. Each entry shows its evidence path and a review priority with the reasons, nothing is probed from outside
+
 ## 1.1.0
 
 ### Added

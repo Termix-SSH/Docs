@@ -1,0 +1,68 @@
+---
+id: set-the-default-layout-and-theme-admin-only
+title: "Set the default layout and theme (admin only)"
+description: "What everyone sees until they choose their own. Null clears a default so the default look applies."
+sidebar_label: "Set the default layout and theme (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDObUAI6e7RQ+6ZYstkC2wCBoHQREYBU2NLcYUqSVHcVRD/70YUmt7kwboXqqDTY3ecN588PGADSUTbc82eKzxvtUM9ERxDJ4gESUYPFsH3NIIpg0hkaxthLD3FXwenAPjSMcEGhra6MExpCCY46sLYQe6752lVKFC1tuE9QPeJYpwE2lDkbyhhCuFkb4MlPhDaEasD/nVRmqw5jiQQhM8k2f5lDc0WogvHpOwP2AyLXVaVjz2hDWG9SMZRoV9DD1FtpTkq9NjGPgMlzhav0WFfnBOrx2VgJNCbqmj/4DMj/BPffCphHl3eSl/35Z4eapMAh/2YD3QZkOGK5wU/vxvPp8Dg4bCGkKETApsM3u8f8PDg2466ysUZh1xGxqssR9yQTS3WONiSBQv+lMTFtKtxVeCqDBRfKIoDTvgEB3WeCimCdWLoH+GIcKSYmefoWBQ4ZOOVuqUKzJbM90cAWtsmftULxacHSt61l3vqDKhw2maVsLADNHymCmsSUeKV4Owf1hN6oAmhJ2lc4vu7e80Hi1nW9zKgBQq5xsduytcJGdTuj6DUM2L30LstHD+dL98lf0tpWSDBw478pDIs7RWDoIECdH+nYcVWtINRdAJPuRNQfsmw7Jjbul5SkduJStUaCVagcgc6sz0cc9vMvp0v4SCh0QMmiHZrb+wvoL7ljz0kYSuAsvAekdJLIYaGQgITxTfzCKzPS/3d1fy6uYadjRCYh3Z+i3sLbfA3fNfr9I5Qr+/tDsaFexba9oSKJ3CVHDNoA0ncZuxIm6zt9HehwyQ79pnYSSXqJwqUZ4/Tpr1sQzvucacFGOWkq+GSTq5CblmlsUJ57NzdXMtB4diKom/+6X66bJ6/6ogIiUmRIKTXwUftWmhd8PWemiCGTrynMBykqQghoFFhSeFfUjc6ayb8wzdEn8r3EVw5iJ2BD9kPYHg3fjjSzaHkzj/T9dIGTSmZ170TlsvSWWFOszq9oAv1Q0VyjaZ+6xwK4VtSCzow2GtE91FN01i/jJQFNFZnUSsKAyWOct6tKMRa/y1pH6xFE4Cd0M5si/uKNGioxDf3ImIrOerrguNuES9R5V/a0SFIVc3C1a2yVz57aC3+cznLeX5B5pLtJU=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the default layout and theme (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user-preferences/look/defaults"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+What everyone sees until they choose their own. Null clears a default so the default look applies.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"layout":{"type":"string","nullable":true},"theme":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The defaults now in effect."},"400":{"description":"Not a layout or theme id."},"403":{"description":"Not an admin."}}}
+>
+  
+</StatusCodes>
+
+
+      

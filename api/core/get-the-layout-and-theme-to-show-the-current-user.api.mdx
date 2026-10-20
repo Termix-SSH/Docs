@@ -1,0 +1,59 @@
+---
+id: get-the-layout-and-theme-to-show-the-current-user
+title: "Get the layout and theme to show the current user"
+description: "The user's own choice, the admin defaults (a layout no installed plugin brings reads as null), the default look of the bundled plugins, whether TERMIX_SAFE_LAYOUT forces the repair view, and installed layout or theme plugins that could not load. The browser resolves the final look from these."
+sidebar_label: "Get the layout and theme to show the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv40YM/isEL9sCipxugR50c4HsItsUDRoH6SIIgvGItiaWZlQOZcc1/N8LjuRHHotNLj01lxgUHx8533ycDZYULbtWXPBY4KQi6CLxhwhh5cFWwVnKQCoCUzbOQ0kz09US4QcDtVmHTsAHcD6KqWsqoa27ufMwZefnEZhMGcFE8F1d/9jnGTJAHcICwizZpp0vD9Exg1VFUhHD5OzP38//ur8afzq7vxh//eN6ArPAlmIKY2qNY1g6WmVgfHmEY8AWWB0b2mUGqYyADV1dgg8KwpQ5aNdTDqtIDEwx1MuhwMx5U/dIZxwatUXKMUMx84jFLV5ryCXTjJi8pYh3GTLFNvhIEYsNfjw91X9Pp3yjIDR/yuyizjmSTzU0uw1eyIsGmratnTUaOHqIGr3BaCtqjP6SdUtYYJg+kBXMsOXQEovra/czOC+PPKPowWCGeiBmWhMWwh1tM0xjeqPvjgSvQXja6fgJabLEAz1cJuh8JMm/AfrtkN/guT1Avghh8X3UkwNNT9IR9ez5EHe0Uq6l6k868sGTnuaehf9Zd9HM6OJ56mkINRmP2ww7b5bGDVF7B8Ns1pihE2pePcun2N0r5NhmuCSOrifmd3vq249vwLDLvxvEO2OIOfBrn3Z/GTYkVSixwDmlXo1UWOBI1e+kPdzokRIAM4zE2ikWtxvsuMYCN71p+4I+X0PHMCFu3CP0Ppjh0rDTWSTAgzUJQ6IZFliJtLEYjSQF5vRomram3IZGYd8pAtuxk3WCMCXDxONOQd/ebbMN2hAWjo4tpnW/0XpvOUpxZfczPU60H5di0Z5tz8HBCbPhx6fAjVHMX24mL7q/oqh8AAkL8hDJCzif1E6LBHb/JDWDikxJrMvh15R0d6n6wFypddzS4fRTV3r8Wq13Ua6ZhPRh9fI67xB9uZlA7w+RBIxAdHN/4nwONxV5aJkUbgZOQMyColoslcoDCEvib3aR0B6P+92THF+ew4LWEMWwOD+HlZMKpHm8f6mpO9f3j3ZBa92tzlZ9oXgok8O5gLGS1vXgq2+AIdoar/vSWNHvxq9V66jWbaiXyflZSF070euOA/vHl+d4pBD48Zf8p9P851cF1wYmOMTlcGZstXtPlMF2DXmJ4KR/mnDohGIafBuiNCYp0MCCzzTs12dyDRIgVmGVPtqOWUeoN/45os1hB///Jnrrm6hnvNCjjNrauH7zqFRuBnW9xefqihkmfb3LsApR1GWzmZpI11xvt2r+uyNWybs7SGivb9izPKnhgtZ6MaylVpLW1l0vFc8eT6qBe93/fDbB7fZfaGHafw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the layout and theme to show the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user-preferences/look"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The user's own choice, the admin defaults (a layout no installed plugin brings reads as null), the default look of the bundled plugins, whether TERMIX_SAFE_LAYOUT forces the repair view, and installed layout or theme plugins that could not load. The browser resolves the final look from these.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What the look is chosen from.","content":{"application/json":{"schema":{"type":"object","properties":{"layoutId":{"type":"string","nullable":true},"themeId":{"type":"string","nullable":true},"defaults":{"type":"object","description":"Admin defaults, null where unset.","properties":{"layout":{"type":"string","nullable":true},"theme":{"type":"string","nullable":true}}},"defaultLook":{"type":"object","description":"The default-look plugin's layout and theme, null where none is installed.","properties":{"layout":{"type":"string","nullable":true},"theme":{"type":"string","nullable":true}}},"safeLayout":{"type":"boolean"},"unavailable":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"version":{"type":"string","nullable":true},"layouts":{"type":"array","items":{"type":"string"}},"themes":{"type":"array","items":{"type":"string"}},"error":{"type":"string"}}}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

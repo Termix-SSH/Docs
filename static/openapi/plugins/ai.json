@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "AI Assistant API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "An AI assistant that reads your setup and proposes changes for you to approve."
   },
   "servers": [
@@ -1210,6 +1210,595 @@
           },
           "409": {
             "description": "The conversation already has a run going on."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets": {
+      "get": {
+        "summary": "The asset inventory",
+        "description": "Hosts, Proxmox guests, containers and external addresses, with their zone and counts of what was collected. Removed assets are left out unless includeRemoved is set.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "zone",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kind",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "host",
+                "guest",
+                "container",
+                "external"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "description": "Matches name, key or an address.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "includeRemoved",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The assets."
+          },
+          "403": {
+            "description": "Missing ai.assets.view, or the assistant is off."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/edges": {
+      "get": {
+        "summary": "Relations between assets",
+        "description": "runs_on and connects_to edges with their evidence. An edge whose lastSeen is older than its source's last collection was not seen again and is stale.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The edges."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/zones": {
+      "get": {
+        "summary": "CIDR zone rules and the built-in zones",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The rules, and the built-in zone names."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a CIDR zone rule",
+        "description": "Rules come before the built-in ones. The most specific prefix wins, then the higher priority. Every asset not pinned is zoned again.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "kind",
+                  "cidr"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "internal",
+                      "dmz",
+                      "external",
+                      "cloud",
+                      "overlay"
+                    ]
+                  },
+                  "cidr": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The rule."
+          },
+          "400": {
+            "description": "Invalid field."
+          },
+          "403": {
+            "description": "Missing ai.assets.manage."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/zones/{id}": {
+      "put": {
+        "summary": "Change a CIDR zone rule",
+        "description": "Fields left out keep their value.",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rule."
+          },
+          "400": {
+            "description": "Invalid field."
+          },
+          "404": {
+            "description": "No such rule."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a CIDR zone rule",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Removed."
+          },
+          "404": {
+            "description": "No such rule."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/collect": {
+      "post": {
+        "summary": "Collect now",
+        "description": "Runs over every host the collector can connect to, or queues behind the run in progress. With no collector set yet, the caller becomes it.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "202": {
+            "description": "started or queued."
+          },
+          "403": {
+            "description": "Missing ai.assets.manage."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/runs": {
+      "get": {
+        "summary": "Recent collection runs",
+        "description": "Newest first, with per-host errors and whether one is running.",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The runs."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/settings": {
+      "get": {
+        "summary": "The daily collection and who collects",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The settings."
+          }
+        }
+      },
+      "put": {
+        "summary": "Change the daily collection, the annotation, or collect as yourself",
+        "description": "dailyTime is HH:MM in UTC. collector \"me\" makes the caller the collector, so collection reaches the hosts they can connect to; nobody can name another user. annotateProviderId is one of the collector's providers, null for the one their auto-ops tasks use; annotateModel null for that provider's default model.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dailyEnabled": {
+                    "type": "boolean"
+                  },
+                  "dailyTime": {
+                    "type": "string"
+                  },
+                  "collector": {
+                    "type": "string",
+                    "enum": [
+                      "me"
+                    ]
+                  },
+                  "annotateAfterCollect": {
+                    "type": "boolean"
+                  },
+                  "annotateProviderId": {
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "annotateModel": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The settings."
+          },
+          "400": {
+            "description": "Invalid field."
+          },
+          "403": {
+            "description": "Missing ai.assets.manage."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/{id}": {
+      "get": {
+        "summary": "One asset with its facts and edges",
+        "description": "facts is the parsed collection, by section. outgoing and incoming are its edges, each with the asset at the other end.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The asset."
+          },
+          "404": {
+            "description": "No such asset."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/{id}/zone": {
+      "put": {
+        "summary": "Pin an asset's zone, or hand it back to the rules",
+        "description": "A pinned zone is kept by every later collection. zone null unpins it; the rules decide again at once.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "zone": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The asset."
+          },
+          "400": {
+            "description": "Not a known zone."
+          },
+          "404": {
+            "description": "No such asset."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/graph": {
+      "get": {
+        "summary": "The inventory as nodes and edges for the graph view",
+        "description": "Live assets with their zone and annotations, and edges of the asked types between them. Containers are folded into their host (counted on it) unless containers is set; external addresses are left out unless external is set.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "types",
+            "description": "Comma-separated edge types; all three by default.",
+            "schema": {
+              "type": "string",
+              "example": "runs_on,depends_on,connects_to"
+            }
+          },
+          {
+            "in": "query",
+            "name": "containers",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "external",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "nodes and edges."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/annotate": {
+      "post": {
+        "summary": "Annotate now",
+        "description": "Runs the AI annotation as the collector, over the assets that changed since their last annotation and their neighbours, or over every asset with all. Queues behind a run in progress. With no collector set yet, the caller becomes it.\n",
+        "tags": [
+          "AI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "started or queued."
+          },
+          "403": {
+            "description": "Missing ai.assets.manage."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/annotation-runs": {
+      "get": {
+        "summary": "Recent annotation runs",
+        "description": "Newest first, with assets annotated, errors and the tokens each run took, and whether one is running.\n",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "The runs."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/{id}/impact": {
+      "get": {
+        "summary": "What else fails when this asset does",
+        "description": "Everything that runs on it or depends on it, transitively (direct and transitive), and as a weaker class what only connects to one of those. Each with the chain of edges down to this asset, and counts by importance. At most 6 hops and 300 assets per class; truncated says when that cut something off.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The impact."
+          },
+          "404": {
+            "description": "No such asset."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/{id}/annotation": {
+      "put": {
+        "summary": "Set an asset's role, importance or system yourself",
+        "description": "Each field given is locked: annotation runs leave it alone until it is unlocked. importanceReason goes with importance.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "importance": {
+                    "type": "string",
+                    "nullable": true,
+                    "enum": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low"
+                    ]
+                  },
+                  "importanceReason": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "system": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The asset."
+          },
+          "400": {
+            "description": "Invalid field."
+          },
+          "403": {
+            "description": "Missing ai.assets.manage."
+          },
+          "404": {
+            "description": "No such asset."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/{id}/annotation/{field}": {
+      "delete": {
+        "summary": "Unlock a field for the annotation",
+        "description": "The field keeps its value until the next annotation run, which picks the asset up and fills it.\n",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "field",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "role",
+                "importance",
+                "system"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The asset."
+          },
+          "400": {
+            "description": "Not a field."
+          },
+          "404": {
+            "description": "No such asset."
           }
         }
       }

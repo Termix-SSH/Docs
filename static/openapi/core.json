@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.10.2",
+    "version": "26.10.3",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -149,469 +149,6 @@
     }
   ],
   "paths": {
-    "/sync/v2/info": {
-      "get": {
-        "summary": "Describe this server to a desktop that wants to link to it",
-        "description": "Public. Lets the desktop app confirm it reached Termix and not a proxy's login page, and that the sync protocol matches.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Server name, version and sync protocol version."
-          }
-        }
-      }
-    },
-    "/sync/v2/link": {
-      "post": {
-        "summary": "Link a desktop to this account",
-        "description": "Trades the short login session the desktop just signed in with for a long-lived desktop session, which shows in the account's sessions list and is revoked like any other. The login session is ended.",
-        "tags": [
-          "Sync"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "deviceName": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The desktop session token and the account it belongs to."
-          },
-          "401": {
-            "description": "Not signed in."
-          },
-          "403": {
-            "description": "API keys cannot link a desktop."
-          }
-        }
-      }
-    },
-    "/sync/v2/session/refresh": {
-      "post": {
-        "summary": "Keep a linked desktop's session from expiring",
-        "description": "Returns a fresh desktop session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the desktop keeps its token.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The new token, or null."
-          },
-          "401": {
-            "description": "Session revoked or expired."
-          }
-        }
-      }
-    },
-    "/sync/v2/unlink": {
-      "post": {
-        "summary": "End a linked desktop's session",
-        "description": "Called by a desktop when it unlinks, so its session stops working here right away.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The session was ended."
-          }
-        }
-      }
-    },
-    "/sync/v2/changes": {
-      "get": {
-        "summary": "Pull what changed for this account after a cursor",
-        "description": "Returns records in change order. Each has the entity type, syncId, revision, whether it is deleted, and the row when it is not. Records of entity types this server does not currently run are skipped but still move the cursor.",
-        "tags": [
-          "Sync"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "cursor",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "in": "query",
-            "name": "types",
-            "description": "Comma-separated entity types, to backfill only those.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A page of changes, the next cursor and whether more remain."
-          },
-          "400": {
-            "description": "The cursor or limit is not a non-negative integer."
-          },
-          "500": {
-            "description": "Failed to read changes."
-          }
-        }
-      }
-    },
-    "/sync/v2/push": {
-      "post": {
-        "summary": "Push a desktop's changes",
-        "description": "Each op carries the revision the desktop last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason.",
-        "tags": [
-          "Sync"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "ops": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "One result per op, in the order sent."
-          },
-          "400": {
-            "description": "Malformed ops, or more than 500."
-          },
-          "500": {
-            "description": "Failed to apply changes."
-          }
-        }
-      }
-    },
-    "/sync/v2/events": {
-      "get": {
-        "summary": "Stream a notice whenever this account's data changes",
-        "description": "Server-sent events. A \"change\" event means there is something new to pull. Comments are sent every 25 seconds to keep proxies from closing the stream.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "An event stream."
-          }
-        }
-      }
-    },
-    "/sync/v2/hosts/{syncId}": {
-      "get": {
-        "summary": "This server's id for a host, by its sync id",
-        "description": "For a linked desktop that asks the server to act on a host (a tunnel through it), which needs the server's own id. Only for hosts the caller can connect to.",
-        "tags": [
-          "Sync"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "syncId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The host's id and name."
-          },
-          "404": {
-            "description": "No such host the caller can connect to."
-          }
-        }
-      }
-    },
-    "/sync/v2/host-status": {
-      "get": {
-        "summary": "Status of the hosts this account can see, keyed by sync id",
-        "description": "For a linked desktop whose hosts connect through this server, so it can show their status against its own copies.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Status entries by host sync id."
-          }
-        }
-      }
-    },
-    "/sync/v2/plugins": {
-      "get": {
-        "summary": "The features this server runs, for a linked desktop to mirror",
-        "description": "Every installed plugin with its version, where it came from, whether it is on, how a desktop should treat it and which sync entities it owns. registryKeys lists the signing keys of the custom registries an admin added, so plugins from them load on the desktop.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The plugin list."
-          }
-        }
-      }
-    },
-    "/sync/v2/plugins/{id}/package": {
-      "get": {
-        "summary": "Download an installed plugin so a linked desktop can install it",
-        "description": "Only for plugins installed on this server, or bundled ones replaced by a signed update. Sends the original .tmxplug when there is one, with its signature in the X-Termix-Signature header, otherwise a fresh archive of the plugin folder.",
-        "tags": [
-          "Sync"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The plugin archive."
-          },
-          "404": {
-            "description": "No installed plugin with that id."
-          }
-        }
-      }
-    },
-    "/sync/link/status": {
-      "get": {
-        "summary": "This desktop's link to a server",
-        "description": "Desktop only. Whether the app is linked, to which server and account, how syncing is going, and which kinds of data sync.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The link status."
-          }
-        }
-      }
-    },
-    "/sync/link/probe": {
-      "post": {
-        "summary": "Check a server address before linking",
-        "description": "Desktop only. Tries the server with the given proxy settings and says what is in the way, if anything. On success the proxy settings are also applied to the desktop's browser session so the sign-in page loads.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The server's name and version, or the problem found."
-          }
-        }
-      }
-    },
-    "/sync/link/preview": {
-      "get": {
-        "summary": "How much this desktop has that would sync",
-        "description": "Desktop only. Row counts per kind of data, shown before choosing whether to merge this desktop's data into the account or replace it.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Counts per entity type."
-          }
-        }
-      }
-    },
-    "/sync/link/complete": {
-      "post": {
-        "summary": "Link this desktop to a server account",
-        "description": "Desktop only. Takes the session from signing in to the server, trades it for a long-lived desktop session, and starts syncing. \"merge\" uploads this desktop's data into the account; \"replace\" deletes it here first and takes the account's.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Linked; the new status."
-          },
-          "400": {
-            "description": "Missing server or session."
-          },
-          "502": {
-            "description": "The server refused the session."
-          }
-        }
-      }
-    },
-    "/sync/link/relogin": {
-      "post": {
-        "summary": "Sign this desktop back in after its session ended",
-        "description": "Desktop only. Takes a new sign-in session for the same account and resumes syncing where it stopped.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Signed in again; the new status."
-          },
-          "409": {
-            "description": "The sign-in was for a different account."
-          }
-        }
-      }
-    },
-    "/sync/link/unlink": {
-      "post": {
-        "summary": "Unlink this desktop from its server",
-        "description": "Desktop only. Ends the desktop's session on the server when it can be reached. With keepData the synced data stays on this device as its own; otherwise it is deleted. Copies of what others shared with the account are always removed.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "Unlinked."
-          }
-        }
-      }
-    },
-    "/sync/link/sync": {
-      "post": {
-        "summary": "Sync now",
-        "description": "Desktop only. Runs a sync pass and waits for it.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The status after the pass."
-          }
-        }
-      }
-    },
-    "/sync/link/settings": {
-      "put": {
-        "summary": "Change what syncs and how the server is reached",
-        "description": "Desktop only. disabledTypes lists the kinds of data that stay on this device. Proxy headers and basic auth left blank keep their saved values.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The new status."
-          },
-          "400": {
-            "description": "Not linked."
-          }
-        }
-      }
-    },
-    "/sync/link/conflicts": {
-      "get": {
-        "summary": "Local edits that lost to a newer edit on the server",
-        "description": "Desktop only. The server's version was kept; each entry holds this device's version so it can be restored.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The conflicts, oldest first."
-          }
-        }
-      }
-    },
-    "/sync/link/conflicts/{id}": {
-      "post": {
-        "summary": "Settle a conflict",
-        "description": "Desktop only. keep \"mine\" puts this device's version back, and the next sync sends it to the server. keep \"server\" drops it.",
-        "tags": [
-          "Sync"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Settled."
-          },
-          "404": {
-            "description": "No such conflict."
-          }
-        }
-      }
-    },
-    "/sync/link/errors": {
-      "get": {
-        "summary": "Changes the server refused",
-        "description": "Desktop only. Each entry names the record and why the server refused it. A refused change is not sent again until it changes or is retried.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The refused changes."
-          }
-        }
-      }
-    },
-    "/sync/link/errors/retry": {
-      "post": {
-        "summary": "Send refused changes again",
-        "description": "Desktop only. Clears every refusal and syncs.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The status after the pass."
-          }
-        }
-      }
-    },
-    "/sync/link/session": {
-      "get": {
-        "summary": "The linked server and session, for connecting to it directly",
-        "description": "Desktop only. Used when a host is set to connect through the server rather than from this device.",
-        "tags": [
-          "Sync"
-        ],
-        "responses": {
-          "200": {
-            "description": "The server address and session token, or nulls when not linked."
-          }
-        }
-      }
-    },
     "/plugin-assets/{pluginId}/{path}": {
       "get": {
         "summary": "Serve a plugin's frontend bundle, stylesheet or locale file",
@@ -1873,6 +1410,26 @@
         }
       }
     },
+    "/users/ws-ticket/api-key": {
+      "post": {
+        "summary": "Get a WebSocket ticket for an API key",
+        "description": "For another Termix server that manages this one with an API key. Returns a token that is valid for one minute and only opens plugin WebSockets, as the key's user. It cannot call any other route.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "The ticket."
+          },
+          "401": {
+            "description": "The request did not use an API key."
+          },
+          "500": {
+            "description": "Failed to issue the ticket."
+          }
+        }
+      }
+    },
     "/users/log-level": {
       "get": {
         "summary": "Get log level setting",
@@ -1937,21 +1494,25 @@
         }
       }
     },
-    "/users/audit-forwarding": {
+    "/users/https-settings": {
       "get": {
-        "summary": "Get audit log forwarding settings (admin only)",
+        "summary": "Get the HTTPS redirect setting (admin only)",
+        "description": "Whether plain HTTP is redirected to HTTPS with HSTS, and whether HTTPS is on at all. The redirect only applies while HTTPS is on.",
         "tags": [
           "Users"
         ],
         "responses": {
           "200": {
-            "description": "Forwarding target. The token itself is never returned."
+            "description": "forceHttps and tlsEnabled."
+          },
+          "403": {
+            "description": "Not authorized."
           }
         }
       },
       "patch": {
-        "summary": "Update audit log forwarding settings (admin only)",
-        "description": "Sets the collector URL audit entries are shipped to. An empty URL disables forwarding and clears the stored token. Omitting token keeps the stored one.",
+        "summary": "Update the HTTPS redirect setting (admin only)",
+        "description": "Turns the redirect from HTTP to HTTPS and the HSTS header on or off. Off by default so reverse proxies keep working.",
         "tags": [
           "Users"
         ],
@@ -1962,11 +1523,8 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "url": {
-                    "type": "string"
-                  },
-                  "token": {
-                    "type": "string"
+                  "forceHttps": {
+                    "type": "boolean"
                   }
                 }
               }
@@ -1976,6 +1534,9 @@
         "responses": {
           "200": {
             "description": "Setting updated."
+          },
+          "400": {
+            "description": "Invalid value."
           },
           "403": {
             "description": "Not authorized."
@@ -2181,6 +1742,16 @@
                       "type": "string",
                       "nullable": true,
                       "description": "JSON-encoded array of the user's custom keybindings. An action's type is one of the shell's own or one a plugin declares in contributes.keybindingActions."
+                    },
+                    "layoutId": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "The layout this user chose, overriding the admin default. Null follows the default."
+                    },
+                    "themeId": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "The theme this user chose, overriding the admin default. Null follows the default."
                     }
                   }
                 }
@@ -2244,6 +1815,16 @@
                   "customKeybindings": {
                     "type": "string",
                     "description": "JSON-encoded array of the user's custom keybindings. Each action is checked against the shell's own types and the parameters a plugin declares for its type."
+                  },
+                  "layoutId": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "A layout id, or null to follow the admin default."
+                  },
+                  "themeId": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "A theme id, or null to follow the admin default."
                   }
                 }
               }
@@ -4808,6 +4389,39 @@
         }
       }
     },
+    "/plugins/{id}/restore-bundled": {
+      "post": {
+        "summary": "Restore the bundled copy of a plugin",
+        "description": "Drops any update downloaded over a plugin that ships with Termix and loads the copy from the image again, so a broken release can be rolled back from the layout repair view. The shipped version is pinned so auto update does not bring the release back. Dependents restart.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The restored version and the plugin's state."
+          },
+          "400": {
+            "description": "Invalid plugin id."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "409": {
+            "description": "The plugin has no bundled copy, or a linked server manages it."
+          }
+        }
+      }
+    },
     "/plugins/{id}": {
       "delete": {
         "summary": "Uninstall a plugin",
@@ -4836,7 +4450,7 @@
             "description": "No such plugin."
           },
           "409": {
-            "description": "Other running plugins depend on it, or managed by a linked server."
+            "description": "Other running plugins depend on it, it is the default look, or a linked server manages it."
           }
         }
       }
@@ -5322,6 +4936,138 @@
         }
       }
     },
+    "/user-preferences/look": {
+      "get": {
+        "summary": "Get the layout and theme to show the current user",
+        "description": "The user's own choice, the admin defaults (a layout no installed plugin brings reads as null), the default look of the bundled plugins, whether TERMIX_SAFE_LAYOUT forces the repair view, and installed layout or theme plugins that could not load. The browser resolves the final look from these.",
+        "tags": [
+          "User Preferences"
+        ],
+        "responses": {
+          "200": {
+            "description": "What the look is chosen from.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "layoutId": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "themeId": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "defaults": {
+                      "type": "object",
+                      "description": "Admin defaults, null where unset.",
+                      "properties": {
+                        "layout": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "theme": {
+                          "type": "string",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "defaultLook": {
+                      "type": "object",
+                      "description": "The default-look plugin's layout and theme, null where none is installed.",
+                      "properties": {
+                        "layout": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "theme": {
+                          "type": "string",
+                          "nullable": true
+                        }
+                      }
+                    },
+                    "safeLayout": {
+                      "type": "boolean"
+                    },
+                    "unavailable": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "layouts": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "themes": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "error": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-preferences/look/defaults": {
+      "put": {
+        "summary": "Set the default layout and theme (admin only)",
+        "description": "What everyone sees until they choose their own. Null clears a default so the default look applies.",
+        "tags": [
+          "User Preferences"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "layout": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "theme": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The defaults now in effect."
+          },
+          "400": {
+            "description": "Not a layout or theme id."
+          },
+          "403": {
+            "description": "Not an admin."
+          }
+        }
+      }
+    },
     "/host/db/host": {
       "post": {
         "summary": "Create SSH host",
@@ -5631,6 +5377,20 @@
         }
       }
     },
+    "/host/policy": {
+      "get": {
+        "summary": "Host creation policy",
+        "description": "Whether hosts can be added by hand, or a plugin manages them all.",
+        "tags": [
+          "SSH"
+        ],
+        "responses": {
+          "200": {
+            "description": "{ manualCreate, blockedBy? } where blockedBy is the managing plugin's name."
+          }
+        }
+      }
+    },
     "/host/db/host/{id}/local-connection-auth": {
       "get": {
         "summary": "Get the login a desktop needs to reach a shared host itself",
@@ -5705,70 +5465,6 @@
           },
           "404": {
             "description": "Host not found or no password set."
-          }
-        }
-      }
-    },
-    "/host/db/host/{id}/export": {
-      "get": {
-        "summary": "Export SSH host",
-        "description": "Exports a specific SSH host with decrypted credentials.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The exported SSH host."
-          },
-          "400": {
-            "description": "Invalid userId or hostId."
-          },
-          "404": {
-            "description": "SSH host not found."
-          },
-          "500": {
-            "description": "Failed to export SSH host."
-          }
-        }
-      }
-    },
-    "/host/db/hosts/export": {
-      "get": {
-        "summary": "Export all SSH hosts",
-        "description": "Exports all SSH hosts for the current user. By default credentials are decrypted and embedded. With `share=1`, secrets are omitted and credential-authenticated hosts instead reference a scrubbed `credentials` array by alias, suitable for handing off to another user.",
-        "tags": [
-          "SSH"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "share",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Set to \"1\" to export without embedded secrets."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "All exported SSH hosts."
-          },
-          "400": {
-            "description": "Invalid userId."
-          },
-          "500": {
-            "description": "Failed to export SSH hosts."
           }
         }
       }
@@ -6800,45 +6496,6 @@
         }
       }
     },
-    "/host/ssh-config-import": {
-      "post": {
-        "summary": "Import hosts from an OpenSSH config file",
-        "description": "Parses an OpenSSH ~/.ssh/config file and imports the defined hosts.",
-        "tags": [
-          "SSH"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "content"
-                ],
-                "properties": {
-                  "content": {
-                    "type": "string",
-                    "description": "Raw text content of the SSH config file."
-                  },
-                  "overwrite": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Import completed."
-          },
-          "400": {
-            "description": "Invalid request body."
-          }
-        }
-      }
-    },
     "/dashboard/uptime": {
       "get": {
         "summary": "Get server uptime",
@@ -7400,246 +7057,6 @@
         }
       }
     },
-    "/credentials/detect-key-type": {
-      "post": {
-        "summary": "Detect SSH key type",
-        "description": "Detects the type of an SSH private key.",
-        "tags": [
-          "Credentials"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "privateKey": {
-                    "type": "string"
-                  },
-                  "keyPassword": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Key type detection result."
-          },
-          "400": {
-            "description": "Private key is required."
-          },
-          "500": {
-            "description": "Failed to detect key type."
-          }
-        }
-      }
-    },
-    "/credentials/detect-public-key-type": {
-      "post": {
-        "summary": "Detect SSH public key type",
-        "description": "Detects the type of an SSH public key.",
-        "tags": [
-          "Credentials"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "publicKey": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Key type detection result."
-          },
-          "400": {
-            "description": "Public key is required."
-          },
-          "500": {
-            "description": "Failed to detect public key type."
-          }
-        }
-      }
-    },
-    "/credentials/validate-key-pair": {
-      "post": {
-        "summary": "Validate SSH key pair",
-        "description": "Validates if a given SSH private key and public key match.",
-        "tags": [
-          "Credentials"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "privateKey": {
-                    "type": "string"
-                  },
-                  "publicKey": {
-                    "type": "string"
-                  },
-                  "keyPassword": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Key pair validation result."
-          },
-          "400": {
-            "description": "Private key and public key are required."
-          },
-          "500": {
-            "description": "Failed to validate key pair."
-          }
-        }
-      }
-    },
-    "/credentials/generate-key-pair": {
-      "post": {
-        "summary": "Generate new SSH key pair",
-        "description": "Generates a new SSH key pair.",
-        "tags": [
-          "Credentials"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "keyType": {
-                    "type": "string"
-                  },
-                  "keySize": {
-                    "type": "integer"
-                  },
-                  "passphrase": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The new key pair."
-          },
-          "500": {
-            "description": "Failed to generate SSH key pair."
-          }
-        }
-      }
-    },
-    "/credentials/generate-public-key": {
-      "post": {
-        "summary": "Generate public key from private key",
-        "description": "Generates a public key from a given private key.",
-        "tags": [
-          "Credentials"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "privateKey": {
-                    "type": "string"
-                  },
-                  "keyPassword": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The generated public key."
-          },
-          "400": {
-            "description": "Private key is required."
-          },
-          "500": {
-            "description": "Failed to generate public key."
-          }
-        }
-      }
-    },
-    "/credentials/{id}/deploy-to-host": {
-      "post": {
-        "summary": "Deploy SSH key to a host",
-        "description": "Deploys an SSH public key to a target host's authorized_keys file.",
-        "tags": [
-          "Credentials"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "targetHostId": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "SSH key deployed successfully."
-          },
-          "400": {
-            "description": "Credential ID and target host ID are required."
-          },
-          "401": {
-            "description": "Authentication required."
-          },
-          "404": {
-            "description": "Credential or target host not found."
-          },
-          "500": {
-            "description": "Failed to deploy SSH key."
-          }
-        }
-      }
-    },
     "/credentials/reorder": {
       "put": {
         "summary": "Reorder credentials",
@@ -7701,36 +7118,12 @@
             "description": "Failed to load branding settings."
           }
         }
-      },
-      "patch": {
-        "summary": "Update white-label branding (admin only)",
-        "description": "Persists a partial update to appName, tagline and/or logo (a PNG/JPEG/WEBP data URL; pass null to clear the logo). Invalid values are rejected with a 400.",
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "Updated effective branding settings."
-          },
-          "400": {
-            "description": "Invalid or unknown setting field."
-          },
-          "401": {
-            "description": "Not authenticated."
-          },
-          "403": {
-            "description": "Admin access required."
-          },
-          "500": {
-            "description": "Failed to save branding settings."
-          }
-        }
       }
     },
     "/users/auth/methods": {
       "get": {
         "summary": "List login methods",
-        "description": "Public. The login methods with at least one enabled instance, for the login screen. Carries ids and labels only.",
+        "description": "Public. The login methods with at least one enabled instance, for the login screen. Carries ids and labels only, plus rememberDevice, false when the login policy turned remember me off.",
         "tags": [
           "Auth"
         ],
@@ -8143,88 +7536,6 @@
           },
           "500": {
             "description": "Failed to fetch audit log actions."
-          }
-        }
-      }
-    },
-    "/audit-logs/export": {
-      "get": {
-        "summary": "Export audit logs",
-        "description": "Streams the full filtered result set as CSV or NDJSON. Accepts the same filters as GET /audit-logs. Admin only. The export is itself audited.",
-        "tags": [
-          "Audit"
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "format",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "csv",
-                "ndjson"
-              ],
-              "default": "csv"
-            }
-          },
-          {
-            "in": "query",
-            "name": "userId",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "action",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "resourceType",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "success",
-            "schema": {
-              "type": "string",
-              "enum": [
-                true,
-                false
-              ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "startDate",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          {
-            "in": "query",
-            "name": "endDate",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Audit log file."
-          },
-          "403": {
-            "description": "Not authorized."
-          },
-          "500": {
-            "description": "Failed to export audit logs."
           }
         }
       }

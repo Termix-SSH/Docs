@@ -1,0 +1,71 @@
+---
+id: pin-an-assets-zone-or-hand-it-back-to-the-rules
+title: "Pin an asset's zone, or hand it back to the rules"
+description: "A pinned zone is kept by every later collection. zone null unpins it; the rules decide again at once."
+sidebar_label: "Pin an asset's zone, or hand it back to the rules"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDubQFaMkNcmJPStECSoHCSBwYhSsUI3IsrkXubnaHlhmC/z2YXVpS7bhALuVBImfffO+8GbHmWAXjxTiLJa7AG2u5hi/OMpgIe/YC2wH4gcMALQkHqFzbcqUai4yzfdtCb72xEYz8AtIwhL7lCDVXpmagHRkLJOBsxYu/LRYotItY3uJqjZsCPQXqWDiobESjsXiSBgu01DGWaGosMPDn3gSusZTQc4GxargjLEeUwSeUFd5xwGnaZDRHeefqQSHPlStnha3oEXnfmoo0peV91EqML2277T1XggX64DwHMRz1VCtwhooSjN1p3H3b0rbl7G5Kj8YUvbMxq765vNS/f7fgumGgGFkWOBX49luQP50Awd66g00NmJFvv4WE2FfN0eBUYMfSuFrr26dktMolLn3b74y9IG+WZJYJH5ejqadlSrDAyOHhqT99aLHEMYsmLJ55/cv1Aa45dOYRMgYLfKBgtB4p81ma4r2jvhUssRHxsVwuJSku+JE63/Kich1OqZ+Rqz4YGVIIW6bAYdVr9LebqRixcm5v+FxC3vzBw1FyZuKjNjeHcm7o2EWNBef7pd8ZhMX88rsLHWnM72+uX2T/kWM0zoK4PVuIbAWMTTOhTlwwX9JFg4ap5gAU4V0yCmTrBEuKqafnKR1jy1lhkackQ05zcn+QVyN6f3MNGQ+RRecxmp29MHYBNw1b8IE13AKMgNCeo0oqrtlWDO6Bw6tZpGjPy/3dlVxdrWHPA0ShIMbu4GCkAeke/3mRzhH6/aXd81DAoTFVkx3Fk5sFrAWokqhqMxbcwc7aFVnrEkDPyQ5KfNxGzlOlrPHhxDe/5ct74ocnXpi0bXcuFciIInC1hlWMJgpZgdXVWmeFQ8y5/rx4s7h8WQELq7UO9awlDQkEpjrCoLMXWXqfwlaucpEjVA3ZHUe4c0ExIA7I++AeMnt4F6WjRHzzRbpSxraZOX6IiWcKcAEaNWsEtlTt1cqR7J9HOZ4Y9v/cK/naCT/K0rdkrGaX+Gqcue4WT1yHBVL6SXyHBZZpz6SebQpsXBRVGMctRf4U2mlS8eeeg7LQ5sRqiZNqE/W9xvKO2sj/UY8fP8zL6Cd4LeanabdDIs+21y8scM9DXofTZiow3/TkPR/8mn1cXKv6SfHFhlM2PK6Cq09KY9t5UXauVpVAB125dMh+XUojUWaSjdiS3fW0S6yTTOrzFQYW3kg=
+sidebar_class_name: "put api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pin an asset's zone, or hand it back to the rules"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ai/assets/{id}/zone"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A pinned zone is kept by every later collection. zone null unpins it; the rules decide again at once.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"zone":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The asset."},"400":{"description":"Not a known zone."},"404":{"description":"No such asset."}}}
+>
+  
+</StatusCodes>
+
+
+      

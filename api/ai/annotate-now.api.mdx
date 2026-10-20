@@ -1,0 +1,69 @@
+---
+id: annotate-now
+title: "Annotate now"
+description: "Runs the AI annotation as the collector, over the assets that changed since their last annotation and their neighbours, or over every asset with all. Queues behind a run in progress. With no collector set yet, the caller becomes it."
+sidebar_label: "Annotate now"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU1v40YM/SsEz4qcpj3p5i1awFsUTTcpgiJrFLTEWBNLM8qQSqIa/u8FZxTHm+we9lwdpAGHw3n8eE97bFjq6AZ1wWOFn0YvoC3DcgXkfVCyDaBsrEPXca0hFhAeOSYbibDaNinULfktNyDO12y7LkJHol+E8s2849lt200YoxQQYo7IjxynHBOenLZAXVfCnyOPLLDh1vkGCOLowXkYYthGFinhxlx9eAUIFmBiLTJu6jqOsOE69CzgtPzssUClrWB1i8sVrguM/DCy6IfQTFjtsQ5e2astaRg6Vyf4i3uxOu1R6pZ7spVOA2OFYXPPtWKBQwwDR3Us6WzXnThtQuiYPB7SY3fKELxk14vzC/t82RBRisqNFejBqtCUeCjwp/Mf37v+7kSc3wK5Mjel7MnTlku0q3rWNjRY4RAkwSRtscLF0I1b589ocAtyi3xwMfeLsUDh+MjR6rTHMXZY4T6bDli8AfB3GCNcc+zdM2QfLPCRoqNNl1OcrQn6HY2dYoWt6iDVYqHpYMnP1A8dl3XorUxrQ1CP0emUIGyYIsflaOBv14fCGhV2jk8tNLjfeDpaTkJcWdcylNNAx/4YFss5uVm/khMW8+LXEHsyzB9vrt9lf8UiNuAaduxB2KvNaOLSqG2I7t9MgJap4WiU+pCCvjAiH0ztPU3piC1nhQU6uy27YIGeEtL7J/0moo8315D9Ey1IQdzWnzlfwk3LxiM2uAU4BaUdi1lqbthYfCT617JIaE/L/d2VXF6uYMcTpDm36U2s1/75n3fpHF2/v7Q7ngp4al3d5ovk9ZoSVgpUq7yInF0Rnvx8uk5UMAfbJz8Fz8CdzKwyOfj0Khy/5OE9El/jyAfr2F1ItXFqm7hcwVLEiZJXWF6ujCYcJaf5Q3lRnr9P3idJPp5KehuZGoHJaCes45AQm/4EYZnVWOAuRPMBDUDDEMMjp7aZDvSUxGyeoeXMevDh6S2AE0H8n/0k8jwrP+ti6Mh5q10Swv2sobf4qqFYIKVXStgWL0q6LrA15a1ucb/fkPBfsTsczPwwcjRxW7+KZVYyzPOcdG/HE1b4c+7B2bWBMvduzNLw5gdlmncU/Ms/rkytNvOPrQ+NnYlkPbZ3hVhgSH1Oyphse+zIb0faJnFJMe35D6fL3PM=
+sidebar_class_name: "post api-method"
+info_path: api/ai/ai-assistant-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Annotate now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ai/assets/annotate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs the AI annotation as the collector, over the assets that changed since their last annotation and their neighbours, or over every asset with all. Queues behind a run in progress. With no collector set yet, the caller becomes it.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"all":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"202":{"description":"started or queued."},"403":{"description":"Missing ai.assets.manage."}}}
+>
+  
+</StatusCodes>
+
+
+      

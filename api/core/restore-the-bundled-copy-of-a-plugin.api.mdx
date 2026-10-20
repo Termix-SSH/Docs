@@ -1,0 +1,70 @@
+---
+id: restore-the-bundled-copy-of-a-plugin
+title: "Restore the bundled copy of a plugin"
+description: "Drops any update downloaded over a plugin that ships with Termix and loads the copy from the image again, so a broken release can be rolled back from the layout repair view. The shipped version is pinned so auto update does not bring the release back. Dependents restart."
+sidebar_label: "Restore the bundled copy of a plugin"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVdtu3DYQ/ZXBvDQFFK2bFAWqNwdpAacPNeItjMJdFLPieMWuRCrkyGt1oX8PhtReEtsF8t4nSdRczpnL4R4NxzrYXqx3WOH74PsI5EYYekPCYPzOtZ4MG/APHICgb4eNdSANCcTG9hF2VhpYcujsI5AzoPYRpGGofT/CffBd+rIdbRhoQ9YVED0QrIPfsoPALVNkqMnBmiH4tmUDa6q3J+eWRj8IBO7JBniwvCth2XCC0LOBBw7Regc2Qm+dY5MyDOJPTDiC8wLrYN0mxTzk1UwlvOeenWEnEQJHoSDlXw4LFNpErO7wOhGPuCqwp0AdCwf9sUerpetJGizQUcdYoTVYYOBPgw1ssJIwcIGxbrgjrPYoY69WURQLTtNKjWPvXeSo/99cXOjjy+YsE+QoPpzx1YIrl9yW7yJEIeESpwJ/fC7IlXug1ppDG62ZTd8+n6+mtuUALdXbCGQ668rsGcuOHG0OmX5+3n3O0pCWHtaDM9pZHYsCvE5Ta91We8VBpyuHjGClxGkqsGNpvNHi+ihY5BpXuJghLPbWTIu5JK/n6FhgjpZ7M4QWK9znowmLr0D+6YdwmN1sgwU+ULC0bnMr5tNE756GVrDCRqSP1WIhybHkR+r6lsvadzilZkauh2BlTBDWTIHD5aDY71ZTscfa+63l8xPq7W88Hk/OQtzo0GQo54GOM6RYcJ4t/c5GWMwvv/rQkWL+cLt8wv6GYxoiSWsY2Qmk1WbQJD7Yf0ktoWEyuvwR3qWgx6lLjmkEzikdsWVWWOQNySanHflnJy8i+nC7hGwPkQVUa+zGvbauhNuGHfSBFW4BVkBoy1FPajbsas5K9RKLhPa83N9cycvrK9jyCEkjVEuSAEr3+PcTOkfTby/tlscCdo2tm5wontKUcCVAtUR1m23B79zsXZNTnaNa9D+50TsGbiPnpbLu3ifWVlqlOU//5fWVjn6WFazwzU/lDxfl2yeUkir4wHDyK+EXqpvDshtfD12SUStRYUHwg3BMhddF7shp/nkKPub1TTzOBQL8/fG2+RqEbpATdvL/lfX8lZUHWvhRFn1L1mnpkxLuZw29w1lDscBqvqy+lNFVgY2qbnWH+/2aIv8R2mnS408DB1W21Ukpk84ZG/XdYHVPbeT/6Nmrj/PN+D28hPagIG5MgtwO+oUFbnnM1+u0Or8grn+/WeI0fQZbRxIm
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore the bundled copy of a plugin"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/restore-bundled"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Drops any update downloaded over a plugin that ships with Termix and loads the copy from the image again, so a broken release can be rolled back from the layout repair view. The shipped version is pinned so auto update does not bring the release back. Dependents restart.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The restored version and the plugin's state."},"400":{"description":"Invalid plugin id."},"403":{"description":"The caller lacks admin.plugins.manage."},"409":{"description":"The plugin has no bundled copy, or a linked server manages it."}}}
+>
+  
+</StatusCodes>
+
+
+      
