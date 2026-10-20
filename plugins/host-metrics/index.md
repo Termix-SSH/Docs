@@ -28,6 +28,12 @@ The cards: CPU, memory, disk, network, temperature, GPU, uptime, system info, to
 
 The terminal toolbar shows small CPU, memory and disk bars for the host you are in.
 
+## Metrics panel beside a terminal
+
+Open the Host Metrics button on the right edge of an SSH terminal, or Metrics panel in the tab's menu, to watch the host while you type. It shows CPU, memory, disk, temperature, uptime and the busiest processes, and updates on the host's metrics interval. Drag its edge to resize it and use the arrow in its header to move it.
+
+In Settings, Host Metrics you can open the panel with every new terminal, pick its side and size, and hide the edge button. Turn off Show metrics panel in terminals in the host's Host Metrics section to keep it from opening there.
+
 ## History
 
 The clock button on a card opens its history chart: the last 1 hour, 6 hours, 24 hours, 7 days, 30 days, or a range you pick.
