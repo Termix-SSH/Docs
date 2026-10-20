@@ -6,9 +6,29 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- A Panels card in the host Terminal tab turns the panel bar on or off, picks the side and sets which panels show and in what order, with defaults like the toolbar
+- Panels from other plugins can read the terminal's current folder, which the files panel uses to stay in sync
+- The terminal finds its current folder from /proc, so it works on hosts with a minimal ps such as busybox
+- A Clear console keybinding action wipes the screen and scrollback without sending anything to the shell
+- With Auto-Tmux, a host with exactly one tmux session attaches to it directly instead of asking which one
+
+### Fixed
+
+- The sudo password prompt is found on hosts whose prompt ends in a color reset or a window title
+- A tab that reconnects to its live session no longer leaves an extra connection open on the jump host
+
+### Changed
+
+- The local terminal now runs in the plugin instead of the desktop app, so fixes to it no longer need a new desktop build
+- Needs Termix 26.10.3 or newer
+
 ## 1.0.3
 
 ### Added

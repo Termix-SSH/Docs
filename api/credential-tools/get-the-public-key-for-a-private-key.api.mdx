@@ -1,0 +1,68 @@
+---
+id: get-the-public-key-for-a-private-key
+title: "Get the public key for a private key"
+description: "Get the public key for a private key"
+sidebar_label: "Get the public key for a private key"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu20YQ/ZXBPK8k9/LENydIUydAa1QqjMIQihE5Ftcid5ndoWWW0L8Xs8tKihQDjR4kavbM7Jnb4YhC24jFI74PXLETSw2svG8irg0G/tJzlHe+GrAY018buMJCQs8GS++EnegRdV1jSxLr3eI5eqe2WNbckj7J0DEW6DfPXAoa7ILvOIjlqKddsC8k/JmHM2yUYN0WDwZ3PNxTjHsfqm+cp48yjZ13MQf88eZGfyqOZbCdcsICVzVD128aW8KOh7lG/vlNXGakQCh931TgvMCGITBVk+tP166/eQFqGr9nBR3MxfFHFpCvWMCTD0Dn16HBlqX2FRbY+ZiKRVJjgYuu6bfWzaizi/LYq5lorxZbdhxIeJZjz3KkyOGFg3Z3xD40WOCYTQe85PaX7wOsOLT2FTIGDb5QsLRpclEna0r6ifpGsMBapIvFYiHJcc6v1HYNz0vfamPWyqDsg5UhUdgwBQ63vabzuD6YEUvvd5bPLdTZzzwcLWchljpNmcp5oONAKBfNOcGwmEBopodffGhJOX96WF1lv+QYrXcgfscOIjsB61Kv9BIf7D9psqFmqjgARXiXggK5KsGSYxqM85SO3HJWaNDqbRmCBh0lps97eZPRp4cVZDxEFiCBaLduZt0cHmp20AVWugasgNCOo1pKnY6Swb9weDOLxPa83N9dydv7uzTEUSiIdVvYW6lB2te/r9I5Qr+/tDseDOxrW9b5oni6Zg53AlRKVLcJC37vJu+SnK4tlaLn5AbvGLiJnJdTZeqPk8B9yMN7KUj/Cc2FDp3pk3VPPlXPirpfCSnc3t/pMnGIuRg/zG/mN1cl+jitMCyXv2oi0UBZc7nTxNqcj+8GVYuTfIgHgtpHSc1UvWgpSe80Wf9Tcb4ichwD4VdZdA1Zp8GTfoyTGD3iSYzQ4KUcocFvCdLaoHJV93HcUOQ/Q3M4qPlLz0E1Yn3SnCwImMciyccuteN9fufMVkpS4U2fN+zi/aPScVTS+9+XuvSb6T3W+kp9Au3RpO8C0aBPBUgCk2wjNuS2PW3TjqaY+vkXdgV/hQ==
+sidebar_class_name: "post api-method"
+info_path: api/credential-tools/credential-tools-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the public key for a private key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/credential-tools/generate-public-key"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get the public key for a private key
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The public key."},"400":{"description":"The private key could not be read."},"403":{"description":"Not allowed."}}}
+>
+  
+</StatusCodes>
+
+
+      

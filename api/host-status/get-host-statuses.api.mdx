@@ -1,0 +1,69 @@
+---
+id: get-host-statuses
+title: "Get host statuses"
+description: "Returns the online or offline status of every host the user can reach. Starts status checks for the user's hosts on the first call and waits briefly for their first results."
+sidebar_label: "Get host statuses"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v40YM/SsEL70osrfoybe0aHezBdpFkyIogqCgJcqaWprRDqk4qqH/XnDGX5sgh+1tT7bpN8PHR87jHmuWKrpBXfC4wj9Yx+gFtGUIvnOeIUQITZO+ipKOAqEBfuI4QRtEE3QUjlCRh8hUtSXcKkWVI75qudoKNCGewN9JOiwQfIo1LopCRV0H5GvYkVOBdXTcdNPxoIsHWGQZO5USC1TaCK4e8IMxuU3p8LHAgSL1rBztzz06K+3zyHHCAj31jCu09De1YIGRP48uco2rhjrhAqVquSdc7VGnwbCi0fkNzsULtX4KfU8gbOmUa3C1lPC77yajK3wokSJnCbgucX60hDIELyyW4vvl0j6+vPgaehpM56SwqwU0HNVkr9GxlEbnh+W714d/Cwo0asteXWW8SpznAnvWNtS4wg0rmkTa4goXQzdunL+iwS0s2VXOssAChePTUcExdrjCfQ7N+FKIv8IY4Y5j754hY7DAJ4qO1l0u8xBNZBsaO7UWqA6yWiw0HSz5mfqh47IKPc6zCSVcjdHplCismSLH69FoPzzOxR6rELaOLyM0uF95OkUurri1nmYqlxedWmxc8NB6+51BWBy+/BJiT8b54/3dq+pvWcTZIIctexD2Ci6PtSUJ0f1LhoSWqeYIJPBjujSNusHSwdTQy5JO3HJVWOQ5zpDzIP+z0zcZfby/g4wHYQVSELfxV86XcN+yhyGy0S3AKShtWSxScc2+YghPHN+sIrG9lPurlbz+dANbnmysozq/gZ3TFrR//vtVOSfo10u75amAXeuqNieSc5oSbhSoshcqRyyEnT+crsj7kAD2P/kpeAbuhPNzcr4JqWqnnZV54UBw/enG5p+jZP7vymW5fN2kNuwEXAPmmYeXLkfXTSwJ6nAqOAE6J1oc3QTWE1TBe66SfhrAXHMIUVN3hiDakzeSh1F5z5qvyY+c5SUne1Ne2eu3uAry+Ck/62LoyHnTIPnW/mB2D3g2Oyzwwu6wQFsbFjHYfr8m4T9jN88WzpvDPKh2Yo52XhVvqvc/VsMbJWx5+mJdPVE3GiqtkqPHZgM8e/z7n+9wnv8Dds2/Cw==
+sidebar_class_name: "get api-method"
+info_path: api/host-status/host-status-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get host statuses"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-status/"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the online or offline status of every host the user can reach. Starts status checks for the user's hosts on the first call and waits briefly for their first results.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostIds","required":false,"schema":{"type":"string"},"description":"Comma separated ids. Only these hosts are checked."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A map of host ids to status entries."},"401":{"description":"Not authenticated."}}}
+>
+  
+</StatusCodes>
+
+
+      

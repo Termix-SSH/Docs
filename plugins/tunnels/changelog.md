@@ -6,9 +6,20 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build
+- Needs Termix 26.10.3 or newer
+
+### Fixed
+
+- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging
+
 ## 1.0.3
 
 ### Changed

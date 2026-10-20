@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Tunnels API",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
   },
   "servers": [
@@ -357,6 +357,144 @@
           },
           "404": {
             "description": "Preset not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/config": {
+      "get": {
+        "summary": "Get this computer's client tunnels",
+        "description": "Desktop app only. The list kept on this computer.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "The client tunnels."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save this computer's client tunnels",
+        "description": "Desktop app only. Refuses two auto-start tunnels on one address.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved, or a reason it was not."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/port-available": {
+      "get": {
+        "summary": "Check a local port",
+        "description": "Desktop app only. Whether this computer can listen on the address.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the port is free."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/statuses": {
+      "get": {
+        "summary": "Get client tunnel statuses",
+        "description": "Desktop app only.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Statuses keyed by tunnel name."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/preset-default-name": {
+      "get": {
+        "summary": "Suggest a preset name",
+        "description": "Desktop app only. Date, computer name and system.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "The name."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/start": {
+      "post": {
+        "summary": "Start a client tunnel",
+        "description": "Desktop app only. Needs this computer linked to a server.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "The tunnel name, or the reason it did not start."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/test": {
+      "post": {
+        "summary": "Test a client tunnel",
+        "description": "Desktop app only.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the tunnel works."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/stop": {
+      "post": {
+        "summary": "Stop a client tunnel",
+        "description": "Desktop app only.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Stopped."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/autostart": {
+      "post": {
+        "summary": "Start the auto-start client tunnels",
+        "description": "Desktop app only. Called once after sign in.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "How many started and what failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/c2s-local/auth-answer": {
+      "post": {
+        "summary": "Answer a sign-in prompt",
+        "description": "Desktop app only. Answers a code or password the endpoint host asked for. A null answer cancels.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the prompt was still waiting."
           }
         }
       }

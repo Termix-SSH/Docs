@@ -1,0 +1,68 @@
+---
+id: push-a-clients-changes
+title: "Push a client's changes"
+description: "Each op carries the revision the client last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason."
+sidebar_label: "Push a client's changes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v20YQ/SuDueTCSKrRXHhzigRwisJG7cIoBCEYkyNxLXKX2RlKZgX992J2aVm1k0Ou5UEid+fj7ZuZtwesWaroenXBY4mfqGog9FBRjI4FtGGIvHPigk8fVevYK7QkCkL7GVz3AhQZqO9bxzU4DzX37Gv21Qgh1hyBfA1skTesAk4Fwt5DZBlaLSBsYe+0SeE970/5CqiCX7eu0pd94bjj+E5gxzHbhAiRH7lSrrMZQWSS4GdYoNJGsFzi7egrXBUY+dvAoh9DPWJ5wCp4Za/2muBXZDTMH8W4OKBUDXdkbzr2jCWGB0uEBfYx9BzVsdhu6OXMiGKkEQt0yp28dT7mx7BIH7zkEBeLhf39txjXnieSoOcIoS+MXaMh0yrsdYbHAn/9nvcf1K5D7LiG0EviqQuRQRvy8GGxSI4fvuf4mVzLNWhINR2hashvWGZoqDvWJtRYYh8kMUHaYIlzGX01313M+0EaLDDXybg/4BBbLPGQl45YvEr3dxgi3HHs3NNUXixwR9HRQ5vJmVYT0DUNrWKJjWov5XyuyXHGT9T1Lc+q0BnDK0NQDdHpmCA8MEWOl4NhXa6OhZU+bB2fr1DvfufxtHIW4tb6IEM5D3SqrGGxMyczLCcjLKaXzyF2ZJi/3N+9Of0tS56tsGWfKvpcY0sSovsn9SQ0TGmSBD6moGmmzCw5pmKeH+mlG9OprB0tWzbBAj0lpI97/SGiL/d3kO1BWIEUxG38e+dncN+whz6ywS3AKShtWWylYpt7hrDj+MNTJLTndP80k5c3V7DlEUQpqvObSSC6p69vjnMy/XlqtzwWsG9c1eRE8pJmBlcKVKmY22RrojZ5V+R9SAa2T34MnoFb4TxEJjB/vkjRp9y8JylZHo6ro1VsHRI3Tm0ziRhc3lzZeGT1wxJ/mS1mi7c1NFODVbNsNfQ2yRm8AXmWgmlIiwS5I08bhqANvxrHdMbIXVAGccoC6xg6IOhIdKqmqUFHSTWn1roZxLQ43xfv5FlFXkM9E+H/3eWTe1r5Sed9S84bUUkMD5NsLtFk0+p5YVJq0rkqsDFlLZd4ODyQ8F+xPR5t+dvA0dRs9aKOWbowN3ASui2PWOJvmdL3d4bAzNsha8GrO85E7iToN9e3Jk8P093Yhdp8Iu2xSL8lYoEhlS1JYVo7YEt+M9AmqUmKac+/OZXmPg==
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Push a client's changes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/push"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Each op carries the revision the client last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"ops":{"type":"array","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One result per op, in the order sent."},"400":{"description":"Malformed ops, or more than 500."},"500":{"description":"Failed to apply changes."}}}
+>
+  
+</StatusCodes>
+
+
+      

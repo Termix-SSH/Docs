@@ -1,0 +1,225 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Import and Export API",
+    "version": "1.0.0",
+    "description": "Import hosts from a JSON file or an SSH config file and export them to share or back up."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/import-export/bulk-import": {
+      "post": {
+        "summary": "Import hosts from Termix JSON rows",
+        "description": "Imports up to 100 hosts for the signed-in user. The user needs the host create and edit permissions.",
+        "tags": [
+          "Import and Export"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hosts"
+                ],
+                "properties": {
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "overwrite": {
+                    "type": "boolean",
+                    "description": "Update a host that matches on address, port and username instead of skipping it."
+                  },
+                  "credentials": {
+                    "type": "array",
+                    "description": "Credential placeholders the hosts can refer to by credentialAlias.",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "403": {
+            "description": "Not allowed to import hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/ssh-config-import": {
+      "post": {
+        "summary": "Import hosts from an OpenSSH config file",
+        "description": "Parses the text of an OpenSSH config file and imports the hosts it defines.",
+        "tags": [
+          "Import and Export"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "content"
+                ],
+                "properties": {
+                  "content": {
+                    "type": "string",
+                    "description": "The text of the config file."
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Import completed."
+          },
+          "400": {
+            "description": "Invalid request body."
+          },
+          "403": {
+            "description": "Not allowed to import hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/export": {
+      "get": {
+        "summary": "Export all of the signed-in user's hosts",
+        "description": "By default the hosts come with their passwords and keys decrypted. With share set, every secret is left out and hosts that use a saved credential point at a scrubbed credentials list by name. Every export is written to the audit log.",
+        "tags": [
+          "Import and Export"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "share",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Set to 1 to export without secrets."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported hosts."
+          },
+          "403": {
+            "description": "Not allowed to export hosts."
+          },
+          "500": {
+            "description": "Export failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/export/{id}": {
+      "get": {
+        "summary": "Export one host with its passwords and keys",
+        "tags": [
+          "Import and Export"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The exported host."
+          },
+          "400": {
+            "description": "Invalid host id."
+          },
+          "403": {
+            "description": "Not allowed to export hosts."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/homepage/reference"
 custom_edit_url: null
 plugin_id: "homepage"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -33,6 +33,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `hosts:activity-provide` | Medium | Store recent activity. Becomes the store for the recent activity list of every user. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |

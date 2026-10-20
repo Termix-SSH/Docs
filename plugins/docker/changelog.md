@@ -6,9 +6,17 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- A containers panel beside any SSH terminal on a host with Docker on. See and start, stop or restart containers, and open their logs, stats and console, without leaving the terminal
+- Settings for the panel: open it with new terminals, which side it sits on, its size and the edge button
+- Show containers panel in terminals, per host
+
 ## 1.0.2
 
 ### Changed

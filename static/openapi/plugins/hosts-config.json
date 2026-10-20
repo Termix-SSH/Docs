@@ -1,0 +1,105 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hosts Config API",
+    "version": "1.0.0",
+    "description": "Keep hosts, folders and sharing in a YAML or JSON file. Termix loads them as read only hosts and reloads when the file changes."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/hosts-config/status": {
+      "get": {
+        "summary": "Hosts file status",
+        "description": "The file path, when it last applied, how many hosts it manages, and any problems from the last load.",
+        "tags": [
+          "Hosts Config"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status."
+          },
+          "403": {
+            "description": "Missing the hosts-config.manage permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/hosts-config/reload": {
+      "post": {
+        "summary": "Reload the hosts file now",
+        "description": "Reads the file again and applies it, even when it has not changed. A file with problems applies nothing.",
+        "tags": [
+          "Hosts Config"
+        ],
+        "responses": {
+          "200": {
+            "description": "The status after the load. errors is empty when it applied."
+          },
+          "400": {
+            "description": "TERMIX_HOSTS_CONFIG is not set."
+          },
+          "403": {
+            "description": "Missing the hosts-config.manage permission."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

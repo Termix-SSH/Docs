@@ -4,7 +4,7 @@ sidebar_position: 11
 slug: "/ssh-terminal/appearance"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/appearance.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 How the terminal looks and feels is set per host, in the host's Terminal section. Set it once for all your hosts with [host defaults](/guide/host-defaults). These settings are personal: on a host shared with you, you see your own.

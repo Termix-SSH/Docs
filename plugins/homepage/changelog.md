@@ -6,9 +6,16 @@ slug: "/homepage/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "homepage"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- The dashboard's recent activity list is stored by this plugin instead of Termix itself. Existing entries are kept
+- Needs Termix 26.10.3 or newer
+
 ## 1.0.2
 
 ### Changed

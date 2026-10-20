@@ -1,0 +1,69 @@
+---
+id: remove-an-account
+title: "Remove an account"
+description: "Desktop only. Ends its link to the server when it can be reached, then deletes the account and its copy of the data. The active account cannot be removed."
+sidebar_label: "Remove an account"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v3DYQ/SuDObUAo3WLnHRzERdwUhRBvIVRGItiLM2umJVIhRx5rQr678WQ2o/EdYHcehI1fBy++XqcsOZYBduL9Q5LfMdxL74H79qxgBtXR7ASobVuD+JBGobI4YkDHBp2YAUqcvDIEJiqhmujEAc1tywcE56qyg9OgFydfFW+H8Fv015NQgWsE0rs0xlckXNesuPOP3FdoEGhXcTyAe9GV+HGYE+BOhYOap3QagA9SYMGHXWMJdoaDQb+MtjANZYSBjYYq4Y7wnJCGXtFRQnW7XCeNwqOvXeRo+7/fHWln69T9OlIaDb49t8A68bGUyBpqaEZ8CHF3FIU8I4XB29fOvjdQxyq5uijwHk22LE0vsYSc27R5FBLXPXtsLPuDfV2FUdXrZZjcTXZekaDuWA5R0NoscQpm3Tz65v/9EOANYfOPi91RoNPFCw9tjklizVx3tLQCpbYiPSxXK0kHSz4mbq+5aLyHc4pqZGrIVgZE4VHpsDhelDyD5vZTFh5v7d8aaHefuDxZLlwcafFy1QuHZ1qqVxwqbH+ZxCaZfGrDx0p5/f36xfR33GM1jsQv2cHkbV8LtVML/HB/k2KhIap5gAU4ZfkNLW2wtLBVNfLkE7cclRocqdmyLlXPx/kVUbv79eQ8RBZgASi3bk31hVwr/PWB1a6RgdSaM9RLRXX7CoGr+P6WhSJ7WW6vzuT1x9vYc8jRKEg1u3gYKUB6Z7/ehHOCfr9qd3zaODQ2KrJF8XzNQXcig5Z1GMLFvzBLacXKaFKdJ/c6B0Dt5HzXFm39SlqK62GqeIC1x9vtfE5xEz8p+KquHpZHYUmGVtUk/o+09IrfIDOh6NeRpPIdORox+Cl4W8GLbFXsROGaFU8t8F3QNBRlKVOvY/SkVO6S9NkMQJyR7H4lqROlxN28r8X99x1ws+y6luyTgNOcjUtSveAZ6XTxtRXwOBR7dBgaWt9FhofRdHT9EiR/wjtPKv5y8BBFWhzVrSkR7WNuq6x3FIb+T/y98On5SX5EV4jfJx0NybhbAf9Q4N7HvNzNG8utfzdzW836xuc538AwhiZcg==
+sidebar_class_name: "delete api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove an account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/sync/accounts/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. Ends its link to the server when it can be reached, then deletes the account and its copy of the data. The active account cannot be removed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Removed."},"400":{"description":"This account is active, or the last one."},"404":{"description":"No such account."}}}
+>
+  
+</StatusCodes>
+
+
+      

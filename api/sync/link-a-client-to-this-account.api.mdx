@@ -1,0 +1,68 @@
+---
+id: link-a-client-to-this-account
+title: "Link a client to this account"
+description: "Trades the short login session the client just signed in with for a long lived device session, which shows in the account's sessions list and is revoked like any other. The login session is ended. clientType and deviceId are optional and default to desktop and none."
+sidebar_label: "Link a client to this account"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVcFu40YM/RWCl15m7Wzak27ZRQtkt9gGjYugCIxiLDHWxNKMdkjZUQ3/e8EZxVbs7mHv64MhcEjOI/n4Zo8VcRldJy54LHARbUUMUhNwHaJAE9bOAxOzCz7Zy8aRF3juWYDd2lMFzsPOSQ1PIYKFJvg1NG5LFVS0dSW9hhvY1a6sNfOONUjT2bIMvZef+NWLoXEsYH0FjiHSNmyogsZtCKwfIEhNcQaLms6wOQbyFVWzEeFi6ChlySBuK7CRIKRKbTOePNm+EZAAFfFGQpfMPniaoUGxa8biEe8HX+LSYKSvPbF8CNWAxR7L4IW86KftusaVVlPPn1k7uUcua2qtfsnQERYYVs9UChrsYugoiiPW0wzvi21p4ssSnV/jweCpmMtjg+T7ViGO8NFgG1auITS4oxWmcDVaFoq4PBh87cb/XJZ+WiZ3wXNGd311lUG+YUlNZ6MFCRvyqXuToYITWJHygUHCTMv55er9Zb4vYUKl0e3nS7ebu1vY0MBQWu+DQOP8Buw47hkq9pakDhUW2AVOrbZSY4FzHnw5317PNQQNMsUtRR3uHvvYYIH7bDqgObv079BHWFBs3QtkHzS4tdHZVZNbNFoT3MQnLLAW6biYzyUFzujFtl1DszK02ualIij76GRIEFZkI8WbXrE+Lg9GuRU2jqYW27nPNBwtkxT3SrQMZZroOF7FojUnNyxGJzTjx28htlYxf3pYXFR//2a8rIs/7q1eEqL7N5EearIVRbAMH1LSIxNSYBrptKQjtlwVGnR6W3ZBgz5tAz7v5JuIPj0sIPsDk4DNDHrn/AweavLQRVK4RjkodkOslpIq8iVB2FL8ZhUJ7bTd393JkajAYqM4v87qKO3LPxflHF2/v7UbGo6Kqhfx6ZoZ3ArYUljDRl8IOz9Gj/tjS9Fz64fgCahhykukCvbnSet+zeQ916qTCE0laqJEJ6WZyJnzTyF11ImmTNoKN3e3ulQUOTfl/exqdnU5eXWVJD2jVnddLlnhhwhtiDTuKJtUaGu9XVN+M94ucepMpDYIATshhqcYWrCQpTJxQDWktUnMR0L+PlUcfTakdvyqdueAJy/Ej3f1zbuamSL0IvOusc5rs5MM70fBfkQVbOXENRpMor00WKumF4+4368s01+xORzU/LWnqDq6POlyFk3Mq5MkdkMDFvgxD+Rd4qq6N31WobPnW+X1+JTc/XGvwrgan/02VBoT7Q5N+i8QDeb6kwgn2x4b69e9XScdSzn19x/mlkqC
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Link a client to this account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/link"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Trades the short login session the client just signed in with for a long lived device session, which shows in the account's sessions list and is revoked like any other. The login session is ended. clientType and deviceId are optional and default to desktop and none.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"deviceName":{"type":"string"},"clientType":{"type":"string","enum":["desktop","mobile","web","cli","master"]},"deviceId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The device session token and the account it belongs to."},"401":{"description":"Not signed in."},"403":{"description":"API keys cannot link a client."}}}
+>
+  
+</StatusCodes>
+
+
+      

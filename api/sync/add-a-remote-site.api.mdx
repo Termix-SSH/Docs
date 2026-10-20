@@ -1,0 +1,68 @@
+---
+id: add-a-remote-site
+title: "Add a remote site"
+description: "Saves the site with an API key made on it, then mirrors its SSH hosts as read only hosts owned by the user who adds it, in a folder named after the site. The key's user on the remote decides which hosts exist here. shareRoles lists the roles the hosts are shared with."
+sidebar_label: "Add a remote site"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1v40YM/SsEL70oclr0Ut+yRRfdLYou1i6CIjAKWqKtiaUZ7ZCKoxr+7wVnlFhN0sP2XB9siUNy+PH46BPWLFV0vbrgcYkremABbRjEKcPRaQPk4ebTBzjwCB3VDMGD08KUPHQuxhAFnAqsVj9DE0QFSCAy1RB8O06icPRcw3ZMvgfhCMcmANW1JGfOA8EutDVH8NRxDbRTjs+RlLBu2EL4RrJ18OkscheUoebK1SxwbFzVTDfyoxOFhiOXIA1F/hxaFmidHSbb9G5PU9SRs2Kd8i6xQKW94PIOV6OvcFNg5C8Di74L9YjLE1bBK3u1R+r71lVkZVzci9XyhFI13JE96dgzLjFs77lSLLCPoeeojsVOLeGZlmh0fo/nArck/Hts3zyj3v3C45tHl2xnxxQjjVigU+7mcueV9xzxnD+Wo/TBSzb+7vrafv4JkvXUlCLjI/dBhlYh7NLbzkVRiLyLLE1pIX3/lp9fnYjzewgRnH+g1tWwc9zWMpn88NbVpBmaToBaQ9loKOK6RAu+Y21CjUvsg6RCkza4xEXfDnvnr6h3Cxl9tTAXggUKxweO1uMTDlZpPGXRGYsXV/8Rhghrjp17hKyDBT5QdLSdKj1JU9A7GlrFJTaqvSwXC02GJT9S17dcVqGzim8sgmqITscUwpYpcrwZLOi7zbkwiIWD47kkN/5ZMnOxMrzlUOaOnlttsVjOSQ2XkxIW08P7EDuymD/erl9lv2IRZ0MXDuxB2KvNrDXbLgnR/ZWwDw2TzTAJvEtOgXyd1JJhauw8pQs8M5wLdHZbVsFiGg28P+q/RvTxdg1ZH4QVEj72/sr5Em6NovrIFm4BTkHpwGKSimv2FUN4mEjmrSzKy5z9x0o+8aYoRTWo54HpHv98lc6z6teX9sBjMVFfukgu15TwQYGqzMmTbuLibF2R9yEp2Dn5MXgGboXzNBmRfb5Q3k8ZvBfKeuKcGVNdRE8EdZHMeenuenO2Zu9CKqtT85t41paNTRZHyZX5trwur1+331Qto5rloKEH6vuct+UQInTB+DzPd5Gy7cjTniFowy8meVpZaZckaoBdDB0QdCQ6AcEYpSM/y/6mroHmZi+DnG2I/zfri82aB0n5URd9S85biYe86zJp3+GFtA08toILzMS9KdA8m9LpNGHvfDbxl4Gjcenmws2ZODGPT6LZQ8Llj7k3V2sLxdTbITPRi01uFPu8Vz79tjJy3E7/ALpQm02kIxbpe4lYYEj9T0ScZCdsye8H2icuSz7t8zflokuz
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a remote site"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sync/sites"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves the site with an API key made on it, then mirrors its SSH hosts as read only hosts owned by the user who adds it, in a folder named after the site. The key's user on the remote decides which hosts exist here. shareRoles lists the roles the hosts are shared with.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"baseUrl":{"type":"string"},"apiKey":{"type":"string"},"shareRoles":{"type":"array","items":{"type":"integer"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The site, with the result of the first refresh."},"400":{"description":"Missing or invalid fields."},"409":{"description":"That site is already added."}}}
+>
+  
+</StatusCodes>
+
+
+      

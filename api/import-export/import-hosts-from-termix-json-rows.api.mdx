@@ -1,0 +1,68 @@
+---
+id: import-hosts-from-termix-json-rows
+title: "Import hosts from Termix JSON rows"
+description: "Imports up to 100 hosts for the signed-in user. The user needs the host create and edit permissions."
+sidebar_label: "Import hosts from Termix JSON rows"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vk1v20YQ/SuDOVMfSXvizSlS1C6QGJUDozCMYkSOxLXI3c3u0LJK6L8Xs0tIrGUfcokuoobz+fbNWw1Yc6yC8WKcxRKvO++CROg9iIMPyyU0LkqEjQsgDUM0W8v1zFjoI4c53DWcnsAy1zG5aABUgUkYyNbAtRHwHDoTo3E2zrFAoW3E8mEsl9w+v+gjPhYY+HvPUT65+oDlkH6awDWWEnousHJW2Iq+Iu9bU5H2vniKOsCAsWq4I32Sg2cs0a2fuBIsJokeME2lxXxwnoMYjhqSzedYCoEOWKAR7uJlzuOxQPfMYR+M8OT12rmWyWLxCt1vvk6oZIykIYGOpGo4grNAdR04xgJOmCiyljoGY6Mw1eA2EHfGe2O3YGSOxwKrwDVbMdS+1fj/6/928gXfUsWNa2sO52OLUJGFwBsOevzrA5yzX7WG0tm9i0X6KMzROxszoB+XS/16i2RQuc63LFynOX5909M+U2tqGCkBa1cfRu9fLr2/OAFqW7fnWts3uUwabJ7OqmNpXI0leheVEZ6kwRIXvu23xs7Im0UOmnFi42Ldt7tZNmGBkcMzByXugH1oscQhm44XSP/t+gB3SvoXyD5Y4DMFQ+s2IzNa0xAb6lvBEhsRH8vFQlLgnF9IEZpXrlN4H7WDqg9GDqmFNVPgcNXrDA+Px2LAyrmd4amFvPmTDyfLJMVK9yS3Mk10OlbtRWdObsrp5ITF+PC7Cx1pzzf3dxfTrzitOojbsYXIVsDYxDIt4oL5N+0sNEw1B6AIn1LSRHp1S4GZ3pORzuxOUykXtVp2wQJ1VbDEp72829HN/R1kf4gsQJIUbWbsHO4btuADa7sFGAGhHUe1VLoDFYOu+rtTpG6ncP8wkle317DjA0ShILrheyMNSPfyz8U4J9cfh3bHhwL2jamaXCiey8zhWoAqiRo2+oLb2zG6ImtdctD3ZA/OMnAbOS+XCvBfZ+n+nMk7UdWHQfk30ctRz6cCpj5HPdeNSwga0RSX9wRc3V7rRnGIGZEP8+V8eYHT9UQCYBNcBwQ3q69fYGNaBqdzwWr1B1TObsw2W9OdlYtIw50qSWwoJPc1VTvofTpr1ZCO0p0zEu+y2qgAqWRw+/i6weF8m/20qzeTUvhFFr4lY3WWpGbDqIcPeNZD3bGpIiprJ5r4WKTD1ZhhWFPkb6E9HtX8veegMvV4lr2sSZiZmRRsxwe9lTIEszvtTN3bPi/5q8td2XNS8NuvK9Wd9fgnoXO1xgTa60VPeywRC3QJ5qRxyTZgS3bb0zbJRMqpn/8AaR4lqA==
+sidebar_class_name: "post api-method"
+info_path: api/import-export/import-and-export-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import hosts from Termix JSON rows"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/import-export/bulk-import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Imports up to 100 hosts for the signed-in user. The user needs the host create and edit permissions.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hosts"],"properties":{"hosts":{"type":"array","items":{"type":"object"}},"overwrite":{"type":"boolean","description":"Update a host that matches on address, port and username instead of skipping it."},"credentials":{"type":"array","description":"Credential placeholders the hosts can refer to by credentialAlias.","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Import completed."},"400":{"description":"Invalid request body."},"403":{"description":"Not allowed to import hosts."}}}
+>
+  
+</StatusCodes>
+
+
+      

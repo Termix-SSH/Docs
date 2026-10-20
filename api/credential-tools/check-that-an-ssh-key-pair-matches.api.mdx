@@ -1,0 +1,68 @@
+---
+id: check-that-an-ssh-key-pair-matches
+title: "Check that an SSH key pair matches"
+description: "Check that an SSH key pair matches"
+sidebar_label: "Check that an SSH key pair matches"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVld9v4zYMx/8Vgs9O0v148luv2G69A7ZiyVYMRTAwNi9WY0s6iU7qBfnfB0q+JE2uwJ0fEpuiqC8p6qM9Cq0jlk94F7hmK4ZaWDjXRlwWGPhzz1HeuXrAcp8+TeAaSwk9F1g5K2xFh8j71lQkxtnZc3RWbbFquCN9k8EzluhWz1wJFuiD8xzEcNRRH8yWhD/ycOYbJRi7xkOBvl+1pnprdMPDA8W4c6H+ynh6NI/onY15uR9vbvSv5lgF41Uxlvg3taZO8iFw7FuZavCfv+Z6CxsewEToTIzGrkfPn649f3cC1LZux/UUVcfr4buGqw1IQwJkYT7/LQX2ZAJ0JFXDEQvsWBpXY4nexVQ6kgZLnPm2Xxs7IW9m1XHnJqI7N9vmZHiy4WGi8bDAyGHLQXd6j31oscR9Nh3wUtc/rg+w4NCZF8g+WOCWgqFVm0s4WlPCn6hvBUtsRHwsZzNJE6f8Qp1veVq5TrdhqQqqPhgZkoQVU+Bw22syT8tDscfKuY3hcwt585GHo+UsxFw7K0s5D3TcftWiOSc3LEcnLMaXX13oSDV/eFxcZT/nGLUNxG3YQmQrYCxIw6CLuGD+y23SMNUcgCK8S0GBbJ3c0sTUFOcpHbXlrLBAo6tlFyzQUlL6vJM3FX14XED2h8gCJBDN2k6MncJjwxZ8YJVbgBEQ2nBUS6W9UTG4LYc3s0hqz8v93ZW8fbhP3RuFghi7hp2RBqR7+fcqnaPr95d2w0MBu8ZUTV4onpaZwr0AVRJ12ugLbmfH2RVZ65KDjpMdnGXgNnI+mIqsP0+w+yU37yWcvmDlFZNOxlcoOkOUsZ9cKqkRjXlFWrh9uNcTxiHmCv0wvZneXNXtPVsOJPyFFLGAaiQIdzlJ5wcgyOJSAcQBQeNixpkipKPE5rHdvglBr2QcO0P4RWa+JWM1dELKfqTTE57ohAVe8inR5JJQywJVp07e71cU+a/QHg5q/txzUGgsTxDKhMDcJ4knm7QVd/lCmixUYlqlz0fu4nJSlhzB+vDHXCmwGi+5ztU6J9AOi/RbIhboUvqJOMm2x5bsuqd1OrQppj7/Aw2uiMI=
+sidebar_class_name: "post api-method"
+info_path: api/credential-tools/credential-tools-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check that an SSH key pair matches"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/credential-tools/validate-key-pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Check that an SSH key pair matches
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"privateKey":{"type":"string"},"publicKey":{"type":"string"},"keyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Validation result."},"400":{"description":"A key is missing."},"403":{"description":"Not allowed."}}}
+>
+  
+</StatusCodes>
+
+
+      

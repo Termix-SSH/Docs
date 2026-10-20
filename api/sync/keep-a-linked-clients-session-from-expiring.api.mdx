@@ -1,0 +1,59 @@
+---
+id: keep-a-linked-clients-session-from-expiring
+title: "Keep a linked client's session from expiring"
+description: "Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token."
+sidebar_label: "Keep a linked client's session from expiring"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE2P2zgM/SsEL3tRnXRQ9ODb7KHAtIcOOikGi0FQaGxOrMaWXJFO4jX83wtKbuYLPfTWkw3qiXyPIt+ENXEVXS8ueCzxC8kQPYOFh0jcQE0HVxEwMbvg4diQB2kIqiFG8gLBE5CvGY5OGufh/RpqO7IB6+t8oOjQ1oos4LM0FI+OCeJSyA9tm8Apa+s06Z6oZ3DCIGFPvkCDYneM5R3ejL7CrcFI3AfPxFhOeLFe6+e5kk1D4OmYUxgIMZUqcDb4bv32Nf5mkRjpEPZU6wU69S5SXeA8G+xImlBjiX1gQYO9lQZLXPHoq9XhYrW0aBUpdQ4NMsUDRaU94RBbLHHKoRnNi+L/hSHChmLnTpAxaPBgo7P3bda4RBPtBzu0giU2Ij2Xq5WkiwWdbNe3VFShw3met8qgGqKTMVG4JxspXg5K+247mwmrEPaOnkZs7z7ReI48SXFTNdRlKk8TTShjTwsX1ZxgWC4gNMvPhxA7q5w/3m5eqf/V+vRUwDoCLo+ZFgnR/W8VCQ3ZmiJYhn9T0vPcLGMym2eSztyyKjTotFqGoEFvE9PvR/kto4+3G8h4YBKwAux2/o3zBdzqKvSRlK4BJyB2T6yRimryFUE4UPytisT2abv/uJOX11ewpxFYbBTnd2kFQbrTt1dyztA/b+2eRgPHxlVNLsSPZQq4ErCVsF5bsBCOfrldWe9DAui59WPyipYp75PzDyGpdtKqTN1suLy+0sGnyJn422JdrF+/jkK1YE28l9CD7ftMS0uECF2ItOzRYkWd9XZHENR/ni9aYh+pC0LATojhIYYOLHSWZXknXfnOeqW7DM0noh4stM6rV2Tf+ofPPplSJPtwfveSvy6eF/LyN/ttnkWhk6z61jqvbUgmNi3Od4fqfPpaF8nrEmFUZ87+tzXYqFOWdzhN95bpa2znWcM/BopqSdtHi8v+8+ix159vNjjPPwHTkk41
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep a linked client's session from expiring"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/session/refresh"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new token, or null."},"401":{"description":"Session revoked or expired."}}}
+>
+  
+</StatusCodes>
+
+
+      

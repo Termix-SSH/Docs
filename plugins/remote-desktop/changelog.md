@@ -6,9 +6,17 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Changed
+
+- Opening a host in Windows Remote Desktop now runs inside this plugin instead of the desktop app itself, so fixes to it no longer need a new desktop build
+- Debug logs now show whether the built-in RDP engine negotiates audio and receives any sound from the server
+- Needs Termix 26.10.3 or newer
+
 ## 1.1.0
 
 ### Added

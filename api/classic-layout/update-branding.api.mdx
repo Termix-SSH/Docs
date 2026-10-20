@@ -1,0 +1,69 @@
+---
+id: update-branding
+title: "Update branding"
+description: "Changes the app name, tagline or logo. The logo is a PNG, JPEG or WebP data URL, stored as a PNG up to 750 KB. Send null to remove it. Admin only."
+sidebar_label: "Update branding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtu2zgQ/ZXBPCuyu1dAb07Q7SYNAqNxECyywWIsTSzGEqmSIyeuoX9fDKnYTtNi0bf1g00PDslz5nK4w4pD6U0nxlks8Kwmu+IAUjNQ14GlljMQWjXGMjgPjVu5HBY1xxWYAATzqw8ZXMzff1DALS/nUJEQ3Hy6zCCI81wBjTjoOxAHv/86hY+nOVyzrcD2TaNBz63bMBjJYVa1xoKzzTb/22KGQquAxR2eerKVsSu8z9Dz556DnLpqi8UOS2eFreiSuq4xJamkyWNQXTsMZc0t6Uq2HWOBbvnIpWCGnXcdezEcxr1X1PIRMIjXGzNs6fmS7UpqLH6bDpGUZuU/oO8iVpP1LaBqp2XDWIjveYgflRY6Z0Ni9NN0qj+v66QFCLThCpZjSnIcMvzlW9gZPBhuKq2VsRtqTDVif36LvXIC1EvtvPnCihsybFlqV2GBHUlZa8ZIheGka/qVsSfUmUnZUAimPGlo63qZvJDCDAP7DXut3g5732CBuxQaMPvq8r9c72HBvjXPkDCY4Ya80QzFXIzRSPuB+kawwFqkC8VkInFjzs/Udg3npWtxGIZ7ZVD23sg2UlgyefazXhXc3Q+ZNo5bGz6OUGc+8nYfOTriWrsoUTk+aF9X5aKaIwyLEYTZuPjD+ZaU88Xt4o36aw7BOAvi1mwhsBUwNg7ibCxI7GiomSr2OlGn8VAgW0VY3BhLeyxpzy2pwgyN3pYg2oGx2/HxSb7L6OJ2AQkPgQVIIJiVPTE2h9uaLXSelW4GRkBozUEjJVdsSwa3Yf9dFZHtcbp/OJOz+TmseQtByIuxK3gyUoO0z/+8kbOH/nhq17zN4Kk2ZZ0uCodrcjgXoFKCbhux4J7suLska10ERA+0W2cZuAmcZkvt6dPByN6n5n1lRAez2BvOIZR85eX/oMV9SEZjRM/BszSYcBkHE2bzc50p9iHl5F0+zadvMqXuMk70yzymwU6yyYIpnQVPpskgmIqX5PWVWMKSkuzKletY3M4FaSla8NhpN11FwnBkEa8uP3Ly/+1rlFpU+FkmXUPGqtDobbvRG+/w4I2Y4Wt31CY+esdqF0R37HZLCnzjm2HQ8OeevVrW/cECkz9h6tLoZmveappSwk4WykvhTZ8G/qtnUJ1sb+bz2eLsT6Uyvp+tq3STpyfM4neBmKGLVYmGF2M7bMiuelpFz4iH6udfbhDUFQ==
+sidebar_class_name: "patch api-method"
+info_path: api/classic-layout/classic-layout-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update branding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugin-api/classic-layout/branding"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Changes the app name, tagline or logo. The logo is a PNG, JPEG or WebP data URL, stored as a PNG up to 750 KB. Send null to remove it. Admin only.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"appName":{"type":"string","maxLength":60},"tagline":{"type":"string","maxLength":160},"logo":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved branding."},"400":{"description":"A field is invalid."},"403":{"description":"Not authorized."}}}
+>
+  
+</StatusCodes>
+
+
+      

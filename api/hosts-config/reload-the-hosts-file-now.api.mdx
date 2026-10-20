@@ -1,0 +1,59 @@
+---
+id: reload-the-hosts-file-now
+title: "Reload the hosts file now"
+description: "Reads the file again and applies it, even when it has not changed. A file with problems applies nothing."
+sidebar_label: "Reload the hosts file now"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VMFy20YM/RUMzjTlpjnxpmaaRk4ceyx13IxH44FJiNyK3GV3Icsqh//ewS4rqXF6yCUnacAH4D0s8AasOJTe9GKcxQLvmKoA0jBsTMtANRkLZCugvm8NBzCSAT+zhX3DFoxAQwGsEygbsjVXOcxT6t5IA713Ty134ZhunTTG1jlmKFQHLB7wgwsS4J2zG1PjOkPPoXc2cMBiwDeXl/rzX5KrhiEIyS4AbYR95Ns6qnJg750PYAJw18vhyDL1r3IcM3z7zZq/3l0v/nj8cLNcLR/f3Xx+v/hNq6iywDLl/fw679qEYGwdKTSq5KKMSvKOLNUMPftOIc7mOI4ZdiyNq7DA3gXBDHuSBguc9e2uNvaCejM7LzPzrMIww8D+mb1ObMCdb7HAIYVGzL7i9MXtPKy08QskDGb4TN7QU5vGOkWjmg3tWsECG5E+FLOZxMScX6jrW85L1+E4jmtlUO68kUOk8MTk2c93yv5hPWYDls5tDZ9HqDcf+XCMnJVYlg13icp5oQHl0PPERTVHGBYTCLPpz3vnO1LOV/erV+qXHMcN4rZsIbAVMDa+jzZx3vxNioSGqWIPFOCXWDSuucJiYnzxc0lHbkkVZmi0W4JghpYi0z/38r+Mru5XkPC6U0ACwdT2wtgc7nVPe89KN9OFFdpy0EjJFduSwT1Pi/4tFZHt+bi/e5Lz2wVs+aB35UUXOt6vdC+Pr+Qcod8/2i0fMtg3pmxSo3Bqk8NCgEoJmjZhwe3tlF2S1VukUvQ72YOzDNwGTmdl7MZF1UZalXluKjC/XegBsA9JwE/5ZX75StZH5j6dcAYb11bsQ+wcGvI6EDVC+DK//gTOw9Xy5nP0ufzfQ9MzjcQ7JeiZKnC2PaSKsVA65ZA86WixyTdDfEH1hI6sCpnW6S7mnNwl5Vi3/5q+3p8VtvKDTTxtmfCLzPqWjFUZ0Z6Gydoe8GRtmOG5uaGafbS3dfqg6GF4osC/+3YcNfzXjr06zvrkYMleTk56e7Nc4Tj+A/0JWko=
+sidebar_class_name: "post api-method"
+info_path: api/hosts-config/hosts-config-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reload the hosts file now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/hosts-config/reload"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads the file again and applies it, even when it has not changed. A file with problems applies nothing.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status after the load. errors is empty when it applied."},"400":{"description":"TERMIX_HOSTS_CONFIG is not set."},"403":{"description":"Missing the hosts-config.manage permission."}}}
+>
+  
+</StatusCodes>
+
+
+      

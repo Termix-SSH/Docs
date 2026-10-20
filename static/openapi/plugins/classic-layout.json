@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Classic Layout API",
+    "version": "1.0.0",
+    "description": "The classic Termix layout with an icon rail, sidebar, tab bar and dock."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/classic-layout/branding": {
+      "get": {
+        "summary": "Get branding",
+        "description": "Returns the app name, tagline and logo. Admin only.",
+        "tags": [
+          "Branding"
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved branding."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update branding",
+        "description": "Changes the app name, tagline or logo. The logo is a PNG, JPEG or WebP data URL, stored as a PNG up to 750 KB. Send null to remove it. Admin only.\n",
+        "tags": [
+          "Branding"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "appName": {
+                    "type": "string",
+                    "maxLength": 60
+                  },
+                  "tagline": {
+                    "type": "string",
+                    "maxLength": 160
+                  },
+                  "logo": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved branding."
+          },
+          "400": {
+            "description": "A field is invalid."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

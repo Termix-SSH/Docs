@@ -7,7 +7,7 @@ description: "Manage Docker and Podman containers on your hosts over SSH, with l
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Docker/edit/main/docs/index.md"
 plugin_id: "docker"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Docker lets you manage the containers on your hosts from Termix: start, stop, restart, pause and remove them, watch their stats, read their logs and open a shell inside them. It works with Docker and Podman.

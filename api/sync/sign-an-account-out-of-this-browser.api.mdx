@@ -1,0 +1,69 @@
+---
+id: sign-an-account-out-of-this-browser
+title: "Sign an account out of this browser"
+description: "Server only. Ends that account's session and forgets it here. Signing out the current account also removes the sign in cookie."
+sidebar_label: "Sign an account out of this browser"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu40YM/RWCl26BWTntUbcUTYFse1hsUgRFYCxoibamlma0QyqOaujfC460ttMgBfa2J0vU4/CR8/h8xJqlSr5XHwOWeMfpiRPE0I4F3IRaQBtSoKqKQ9AfBIRFfAxAoYZtTDtWAa/QcOIC7vwu+LCDOChow1ANKXE4pQO1EiFxF59YMkD8LoAPUMW491ygQ6WdYPmId2OocO2wp0QdKyeLHtEbyZ60QYeBOsYSB+F0W6PDxF8Gn7jGUtPADqVquCMsj6hjb0jR5MMOp2ltYOljEBb7/vPVlf28HMWnzLMucJocdqxNrLHEmltWRjeTKHHVt8POh/fU+5WMoVodeLNa+pXVcSY3oUPJk527GFKLJR7nkH18WfmvOCS459T5Z5gx6PCJkqdNOxNeopnzloZWscRGtZdytdKcWPAzdX3LRRU7nHLLwtWQvI6ZwoYpcboerInH9eSOON/BZYR6/zuPp8jFEXc22pnK5UGnSRsXXG7A3mcQuuXht5g6Ms4fHu5fdX+3KEzjngOI6ceHrBYrEpP/hwwJDVPNCUjgl3xolqTBcmKBk3vR0onb3BW6WUsz5Kymvw/6JqMPD/eLUkFYgTTr970PBTw0HKBPbHSdLYTSnsUiFdccKoZoe/VWF5nt5bi/eZLXH29hzyOIUlLbwYPXBrR7/vyqnRP020e759HBofFVMxeSc5kCbm3RVSxtwUI8hCW7ohBiBth3CmMMDNwKz/vlwzbmrr221qatP1x/vDXhc5KZ+E/FVXH1+nYMagVrlr3GHqjvZ1pWIiboYuJlj8RlMh0F2jFEbfg/i5bZm0OpmZOywDbFDgg6El3uqY+iHQWju4jGfA8onHzO/C9uQRsvsEnxIPnGXtC2fQvKQb8L0521pvysq74lH6zNbFLHxece8exzJkdzZ4cH3qDDr26HDsvFjNcOmyhqecfjhoT/TO00WfjLwMkcaH12tOxHtRd7rrHcUiv8P9N692nx+R/hLepfNz2M2Tjbwd7Q4Z7H8x/GtL709V9v/ri5v8Fp+heoO3Sj
+sidebar_class_name: "delete api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Sign an account out of this browser"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/sync/web/accounts/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Server only. Ends that account's session and forgets it here. Signing out the current account also removes the sign in cookie.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Removed."}}}
+>
+  
+</StatusCodes>
+
+
+      

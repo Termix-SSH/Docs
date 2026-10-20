@@ -1,0 +1,69 @@
+---
+id: download-an-installed-plugin-so-a-linked-desktop-can-install-it
+title: "Download an installed plugin so a linked desktop can install it"
+description: "Only for plugins installed on this server, or bundled ones replaced by a signed update. Sends the original .tmxplug when there is one, with its signature in the X-Termix-Signature header, otherwise a fresh archive of the plugin folder."
+sidebar_label: "Download an installed plugin so a linked desktop can install it"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU1v4zYQ/SuDObUAI6fBnnRL0W6RLdAumhRpERjFRBxbrCVSyxnFUQ3994Kk4nhrZIE992R5+Djz5uvxgJaliW5QFzzW+KvvJtiECEM3bp0XcF6Uuo4tBA/aOgHh+MTRQIjwOHpbjlgg8tBRwxYeJyAQt/VsYRwsKVdwy94KaMsQots6Tx1U2j+nKLBvObnmyOAk+TKwd9qCU8luSMd0lDHwx8Udx949X9weT1ommwklH3snDASbyNICxaZ1Twxhk++WnGATOsuxQoNKW8H6AW8n3+Da4ECRelaOyXpAlyoykLZo0FPPWKOzaDDyp9FFtlhrHNmgNC33hPUBdRoSSjQ6v8V5XiewDMELSzq/urxMP5/X/O6V2kK4wtngu8t359hfwklHlku5WNqSgrMVzrPBnrUNFmvcsqIpKdS4ksk3q6er1dLb1cHZeTVQs6Mto8HS2JL6GDus8VBMM5r/0PgzjBFKI5Z5QINPFB09diXTxZoT2NDYKdbYqg5Sr1aaL1b8TP3QcdWEHudcK+FmjE6nTOGRKXK8HhP3h/VsDtiEsHN8aqHB/czT0XLi4jb1pFA5dXRsUeKCS+vS/wJCs3y8D7GnxPnD/d1Z9rcs4tI6hB17EPb6Mp0pSIjuH0rIZTCBBL7PToG8zbB8MTf5NKUjt5IVmjKABfI6gn/v9U1GH+7voOBBWIE0L9CF8xXcpy0bIie6BpyC0o4lWRq27BuG8MTxzSwy29Nyf3Ulrz/ewI4nEKWozm+Xue2f/zpL5wj9+tLueDKwb13TlkDyGqaCGwVqVNK1BQth75fbDXkfMiCdk5+CZ+BOuOyU85uQs3bapTSTZsD1x5s0+BylEP+uuqwuz7uToCmgZdlpGICGodBKIUKEPkRe9khMJtOTpy0XSft80TL7yH1QBnHKApsYeiDoSXTp0xBEe/KJ7jI0P4S97wJZIH8uIBKAoHN+x/ZIsXkFgjsbuLSLXtnr/+/JKEOv/KyroSPnU72zWh4WnX3ApLNpLK6S9paioME6vx0vcrs22AbRBD8cHkn499jNczJ/GjkmBVy/KmrWQ+skfVusN9QJf6Ej3/y2PFDfwluMX5TGT1m4uzH9Q4M7nsorN69P35GffrzDef4X4vHZDw==
+sidebar_class_name: "get api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download an installed plugin so a linked desktop can install it"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/sync/v2/plugins/{id}/package"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only for plugins installed on this server, or bundled ones replaced by a signed update. Sends the original .tmxplug when there is one, with its signature in the X-Termix-Signature header, otherwise a fresh archive of the plugin folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The plugin archive."},"404":{"description":"No installed plugin with that id."}}}
+>
+  
+</StatusCodes>
+
+
+      

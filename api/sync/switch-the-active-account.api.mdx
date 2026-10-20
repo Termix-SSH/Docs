@@ -1,0 +1,68 @@
+---
+id: switch-the-active-account
+title: "Switch the active account"
+description: "Desktop only. Returns a session for that account and sets it as the cookie, so the app should store the token and reload after this. Data of the accounts never mixes."
+sidebar_label: "Switch the active account"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlU1v40YMhv8KwbMiu8WedMt2WyBboA02KYIiMBaMRFsTSzPaIWVbNfzfC84ojpu0hz3Wh0SmOcOXX4+O2LDU0Q3qgscKP7FsNQwQfDeV8IV1jF6AQFjEBQ/rEEFbUqC6DqNXIN+AsAo4BRLQlqEOYeu4AAnpKw0DSBvGrgHREDkZNWzZp8ORu0AN0FrZrnZSwidSgrDOp3McAc87jtC7A0uJBSptBKtHvJt8jasCI38bWfRjaCasjlgHr+zVHmkYOleTJbh4FsvyiFK33JM96TQwVhienrlWLHCIYeCojsV+HYXjTXPhJxqd3+ApfSyqDMFLdv5xubR//yzo3d5p3XJT4qnAD8sP7z1+CyBj3b5kWqJd3LO2ocEKhyBJFmmLFS6Gbtw4f0WDW8jk68VLeRaS4mCBwnHH0WpzxDF2WOExm05YvIn8Zxgj3HPs3QGyDxa4o+joqcspzdakeU1jp1hhqzpItVhoOljygfqh47IOvZVlZQrqMTqdkoQnpsjxejT5j6tTYa2x8bi00OB+5elsubjizvqUpVxedG6HabGckxtWsxMW88MvIfZkmj8/3L/L/m4e6TyKwl7B+TRzFiRE91eaGWiZGo423B/TpWlqzzOc+nqZ0llbzgoLdBYtu2CBnpLS573+p6LPD/fzEtlqASmI2/gr50t4aNnDENnkFrZzSlsWs9TcsK8Zwi7t0b9nkdRelvu7K3l9ewNbnkCUojq/gb3TFrQ/fH2Xztn1+0u75amAfevqNgeS1zAl3Bh9VF5wYyHC3s+na/I+JAf7nfwUPAN3wnmvDABfXlHxcx7ey1U/r7g1bh1SiZyaT2INXN/e2JZwlJzlD+WyXL5vpbmaumYGqlEw5WB6QoTeSDjvapGU9+RpwxC05TdbmVKN3AdlEKcssI6hB4KeROemGid6SnCbJyyTZ4aout2ZpW/FXtDyf8T/PLbKB10MHTlvRUi8O86wfMRXWNpk24uiwJf7zJKRuSqwNchWj3g8PpHwH7E7ncz8beRoFFu9UjEjC/PgJsBtecIKf8oVvLo3WebejZkBb949Brcz229/vzMsPc3vrD40dibSHov0t0IsMKQuJQQm2xE78puRNoki6U77/A2xSrcy
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Switch the active account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sync/accounts/switch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. Returns a session for that account and sets it as the cookie, so the app should store the token and reload after this. Data of the accounts never mixes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"userId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Switched."},"404":{"description":"No such account."}}}
+>
+  
+</StatusCodes>
+
+
+      

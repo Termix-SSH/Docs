@@ -1,0 +1,890 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Sync API",
+    "version": "1.0.0",
+    "description": "Sync the desktop app with one or more servers, and manage other Termix servers as remote sites from a master."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/sync/overview": {
+      "get": {
+        "summary": "Health of all remote sites",
+        "description": "Counts of sites, how many answer, and how many of their hosts are online, from the last refresh.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The roll up."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/sites": {
+      "get": {
+        "summary": "Remote sites",
+        "description": "The Termix servers this server manages, with how the last refresh went. API keys are never returned.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The sites."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a remote site",
+        "description": "Saves the site with an API key made on it, then mirrors its SSH hosts as read only hosts owned by the user who adds it, in a folder named after the site. The key's user on the remote decides which hosts exist here. shareRoles lists the roles the hosts are shared with.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "baseUrl": {
+                    "type": "string"
+                  },
+                  "apiKey": {
+                    "type": "string"
+                  },
+                  "shareRoles": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The site, with the result of the first refresh."
+          },
+          "400": {
+            "description": "Missing or invalid fields."
+          },
+          "409": {
+            "description": "That site is already added."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/sites/{id}": {
+      "put": {
+        "summary": "Rename a site, replace its API key or change who sees its hosts",
+        "description": "A new API key is tried straight away. A new name moves the hosts to a folder with that name.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The site."
+          },
+          "404": {
+            "description": "No such site."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a remote site",
+        "description": "Forgets the site and its cached hosts. The API key stays valid on the remote until it is deleted there.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/sites/{id}/refresh": {
+      "post": {
+        "summary": "Read a site's hosts and status again",
+        "description": "Hosts and status are also refreshed every minute.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The site after the refresh."
+          },
+          "404": {
+            "description": "No such site."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/roles": {
+      "get": {
+        "summary": "Roles the mirrored hosts can be shared with",
+        "description": "For the picker when adding or editing a site.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The roles."
+          }
+        }
+      }
+    },
+    "/sync/v2/info": {
+      "get": {
+        "summary": "Is this a Termix server that can sync",
+        "description": "Public. Used by a client before it signs in. The client may send clientType and deviceId as query values, which are not stored.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Server name, version and sync protocol version."
+          }
+        }
+      }
+    },
+    "/sync/v2/link": {
+      "post": {
+        "summary": "Link a client to this account",
+        "description": "Trades the short login session the client just signed in with for a long lived device session, which shows in the account's sessions list and is revoked like any other. The login session is ended. clientType and deviceId are optional and default to desktop and none.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "deviceName": {
+                    "type": "string"
+                  },
+                  "clientType": {
+                    "type": "string",
+                    "enum": [
+                      "desktop",
+                      "mobile",
+                      "web",
+                      "cli",
+                      "master"
+                    ]
+                  },
+                  "deviceId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The device session token and the account it belongs to."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "API keys cannot link a client."
+          }
+        }
+      }
+    },
+    "/sync/v2/session/refresh": {
+      "post": {
+        "summary": "Keep a linked client's session from expiring",
+        "description": "Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new token, or null."
+          },
+          "401": {
+            "description": "Session revoked or expired."
+          }
+        }
+      }
+    },
+    "/sync/v2/unlink": {
+      "post": {
+        "summary": "End a linked client's session",
+        "description": "Called by a client when it unlinks, so its session stops working here right away.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The session was ended."
+          }
+        }
+      }
+    },
+    "/sync/v2/devices": {
+      "get": {
+        "summary": "The clients linked to this account",
+        "description": "Each client that linked with a deviceId, with its type, name and when it last linked. Clients that sent no deviceId are not listed.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The devices."
+          }
+        }
+      }
+    },
+    "/sync/v2/changes": {
+      "get": {
+        "summary": "Pull what changed for this account after a cursor",
+        "description": "Returns records in change order. Each has the entity type, syncId, revision, whether it is deleted, and the row when it is not. Records of entity types this server does not currently run are skipped but still move the cursor.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "types",
+            "description": "Comma-separated entity types, to backfill only those.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of changes, the next cursor and whether more remain."
+          },
+          "400": {
+            "description": "The cursor or limit is not a non-negative integer."
+          },
+          "500": {
+            "description": "Failed to read changes."
+          }
+        }
+      }
+    },
+    "/sync/v2/push": {
+      "post": {
+        "summary": "Push a client's changes",
+        "description": "Each op carries the revision the client last saw. Ops are applied in dependency order and each gets its own result, ok with the new revision, conflict with the server's version, or rejected with a reason.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ops": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "One result per op, in the order sent."
+          },
+          "400": {
+            "description": "Malformed ops, or more than 500."
+          },
+          "500": {
+            "description": "Failed to apply changes."
+          }
+        }
+      }
+    },
+    "/sync/v2/events": {
+      "get": {
+        "summary": "Stream a notice whenever this account's data changes",
+        "description": "Server-sent events. A \"change\" event means there is something new to pull. Comments are sent every 25 seconds to keep proxies from closing the stream.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "An event stream."
+          }
+        }
+      }
+    },
+    "/sync/v2/hosts/{syncId}": {
+      "get": {
+        "summary": "This server's id for a host, by its sync id",
+        "description": "For a linked desktop that asks the server to act on a host (a tunnel through it), which needs the server's own id. Only for hosts the caller can connect to.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "syncId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The host's id and name."
+          },
+          "404": {
+            "description": "No such host the caller can connect to."
+          }
+        }
+      }
+    },
+    "/sync/v2/host-status": {
+      "get": {
+        "summary": "Status of the hosts this account can see, keyed by sync id",
+        "description": "For a linked desktop whose hosts connect through this server, so it can show their status against its own copies.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status entries by host sync id."
+          }
+        }
+      }
+    },
+    "/sync/v2/plugins": {
+      "get": {
+        "summary": "The features this server runs, for a linked desktop to mirror",
+        "description": "Every installed plugin with its version, where it came from, whether it is on, how a desktop should treat it and which sync entities it owns. registryKeys lists the signing keys of the custom registries an admin added, so plugins from them load on the desktop.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The plugin list."
+          }
+        }
+      }
+    },
+    "/sync/v2/plugins/{id}/package": {
+      "get": {
+        "summary": "Download an installed plugin so a linked desktop can install it",
+        "description": "Only for plugins installed on this server, or bundled ones replaced by a signed update. Sends the original .tmxplug when there is one, with its signature in the X-Termix-Signature header, otherwise a fresh archive of the plugin folder.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The plugin archive."
+          },
+          "404": {
+            "description": "No installed plugin with that id."
+          }
+        }
+      }
+    },
+    "/sync/link/status": {
+      "get": {
+        "summary": "This desktop's link to a server",
+        "description": "Desktop only. Whether the app is linked, to which server and account, how syncing is going, and which kinds of data sync.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The link status."
+          }
+        }
+      }
+    },
+    "/sync/link/probe": {
+      "post": {
+        "summary": "Check a server address before linking",
+        "description": "Desktop only. Tries the server with the given proxy settings and says what is in the way, if anything. On success the proxy settings are also applied to the desktop's browser session so the sign-in page loads.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The server's name and version, or the problem found."
+          }
+        }
+      }
+    },
+    "/sync/link/preview": {
+      "get": {
+        "summary": "How much this desktop has that would sync",
+        "description": "Desktop only. Row counts per kind of data, shown before choosing whether to merge this desktop's data into the account or replace it.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Counts per entity type."
+          }
+        }
+      }
+    },
+    "/sync/link/complete": {
+      "post": {
+        "summary": "Link this desktop to a server account",
+        "description": "Desktop only. Takes the session from signing in to the server, trades it for a long-lived desktop session, and starts syncing. \"merge\" uploads this desktop's data into the account; \"replace\" deletes it here first and takes the account's.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Linked; the new status."
+          },
+          "400": {
+            "description": "Missing server or session."
+          },
+          "502": {
+            "description": "The server refused the session."
+          }
+        }
+      }
+    },
+    "/sync/link/relogin": {
+      "post": {
+        "summary": "Sign this desktop back in after its session ended",
+        "description": "Desktop only. Takes a new sign-in session for the same account and resumes syncing where it stopped.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Signed in again; the new status."
+          },
+          "409": {
+            "description": "The sign-in was for a different account."
+          }
+        }
+      }
+    },
+    "/sync/link/unlink": {
+      "post": {
+        "summary": "Unlink this desktop from its server",
+        "description": "Desktop only. Ends the desktop's session on the server when it can be reached. With keepData the synced data stays on this device as its own; otherwise it is deleted. Copies of what others shared with the account are always removed.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Unlinked."
+          }
+        }
+      }
+    },
+    "/sync/link/sync": {
+      "post": {
+        "summary": "Sync now",
+        "description": "Desktop only. Runs a sync pass and waits for it.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The status after the pass."
+          }
+        }
+      }
+    },
+    "/sync/link/settings": {
+      "put": {
+        "summary": "Change what syncs and how the server is reached",
+        "description": "Desktop only. disabledTypes lists the kinds of data that stay on this device. Proxy headers, basic auth and the client certificate left blank keep their saved values.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new status."
+          },
+          "400": {
+            "description": "Not linked."
+          }
+        }
+      }
+    },
+    "/sync/link/conflicts": {
+      "get": {
+        "summary": "Local edits that lost to a newer edit on the server",
+        "description": "Desktop only. The server's version was kept; each entry holds this device's version so it can be restored.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The conflicts, oldest first."
+          }
+        }
+      }
+    },
+    "/sync/link/conflicts/{id}": {
+      "post": {
+        "summary": "Settle a conflict",
+        "description": "Desktop only. keep \"mine\" puts this device's version back, and the next sync sends it to the server. keep \"server\" drops it.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Settled."
+          },
+          "404": {
+            "description": "No such conflict."
+          }
+        }
+      }
+    },
+    "/sync/link/errors": {
+      "get": {
+        "summary": "Changes the server refused",
+        "description": "Desktop only. Each entry names the record and why the server refused it. A refused change is not sent again until it changes or is retried.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The refused changes."
+          }
+        }
+      }
+    },
+    "/sync/link/errors/retry": {
+      "post": {
+        "summary": "Send refused changes again",
+        "description": "Desktop only. Clears every refusal and syncs.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The status after the pass."
+          }
+        }
+      }
+    },
+    "/sync/link/session": {
+      "get": {
+        "summary": "The linked server and session, for connecting to it directly",
+        "description": "Desktop only. Used when a host is set to connect through the server rather than from this device.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The server address and session token, or nulls when not linked."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/accounts": {
+      "get": {
+        "summary": "The accounts on this desktop",
+        "description": "Desktop only. Each account is a local user that holds the copy of one linked server, or this device's own data. Exactly one is active.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The accounts and which one is active."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add an empty account for another server",
+        "description": "Desktop only. Makes a new local account and does not switch to it. Switch to it, then link it to a server like any other.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new account id."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/accounts/switch": {
+      "post": {
+        "summary": "Switch the active account",
+        "description": "Desktop only. Returns a session for that account and sets it as the cookie, so the app should store the token and reload after this. Data of the accounts never mixes.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Switched."
+          },
+          "404": {
+            "description": "No such account."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/accounts/{id}": {
+      "delete": {
+        "summary": "Remove an account",
+        "description": "Desktop only. Ends its link to the server when it can be reached, then deletes the account and its copy of the data. The active account cannot be removed.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          },
+          "400": {
+            "description": "This account is active, or the last one."
+          },
+          "404": {
+            "description": "No such account."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/web/accounts": {
+      "get": {
+        "summary": "The accounts signed in on this browser",
+        "description": "Server only. The other accounts of this server that were signed in here and still have a working session. Accounts on other servers cannot be held by a browser, since the session cookie belongs to one address.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "The accounts, whether this browser has a ring, and which one is current."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/web/accounts/begin": {
+      "post": {
+        "summary": "Keep this account and go sign in with another",
+        "description": "Server only. Remembers the current session for this browser and removes the sign in cookie, so the sign in page shows. The session itself is not ended.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ready for another sign in."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/web/accounts/attach": {
+      "post": {
+        "summary": "Add the account that just signed in to this browser's accounts",
+        "description": "Server only. Does nothing when this browser has no accounts ring.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Added, or nothing to add to."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/web/accounts/switch": {
+      "post": {
+        "summary": "Switch this browser to another signed in account",
+        "description": "Server only. Sets the sign in cookie to that account's session. The app should reload after this.",
+        "tags": [
+          "Sync"
+        ],
+        "responses": {
+          "200": {
+            "description": "Switched."
+          },
+          "404": {
+            "description": "That account is not signed in here any more."
+          }
+        }
+      }
+    },
+    "/plugin-api/sync/web/accounts/{userId}": {
+      "delete": {
+        "summary": "Sign an account out of this browser",
+        "description": "Server only. Ends that account's session and forgets it here. Signing out the current account also removes the sign in cookie.",
+        "tags": [
+          "Sync"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

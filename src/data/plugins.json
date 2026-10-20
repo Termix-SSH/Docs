@@ -93,7 +93,7 @@
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/ai/ai-assistant-api",
-    "videoId": "Owlm96XNt7Q",
+    "videoId": "5usBJanMqiI",
     "versions": [
       {
         "version": "1.2.0",
@@ -176,6 +176,52 @@
     ]
   },
   {
+    "id": "audit-tools",
+    "name": "Audit Tools",
+    "description": "Send the audit log to your SIEM and export it as CSV or NDJSON.",
+    "category": "Access & Security",
+    "icon": "ClipboardList",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
+    "docs": "https://docs.termix.site/plugins/audit-tools",
+    "latest": "1.0.0",
+    "features": [
+      "Forward every audit entry to an HTTP collector as it happens",
+      "Catch up on entries written while the collector or Termix was down",
+      "Export the audit log as CSV or NDJSON with the same filters as the viewer",
+      "Spreadsheet formula guard on CSV export"
+    ],
+    "capabilities": [
+      "audit:read",
+      "network:outbound",
+      "network:serve",
+      "kv:own",
+      "ui:surface"
+    ],
+    "env": [
+      {
+        "name": "AUDIT_LOG_FORWARD_URL",
+        "description": "Collector URL audit entries are posted to. The URL set in the plugin's settings wins over this."
+      },
+      {
+        "name": "AUDIT_LOG_FORWARD_TOKEN",
+        "description": "Bearer token sent with the entries. Only used when the URL comes from this variable."
+      }
+    ],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/audit-tools/audit-tools-api",
+    "videoId": "iC2FCkYTaTA",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:59:37.000Z"
+      }
+    ]
+  },
+  {
     "id": "automations",
     "name": "Automations",
     "description": "Run steps on your hosts on a schedule or when something happens.",
@@ -242,6 +288,112 @@
     ]
   },
   {
+    "id": "classic-layout",
+    "name": "Classic Layout",
+    "description": "The classic Termix layout with an icon rail, sidebar, tab bar and dock.",
+    "category": "Productivity",
+    "icon": "PanelLeft",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Classic-Layout",
+    "docs": "https://docs.termix.site/plugins/classic-layout",
+    "latest": "1.0.0",
+    "features": [
+      "Icon rail, resizable sidebar, tab bar and right dock",
+      "Dashboard, Manage and Settings screens",
+      "Host and credential lists with the host editor",
+      "Command palette and mobile bottom bar"
+    ],
+    "capabilities": [
+      "files:own",
+      "network:serve",
+      "settings:read-core",
+      "ui:layout",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/classic-layout/classic-layout-api",
+    "videoId": "pApw7YSn5-M",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T20:01:57.000Z"
+      }
+    ]
+  },
+  {
+    "id": "classic-themes",
+    "name": "Classic Themes",
+    "description": "Light, dark and seven more color themes for Termix.",
+    "category": "Productivity",
+    "icon": "Palette",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Classic-Themes",
+    "docs": "https://docs.termix.site/plugins/classic-themes",
+    "latest": "1.0.0",
+    "features": [
+      "Light and dark themes",
+      "Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox"
+    ],
+    "capabilities": [
+      "ui:theme"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": false,
+    "apiPath": null,
+    "videoId": "qjIa8pM3k08",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:56:08.000Z"
+      }
+    ]
+  },
+  {
+    "id": "credential-tools",
+    "name": "Credential Tools",
+    "description": "Generate SSH keys, check them and copy a public key to a host.",
+    "category": "Access & Security",
+    "icon": "KeyRound",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Credential-Tools",
+    "docs": "https://docs.termix.site/plugins/credential-tools",
+    "latest": "1.0.0",
+    "features": [
+      "Generate Ed25519, RSA and ECDSA key pairs",
+      "Detect a key's type and get the public key from a private key",
+      "Check that a public and private key match",
+      "Copy a saved public key to a host's authorized keys"
+    ],
+    "capabilities": [
+      "network:serve",
+      "hosts:read",
+      "credentials:use",
+      "credentials:read",
+      "ssh:connect",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/credential-tools/credential-tools-api",
+    "videoId": "7CRS8Nt2M2Y",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:56:43.000Z"
+      }
+    ]
+  },
+  {
     "id": "docker",
     "name": "Docker",
     "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
@@ -250,13 +402,14 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Docker",
     "docs": "https://docs.termix.site/plugins/docker",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Start, stop, restart, pause and remove containers",
       "Live CPU, memory, network and disk stats",
       "Read and download container logs",
       "Open a shell inside a container",
-      "Works with Docker and Podman"
+      "Works with Docker and Podman",
+      "A containers panel beside any SSH terminal"
     ],
     "capabilities": [
       "hosts:read",
@@ -274,8 +427,14 @@
     "videoId": "V7F5w_dd0eM",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:39:15.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:03:12.000Z"
       },
@@ -302,13 +461,14 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-File-Manager",
     "docs": "https://docs.termix.site/plugins/file-manager",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Browse, upload, download, rename, move and delete files, with sudo support",
       "Edit files in a built-in code editor",
       "Preview images, PDFs, audio and video",
       "A trash you can restore deleted files from",
       "Copy files between two hosts, with the fastest route picked for you and an integrity check",
+      "A files panel beside any SSH terminal that follows its folder, with a history of your folders",
       "A side by side local and remote view in the desktop app"
     ],
     "capabilities": [
@@ -321,7 +481,8 @@
       "ui:surface",
       "events:core",
       "kv:own",
-      "users:impersonate"
+      "users:impersonate",
+      "desktop:local"
     ],
     "env": [],
     "dependencies": {},
@@ -330,8 +491,14 @@
     "videoId": "0JMZny47MiI",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:29:35.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:02:01.000Z"
       },
@@ -468,7 +635,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Homepage",
     "docs": "https://docs.termix.site/plugins/homepage",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Drag, resize and arrange widgets on a canvas",
       "Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal",
@@ -478,6 +645,7 @@
     ],
     "capabilities": [
       "db:own",
+      "hosts:activity-provide",
       "network:serve",
       "network:outbound",
       "ui:surface"
@@ -489,8 +657,14 @@
     "videoId": "EX-bZzuGiZo",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:20:15.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:01:47.000Z"
       },
@@ -517,14 +691,15 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
     "docs": "https://docs.termix.site/plugins/host-metrics",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
       "History charts for each host",
       "Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard",
       "Health checks for your hosts and services",
       "A layout you can rearrange per host",
-      "Live stats in the terminal toolbar"
+      "Live stats in the terminal toolbar",
+      "A live metrics panel beside any SSH terminal"
     ],
     "capabilities": [
       "hosts:read",
@@ -550,8 +725,14 @@
     "videoId": "_psvlU-s7D4",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:45:57.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:00:05.000Z"
       },
@@ -572,6 +753,133 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-10T02:56:58.000Z"
+      }
+    ]
+  },
+  {
+    "id": "host-status",
+    "name": "Host Status",
+    "description": "Shows if each host is online with a dot in the host list, checked by connecting to its port.",
+    "category": "Monitoring",
+    "icon": "Activity",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Host-Status",
+    "docs": "https://docs.termix.site/plugins/host-status",
+    "latest": "1.0.0",
+    "features": [
+      "An online or offline dot for every host",
+      "Checks the host's port and never logs in",
+      "Checks through jump hosts",
+      "An open session or a working login counts as online",
+      "Set the check interval for everyone or for one host"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "hosts:status-provide",
+      "network:probe",
+      "network:serve",
+      "ssh:connect",
+      "events:core",
+      "users:impersonate"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/host-status/host-status-api",
+    "videoId": "utIyH-t_Y5c",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:23:13.000Z"
+      }
+    ]
+  },
+  {
+    "id": "hosts-config",
+    "name": "Hosts Config",
+    "description": "Keep hosts, folders and sharing in a YAML or JSON file. Termix loads them as read only hosts and reloads when the file changes.",
+    "category": "Infrastructure",
+    "icon": "FileCode",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Hosts-Config",
+    "docs": "https://docs.termix.site/plugins/hosts-config",
+    "latest": "1.0.0",
+    "features": [
+      "SSH, RDP, VNC, Telnet and any plugin protocol from one YAML or JSON file",
+      "Hosts from the file are read only, while pins and order stay with each user",
+      "Secrets from env vars, files or saved credentials, never written in the file",
+      "Shares with users and roles, per host or per folder",
+      "Turn plugin features on or off per host",
+      "Reloads when the file changes, with clear errors when it can't apply",
+      "Strict mode so every host comes from the file"
+    ],
+    "capabilities": [
+      "db:own",
+      "hosts:read",
+      "hosts:write",
+      "hosts:lock",
+      "credentials:use",
+      "users:impersonate",
+      "network:serve",
+      "ui:surface"
+    ],
+    "env": [
+      {
+        "name": "TERMIX_HOSTS_CONFIG",
+        "description": "Path to the hosts file (.yaml, .yml or .json). Unset means the plugin loads nothing and locks no hosts."
+      }
+    ],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/hosts-config/hosts-config-api",
+    "videoId": "N7bYLsRNO7w",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:57:49.000Z"
+      }
+    ]
+  },
+  {
+    "id": "import-export",
+    "name": "Import and Export",
+    "description": "Import hosts from a JSON file or an SSH config file and export them to share or back up.",
+    "category": "Productivity",
+    "icon": "ArrowDownUp",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Import-Export",
+    "docs": "https://docs.termix.site/plugins/import-export",
+    "latest": "1.0.0",
+    "features": [
+      "Import hosts from a Termix JSON file",
+      "Import hosts from an SSH config file",
+      "Skip or overwrite hosts that already exist",
+      "Export all or some hosts and pick which fields to include",
+      "Share an export without any passwords or keys"
+    ],
+    "capabilities": [
+      "network:serve",
+      "hosts:read",
+      "hosts:write",
+      "hosts:export",
+      "credentials:write",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/import-export/import-and-export-api",
+    "videoId": "fiQIxkxYrtk",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:55:55.000Z"
       }
     ]
   },
@@ -621,6 +929,43 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-10T02:56:48.000Z"
+      }
+    ]
+  },
+  {
+    "id": "login-security",
+    "name": "Login Security",
+    "description": "Sign people out when idle, limit session length, turn off remember me and require a second factor at login.",
+    "category": "Access & Security",
+    "icon": "ShieldCheck",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Login-Security",
+    "docs": "https://docs.termix.site/plugins/login-security",
+    "latest": "1.0.0",
+    "features": [
+      "Sign out after a set time without activity, in the browser and on the server",
+      "Limit how long a session can last",
+      "Turn off remember me and remembered devices",
+      "Require a second factor at every login or on a new device",
+      "Works with any installed second factor, like an authenticator app or a security key",
+      "People without a second factor are asked to set one up before they can use Termix"
+    ],
+    "capabilities": [
+      "auth:policy",
+      "network:serve",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/login-security/login-security-api",
+    "videoId": "mbgMJximcrs",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:53:56.000Z"
       }
     ]
   },
@@ -866,7 +1211,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
     "docs": "https://docs.termix.site/plugins/remote-desktop",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "RDP, VNC, Apple Remote Desktop and Telnet from any browser, with nothing else to install",
       "Tabs and split screen like any other session",
@@ -881,7 +1226,7 @@
       "credentials:use",
       "ssh:connect",
       "network:serve",
-      "desktop:window",
+      "desktop:local",
       "ui:surface",
       "users:impersonate"
     ],
@@ -941,8 +1286,14 @@
     "videoId": "enggttL3hz8",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:16:22.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:17:19.000Z"
       },
@@ -1374,7 +1725,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
     "docs": "https://docs.termix.site/plugins/ssh-terminal",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Tabs and split screen",
       "Jump hosts and host key verification",
@@ -1396,7 +1747,8 @@
       "network:serve",
       "db:own",
       "events:core",
-      "ui:surface"
+      "ui:surface",
+      "desktop:local"
     ],
     "env": [
       {
@@ -1435,8 +1787,14 @@
     "videoId": "htdU7pw1fiw",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:50:37.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:12:26.000Z"
       },
@@ -1517,6 +1875,52 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-10T02:57:20.000Z"
+      }
+    ]
+  },
+  {
+    "id": "sync",
+    "name": "Sync",
+    "description": "Sync the desktop app with one or more servers, and manage other Termix servers as remote sites from a master.",
+    "category": "Infrastructure",
+    "icon": "RefreshCw",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Sync",
+    "docs": "https://docs.termix.site/plugins/sync",
+    "latest": "1.0.0",
+    "features": [
+      "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
+      "Link several servers and accounts and switch between them, each with its own copy",
+      "Add other Termix servers as remote sites with an API key",
+      "The hosts of other Termix servers appear as real hosts in your own list, read only and kept up to date",
+      "Open a session on one of them like on any host, with the remote server doing the connecting",
+      "A documented sync protocol that other clients can use"
+    ],
+    "capabilities": [
+      "sync:provide",
+      "db:own",
+      "hosts:read",
+      "hosts:write",
+      "hosts:lock",
+      "ssh:transport",
+      "users:impersonate",
+      "network:outbound",
+      "network:serve",
+      "kv:own",
+      "secrets:own",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/sync/sync-api",
+    "videoId": "mBiGtdZxdK0",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T20:21:25.000Z"
       }
     ]
   },
@@ -1744,7 +2148,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
     "docs": "https://docs.termix.site/plugins/tunnels",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Local, remote and dynamic SOCKS5 forwarding",
       "Reconnects on its own when a tunnel drops",
@@ -1760,7 +2164,8 @@
       "network:serve",
       "ui:surface",
       "users:impersonate",
-      "db:core-refs"
+      "db:core-refs",
+      "desktop:local"
     ],
     "env": [],
     "dependencies": {},
@@ -1769,8 +2174,14 @@
     "videoId": "RJu5gzn8_fo",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-20T19:16:29.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:03:44.000Z"
       },

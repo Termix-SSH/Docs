@@ -1,0 +1,165 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Host Status API",
+    "version": "1.0.0",
+    "description": "Shows if each host is online with a dot in the host list, checked by connecting to its port."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/host-status/": {
+      "get": {
+        "summary": "Get host statuses",
+        "description": "Returns the online or offline status of every host the user can reach. Starts status checks for the user's hosts on the first call and waits briefly for their first results.",
+        "tags": [
+          "Host Status"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostIds",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma separated ids. Only these hosts are checked."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A map of host ids to status entries."
+          },
+          "401": {
+            "description": "Not authenticated."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-status/refresh": {
+      "post": {
+        "summary": "Restart status checks",
+        "description": "Re-reads the user's hosts and restarts their status checks.",
+        "tags": [
+          "Host Status"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status checks restarted."
+          },
+          "401": {
+            "description": "Not authenticated."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-status/settings": {
+      "get": {
+        "summary": "Get status check settings",
+        "description": "Returns the default number of seconds between status checks. Admin only.",
+        "tags": [
+          "Host Status"
+        ],
+        "responses": {
+          "200": {
+            "description": "The status check settings."
+          },
+          "403": {
+            "description": "Admin access required."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update status check settings",
+        "description": "Sets the default number of seconds between status checks and re-times every running check. Admin only.",
+        "tags": [
+          "Host Status"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "statusCheckInterval": {
+                    "type": "integer",
+                    "minimum": 5,
+                    "maximum": 3600
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settings saved."
+          },
+          "400": {
+            "description": "Invalid interval."
+          },
+          "403": {
+            "description": "Admin access required."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

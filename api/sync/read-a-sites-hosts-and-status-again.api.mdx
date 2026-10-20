@@ -1,0 +1,69 @@
+---
+id: read-a-sites-hosts-and-status-again
+title: "Read a site's hosts and status again"
+description: "Hosts and status are also refreshed every minute."
+sidebar_label: "Read a site's hosts and status again"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVVFv20YM/isEX7YCV9kd+qS39GFYOmALGg/BEBgFI9HWzdKdeqSSaIb++8CTkrjxOqB7skR/PH7fkfx0xJqlSr5XHwOW+EsUFaBQgyjpIECJgVqJkHiXWBquge85jdD5MCgX6FBpL1je4vUYKtw67ClRx8rJokf0dm5P2qDDQB1jib5Gh4m/DD5xjaWmgR1K1XBHWB5Rxz6jgvKeE07T1tDSxyAsBvhpvbafr6lvGgbxykA75QTa8BPnAieH79fvz3N+iyBD1eS8AqfJYcfaxNoYR1F0M/ESV3077H14S71fyRiqlWXI6ujrabVUQYfC6f5J9pBaLPE4hyZ0ryr/GYcEG06df4QZgw7vKXm6a2eRSzRz3tHQKpbYqPZSrlaaEwt+pK5vuahih1O+JuFqSF7HTOGOKXG6GEzB7XZyR6xiPHg+jVDvf+XxOXJyxLX1Y6ZyetBze4wLLm2z9xmEbnn4OaaOjPPHm82Z+msW8TGAxgMHEA4KPuSWWZGY/N9kSGiYak5AAh/yoXkyDZYTc19PJT1zm1Whm4dvhryM318P+k1GH282MONBWIEUxO/DWx8KuGk4QJ/Y6DrwCkoHFotUXHOoGOL9Mnj/piKzPb3u777Ji6tLOPBoq5nUhz08eG1Au8fPZ3Keod9/tQceHTw03tbCCslLmQIuFagyh5AnLMSHsGRXFELMAPufwhgDA7eyrJYPu5hVe21NpvkFXFxd2uBzkpn4u2JdrM+7Y1ArWLMcNPZAfT/TshIxQRcTL3skLpPpKNCeIWrDrxYts0/cRZ0NQ2CXYgcEHYkufbLt7ygY3WVoPjHVQDnhB4HmzCf35MNr3rZwQTno/3XWeT6UH3XVt1ZgcrOxHBdjusUXY7IRMgt2mFWhw3Ix2tmftg6NtiUdj3ck/Edqp8nCXwZOZhnbFwvKBlJ7secayx21wv+h7sdPi5u/gW/xflrNMGanawd7Q4cHHudPwrQ99d+r3683OE3/AOXRSe0=
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a site's hosts and status again"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sync/sites/{id}/refresh"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Hosts and status are also refreshed every minute.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The site after the refresh."},"404":{"description":"No such site."}}}
+>
+  
+</StatusCodes>
+
+
+      

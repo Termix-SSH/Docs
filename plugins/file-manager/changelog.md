@@ -6,9 +6,32 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- A files panel beside any SSH terminal, so you can manage files without leaving the terminal. It connects on its own, opens in the terminal's folder and can follow it as you cd
+- Go to the terminal's folder, or change the terminal to the panel's folder, with one click
+- A history of the folders you visit on each host, with the ones you use most at the top
+- Settings for the panel: open it with new terminals, which side it sits on, its size, the edge button, following the terminal, how often to check, and how much history to keep
+- Open a text file in your external editor from the right click menu in the desktop app
+
+### Fixed
+
+- The gap between rows in the grid view changed on its own after a refresh or when going back into a folder. Rows now keep one fixed size
+- Pressing Enter or Escape while renaming or creating an item no longer also triggers the grid shortcuts
+
+### Changed
+
+- Grid items have a light border
+- Uploads are faster, up to four files upload at once and one progress box shows file count, speed and a cancel button
+- Downloading many small files is faster because they share one channel
+- The side by side local view, local transfers and the external editor now run in the plugin instead of the desktop app, so fixes to them no longer need a new desktop build
+- Needs Termix 26.10.3 or newer
+
 ## 1.0.3
 
 ### Changed

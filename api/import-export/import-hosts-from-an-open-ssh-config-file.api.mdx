@@ -1,0 +1,68 @@
+---
+id: import-hosts-from-an-open-ssh-config-file
+title: "Import hosts from an OpenSSH config file"
+description: "Parses the text of an OpenSSH config file and imports the hosts it defines."
+sidebar_label: "Import hosts from an OpenSSH config file"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v40YM/SsEz7KdbnvSLVtsUWeBTVC7CIrAWNASbU0szczOUHFcw/+94Ixga+PsYYHqYnnEj8dH8s0Ra45VMF6Ms1jiA4XIEaRhEH4VcBsgC/ee7WLxJ1TObswWNqZlIFuD6bwLks0bFyWCEah5YyzHKRYotI1YPuE82SWXT6/6iqsCA3/rOcpHVx+wPKa/JnCNpYSeC6ycFbain8j71lSkEGfPUXEeMVYNd6RvcvCMJbr1M1eCxSjQ0znIqkAfnOcghqM6jaIP/lGCsVss3hCyHDGhZY4omOKpQPfCYR+M8CjU2rmWyeIpPYooemdjzvzh5kZ/vs8yEFS5zrcsXKfQv71raV+oNTUM7MHa1YfB+tdr6y9OgNrW7bkGcUO/cqumqNA6lsbVWKJ3UcnzJA2WOPNtvzV2Qt7MstOEU+NmMTaTzMEkf8ACI4cXDtrpI/ahxRKP+eh0Rec/rg+w5NCZV8g2WOALBUPrNvMznKZSNtS3giU2Ij6Ws5kkxym/kvI0rVynHK8UQdUHI4cEYc0UONz2WsnT6lRot93O8PiEvPnMh/PJKMRCBytDGQc6N1exaM3JTJudjLAYXv5woSPFfPe4vKp+wTEaZ0Hcji1EtgLGprHSJC6Yf9OQQ8NUcwCK8DEFTZuTdlIdU7vHJZ2x5aqwQKPZsgkWaCkhfd7LDxHdPS4h20NkARKIZmsnxk7hsWELPrDCLXTBhXYc9aTimm3FoDvwwyoS2jHdP83k7cMcdnyAKBTE2C3sjTQg3evXq3LOpj9P7Y4PBewbUzU5UbykmcJcgCqJ6jbYgtvbwbsia10y0O9kD84ycBs5r5gq1l8XrfuUh/c7EbqIz0hOVAZP2sqNS6QZUa9rLYXbh7kuEYeYSfhlejO9uaJmPtp92ATXAcHd4v5LVnOnpcB7Gp/3XsvuVEJiQyGZr6naQe9Te1U8Okq6PMzaO9nevUbewhyT8j/fRXnoNNLMt2SsAk9qdRxU7wkvqqc7NNY9ndMr5VsVqJnU83hcU+S/Q3s66fG3noOK0eoibll5MM9f0qkdH7DE33O9k6XiU/O2z6v85s5TjTqr9cP9QtVlPdydnavVJ9Be7z/aY4k6S4nTpGTp7Igt2W1P2yQGKaY+/wEIrsnq
+sidebar_class_name: "post api-method"
+info_path: api/import-export/import-and-export-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import hosts from an OpenSSH config file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/import-export/ssh-config-import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Parses the text of an OpenSSH config file and imports the hosts it defines.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["content"],"properties":{"content":{"type":"string","description":"The text of the config file."},"overwrite":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Import completed."},"400":{"description":"Invalid request body."},"403":{"description":"Not allowed to import hosts."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: generate-an-ssh-key-pair
+title: "Generate an SSH key pair"
+description: "Generate an SSH key pair"
+sidebar_label: "Generate an SSH key pair"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu40YM/RWCz2M7mzYFqrds0Uu2QBvUXgRFYBS0xLUmlmZmZ6g4iuF/X3AkKE68W2D9YMucQ/LwMkcHFNomLO7xl8gVO7HUwMr7JuHaYOTPHSd576seiwOW3gk70UcKobElifVu8ZC8U1sqa25Jn6QPjAX6zQOXggZD9IGjWE56uuN+lQETMEm0bosG2XWtkkmpnnF1eXX17mc0+V9MpOdllWiWarqcOZskXF79hOuj0ZBL+3wa0jrhLUc8GgyUUqgjpa+kPOaPVpqCd2kgeHlxoT8VpzLaoDVigauawfEedtxDIBvnGvrHryE/utSF4KNwldGaEXyEZJ959Prh3OsvL0BN4/dczVEpvT7+nR1HEgZysFz+MdFAgy1L7SssMPiUu01SY4GL0HRb62YU7KKchjsTHe5iO4ab7bifjXESx0eOugwH7GKDBR4G0xHfsvnXdxFWHFv7BAMGDT5StLRphh6O1lzmJ+oawQJrkZCKxUKy45yfqA0Nz0vf6hzWyqDsopU+U9gwRY7XnRZzvz4a3T+/s3xqoWD/5H6ynIRY6jIOVE4DTfNXLlpzhmExgtCMD7/52JJy/nC3Oqt+ySlZ70D8jh0kdgLWgdQMmsRH+5wvBtRMFUegBO9zUCBXZVh2zKtwWtLEbagKDVrNNkDQoKPM9GEv32T04W4FAx4SC5BAsls3s24OdzU7CJGVrgErILTjpJZSd6Nk8I8cv1lFZnva7u/u5PXtTd7aJBTFui3srdQg7dN/Z+VM0O9v7Y57A/valvWQKL2kmcONAJWS1G3Egt+70bsk53wG6Dm53jsGbhIP11FV7p8XPfx1WN5XevZGtiZRunitQZP26IA/+dxKKxrrTITh+vZGbxbHNHTm3fxifnHWr0kcRmVIBsqay51W2Q7F+dADQeg2jS0HVfJAUPskebIqHS1lGR/X7H8E51XyaQ+En2QRGrJOA2YBOYxadI8vWoQG36oRGjzXo7VBZafOh8OGEn+MzfGo5s8dR5WI9YvkDHqAw1Zk9dhxr/0c3lizPB+FN91wwd68vVQ5Jhm9/Xupd34zvvVaX6lPpD2a/F0gGvS5/Kwv2XbAhty2o22+ojmmfr4ANruKZw==
+sidebar_class_name: "post api-method"
+info_path: api/credential-tools/credential-tools-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate an SSH key pair"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/credential-tools/generate-key-pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generate an SSH key pair
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"keyType":{"type":"string","enum":["ssh-ed25519","ssh-rsa","ecdsa-sha2-nistp256"]},"keySize":{"type":"integer"},"passphrase":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new key pair."},"400":{"description":"Unsupported key type or size."},"403":{"description":"Not allowed."}}}
+>
+  
+</StatusCodes>
+
+
+      

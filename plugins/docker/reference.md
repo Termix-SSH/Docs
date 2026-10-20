@@ -5,10 +5,21 @@ sidebar_position: 90
 slug: "/docker/reference"
 custom_edit_url: null
 plugin_id: "docker"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
+
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Open the containers panel with new terminals | boolean | `false` | Show the containers panel beside every SSH terminal that has Docker on. You can still open and close it from the button on the right edge. |
+| Containers panel side | select | `"right"` | Where the containers panel sits next to a terminal. |
+| Containers panel size | number | `380` | Width in pixels, or height when it is at the bottom. You can also drag its edge. |
+| Show the panel button | boolean | `true` | Show a small button on the right edge of a terminal that opens the containers panel. |
 
 ### Host
 
@@ -18,6 +29,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | --- | --- | --- | --- |
 | Enable Docker | boolean | `false` | Manage containers on this host. |
 | Container Runtime | select | `"docker"` | Choose the CLI used for container management on this host |
+| Show containers panel in terminals | boolean | `true` | Let the containers panel open beside this host's SSH terminal. |
 
 ## Permissions
 
