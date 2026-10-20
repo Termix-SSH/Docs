@@ -4,7 +4,7 @@ sidebar_position: 11
 slug: "/automations/triggers"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/triggers.md"
 plugin_id: "automations"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
 The trigger decides when an automation runs. Every automation has one.

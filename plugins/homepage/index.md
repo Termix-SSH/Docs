@@ -46,6 +46,10 @@ Use a Folder widget as a background card to group widgets together.
 
 Other plugins add their own: Docker Manager, File Manager, Tunnel Manager, Metrics Chart and Alert Feed show up when those plugins are on.
 
+## Recent activity
+
+This plugin stores the recent activity list on the dashboard and in the Recent Activity widget. It keeps the last 100 entries for each user. With the plugin off, the list stays empty and nothing is recorded.
+
 ## Private addresses
 
 Ping Status and Custom API run from the Termix server. To keep them from poking around your internal network, private and loopback addresses are blocked unless an admin allows them. In Settings, Homepage, list exact hostnames or IPs under Allowed private hosts, without schemes, ports or paths.

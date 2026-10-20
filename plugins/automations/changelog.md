@@ -6,9 +6,15 @@ slug: "/automations/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "automations"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
+## 1.0.3
+
+### Fixed
+
+- The run limit (`maxRunSeconds`) can be set when creating an automation over HTTP and changed afterwards; before, only the service could set it, once
+
 ## 1.0.2
 
 ### Added
