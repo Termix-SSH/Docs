@@ -32,6 +32,10 @@ An account that only signs in through SSO or LDAP can't use a passkey to sign in
 
 A passkey that checks your PIN, fingerprint or face counts as a second factor on its own. If you use [TOTP](/plugins/totp) too, signing in with a passkey like that doesn't ask for a code.
 
+You can also use a security key or passkey as the step after your password. Open Settings, Security and press Turn on under Security key. With no key yet, the same button adds one first. After that, every password login asks you to touch your key. Turning it on signs you out on your other devices.
+
+Deleting your last key turns the step off. Signing in with a passkey still works either way.
+
 ## Things to know
 
 - Passkeys are tied to the address you use for Termix, like `termix.example.com`. If you change the address, add your passkeys again.
