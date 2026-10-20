@@ -6,9 +6,15 @@ slug: "/tmux-monitor/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tmux-monitor"
-plugin_version: "1.0.3"
+plugin_version: "1.0.4"
 plugin_latest: true
 ---
+## 1.0.4
+
+### Fixed
+
+- Mouse mode and the history limit are applied when Termix attaches to a tmux session, so clicking windows and panes in tmux works again
+
 ## 1.0.3
 
 ### Changed
