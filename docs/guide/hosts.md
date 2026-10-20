@@ -40,6 +40,7 @@ Other useful switches:
 
 - Force Keyboard Interactive asks for the password every time.
 - Allow Legacy Algorithms connects to old devices that only speak old SSH algorithms. It is less secure.
+- FIDO2 security keys (ed25519-sk and ecdsa-sk) work with SSH Agent in the desktop app. Load the key with ssh-add, and your key asks for a touch or PIN on your own machine. A pasted security key file cannot be used, since it only holds a handle.
 - SSH Agent Forwarding lets the remote host use your agent for the next hop.
 - Sudo Password fills sudo prompts in the terminal and in plugins that run sudo.
 
