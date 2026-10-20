@@ -24,7 +24,7 @@ Settings opens as a tab from the bottom of the rail. The pages are in four group
 
 ## Appearance {#appearance}
 
-Theme (light, dark, system, or one of Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox), accent color, interface font, font size and language.
+Layout, theme (light, dark, system, or one of Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox), accent color, interface font, font size and language. See [Choose a look](/guide/looks).
 
 Terminal fonts and colors are separate. They are host settings from the [SSH Terminal](/plugins/ssh-terminal) plugin.
 

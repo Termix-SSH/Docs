@@ -27,7 +27,7 @@ Then pick what your plugin needs from Building, and read Shipping when you are r
 
 ## Look at real plugins
 
-All 34 official plugins are open source and built the same way. When the docs don't answer something, read one that does what you want:
+All 36 official plugins are open source and built the same way. When the docs don't answer something, read one that does what you want:
 
 | You want to                      | Read                                                                                                             |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------- |

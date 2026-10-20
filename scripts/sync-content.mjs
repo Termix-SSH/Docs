@@ -705,12 +705,19 @@ function editUrl(plugin, ref, file) {
 }
 
 async function syncPlugin(plugin, capabilities) {
-  const stable = [...(plugin.versions ?? [])]
+  const gated = plugin.gated ?? [];
+  const stable = [
+    ...(plugin.versions ?? []),
+    ...gated.filter((v) => !v.version.includes("-")),
+  ]
     .map((v) => v.version)
     .sort(compareVersions)
     .reverse()
     .slice(0, args.keep);
-  const beta = [...(plugin.prereleases ?? [])]
+  const beta = [
+    ...(plugin.prereleases ?? []),
+    ...gated.filter((v) => v.version.includes("-")),
+  ]
     .map((v) => v.version)
     .sort(compareVersions)
     .reverse()[0];
@@ -872,6 +879,7 @@ async function syncPlugin(plugin, capabilities) {
     const entry = [
       ...(plugin.versions ?? []),
       ...(plugin.prereleases ?? []),
+      ...(plugin.gated ?? []),
     ].find((v) => v.version === version);
     if (isLatest) latestManifest = manifest;
     versionInfo.push({

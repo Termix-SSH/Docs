@@ -4,7 +4,7 @@
 AWS covers the cost of this server as a sponsor of Termix. This page was written as part of that sponsorship.
 :::
 
-Termix has 34 plugins, a core app, a mobile app, a CLI and docs, all in separate repos, and I maintain them alone. A lot of the work around that is repetitive, so I run my own LLM on an EC2 GPU instance and let it handle the boring parts. This page covers what it does and how it is set up, so you can copy it if you want something similar.
+Termix has 36 plugins, a core app, a mobile app, a CLI and docs, all in separate repos, and I maintain them alone. A lot of the work around that is repetitive, so I run my own LLM on an EC2 GPU instance and let it handle the boring parts. This page covers what it does and how it is set up, so you can copy it if you want something similar.
 
 ## What it does
 
