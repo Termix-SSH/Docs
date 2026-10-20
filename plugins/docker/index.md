@@ -33,6 +33,12 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
 - Logs: Read a container's logs, follow them live, and download them.
 - Console: Open a shell inside a running container.
 
+## Containers panel beside a terminal
+
+Open the Docker button on the right edge of an SSH terminal, or Docker panel in the tab's menu, to see the host's containers next to your shell. Each container is one line. Start, stop or restart it from the line, or click it to open its logs, stats and console. Drag the panel's edge to resize it and use the arrow in its header to move it.
+
+In Settings, Docker you can open the panel with every new terminal, pick its side and size, and hide the edge button. Turn off Show containers panel in terminals on a host to keep it from opening there.
+
 ## With other plugins
 
 - [Automations](/plugins/automations) can run when a container exits, starts, restarts or turns unhealthy, and can start, stop or restart containers as a step.
