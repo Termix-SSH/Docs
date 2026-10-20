@@ -6,9 +6,16 @@ slug: "/webauthn/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "webauthn"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- A security key or passkey can be the step after your password. Turn it on in Settings, Security
+- The security key step counts for a login rule that requires a second factor
+
 ## 1.0.2
 
 ### Changed

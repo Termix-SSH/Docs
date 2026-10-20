@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Passkeys API",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Sign in with a passkey or security key instead of a password."
   },
   "servers": [
@@ -145,6 +145,53 @@
         "responses": {
           "200": {
             "description": "Passkey deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/second-factor": {
+      "get": {
+        "summary": "Security key step status",
+        "description": "Whether the caller is asked for a security key after their password, and how many keys they have.",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/second-factor/enable": {
+      "post": {
+        "summary": "Ask for a security key after the password",
+        "description": "Needs at least one registered key. Signs the caller out everywhere else.",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Turned on."
+          },
+          "400": {
+            "description": "No key registered."
+          },
+          "409": {
+            "description": "Second factors are turned off on this server."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/second-factor/disable": {
+      "post": {
+        "summary": "Stop asking for a security key after the password",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Turned off."
           }
         }
       }
