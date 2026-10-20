@@ -31,6 +31,16 @@ Then pick Files from the host's menu, or the file button in the tab bar.
 
 If you don't have permission for a file, Termix asks for the sudo password and does it with sudo. If the host has a Sudo Password saved, it is used for you.
 
+## Files panel beside a terminal
+
+Open the files button on the right edge of an SSH terminal, or Files panel in the tab's menu, to show your files next to the terminal. It connects to the same host on its own, so there is nothing to set up. Drag its edge to resize it, and use the arrow in its header to move it to the left, right or bottom.
+
+- It opens in the folder your terminal is in and follows it when you cd. Turn off Follow terminal in the panel to browse on your own.
+- The refresh button jumps to the terminal's folder now. The terminal button types a cd into the terminal for the folder you are viewing, so only use it at a prompt.
+- History lists the folders you used most and most recently on this host.
+
+Turn off Show files panel in terminals in a host's File Manager section to keep it from opening there. In Settings, File Manager you can open the panel with every new terminal, pick its side and size, hide the edge button, set how often the terminal folder is checked, and set how many folders history keeps.
+
 ## Trash
 
 Deleting a file moves it to a trash folder, `.termix-trash` in your home folder on that server, instead of destroying it. Open Trash from the sidebar to see what you deleted and Restore it to where it was.
