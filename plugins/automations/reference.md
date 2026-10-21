@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/automations/reference"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -17,6 +17,14 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Always show buttons | boolean | `false` | Keep the test, run and delete buttons under each automation visible. Turn off to show them only on hover. |
+
+### Host
+
+Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Enable maintenance | boolean | `false` | Show maintenance mode for this host. |
 
 ## Permissions
 
