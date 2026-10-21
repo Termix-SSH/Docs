@@ -374,6 +374,47 @@
     ]
   },
   {
+    "id": "cloud-providers",
+    "name": "Cloud Providers",
+    "description": "Add hosts from AWS, Azure, Google Cloud, DigitalOcean, Hetzner and other clouds, and keep them in sync.",
+    "category": "Infrastructure",
+    "icon": "Cloud",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Cloud-Providers",
+    "docs": "https://docs.termix.site/plugins/cloud-providers",
+    "latest": "1.0.0",
+    "features": [
+      "Works with AWS EC2 and Lightsail, Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud",
+      "Pick instances to import, or sync a whole account on a timer",
+      "Follows IP and name changes and can mark or remove hosts that are gone",
+      "Cloud keys are stored encrypted and never shown again"
+    ],
+    "capabilities": [
+      "db:own",
+      "secrets:own",
+      "network:outbound",
+      "network:serve",
+      "ui:surface",
+      "hosts:read",
+      "hosts:write",
+      "credentials:use",
+      "users:impersonate",
+      "notify:send"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/cloud-providers/cloud-providers-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T22:52:21.000Z"
+      }
+    ]
+  },
+  {
     "id": "credential-tools",
     "name": "Credential Tools",
     "description": "Generate SSH keys, check them and copy a public key to a host.",
@@ -408,6 +449,47 @@
         "latest": true,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:56:43.000Z"
+      }
+    ]
+  },
+  {
+    "id": "databases",
+    "name": "Databases",
+    "description": "Browse and edit MySQL, MariaDB, PostgreSQL and SQLite databases on your hosts from one tab.",
+    "category": "Infrastructure",
+    "icon": "Database",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Databases",
+    "docs": "https://docs.termix.site/plugins/databases",
+    "latest": "1.0.0",
+    "features": [
+      "Save database logins per host with sealed passwords",
+      "Browse databases, tables and views",
+      "Page, sort and filter table data",
+      "Add, edit and delete rows by primary key",
+      "See columns, types and indexes",
+      "Run SQL in a console and export results as CSV or JSON"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "credentials:use",
+      "ssh:connect",
+      "network:serve",
+      "ui:surface",
+      "db:own",
+      "secrets:own"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/databases/databases-api",
+    "videoId": "FZ7QuMcDjKM",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T22:54:41.000Z"
       }
     ]
   },
@@ -910,6 +992,50 @@
     ]
   },
   {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "description": "Manage Kubernetes clusters from your hosts over SSH, with logs, metrics, YAML and a shell.",
+    "category": "Infrastructure",
+    "icon": "ShipWheel",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Kubernetes",
+    "docs": "https://docs.termix.site/plugins/kubernetes",
+    "latest": "1.0.0",
+    "features": [
+      "Browse pods, deployments, statefulsets, daemonsets, jobs and cronjobs",
+      "Scale, restart, roll back and change images of workloads",
+      "Read and download pod logs, and open a shell inside a pod",
+      "View, edit and apply YAML with a dry run and diff first",
+      "Services, ingresses, configmaps, secrets, volumes, nodes and events",
+      "Cordon, uncordon and drain nodes",
+      "CPU and memory from metrics-server",
+      "Helm releases with history, values, rollback and uninstall",
+      "Works with kubectl, k3s, MicroK8s and OpenShift",
+      "A pods panel beside any SSH terminal"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "credentials:use",
+      "ssh:connect",
+      "network:serve",
+      "ui:surface",
+      "events:core",
+      "users:impersonate"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/kubernetes/kubernetes-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T23:17:00.000Z"
+      }
+    ]
+  },
+  {
     "id": "ldap",
     "name": "LDAP",
     "description": "Sign in with your LDAP or Active Directory username and password.",
@@ -1344,6 +1470,86 @@
     ]
   },
   {
+    "id": "reverse-proxy",
+    "name": "Reverse Proxy",
+    "description": "Reverse proxy for TCP, UDP, HTTP and HTTPS with free certificates and Termix login, managed per host.",
+    "category": "Networking",
+    "icon": "Waypoints",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy",
+    "docs": "https://docs.termix.site/plugins/reverse-proxy",
+    "latest": "1.0.0",
+    "features": [
+      "TCP, UDP, HTTP and HTTPS routes for each host, with status, search and filters",
+      "Free Let's Encrypt certificates that renew on their own, plus self-signed and uploaded certificates",
+      "Optional Termix login in front of any web route",
+      "WebSocket support, forced HTTPS, custom headers and IP allow and deny lists",
+      "One overview of every route, its status and its certificate"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "db:own",
+      "network:serve",
+      "network:outbound",
+      "secrets:own",
+      "kv:own",
+      "notify:send",
+      "users:impersonate",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/reverse-proxy/reverse-proxy-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T23:06:42.000Z"
+      }
+    ]
+  },
+  {
+    "id": "samba",
+    "name": "Samba Shares",
+    "description": "Create and manage Samba (SMB) file shares, users and permissions on your hosts from one tab.",
+    "category": "Networking",
+    "icon": "Share2",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Samba",
+    "docs": "https://docs.termix.site/plugins/samba",
+    "latest": "1.0.0",
+    "features": [
+      "Install Samba and start, stop or restart it on a host",
+      "Create, edit and delete SMB shares with access options",
+      "Add Samba users, set passwords and manage groups",
+      "Set owner, mode and POSIX ACLs on share folders",
+      "See connected users and open files, and disconnect a session",
+      "Check and edit the config, and read the logs"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "credentials:use",
+      "ssh:connect",
+      "network:serve",
+      "users:impersonate",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/samba/samba-shares-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T23:07:52.000Z"
+      }
+    ]
+  },
+  {
     "id": "secret-sources",
     "name": "Secret Sources",
     "description": "Pull host passwords and keys from 1Password when you connect instead of storing them in Termix.",
@@ -1436,6 +1642,52 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-09T21:42:04.000Z"
+      }
+    ]
+  },
+  {
+    "id": "service-manager",
+    "name": "Services",
+    "description": "Manage services, timers and logs on your hosts over SSH.",
+    "category": "Infrastructure",
+    "icon": "ServerCog",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Service-Manager",
+    "docs": "https://docs.termix.site/plugins/service-manager",
+    "latest": "1.0.0",
+    "features": [
+      "List systemd services, sockets, targets and timers with their state",
+      "Start, stop, restart, reload, enable, disable and mask units",
+      "Unit details with memory, CPU, tasks, uptime and restarts",
+      "Edit unit files and overrides, checked with systemd-analyze before saving",
+      "Create a new service from a simple form",
+      "Timers with the last and next run, and run now",
+      "Read the journal by unit, priority, time, boot and text, and follow it live",
+      "Browse, search, follow and download log files in /var/log",
+      "Get an alert when a watched service fails, and when it is back",
+      "A services panel beside any SSH terminal",
+      "Basic OpenRC support for list, start, stop and boot"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "credentials:use",
+      "ssh:connect",
+      "network:serve",
+      "db:own",
+      "notify:send",
+      "users:impersonate",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/service-manager/services-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T23:17:35.000Z"
       }
     ]
   },

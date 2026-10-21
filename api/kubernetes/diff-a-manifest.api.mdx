@@ -1,0 +1,70 @@
+---
+id: diff-a-manifest
+title: "Diff a manifest"
+description: "kubectl diff of the manifest against the cluster. Needs diff on the host."
+sidebar_label: "Diff a manifest"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9v4zYM/lcIPm2AmnR7zFtvP7De7bbi0qE4FMHA2IytxpZ8Et3UM/K/Hyi5SdqsAw5YXpJQJPV9FPlxxJJjEWwn1jtc4LZfcyENlHazAb8BqRlacnbDUYAqsi5KMhZNH4XDDP5gLuPk79JR7aPM0KBQFXFxjx/6NQfHwhFXBjsK1LJw0LMRrd7akdRo0FHLuMDIMVrvrks0GPhLbwOXuJDQs8FY1NwSLkaUoUvOEqyrcL9fZWeO8s6Xg3q8ji28E3aiR9R1jS1ISc8fojIfz1P79QMX8gLEPQ7UNolG8B0HsRw1IlnPQWVKsaOC/w2yfjR77LyLOdGPl5f69fJRbmvOBRZ+EgPcdjLArmYHzkttXQVFTa7iOENN2LLUvtSy+qjwU3UXOO+avrLugjo73x6eZP78unE+Hgq/n+t1aDByeHx+qT40uMAxm/ZoXoH87PsAtxxa+wTZBw0+UrC0bjK3yZrobahvBBdYi3RxMZ9LCpzxE7Vdw7PCt1qflSIo+mBlSBDWTIHDVa987ld7M2Lh/dbyqYU6+4GHg+UkxVIfOEM5TXR4F8WCU4vp/+yEZvrxqw8tKeb3d7dn7Je5dCB+yw4iOwGbp0Ev8cH+k5oNaqaSA1CEdykpkCuTWwqcacucUjpgy6zQ5HnJLseJedjJm4je391C9ofIAiQQbeUurJvBnbZQF1jhGrACQluOaim4ZFcw+EcOb7JIaE/L/c2VvLq5hi0PEIWCaB/vrNQg7dPfZ3QOrt9e2i0PBna1Lep8UTxeM4NrASokatjkC37npuiCnPPJQc/JDd4xcBM5D5oqx6ej5vySm/eoB8+T/kIGTsTBuo1PVbOiYSdCCVc31zo+HGKm/8PscnZ5VpSP5KhiOImbZDnCJvgWBp1JleOYX3K5/M1k8o2vooGWJdgiGvh89fH3xJgg1tw06WlVPlpK2jj12c8qQnRYCK/xjEeJ/X8XSe4qVb9515B1ii7J0TiJ2z0exQ0NHuUNDR4EDg0uTndL0riVQb1GU4zjmiL/FZr9Xs1feg4qO6ujjCURKm3U3yUuNtRE/o8afPdpWhzfw1ssnsfbDUktm17/KQMeXmzC/WpvMHd4ApHPf8pXXdxqlmP82XZTFTxshZs/l6pf62lLtr7UmEA73XS0y/f7RCdpZbKN2JCreqqS3KSc+vkK9k3cgQ==
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Diff a manifest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/manifests/{sessionId}/diff"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+kubectl diff of the manifest against the cluster. Needs diff on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["yaml"],"properties":{"yaml":{"type":"string"},"namespace":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The diff text, empty when nothing changes."}}}
+>
+  
+</StatusCodes>
+
+
+      

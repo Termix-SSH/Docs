@@ -1,0 +1,69 @@
+---
+id: disconnect-a-session
+title: "Disconnect a session"
+description: "Ends the smbd process that serves a client connection."
+sidebar_label: "Disconnect a session"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v20YM/lcIPrXAVUr7qLd0P4B0KBrMHoIhMAZaoq2bpTv1eIqjCfrfB54U222WAcGAPVmieeT3fUd+GrFiKYPtovUOC/zJVQKxZpB2W0EXfMmiAYogHB5YgKBsLLsIpXeOSz2XocFIe8HiHlfUbgk3BjsK1HLkoOERrVbvKNZo0FHLWGDtJd5UaDDw194GrrCIoWeDUtbcEhYjxqHTTOsi7zngNJl/rNTZV5bZaLZ03gmLJny4utKfb7VYqwwsYr2DIwmwq7jKFAS2HGtfaWcvEc0Mp8C8a/q9de+os7moEPk4k5zypZDkY2erKa+sLPqhwaTsolMfGixwnEMTmu8w/e77AGsOrX2cLySgwQcKlrbNTGWJJjY76puoSsfYSZHnMR3M+JHaruGs9C1OSQzhsg82DgnClilwuO6V0v1GJS+9P1i+jFBnf+HhFLkosVLVZyiXhU6XoFhwuRx9n5PQLA8/+9CSYv50t37GfrXcRvQHdiA6hdalcdUmPti/SDOhZqo4AAl8TEWBXJXS0sEMJ/MNpRO2mRWaecbmlPOU/XmMLyL6dLeGOR+EI+i62L17Z10GdzU76AIrXAM2QqQDi0ZKrtiVDP6Bw4ssEtpLuV+t5PXtDRx4AIkUonV7ONpYQ2wf/3hG55T6emkPPBg41ras50ZybpPBTQQqo+ixJRf80S2nS3LOpwT9n9zgHQM3wvOuWbfzibWNjdJMDgOrmgILXN/e6AJwkJnA++wqu3pG64fAFDk1a8nRnmEu8mb1+eNb2NmGQVI9A71wkJTZ6bLMSwvewaCbp9sssAu+BQUZaZuuR12gJacol1n58bTfQE8m8j0s3SsX2cX/5LvzLER+jHnXkHWKJ5nIuLjSPZ5dScclGbTB4mS/T9akwdlJL9xpY5JPa5lx3JLwb6GZJg1/7TmoYWzOBpTso7KizxUWO2qE/4X0m18Xx34LLzF5Wkw3JJ9ren1Dgwcezl8QNaT/satqNG0uvwK3X1ZrnKa/ARKig3g=
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect a session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/sessions/{pid}/disconnect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Ends the smbd process that serves a client connection.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"pid","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The session was ended."}}}
+>
+  
+</StatusCodes>
+
+
+      

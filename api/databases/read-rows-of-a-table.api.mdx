@@ -1,0 +1,70 @@
+---
+id: read-rows-of-a-table
+title: "Read rows of a table"
+description: "Returns a page of rows with the column list and the total count. The body takes db, schema, table, limit, offset, orderBy, dir and a where condition."
+sidebar_label: "Read rows of a table"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdFu6zYM/RWCTxugJt0e/dbsbkDverG2yVAMRTAoNhOrsSVfiW7qGf73gZIb5zbrgL4My4tjmiLPIcXDHgsKuTcNG2cxw3vi1tsAGhq9I3Bb8O4Q4GC4BC4Jcle1tYXKBAZti2hjx7qC3LWWZ7AqCTau6ID1ngIUGwUhL6nWClhvKlJQmdqwArfdBpKnL8gvOgWF8TGkhkNJXlLZwgisGSpkvQuYPeInzXqjAwVcK2y01zUxefnUoxECjeYSFVpdE2ZYusDXBSr09LU1ngrM2LekMGHCrEfuGvE0lmlHHodB/WOk3Fn70Ujr5E2BF67oxOXt4dxZJsvySTdNZXIthOdPQZrRn8d2myfKGYdhGCR2aJyVWmQ9/nh5KY9vuynNiP2TuqbWhZlQxJq4dIWwdIFRJbIZzpuq3Rl7oRszL15LPe9TGYe5FIFyCR7mfarIMJcEqDCQf37tROsrzLBPpgHVG1h/uNbDinxtXiD5oMJn7Y1ckMhmtEZCW91WLL1kbkI2n3M8OKMXXTcVzXJXSz3WgiBvveEuQtiQ9uSvWqH1uJam5s7tDZ1adGN+pe5oOQmxlMInKKeBjn0QLDj2Xt6TE6rxzy/O11owf35YnbFfUgjGWWC3JwuBLIOxcZAkifPmr3gJoCRdkAcdYBGDnszbnuwMB/UNpSO2xApVusXJZbrHTwd+F9HnhxUkfwjEoBmC2dkLY2fwUJKFxpPAVWB4HO/GU04F2ZzAPZN/l0VEe1ruD1fy6vYa9tRBYO3Z2N0oSfXLn2d0jq4fL+2eOgWH0uRlShSmNDO4ZtA5Bzk2+oI72PF0rq110UG+a9s5S0BVoDRvMtH3kxb8nC4vZv0gfdq6WBHDYpo0Dq5ur2UyyIfE7IfZ5ezyjO9CJpAiCioMw5dueXej4IsM1KeFglsXeOdpeXcTfZZ3N4YJjuMNzkInEylTHmDrXQ0CnvUmtk0UotZRj8Y7dE+6SLritqCTrr9F1U/a9v9dKukKMr3wvKm0sUI3alc/CuIjToIoDI/bR2F23C0nqij2aVOIMK5VXEISqu/l7O++GgYxf23Ji1atJ+2LylWYIP8LzLa6CvQvdf3uflwn38N7bF41wXZRYqtW3lDhnrppPYoW/odZxwIN60FhmsTIO338KeW5WEmI6fDZdhS1Pi6x29+WorObccvWrpAzXh+kC/qQkrsmtUjWsNh6rLTdtXoXZTHGlN/fwkogRQ==
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read rows of a table"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/rows"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a page of rows with the column list and the total count. The body takes db, schema, table, limit, offset, orderBy, dir and a where condition.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The rows and columns."}}}
+>
+  
+</StatusCodes>
+
+
+      

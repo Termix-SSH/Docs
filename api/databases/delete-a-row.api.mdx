@@ -1,0 +1,70 @@
+---
+id: delete-a-row
+title: "Delete a row"
+description: "Removes a row found by its primary key."
+sidebar_label: "Delete a row"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzZAjbs9+q1dN6C3HtY2GYqhCAbFZmI1tuST6Kae4f9+oOQmueZ6QF+WB8emKJLfR/HTgCWFwpuWjbOY4z017pkCaPBuB2vX2RJWPRgO0HrTaN/DlvoZKmS9CZg/4pVmvdKBAi4Vttrrhpi8LA1oJGSruUKFVjeEOVYu8HWJCj196YynEnP2HSkMRUWNxnxA7lvxNJZpQx7HUX03UuGs/WikZfKmwJeu7MXl7ebCWSbLsqTbtjaFFmaypyD0DKex3eqJCsZxHEeJHVpnhYt8wF/Pz+XvW34XFYHtmhV5cGvhOICPlJczAYoNceVKweoCo0qQc8zautsYe6Zbk5WvhGdDInPMhAoqJEXIhsTLmHm3y0qqiQkVBvLPr13pfI05Dsk0onpT4j+u87Ag35gXSD6o8Fl7o1d1QjZZI7i17mqWvjK3Ic8yjhtn9KKbtqZZ4RrhZikVFJ033McSVqQ9+YtOwD0upcGFc1tDxxbdmj+p31uOQsylCamU40D7nkgtOJ0D+U5OqKaXP5xvtNT86WFxgn5OIRhngd2WLASyDMYCVwSSxHnzXzwQUJEuyYMOcBmDgrZldIsbZziqbyDta0uoUKUTnVwOZ/ppx+9W9OlhAckfAjFohmA29szYGTxUZKH1JOUqMAystyQTSwWVZAsC90z+XRSx2mO6P8zkxe216AIE1p6N3cDOcAXcvPx7Amfv+nFqt9Qr2FWmqFKicEgzg2sGXXCQbZMvuJ2ddhfaWhcdZF3b3lkCqgOlqZPpvj/owu/p8GI+jNKntYuMGBbTQe/g4vZaJoN8SMh+mZ3Pzk/wXsqQU6yCSsPwuZ/f3Sj4LAN1dang1gXeeJrf3USf+d2NYYL9kIOz0MtEyqwHWHvXgBTPehXbJjrR6KhN0xm6ijOfFPxtNcNB3z4i9ekwML1w1tbaWEkcVWSYBOoRDwIlOfd3gsJ8r/hHKiX2g35PdUapWqp4RUjIYZAYf/t6HMX8pSMv6rE8qFHUktIEeS8xX+s60A8Q/3Q/if3P8B6q1ym1fRS9upMvVLil/nB5iTr9j1knosblqDDNRsSdFn9Lec4WEuKw+eTuEv3cXy63f81F+VbTHdi4UvZ4LX2QZ0zu2tQquSTFNmCt7abTmyhUMab8vgI3vdem
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a row"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/row/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a row found by its primary key.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The number of rows removed."}}}
+>
+  
+</StatusCodes>
+
+
+      

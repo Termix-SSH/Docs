@@ -1,0 +1,69 @@
+---
+id: samba-status-on-a-host
+title: "Samba status on a host"
+description: "Reports whether Samba is installed and running, the package manager, firewall and whether root or passwordless sudo is available."
+sidebar_label: "Samba status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWCpwSY2NseddsUbbApCgSxi0WxMApaoqWppRllSK3XNfTvBUda28liC+SWkyX6kfMeh3w6YcVSJt+rjwEL/Mx9TCpwaFgbTrCibkvgBXwQpbblCihUkIYQfKgdaMPQU7mnmqGjQDUnBzuf+EBtm6HPlVKMCjFBTyKHmKqWRUCGKlp1eiTf0rblBTpUqgWLB8xn48ZhT4k6Vk4WPqE3oj1pgw4DdYwFNlH0rkKHib8MPnGFhaaBHUrZcEdYnFCPvSF9UK454ThuDC19DMJigJ9vbuzn636sG557IEo6yALH0WHH2sQKC6xZ0U1cClz27VD78I56vxTLWZ4mXuNySkaHwunxWceQWizwNIVGdN8c/VccEqw5df4JJgw6fKTkrU+Z8RzNpHc0tGqdUO2lWC41Jy74ibq+5UUZOxyzZuFySF6PmcKWKXG6HYz/w2Z0Jyxj3Hu+jlDvf+fjOXJVYmXNnahcFzr32rjgfAf2PoHQzQ+/xdSRcf54v36hfsUiPgbQuOcAwkHBhzxudkhM/l8yJDRMFScggfe5aJ45g+XEBY7uK0lnbpMqdNM0TZDLPP1z0FcZfbxfw4QHYQVSEF+Hdz4s4L7hAH1io+vAKyjtWSxScsWhZIiPnF5Vkdlet/u7O3n76Q72fLRhTepDDQevDWj39PcLOWfo97d2z0cHh8aXzXSQXI5ZwJ0ClSqWNmMhHsKcXVIIMQPsfwrHGBi4FZ72yoddzKq9tiZz2rxVQ4kFbj/d2QJwkknAT4ubxc0LWb8kJuV82ORH8/q+Wf3x/i3sfMsguZ6DQThJRva2LPl2BWKAo22era7ALsUOjKTSNl9PH0U7CsZynpVre7BsyqnfErPNCspBfxSTnQZL+UmXfUs+mLjsSKfZzx7w4mc2e9mNHRZnr51NbeOy/VrC6bQl4T9TO44W/jJwMp/ZXHwru07lxZ4rLHbUCv9Pp958nv38LbzG+XmfwzHbYzvYGzrc8/HyYRg316794dc1juN/rQdsdw==
+sidebar_class_name: "get api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Samba status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/samba/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports whether Samba is installed and running, the package manager, firewall and whether root or passwordless sudo is available.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The Samba status."}}}
+>
+  
+</StatusCodes>
+
+
+      

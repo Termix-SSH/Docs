@@ -1,0 +1,70 @@
+---
+id: update-a-connection
+title: "Update a connection"
+description: "Changes a saved login. An empty password keeps the saved one."
+sidebar_label: "Update a connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXBPLUALbl95JudNIBTB7AjG0ZhCMGIHItrkbvM7tAyS/Dfi9mlJTmqAxgFqhdJs3M7czkzYMmh8KYV4yzm+KEiu+YABIGeuITarY2dwZkFblrpoaUQts6XsGFuA0jFk6KzPMMMhdYB83v8SEIrChxwmWFLnhoW9vo0oNFALUmFGVpqGHOsXJCLEjP0/L0znkvMxXecYSgqbgjzAaVvVdNY4TV7HMfsXz0Vztr3elombQ5y7speVX40LpwVtqJP1La1KUjrNX8MWrTh2LdbPXIhOI7jqL5D66zWIh/w99NT/Xpd9ZuKoWtLEi5BAXChDzMFiQ1L5UrF2QlmCW2O87bu1saeUGvm5Uut50Oq4zjfOwnzIZVkxAwD+6eXLnS+xhyHJNLH1yn95ToPN+wb8wxJBzN8Im9oVSckkzSCeaCuFu2jSBvy+Vyi4YyfqWlrnhWu0VosNYOi80b6mMKKybM/6xTR/VIbWji3MXwoodb8yf1OcuBioUVPqRw62vVAc8Gp7/o/KWE2/fjkfEOa8+e7myP0Cw7BOAviNmwhsBUwNk67BnHe/B0HACqmkj1QgPPoFMiWUS0aznDMXkHa5ZZQYZYmOKnsZ/hxK29m9PnuBpI+BBYggWDW9kSX9K5iC61nTTcDIyC04aCSgku2BYN7Yv8mipjtYbnfXcmzqwvYcA9ByIuxa9gaqUCa529HcHaq7y/thvsMtpUpqhQo7MPM4EKACglqNumC29rJuiBrXVTQd7K9swxcB06bptv8dc8Df6ThxXwYtU8PLlbEiIr2/AZnVxe6GexDQvbb7HR2eoT33Ltt4JgFl0bgS7+4vszgiy7Ux/MMrlyQtefF9WXUWVxfGmHYbTY4C71upC54gAfvGmVcEFrFtrUuSEORi6YZuo10AnTAJz8mNexp7b/zfpoU4WeZtzUZq1lFihkmyrrHPWVpJrsDkWG+o/8D3lL5RObLLB4I9TEManTr63FU8feOvXLJcs9NkVlKE/R3ifkD1YF/AvyXrxPV/wpvwXjZWdtHCqw7/YcZbrjfny7lqv8x6lSZcTlmmDYl4k6PH1Kckxt1sTc+ulzKprvzcnWrNLiaDmDjSjXxtNVTStsU27WpNXohVTZgTXbd0TqyVnSpn38AaO3fBg==
+sidebar_class_name: "put api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Changes a saved login. An empty password keeps the saved one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated connection."}}}
+>
+  
+</StatusCodes>
+
+
+      

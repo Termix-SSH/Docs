@@ -1,0 +1,69 @@
+---
+id: list-units
+title: "List units"
+description: "Units of one type with their load, active and file state. On OpenRC, the services and their runlevels."
+sidebar_label: "List units"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv2zgQ/iuDOXUBRs7uUbe0aLtpu2hRuwgWgVEw0ljimiJVcuRENfTfF0PKjzTNoZeebI3m8X3z+LTHmmIVTM/GOyzxizMcwW/AOwIee4J7wy1wSyaA9bpWoCs2OwLtatgYSxBZMxXw0cHHntznV0q8IVLYmYpi8svhYXCWdmRjgQpZNxHLW1zOfrhW2OugO2IK8maPRgD1mltU6HRHWGLrI1/XqDDQt8EEqrHkMJDCWLXUaSz3KKCxROOYGgo4TWrO9G2gMJ5SJb+fBEYOxjWokNzQCcKZifj6akss4E1HIZEITTLMKDs/OHnU1uJ6mtaCM/beRYpS4a/LS/l53PFVSzBI1wvBih1x62ss8SxxiYveDo1xF7o3ixnPRaedbigs9rkp0yJlEZgUdoceDsFiiftsmlD9UPxfPwRYUejMA2QfVLjTweg7mzHP1gR7owfLMgXmPpaLBafAgh5011sqKt/hlFhHqoZgeEwQ7kgHCleDELldyzgq77eGzi26N+9pPFrOUixlPhnKeaLjuATLYYzynJ1QzX/e+NBpwfzuZvWE/ZJiNN4B+y05iOQYjEvbK0V8MN+1eEJLuqYAOsLLlPSw0zmwwEk9onTEllmhyvuXXU4L+N89P4vo3c0Ksj9EYtAM0TTuwrgCblpy0AcSuAoMA+stRbFUVJOrCPyOwrMsEtrzdv9yJ68+XcOWRrn7wMY1s0J0D1+f0Dm6/nprtzQquG9N1eZC8VSmgGsWFYoSNvuCv3dzdKWd88lB3ms3ipSRjZQPzLiNT6wNW0otn4Xq6tO1LD+FmMH/WVwWl08o/ZOu7ihvCpIWZJmzvongHYxyVXKVMc9iufw7tb33kTvtpPq8Ax9MZDjc7aNCciWOyfFvFeW8CUwPvOitNk5QJwnZz0p0iyclmqXmTItQYXmU6ExrrZJoS+R+f6cjfQl2msSc9VgUojZR9KbGcqNtJIVbGk8KvdN2EFQosnDQpp/HPdvBF5/n78Uf8BzNw8268bzmAcvMalqfS/Tb1yucpv8BbSF/Tg==
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List units"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/units"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Units of one type with their load, active and file state. On OpenRC, the services and their runlevels.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"type","schema":{"type":"string","enum":["service","socket","timer","target","path","mount","all"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The units."}}}
+>
+  
+</StatusCodes>
+
+
+      

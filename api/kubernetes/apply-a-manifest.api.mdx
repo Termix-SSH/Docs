@@ -1,0 +1,70 @@
+---
+id: apply-a-manifest
+title: "Apply a manifest"
+description: "kubectl apply, or kubectl replace when mode is replace (used when editing a resource so a stale copy is refused)."
+sidebar_label: "Apply a manifest"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFlUtv4zYQgP/KYE67AGO7j5Nu2aJFs9tFg02KYBEYxZgaW4wpUktScVTB/70Y0q/ESYE9VRdJw3kP+XHEmqMOpkvGO6xw3S9YJwvUdXZQ4APsJYE7S5ph07CD1tcMJh6E7/rIdVni2iTjVkAQOPo+aIbogSAmsgzad0MxXIrJ+wkqTLSKWN3jp37BwXHiiHOFHQVqOXGQtRGNZNdRalCho5axwsgxGu+ualQY+FtvAtdYpdCzwqgbbgmrEdPQZeUUjFvhdjsvyhzTB18PovHSVnuX2CVZkjYYTdKc6UOUDo3nrv3igXV6lsQ9DtTaXEbwHYdkOIpFlp4npVAa+uqC1Bo70q+t5kfCxs67WCL8OJvJ6/lUbxs+TCNCaiiBbsituJ5IjJ9nP71u0/iYyrSoBu/sMEEJ2HJqfC3z8FHqzmOpcNrZfmXcBXVmuj7MctqSM0uOKU7Hw8S207zBUGHk8LifcR8sVjgW0RbVi4y++j7ALYfWPEHRQYWPFAwtbCl+J821LKm3CStsUupiNZ2mbDjhJ2o7yxPtW2ngXDLQfTBpyCksmAKHy14Kup9v1Yja+7XhUwl15hMPB8mJixvZGiWVU0eHwUkuuNuc8l+UUO0+fvOhJcn5493tWfU3pXeQ/JodRHYJjIPUMEgQH8w/eZtCw1RzAIrwITsFcnVWy4Z53qclHXIrVaEqJ62oHM/awya9mdHHu1so+hA5ASWIZuUujJvAnRChCyzpKjAJEq05ikRzzU4z+EcOb1aRsz1t93d38vL6CtY8CH1CxtLGpAZS+/T3WTkH1e9v7ZoHBZvG6KYEiscwE7hKQDpFMdvpgt+4nbUm53xWkHVyg3cMbCOXkybM+XKk1a9l8x5JskfBHiDH/xNunNDEuKXPXTRJ3JwgFy6vr+Q4cYilHT9MZpPZWZM+k6MVw4mdtn0USsMy+BYGOaOCjVgme3PzuyrNsH4VFbScgtFRwdfLz3/kDhDEhq3NoxaetJQpu9t3l4IJINhD5GVC45HW/8/dVbZj4qc07SwZJ2Vkjo07LN7jEYuo8AhGGdoejaiwOr3OCh3nCqWV4mMcFxT5r2C3WxF/6zkIsOZHAGZ81SbKd43Vkmzk/2jWuy+7y+o9vFXGHgxuyJy1vfxJCTw8u323863CcjZyEmX9lxLq4la8HO3PblTh5+FCuf7zRsi32N3Mu00daCO3K21KfJ/LyZTNshEtuVVPqwyq7FOefwEzyhK0
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Apply a manifest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/manifests/{sessionId}/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+kubectl apply, or kubectl replace when mode is replace (used when editing a resource so a stale copy is refused).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["yaml"],"properties":{"yaml":{"type":"string"},"mode":{"type":"string"},"namespace":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The resources that changed."},"403":{"description":"The host is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

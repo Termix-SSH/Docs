@@ -1,0 +1,70 @@
+---
+id: run-an-action-on-a-resource
+title: "Run an action on a resource"
+description: "scale, restart, undo, setImage (deployments, statefulsets, daemonsets, replicasets), suspend and resume (cronjobs, jobs), trigger (cronjobs), cordon, uncordon and drain (nodes)."
+sidebar_label: "Run an action on a resource"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVt1v2zYQ/1cOfEoAxvI+nvSWrh2WdsWCJEVQBMZAS2eJsUSqRyqOJvh/L46ULTl2BgQYCkwPtnR3PN7n764XObqMdOO1NSIVLlMVSiB0XpGX0JrcSnDor2pVIJzl2FS2q9F4J8F55XHVVg75K1dYWxPfCZtKZ4o/ziW41jVoclAmZ81tjXCWkTWPdukk8O+5BE+6KJBGzrmEzFJuDVsR34KGnJQ2cGZsju58JqTwqnAifRCf2iWSQY9OLKRoFKkaPRLzeqHZu0b5UkhhVI3sKzqnrbnKhRSE31pNmIvUU4tSuKzEWom0F75rgrAnbQqx3cqTutba/Bdqwt9b1CyiMDr/zuYdS7w8m1nj0XhmqSZkhVOdPDrOd3+s2i4fMfMHRjwIlYX64LCSbZC8Rhc0RvqxYdEj16gMT3J3BTJhauOxQIrcJ+0OFU+47JHSBumkZs2FepKTY4UeP9SN795req/81O2ltRUqw3IrSwdW71nhYetcw4UejP95Pue/wy66KxFiaICUmbHSX0/JfTFrYzdmkJWwIWsK4FoCS7BUOTypqsVBwS+nLyqt86AdEKocrKk6yYd9iZBVrfNIQLhqHeYzLjtRoy9tzpVnHac5FGAqkqZqC20uVKOT9b6REkJnW8rQJf2+XbZJzyZuk55zvE2GIpDCIT3t+q2lSqSij6StkC8M/2pbgjukWj9DlBFSPCnSalnFwA7U4PJKtZUXqSi9b1yaJD4cnOGzqpsKZ5mtOTkLtiBrSfsumLBERUiXLfv3sOCOy6xda5xSVKM/YbenTFTccmNEU6aK9lXBtoihNUOVBCEhh5ffLdWKbf54f3fk/W0MJXi7RgMOjQdtQsr4Ekv6n9CkUKLKkUA5eBeUBvxjsXBwFpthdGlvW/RKyAgxUWQEmceNf9Wij/d3EOUZ9EF5cLowF9rM4L5EAw0hmytBe/BqjY4pGeZoMgT7hPSqF8HaabjfHMnL6ytYYwdhNGlTwEb7Enz9/PeRO3vRt4d2jZ2ETamzMl7kxmtmcOW5Vx0fG2TBbsxwOlPG2CDAfGU6axCwchgbjxH3ZsTqD7F4pyi6w6oD8ByJI2bOpxA5P0DEUXwAwpFwCv/ijBgQjz8YQc3KhvRoz/ZN5ipcXl9xnyLFq8VPs/lsfhT9z8rwsjA5NyCRgxXZGjpufoYtF0vm9vYPGaNc2cJJqNGTzpyEr5ef/wyhVeBKrKpQQ4xbtQqzYSjom5Y3gx3i8poAO9x6aVs/zsP/564TW8bjs0+aSukwsALW9gOSP4gRyYUUI5aHChrQXEiRTtefdNhf0mEBGec9p4mV9v1SOfxC1XbL5G8tEqPsYkTtgLm5dvyei3SlKof/Ev2zm2G/OIfX/NqhmenCcKha/mKfsDtY3xjIf+DFIVY/+M6Ql+1iK0UErhDsyPot3nJxxwrGo0fLHg+3/fC//uuWx9JyWBprm/MZUhuuErWJV9vgSRiBgdaLSpmijbASdfLzHbhnPLk=
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run an action on a resource"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+scale, restart, undo, setImage (deployments, statefulsets, daemonsets, replicasets), suspend and resume (cronjobs, jobs), trigger (cronjobs), cordon, uncordon and drain (nodes).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action"],"properties":{"action":{"type":"string"},"namespace":{"type":"string"},"replicas":{"type":"integer"},"revision":{"type":"integer"},"container":{"type":"string"},"image":{"type":"string"},"deleteEmptyDirData":{"type":"boolean"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran."},"400":{"description":"Unknown action, wrong kind or bad value."},"403":{"description":"The host is read only, or the cluster refused."}}}
+>
+  
+</StatusCodes>
+
+
+      

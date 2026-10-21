@@ -1,0 +1,69 @@
+---
+id: database-clients-on-a-host
+title: "Database clients on a host"
+description: "Reports which of mysql, psql and sqlite3 are installed on the host and their versions."
+sidebar_label: "Database clients on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20gM/SsET1tgame7N90SdLdImwJJ7UWwCIzFRKKtWY9m5CEVRyvovxeU5I82SIEeerJEPXLe45DPHRbEeXK1uBgwwy9UxyQM+9LlJcQ1VC3vvIGadx5sKIB33gn9ATYRuMBivacCYgApCcrIMqCkJJfgiRK7GHiGBsVuGLMHfG/FPlomxpXB2iZbkVDSTx06ZVBbKdFgsBVhhlrxukCDiXaNS1RgJqkhg5yXVFnMOpS2VqQLQhtK2PcrRXMdg56Sdfju4kJ/vhW6LM/5595REDYQE4TGe1jHBBYqx+zCBmKgGfa9wYqkjAVmuCFBM3LNcF77ZuPCW1u7eXHQN+9G7v1cYvSMBpnS00Fqkzxm2I2hHs137P6JTYIlpco9w4hBg082OfvoR1FTdNC1to0XbZZIzdl8LkPijJ5tVXua5bHCfmgLU94kJ+1A4ZFsonTZqISHVW86zGPcOjqP2Np9ovYYOSux0P6PVM4LHa9DueB0Tfo+gtBMD3/FVFnl/PF++UL9gljnBiRuKQBTEHDjgOkhMbn/rSKhJFtQAstwNRQ9jN6YOMPefCPpyG1UhWYcuBFyGrn/9vIqo4/3SxjxwCRgBdhtwlsXZnBfUoA6kdI14ATEbok1klNBISeIT5ReVTGwPW/3T3fy8vYattQCi02iU7t3UoJUz/++kHOE/nxrt9SayR2Gg/h0zAyuBWwurGkTFuI+TNm5DSEOAP1uQxsDAXmeVsuFdRxUO/Eq82gUcHl7rdM/mglm+PvsYnbxQtNVinum4SQqnMDndnF3Y+CzLs37KwO3kWWTaHF3M2AWdzdOCI7rqhbW6tbp1jKsU6x07UHs43A1dWSpbFCG05wcCB7MQyvYIf17brpZQSjILzXYcVqEnmVee+uCsh5sppt86gFPPqUUj05sMDv67GhWKzM4r+Z0nYL+Tr7vNbxrKKl/rE5+NLhJ4VifC8zW1jP9oAO/fZms/A28Rvuwp6EdbM83+oYGt9Se/hP61bkhf/hziX3/FapqWxg=
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Database clients on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/tools"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports which of mysql, psql and sqlite3 are installed on the host and their versions.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The installed clients, or null for a missing one."}}}
+>
+  
+</StatusCodes>
+
+
+      

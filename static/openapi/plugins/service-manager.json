@@ -1,0 +1,869 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Services API",
+    "version": "1.0.0",
+    "description": "Manage services, timers and logs on your hosts over SSH."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/service-manager/{hostId}/status": {
+      "get": {
+        "summary": "Services status on a host",
+        "description": "The init system and its version, the OS, whether changes can run as root, whether there is a journal and how many units failed.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "403": {
+            "description": "Services is not turned on for this host."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/units": {
+      "get": {
+        "summary": "List units",
+        "description": "Units of one type with their load, active and file state. On OpenRC, the services and their runlevels.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "service",
+                "socket",
+                "timer",
+                "target",
+                "path",
+                "mount",
+                "all"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The units."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a service",
+        "description": "Writes a new service from a form, and a timer when a schedule is given, checks both with systemd-analyze, then enables and starts them when asked.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "execStart": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "user": {
+                    "type": "string"
+                  },
+                  "group": {
+                    "type": "string"
+                  },
+                  "workingDirectory": {
+                    "type": "string"
+                  },
+                  "environment": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "restart": {
+                    "type": "string"
+                  },
+                  "restartSec": {
+                    "type": "integer"
+                  },
+                  "after": {
+                    "type": "string"
+                  },
+                  "wantedBy": {
+                    "type": "string"
+                  },
+                  "enable": {
+                    "type": "boolean"
+                  },
+                  "start": {
+                    "type": "boolean"
+                  },
+                  "onCalendar": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The units that were made."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/units/{unit}": {
+      "get": {
+        "summary": "Unit details",
+        "description": "Properties such as state, main PID, memory, CPU, tasks, restarts and dependencies, plus the systemctl status text.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The unit."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/units/{unit}/actions/{action}": {
+      "post": {
+        "summary": "Run a unit action",
+        "description": "Start, stop, restart, reload, enable, disable, enable or disable now, mask, unmask, reset a failed state or revert local changes. Needs edit access.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done, with the new active state."
+          },
+          "403": {
+            "description": "No edit access, or the host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/units/{unit}/file": {
+      "get": {
+        "summary": "Read a unit file",
+        "description": "The unit file, its drop-ins, the Termix override and the combined view from systemctl cat.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The files."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save a unit file",
+        "description": "Checks the text with systemd-analyze verify, then writes the unit to /etc/systemd/system or its override.conf drop-in, keeps a .termix.bak copy and reloads systemd. An empty override removes it.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "string",
+                    "enum": [
+                      "unit",
+                      "override"
+                    ]
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "The check failed. Nothing was written."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a unit",
+        "description": "Stops and disables a unit kept in /etc/systemd/system, removes its file and drop-ins and reloads systemd.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/units/{unit}/file/verify": {
+      "post": {
+        "summary": "Check a unit file",
+        "description": "Runs systemd-analyze verify on the text without saving it. For an override the check covers the unit with every drop-in.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "string",
+                    "enum": [
+                      "unit",
+                      "override"
+                    ]
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Whether it passed, with the output."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/timers": {
+      "get": {
+        "summary": "List timers",
+        "description": "Every timer with its schedule, last and next run and the unit it starts.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The timers."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/journal": {
+      "get": {
+        "summary": "Read the journal",
+        "description": "Journal entries filtered by unit, priority, time, boot and text, newest last.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "unit",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "priority",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "until",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "boot",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "grep",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "kernel",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer",
+              "maximum": 5000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The entries."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/journal/boots": {
+      "get": {
+        "summary": "List boots",
+        "description": "The boots the journal has entries for, newest first.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The boots."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/journal/usage": {
+      "get": {
+        "summary": "Journal disk use",
+        "description": "How much disk the journal takes.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The size, like 378.6M."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/journal/vacuum": {
+      "post": {
+        "summary": "Shrink the journal",
+        "description": "Removes old journal files down to a size or an age. Needs edit access.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "size": {
+                    "type": "string",
+                    "example": "500M"
+                  },
+                  "time": {
+                    "type": "string",
+                    "example": "4w"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Done, with the journalctl output."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/logs": {
+      "get": {
+        "summary": "List log files",
+        "description": "Files in the host's allowed log folders, with size and time.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The files."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/logs/file": {
+      "get": {
+        "summary": "Read a log file",
+        "description": "The last lines of a log file, with an optional text search. Compressed files are read too.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "grep",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The lines."
+          },
+          "403": {
+            "description": "The file is outside the allowed log folders."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/logs/download": {
+      "get": {
+        "summary": "Download a log file",
+        "description": "The file as text, up to its last 4 MB.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/watches": {
+      "get": {
+        "summary": "Watched units",
+        "description": "The units the signed in user gets an alert for on this host, with the last state seen.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The watched units."
+          }
+        }
+      },
+      "post": {
+        "summary": "Watch a unit",
+        "description": "Sends the signed in user an alert when the unit fails or stops, and when it runs again.",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Watching."
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/{hostId}/watches/{unit}": {
+      "delete": {
+        "summary": "Stop watching a unit",
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "unit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Not watching any more."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

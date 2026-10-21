@@ -1,0 +1,70 @@
+---
+id: watch-a-unit
+title: "Watch a unit"
+description: "Sends the signed in user an alert when the unit fails or stops, and when it runs again."
+sidebar_label: "Watch a unit"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu5DYM/RWCpxZQZtIefcsWLTZbFA12UgRFMCg4NmMrY0teic7ENfzvBSVnZjZBCuxhfbFNPYqPFPk0YcWxDLYX6x0WuGFXRZCGIdracQXWwRA5ADmgloPAoWGXAIOzAg9k2wg+QBTfRwPkqoywAmFwEagm61ZoUKiOWNzjhsOTLTni1mBPgToWDroyoVUGPUmDBh11jAU2Psp1hQYDfxls4AoLCQMbjGXDHWExoYy9Iq0TrjngPG8zmqN88NWokNfOpXfCTnSJ+r61JWn668eoNZje7u13j1wKGuyD7zmI5airWoEzVJRgXY1zepRD7L2LGfrz5aW+vi72HUnZWFevUPEdS+MrrYCPKZYWosB13w61dRfU23XMtbvoyFHNYT3l8szrg+7EEQ0q5KWeQ2ixwCmbZjSvwv/thwC3HDr7DBmDBp8oWNq1mfViTcQfaGhFT0Skj8V6Lclxxc/U9S2vSt9p5ltlUA7Bypgo7JgCh6tBU7nfzmbC0vu95XML9fZ3Ho+Wsy02ehCZyvlGx4orF1x6Qf8zCM3y8ZsPHSnnT3e3b7LfcIzWOxC/ZweRnWiva2NrEB/sv6kpoGGqtP8jfEibphZXWHJc4Wy+SunILWeFJnd1hpz6+vEg7zL6dHcLGQ+RBUjSLF5Yt4I7Ha0+sNI1OmNCe45qKbliVzL4Jw7vZpHYnpf7myt5dXMNex4hCgWxroaDlQake/7nTTpH6LeXds+jgUNjyyYHiqcwK7gWoFKiui1Y8Ae3eJfknE8AXSc3esfAbeQ8Yzrhn0/a8Gtu3tMsH2dYj+3BpwJZUcRRt+Dq5lrnhEPMef60ulxdvsn+jzSisExsNCC24xATydbXEbyDUQdQRzjmY9tsPqYTUgHoKEnR0i5JKYCS5r4ONZ3k7HvKd+4T4WdZ9y1Zp0STwEyLUt3jSakWITrTKjRYHMX8Ra62Jgm8+k7TjiL/Fdp5VvOXgYMqyPakSElPKhv1u8LigdrI/1OKHz4vov8jvEf/ZVLdmISvHfQPDe55PF0983Y2mDs1MciLv+Q4F7e6xcn5zW2ianYU9ps/N6pDu+VW6nylPoEOer/RIQf3KZekeck2YUuuHqhOspH21Oc/VOWsig==
+sidebar_class_name: "post api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Watch a unit"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/service-manager/{hostId}/watches"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sends the signed in user an alert when the unit fails or stops, and when it runs again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"unit":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Watching."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: check-the-signed-in-user-can-open-a-route-and-return-its-sign-in-link
+title: "Check the signed-in user can open a route and return its sign in link"
+description: "Check the signed-in user can open a route and return its sign in link"
+sidebar_label: "Check the signed-in user can open a route and return its sign in link"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P20YM/SsEL20Are2mOem2Tdt004ux62BRLIyCK9HSxNKMMkN5rRr67wFntLYTb4AGaE+WOfx4b0i+OaBQFTB/wFvesQ8MS+/2A64z7MhTy8Jejw9oLOb4qWc/YIaWWsYcveuFMUPPn3rjucRcfM8ZhqLmljA/oAydOhorXLHHccxeziTu36QJ4o2tcBzX6hw6ZwMHPX+9WOhPyaHwphPjtMSqZmiM3YLUJBBYAkjNUDi3NQzOxn+Rwg8BSteSsThm+Gbx88u5+sAeWhrAOgHXsSYwIWVIgW8uA2/1NEZsXG9LvYGvPN7WXGwjlmAqy+WVsalUQTaVoVQDyJbgWXpvwUiI7mBs5IgZtiy1KzHHigW1fVJjjvOu6Stjr6gzc59afNVpi+cVCc/FbdlihoH97rnTvW8wx0Myjfg13r9c72HFvjV7SD6Y4Y68occmdWOyxrvYUN8I5liLdCGfzyUGznhPbdfwrHAtjrGfgYveGxkihEcmz/66VwoPax2a1LVzC3XmTx6OlrMUdzo3Ccp5ouMYKRacxkv/JyfMpo/fnW9JMb+/X12wv+MQjM6OXhwEtqIt0O5pEefNP6SeUDOV7IEC/BKTxuapWwyc6bycUzpiS6wwS1uSXE5r8vFJvono/f3qebYDC+jIm8peGTuD+5otdJ4VbgZGQGjLQS0Fl2wLBrdj/00WEe35dX/3TV4vb2DLAwQhL8ZW8GSkBmn3f1/QObp+/9VuecjgqTZFnQqFU5kZ3AhQIUHDJl9wT3aKLsjqilIhek52cJaBm8CzuLDGblxkbaRRml9oJVwvb3QD2IfE4KfZYra44PUcE5cPNs7D6u0ygw+/LjP4Y7VaRhz6cZdQbzwzFOzFbExBwiE6THvXuMrYDFqyVHEJHXuoXZDYqM4Fackq3mlq/iuF+YLQcQaE9zLvmkk9o3gcJvV5wJP6RH0/0x/MUBUIM0watM5QKWjQ4fBIgT/4ZhzVnJ4KlYXSBBWZEvMNNYEvEBXOClsduB9vp7fkFWiFl5BueTh7wnbU9OqDKi3/Q534wJ2KrE+SmfTsJN/vflvhOH4GgLOd0A==
+sidebar_class_name: "get api-method"
+info_path: api/reverse-proxy/reverse-proxy-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check the signed-in user can open a route and return its sign in link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/reverse-proxy/gate/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Check the signed-in user can open a route and return its sign in link
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"route","required":true,"schema":{"type":"integer"}},{"in":"query","name":"to","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The link that sets the cookie on the route's domain"},"403":{"description":"The user may not open this route"},"404":{"description":"Route not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

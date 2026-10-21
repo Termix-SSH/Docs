@@ -1,0 +1,70 @@
+---
+id: create-a-linux-group
+title: "Create a Linux group"
+description: "Creates a Linux group that can be used in share access lists."
+sidebar_label: "Create a Linux group"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVcFu40YM/RWCp11AsdMefUsWLZBtiwZrF0ERGAtaoq2JpRntkIrjCvr3gjOO7Y2RAovqYovzSD5S5JsBK5Yyuk5d8DjDT5FJWYDgd+f7F9jE0HegNSmU5GHF0AtX4DxITZGBypJFoHGiMsEClTaCs0ecU7siXBbYUaSWlaOZB3SWpCOtsUBPLeMM6yB6V2GBkb/1LnKFM409FyhlzS3hbEDdd4Z0XnnDEcdxmdEsehuqvUHeOpfBK3u1I+q6xpVkFU6fxMocLmOH1ROXigV2MXQc1bHYaeZ4RIlG5zc4psc4SBe8ZOjP19f2830/FzUfergjgTJ1t5qgObesdaisHUFSYuvKDKdd02+cv6LOTcW6OB1yh8ZpCiRYoHB8fu1oHxuc4ZBNIxZvCPwd+ggLjq17gYzBAp8pOlo1mffBmqivqW/UvolqJ7PpVJPjhF+o7RqelKG12pfGoOyj032isGKKHG964/+4HIsByxC2js8t1LnfeH+0nIWY26fIVM4DHXtuXPAwDfaeQVgc/vwaYkvG+fPD4qL6OYu44EHDlj0Ie7XR1ZrBkoTo/kljATVTxRFI4DYFBfJVgiXHCY7FdyUdueWqsMhznSGnyX7a6buMPj8sIONBWIEUxG38lfMTeKjZQxfZ6BbgFJS2LGYpuWJfMoRnju9Wkdiet/uHO3lzfwdb3oMoRXV+AzunNWj78vWinCP0x1u75X0Bu9qVdU4kpzQTuFOgUsXcDlgIO3/wLsn7kAB2Tn4fPAM3wnmxbMe/nNThlzy8p20+brF9tnVIDXJqiCxbMDdpE7i5v7Nd4Si51p8m15Priw5kxUy8WvK0YchBPsz/uP0Ia9dwlkopTDqjJGRne5UGQSB42NuS2pYLrGNowepRWqUvaerQkj+j/5rxXKLf0hpOAvj/NT1Pj/KLTruGnDdaSXaGg2g94km0bMCS+Bc4O0r7QbmWRVJ7cxiGFQn/FZtxNPO3nqOJyfIkTklaKif2v8LZmhrh/6jyw5fDDfAR3uP8urR+nzSw6e0NC9zy/nQPjcuxwDy0iUE+/JTzXC0sxMn54moxYTsK+/2fc5Ok1eGKakNlPpF2dtnRLicPqZYkf8k2YEN+09MmKUiKac+/2E+lEA==
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a Linux group"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/groups"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a Linux group that can be used in share access lists.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The group was created."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: validate-kubectl-and-the-cluster
+title: "Validate kubectl and the cluster"
+description: "Checks that kubectl is installed and the cluster answers, and reports helm and what the caller may do."
+sidebar_label: "Validate kubectl and the cluster"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SuDObUAI2+LnnRzi7bZpAGCettFsDCKsTS2WFOkwhnZqxr67wEpxfZmuwVy6UnicIZ8bz4eT1izVNF2aoPHEn9quNoLaEMK+37DlTqwAtaLknNcA/katGGoXC/KEcjLkaOYvBG5C1EFGnZtNhzTOdk9RUdoaYA6FGhQaSdYPuDbfsPRs7Lg2mBHkVpWjmnvhDZB6kgbNOipZSxRWMQGf1ujwcgfexu5xlJjzwalarglLE+oQ5edNVq/w3FcJ2fpgheWtP/9zU36POW+PJB1tLHO6mDgwDFdJJlHE0QhZEcpcDT4w78dsFq9hhkf+KCwDb2vIcS8qIL3XCnXBY6jwZa1CTWWuGNFM5EscdG5fmf9K+rsYn/OzOJAztakvDid6Y9oUDgePqeqjw5LPE2mtPkU2ofQR7jj2NpHmHzQ4IGipY2bUjJbM6kt9U6xxEa1k3Kx0BxY8CO1neOiCi2OOanCVR+tDhnChilyXPaJycN6NCesQthbvrZQZ9/ycLZcHbFKxZugXB90rmXCgnON03pyQjP//BJiSwnzm/u7Z+xXc1E07NmDsFewPvdluiRE+w8lT2iY6tTTAj/mQ8/dngNz4a8pnbFNrNBMDTu5XFr276O+iOjN/R1M/iCsQApid/6V9QXcN+yhi5zgGrAKSnuWZKm4Zl8xhAPHF1lktNfp/upMLt/fwp4HEKWo1u/gaLUBbR//ekbn7Pr1qd3zYODY2KqZLpLLNQXcKlClksJmXwhHP0dX5NNgUaVpn/wQPAM74WnCrN+GzNqqSzQvSgPL97ep/acJxxK/K26Km2ek3pGnHcNV3Cx6AtsYWhjSTCVlkKkSq9VrM4F3YScGWtZoKzHwYfnut4yYQBp2LpemC6It+YRw7pM/5yk/C+8XWvslwDRfXtnr/6rbUw8pP+qic2R94pLF5zSL2ANeRAwNXmQsK85EEQ2WFyVfG0xpTKGn04aE/4huHJP5Y88xicv6IlZZamor6b/GcktO+D8S883v8yPxLbyE/vMQ+2FC2KdVQs7DkwdnXF/r9q8/3+E4fgKkWYWj
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Validate kubectl and the cluster"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/validate/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks that kubectl is installed and the cluster answers, and reports helm and what the caller may do.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Availability, versions and host options."},"400":{"description":"SSH session not found or not connected."}}}
+>
+  
+</StatusCodes>
+
+
+      

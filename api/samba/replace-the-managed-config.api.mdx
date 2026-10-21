@@ -1,0 +1,70 @@
+---
+id: replace-the-managed-config
+title: "Replace the managed config"
+description: "Replaces the managed drop-in file with raw text. It is tested with testparm first and the old file stays when the test fails."
+sidebar_label: "Replace the managed config"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20gM/SsETy2g2Nk9+pYUu0BaFAiSFMEiMBa0RFsTSzPqkIqjFfTfF5xR7aRBFuhpdZHE4ccjh3wcsWIpo+vUBY8rvOGuoZIFtGZoydOOK6hi6M6ch61rGA5Oa4h0AOVnXcCVghNQFuUqn9l3R7GFrYuiQL5KzkJTZQeiNAgcavZJbuqwJdfIAgtU2gmuHvCW2g3husCOIrWsHE08ojOQHWmNBXpqGVdYB9GrCguM/L13kStcaey5QClrbglXI+rQmabzyjuOOE3rrM2il6EaTOVn4zJ4Za92RF3XuJKsQstHsTKNb32HzSOXigV2MXQc1bGkU37WF1qi0fkdTukxDNIFL1n19/Nze72+j7uaoQx+63ZwIAGhJ64WaLYtax0qq0afwlpNVrjsmn7n/Bl1bilWw+WY6zMtsxssUDg+/ahnHxtc4ZhFExY/hf8r9BHuOLbuGbIOFvhE0dGmyahnaQK+pb5RuxHVTlbLpSbDBT9T2zW8KENrma8NQdlHp0OCsGGKHC96w/+wnooRyxD2jl9KqHNfeDhKXri4tYvIUF46OlbcsODcC/aflbCYP/4MsSXD/Pn+7k32tyziggcNe/Yg7BVcbloLEqL7JzUF1EwVRyCBy+T02PPJcIFT8SqlI7acFRa5q7PKqa8fD/ouos/3d5D1QViBFMTt/JnzC7i3weoiG9wCnILSnsUkJVfsS4bwxPHdLBLal+X+5UpeXF/Bngeb86jO72ZWaJ//fpPOUfXXS7vnoYBD7co6B5JTmERKVKqY2awL4eBn65K8D0nBzskPwTNwI5znyib85sQNf+TmPc3ycYbt2rYhHTg1jUxacFtTZIGL6yubFY6Sc/1tcb44f1OBT5FJOeHKbAvZyYfbr5cfZ75M/grohaMkzc7mKjWCQPAw2JDalAtsY2jB8lHapJvsgmhLibLmtpoZ/hXBH6nhFbjxRIL//17IPWi+l11DzltyibzGmfoe8ER91qZpgRS4Oq6HOcl1kTaGGYzjhoS/xWaaTPy952iUtD5RXCKoyol9V7jaUiP8H1X6cDNvkY/wHuYfo++HxKRNb39Y4J6H0y6b1lOBufUTgnz4Kcc5uzMXJ+M368no8bgdrr8Zr23mLdeGykwiHWxf0iHHDimVxKFJNmJDftfTLtFQcmnPvydy1OI=
+sidebar_class_name: "put api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace the managed config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/samba/{hostId}/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the managed drop-in file with raw text. It is tested with testparm first and the old file stays when the test fails.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"text":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The config was saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

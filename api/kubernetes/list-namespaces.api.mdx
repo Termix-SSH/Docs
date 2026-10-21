@@ -1,0 +1,69 @@
+---
+id: list-namespaces
+title: "List namespaces"
+description: "Namespace names in the cluster. When the user may not list namespaces, only the default one comes back and restricted is true."
+sidebar_label: "List namespaces"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P20YM/SsETy0wsbdBT7ptgSbZfCGot1gECyMYS7Q1tTSjDKndVQ3994IzsuXNZgPk1pMliuS89zh8PmBFXEbXiQseC/xoW+LOlgRen8B5kJqgbHoWigu4qSlHeqYIrR3AB4HGseQCLWUDwTdDSqtoa/tGIHiCMmjHjS33YH0FkViiK4UqcAwSe1qgQbE7xuIW3/Ubip6EGNcGOxttS0JRvx3QKdTOSo0G9VgskInZBX9VocFIX3sXqcJCuxrksqbWYnFAGbqULNH5HY6jmXp97SkOc7MyeKEHwR+VrvUc7oJnYv3+8uJCf34o5wJHg79/L3G1egMThaToNvS+ghDTSxm8JxVqoZCxJalDhQXuSCEmHQpcdk2/c/6F7dxyfxJvOU9leThpNCozindHPfvYYIGHHNKPj8F9Dn2Ea4qte4CcgwbvbHR202TyUzTRSgPHAmuRjovlUlLhgh5s2zW0KEOLY5KPqeyjkyFB2JCNFC975XK71sGUIewdnUds597RcIqctVjpmDKU80anqSmW4zT1PSehmR5ehdhaxfz25voJ+9U0Fgl78sDk5bgVekiI7l+rmVCTrSiCZfgjNU2XXNNSYRr9OaUTtswKTb6JOWW+iv/cy7OI3t5cQ84HJgErwG7nXzg/7WkXSeEacAJi98QaKakiXxKEO4rPskhoz+X+aSUvP13BngZgsVGc38G9kxqkffjyhM4p9eel3dNg4L52ZZ0P4vmYBVwJ2FJYy6ZcCPd+qi6t19Wypeh36wd1KGqY8o45vw2JtZNGac52BJefrvT6U+QM/7fFxeLiCakP1tsdwVnd5KEM2xhaGHSn6sDCeRKr1RuTwTdhxwZaUnNkA58vP7xPiC1wTU2TRtMFltZ6RTjdk/ePLfhbPIfsaV7+Fx6fr5Ja7LJrrPNKKXnQYXKzW5zdDA3OfjYtxolkMfv+2qDqqcWHw8Yy/R2bcdRwdnd1mcqxelaFxdY2TAb3NDzy+zvb9IoN1V2OFvf90mf1/eWv6f/nV3iO7HH1/XB+5hHOzGlcn/v96z+vcRz/AzhGq/A=
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List namespaces"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/namespaces/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Namespace names in the cluster. When the user may not list namespaces, only the default one comes back and restricted is true.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"context","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Namespace names."},"400":{"description":"SSH session not found or not connected."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: make-hosts-from-the-chosen-instances
+title: "Make hosts from the chosen instances"
+description: "Make hosts from the chosen instances"
+sidebar_label: "Make hosts from the chosen instances"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu4zYQ/ZXBPLUAY6dFn/SWTW/Zot1gkyIoDKOYUGOLsURqyVEcxdC/F0PJl413ga5eJA3P3Idndii0Tlgs8LoOXQm3MTy7kmPCpcGWIjUs+lcsdug8FtiSVGjQU8NYoCvRYORPnYtcYiGxY4PJVtwQFjuUvs0oL7zmiMOwHNGc5F0oe4W8VbbBC3vRI2rb2lkSF/z8KQWvsjPb4fGJraDBNoaWozhOeurKdAKiGKlHg064OZUnic6vcRgfjS21wafRxI+Xl/oqOdnoWo0CC7wOnZcEYQU2MgmXBrq21A8gX8KKXM0lVCFJwsHgT1+y8VcA55OQt5zAViGxR/X+OepP2vBoCFYxNCAVT+CjNhpsWKpQamNCymXQ/hQ4b+tu7fwFtW5utbMX7b6zc7I2ZzHfuXKYu6YNUTUTx+d9q7tYY4G7UTTg29j+CV2Ee46Ne4ERgwafKTp6rMfiTdKc+4q6WrDASqRNxXwuWXHGL9S0Nc9saLQDS43AdtFJn0N4ZIocrzpNZ7EczA5tCBvHpxJq3R/cHyQnJu50TsZQTg0dOq+x4DSq+j+C0Ewfv4bYkMb8/uH+LPs7TskFDxI27CGxF3A+90edhOhe88xCxVRyBErwLhvNE6KwrDjT+ThN6TitOSsdV/U2Qo5X7mkrX43o/cM9jHhILEACya39hfMzeKjYQxtZwzXgBIQ2nFRiuWRvGcIzx69mkaM9Lfc3V/Lq9gY23EMSiuL8GrZOKpDm5d+zdA7Qby/thnsD28rZanSUjm5mcCNAVpKqTVgIWz9pW/I+ZICek++DZ+A68SxfTiWgj0fq+mUc3gPVLPZcshy0b6uQK+REIW+pFa5ub/S+cExjvj/MLmeX51Uoy9P7f/VwZ+DqtYts4LcQ1jVDtmvgZ7d2QvUHy+QN/M7yus8pSMUR8v1PJks2zK0m32hdU+9tbqxyR0OZYKcp+5/s81nEh5EQfpF5W5PzajxzyW4ipgUeiQkNvqEmNLgnJzRY5O0y8dPSoIajFna7R0r8d6yHQcWfOo5KGcsjBWUCKV3S7xKLFdWJz4I9bBr87uO0hL4HNF9OYn81fZ+Zru70Dw1uuB/X4KCNH8cyex8PrkcfF/eqflQ822xKXQcmv/1wp6TzOG3IJpSqE2mru5a2o+OQ88gEl2U7rMmvO1pnjsg29fkPHz+53Q==
+sidebar_class_name: "post api-method"
+info_path: api/cloud-providers/cloud-providers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make hosts from the chosen instances"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/cloud-providers/accounts/{id}/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Make hosts from the chosen instances
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"ids":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Counts of created, updated and failed hosts"},"400":{"description":"No instances chosen"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,386 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Reverse Proxy API",
+    "version": "1.0.0",
+    "description": "Reverse proxy for TCP, UDP, HTTP and HTTPS with free certificates and Termix login, managed per host."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/reverse-proxy/state": {
+      "get": {
+        "summary": "List the routes the user can see, certificates and listener ports",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "responses": {
+          "200": {
+            "description": "Routes with live status, certificates and ports"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/routes": {
+      "post": {
+        "summary": "Add a route to a host",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Route added"
+          },
+          "400": {
+            "description": "Invalid route"
+          },
+          "403": {
+            "description": "No edit access to the host"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/routes/{id}/enabled": {
+      "patch": {
+        "summary": "Turn a route on or off",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Route updated"
+          },
+          "404": {
+            "description": "Route not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/routes/{id}": {
+      "put": {
+        "summary": "Change a route",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Route saved"
+          },
+          "400": {
+            "description": "Invalid route"
+          },
+          "404": {
+            "description": "Route not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a route",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Route removed"
+          },
+          "404": {
+            "description": "Route not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/certs/selfsigned": {
+      "post": {
+        "summary": "Make a self-signed certificate",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domains": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Certificate made"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/certs/upload": {
+      "post": {
+        "summary": "Add your own certificate and private key",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cert": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Certificate added"
+          },
+          "400": {
+            "description": "Certificate and key do not match"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/certs/{id}/renew": {
+      "post": {
+        "summary": "Request a Let's Encrypt certificate again",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Started"
+          },
+          "404": {
+            "description": "Certificate not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/certs/{id}": {
+      "delete": {
+        "summary": "Delete a certificate that no route uses",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "409": {
+            "description": "A route still uses it"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/gate": {
+      "get": {
+        "summary": "Sign in page for a protected route, hands off to the Termix login",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "responses": {
+          "200": {
+            "description": "HTML page"
+          }
+        }
+      }
+    },
+    "/plugin-api/reverse-proxy/gate/token": {
+      "get": {
+        "summary": "Check the signed-in user can open a route and return its sign in link",
+        "tags": [
+          "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "route",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The link that sets the cookie on the route's domain"
+          },
+          "403": {
+            "description": "The user may not open this route"
+          },
+          "404": {
+            "description": "Route not found"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

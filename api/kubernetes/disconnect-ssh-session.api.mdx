@@ -1,0 +1,68 @@
+---
+id: disconnect-ssh-session
+title: "Disconnect SSH session"
+description: "Closes the caller's Kubernetes SSH session."
+sidebar_label: "Disconnect SSH session"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu20YQ/ZXBXHpZS27RE29O0yBKGtSoXBiBIRQrciyuRe4yO0PLLKF/L2ZXFlk7OZgHiRy+2XlvdvZxxIq4jK4TFzwW+FsTmBikJiht01D8ieFzv6XoSYhhvf4ITMwu+AUaFLtjLO5wQuDGYKRvPbG8C9WAxZgeXaQKC4k9GSyDF/Kir2zXNa60Wnv5wEpgRC5raq3eydARFhi2D1QKGuxi6CiKI064TGNVzaAs0fkdHtOlRLgLnjP+l8tL/fu/3JkeqByXwXsqhaoFHg3++t2ME3r1HhzDs7YFar2WpA4VFtgFToSt1Fjgsmv6nfMXtnPL/blTS+Z6OdVEg0zxkaI2dMQ+NljgmENHNC9YfA19hBuKrXuCjEGDjzY6u22e25Oiif+97RvBAmuRjovlUlLigp5s2zW0KEOrLdsog7KPToZEYUs2UrzqVcPd5mhGLEPYO5pHbOc+03COzJZY6zZmKvOFzlulXFRzgmFxAqE53XwIsbXK+dPtzSv1z3sgYU8emLyA82lmtUiI7t80UlCTrSiCZXiXFgXrqwRLiWmP55LO3LIqNOi0WoagQW8T04eD/JDRp9sbyHhgErAC7Hb+wvkF3NbkoYukdA04AbF7Yo2UVJEvCcIjxR+qSGzn7X5zJ6+uV7CnAVhsFOd3cHBSg7RP/7ySc4a+vbV7GgwcalfWuRBPZRawErClsKadsBAO/pRdWu9DAuh764fgCahhyodL/eGvyVl+z8P7wgnODqB7dx9Sl5wobOZRcHW90uNCkbPcnxeXi8tXTfhivd3R3P3KpmehyHAfQwuDnsE6sHDeufX6o8lim7BjAy1JdCUb+Hr15Y+k0ALX1DRpK9UiWpsc7zRX789eMLfZl7TGyT/fatZ5XISeZNk11nmlkXxmPDnVHU5OhQYnr9Lx4lqpTH61MajiNWsct5bp79gcjxr+1lNUC9lMlpT9AvPUJHfZ06AKspaLG+Wm8KbPB/DFd0Gd5eyu13+u1RO2p+9LGyrNifaAJv0WiAZD6lfynxQbsbF+19tdOsJpTb3+Ay9/bxY=
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect SSH session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/ssh/disconnect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Closes the caller's Kubernetes SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"SSH session disconnected."},"400":{"description":"Session ID is required."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: services-status-on-a-host
+title: "Services status on a host"
+description: "The init system and its version, the OS, whether changes can run as root, whether there is a journal and how many units failed."
+sidebar_label: "Services status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWCpxaYtd20J922QNNugiBB7WJRLIyCK9HSxNKMMkOtVzX07wFntLYRJwVy68W2Ro/kexzy+YgVxzLYXqx3WOCmYbDOCsQxCndArgIrEZ44ROudAWkY3q8NHBqWhgOUDbmaI5TkIAwOKELwXs4A/WCwEQg++iE4alPSxh+gIzfC4DT/jmzL1QINCtURiwdcc3iyJUfcGuwpUMfCQd8c0SrTnqRBg446xgIbH+WuQoOBPw02cIWFhIENxrLhjrA4ooy9Iq0TrjngNG0VHXvvIkcFvFqt9Ou6IVFIhrjAyeAvq5+vMS9UVaXzAjIExxV4BzuvDbARlN8Cp8lgx9L4CgusWdBkGQUu+3aorbuh3i5jTnfTkaOaw/KYxU3LzAMNKuKlGUNoscBjPprQfMHtbz8E2HDo7DNkDBp8omDpsc2y59OkakdDK9pOkT4Wy6WkwAU/U9e3vCh9h1NqXORyCFbGROGRKXC4HVTJw3YyRyy931u+PKHevuXxdHKRYq03lKlcJjpdmHLB+SL1OYPQzD9e+9CRcn5zv7lSv+aoYwvi9+wgshOwLs2wFvHB/kuKhIap4qDD+2tKmkZUYSkw3fylpBO3rApNHskMOQ/lx4N8k9Gb+w1kPEQWIIFoa3dj3QLuG3bQB1a6BqyA0J6jnpRcsSsZ/FNerK+qSGwv2/3dnbz9cAd7HnXug1hXw8FKA9I9/3Ml5wT9/tbueVSXsGWTC8VzmQXcCVApUcNmLPiDm6NLcrpmVIq+Jzd6x8Bt5Lxh1u18Um2l5cv1vP1wp8OfrQwL/GmxWqyuJL1LawfzFkYDYjsOMVVufR11r0fdKl3LmO9ivf4jtb33UTpyWn2egVPxvLwaTCnyy7q6NE7Yyf/DhfPECD/Lsm/JOlWXrOY4W9YDni1rtqQL00KDxcmTZ9/ammTTGno8PlLkv0I7TXr8aeCgVrI9W1MylspG/V1hsaM28n907Ic/Z9//Eb7F/mVl3ZgcsB30CQ3ueTz/gUzbS4v+/bcNTtNnfup5Mw==
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Services status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The init system and its version, the OS, whether changes can run as root, whether there is a journal and how many units failed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"403":{"description":"Services is not turned on for this host."}}}
+>
+  
+</StatusCodes>
+
+
+      

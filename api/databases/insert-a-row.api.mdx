@@ -1,0 +1,70 @@
+---
+id: insert-a-row
+title: "Insert a row"
+description: "Adds a row. Needs edit access and a connection that is not read only."
+sidebar_label: "Insert a row"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsETy2g2GmPuiXdFvA22yZrF0ERGAUtMdbE0ox2hoqjCvrvC844VjZuCgQo6oMscUjO49fjgCWHwptWjLOY40VZBiDwbj+D35jLAFwaASoKDgHIlkBQOGu5UAOQigRMAOsEPFMJztb9DDMU2gbM7/ADCW0ocMB1hi15aljY69GARi9sSSrM0FLDmGPlgixKzNDzl854LjEX33GGoai4IcwHlL5VTWOFt+xxHLN/9KQg3+tpnbQ5yKUre1V5bVw4K2xFj6hta1OQpmH+EDR5w6lvt3ngQnAcx1F9h9ZZzUU+4I/n5/r3bfZXFYPtmg17cPdahABUllzONExsWCpXaqQuCGYp4Bznbd1tjT2j1szL53TPh5TKcT5VK8yHlJVx7t0eMwzsH5+L0fkacxySaMTsFbI/Xedhxb4xT5B0MMNH8oY2dQroII0x3VNXi5ZTpA35fC7RcMZP1LQ1zwrXaErWiqDovJE+QtgwefYXnUZ1t9a6Fs7tDL+UUGt+5f4oeeFiqblPUF46OpZCseCh/PqdlDA7vPzifEOK+ePt6iT6JYcQ293t2EJgK2C0+Rn0EufN37EPoGIq2QMFuIxO48CoWjSc4Zh9E9IRW4oKs9TISWVq5Ye9vIno4+0Kkj4EFiCBYLb2zNgZ3FZsofWscDMwAkI7DiopuGRbMLhH9m9GEdG+TPe7M3lxvYAd9xCEvBi7hb2RCqR5+usknKPq+1O74z6DfWWKKl0UpmtmsFDqkqBmB11we3uwLsgqb1Ehek62d5aB68Bp3HSoP0908HNqXsyHUet072JGjKhoojm4uF7oZLAPKbIfZuez85N4L3W2OaKI/PqpX95cZfBJB+rDZQbXLsjW8/LmKuosb66MMBynG5yFXidShzzAvXcNKHihTSybEkRDkZIOPbSwgb0kZn+NZpho7b/j/9Qqwk8yb2syVmFFjhkOvHWHE28pouOiyDA/roEX5KXyidTdXheK6qmnYVDTP3w9jir+0rFXSllPFBUJpjRB30vM76kO/C9p+O7zgfi/h7eCeR5d20cmrDv9wgx33E+LTCnrf7z1kJ9xPWaYBibGnQ5/SvecrdTFZHyyx5RUj6vm+vel0uHmsA8bV6qNJ20ifcbLXZsqpAtTZQPWZLcdbSN7RZ/6+wrWP+U7
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Insert a row"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/row"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a row. Needs edit access and a connection that is not read only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The number of rows added."}}}
+>
+  
+</StatusCodes>
+
+
+      

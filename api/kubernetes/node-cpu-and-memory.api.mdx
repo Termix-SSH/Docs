@@ -1,0 +1,69 @@
+---
+id: node-cpu-and-memory
+title: "Node CPU and memory"
+description: "kubectl top nodes. available is false when metrics-server is not installed."
+sidebar_label: "Node CPU and memory"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNFu3DYQ/JXFPrUArXP7qDe3SFsnTWDENozAOAQ8aX1ijyIV7spn9aB/D5a83J1juECAPklaDsmZ0e7ssCVukhvExYA1bsYVNeJB4gAhtsQV2EfrvF15AsfwYD0TbDsK0JMk1/AZU3qkpIshCrjAYr2ntkKDYteM9T2+G1eUAgkxLg0ONtmehJKu7dDpvYOVDg0G2xPWyMTsYrhs0WCiL6NL1GItaSSD3HTUW6x3KNOQwZJcWOM8LxXMQwxMrOu/np/r47nAW7ZrghS3XOE8G+xJuthijWsSNIVHjYvBj2sXzuzgFpsD+cVe8mJ3IDgvsktosNhQJI3JY427UprRfMfhUxwT3FDq3RMUDBp8tMmpy5n6vprZP9jRC9bYiQxcLxaSN1b0ZPvBU9XEHucsnqkZk5MpU1iRTZQuRpVzv5zNDpsYN45OK3Zw72g6VE6OuFaTC5XTgw6eKxfc/wv9LiA0+5c/Yuqtcn57d/NC/XXxDiRuKABT0KYB6Qj0kpjcv1aR0JFtKYFl+C0fCja0GZY3VjibZ5IO3IoqNKWxCuTYWv9s5VVGb+9uoOCBScAKsFuHMxcquNOOHxIpXQNOQOyGWCsNtRQagqhD8JqKzPbU7h928uLqEjY0AYtN4sIatk46kP7p8ws5B+iPW7uhycC2c01XLuLjNRVcCthGWLftsRC3Yb+7sUHH3zai6zZMMRCQZypj5sJDzKqdeJV5TAS4uLrU9qfEhf4v1Xl1/kLUext0cE/2NX5kDRF4SLGHSWeqiyxc/sT19V+mkPdxzeZbWhn4dPH+78zYAnfkff41Q2TpbVCG+z75EFuC369uM7SnPqbpe046UkEoyP+fm6U3hJ5kMXjrgnLMobLbJ9Q9HhMKDR4zCnOk6QVosD4N0hJUS4Pqkp6w260s023y86zlLyMlzY7lMYtykrSO9b3FOov4DxN++rjP6p/hNRHfZjRMOfL8qF8qgKZnuT8vT7P5zzc3OM9fAbASUOs=
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Node CPU and memory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/metrics/{sessionId}/nodes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+kubectl top nodes. available is false when metrics-server is not installed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Usage rows."}}}
+>
+  
+</StatusCodes>
+
+
+      

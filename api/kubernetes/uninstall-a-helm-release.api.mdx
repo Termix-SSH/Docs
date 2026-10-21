@@ -1,0 +1,69 @@
+---
+id: uninstall-a-helm-release
+title: "Uninstall a Helm release"
+description: "Runs helm uninstall on the release."
+sidebar_label: "Uninstall a Helm release"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVdtu40YM/RWCTy0wa7uXJ72laIrNXorFxotgERgFIzHW1KMZ7ZBKohr694KSYzv1pmiAon2yzDnDOYccntlixVJm36pPEQv82EWBmkMDXfRRlEKAFEFrhsyBSXiGDpXWgsU1vu1uOEdWFlw5bClTw8rZ1rboLV9LWqPDSA1jgcIiPsWLCh1m/tL5zBUWmjt2KGXNDWGxRe3bEazZxzUOg/tqrh2dX6lhaankfy/lizKtDCxtisJi698vFvbztKqfHmvJ1QwHhz8ufjgFLWuGOomCF8hMFaQY+pmRxYa1ThUWWHFgNYIj8QLnbejWPr6i1s83+2bMrYHz7b7aw3z712odQgM6FM53j23rcsACt1PIFp+y/Jy6DEvOjX+ACYMO7yh7uglTBXbRUd8tdUGxwFq1lWI+13HjjB+oaQPPytTgMNZQuOyy136kcMOUOZ91JvF6Zc0qU9p4Po5Q699yv48cpbi0Xk1UjhPtW2dccNdS+z+B0O0+fkm5IeP85mp5ov5yKilo2nAE4ajgp+mwQ1L2f5AhoWaqOAMJ/DQmBYrVCBs3jnfgWNKe26QK3XQ7J8jhfv5+r88yenO1hAkPwgqkIH4dX/k4g6uaI7SZja4Dr6C0YbFIyRXHkiHdcX5Wxcj2uNwvruTZhwvYcA+ilNXHNdx7rUGbh99O5OyhLy/thnsH97Uv6+kgORwzgwsFKlVs2w4L6T7udpcUYxoBtk6xT5GBg3mdTZ+Pt2lU7TWYzIPrwdmHC7v+nGWi/91sMVuciHpPkdYMR/vK0IkZJdzm1EBvM2WjL1MnLi9fu4l8SGtx0LBmX4qDz2fv342MCaTmEMbWtEm0oWgMd/dkbzdA8Nq8/GBsT4jZXEXlqP/c+KfGKz/ovA3koxEYHWO7s6RrPFgSOjyYEjq09OiwOH4Giq/4+GPMHhUri2Xdbm9I+FMOw2DhLx1nM4vVwXxG66i82HeFxS0F4b8R/M3Hncd/C88JexzK2I8eFzr7Z6K4f/KYmR/9hwefVOz/OR+H1fHT9PP5u/PlOQ7DnzA/3es=
+sidebar_class_name: "delete api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Uninstall a Helm release"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs helm uninstall on the release.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"releaseNamespace","required":true,"schema":{"type":"string"}},{"in":"path","name":"release","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Uninstalled."},"403":{"description":"The host is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

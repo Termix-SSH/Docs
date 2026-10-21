@@ -1,0 +1,69 @@
+---
+id: list-resources-of-a-kind
+title: "List resources of a kind"
+description: "Rows for one kind (pods, deployments, services, nodes and so on) in a namespace, or in every namespace when none is given."
+sidebar_label: "List resources of a kind"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVduO20YM/RWCTwkwsbe3F705QJtuLkCQ3WIRLIxiLNHW1NKMMqTsVQ39e8GR1vJ27QIJUORpvRQv55CcwwMWxHl0jbjgMcNPYc+wDhGCJ9g6X8CLJhRsoKCmCl1NXtgAU9y5nNiADwUxWF8ABwj+JTgPFrytiRubk4EQ1UQ7it1khn1JHrzWcAwbtyM/Q4NiN4zZPb5rVxQ9CTEuDTY22pqEon47oFOYjZUSDWpCzJCJ2QV/XaDBSF9aF6nATGJLBjkvqbaYHVC6JjlLdH6DfW/O5lLO35TmS0uxm/IcueI3BOfBCz3If4YuFSQ3wTOxfv/x6kr/PB3nAirHAmENkTi0MSeeYW/w53POr22RRm5OBhUijN0d4356HndbEuRVy0IRIq1bpgKkJNAeEksK/OVcwW27olwqWFtXUTHTfmBNUoYCM9yQ8k/DyXDeVO3G+Ve2cfPtcTvmR1Lzw3EH+vlBSfTaPIq7x7VpY4UZHgaTfnwK5XNoI9xSrN0DDD5ocGejs6tq6O9oTSTWtq0EMyxFGs7mc0mBM3qwdVPRLA819mlCTHkbnXQJwopspLholdH9Umefh7B1dGqxjXtH3dFykuJGN2GAcprouBiK5XFh9P/BCc3447cQa6uY397dPmN/MzQPJGzJA5MXfbQ6Qy0SovvbqieUZAuKYBlep6Tp4atbCkyDPqV0xDawQjMs++Aybftfe7mI6O3dLQz+wCRgBdht/CvnZ3CnGtJEUrgGnIDYLbFacirI6/LuKF5kkdCetvurO7n4eA1b6oDFRnF+A3snJUj98OczOkfXr2/tljoD+9Ll5VCIpzIzuBawubCGjb4Q9n6Mzq33ITnod+s71VuqmIaX5vw6JNZOKqU5qS4sPl7r+lPkAf4Ps6vZ1TNSH6y3G4KTuFEFGNYx1NDpmyoDCw+TuLn53Qzgq7BhAzVJdDkb+Lz48D4htsAlVVUaTRNYausV4bgn71XKjk9eRc3CKNdPgB0G/fTy3e/ZsE8q5fOmss4rryREh1HY7nESNjQ4SVs6QSNTNJidnrgskV4a1N5qjsNhZZn+iFXfq3k4Jqo4hWPVrwKzta2YDG6p+9dt2tmqVZCo6nPBfzpHk/dyksfzpS6O5MWn8ba+hEs9epQN353WfIQz9eIs5v+vcOp7vzy9Um9+vcW+/wfqUy+v
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List resources of a kind"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rows for one kind (pods, deployments, services, nodes and so on) in a namespace, or in every namespace when none is given.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}},{"in":"query","name":"context","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of resources."},"400":{"description":"Bad kind, namespace or session."},"403":{"description":"The cluster refused the request."},"500":{"description":"kubectl failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

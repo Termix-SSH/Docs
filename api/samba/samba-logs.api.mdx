@@ -1,0 +1,69 @@
+---
+id: samba-logs
+title: "Samba logs"
+description: "Returns the last lines of the Samba log from the journal or the log file."
+sidebar_label: "Samba logs"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFFv20YM/isEn1rgKmd71Fs6rENaDChqD8EQGAMt0dLV0p16RyXRDP33gXey4zbNgAJ9skx9JL+PIr8j1hyrYAex3mGJn1jG4CJIy9BRFOis4wh+nyJr6ncEnW9gH3yfQp/9GBx14EPO0Xe24wINCjURyztMWbg1OFCgnoWDho9oteFA0qJBRz1jia2PclOjwcBfRhu4xlLCyAZj1XJPWB5RpkGR1gk3HHCezVLpy8hheiqViOP/Zm61Txy8ixwV8OvVlf58PZHNokr4UQpthz1L62sssWFBkxWUuBq6sbHuDQ12FVXx6pjVzKvON4kJh/uT9jF0WOIxh2Y03zT9248BNhx6+wgZgwbvKVjadZnrEk109zR2otMTGWK5WklKLPiR+qHjovI9zklt5GoMVqZEYccUOFyPyv5uq2OsvD9YvozQYD/wdI5clFjrWDOVy0LnKSuX0/T1fwahWR7e+dCTcn5/u3mmfs0xWu9A/IEdRHYC1qX10iY+2H9JkdAy1RyAIrxNRYFcnWApscDZfCXpzC2rQpP3JkOeFufzg7zI6P3tBjIeIguQQLSNe2NdAbctOxgCK10DVkDowFEjFdfsKgZ/z+FFFYnt5bh/eJLXH2/gwBNEoSDWNfBgpQXpH/95JucM/fHRHngy8NDaqs2N4lObAm4EqJKoaQsW/INbsityzieAvic3ecfAXeR8VdbtfVJtpVOZ2WvWLQWOcP3xRg+AQ8wCfimuiqtnsn4LTMKpWU+OmpNhvVr/+fZ1siWIqZ6BMXKICTnosaSvG8E7mPTy9HBj9jglKbRLn2fwUXpyynLZlbMhxm/J6DU5YSc/21TzUqgbrYaOrFNiyU2OixPd4ZMT6d4k9zVYnr010d2aZLYKPx53FPmv0M2zhrOPqkPUNqrf1FjuqYts8MDThbPeUzcqF1RfOJnT9xNfHM2rT4vRv4aXxJ2O1k2XPU9kFlXz9tKY//h9g/P8Hy06Wqk=
+sidebar_class_name: "get api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Samba logs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/samba/{hostId}/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the last lines of the Samba log from the journal or the log file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"lines","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The log text."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: add-a-samba-user
+title: "Add a Samba user"
+description: "Adds a Samba user with a password. The Linux user is created without a login shell when it does not exist."
+sidebar_label: "Add a Samba user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv40YM/isET7uAYqc9+pYsWiDbFg3WKYJiYRS0xFgTSzPaIRVbFfTfC844tpM0BfZSX2xz+Pj4+jhixVJG16kLHhd4VVUCBEtq1wS9cISd0xoIOhLZhVjN4K5m+NX5fp/fnUAZmZSrpBp6BYImbJwHqblpYFezB6dQBRbwQYH3TnSGBSptBBdfMUXDVYEdRWpZOZp4RGeIOtIaC/TUMi6wDqI3FRYY+VvvIle40NhzgVLW3BIuRtShM03nlTcccZpWWZtFr0M1mMpr4zJ4Za/2RF3XuJKsHPNHsZqMb32H9SOXigV2MXQc1bHYa8Z41BKNzm9wsrxy8f71MVdvOYhye6awDqFh8jilj6UgXfCSI/14eWlfL3tnjcktIwGqKq5maJYtax0qK2WQBNoqusB51/Qb5y+oc3OxDszHXN1pbl4ECxSOT8/N6GODCxyzaMLiVfA/Qx/hjmPr9pB1sMAnio7WTcZ8kCbYD9Q3au1U7WQxn2synPGe2q7hWRlay3tlCMo+Oh0ShDVT5HjVG/yvq6kYsQxh6/hcQp37hYej5MzF0rqYoZw7OhbcsOBhkFIDkhIWhx8/h9iSYf58f/cm+yWLuOBBw5Y9CHsF50FrBgsSovs7TRTUTBVHIIHr5BTIV0ktGc7SOJyldMSWs8Iir0RWOS3F407fRfT5/g6yPggrkIK4jb9wfgb3tphdZINb2IYqbVlMUnLFvmQITxzfzSKhPS/3d1fy6vYGtjyAKEV1fpO5Rtv9X2/SOap+f2m3PBSwq11Z50ByCjODGwUqVczsoAth5w/WJXnjKyrV3skPwTNwI5z3yujhy4lYfsrDeyKC5x0/3/+T7OXaGw9N1t6HkArp1DxlZoRlTZEFrm5vbKc4Sq7JD7PL2eWbSn1KfhP+ljxt+EDmH5a/XX+EB9cwSPJXJLKQpNnZ/qWBEQgeBltmIwOBhxhasLyV1qnjRiIt+bM0r6rqxcl4DWk88ev/fF/yOCrvdd415LzhTzw2HkjwK55I0CY2HaICF8czk5lwVaTDY/rjuCbhP2IzTSb+1nM0clqdyC5RVeXEfle4eKBG+D8q8uHL4Rh9hPcgP5OAHxKnNr39wwK3PJxO4rSaCsxLkBDkx085zsWduTgZv7lyRpTHO3H7+9Iobn24lm2ozCbSzu4u7XLwkHJJdJpkIzbkNz1tEiMln/b5B4ts5a8=
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a Samba user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/users"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a Samba user with a password. The Linux user is created without a login shell when it does not exist.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"password":{"type":"string"},"createSystem":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The user was added."}}}
+>
+  
+</StatusCodes>
+
+
+      

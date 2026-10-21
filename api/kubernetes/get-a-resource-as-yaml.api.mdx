@@ -1,0 +1,69 @@
+---
+id: get-a-resource-as-yaml
+title: "Get a resource as YAML"
+description: "The resource's manifest as kubectl get -o yaml prints it."
+sidebar_label: "Get a resource as YAML"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SuDubQFuNa2yEm3LdCmmzRF0HWxCBZGQUtji7VEKpzR7qqC/nswlPzRdXxIW+Qkm5yP9+aRjwOWxEV0rbjgMcdlRRCJQxcL+oahsd5tiAUsw65bUyE1bEngKkBvmxra6LwwOFmgQbFbxvwB33Zrip6EGFcGWxttQ0JR9wZ02qW1UqFBbxvCHJmYXfC3JRqM9LFzkUrMJXZkkIuKGov5gNK3KVii81scR/PZWjvn/48y6fNvynzsKPb/rMOtLbTY5eSVduI2eCbW/R+ur/VzrsyHm3e/gtCzLHA0+Or61XnYb0FgEzpfLhQVNiRVKDHHLQmaiWWOWVt3W+evbOuy3UGtbC88Z8NBkzEbdKZjNiiXMVPZlQzFx72kXawxx2FaGtG8QPQhdBGWFBv3DFMMGny00dl1PfGdVxOXje1qwRwrkZbzLJOUuKBn27Q1LYrQ4JgmxlR00UmfIKzJRoo3nbJ7WKkaRQg7R6crtnVvqT+snJS4U2UmKKeFDkIplr2A+n8KQjP/+DnExirmN/fLM/Z30yBBwo48MHkB50EqAm0SovvbaiRUZEuKes9+TEXB+jKFpcSk9ymlA7aJFZrp+E0hx/P315NcRPTmfglTPDAJWAF2W3/l/ALuK/LQRlK4BpyA2B2xrhRUki8IwiPFiywS2tNxf/Ekb97fwo56YLFRnN/Ck5MKpHn+84zOIfTLR7uj3sBT5YpqasTHNgu4FbCFsKbNsRCe/JxdWO9DCtB96/vgCahmmm6d85uQWDuplebREeHm/a0ef4o8wf9+cb24PiP1znq7JTjJK+qO1URhE0MDvd6pKrDwpMTd3S9mAl+HLRtoSKIr2EyOoYgtcEV1naRpA0tjvSKcz8lrPQAH41dOmvgSlt4qL+Tlvz4U02FQI8va2jqvoJKLDLNDPeDRodDg0aOSKc8uhQbz07cjn80/n907WdXKoM5JSw7D2jL9Eetx1OXJqtU9SsfqRSXmG1szGdxR/8K8H23dKWZU39ib1+eTL47s29/n5+Q7uDSE/aX2/WnPPaAjWfWzr9g4DfYr90wijqvTN+z1T0scx0+u5Pms
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a resource as YAML"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/yaml"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The resource's manifest as kubectl get -o yaml prints it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The YAML text."},"404":{"description":"Not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

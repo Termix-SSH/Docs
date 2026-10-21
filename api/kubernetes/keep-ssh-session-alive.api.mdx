@@ -1,0 +1,68 @@
+---
+id: keep-ssh-session-alive
+title: "Keep SSH session alive"
+description: "Resets the idle timeout of the caller's Kubernetes SSH session."
+sidebar_label: "Keep SSH session alive"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v4zYQ/SuDufTC2GnRk27ZfmC96aLBOkWwCIyClsYWY4rUckZxXMH/vRjSX5tgCyxQHWxp9IZ8bzjzNGJDXCfXi4sBK/xETMIgLYFrPIG4juIgEFc5VlvvKf3AcDssKQUSYpjP3wMTs4thggbFrhmrRzwjcGEw0ZeBWN7FZofVmB9dogYrSQMZrGMQCqKvbN97V1vlM31iJTUi1y11Vu9k1xNWGJdPVAsa7FPsKYkjzrhCY9ZcQFmSC2vc50uJcB8DF/xP19f693UJ5mUR2BD11rtnAh7qmphXg5/g3uDP/5U1+xUcw1EfxHSsDYQosIpDaCaoRDqSNjZYYR85K7HSYoXT3g9rF65s76abUwmnzO30RAgNMqVnSlroEYfkscKxhPZoXjH7HIcE95Q69wIFgwafbXJ26Y9ly9GsaWUHL1hhK9JzNZ1KTpzQi+16T5M6dlrKhTKoh+RklyksySZKN4NKeFzszYh1jBtHlxHbu1vanSIXS8z1eAuVy4VOR6hcVHOGYXUAoTnc/B5TZ5Xzh4f7N+qP5yJxQwGYgoALuZd1k5jcP7nVoCXbUALL8C4vCjY0GZYT87lfSjpxK6rQoNPdCgQNBpuZPm3lm4w+PNxDwQOTgBVgtw5XLkzgoaUAfSKla8AJiN0Qa6SmhkJNEJ8pfVNFZntZ7u+u5M3dDDa0AxabxIU1bJ20IN3L32/knKDfX9oN7QxsW1e3ZSM+bzOBmYCthTXtgIW4DYfs2gYdJ1uLvrdhFwMBeaYyW+obn86O81tp3lcOcXIGPbtVzFVyorAL74Kbu5mOCyUucn+cXE+u3xThow12TZeuWPuBhRLDKsUOdjqDbWThcnLz+XtTxPq4ZgMdSXI1G/h88/GPrNACt+SL4ahDdDY74aGvbon6S+OFoy98RWs8++r/YeylhYReZNp764JSy94zHszrEc/mhQbP9qUtx62GTha2MKj10KRxXFqmv5Lf7zX8ZaCkrrI4u1SxECyNlA1nQzus8Jci7+peqSncD2UmX31C1GxOfnv351xtYnn4FHWx0Zxkt2jyb4VoMOYSZkvKsRG9DevBrvNU5zX1+hfDloYx
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep SSH session alive"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/ssh/keepalive"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Resets the idle timeout of the caller's Kubernetes SSH session.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Session keepalive successful."},"400":{"description":"Session ID is required or session not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

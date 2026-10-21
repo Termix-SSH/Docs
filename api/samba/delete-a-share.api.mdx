@@ -1,0 +1,69 @@
+---
+id: delete-a-share
+title: "Delete a share"
+description: "Removes a managed share from the config. The folder and its files stay on the host."
+sidebar_label: "Delete a share"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcGO20YM/RWCpwRQ5G2Pum2aDbBpCwSxi0WxMAJaoq2ppRllSK3XNfTvBWcc29vtBs2hPUmiOOR7T+TTARuWOrpBXfBY4SfuwwMLEPTkacMNSEuRYR1DD9oy1MGv3aaERcuwDl3DEcg34FRg7ToWEKU9BJ+S2yBaYoFKG8HqHufUrwiXBQ4UqWflaOEDOms9kLZYoKeesUI7ettggZG/jC5yg5XGkQuUuuWesDqg7gfLdF55wxGnqfjHSunyL+qIRuc3OE1LS5YheGGx9z9eXdnlqVDGP0uzI4GYZGtKA4E9axsarLDhjtV6J0AVzoZu3Dj/hgY3E5Nidsg0p1kqJbODgZ2wQOH48FWdMXZY4SGH7OVTJL+HMcKCY+8eIedggQ8UHa26TOAYTRzWNHZq+qoOUs1mmg6W/Ej90HFZhx6nJIFwPUan+wRhxRQ5Xo9G435pQtchbB1fRmhwP/P+FLkoMTepM5TLQiflDQsev4g95yQsjjfvQ+zJMH+4WzxjP2cRZ+MWtuxB2Cu4PHzWJET3J1kmtExpVgXepqJpai0tHSxxKp5QOmHLrLDIk5VTzrP1x05fRPThbgE5H4QVSEHcxr9xvoS7lj0MkQ1uAU5BactikZob9jVDeOD4IouE9lLu71by+uMtbHlvyxrV+Q3snLag/ePnZ3ROqd8v7Zb3BexaV7e5kZzblHCrQLWKHTvmQtj54+mavA8pwd6T3wfPwJ1w3jDn1yGxdtoZzeQrME87BNcfb20BOEom8EN5VV49o/VTZFJOzbLTQS7yav7r29fJyvJ6SwGjcJSUOdiypK8rZnF72zzbYMn+aCCVVunzDEG0J28oj7PyLrkBUK77d0C2UV7Z639nwnlElB91NnTkvMFM3nI4GtQ9ng3Kpii5dYHVyYuzIhZKnJZFsmk7eDisSPi32E2Thb+MHM05lmcnSj7SOLH7Bqs1dcLf0ODVp6Nfv4aXsH/dUL9PhteN9oQFbnl//oGYM/2PXZMu0/LyL/Du5pebxQ1O018vq4uT
+sidebar_class_name: "delete api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/samba/{hostId}/shares/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a managed share from the config. The folder and its files stay on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The share was removed."}}}
+>
+  
+</StatusCodes>
+
+
+      

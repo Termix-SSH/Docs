@@ -1,0 +1,317 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Cloud Providers API",
+    "version": "1.0.0",
+    "description": "Add hosts from AWS, Azure, Google Cloud, DigitalOcean, Hetzner and other clouds, and keep them in sync."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/cloud-providers/providers": {
+      "get": {
+        "summary": "List the supported clouds and the keys each one needs",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "The providers with their credential fields"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/credentials": {
+      "get": {
+        "summary": "List the signed-in user's saved logins, for choosing a default",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Credentials without any secret material"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts": {
+      "get": {
+        "summary": "List the signed-in user's cloud accounts",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounts without their keys"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a cloud account",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "credentials": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Account added"
+          },
+          "400": {
+            "description": "Missing or invalid fields"
+          },
+          "409": {
+            "description": "An account with that name exists"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts/{id}": {
+      "put": {
+        "summary": "Change a cloud account; keys are replaced only when sent",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account saved"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a cloud account and forget its instances; hosts stay",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account deleted"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts/{id}/test": {
+      "post": {
+        "summary": "Check the saved keys by listing the cloud's instances",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok with an instance count, or the reason it failed"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts/{id}/discover": {
+      "post": {
+        "summary": "List the cloud's instances and which ones are already hosts",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instances with their address and imported flag"
+          },
+          "502": {
+            "description": "The cloud refused or could not be reached"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts/{id}/import": {
+      "post": {
+        "summary": "Make hosts from the chosen instances",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Counts of created, updated and failed hosts"
+          },
+          "400": {
+            "description": "No instances chosen"
+          }
+        }
+      }
+    },
+    "/plugin-api/cloud-providers/accounts/{id}/sync": {
+      "post": {
+        "summary": "Sync every instance now, applying the account's removal rule",
+        "tags": [
+          "Cloud Providers"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Counts of created, updated, removed and failed hosts"
+          },
+          "409": {
+            "description": "A sync is already running"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

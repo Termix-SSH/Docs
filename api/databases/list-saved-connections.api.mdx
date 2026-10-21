@@ -1,0 +1,69 @@
+---
+id: list-saved-connections
+title: "List saved connections"
+description: "Returns the saved database logins of a host. Passwords are never returned."
+sidebar_label: "List saved connections"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMFu3EYM/RWCpxaYaN0edbORtnDqAHZ2C6MwFsVY4q6mK80oQ8prVdC/FxzJ2k0MBwiQkyTOG/I9inwDlsRFdK244DHHTyRd9AxSEbB9ohJKK/bRMkEd9s4zhB1YqAJLBreW+RhiyWAjgacnihBTAiozNCh2z5g/4Ps5BePWYGujbUgo6tGATqu2Vio06G1DmKMmvy7RYKTPnYtUYi6xI4NcVNRYzAeUvlWk80J7ijiOW0VzG7xWyQf89eJCH1+K2yyiiuA9FRrmDMfRYENShRJz3JOgmQjluGrrbu/8O9u61UsfeDVMBMfVWRY0yBSfXlR1scYchyk0ovmKyN+hi7Ch2LhnmDBo8MlGZx/rif8cTRJ2tqtF+yLScr5aSbqY0bNt2pqyIjQ4pg4wFV100icKj2QjxctOhTxsRzNgEcLB0XnEtu5P6pfIWYq1tnqicp5o6bxywfmP6PcEQjO//B5iY5Xzh/vNK/VrYnbBg4QDeWDyAs6nidMiIbr/rCKhIltSBMtwlZKC9WWCpYsZjuYLSQu3SRWaabYmyGm6/j3Km4w+3G9gwgOTgBVgt/fvnM/gviIPbSSla8AJiD0Qa6SgknxBEHT831KR2J63+7s7eXl7DQfqgcVGcX4PRycVSPP8zys5C/T7W3ug3sCxckU1FeJTmQyuBWwhrNdmLISjn28X1vuQAHpufR88AdVM04I5vwtJtZNaZS6eAJe31zr9FHli/0t2kV280nQVw5EpVaLSCXzs13c3Bj7q0ry/MnAbWPaR1nc3CbO+u3FCi3kxBA+9bp3uLsMuhgaUoNjH9GvawNJYrwznOblxLK/d4mteulVeyMsP985pOoSeZdXW1nllmWxlmN3pAU/upLQWkzWYLxZ6Tn1rkrXqzWFQ6F+xHkcNf+4oqmtsTy6UPKR0rO8l5jtbM31D+0+fZq/+Gd4i/7Kdvk9mV3f6hQYP1J9Mf9yem/Efv21wHP8HSwRNKw==
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List saved connections"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the saved database logins of a host. Passwords are never returned.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved connections."}}}
+>
+  
+</StatusCodes>
+
+
+      

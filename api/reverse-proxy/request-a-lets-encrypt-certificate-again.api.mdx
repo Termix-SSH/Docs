@@ -1,0 +1,69 @@
+---
+id: request-a-lets-encrypt-certificate-again
+title: "Request a Let's Encrypt certificate again"
+description: "Request a Let's Encrypt certificate again"
+sidebar_label: "Request a Let's Encrypt certificate again"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu4zYQ/ZXBXNoCjJ0u9qRbutui2RaoEXsRFIFRTKSxxVoiFXIUWxX074uhFEdd7x5yMjV8Q743w3nuUWgfMXvAO37mEBlWwZ863BpsKFDNwkG3e7QOM2xISjToqGbM0BZoMPBTawMXmElo2WDMS64Jsx6laxLKCe854DBsFR0b7yJHBby7fqc/Bcc82Eas1yvWQkG4wMHg++v3l/sfOIjd2ZyEwXmBnW9dgcNgvsLd8VPLUYDgT5YfIvzq8tA1Avksn/ZkHRqsWUpfqD4fBc0oM8NlU7V7666oscswlueq0fIs9ZC47G0xLAM7PqLByOH5pVZtqDDDfgwN+DW1v30bYMOhticYMWjwmYKlx2qszBRN4nfUVoIZliJNzJZLSYkLPlHdVLzIfY1Dqm3kvA1WukThkSlwuGlVyMN2MD3m3h8szyPU2D+4O0dmR6y1iSOV+UHnnioXnHqt3yMIzbT4zYealPOn+82F+jXHaL0D8Qd2ENkJWAdSMuglPtj/SJFQMhUcgCL8kg4FckWCpcSFPpC5pDO3URWa8cWOkNc3++9Rvsvo0/0GRjxEFiCBaPfuyroF3JfsoAmsdA1YAaEDR43kXLDLGfwzh++qSGzn5X5zJW9Wt3DgDqKOh3V7OFopQerTPxdyztC3l/bAnYFjafNyvCi+XrOAWwHKJWrahAV/dFN2Tk6nkXLRfXKddwxcRV6k2bRu55NqKxWn6Zy5DdysbnUCOMRRwc+L68X1ha6XnDSCsPMBNh9WBj5/XBn4fbNZJR66WI+sd4F5Pu4xAaa5q/zeOgM1OdpzAQ0HKH2U1Ch1gZqc8p1ezVvM5H+kz30WPsmyqRQymNEg+slnHvDVZ5KhzpwGDSavQYPZZLdqN1uDylZz+/6RIn8O1TBo+KnloA6wfXWU5AeFjbouMNtRFfmCZu6dsNOX9uPd5Og/AZpv03+ZNNcl46pa/UKDB+7Gv4VhO8xcdfXXeoPD8AWPRTbR
+sidebar_class_name: "post api-method"
+info_path: api/reverse-proxy/reverse-proxy-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Request a Let's Encrypt certificate again"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/reverse-proxy/certs/{id}/renew"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Request a Let's Encrypt certificate again
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"202":{"description":"Started"},"404":{"description":"Certificate not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

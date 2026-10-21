@@ -1,0 +1,70 @@
+---
+id: check-a-unit-file
+title: "Check a unit file"
+description: "Runs systemd-analyze verify on the text without saving it. For an override the check covers the unit with every drop-in."
+sidebar_label: "Check a unit file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVd9v4zYM/lcEPm2AEnd79FvvsMN6w7Ci6VAMRXBgbMZWY0s+iU7qM/y/D5TcJNdch93L5hfbFEl9/PVxhJJC4U3HxlnI4a63QYUhMLXlAi02wxdSe/JmOyhnFdekmJ5ZHQzXrmcVcG9spQwv1QfnFVrl9uS9KSnqFjUVO1WILERBb00yVrQnP6jSu25h7BI0MFYB8kdYkd+bggKsNXTosSUmLycjGIHYIdegwWJLkEPtAt+UoMHT5954KiFn35OGUNTUIuQj8NCJprFMFXmYJv1NTwLt3/gJ7I2tYJrWSZkCv3PlIBqvbQtnmSzLEXZdYwqUNGdPQXI9Xrp2mycqBETnXUeeDYV4ir4ivoSggWzfSs5m7C+5h/WkQer0LdjyCPLQORvSBT9fXcnr61Z4qIlr8sqw6jAEKnUqnJTR9dz1vJRcQktcu1LS6ULELlnNIeuavjJ2gZ3JQirpokWLFflsTFWbMsEdslFeU7Y1DWWp10CD2LzUvfcN5DAm0QT6FdK/XO/VPfnWPKukAxr26A1umhTgLI0xbrFvWDqHuQt5lnE0XNIztl1Dy8K1kqS1ICh6b3iIEDaEnvx1L7E9rqWFCud2hs4l2JnfaDhKzlyspNIJyrmjY3EEC8y9Jv9JCfT88cH5FgXzx4f7i+hXFIKR2XQ7siqQZWXSpMolzpsvsetUTViSVxjUu+hUoS3TQIvhEib9VUhHbCkq0Glmksppap4O/Caijw/3KumrQKyQVTCVlXFXDzVZ1XkSuFpajHFHQSQFlWQLijzyZhQR7Xm6vzuT17c3akeDCoyehcJSb7fPny7COap+f2p3NGh1qE1Rp4vC6ZqlumGFBQcxm3WVO9jZukBrXVSQc7SDs6SoCZSGTijk7kQ+v6TmPSeLF05INHAcfynj1kVFw2Jx5Ft1fXsjc0M+pLh/Wl4try6y8XucYTWPdNCKTSvsLqAbVwVZE4MMpMx4SGVcrX6NFROGaDFy39w+7+OCwLQXhABe3zeeSPR/XU6pu8R91jVorIQTaWmcCe8RToQ309cZ5YGG/LiqIuuJZC7RHPdMfWsdl5p4HMcNBvrTN9Mk4s89eWGj9YndIjeVJsh3CfkWm0D/kMEf7uYN9aN6K6iXqbdDJNGmlz/QsKPhtG6F7f7DW2OeJllqadJi1OnofbplcS8OTqYX61bY+Lipbv9YCY9u5rXdulJsPB5k/+MhXe1iJJGzo2yEBm3VYxVpL/qU528WmzUK
+sidebar_class_name: "post api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check a unit file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/service-manager/{hostId}/units/{unit}/file/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs systemd-analyze verify on the text without saving it. For an override the check covers the unit with every drop-in.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"unit","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"target":{"type":"string","enum":["unit","override"]},"text":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether it passed, with the output."}}}
+>
+  
+</StatusCodes>
+
+
+      

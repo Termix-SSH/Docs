@@ -1,0 +1,69 @@
+---
+id: read-a-log-file
+title: "Read a log file"
+description: "The last lines of a log file, with an optional text search. Compressed files are read too."
+sidebar_label: "Read a log file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vdtu40YM/RWCTy2g2O7lSW9p0Uu2KLBYuwiKwCgmEi1NPZrRDik7rqF/LzgjX7BJdrtF+xRndEge3g6PWBNX0fZig8cSVy2BMyzgrCeGsAEDLjSwsY4K2FtpwXgICW4cCD0JMJlYtTP4PnR9JGaqE5zBRIJIpgYJYYYFimkYywdcUtzZihjXBfYmmo6Eon45olUSvZEWC/SmIyyxDSx3NRYY6f1gI9VYShyoQK5a6gyWR5RDr0jrhRqKOI7F5On9QPFwcTU5/qQjlmh987qfVBz8NwyaSP1LhueIa6XHffBMrN+/Xiz0zwtdUg4zHAv8dvHNyxDtAliGMAjbmkBaAuNc2FOdmxpcTVGdjAV2JG2olSIJFrlUJc57NzTW35jezjm37aYz3jQU58fcmXHuQsNzDaaZUdydmjlEhyUe89OIxQcUfw9DhBXFzj5BxmCBOxOteXQ5+ek1JbcxgxMdB5Gey/lckuGMnkzXO5pVocMxlY+pGqKVQ6LwSCZSvB00mYe1dqUKYWvp+sX09hc6nF+uXCy1TZnKtaNz15TLqZv6fwZhMf34McTOKOc396tn2S+J2QYPErbkgckLWJ9apEFCtH8ZRUJLpqYIhuG75BSMrxMsGaYBuE7pzC1nhUUewwy5zOGfe3mV0Zv7FWQ8MAkYAbaNv7F+BvctedAlJy8FWAExW2J9qagmXxGEHcVXs0hsr8v92ZW8fXsHWzoAi4lifZMlSbqnP56lc4Z+fmm3dChg39qqzYH4EmYGdwKmElazCQth7yfryngfEkC/G38InoAcU14y6zchZW3FUSp5VkK4fXunw0+RM/mvZovZ4llKv6bNg2kRuQCxHUVOkXUJIXg46FbpZnLuxXL5cyp7H1g64zX6NAPvVJov8v5hNF0VL+Tlfz8LeQTUaN47Y73STdpxnGToAS8yNGnMlRBhgeX5SGgZsMCU0LpIx0Ptj8dHw/RbdOOoz1mVVSBqyyo3NZYb45g+UoMv3k1n40t4jfSWDpcrszNuUAiqxjwLk6GnQ/JPsNPpuEDXF7X871M5qYg/XMc8cZnKPa6vD8dPP6xwHP8Gw6bYrQ==
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a log file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/logs/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The last lines of a log file, with an optional text search. Compressed files are read too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"lines","schema":{"type":"integer"}},{"in":"query","name":"grep","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The lines."},"403":{"description":"The file is outside the allowed log folders."}}}
+>
+  
+</StatusCodes>
+
+
+      

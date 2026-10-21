@@ -1,0 +1,69 @@
+---
+id: control-the-samba-service
+title: "Control the Samba service"
+description: "Starts, stops, restarts, enables or disables the Samba service, or reloads its config."
+sidebar_label: "Control the Samba service"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCp11gVk571C27wALZomhQuwiKwChoibamlma0QyqJa+jfC44U22maontoT5I4HM57j8OnI9YsVfK9+hiwxKVSUnEgGntxkFjmAAfatCwQE9RepndtGJbUbQiE04Ov2Nly4jZSLeBVoIph63cFOlTaCZb3mPNx7bCnRB0rJwsf0dvpPWmDDgN1jCU2UfSmRoeJvw4+cY2lpoEdStVwR1geUQ+9ZfqgvOOE4+j+thJVmd6/qCSafNihQw5DZ3gzf3RoguQCz4FJEHQ4y5EXjTmux3GdM/sYhMWqf391ZY+XWq8ahgkZJAqFoceOtYm1EYhip2QeJS76dtj58IF6vxBTcHGc1BkXs/SL41RqNKycHp51HVKLJR6nkC2+xPBrHBKsOHX+CaYcdPhAyecOG+Y5mtFvaWjVOqPaS7lYaN5Y8BN1fctFFTscM3nhakheDxnChilxuh6Myf3aWlTFuPd8GaHe/8CHU+SixNJaNEG5LHTqmGHBuZP2PSWhm18+x9SRYf5yt3rFfskiJr/GPQcQDgo+5Gtth8Tk/6Dcnoap5gQk8DEXBQp1TssbCxzdC0onbBMrdNOdnFLOt/L3R30T0Ze7FUz5IKxACuJ34YMPBdw1HKBPbHAdeAWlPYtFKq45VAzxgdObLDLaS7m/Wcnr2xvY8wHyJPiwg0evDWj39NsrOqfUb5d2zwcHj42vmukgOR9TwI3a5Ihtm3MhPoZ5d0UhxJxg6xQOMTBwKzyNmA/bmFl7bY3m5GDLhhILXN/e2ABwkonAd8VVcfWK1qfEpJwP6yjQ7tkG3y1//Pgetr5lkFzPwSCcJGf2Niy5uwIxwMEmz4ZYYJtiBwZSaZPbY8PfUTCU8135FIOm2L623L9is+EKykH/UzOfLozyky76lnww0NlpjrNj3ePZsexOZdd3WJ48/Qy/nN157bLj297jcUPCv6R2HC38deBkVrI+W1M2lhl7jeWWWuF/UOLdz7Pxv4e34D+PbDhkB2wH+0KHez6c/0VmVf/jqbMy4/ryz3D703KF4/gn/Bin2A==
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Control the Samba service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/service/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts, stops, restarts, enables or disables the Samba service, or reloads its config.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","stop","restart","enable","disable","reload"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: create-a-share
+title: "Create a share"
+description: "Adds a share to the managed config. The new config is tested before it is used. It can also make the folder and set its owner, group and mode."
+sidebar_label: "Create a share"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVVFv4zYM/isEn+4ANemGvcxv7WEDesOw4pKhGIrgwNhMrMaWfKLcJDP83wdKbtI16IB7W15iURT18RP5ccCKpQy2i9Y7LPCmqgQIpKbAED3EmqElR1uuoPRuY7czWNYMjvfTGqxAZIlcwZo3PjDYqLZeuJrBXYSSHFAjHlracQq48U3FAchVIBzBRgG/dxwMbIPvu7TR+opnaDDSVrB4xAW1a8KVwY4CtRw5qHlAq6g7ijUadNQyFlh7iXcVGgz8rbeBKyxi6NmglDW3hMWA8dipp3WRtxxwHFfZmyXe+uqoLm8Pl95FdlG3qOsaW5JSNn8S5W24jO3XT1xGHMdx1NjSeScs6vDj9bX+/Zt4JTWzvieBMjBFrmY4Gvzp+udL95sXZxtriLUV0OSBD1aizFDvbDnWvlJ2vEQ0maQC513Tb627os7ORUmdD5mwcZ5CChoUDs8vBPehwQKHbBrRvAHyl+8DLDm09gDZBw0+U7C0bnK6kzWlsKG+ifpEMXZSzOcxHZzxgdqu4VnpWyVspQjKPth4TBDWTIHDTa/4H1ejGbD0fmf5tYU6+xsfT5ZXIRb6MhnK60Cnh1IsOBWHrrMTmunjVx9aUsyfH5YX2S9YxHoH0e/YgbCLYF2qcb3EB/t3qhKomVLFC9ymoKnE1S0dTM/8OqUTtpwVmlzm2eVc6E/7+C6izw9LyP6pxyiC2K27sm4GDzU76AIrXKPdGmnHopaSK3Ylg3/m8G4WCe1rur+byZv7O9jxESRSiNZtpypuD18v0jm5fj+1Oz4a2Ne2rPNFcr4m6RKVUfTY5JslKJ0uyTmfHHSf3NE7Bm6Ec2Npy385i8UvuXixGEZ9p41PjNiopixbsEiNBTf3d9ocHCQn98PsenZ9kfKn1PtZBJPyQg7yYfH77UfY2GYSCjGqsUGSZ6eNlF5ewDs4aldqWwtsgm9BE4i0Tk+nctBSEq2pjl5uzHHfAhrO0vc/HA+58iIf4rxryDrNMEnWMAneI54FT4szzRGDxWlKTKq3Mmlw6IFhWJPwn6EZRzV/6zmoEK3OwpZkqbKi3xUWG2qE/4O2D1+mYfIR3sP80vDumPSz6XWFBnd8PI+0cTUazAWfEOTNT/meq6WGOB++mFIqiqehcP/HQuVsPU075RMLDLTXuUn7fLlPuSTpTLYBG3LbnrZJfVJM/f0D3SDZdw==
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/shares"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a share to the managed config. The new config is tested before it is used. It can also make the folder and set its owner, group and mode.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The share was created."},"409":{"description":"A share with this name exists."}}}
+>
+  
+</StatusCodes>
+
+
+      

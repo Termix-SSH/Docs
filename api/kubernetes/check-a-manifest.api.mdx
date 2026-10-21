@@ -1,0 +1,70 @@
+---
+id: check-a-manifest
+title: "Check a manifest"
+description: "A server side dry run of apply or replace. Nothing changes in the cluster."
+sidebar_label: "Check a manifest"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu20YQ/ZXBPDUALblF+8I3J2hQJ3VrxC6MwBCKETki1yJ3md2hZZbQvxezS11s2QUClC8kd+dy5nZmxJJD4U0nxlnM8QIC+0f2EEzJUPoBfG/BrYC6rhnAefDcNVTwDP5wUhtbQVGTrTiAsSA1Q9H0QdjPMEOhKmB+j5/7JXvLwgEXGXbkqWVhr3cjGnXbkdSYoaWWMcfAIRhnL0vM0PO33nguMRffc4ahqLklzEeUoYvC4o2tcLtdJGEO8t6Vg0q81C2cFbaiVxqOKUijnj8EDX08Ne2WD1zIMxD3OFDbxDC869iL4aAa8fQUVIatK/nVC401dFS8dhsfdRs6Z0Py8NP5ub6el+u2ZvAcXO8LrYDAxvVNOZVkpm5+fk3tyoSgpXMexDloyFcMXy+ufo8qv7zlqSVrVhwETADrBB6pMeUMFWrLUrtSK+mCZiwWNMd51/SVsWfUmfl63wXznaEwH/e13s6jORLGDFMTpgbpfYM5juloi9kLYF9d7+GWfWuept7FDB/JG1o2KXPTaQxpRX0jmGMt0oV8PpeoOOMnaruGZ4VrNfsLRVD03sgQISyZPPuLXmO6X2yzEQvn1oaPT6gzn3nYnxyZuNG+SlCODe2rrlhw6mz9T0KYTR8fnW9JMX+6uz2J/ialD8St2UJgK7s5VCfOm39ij0PNVLIHCvA+GgWyZRSLirHsxyHtsaWoMEtjmkQOg/qwkTcRfbq7hSQPgQVIIJjKnhk7g7uaLXSeFW6mXSu05qAnBZdsCwanFPRWFBHtcbq/O5MX15ew5gGCkBcdhI2RGqR9+vsknL3o96d2zUMGm9oUdXIUDm5mcClAhQRVm2TBbeykXZDV+aJC9J7s4CwDN4HTsClhfTlQ3a+peQ80tOORHfsc/o9I54iKjF25mEUjauaIr+Hi+lLHiX1I6fhxdj47P0nSFVmqGI70pi0QYOVdC4POaO2ChFTZm5vfspSMxlUhg5bFmyJkkYNiBghCzU0TS62U0lKk6KnvPtRcrIH2hPQS0Hig+v95o6U+E36SedeQsYovEtQ4Ud49HigPMzyQnlZjR3uYYX685PbMt8hQ06RmxnFJgf/yzXarx9969kpGiwO5RWoqTdDvEvMVNYH/IxE/fJm22Dt4K5Ld0Nshger1T6Pg4dla3i62Gaa+jyDS/Yfk6uxWrRz0T1atcuN+X1z/eaOstpxW9tSwnja6dmmT/LsYTmTQeDZiQ7bqqYokFG3q8y/mfwvQ
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check a manifest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/manifests/{sessionId}/validate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A server side dry run of apply or replace. Nothing changes in the cluster.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["yaml"],"properties":{"yaml":{"type":"string"},"mode":{"type":"string"},"namespace":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The resources it would change."},"400":{"description":"Missing or too large YAML."},"500":{"description":"The manifest is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

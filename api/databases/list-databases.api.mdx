@@ -1,0 +1,69 @@
+---
+id: list-databases
+title: "List databases"
+description: "Lists the databases the login can see. System databases are left out."
+sidebar_label: "List databases"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3DgM/SsET11A9WT36FuCfiDZFEh2ZhEUwaBQbM5YO7bkSnQmruH/XlByZpymKRCg2JNt+ol8jyafBywpFN60bJzFHC9N4ABcEZSa9Z0OlJ5qtzUWCm0hEGWw7ANTM8NoT1DThsF1nKFC1tuA+S2+e0TgWmGrvW6IycurAY0UbDVXqNDqhjDHygU+L1Ghp6+d8VRizr4jhaGoqNGYD8h9K0hjmbbkcRzVTzMVztrXZloLOrTOCt98wL9OTuTytEOrWW9AioVMSGBDXLkSc9wSo0pscly0dbc19q1uzeLQrcWQdI4LYUmFZA6LIVEejzhUGMjfP/ar8zXmOKTQiOoHYp9d52FFvjEPkDCo8F57o+/qpGeKRkkb3dUsHWduQ75YcDyY0YNu2pqywjU4xo4EKjpvuI8U7kh78qedaLtdS+sL53aG5hHdmr+pP0RmKZbS+kRlnujwJYQLTl9InhMI1XTzwflGC+eLm9Uz9UsKwTgL7HYkQ2oZjI2jK0WcN9+0IKEiXZIHHeAsJgVtywiLBzMc1RNJB25JFao0awlynLb/9vwio4ubFSQ8BGLQDMFs7VtjM7ipyELrSegqMAysdxQkUlBJtiBw9+RfVBHZztv96k6eXp3DjnoIrD0bu4W94Qq4efjyTM4B+vrW7qhXsK9MUaVC4Vgmg3MGXXCQYxMW3N5OpwttrYsAea9t7ywB1YHSzhm7cVG14VpkHtwGTq/OZfrJh8T+z+wkO3mm6cy7faBYiUrD8KlfXl8q+CRL8+5MwZULvPW0vL6MmOX1peG5MzoLvWydrHOAjXcNCEHWd/HTtC5wo60wnOZE7BXm+/2Ej2yTZbL8O404DQTTAy/aWhsrxKKTDJNH3eLRo4TRjF1+8OOZUUn84K7l3N8FLfmGQUL/+nocJfy1Iy/2sT7aUTST0gS5LzHf6DrQL5rx5p/JxP+AlyQ9rqnto+vVnTyhwh31x/+K2NP/WHXq0rie/x4+vl/hOH4HV5OR3Q==
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List databases"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/databases"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the databases the login can see. System databases are left out.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The database names."}}}
+>
+  
+</StatusCodes>
+
+
+      

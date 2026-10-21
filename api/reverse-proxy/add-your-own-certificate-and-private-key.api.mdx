@@ -1,0 +1,68 @@
+---
+id: add-your-own-certificate-and-private-key
+title: "Add your own certificate and private key"
+description: "Add your own certificate and private key"
+sidebar_label: "Add your own certificate and private key"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv2zgM/isEn9UkO9yT37reDevu4YI1QzEUwUGxGVuNLWkS3cQL8t8PlLzEbTcM9UsUiqS+jyI/HZF1HbF4wM/0RCESLIM7DLhWGOhbT5Hfu2rA4pj+mkAVFhx6Ulg6y2RZtrT3rSk1G2fnj9FZscWyoU7LigdPWKDbPFLJqNAH5ymwoSi7JQWeeEUOxtZ4Urij4Sf29Am26J2NOcUfi3fyU1Esg/GCAgu8kSO2gopAVxVVkvPPxeI3nraCHQ1QObCOodNcNigHPg+5rioYXB/A7S2UL+J9ME+yFgIKO+LGVVigdzGx19xggXPf9rWxV9qbeciVv/JS+bmki/Pet05XqDBSkF0sHo7YhxYLPGbTCV+i+iqIVhQ6c4DsgwqfdDB60+ZKjdZUgq3uW8YCG2Yfi/mcU+CMDrrzLc1K10m114Kg7IPhIUHYkA4Urnsh8bA+qSOWzu0MTS3am39oOFsmKe6kKTKUaaLzLQsW4ZzcsBidUI2LDy50WjB/ul+9Yn9HMRpngd2OLESyDMYCNwRyiAvme2pQaEhXFEBHeJ+SpjsTtxQ4kzaZUjpjy6xQoZHTsgsqtDohfdzzLxF9ul9B9odIDJohmtpeGTuD+4Ys+EACV4FhYL2jKJaSKrIlgXui8EsWCe203G+u5PXyNjV8ZB3Y2Br2hhvg7vDfKzpn17eXdkeDgn1jyiYfFC/HzOCWQZccJWz0lbEao0ttZRB1ybKv7eAsAbWRZmksRW0+X3Tq79y8F135oRujnEzkxditS/UyLAHP5Q+ul7cyOxRi5v5utpgtXlXkR0waXNi6AKubpYIvfy0VfFytlomBLO4y320gmspFTA7jxLauNlZBp62uqQJPARoXOV2xaEenk66O/fYGBXqG+dwgTAee+1YbKwckZTmO4vSAF3FC0dqJPKFKlY2ocJSotULBKWHH40ZH+hLa00nM33oKohrriwplicDcKElQ8r3c5MfkaiXgxL3t88y9eFhETM6Kuvz3TmRgMz5QnaskJui9gNZ7LBAVukQ8SU6yHbHVtu51naY25ZTvf5nzcL0=
+sidebar_class_name: "post api-method"
+info_path: api/reverse-proxy/reverse-proxy-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add your own certificate and private key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/reverse-proxy/certs/upload"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add your own certificate and private key
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"cert":{"type":"string"},"key":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Certificate added"},"400":{"description":"Certificate and key do not match"}}}
+>
+  
+</StatusCodes>
+
+
+      

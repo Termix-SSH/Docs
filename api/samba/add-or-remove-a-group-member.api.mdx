@@ -1,0 +1,70 @@
+---
+id: add-or-remove-a-group-member
+title: "Add or remove a group member"
+description: "Adds a user to a Linux group or removes the user from it."
+sidebar_label: "Add or remove a group member"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v20YM/lcIPrWAYmd79JtTbEC6DQtqD8EQGAMtMdLF0p16R8X2BP3vA+8Uy4ubosWA6UUSj+R9/PWxx4JD7k0rxllc4LIoAhB0gT2IA4Jfje0OUHrXteA8eG7cMweQipPSo3cNGJlhhkJlwMUDrqjZEm4ybMlTw8JexT0avaAlqTBDSw3jAisX5LbADD1/7oznAhfiO84w5BU3hIse5diqprHCJXschuyLnuLrG/wE8caWOAybpMxBblxxVI3Xtrmzwlb0iNq2NjlpkuZPQTPVX7p22yfOBTNsvWvZi+Ggp5qmLwDIkIriTL51rmayOMRHwYXW2ZB8/Hh9ra9/12pdMTTcbNmHyrSwpwB5RbbkYqZpwoalcoVmyoUISxO2wHlbd6WxV9SaedBSzftUhmEeyxzmvSZzmI++McPA/vmlip2vcYF9Eg2YvQL1p+s8rNk35gBJBzN8Jm9oW6dYRmkM55G6WrQPRNqwmM8lGs74QE1b8yx3jeZjowjyzhs5RghbJs9+2Wk4DxttiNy5neFzCbXmFz6eJGcuVlq3BOXc0akQigXHzomFiUqYjR8/O9+QYv54v76IfsUhGGdB3I4tBLYCxsZh0UucN3/HHoKKqWAPFOAmOgWyRVSLhjPtjvOQTthSVJilCUgq0ww87eVNRB/v15D0IbAACQRT2itjZ3BfsYXWs8LNwAgI7TioJOeCbc7gnpUO3ogioj1P93dncnl3Czs+QhDyYmwJeyMVSHP46yKck+r3p3bHxwz2lcmrdFGYrpnBrQDlEtRs1AW3t6N1Tta6qKDnZI/OMnAdOM2ZEsKniUp+Ss07jf7LyI8Tr+QyaAUfXcyVEVVOrAmrijwHWN7d6tiwDynsH2bXs+uLZHzwTMIRYkOWSobk5N3qt5v38GhqhhD9ZZGrQ9RsdcRiTwRwFo46rzr/IVG5hia0jUVV3mgokt3YYcuimLYA0LgXElG8htdPBPrf1kpqJuGDzNuajFVokYX6kdIecKI07be4fzJcnLZL4jUVjWvihdo2WVxB6qLvtxT4D18Pg4o/d+yVbTYTe0XuKUzQ7wIXj1QH/krM7z6N++Q9vBXFy1TbYyTJutM/zHDHx2k5Kpv9j7fGDA2bIcM0STHqdPQh3XK1VgeT6cVyVLY9LZ+731fKk9txyTauUBtPe93WtE9XuxhJ5OQo67EmW3ZURlqLPvX5BxWp+90=
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add or remove a group member"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/groups/{name}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a user to a Linux group or removes the user from it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"user":{"type":"string"},"add":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The membership was changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

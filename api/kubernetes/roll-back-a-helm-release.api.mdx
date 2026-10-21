@@ -1,0 +1,70 @@
+---
+id: roll-back-a-helm-release
+title: "Roll back a Helm release"
+description: "Rolls the release back to a revision, or the one before the current one when none is given."
+sidebar_label: "Roll back a Helm release"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVttu4zYQ/ZXBPLUAY7uXJ71lixab3W4bJFkEi8AoxtLYYkyRWpKKowr692JIx1bWmwIBevGLpeHh3OeMBqw4lF63UTuLBV45YwLEmsGzYQoMKyq3EB0QeH7QQTurwPkEcZZhxWvnOb2WnfdsYxLvarZg5UkH2OgHtjNUGGkTsLjD992KveXIAZcKW/LUcGQvZwNq8aOlWKNCSw1jgYGDGL6oUKHnz532XGERfccKQ1lzQ1gMGPs2gaPXdoPjqL6qax/Xb9RwaKnkf07lqzQtM5hDfOOqXhCls5FtlEdqW6NLkprM74MUZjhV5Vb3XEZU2HrXso+ag5w+VWmC1Dbyhj2O6SeGQ+tsyPjvFwv5O20DrlLtZzgq/HHxwynopmaoXYhSYs9UgbOmn0mWsOFYu0oS5UJyUfJV4Lw13UbbM2r1fHvogXnNppkPhyKP8+HLIh1F49w7Y8QxVBjYPzy1TecNFjhk0YjqC2c/uc7DDftGP0LGoMIH8ppWJidiL01hrqkzEQusY2xDMZ/HdHHGj9S0hmelaySZS/Gg7LyOfXJhxeTZn3cS691SmqV0bqt5KqFWv+f+IJmouJYCZ1emig5VFF9w31LynkGo9g+/ON+Q+Pzu9uYk+uucW4huyxaCTKm2aWjFiPP6z9RsUDNV7IECvElKgWyVYOliaoVpSAffclSo8nRkyHE+7nfxRY/e3d5AxkPgCBQh6I0903YGt8IhrWdxV4GOEGnLQSQlV2xLBvfA/sUokrfTdL86k+eXF7DlHkIkH7XdwE7HGmLz+MdJOAfo61O75V7BrtZlnQ2Fo5kZXESgMga5tseC29n97ZKsdQkg52R74Vs2gfMQCnNcHTnm59y8zzliMUrN1i5lR0c5nrAznF9eyJiwz2j8braYLU6C/0CWNgyTe6XpghA6rL1roJfZE6YIuWLX129VDtK4TVDQcPS6DAo+nX/4NUVGEGo2JpVQKKShxGf7fhJ2ynuJ4C2bBo4E/MyxCaf+24stN1bkxzhvDWkrjidGGvbcd4dH7kOFR/ZDhcJ/qLCYrrniK3uqmCyaJxJcKpTMioFhWFHgj96Mo4g/d+yFl5ZHnkssVekgzxUWazKB/yZn31zt19m38FKMT/Nv+0SnppM3iY/7Z3tbqO8/NHySvP/HPo7LUcork59yn09/yobObkTH8fbJ1pftcNikl79fC6+v9l8LjavSpwftpBtol627FEz+DhDZgIbspqNNouGkU35/AawscHE=
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Roll back a Helm release"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/rollback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rolls the release back to a revision, or the one before the current one when none is given.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"releaseNamespace","required":true,"schema":{"type":"string"}},{"in":"path","name":"release","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"revision":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Rolled back."},"403":{"description":"The host is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

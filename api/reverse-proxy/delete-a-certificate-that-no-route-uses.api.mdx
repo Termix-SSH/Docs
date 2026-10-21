@@ -1,0 +1,69 @@
+---
+id: delete-a-certificate-that-no-route-uses
+title: "Delete a certificate that no route uses"
+description: "Delete a certificate that no route uses"
+sidebar_label: "Delete a certificate that no route uses"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdFu6zYM/RWCT7uAmmTDXua37rYXa7eHoE1RDEUwsDYTa7ElV6LbeIb/faDspilyC9w+RaYOqXMo8aRHoW3E7AFv+JlDZFgGv+9wbbChQDULB93u0TrMsCEp0aCjmjFDW6DBwE+tDVxgJqFlgzEvuSbMepSuSSgnvOWAw7BWdGy8ixwV8MtioT8FxzzYRqzXIy64YuECB4O/Ln473T+H4FthiGKrCtrIEazgMJjv1gGCnIPYjc1JGKQkAeenEpqMBmuW0heYYZFS0IwyM5w3Vbu17owaOw9je84abc9ca8Z5b4sBDUYOz69dakOFGfZjSDffk/rbtwFWHGq7hxGDBp8pWHqsxp5M0SR7Q20lmGEp0sRsPpeUOOM91U3Fs9zXOKSuRs7bYKVLFB6ZAofzViU8rAfTY+79zvJxhBr7J3eHyFGJW72+kcpxocNtKhecblm/RxCaafHNh5qU8/X96kT9LcdovQPxO3YQ2QlYB1Iy6CE+2P9IkVAyFRyAIvyeigK5IsFS4kyfxrGkA7dRFZrxrY6Qt9f674t8yOj6fgUjHiILkEC0W3dm3QzuS3bQBFa6BqyA0I6jRnIu2OUM/pnDhyoS2+N2f7qT58sr2HEHUSiIdVt4sVKC1Pt/TuQcoJ9v7Y47Ay+lzcvxoPh2zAyuBCiXqGkTFvyLm7Jzcs4ngO6T67xj4CryLE2ldRufVFupVOY7n4Hz5ZVOAIc4Kvh5tpgtTnS95qThg40PsPq6NHB3sTTwx2q1TDx0cTuy3gTm47mPCTDNXeW31hmoydGWC2g4QOmjpItqfJSanPKdXs2P28g7yodbFt7LvKnIOq2f7KGf/OUB3/wlGemRw6DB5DFoMLOF2rFy1Jy+f6TId6EaBg0/tRx07tdvPpJcoLBR1wVmG6oin9DLvRN2+r5+upkc/Aug+T7t1/lyXbKrqtUvNLjjbvwbGNbDkY9eXP51ubrEYfgfOqcxWA==
+sidebar_class_name: "delete api-method"
+info_path: api/reverse-proxy/reverse-proxy-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a certificate that no route uses"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/reverse-proxy/certs/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a certificate that no route uses
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted"},"409":{"description":"A route still uses it"}}}
+>
+  
+</StatusCodes>
+
+
+      

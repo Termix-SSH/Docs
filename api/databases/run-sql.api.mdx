@@ -1,0 +1,70 @@
+---
+id: run-sql
+title: "Run SQL"
+description: "Runs SQL in the console. The session is read only unless the user has edit access to the host and the connection is not read only."
+sidebar_label: "Run SQL"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdFu6zYM/RWCTxugxt0e/dbubkDverG26VAMRTAoNhursSVfiW7qGf73gZIT5zbrgL4My0sSiqR4DsXDAUsKhTctG2cxx7vOBljeXoOxwBVB4WxwNS3gviIIFIJxFkwAT7oEZ+seOltTCNG5C+Sh0gGoNAy6KOKBi2eVCwzalvuslgqeclnHc74FKmS9CZg/4ifNeq0DBVwpbLXXDTF5ORrQSLWt5goVWt0Q5ihXXJWo0NPXzngqMWffkcJQVNRozAfkvhVPY5k25HEc1T9mkvo+mmmVvCnwpSt7cXkbXDjLZFmOdNvWptDCQPYchPnhNLdbP1PBOI7jKLlD66xwkQ/44/m5fH3bOumQp9DVDN7tQiLbNMZuFgIUG+LKlYLVBUaVIOeYtXW3MfZMtyYr94RnQyJzzOZWhWxIvIzZ1458jwoD+Zd9QzpfY45DMo2o3lT3h+s83JNvzCskH1T4or3R6zqBmqwR15PuapaWMrchzzKOgQt61U1b06JwjdCykgqKzhvuYwlr0p78RSe4HlfS28K5raFji27Nr9QfLEcplsJ/KuU40aEdUgtOT0D+JydU049fnG+01Pz54f4E/XKaHHZbshDI8n7A5BLnzV/xLUBFuiQPOsBlTHqYmBi4wFF9A+lQW0KFKj3m5DI/5+cdv1vR54d7SP4QiEEzBLOxZ8Yu4KEiC60nKVeBYWC9pSCWgkqyBYF7If8uiljtMd0fZvLi5gq21ENg7dnYDewMV8DN658ncA6uH6d2S72CXWWKKl0U5msWcCU6xkHCJl9wOztFF9qKdumC5Vzb3lkCqgOlgZPBvpsl4ef0eDEfRunTk4uMGBbTLHVwcXMlk0E+JGQ/LM4X5yd4L2XEKVYRxfZLv7y9VvBFBurTpYIbF3jjSZRcfJa314YJDvMNzkIvEyljHuDJuwakeNbr2DaRiEZHWZre0F1nJcvbQoZZ1f4nuyM9MaZXztpaGytwojYNk+I94qx4AuewZBTmhxVyJHtiPyyEpHwrFZeN5BoGCf7d1+Mo5nSeP65mcYvSVJogv0vMn3Qd6F9Y/O5uWhvfw3tw9kNv+6ihdSf/UOGW+nkNitj9h7dODI2rUWEatYg7Hf6U7jm7lxRz8MkWFDk+rKmb35YipOtpmzaulBivd7KX9S5d7trUI1m3Yhuw1nbT6U3UvZhTPn8DsDIScQ==
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run SQL"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/query"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs SQL in the console. The session is read only unless the user has edit access to the host and the connection is not read only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The result rows and timing."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: read-the-journal
+title: "Read the journal"
+description: "Journal entries filtered by unit, priority, time, boot and text, newest last."
+sidebar_label: "Read the journal"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vl2L60YM/StCTy3MOmmhFPy2F/qxWwqXm5SlLKFMbG08N/aM74ycxA3+70UeO8l2Y5q70KeYmSPpSHMk5Yg5hcybmo2zmOKja7zVJZBlbyjAiymZPOWwbqGxhhXU3jhvuFXApiIFa+cYtM2B6cAKLO0pMJQ6cIIKWW8Cps+4IL8zGQVcKay11xUxebk5opG4teYCFVpdEaZYuMAPOSr09KUxnnJM2TekMGQFVRrTI3JbC9JYpg157Do1ePrSkG/ProQ0XjHU3muBGaYqXJwH9sZusJt0OOZ/zenIRmFlrKmaCtO5wkof4vePk06DsRld83iiM5kem/I9hvJs77HbeKrfY7clb+kq07VzJWk7bVoaS+E/yj2W+If5fN51K1FOqJ0N1L/t9/O5/LyW+rKgUeaJBMeKuHC55EhSml6SKc7qstkYe6drMwtRxXeVtnpDfnaMQu1mn2PbCEnyu1HZjS8xxWM86lD9i8CfrvGwJF+ZA0QMKtxpb/S6jLyH0576i25Klt5grkM6m3FvmNBBV3VJSeYqEe1KGGRNL1ChsCbtyd83ksrzSiqcObc1dHmia/MbtaeTCxcLqXikcuno9ADCZXyY/il7EKrh42fnKy2cH5+Wb7JfUAjGWWC3JQuBLIOxwAWBBHHe/K0FCQXpnDzoAB96p3HWFBQNE+zUq5TODd5nJR0u0SLkrKnPe55k9Pi0hIiHQAyaIZiNvTM2gaeCLNSehK4Cw8B6S0FOMsrJZgRuR34yi57tZbm/upL3Hx9gSy0E1p6N3cDecAFcHf56k84J+vWl3VKrYF+YrIiBwjlMAg8MOuMgZgMW3N4O1pm21vUAude2dZaAykCxxYx9cX3WhkvqSx7XAtx/fBDxkw+R/HfJPJm/Sen3vu9gaMMQV5APfeTSbQI4C610lfRliG+xWPzal712gSttJfqggU+kY7rn7n0VTnrFMln+P/ZifHa5m9WlNlYo9vPiOAyeZzwPnmGuXIweVJietuTIf6X6zSm2x+NaB/rDl10nx3GiykDITZDxkmP6ostACrfUntfkTpeN8EKZCxPQiwV4C3xcbbdgx212C3ZYYLdAh511C/S0pm4Bj4vpjF2dB/j1ak8K7JtPw1+db2FKHuNgs69KP5IZ1NCtLjfZLz8tsev+AZCZXOg=
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read the journal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/journal"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Journal entries filtered by unit, priority, time, boot and text, newest last.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"unit","schema":{"type":"array","items":{"type":"string"}}},{"in":"query","name":"priority","schema":{"type":"integer","minimum":0,"maximum":7}},{"in":"query","name":"since","schema":{"type":"string"}},{"in":"query","name":"until","schema":{"type":"string"}},{"in":"query","name":"boot","schema":{"type":"string"}},{"in":"query","name":"grep","schema":{"type":"string"}},{"in":"query","name":"kernel","schema":{"type":"boolean"}},{"in":"query","name":"lines","schema":{"type":"integer","maximum":5000}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The entries."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: delete-a-unit
+title: "Delete a unit"
+description: "Stops and disables a unit kept in /etc/systemd/system, removes its file and drop-ins and reloads systemd."
+sidebar_label: "Delete a unit"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3EYM/SsETy0wlpwedXMRF3U+gKDrwiiMRTGW6NV0pRllSNlWBf33gjPK7iaug+SSkySKQ773RD7N2BDX0Q3igscKNxIGBusbaBzbu44YLIzeCexpEHAeSpK65ImF+ma9GojUhwdicMJw7zrKFWIYzpzP5SJ1wTYM68kCDYrdMVa3uKH44Gpi3BocbLQ9CUV9M6NTTIOVFg162xNW2AaWqwYNRvo4ukgNVhJHMsh1S73FakaZBs10XmhHEZfF/G8lpfUtdVii8ztclq0m8xA8E+v7X87P9fK5gq+pI6Gm0LbYk7ShwQqbFEWTIVRYDt24c/7MDq7kzP+st97uKJZzpriUCpDLWS9LqbKiQU3+pM4YO6xwzqEFzRdI/gpjhGuKvXuCnIMGH2x06bsq8jWaONzbsRPVV2TgqiwlHSzoyfZDR0UdelySBEz1GJ1MCcId2UjxYlRSt1sVug5h7+g0Ygf3lqZD5KTERqXOUE4LHZRXLLh+EX3OSWjWm99C7K1ifnNz/Yz9hphd8CBhTx6YfJpeaQm0SYjuX6uZ0JJtKIJl+DUVTdOqaelggYv5jNIBW2aFJk9WTjnO1j+P8iKiNzfXkPOBScAKsNv5M+cLuGnJwxBJ4RpwAmL3xBqpqSFfE4QHii+ySGhP5f5uJS8+XMGeJmCxUZzfwaOTFqR/+vsZnUPq90u7p8nAY+vqNjfiY5sCrgRsLazH1lwIj349XVvvQ0rQ99ZPwRNQx5T3zfn7kFg76ShJnq0FLj5c6fBT5Az+VXFenD+j9D5tIKwLyQbE9RSzgXVhxxA8TLpVuqGcv8Vm83uSfQgsvfXafZ2B7ASrf37ZSxfFC3n50aab50HoScqhs84r9mQk8+pNt3j0ptVwTtwJDVYHC04GpZGVYfKorUkerYXm+c4y/Rm7ZdHwx5Gi2sb2aEPJRFbWDVb3tmP6ilI//bGa9c/wEpdP6+mn5HbdqE9ocE/T8e+htvQDuyZ5lu3pD+H15bvL60tclv8A1cWXMQ==
+sidebar_class_name: "delete api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a unit"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/service-manager/{hostId}/units/{unit}/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops and disables a unit kept in /etc/systemd/system, removes its file and drop-ins and reloads systemd.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"unit","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."}}}
+>
+  
+</StatusCodes>
+
+
+      

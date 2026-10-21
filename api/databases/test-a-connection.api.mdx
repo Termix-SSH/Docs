@@ -1,0 +1,70 @@
+---
+id: test-a-connection
+title: "Test a connection"
+description: "Connects with the given login and returns the server version. Send id to reuse the saved password."
+sidebar_label: "Test a connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzZATbo9+q2924Deelh7yVAMRTAoNmursSWfRCf1DP/3AyU3zjXogHtZXpJQJPXxE/lxwIJC7k3LxlnM8IOzlnIOcDBcAVcEpdmThdqVxoK2BXjiztsQzwL5PXnYkw/G2QWsyBZgCmAHnrpAyUnvqYBWh3BwvligQtZlwOwRP2rWWx0o4EZhq71uiMnL0YBG0LSaK1RodUOYYeUC3xSo0NPXzngqMGPfkcKQV9RozAbkvhVPY5lK8jiOm+RNga9d0YvL2+DcWSbLcqTbtja5FiqWz0H4GM5zu+0z5YzjOI6SO7TOSgXZgL9eXsrX94Suz2lCiWyIK1dIjS4wqlRqhsu27kpjL3RrlsUrPcshlT4u8/Q8xtmwZIqBKXkirfM1Zjgk04jqDZa/XedhTb4xLxMmVLjX3uhtnUqYrLGKJ93VLLQztyFbLjkGLuhFN21Ni9w1QsJGEOSdN9xHCFvSnvxVJ9U8bkY1YO7cztCpRbfmD+qPlpMUK2E7QTlNdCRfsOD04PI/OaGafvzufKMF86eH9Vn1KwpCP7DbkYVAlsHY2KFyifPm3/jyUJEuyIMOcB2Txq4Xtxi4wFF9V9IRW6oKVWrd5DI37/OB30X06WENyR8CMWiGYEp7YewCHiqy0HoSuAoMA+sdBbHkVJDNCZy01ntVRLSndP8wk1d3N7CjHgJrz8aWkzA0L/+clXN0/XFqd9QrOFQmr9JFYb5mATcMWiRJh1dfcAc7RefaWhcd5Fzb3lkCqgOlMZMx/jILwG+peTEbRnmnJxcZMSymWY7g6u5GJiPNK2b4y+JycXlW77V3h0ARBRWG4XO/ur9V8FkG6uO1gjsXuPS0ur+NPqv7W8MEx6kGZ6GXiZThDvDkXQMCnvU2PpsIQ6OjCE09tKbAoGEWgbeQhlnN/iclT83E9MLLttbGCvCoQsOkaI84K5rAPUq+wuwo6CeyJklF2DYq6r0kGAaJ+MvX4yjmrx150ZrNrF1ReQoT5HeB2ZOuA/0HNT99mXbAz/BeDa8zbfsokXUn/1Dhjvp5E42bUWHq6YggHX5I91ysJcUcfLZcRPeOW+Duz5Uo1nZaUo0rJMbrg6w7fUiXuzZRJFtMbAPW2padLqPAxJzy+QYU27fw
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Test a connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Connects with the given login and returns the server version. Send id to reuse the saved password.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The server version."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: turn-a-route-on-or-off
+title: "Turn a route on or off"
+description: "Turn a route on or off"
+sidebar_label: "Turn a route on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v4zgM/SsET7uAmmQXc/Kt053BdPYStBkUiyIYKDYTq7EljUQ3yRr+7wtKzkcn28P4Ypt6pB5J8alH1puIxTM+0CuFSDAPbn/ApUKvg26JKchyj8ZigV5zjQqtbgkLNBUqDPSjM4EqLDh0pDCWNbUaix754BPKMm0o4DAsM5oif3TVQSA/O5fOMlmWJe19Y0rNxtnpS3RWbFex3eqFSkaFPjhPgQ1FWSWrV41EPQFXzjWkLQ7pER7ROxsz/M/ZTF4VxTIYLztigQ+uY4LOV5qpwkHhh9mH91DWMaxdZyuU2G8Riy5Y0BAS0FlwAdx6jQpb4tpVuailVDUVt8Cpb7qNsTfam2nITbnx0pRpihGnvamG6TFFhZHC67FJXWiwwD6bBvyZyz+uC7Cg0Jo9ZAwqfNXBSKxUitGa8lzrrmEssGb2sZhOOTlOaK9b39CkdK2UcykMyi4YPiQKK9KBwm0nuTwvB9Vj6dzW0KVFe/M3HU6WixCP0uFM5TLQqY/CBcdDlvqaQKjGj88utFo4f31aXGX/SDEaZ4HdlixEsgzGAtcEsokL5t902qAmXVEAHeFjCgraVgmWHCdyFi5TOnHLWaHKo5Ih52F52fG7jL4+LSDjIRKDZohmY2+MncBTTRZ8IKGrwDCw3lIUS0kV2ZLAvVJ4N4vE9rLcv1zJ2/k9bOkAkXVgYzewM1wDt/vvV+mcoL9e2i0dFOxqU9Z5o3jeZgL3DLrkKG4jFtzOjt6ltjJ+umRZ1/bgLAE1kSZpGEU6Hs6i8ykf3jciIdIzSNfWLtXHsADeCiLczu9lVijEnOsfk9lkdlWBo0+aV1i7AIu7uYJvf80VfFks5omxfDzm/NaBCEoRrrVoHcUEGCe0cRtjFbTa6g1V4ClA7SKnlnoXudVJFMfz9a7OvGF4aj/Tnqe+0cZKuKQb/ahAz3hWoCTwFxok/0mFUGGR9P9YxqVCYSfufb/Skb6FZhjE/KOjINqwPGtNUorKxLEDa91EumJ6ugzwt4fxnvgdUP1/BscZtIckaU0nf6hwS4d8Uw3LQWE+f2n3vHCX97hZiPvZ8eryEY06Cfb8dnH3RSZlvMVaV4lT0Dspj97lnV1KJElZsvXYaLvp9CapQQoqz39mf5bz
+sidebar_class_name: "patch api-method"
+info_path: api/reverse-proxy/reverse-proxy-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a route on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugin-api/reverse-proxy/routes/{id}/enabled"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turn a route on or off
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Route updated"},"404":{"description":"Route not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: answer-a-verification-prompt
+title: "Answer a verification prompt"
+description: "Sends the code (or password) the host asked for and waits for the next step of the connect."
+sidebar_label: "Answer a verification prompt"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUtv20YQ/iuDObUALblFDgVvTtqiThrUqFQYgWEUK3IkrkXubnaGllRC/72YXVpireSQQ3mROJzHN69vBqyJq2iDWO+wxAW5mkEagsrXBN/5CMEw73ysv0/ixrOA4S3VsPYRjKthZ6xwelMFR3sBFgrg16Mj56iSGRYoZsNYPuCHfkXRkRDjY4GRPvfE8tbXByyH9Goj1VhK7KnAyjshJ/rJhNDayijW+RMr4AG5aqgz+k8OgbBEv3qiSrCYOHpAJmbr3W2tKLyEd74mjR2iDxTFEidfJ62zO5Zo3QaPE7vLj+nRiBy84+zsx+tr/flvfd/lYlBdQKqel4YihOi7IDMN8uZLVouMC25/TgVPrXnJLjnSOo/gwTI4L6kr1m1yl5LJ6P/Npf/luU1A+6BuR+WfvqycpqC2dYpkHO8ognUgttMoxwI7ksbXWGLwrL0IRhoscR7afmPdlQl2vj0NwZy5mY/xr7TKWCBTfKao0zJgH1sscciiIxavAH3yfYQlxc7uIetggc8mWrNqX/qapCmVtelbwRIbkcDlfC7JcEZ704WWZpXvtJ2PiqDqo5VDgrAiEyne9JrFw+OxGLDyfmtpKjHBfqDDSTJxsdAZzVCmjk5jpFg056SG5aiExfjnVx87o5jf3y8vsn+ZDfFbcsDkJHWiIdAgPtp/0r5AQ6amCIbhbXKaJknVkmFq9zSlE7acFRZoNVpWwQKdSUifdvJVRO/vl5D1gUnACLDduCvrZnDfkIMQSeEWYAXEbIlVUlFNriLwzxS/mkVCOy33N1fy5u4WtnQAFhPTmuysNCDd/u+LdE6q317aLR0K2DW2anIgPoeZwa2AqYTVbNQFv3OjdWVcWq1KyRaMO3hHQC2P66Xk9+eZNn/Jw/uKwl7YacpcEzqzbu1T5ayo6YSU4ebuVleIIucS/DC7nl1fFOajcWZDMLGr2p6FIsM6+g4OupfKFJy7uVj8VuQCtH7DBXQk0VZcwKebj7+nrA1wQ22b2qvE0ZlE8eOs3WSeMfBM0a7HOzBy52tww/ls/N83LQ+e0F7moTXWKfjEWMPIeg94Zj0s8Mx7OqjcYDpxZ+57LFABqd0wrAzTX7E9HlX8uaeodPR4prfMPZgnMDHVlg75zmj2V0tFp+ptn5f51QFVljpx9d0fC+WX1XiIuzwx0ez0mJodlogF+lThxGVJNmBr3KY3m0QHyac+/wI7XuaC
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Answer a verification prompt"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/ssh/connect-totp"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sends the code (or password) the host asked for and waits for the next step of the connect.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","totpCode"],"properties":{"sessionId":{"type":"string"},"totpCode":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or another prompt."},"400":{"description":"Session ID and code required, or the session is not waiting for a code."},"404":{"description":"The connect expired."},"408":{"description":"The host did not answer in time."}}}
+>
+  
+</StatusCodes>
+
+
+      

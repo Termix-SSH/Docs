@@ -1,0 +1,69 @@
+---
+id: delete-a-connection
+title: "Delete a connection"
+description: "Removes a saved login. The database itself is not touched."
+sidebar_label: "Delete a connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzZAl3T36LcW7QG99YD2kkMxFMGBtZlYiy35JDqpZ/i/D5TdJL2uA4oBe7JNUeT3fRI/91hwzINtxHqHGX7l2u84AkGkHRdQ+Y11M1iWDAUJPVJksBK5WoON4LyA+DYvuZihQaFNxOwBL6fMiCuDDQWqWTjoUo9WuzQkJRp0VDNmWPoo1wUaDPyjtYELzCS0bDDmJdeEWY/SNZppnfCGAw6D+cdKuXfuvZVWmh0b7xRv1uPHszN9vJRF+WtxzjUAe4oQklLFTMFgzVL6AjMsuGJhNCOwDOdN1W6s+0CNnT8LGOf9SHmYH2vGeT+iH9Bg5LB7FqwNFWbYjyFdfInsD98GWHKo7ROMOWhwR8HSYzUSmqKJ05raSlRykSZm87mkjTN+orqpeJb7GockSeS8DVa6BOGRKXA4b5XRw0q1z73fWj6NUGN/5+4QOSmxUO1HKKeFDkehWHA6Iv0ek9BML598qEkxf75fvmK/4Bj1QMRv2UFkJ2AdSMmgTXywf1E6sJKp4AAU4SIVBXJFSksbZziYF5QO2EZWaMbLNqYcr9ufe3kT0ef7JYz5EFmABKLduA86TPclO2gCK1wDVkBoy1EjORfscga/4/Ami4T2VO53K3l+ew1b7iAKBbFuA3srJUj99P0VnUPq+6XdcmdgX9q8HBvFY5sZXAtQLlG3Tbng927anZNTZ6FcdJ1c5x0DV5HHYbNu7RNrK5XSPNgNnN9e6+3nEEf0v83OZmevOF0Ev4+cOnFhBb50i7sbA190aC4vDNz6KJvAi7ublLO4u7FytL8I3kGnU6dDHGEdfA0KUOgxHU3jo9TkFOF0Ty6TKQCdWMjPoHSknLCT/+zB41UQfpJ5U5F1Cil5SD950gMePUlhHMzaYHaw4hNj0vhkrCuTzFpr9L1u+haqYdDwj5aDmsXqaD7JOgob9b3AbE1V5H9h/cvXybN/hbdoPA+l65LHVa1+ocEtd8ffiJrR/9h1UmZYnf4FLq9urpZXOAx/A+rEiO4=
+sidebar_class_name: "delete api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a saved login. The database itself is not touched.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The connection was removed."}}}
+>
+  
+</StatusCodes>
+
+
+      

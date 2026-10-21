@@ -1,0 +1,69 @@
+---
+id: events-for-a-resource
+title: "Events for a resource"
+description: "Cluster events whose involved object is this resource, newest first."
+sidebar_label: "Events for a resource"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SuDOTUAI21z1M0tkmaTBgiyWyyChRHQ0thiLJEKZ2SvKui/FyTlj92NDymCnGST8/HeG/JxxIq49KYT4ywW+GfTs5AH2pEVhn3tmMDYnWt2VIFbfaVSwDBIbRg8set9SQos7YkF1sazZKhQ9IaxuMf3/Yq8JSHGpcJOe92SkA97I5rQsNNSo0KrW8ICmZiNs9cVKvT0rTeeKizE96SQy5pajcWIMnQxWLyxG5wm9d1aW2N/Rpn4+T9lvvXkh8d1uNNlKHY5eRk6cecsE4f9V1dX4fN4SAtoDAu49TymLHTFlqR2FRa4IUGVWBSYd02/Mfal7ky+PU4jP4yO8/Go+ZSPQbMpHwPWKU/FA1zyu8PQet9ggWNamlA9gfbZ9R5uybfmAVIMKtxpb/SqSYzm1UhqrftGsMBapOMizyUmZvSg266hrHQtTlETprL3RoYIYUXak1/0gd/9MuhdOrc1dL6iO/OehuPKWYmboH2Ccl7oOIqA5TCi8D8FoZp/vHG+1QHzu7vbZ+xvkpQgbksWmKyAsSA1QWjivPlXh0ioSVfkQTP8EYuCtlUMi4kZTuoRpSO2xApVOmAp5HTCvu7lIqJ3d7eQ4oFJQAuw2diXxmZwV5OFzlOAq8AIiN4Sh5WSKrIlgduRv8gioj2X+4eVXHy8hi0NwKK9GLuBvZEapH348ozOMfTHpd3SoGBfm7JOjfjUJoNrAV0Kh7Q5FtzeztmlttbFgLCv7eAsATVM6d4Zu3aRtZEm0Dx5Hiw+XofjT54T/N+zq+zqGakP2uoNwVlemVyYYe1dC0O4U7Vj4TSJm5u3KoFv3IYVtCTelKzg8+LD3xGxBq6paeJoOsfSahsQzufkdfL2tfOgjx7+FFW4VFbIyk98FNKxEHqQvGu0sQFe9JNxdqt7PLkVKjz5VTTg2bFQYXH+ThSz0RezU8+2tVQYNAtFx3Glmf7xzTSF5WTMwUkqw8GXKizWumFSuKXhiVXvdNMH1Bg85GBk30++qN9vn+bH4wVckuFwwe1w3vMA6EQ3eNsvbByl/cU94xin5fmL9tfrW5ym/wDkSvxS
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Events for a resource"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/events"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Cluster events whose involved object is this resource, newest first.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of events."}}}
+>
+  
+</StatusCodes>
+
+
+      

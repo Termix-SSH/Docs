@@ -1,0 +1,69 @@
+---
+id: download-a-log-file
+title: "Download a log file"
+description: "The file as text, up to its last 4 MB."
+sidebar_label: "Download a log file"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFFv2zgM/isEn+4A1emGPfmtw3ZbNwwYLjkUhyIYVJu1tdiSJ9FNfIb/+4GSk3jrdUOBe4pDfSK/jyK/EUsKhTcdG2cxx01NcG8aAh2A6cAK+g7YgeEAjQ4Mr+DT6wwVsq4C5re4Jv9gCgq4Vdhpr1ti8nIyopGEneYaFVrdEuZYu8DXJSr09K03nkrM2fekMBQ1tRrzEXnoBGksU0Uep0nNmb715IdzqjnxLxMF9sZWOE1bAYfO2UBBzl9eXsrPf+sXiYWzTJZjLjrwqmu0EBl/UmOaJoUtce1KzLEiRpWI5rjqmr4y9kJ3ZhVS0y5abXVFfjWmvkyrxlVhVbq9bZyWNgnw2M7eN5jjmEITqh+Y/+16DxvyrTlAwqDCB+2NvmuS4DkaNd/rvmF5EOYu5KsVx4sZHXTbNZQVrhU1W2FQ9N7wECnckfbkr3oRdLuVlymc2xlaRnRnPtJwiixSrKVticoy0amLwgXnF5T/CYRq/vjD+VYL5w83m0fq1xSCcRbY7chCIMtgLHBNIEWcN/9oQUJNuiQv0/06JgVtywiLFzOc1HeSTtySKlRpFBPkPItf9/wkow83G0h4CMSgGYKp7IWxGdzUZKHzJHQVGAbWOwoSKagkWxC4B/JPqohsl+1+dievPl/DjgYIrD0bW8HecA3cHr48knOCPr+1OxoU7GtT1KlQOJfJ4JpBFxyi3yQsuL2dbxfaWhcBcq7t4CwBNYEy8QU09t5F1YYbii1PXgRXn69l+MmHRP5FdpldPpL0KW4fzMsYFLBpyYdYWRYRnIVBtkq2M6S3WK/fx7Z3LnCroxvMM/Bm3lrQcjmayI8Vx7OlPMNo05MuHGhSyQvG2Vpu8Wwts2cszAUV5ifbFVnC6ugwWxUtWXKM450O9JdvpknCyW1l6UsTxEJKzO91E+gnmn77czbj3+Ep4jsazt79oJteICgucbSq/7/mcYXtsKx55DL3ZtpOCtMIRwbp8KooqOPFtWXm7cLq373d4DT9C528gCY=
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download a log file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/logs/download"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The file as text, up to its last 4 MB.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The file.","content":{"text/plain":{"schema":{"type":"string"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

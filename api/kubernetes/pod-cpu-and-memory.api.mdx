@@ -1,0 +1,69 @@
+---
+id: pod-cpu-and-memory
+title: "Pod CPU and memory"
+description: "kubectl top pods for a namespace or every namespace. available is false when metrics-server is not installed."
+sidebar_label: "Pod CPU and memory"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1vGzcQ/SuDObUAvXJ63JtbJK2TBjBqG0ZgCAG1O9Iy4pIbzqzkrbD/vRiuvhzXAXLKSdJwPt575DztsCaukuvExYAlrvsFVeJBYgddrBmWMYGFYFvizlYEMQFtKA2nUAF2Y523C0/gGJbWM8G2oQAtSXIVXzClDSU9DFHABRbrPdUFGhS7Yiwf8UO/oBRIiHFusLPJtiSU9GyHTpF1Vho0qGOxRCZmF8N1jQYTfe1dohpLST0Z5Kqh1mK5Qxm6nCzJhRWOo9n3+tpTGk7NjlTwe8VzncRdDEys579dXurHc/3u2a4IUtxyofOwJWlijSWuSNBMJEqcdb5fuXBhOzdbH5nP9nrNdkd240wvQWFlCSc5+uSxxN0UGtF8A+FT7BPcUWrdE0w5aHBjk9Mbysj30Qx+aXsvWGIj0nE5m0kuLOjJtp2noootjpk7U9UnJ0OGsCCbKF31yuZxrrpWMa4dnUds5z7QcIyctbhVjSco542OkiuWw1Xo7ykJzf7Lu5haq5jfP9y9YH87SQcS1xSAKeiDA2kIdEhM7l+rmdCQrSmBZfg9NwUb6pyWCwsczTNKR2wTKzTTQ5pSTi/py1ZeRfT+4Q6mfGASsALsVuHChQIedFu6RArXgBMQuybWSEU1BV07XaDXWGS053L/sJJXN9ewpgFYbBIXVrB10oC0T59f0Dmm/ri0axoMbBtXNdMgPo0p4FrAVsJats+FuA376soGtQ5biZ7bMMRAQJ5p2jIXljGzduKV5slN4OrmWp8/JZ7gvykui8sXpD7aoHt7Vlf5ntWAYJliC4PuVBNZeLqJ29u/zATexxWbg9MZ+HT18e+M2AI35H2+mi6ytDYowv07uYk1/HFznzNbamN2o2eQdKOCUJCfYcrT4xF6klnnrQtKIrvObu9gj3hyMDR48jDMlqcD0GB57tLZyOYGVUVtsNstLNN98uOo4cmS1Vtqxwq7xjKjNrim4RuT3ljfK0JUVzlY2/8XvyrqL//s/zZ+hdcoH1Y+DOczD4BO5Mb5udP/+fYOx/E/P/SMnQ==
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pod CPU and memory"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/metrics/{sessionId}/pods"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+kubectl top pods for a namespace or every namespace. available is false when metrics-server is not installed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Usage rows."}}}
+>
+  
+</StatusCodes>
+
+
+      

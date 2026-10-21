@@ -1,0 +1,70 @@
+---
+id: save-a-connection
+title: "Save a connection"
+description: "Saves a database login for a host. The password is sealed before it is stored."
+sidebar_label: "Save a connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v4zYQ/SuDObUAY6c96pZ0u0C2WTRZpwiKwCjG0thiLJFachRHFfTfiyEd25sgC+yhukgazsd7Q87jiBXHMthOrHdY4IKeOAJBRUIrigyN31gHax+AoPZRZnBXM3QU486HCmyEyNRwBSte+8BgJdnEB65maFBoE7F4wA/7hBGXBjsK1LJw0KURrVbuSGo06KhlLFBLXVVoMPDX3gausJDQs8FY1twSFiPK0KmndcIbDjhNy+zNUS59NajL6+DSO2EnukRd19iSlPb8MSr38W1uv3rkUnCapklzx847ZVCM+Ov5ub6+bZ52JtITV1B657hU8ww1tmWpfaUsfRQ0mWyB867pN9adUWfnLx2P8zGTn+bHLBENRg5PLx3rQ4MFjtk0oXkF5G/fB7jj0NpnyD5o8ImCpVWT8e+ticKa+ka05yJdLOZzSYEzfqa2a3hW+lY7sFQEZR+sDAnCiilwuOiVyMNyMiOW3m8tn1qos3/wcLCcpFhoqzOU00SHzisW3O+2/mcnNPuPjz60pJg/3d+9Yb/gGK13IH7LDiI7AetAagYt4oP9N2071EwVB6AIlykpkKuSWwqc4WS+oXTAllmhyec2uxxP7uNO3kX06f4Osj9EFiCBaDfuzLoZ3NfsoAuscI1OkdCWo1pKrtiVDP6Jw7ssEtrTdv9wJy9urmDLA0ShINZtYGelBmmf/3lD5+D6463d8mBgV9uyzoXiscwMrgSolKhhe1/wO7ePLsk5nxx0ndzgHQM3kfOE6Qx/OU7/7/nwYjFOuk9rnzpiRU1HLYKLmyudDA4xM/tldj47f8P3Mvhd5ISCKyvweVjcXhv4rAP14dLAjY+yCby4vU4+i9trK3yQ0AjewaATqXMdYR18CwpeaJW2TTWhpaRA+zOkKgx0oiKvIY1HKfsfJDsfHOFnmXcNWacgk+KMe+F6wKNwKbSDthssDsp9ql5LkxRdI8dRXf8KzTSp+WvPQQVleRSoJC+VjfpdYbGmJvJ3+P/0Za/yP8N74F8G1w1JB5te/9DglofjXTMtJ4P54CYEefG3XOfsTlMcg99cHypuB5W/+XOhsrTaX0OtrzQm0E4vNNrl4r7LvdF7Sm0jNuQ2PW2SiqSc+vwHv2ej4A==
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save a connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves a database login for a host. The password is sealed before it is stored.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved connection."}}}
+>
+  
+</StatusCodes>
+
+
+      

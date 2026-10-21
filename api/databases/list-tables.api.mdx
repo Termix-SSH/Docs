@@ -1,0 +1,69 @@
+---
+id: list-tables
+title: "List tables"
+description: "Lists the tables and views of a database."
+sidebar_label: "List tables"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zgQ/SuDObUAK6V71C1Bt0XSFEjWXgRFYCxoaWxxLZEqObKjFfTfFyPKitMkh/TQk6zRfLz3yHnusaCQe9OwcRYzvDaBA3BJwHpdUQBtC9gbOgRwG9BQaNZrHShBhay3AbN7/DTFAq4UNtrrmpi8fOrRSNNGc4kKra4JMyxd4MsCFXr60RpPBWbsW1IY8pJqjVmP3DWSaSzTljwOg3qxU+6s/dVOP1ry3WOrYo0vlAX2xm5xGFYyIzTOCsusxz/OzuTxVLvlC6olMhJr4tIVmOGWGFVkkWHaVO3W2A+6MelR15D2UZ8hFXaUS++Q9pHqkMb+gpX8/ihy6yvMsI+hAdVPuL671sOSfG0eIOagwr32JvbK+qlZZLTRbcVyTMxNyNKUx8KEHnTdVJTkrsZhFCRQ3nrD3QhhTdqTP2+F2P1KVM6d2xk6jejGfKVujpy0WIjwEcppo/kcBMvxfOQ9JqGafnx2vtaC+epu+Yz9gkIwzgK7HVkIZBmMHW+4DHHe/KclE0rSBXnQAS7GpuMZjosghQkO6gmlGVtkhSpeq5jyeK/+PfCriK7ulhDzIRCDZghmaz8Ym8BdSRYaTwJXgWFgvaMgkZwKsjmB25N/lcWI9lTuNyt5fnMJO+ogsPZs7BYOhkvg+uGfZ3Tm1LdLu6NOwaE0eRkHhccxCVwy6JyDlE254A52qs61tW5MkO/ads4SUCXGJAtn7MaNrA1XQnO2KDi/uZTbTz5E9B+Ts+TsGacL7w6BxklUGIZv3eL2WsE3WZpPFwpuXOCtp8Xt9ZizuL02TLM5BnAWOtk62eUAG+9qEICs1+PRNC5wra0gnO6J+C7My/0EjKySZbL8VnuOJ870wGlTaWNl8mgV/eRA9/joQDJ19nGF2ezSJzYk8dlzJ7ArNRq6NOt7qf7bV8Mg4eiwYg6FCZJcYLbRVSCFO+qOnrvXVSswUfzgaEovV72qyru/Jv9/D6/xPi6r7U5nHpFMZMWkfuPUScphdfoP8eXPJQ7D/wVDmMA=
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List tables"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/tables"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the tables and views of a database.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The tables and views."}}}
+>
+  
+</StatusCodes>
+
+
+      

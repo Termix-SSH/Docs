@@ -1,0 +1,70 @@
+---
+id: update-a-row
+title: "Update a row"
+description: "Changes a row found by its primary key. Tables without a primary key cannot be edited."
+sidebar_label: "Update a row"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsETy2g2GmPuiW7XSDbLJCsHQRFYCxoibYmlma0M1QcVdB/Lzjj2N64WSCH1gdZ4pCcx6/HAUsOhTetGGcxxw8V2TUHIPBuCyvX2RKWPRgJ0HrTkO9hw/0E5rSsOcDWSOU6ATo+hYKsdQJLBi6NcDnBDIXWAfMH/EhCSwoccJFhS54aFvZ6NKBRBC1JhRlaahhzrFyQqxIz9Py9M55LzMV3nGEoKm4I8wGlb1XTWOE1exzH7F89Fc7a93paJG0OcunKXlVeGxfOClvRI2rb2hSkiZw+Bs3mcOrbLR+5EBzHcVTfoXVWc5EP+Pv5uf79WI55xWC7Zske3EpLEqCIFSonGig2LJUrNdZOMEsR5zht625t7Bm1Zlq+5Hs6pFyOU80EF3pDmA4pLePUuy1mGNg/vVSj8zXmOCTRiNkraH+5zsOcfWOeIelghk/kTeyMGHySxqBW1NWi9RRpQz6dSjSc8DM1bc2TwjWak4UiKDpvpI8Qlkye/UWnUT0stLCFcxvDxxJqzZ/c7yVHLmaa/ATl2NG+FooFd/XX76SE2e7lk/MNKebP9/OT6GccgnEWxG3YQmArYCxIxaCXOG/+jo0AFVPJHijAZXQKZMuoFg0nOGY/hLTHlqLCLHVyUjn08uNW3kT0+X4OSR8CC5BAMGt7ZuwE7iu20HpWuBkYAaEN62BzwSXbgsE9sX8zioj2ON3vzuTFzVUkiCDkxdh15A+Q5vnbSTh71fendsN9BtvKFFW6KByumcCVABUS1GynC25rd9Y74qJC9Jxs7ywD14HTtOlUfz3wwR+peTEfRq3TysWMGFHRgefg4uZKJ4N9SJH9NjmfnJ/Ee6nDzRGFkiZ86We31xl80YH6eJnBjQuy9jy7vY46s9trIwz76QZnodeJ1CEPsPKuAQUvtIxla12QhiIn7Xrori1JOBH9azTDgdf+w42Qekf4WaZtTcYqzkg6w47IHvBAZApxvzoyzPeL4YjNVH6gebfVFaN66mkY1PTO1+Oo4u8de+WYxYGzIuOUJuh7ifmK6sA/ycsvX3er4Fd4K5iXWbZ9pMa60y/McMP9YbUph/2Pt+7yMy7GDNMExbjT4Yd0z9lcXRyMTzabsux+9dzcKT0udwuycaWaeNKm0me827WpQLpBVTZgTXbd0TqyWXSpv38A4inzBw==
+sidebar_class_name: "put api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a row"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/row"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Changes a row found by its primary key. Tables without a primary key cannot be edited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The number of rows changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: continue-after-a-browser-sign-in
+title: "Continue after a browser sign-in"
+description: "Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example)."
+sidebar_label: "Continue after a browser sign-in"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVUtv20YQ/iuDubQF1pJb5FDw5vSBOGnQoHJhBIZRjMiRuBa5y+wMLSuE/nsxS1oSLPeQUwUBoobz+Ob1zYAVS5l8pz4GLPCXGNSHngUIyhgClwq0Uk6gNUMvnGDlg5eaKxC/Dj6swQf72vtliltT+Z4CLBbvYE3KW9p9J0Bdl+IjNQ5WMQE/Uds1/MMMHSqtBYs7/NAvOQVWFrx3mPhLz6JvY7XDYsh/feIKC009OyxjUA5qr6jrGl+S4Z8/iCUxoJQ1t2RPuusYC4zLBy4V3YmjOxQW8TFcVxawS7HjpJ4lOzi8OvoQTT6scZ8/5km6GGTU/+ny0n7Oamn148pBTEAhas0JuhTbTme4d/jmNavFGBquf4VnsNne6jvBAi8QosKWvFoDrKR0KL615cKHKcKb8wg3NR96y0+dRZiUf35duY6iUPkqB6UgW065477lGVotWtY6VlhgF8Wq3JHWWOC8a/q1DxfU+fnm0N65SD2f4l9MoC8m0OhQOD1yspEYsE8NFjiMoj26F9g+xz7BDafWP8Gogw4fKXlaNs99zNKc1Yr6RrHAWrWTYj7XbDibZnFWxtZ6e28Iyj553WUIS6bE6aq3hO7u927AMsaN51MJdf4D7w6SExcLG8QRyqmjw0wZFss5q2ExKaGbHn6PqSXD/P725iz750HRuOEAwkGf19CCxOS/5qWAmqniBCTwNjsFClVWy4a586cpHbCNWaFDb9FGFXQYKCN92Op/Inp/ewOjPggrkB5mEm5rDtAlNrgOvILShsUkJVccSob4OJHNa1lktKfl/uZKXn26hg3vQJRSXp6t1xq0ffrnLJ2D6reXdsM7B9val/UYSI5hZnCtQKWKmU26ELdhsi4p5C0z3hWgsIuBgRuZNs0Y7q8jN/42Du8LyjpQlfVuFXOVvJraCcvC1adrWxdOMqb74+xydnlWhI8UaM1wYlc2vSgngVWKLexsB40gZOzcYvHOjck2cS0OWtbkS3Hw+erjHzlDAqm5aXIrjS9aypw9zdXzAZquzhmtvQQ4HG/B/3G8xuFTftJ515APllRmrWEiwTs8kiA6PNKgDavUmG/Zq1R479Dqai6GYUnCf6dmvzfxl56TsdP9ke1GKsJxIDNxbXg3lYSDXtwYUFNv+nG3XxxNI60Di3/6c2F0s5yObxsrs0m0tQNKWywQHcbcgExtWTZgQ2Hd0zqzQ/Zpn38BTPjrfQ==
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Continue after a browser sign-in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/ssh/connect-browser-sign-in"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId"],"properties":{"sessionId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or another prompt."},"400":{"description":"Session ID required, or the session is not waiting for a browser sign-in."},"404":{"description":"The connect expired."},"408":{"description":"The host did not answer in time."}}}
+>
+  
+</StatusCodes>
+
+
+      

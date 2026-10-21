@@ -1,0 +1,69 @@
+---
+id: container-cpu-and-memory-of-a-pod
+title: "Container CPU and memory of a pod"
+description: "kubectl top pod with one row per container."
+sidebar_label: "Container CPU and memory of a pod"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VV1v4zYQ/CuLfWoBnpX2UW/poR+56wFBkyA4BEZBS2uLtUTquKs4qqD/Xizpr1yaAimKPtleDndnhuR4wpq4iq4XFzyWuB1WVEkLEnroQw07Jw0ETxDDDnqKUAUv1nmKCzQodsNYPuDHYUXRkxDj0mBvo+1IKOrahE779lYaNOhtR1giE7ML/qpGg5G+DC5SjaXEgQxy1VBnsZxQxj6BJTq/wXk2f9srffybNl8GiuPzPtzb6m3NlgrmPngm1vXvLy7047mpd2w3yUFe6HzsSJpQY4kbEjRZT4lF3w4b59/Z3hXbo6FFRxJdxcV0NG0u+lBzMSnjGQ0yxceD2UNsscQpl3TxOZPPYYhwS7FzT5AxaPDRRmdXbRawryYNazu0giU2Ij2XRSFp44KebNe3tKhCh3OygKkaopMxUViRjRQvBxX1sFS7qxC2js4rtncfaTxWzlrcqNWZynmjo/PKBfcnor8zCM3+y08hdlY5f7i/faH+JjsIErbkgckLOA/SEOiQEN2fVpHQkK0pgmX4ITUF6+sESxsXOJtnko7csio0+X5lyOmC/bGTVxl9uL+FjAcmASvAbuPfOb+A+4Y89JGUrgEnIHZLrJWKavIVQXik+KqKxPbc7jc7eXl9BVsagcVGcX6TM0G6p99fyDlC327tlkYDu8ZVTR7EpzELuBKwlbBu22Mh7Px+d2W9Dwmg69aPGlfUMuXH5vw6JNVOWpV5yiq4vL7S60+RM/3vFheLixeiPlmvz/dsX9UOrPEG6xg6GPVNNYGF80nc3PxiMvk2bNjA/gEb+Hz56dfE2AI31LbpaPrA0lmvDPf35P0hYeH99V3Cd9SFOEJYg9VQ/pqhPjAv5OXt+Z1vgtCTFH1rnVdGKUKmfSo94CmV0OAplzDFmApDg+V5oGs4aS3JWRpUa7TRNK0s011s51nLOX41MGrHGj81lmvbMv2Dum9+2wfzt/Aa+y2NX4X5o20HxaHGzCHr/vvBhwzw4/nMA6GTQRp//+PgdArz8vxf5+cfb3Ge/wLfQL5f
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Container CPU and memory of a pod"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/metrics/{sessionId}/pods/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+kubectl top pod with one row per container.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Usage rows."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: create-a-service
+title: "Create a service"
+description: "Writes a new service from a form, and a timer when a schedule is given, checks both with systemd-analyze, then enables and starts them when asked."
+sidebar_label: "Create a service"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVs1u40YMfhViTi0wsdMefUuyLZotigbrFEERGAUt0dLE0ox2hoqjFfzuBWdkS4ntAnurLrb4T4r8yF7lFDJvGjbOqoV68oYpAIKlHQTyryYj2HhXA8LG+VoD2hwQ2NTkYVeSBYSQlZS3FYEJUJhXshqykrJtgLXjEnaGSwhdYKrzK7RYdd9IA4suWVxX4s/mEBg9B6HXg+GwpXymtGIsglo8q2WKJ6iVVg16rInJC6dXRoJvkEullcWa1EKVLvB9rrTy9LU1nnK1YN+SVhJujWrRK+4akTSWqSCv9vtVkqbAty7vROSjcuYsk2VhYdNUJkOp3PwlSPn6U9tu/UIZK60a7xrybCgIN8V4lArsjS3UXr//HGf49EbZUip1lpsIZxhtIH+WUXjXNmc5O+e3xhafjKeMne/Oh2NfjXe2Hkoy8NF77JRWhqkOZ/T2UuZwMYuBt6Ts3EfSCjd8IZsdWqb89lKs0mwT1tq5itAK72MwE5azd1iRzfGcy/jEiBtnQ/q2P19fy8/7wXosCVprYoMjw448QY05zWI1auLS5dLCLsRmkU5eqHlTtYWxV9iY+TCMVzVaLMjP+9Tf+3m0qrQSgcM4tL5SC9Un0l59aCv1t2s9PJKvzRskGaXVK3oTpzH2caLGNDbYViwDxdyExXzOUXFGb1g3Fc0yV0sdVhJB1nrDXQxhTejJ37SSyPNqr3uVObc1NKVgY36n7kiZmFjKHKVQpoaO9ZdY1DDK8XtFIaWHP786X6PE/Pnp8ST7JYVgnAV2W7IQyDIYK7gD4sR58y3ONJSEOXnAALfRaEQpEYuKM+mNaUpj98espP3FWxIZYellxxcj+vz0CEkeAjEgQzCFvTJ2Bk+CiI0nCVeDYWDcUhBKRjnZjMC9kr+YRYx2Wu7vruTNwz1sqUswbWyRYJ3rt39O0jmKfn9pt9Rp2JUmKw/74OhmBvcMmHEQtUEW3M4O2hla66KA8NF2zhJQFYYJE4D+MkL7L6l5Ryg+TPTHXI7kCfCOxPdocIDZ8X1A15FwCqoTD1MsfT7QVxOsHGWnEHl9RMSJnyMQTu0n/Bu2YDKZXqYYN0FMYzcutophUTwuYLh5uBfEIB9SlX6aXc+uT2r3R4SqwxkRdLoa0ravXBHAWegEigTKQmrg5fK32KsChDXayQe684RMcm4kex/d9eNu/p+eMalZmN543lRo4naJSN0PgP+sRsAfEH0C+UqrxfGoSai/0vHMEc2+X2Ogv3y13wv5a0vSXc+rEdgjLOcmyP9cLTZYBfqPGv7wZTh9foRLwR8Az3Zxf1StvCmtttSNB9h+tdcqDXyMIDHvkp+rRzExKp/cVLIUjtvx4c+lwPl6uM1ql4uOx51MBO6Scxdziasj0npVoS1aLCL6Rpvy/AuWec6W
+sidebar_class_name: "post api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/service-manager/{hostId}/units"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Writes a new service from a form, and a timer when a schedule is given, checks both with systemd-analyze, then enables and starts them when asked.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"},"execStart":{"type":"string"},"type":{"type":"string"},"user":{"type":"string"},"group":{"type":"string"},"workingDirectory":{"type":"string"},"environment":{"type":"array","items":{"type":"string"}},"restart":{"type":"string"},"restartSec":{"type":"integer"},"after":{"type":"string"},"wantedBy":{"type":"string"},"enable":{"type":"boolean"},"start":{"type":"boolean"},"onCalendar":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The units that were made."}}}
+>
+  
+</StatusCodes>
+
+
+      

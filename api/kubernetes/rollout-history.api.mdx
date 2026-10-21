@@ -1,0 +1,69 @@
+---
+id: rollout-history
+title: "Rollout history"
+description: "The revisions of a deployment, statefulset or daemonset. With revision, the pod template of that revision."
+sidebar_label: "Rollout history"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu40YM/RWCL22BWTst+qS3FOglu11gkaQIFoFRTCTamno0ox1STlRD/15wJF+S2A8p2n2SNDokDy9zuMWKuEyuFRcDFnhbEyTaOHYxMMQlWKio9bFvKIgBFiu07DyTQExQWWpiYJIZ3Dmp95YGpCZoYwVCTeutkLqS2soeMkODYleMxT1+6B4oBRJiXBhsbbINCSX9t0WntForNRoMtiEskInVxVWFBhN96VyiCgtJHRnksqbGYrFF6dsMluTCCofBnPS1duG/cJMf/8bNl45S/9wPt7ZUZ2823tX2lK0LQitKOAwLpcmt9o0V8MPFhT6ez8H1bgaM9jmGw1R8w1CRWOd5hoPBH09Z6xRpYaG2DCFCit7HTqB2LDH1M00BG5I6VljgigTNWM8C563vVi68s62br/dzMU/EsUsl8Xy77/4w32qQYb7V/If55F2zp7TZzU+XPBa4HY8GNC+ofo5dgltKjXuCEYMGNzY5++DH+kynOcml7bxggbVIy8V8LtlwRk+2aT3NytjgkCvMVHbJSZ8pPJBNlC47TfB+od0rY1w7Oj6xrftA/f7kyMWNtnKkcuxo31nlsuu4fo8gNNPLLzE1Vjm/v7t9lf3NWEuQuKYATEHAhXx5NUhM7m+rSKjJVpTAMvyUnYINVYZlwzwIxyntuY1ZoRnHdYQc5vWvRznL6P3dLYx4ULGxAuxW4Z0LM7irKUCbiLMkOQGxa2I9KamiUBLEDaWzWWS2x+V+cyUvP13BmnpVwyQurOBRxU+apz9fpbOHvr20a+oNPNaurMdAfAgzgysBWwqr2YSF+Bgm69KGEDNA/9vQ6/0lzzRePBeWMWftxGuaB/mFy09XOv6UeKT//exidvEqqY822BXBkV3pO1bFhmWKDfR6p+rIwmMnbm5+MyN5H1dsoCFJrmQDny8//p4ZW+CavM+taSNLY4MynObk+rl8vOSj1ykIBfnq+2scG6EnmbfeuqD0s95sJzm7x4OcocGDoOVdMUkaGiyOV1ox7aRiWiq7tBcGtajqdbt9sEx/JD8MejzuAZWayrEKV4XF0nomg2vqX6yVjfWd0kaVnTP4o01ygC8Owng61tmufHs97cXv4FzZdoIR+uOYOz6H8pwk/f8Fzq34yjFz24fF8Yr89edbHIZ/ACChVfM=
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rollout history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The revisions of a deployment, statefulset or daemonset. With revision, the pod template of that revision.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}},{"in":"query","name":"revision","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Revisions, or one revision's details."},"400":{"description":"The kind has no rollout history."}}}
+>
+  
+</StatusCodes>
+
+
+      

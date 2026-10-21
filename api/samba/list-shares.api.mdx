@@ -1,0 +1,69 @@
+---
+id: list-shares
+title: "List shares"
+description: "Lists the shares this plugin manages and the other shares in smb.conf, which are read only."
+sidebar_label: "List shares"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VE1v3EYM/SsETwkw0To96uYUbeE0BYKsA6MwFsGsxF1NV5pRhpRtVdB/Lzij/XANF8ihpx1xH4fvccg3YU1cRdeLCx5L/ORYGKQh4MZG0qNj6Nth7zx01ts9MVhfJ0iQhuIR6Dxwty2q4HcGHhtXNWAjQSRbQ/DtWKBBsXvG8h7Xttta3BjsbbQdCUUNT+iUQm+lQYPedoQlNoHlpkaDkb4PLlKNpcSBDHLVUGexnFDGXpHOC+0p4jxvFM198EysgJ+urvTnudJraB0LhN0ioMB5NtiRNKHGEvckaDKXEle5Ae9s71as3FdT5jWvcjIaZIoPRx1DbLHEKYdmNP8q/WcYItxS7NwTZAwafLDR2W2bGS/RRHpnh1a0EyI9l6uVpMSCnmzXt1RUocM5aWaqhuhkTBS2ZCPF60H5329mM2EVwsHRZcT27ncaT5GLK9ba3Ezl8qJTr5ULLm+g3xmEZjn8GmJnlfPHu9sX6tfE7IIHCQfywORFZ0fnSYuE6P62ioSGbE0RLMOHdOlp7FJigbN5JunELatCk6cpQ87z9NejvMro490tZDwwCVgBdnv/zvkC7hry0EdSugacgNgDsUYqqslXBOGB4qsqEtvLdv9wJ68/38CBRmCxUZzfw6OTBqR7+vZCzgn646090Hhc3lSIz2UKuBGwlbCmLVgIj37Jrqz3IQH0f+vH4AmoZcp75fwuJNVOWpWZHADW2TquP9/oAlDkLOB9cVVcvZD1cyQrlIplI4J8yZv1Hx/ews61R88yMDDFbFO9Lkt6XYbgYdTN09Vl2MXQgZIUu03P0weWznplucyKmiGcFvwZG10nL+Tl//fMPCdCT7LqW+u8ck0GMy32dI9ne9JRSuZqsDxZ5yJhY5KbasI0bS3T19jOs4a/DxTVNjZnG0omUjvWc43lzrZM/9GDN18We34Lr3E+rqcfk9u1g36hwQONZ5+fN5cm/NsvtzjP/wCXG0p0
+sidebar_class_name: "get api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List shares"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/samba/{hostId}/shares"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the shares this plugin manages and the other shares in smb.conf, which are read only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of shares."}}}
+>
+  
+</StatusCodes>
+
+
+      

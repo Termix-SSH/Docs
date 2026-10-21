@@ -1,0 +1,69 @@
+---
+id: describe-a-table
+title: "Describe a table"
+description: "Returns the columns and indexes of a table."
+sidebar_label: "Describe a table"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9v20YM/lcIPm3A1Ur3qLcEaYd0KZDUHoIhMIqzRFtXS3fqHRVbE/S/D9TJstvExdLtyTbNHx8/Hj92mFPIvKnZOIspfiJuvA3ABUHmyqayAbTNwdic9hTArUED61VJM1TIehMwfcRrzXqlAwVcKqy11xUxefmrQyNpa80FKrS6IkyxcIFvclTo6WtjPOWYsm9IYcgKqjSmHXJbi6exTBvy2PfqxUyZs/ZnM31tyLfHVPkKXwgL7I3dnI8aA34iciDx3yCfEi3FOdTOCtFph79dXMjHtwNcvDy4mQDBirhwOaa4IUYVuUwxqctmY+wbXZskP0wy6eKU+kQ4pkzSh6SLhPdJLLqSBgL5p8OwG19iil009ai+A/eXazwsyFdmD9EHFT5pb4SLoafROrS11k3J8lyY65AmCQ+BM9rrqi5plrkK+4GVQFnjDbcDhBVpT/6ykdYel8J+5tzW0KlF1+YPaifLSYq5sB+hnCaahiFYDtOW39EJ1fjlvfOVFswfHhbPup9TCMZZYLclC4Esg7HDpkkR583fWjyhIJ2TBx3gakg6zFHchsAZ9uqbliZssStU8blFl+N7+7Ljs4g+PCwg+kMgBs0QzMa+MXYGDwVZqD0JXAWGgfWWglgyyslmBO6J/NkuBrSndL+aycu7G9hSC4G1Z2M3sDNcAFf7z8/amVxfT+2WWgW7wmRFLBSOZWZww6AzDhI2+oLb2TE609a6wUH+17Z1loDKQHHljF27oWvDpbQ5SSVc3t3I6ycfIvq3s4vZxbOerrzbBRoqUW4YPrbz+1sFH2Vprq8U3LnAG0/z+9vBZ35/a5hgWmNwFlrZOtnmAGvvKhCArFfDaGoXuNJWEI7v5Hrc7IPOf49I9skyWX79tYiDZ9pzUpfaWAEwKEY3StEjHqVI6k5nRWE6HY0TPRL7dAImSVqq4cJIuq6T+D992fdijhIsKpGbILByTNe6DKRwS+3hCDzpshGgKFJxxnHS/R87n2Xul0+j7P8K55iJhQ4zONZZHiXz5Vb+S9GDlNj2tOYBzDiD/73VH1cdJ9wvTy/Y7+8W2Pf/AC+h+/0=
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Describe a table"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/describe"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the columns and indexes of a table.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","schema":{"type":"string"}},{"in":"query","name":"schema","schema":{"type":"string"}},{"in":"query","name":"table","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The columns and indexes."}}}
+>
+  
+</StatusCodes>
+
+
+      

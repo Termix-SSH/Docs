@@ -1,0 +1,68 @@
+---
+id: add-a-cloud-account
+title: "Add a cloud account"
+description: "Add a cloud account"
+sidebar_label: "Add a cloud account"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu4zYQ/ZXBPDO2d9GX6s3byzZbFGs0KYIiMIqxOLEYS6SWHPkSw/9eDCU7tpN9WD3Y0nAu5ww5h3sUWiYsHvGXOnQWZjGsneWYcG4w8reOk3wKdofFPn+6yBYLiR0bLIMX9qJL1La1K0lc8OPnFLzaUllxQ/omu5axwLB45lLQYBtDy1EcJ11th5Jnnkmi80s8GPTU8LsLZWTLXhzV6b0SZK1TNFTPLopd5ekfZZra4FPv83HyQf8spzK6VrNggdOyDJ0XIGvZKoCfJpO3Xn+5lJxfQojg/JpqZ+HJcW1TH/HzO3k90JB646QCqUhAWQNvXZKECu8qxFogKPN+DbFosGGpgsUC25Byk0kqLHDc1t3S+Rtq3TiH3Bz7ncZDcEKDieNad7143GMXayxw35sOeF3+39BFuOfYuC30PmhwTdHRou4bOFgz1yfqasECK5E2FeOx5MARb6lpax6VodFdmCuCsotOdhnCgilynHZK4XF+MHssQ1g5PrdQ6/7k3clyluJOT14P5TzRafcVi3LOblgMTmiGl99DbEgxf3m4f8P+jlNywYOEFXtI7AWcB6kYtEiI7iVPAVRMliNQgk85KZC32S0HjvIRPqN0wtazQoNOq/UueJwDfN7IdxF9ebiH3h8SC5BAckt/4/wIHir20EZWuAacgNCKk1pKnaKSIaw5fpdFRnve7h/u5HR2CyveQRKKogPSn/Vm+98bOifXH2/tincGNpUrq75Qei0zglsBKiVp2OALYeOH6JK8D9lB18nvgmfgOvEoz59K2t+vYvhbf3gvxeuoKae9On1fSpXmc/4p5C460TTX2gvT2a3OFMfU9+TDaDKavO2UtVCFJAmeYmhg+nBnYPrSRTbwOYRlzZDzGvjVLZ1Q/bVk8gb+YHk58g5SceylJJlsWTG32qBGe592vsybr5rSUJb1gd37InQB8HRKhLcybmtyXnNledkP+vSIr/qkrbpUKBXyo0bNDSpZDdnvF5T4n1gfDmr+1nFU2Zi/ylCvEdiflKwoK95po/sr6+Zegal73fVDd3V9qZqcBHX29U51YDFcg02wGhNpgyb/FogGQyadNSfb9liTX3a0zGObc+rzPygWlWs=
+sidebar_class_name: "post api-method"
+info_path: api/cloud-providers/cloud-providers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a cloud account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/cloud-providers/accounts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a cloud account
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"provider":{"type":"string"},"name":{"type":"string"},"credentials":{"type":"object","additionalProperties":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Account added"},"400":{"description":"Missing or invalid fields"},"409":{"description":"An account with that name exists"}}}
+>
+  
+</StatusCodes>
+
+
+      

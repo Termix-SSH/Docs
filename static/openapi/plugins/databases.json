@@ -1,0 +1,587 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Databases API",
+    "version": "1.0.0",
+    "description": "Browse and edit MySQL, MariaDB, PostgreSQL and SQLite databases on your hosts from one tab."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/databases/{hostId}/tools": {
+      "get": {
+        "summary": "Database clients on a host",
+        "description": "Reports which of mysql, psql and sqlite3 are installed on the host and their versions.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The installed clients, or null for a missing one."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections": {
+      "get": {
+        "summary": "List saved connections",
+        "description": "Returns the saved database logins of a host. Passwords are never returned.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved connections."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save a connection",
+        "description": "Saves a database login for a host. The password is sealed before it is stored.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved connection."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/test": {
+      "post": {
+        "summary": "Test a connection",
+        "description": "Connects with the given login and returns the server version. Send id to reuse the saved password.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The server version."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}": {
+      "put": {
+        "summary": "Update a connection",
+        "description": "Changes a saved login. An empty password keeps the saved one.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated connection."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a connection",
+        "description": "Removes a saved login. The database itself is not touched.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The connection was removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/databases": {
+      "get": {
+        "summary": "List databases",
+        "description": "Lists the databases the login can see. System databases are left out.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The database names."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/tables": {
+      "get": {
+        "summary": "List tables",
+        "description": "Lists the tables and views of a database.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The tables and views."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/describe": {
+      "get": {
+        "summary": "Describe a table",
+        "description": "Returns the columns and indexes of a table.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "schema",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "table",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The columns and indexes."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/rows": {
+      "post": {
+        "summary": "Read rows of a table",
+        "description": "Returns a page of rows with the column list and the total count. The body takes db, schema, table, limit, offset, orderBy, dir and a where condition.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The rows and columns."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/row": {
+      "post": {
+        "summary": "Insert a row",
+        "description": "Adds a row. Needs edit access and a connection that is not read only.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The number of rows added."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a row",
+        "description": "Changes a row found by its primary key. Tables without a primary key cannot be edited.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The number of rows changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/row/delete": {
+      "post": {
+        "summary": "Delete a row",
+        "description": "Removes a row found by its primary key.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The number of rows removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/query": {
+      "post": {
+        "summary": "Run SQL",
+        "description": "Runs SQL in the console. The session is read only unless the user has edit access to the host and the connection is not read only.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result rows and timing."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

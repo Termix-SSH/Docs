@@ -1,0 +1,68 @@
+---
+id: establish-ssh-session-for-kubernetes
+title: "Establish SSH session for Kubernetes"
+description: "Opens an SSH session to a host for kubectl. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in."
+sidebar_label: "Establish SSH session for Kubernetes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v4zYQ/SuDOTN22m4vumUXWySbBhvUKYJFEBS0NLEYS6SWM4qjGv7vxZCKrXy12Gt9sU3Ox5vhm0dusSIuo+vEBY8Ffu3IM1gPi8UpMDG74EECWKgDC9yFCOt+SaU0M7iuyYPUlLcsrzntWyhDRQYsLGPYMEVgt/JHzkPa7CzzJsTKJNdIXTMA24GBA1hfpdWnxBvrJActg/dUypEE6WDyf0xxNKaYoUGxK8biBs/7JUVPQoy3BiN974nlY6gGLLbpr4tUYSGxJ4Nl8EJedMt2XeNKqw2Z37N2ZYtc1tRa/SVDR1hgWN5TKWgmgW5whH1WoUHtyVmlmbsYOoriiFOkvc0hGEt0foW7vddhy3mhFUXd65niZQwPrqLqcmzim0Gmhguuz2n4T7NzGv4lZPpoqdwFz7mOn4+P9es5ez7lU6HKjGcdQ9tJOlLNBrXlRCbPG4ozBfHhrTAXjtn5Fex7pdFya0anX147HY4bHIMPAuTtsqEq8UdqxylEQrYH1NhyzYnR2XXWM40pPrxOcao818h3ofcZyq9v4dfZGQmqLL6zriE13xlsSepQYYFdYKVPZ6XGAudd06+cP7Kdmx/QzJnr+RgIDTLFB4rK7S32scECt3lph+YFgm+hj3BFsXWPkG3Q4IONTjsy8jCtJux3tm8EC6xFOi7mc0mOM3q0bdfQrAytcuBWEZR9dDIkCEuykeJJrwXc3O7MFssQ1o6mK7Zz5zTsVyYhFjpRGco00J57ikVrTmZYjEZoxh+/hdhaxfzl+upV9Yu9bq3JA5MXcFmpNEmI7u803VCTrSiCZfiYgu71Jzmm852WtMeWq0KDTrNlEzTobUJ6v5F3EX25voJsD0wCVp60cVTTLpLCNeAExK6JdaWkinxJEB4ovltFQjtt9w938uTyDNY0AIuNouO3cVKDtI9/vSpnb/rjrV3TYGBTu7LOifiQZgZnArYUVrfRFsLGj96l9Tp7ttS7BqwfgiegJg3szqBK9R8Hkf+cyftCcp8k7aC0x+8J68H0LT19e/eZjE6k1vm7kE7EiUKaatXJ5ZmOJkXOrf1pdjw7ftXwC+vtimDiVzY9C0WGuxhaGHTetSTOLFksTk1ubBNWbKAlia5kA99OLn5P3bTANTVNoo1qUWvTRTdy+DOLXTaO62fvABXSya36AuT2cIn+L54ReXqEHmXeNdb5dGeq7G5H1b7Bg2qjwfW0M8w1pldF0u7bzDd12W6XlunP2Ox2uvy9p6hyenuQ56ydmCcoKe06Me5T7u7RlQJT86bPYvTiuaIqu79mLr8uVB+X47OnDZX6RLvRp4vdYIFoMKQTTFqc1rbYWL/q7SrJWYqpn38Ajc+OeQ==
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Establish SSH session for Kubernetes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/ssh/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens an SSH session to a host for kubectl. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["sessionId","hostId"],"properties":{"sessionId":{"type":"string"},"hostId":{"type":"integer"},"userProvidedPassword":{"type":"string"},"userProvidedSshKey":{"type":"string"},"userProvidedKeyPassword":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected, or a prompt the user has to answer."},"400":{"description":"Missing sessionId or hostId."},"403":{"description":"Kubernetes is not enabled for this host, or the user lacks kubernetes.use."},"404":{"description":"Host not found."},"500":{"description":"SSH connection failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

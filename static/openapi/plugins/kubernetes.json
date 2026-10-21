@@ -1,0 +1,1487 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Kubernetes API",
+    "version": "1.0.0",
+    "description": "Manage Kubernetes clusters from your hosts over SSH, with logs, metrics, YAML and a shell."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/kubernetes/ssh/connect": {
+      "post": {
+        "summary": "Establish SSH session for Kubernetes",
+        "description": "Opens an SSH session to a host for kubectl. When the host asks for a code, a browser sign-in or a password, the reply says so and the session waits for connect-totp or connect-browser-sign-in.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "hostId"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "userProvidedPassword": {
+                    "type": "string"
+                  },
+                  "userProvidedSshKey": {
+                    "type": "string"
+                  },
+                  "userProvidedKeyPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or a prompt the user has to answer."
+          },
+          "400": {
+            "description": "Missing sessionId or hostId."
+          },
+          "403": {
+            "description": "Kubernetes is not enabled for this host, or the user lacks kubernetes.use."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "500": {
+            "description": "SSH connection failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/ssh/connect-totp": {
+      "post": {
+        "summary": "Answer a verification prompt",
+        "description": "Sends the code (or password) the host asked for and waits for the next step of the connect.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId",
+                  "totpCode"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "totpCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or another prompt."
+          },
+          "400": {
+            "description": "Session ID and code required, or the session is not waiting for a code."
+          },
+          "404": {
+            "description": "The connect expired."
+          },
+          "408": {
+            "description": "The host did not answer in time."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/ssh/connect-browser-sign-in": {
+      "post": {
+        "summary": "Continue after a browser sign-in",
+        "description": "Continues a connect after the user finished signing in in the browser (an SSH gateway's approval, for example).",
+        "tags": [
+          "Kubernetes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "sessionId"
+                ],
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Connected, or another prompt."
+          },
+          "400": {
+            "description": "Session ID required, or the session is not waiting for a browser sign-in."
+          },
+          "404": {
+            "description": "The connect expired."
+          },
+          "408": {
+            "description": "The host did not answer in time."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/ssh/disconnect": {
+      "post": {
+        "summary": "Disconnect SSH session",
+        "description": "Closes the caller's Kubernetes SSH session.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SSH session disconnected."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/ssh/keepalive": {
+      "post": {
+        "summary": "Keep SSH session alive",
+        "description": "Resets the idle timeout of the caller's Kubernetes SSH session.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session keepalive successful."
+          },
+          "400": {
+            "description": "Session ID is required or session not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/ssh/status": {
+      "get": {
+        "summary": "Check SSH session status",
+        "description": "Whether the caller's Kubernetes SSH session is connected.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session status."
+          },
+          "400": {
+            "description": "Session ID is required."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/validate/{sessionId}": {
+      "get": {
+        "summary": "Validate kubectl and the cluster",
+        "description": "Checks that kubectl is installed and the cluster answers, and reports helm and what the caller may do.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability, versions and host options."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/contexts/{sessionId}": {
+      "get": {
+        "summary": "List kubeconfig contexts",
+        "description": "The contexts in the host's kubeconfig and the one in use.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contexts and the current one."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/namespaces/{sessionId}": {
+      "get": {
+        "summary": "List namespaces",
+        "description": "Namespace names in the cluster. When the user may not list namespaces, only the default one comes back and restricted is true.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "context",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Namespace names."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}": {
+      "get": {
+        "summary": "List resources of a kind",
+        "description": "Rows for one kind (pods, deployments, services, nodes and so on) in a namespace, or in every namespace when none is given.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "context",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of resources."
+          },
+          "400": {
+            "description": "Bad kind, namespace or session."
+          },
+          "403": {
+            "description": "The cluster refused the request."
+          },
+          "500": {
+            "description": "kubectl failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}": {
+      "get": {
+        "summary": "Get one resource",
+        "description": "The resource's row, its kubectl describe text and, for a configmap, its data.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource."
+          },
+          "400": {
+            "description": "Bad kind, name, namespace or session."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a resource",
+        "description": "Deletes the resource without waiting for it to go. force skips the grace period of a pod.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "403": {
+            "description": "The host is read only, or the cluster refused."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/yaml": {
+      "get": {
+        "summary": "Get a resource as YAML",
+        "description": "The resource's manifest as kubectl get -o yaml prints it.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The YAML text."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/events": {
+      "get": {
+        "summary": "Events for a resource",
+        "description": "Cluster events whose involved object is this resource, newest first.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of events."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/pods": {
+      "get": {
+        "summary": "Pods of a workload, service or node",
+        "description": "The pods a workload or service selects, or the pods scheduled on a node.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of pods."
+          },
+          "400": {
+            "description": "The kind has no pods."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/history": {
+      "get": {
+        "summary": "Rollout history",
+        "description": "The revisions of a deployment, statefulset or daemonset. With revision, the pod template of that revision.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Revisions, or one revision's details."
+          },
+          "400": {
+            "description": "The kind has no rollout history."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/action": {
+      "post": {
+        "summary": "Run an action on a resource",
+        "description": "scale, restart, undo, setImage (deployments, statefulsets, daemonsets, replicasets), suspend and resume (cronjobs, jobs), trigger (cronjobs), cordon, uncordon and drain (nodes).",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "replicas": {
+                    "type": "integer"
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "container": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "deleteEmptyDirData": {
+                    "type": "boolean"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The action ran."
+          },
+          "400": {
+            "description": "Unknown action, wrong kind or bad value."
+          },
+          "403": {
+            "description": "The host is read only, or the cluster refused."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/metrics/{sessionId}/pods": {
+      "get": {
+        "summary": "Pod CPU and memory",
+        "description": "kubectl top pods for a namespace or every namespace. available is false when metrics-server is not installed.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usage rows."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/metrics/{sessionId}/nodes": {
+      "get": {
+        "summary": "Node CPU and memory",
+        "description": "kubectl top nodes. available is false when metrics-server is not installed.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usage rows."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/metrics/{sessionId}/pods/{name}": {
+      "get": {
+        "summary": "Container CPU and memory of a pod",
+        "description": "kubectl top pod with one row per container.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usage rows."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/manifests/{sessionId}/validate": {
+      "post": {
+        "summary": "Check a manifest",
+        "description": "A server side dry run of apply or replace. Nothing changes in the cluster.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "yaml"
+                ],
+                "properties": {
+                  "yaml": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The resources it would change."
+          },
+          "400": {
+            "description": "Missing or too large YAML."
+          },
+          "500": {
+            "description": "The manifest is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/manifests/{sessionId}/diff": {
+      "post": {
+        "summary": "Diff a manifest",
+        "description": "kubectl diff of the manifest against the cluster. Needs diff on the host.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "yaml"
+                ],
+                "properties": {
+                  "yaml": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The diff text, empty when nothing changes."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/manifests/{sessionId}/apply": {
+      "post": {
+        "summary": "Apply a manifest",
+        "description": "kubectl apply, or kubectl replace when mode is replace (used when editing a resource so a stale copy is refused).",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "yaml"
+                ],
+                "properties": {
+                  "yaml": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The resources that changed."
+          },
+          "403": {
+            "description": "The host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/secrets/{sessionId}/{name}/reveal": {
+      "post": {
+        "summary": "Reveal a secret",
+        "description": "The decoded values of a secret. Needs kubernetes.secrets and is written to the audit log.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "namespace"
+                ],
+                "properties": {
+                  "namespace": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Key and value pairs."
+          },
+          "403": {
+            "description": "The user lacks kubernetes.secrets."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}/logs": {
+      "get": {
+        "summary": "Read logs",
+        "description": "Logs of a pod, or of every pod a workload selects with each line prefixed by its pod and container.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "container",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tail",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "timestamps",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "previous",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "since",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The log text."
+          },
+          "400": {
+            "description": "Bad options, or the kind has no logs."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}": {
+      "get": {
+        "summary": "List Helm releases",
+        "description": "Releases in a namespace, or in every namespace when none is given.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of releases."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/history": {
+      "get": {
+        "summary": "Helm release history",
+        "description": "The revisions of a release, newest first.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "releaseNamespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "release",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Revisions."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/values": {
+      "get": {
+        "summary": "Helm release values",
+        "description": "The values a release was installed with as YAML. all includes the chart defaults.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "releaseNamespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "release",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "all",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The values YAML."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/manifest": {
+      "get": {
+        "summary": "Helm release manifest",
+        "description": "The rendered manifest of the release's current revision.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "releaseNamespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "release",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The manifest YAML."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/rollback": {
+      "post": {
+        "summary": "Roll back a Helm release",
+        "description": "Rolls the release back to a revision, or the one before the current one when none is given.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "releaseNamespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "release",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "revision": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Rolled back."
+          },
+          "403": {
+            "description": "The host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}": {
+      "delete": {
+        "summary": "Uninstall a Helm release",
+        "description": "Runs helm uninstall on the release.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "releaseNamespace",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "release",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uninstalled."
+          },
+          "403": {
+            "description": "The host is read only."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

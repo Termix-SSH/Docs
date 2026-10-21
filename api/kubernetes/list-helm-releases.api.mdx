@@ -1,0 +1,69 @@
+---
+id: list-helm-releases
+title: "List Helm releases"
+description: "Releases in a namespace, or in every namespace when none is given."
+sidebar_label: "List Helm releases"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu20YQ/ZXBPDXAhnLyyDcVaBvnAgSxCyMwhGJNjsiNlrvMzlAyK/DfiyEpUY7rAgH6JGl2LuecnT06YklcJNeKiwFz/EKeLBODC2Ah2Ia4tQUZiElDtKfUL2E41BQgxEDgGCq3p5ChQbEVY36PH7oHSoGEGDcGW5tsQ0JJz47odFxrpUaD2hBzZGJ2MVyXaDDR984lKjGX1JFBLmpqLOZHlL4dkyW5UOEwmLnX945SvzQ7g8T/Kt7oJG5jYGI9f3t1pR9PRVmDdywQt5BmeTKdiw1JHUvMsSJBM5HJcdX6rnLhtW3dandWYFWTb1bHM8VBYVHan+Toksccj1NID59C+Bq7BLeUGvcIUw4a3Nvk7IOfkM/REfzWdl4wx1qk5Xy1krEwo0fbtJ6yIjY4jNyZii456UcID2QTpXWnLO43qmsR487RZcS27gP158hFixvVeIJy2egsuWI5XYX+npLQzF9+j6mxivn93e0z9jeTaiBxRwGYgugySk2gQ2Jyf1vNhJpsSQksw69jU7ChHNPGwgwH84TSGdvECs20SFPKsknfDvIiovd3tzDlA5OAFWBXhdcuZHCnb6NNpHANOAGxO2KNFFRSKAjintKLLEa0l3L/tJLrz9ewox5YbBIXKjg4qUGax7+e0Tmn/ry0O+oNHGpX1NMgXsZkcC1gC2Etm3MhHsJcXdgQ4pig5zb06iPkmabX5cI2jqydeKW5uAmsP1/r+lPiCf6b7Cq7ekbqkw22IrioK3zHakCwTbGBXt9UHVl4uombm3dmAu9jxQYakuQKNvB1/enjiNgC1+T9eDVtZGlsUITznnxUk3hHvjnbxI+Q9EUFoSD/m9NOGyH0KKvWWxcU2Wglx9mO7nGxIzS4GBIaVEtCg/niuxuDKoiWHY8PlunP5IdBw5O7qk2UjtV0Ssy31jMZ3FH/g9/ure8UF6pBnFzq34tf1OeXL/M/wCt4iejp9Yb+cuYJ0MJq2Fya9R+/3eIw/ANw8GgL
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List Helm releases"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/helm/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Releases in a namespace, or in every namespace when none is given.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of releases."}}}
+>
+  
+</StatusCodes>
+
+
+      

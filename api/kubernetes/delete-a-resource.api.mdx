@@ -1,0 +1,69 @@
+---
+id: delete-a-resource
+title: "Delete a resource"
+description: "Deletes the resource without waiting for it to go. force skips the grace period of a pod."
+sidebar_label: "Delete a resource"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VduO20YM/RWCTy0wsd02T3rbIlt0cymCrotFsDAKWqKtqaUZZUitVxX078WMfEtsP2zR9En2DC+Hh5zDHguWPNhGrXeY4RuuWFlAS4bA4tuQM2ytlr5V2JJV69aw8gGsgnpY+0n8lzPIxjaj2zpQztBwsL4AvwKCxhcTNKi0Fswe8V275OBiGlwYbChQzcoh3vVoI4qGtESDjmrGDIVFrHd3BRoM/Lm1gQvMNLRsUPKSa8KsR+2aZKzBujUOg7kYa2PdfxEmff5NmM8th+7LONJQHoO92DkRf8lx6X3F5HAYFhGjNN4JSzT4cTaLn0s9LyY4GHw9++ncYF4ylF4UrEBgKsC7qjPgQ+p3XrWiHCDwqpVDmNfnYX7zCivfumgyGKxZS19ghkXKj2bkOMNpU7Vr615RY6ebw6xM9+Mo0/4wEcO0jx0dpn3kZIhkcHjaz1IbKsywH4/i5Zd4Pvk2wJxDbZ9htEGDTxQsLauRrt1pqmRFbaWYYanaSDadanKc8DPVTcWT3Nc4JMKF8zZY7RKEJVPgcNPGwh4XsZO59xvLpyfU2HfcHU5OQtzHzo5QTgMdGh2x7AcgNT4Zodn9+MWHmiLmtw/zs+rvRw5B/YYdCDsF61JDYxIf7N8ULaFkKjgACfycggK5Ipklx9Tt05IO2Maq0IyjO5ocZ/evrV5F9PZhDqM9CCuQgti1e2XdBB5KdtAEjnBN0iDasMSTnAt2OYN/4nC1ioT2lO4XM3nz8Q423IEohaSFURtB6+c/z8o5mL6c2g13BralzcsxkRzTTOBOgXKV6LazBb91O++cnPPJIN6T67xj4Ep4fHPWrXyq2moVyzxKMdx8vIvjz0FG+D9MZpPZWVEfyNGa4cRv9/wFVsHX0MU3FbVCxk7c3/9qRvCVX4uBmjXYXAx8uvnwPiEmkJKrKrWm8aI1uYhwNyejNgEdltHXiOKDcspOv/XyGudE+VmnTUXWRbxJYPqdbj3iUbfQ4FG50qLYaRcazE73WbZbSFmqd2Ewchdj9f2ShP8I1TDE41H6o6IUVqI+FZitqBI2uOHuq03yRFUbwWJUlyv2++VxtF0cxe9yoqu8f/f7bg9+D9eY2ouC605z7sEcGbmI+NslTuz/zzlTp4fF6QZ8c/v+dn6Lw/AP+sNFkg==
+sidebar_class_name: "delete api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a resource"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/kubernetes/resources/{sessionId}/{kind}/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes the resource without waiting for it to go. force skips the grace period of a pod.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}},{"in":"query","name":"force","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."},"403":{"description":"The host is read only, or the cluster refused."},"404":{"description":"Not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

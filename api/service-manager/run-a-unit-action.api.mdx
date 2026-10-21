@@ -1,0 +1,69 @@
+---
+id: run-a-unit-action
+title: "Run a unit action"
+description: "Start, stop, restart, reload, enable, disable, enable or disable now, mask, unmask, reset a failed state or revert local changes. Needs edit access."
+sidebar_label: "Run a unit action"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsETy0wkd2Pk24pikWzRbfBOkVQBEYxkRhramlGO6TsuIL++4Iziu0gm6K5LHqSRHFIvkfyzYg1cRVdLy54LHElNooBltAbiMT5M1IbbG2AvL1vyUDtOL9kA4T4ZAIf9gY6y1sDg8/PSEwCFh6sa6kGFivpSKQdRYE2VLaFqrF+Q1zAB6KagWonYKuKmAs0KHbDWN7hiuLOVcS4NtjbaDsSivpnRKfl91YaNOhtR1hiE1iuajQY6dPgItVYShzIIFcNdRbLEeXQq6fzQhuKOE3mi5EG7+S/xGGJzm9eDWOrRPNbAq3VmfvgmVj/f79c6uN5134OngzsnTQgDYGnPWiqHWWyC5wM/rj84eXBD+GcaaNd0QBKHDiGSLaG4NtDoZCwI2lCragCKx0JXImLvh02zl/Y3i04N+iis95uKC7G3INpoQzyYtTHtMg88GLMLxMa1INPrRxiiyWO2aQ/nxf9Zxgi3FDs3CNkHzS4s9HpACaSZmuC+2CHVnQYRHouFwtJBwt6tF3fUlGFDqdEM1M1RCeHVMI92UjxclCAd2ttZxXC1tG5xfbuVzocLWchVtrOXMp5oGN3tRacu67f2QnN/PIuxM5qze9vb16gXxGzCx4kbMkDkxdwPnVNk4To/rHqCQ3ZmiJYhp9SULC+Tm7pYBqJc0jH2jIqNHl+s8tpgv/ey6sVvb+9gewPaeEF2G38hfMF3DbkoVch8GLACYjdEqulopp8RRB2FF9Fkao9p/vNTF5eX8GWDpAEzfnNvCzd418v4Bxd307tlg4G9o2rmpyIT2kKuNI1E9Zjsy+EvZ9PV9b7kBz0v/WH4AmoZcqb5/xDSKidtJQozzoIl9dXOvwUORf/XbEsli8g/Za2EeblZAPiOoqcMrdhwxA8HHSrdFs592K1+iXRrrveWa/Z5xn4OHiwoJsMR0F7lk+XxQt5+R9fKHl8hB5l0bfWeYWadGecZe0OT7I269OZsKHB8ni9JG1Ty3xNzPKmlpmgtUmXkUYdx3vL9Edsp0nNnwaKKjnrk4QlAZrh11g+2JbpXxj+5uN8mXwLrwF7Wm1/SErZDvqFBrd0OF2TKmlfMWvi6ivnnLsxrc8vs+vfVzc4TZ8BvmYawg==
+sidebar_class_name: "post api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a unit action"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/service-manager/{hostId}/units/{unit}/actions/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start, stop, restart, reload, enable, disable, enable or disable now, mask, unmask, reset a failed state or revert local changes. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"unit","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done, with the new active state."},"403":{"description":"No edit access, or the host is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

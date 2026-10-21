@@ -1,0 +1,69 @@
+---
+id: read-the-config
+title: "Read the config"
+description: "Returns the managed drop-in file and the main smb.conf."
+sidebar_label: "Read the config"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVFFv20YM/isEn1rgImd71Fs6bEU6DChiD8EQGAUt0dbN0p16pJJogv77cHeq7SzIgKJPkqiPvO/jkd+ENUsVbK/WOyzxjnUITkAbho4cHbiGOvj+yjrY25aBXL38tA6k2xWVd/sCDSodBMsHXFO3I9wa7ClQx8ohhie0sXxP2qBBRx1jiY0Xva3RYOCvgw1cY6lhYINSNdwRlhPq2EekdcoHDjjP24iW3jthiYCfr6/j46WKTcMQedlDIi0FzrPBjrXxNZZ4YEWTuZS46tvhYN0V9XYlkftqyrzmVS6BBoXD4zcdQ2ixxCmHZjT/OfovPwTYcOjsM2QMGnykYGnXZsZLNJHe09Bq7IRqL+VqpSmx4Gfq+paLync4J83C1RCsjonCjilwuBki/4ftbCasvD9avoxQb3/n8RS5KLGOzc1ULgudeh254HIH8TuD0Cwvv/nQUeT86X7zSv2aRax3oP7IDoSdgnVpXuIhPth/KCKhYao5AAl8SEVPY5USC5zNC0knblkVmjxNGXKep7+f9E1Gn+43kPEgrEAKYg/uyroC7ht20AeOdA1YBaUjS4xUXLOrGPwjhzdVJLaX7f7uTt58voUjjyBKQa07wJPVBrR7/vJKzgn6/a098mjgqbFVkw+S8zEF3CpQpRLTFiz4J7dkV+ScT4D4n9zoHQO3wnmvrNv7pNpqG2UmB4B1Q4EFbj7fxgXgIFnAT8V1cf1K1i+BSbO5ZNeBXOTd+o8P77PxSKpnYBAOkpB9XJZ0uwLewRg3L66uwD74DiJJpV26nt6LduQiy2VW7phyW05L/oJRXCmn7PTHPDHPgfKzrvqWrItckoFMi/084Nl+4qgk8zRYnqxxobc1yS1jwjTtSPjP0M5zDH8dOERb2J5tJplEbSW+11juqRX+H33v7hb7fQ9vcf62fm5MbtYO8QsNHnk8+/i8vTTZj79ucJ7/BSDMMVs=
+sidebar_class_name: "get api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read the config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/samba/{hostId}/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the managed drop-in file and the main smb.conf.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The config files."}}}
+>
+  
+</StatusCodes>
+
+
+      

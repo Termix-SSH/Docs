@@ -1,0 +1,820 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Samba Shares API",
+    "version": "1.0.0",
+    "description": "Create and manage Samba (SMB) file shares, users and permissions on your hosts from one tab."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/samba/{hostId}/status": {
+      "get": {
+        "summary": "Samba status on a host",
+        "description": "Reports whether Samba is installed and running, the package manager, firewall and whether root or passwordless sudo is available.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Samba status."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/install": {
+      "post": {
+        "summary": "Install Samba",
+        "description": "Installs Samba and the ACL tools with the host's package manager, sets up the managed config and starts the service.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Samba is installed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/service/{action}": {
+      "post": {
+        "summary": "Control the Samba service",
+        "description": "Starts, stops, restarts, enables or disables the Samba service, or reloads its config.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "stop",
+                "restart",
+                "enable",
+                "disable",
+                "reload"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The action ran."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/shares": {
+      "get": {
+        "summary": "List shares",
+        "description": "Lists the shares this plugin manages and the other shares in smb.conf, which are read only.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of shares."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a share",
+        "description": "Adds a share to the managed config. The new config is tested before it is used. It can also make the folder and set its owner, group and mode.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The share was created."
+          },
+          "409": {
+            "description": "A share with this name exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/shares/{name}": {
+      "put": {
+        "summary": "Update a share",
+        "description": "Replaces the settings of a managed share. Shares from smb.conf cannot be changed here.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The share was updated."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a share",
+        "description": "Removes a managed share from the config. The folder and its files stay on the host.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The share was removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/shares/{name}/permissions": {
+      "get": {
+        "summary": "Folder permissions of a share",
+        "description": "Returns the owner, group, mode and user and group ACL entries of a managed share's folder.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The folder permissions."
+          }
+        }
+      },
+      "put": {
+        "summary": "Change folder permissions of a share",
+        "description": "Sets the owner, group and mode, and adds or removes user and group ACL entries on a managed share's folder.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The permissions were changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/users": {
+      "get": {
+        "summary": "List Samba users and groups",
+        "description": "Lists Samba users, Linux users that could be added, and Linux groups.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The users and groups."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a Samba user",
+        "description": "Adds a Samba user with a password. The Linux user is created without a login shell when it does not exist.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "createSystem": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The user was added."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/users/{name}/password": {
+      "post": {
+        "summary": "Set a Samba password",
+        "description": "Sets the Samba password of a user. The password is sent to the host over the SSH session and is never stored.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The password was set."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/users/{name}/state": {
+      "post": {
+        "summary": "Enable or disable a Samba user",
+        "description": "Turns a Samba account on or off without deleting it.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "disabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The account was changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/users/{name}": {
+      "delete": {
+        "summary": "Remove a Samba user",
+        "description": "Removes the Samba account. With removeSystem set it also deletes the Linux user when its id is in the normal user range.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "removeSystem",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user was removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/groups": {
+      "post": {
+        "summary": "Create a Linux group",
+        "description": "Creates a Linux group that can be used in share access lists.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The group was created."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/groups/{name}/members": {
+      "post": {
+        "summary": "Add or remove a group member",
+        "description": "Adds a user to a Linux group or removes the user from it.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  },
+                  "add": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The membership was changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/sessions": {
+      "get": {
+        "summary": "Connected users and open files",
+        "description": "Returns the output of smbstatus as sessions, share connections and open files.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The live sessions."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/sessions/{pid}/disconnect": {
+      "post": {
+        "summary": "Disconnect a session",
+        "description": "Ends the smbd process that serves a client connection.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "pid",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The session was ended."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/config": {
+      "get": {
+        "summary": "Read the config",
+        "description": "Returns the managed drop-in file and the main smb.conf.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The config files."
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace the managed config",
+        "description": "Replaces the managed drop-in file with raw text. It is tested with testparm first and the old file stays when the test fails.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The config was saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/config/test": {
+      "post": {
+        "summary": "Test the config",
+        "description": "Runs testparm on the host and returns its output.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The test result."
+          }
+        }
+      }
+    },
+    "/plugin-api/samba/{hostId}/logs": {
+      "get": {
+        "summary": "Samba logs",
+        "description": "Returns the last lines of the Samba log from the journal or the log file.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The log text."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

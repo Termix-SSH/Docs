@@ -1,0 +1,70 @@
+---
+id: shrink-the-journal
+title: "Shrink the journal"
+description: "Removes old journal files down to a size or an age. Needs edit access."
+sidebar_label: "Shrink the journal"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVV1v6zYM/SsEnzZAdbJhe/Fb7z6w3uFuRdOhGIpgUGzWVmNLvhKd1DX83wdKzscadMMF5pfE9BF5SIqHI5YUCm86Ns5ijnfUuh0FcE0Jz673VjfwZBoKULq9BXagIZhXAudBW9AVZfAbURmASsOgi4JCyFAh6ypg/ogr8jtTUMC1wk573RKTly8jGgnYaa5RodUtYY61C3xTokJPn3vjqcScfU8KQ1FTqzEfkYdOkMYyVeRxmtYJTYE/uHIQyNvDhbNMluWT7rrGFFqyXTwHSXm89O02z1QwKuy868izoRBx5pXOUIG9sRUqpBfddo2Yvl8uP+GkkE37H8jv9jjFR8iHztmQYny7XMrPP5vyo7OkYG+4Bq7p0JeCG3A9dz1nKH5a4tqVUlIXInmpbI6LrukrY690ZxYhNeOq1VZX5Bdjqve0mF0udrro+xYVCvLQp943mOOYTBOqN+z+dL2He/KteYGEQYU77Y3eNHPhkjXm9aT7hqXTzF3IFwuOB7O5MlnhWinMWhgUvTc8RAob0p78dS8ZPa4nNWLh3NbQuUV35lcajpYzFytpcKJy7ujYH+GC8x2T9wRCNf/52flWC+ePD/cX2a8oBONkMrZkIZBlMDa2SYI4b17jZYOadEkedIAP0SloW0ZYPJjJrTlP6cgtZYUqTUuCnOblec/vMvr4cA8JD4EYNEMwlb0yNoOHmix0noSuAsPAektBLAWVZAsCtyP/bhaR7Xm5v7iS17c3sKUBAmvPxlbz5W5f/rpI5wj98tJuaVCwr01Rp0DhFCaDG1ErDnJsxoLb2/l0oa11ESDftR2cJaAmUBo1UY67k+b8dBjrg0YkITjoQBx2aeCTi6UyHCXgoIxwfXsjE0M+pIy/yZbZ8qIOn+LMwjzCQYE49yHSbVwVwFkYZBRlpkNq4Gr1S+yVKEKro9jNF2dVe2O353LyNuB4ks3/cSuka8L0wouu0cYKu6gv46xXj3jSq1mHzhQLFebHHXEiPsvWWsUFIk7GcaMD/eGbaRLz5568KMn6pExRV0oT5H+J+ZNuAv1LCb66m5fK1/BeHoeJtUOk1PTyhgq3NJxW27SeFKYbGxmkjz+kOFf34uJ0+GJbiaoddf7295Xo0Wbeeq0r5YzXe9mfep+Cu5hL1L5oG7HRtup1FeUj+pTnb1xexHU=
+sidebar_class_name: "post api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Shrink the journal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/service-manager/{hostId}/journal/vacuum"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes old journal files down to a size or an age. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"size":{"type":"string","example":"500M"},"time":{"type":"string","example":"4w"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done, with the journalctl output."}}}
+>
+  
+</StatusCodes>
+
+
+      

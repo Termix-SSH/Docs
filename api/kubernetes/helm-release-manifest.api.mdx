@@ -1,0 +1,69 @@
+---
+id: helm-release-manifest
+title: "Helm release manifest"
+description: "The rendered manifest of the release's current revision."
+sidebar_label: "Helm release manifest"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVVFv3DYM/isEX7YCqp3u0W8ZsLZp16FYbgiK4FAoNu+snS25Ip3EM/zfB8rO3aXXFAg2bE+2KYr8vo/S5xEr4jK6TlzwWOCqJojkK4pUQWu92xALhA1IWmjIMv3AUPYxkheIdOvYBZ+hQbFbxuIa3/c3FD0JMa4NdjbaloSiro3otElnpUaD3raEBTKxlrio0GCkL72LVGEhsSeDXNbUWixGlKFLyRKd3+I0mW/WWhD+Zlvizpb075V8VqW1JnMXPBPr+k9nZ/o4lXqv8KfzD79migFbkjpUWOCWBM0MpsC8a/qt8y9t5/LdXuC8pqbNx72CUz5+rcAhNOUP3dAgU7x9mEkfGyxwnEMTmq9wfgp9hBXF1t3DnIMGb2109qaZ6S3RxHBj+0awwFqk4yLPJW3M6N62XUNZGVqckkBMZR+dDAnCDdlI8bxXrtdrnUQZws7RccR27j0N+8hRiUsdxAzluNB+LooFl3np95yEZnl5HWJrFfO7q9UJ+8tZW5CwIw+sh975dBu0SYjuL6uZUJOtKIJl+DkVBeurlJY2ZjiZR5T22GZWaOajN6ccDt+fd/IkondXK5jzgUnACrDb+pfOZ3BVk4cuksI14ATE7og1UlJFviQItxSfZJHQHsv9bCXPP17AjgZgsVGc38Kdkxqkvf98Qmef+nxpdzQYuKtdWc+N+NAmgwsBWwrrtiUXwp1fdpfW+5ASdN36IXgCapjmO+j8JiTWThqlebA0OP94ocefIs/wX2Vn2dkJqQ/W2y3B0b6y6VldEDYxtDDonaoDC8+TuLx8a2bwTdiygZYkupJN8oWE2ALX1DRpNF1gaa1XhMs5eUtN+2DPcHTNH6HSS+WFvPxDn5+PgtC95F1jnVdIyUPGxa2u8eBWaPDgV2hQHQsNFseuX3zDtouD7+75rA2qZtpgHG8s0x+xmSYNf+kpqpOsD86UfKVyrO8VFhvbMH1HkB9/X9z9BTzF8eHG+iEZYNPrl/Kj4dFvTM3qP2x8It7/0x+n9fHf680vK5ymvwHyPuQK
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Helm release manifest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/helm/{sessionId}/{releaseNamespace}/{release}/manifest"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The rendered manifest of the release's current revision.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"releaseNamespace","required":true,"schema":{"type":"string"}},{"in":"path","name":"release","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The manifest YAML."}}}
+>
+  
+</StatusCodes>
+
+
+      

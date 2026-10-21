@@ -1,0 +1,70 @@
+---
+id: enable-or-disable-a-samba-user
+title: "Enable or disable a Samba user"
+description: "Turns a Samba account on or off without deleting it."
+sidebar_label: "Enable or disable a Samba user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv20YQ/iuDOSUALbo96mYHKeAURY1IhVEYQjEiR+Ra5C6zO7TMEvzvxewykm3VRZJDdZE0O69vHt+MWHIovOnEOItLXPfeBiBYUbsloKJwvRVwFpwHt9vBwUjteoGSGxZjKzCywAyFqoDLe4xmuMmwI08tC3sVj2jUd0dSY4aWWsYl1i7ITYkZev7SG88lLsX3nGEoam4JlyPK0KmmscIVe5ym7F89xa9v8BPEG1vhNG2SMge5duWgGq9tC2eFregTdV1jCtL65A9BizSeu3bbBy4EM+y869iL4aCvpQm0bdTtUXPrXMNkcYofTSR0zoak//PlZTR72ZKaj404UICiJltxudB6YMtSu1JL4kKMr5VZYt41fWXsBXUmD9qTfEz1nvI+sA/5qEWb8iAkWrvA/vFrr3rf4BLHJJowe5XOn673sGbfmidIOpjhI3mjSCOKWRqB7KhvRLst0oVlnks0XPATtV3Di8K1WomNZlD03sgQU9gyefZXvWK532jbC+f2hp9LqDO/8nCUPHOx0u6kVJ47OrZAc8F5PmJLohJm849fnG9Jc/50tz5Dv+IQjLMgbs8WAlsBY0FqBg3ivPk7TgrUTCV7oADX0SmQLaNaNFzglL2AdMwtocIszXlSOU36w0HezOjT3RqSPgQWIIFgKnth7ALuarbQedZ0MzACQnsOKim4ZFswuEf2b6KI2T4v93dX8ur2BvY8QBDykTWURkDap7/O4BxVv7+0ex4yONSmqFOgcAqzgBsBKiSo2awL7mBn64KsdVFB38kOzjJwEzgtma795xNhfEzD+3LBlTcmbdvOxQIZUY1EiLCqyXOAq9sb3RX2IWH9aXG5uDyrwAfPJBzzaslSxTMZv1v9dv0edqZhCNFfBnGXo2anexUHIShbD7qkuvEBdt61oHiEtrGTyhQtRR6bx+qjVRBK8TOe4wHQAK8THE/s+MPnIo2P8JPkXUPGal6Rd8aZwe7xxGA6YfGuZLg8Xo0IXSUz+ycm22Txrqj9OG4p8B++mSYVf+nZK7lsTmQVqebUwR01gf8D67vP85F4D29B+LrEdoic2PT6DzPc83C6eEpe/2PUWJ9pM2WYFieiTk8fUpSLtTo4mZ5dPCXX46G5/X2ltLidL2frSrXxdNATTIcU2kUkkYKjbMSGbNVTFVks+tTPP55v7DY=
+sidebar_class_name: "post api-method"
+info_path: api/samba/samba-shares-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Enable or disable a Samba user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/samba/{hostId}/users/{name}/state"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turns a Samba account on or off without deleting it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"disabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The account was changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

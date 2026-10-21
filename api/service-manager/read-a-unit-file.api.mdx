@@ -1,0 +1,69 @@
+---
+id: read-a-unit-file
+title: "Read a unit file"
+description: "The unit file, its drop-ins, the Termix override and the combined view from systemctl cat."
+sidebar_label: "Read a unit file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3EYM/SsETy0wltwcdXOBfjhFgSC7gVEYi2AscaXpSjPKkPJaFfTfC47k3W1cF8khPUmiOOR7T+TThBVxGV0vLngscNsQDN4J7F1LBpwwVDH0V86zAWkIthQ79wThkWJ0FYH1VYqXoXtwnip4dHSEfQwd8MhCXSktlFYyNCi2ZizucUPx0ZXEuDPY22g7Eor6ZkKnIHorDRr0tiMssAkstxUajPRpcJEqLCQOZJDLhjqLxYQy9prpvFBNEefZ/GslJfYldVii8zXO806TuQ+eifX9m+trvbyUTNXiTBtjR9KECgusSZslBAXmfTvUzl/Z3uW80L/qrLc1xXxaGM654uN80suca0k0qMnP4gyxxQKnJTSj+QzIH2GIz99nyUGDjzY6+9Au+NdoorC3Qysqr0jPRZ5LOpjRk+36lrIydDgnBZjKIToZE4QHspHizaCk7neqcxnCwdFlxPbuNxpPkYsSG1V6gXJZ6CS8YsH1g+jzkoRmvfk5xM4q5rd32xfsN8TsggcJB/LA5AWcT6OpTUJ0f1nNhIZsRREsw4+p6GmC08EMZ/MPSidsCys0y2AtKefR+vMoryJ6e7eFJR+YBKwAu9pfOZ/BXUMe+kgKV7cNxB6INVJSRb6ktGivskhoL+X+aiVv3t3CgUZgsVGcr+HopAHpnj6+oHNK/XppDzQaODaubJZGfG6Twa2ALYX12JoL4ejX06X1PqQEfW/9GDwBtUzLsjm/D4m1k5aS5IuzwM27Wx1+iryA/yG7zq5fUPo9bSCsC6kO5zqKnDq3oWYIHkbdKt1QXr7FZvNrkr0PLJ312n2dgfdkK7Bn+/y8ne6KF/LyzX12mQGhJ8n71jqveJN5TKsf3ePZj1aTuXAkNFicXDeZkkZW90zMdibZshaapgfL9CG286zhTwNFtYrd2XqScVSO9b7CYm9bpv+Q5rv3qz9/D69xeV5JPyaHawd9QoMHGs8/DLWi/7FrkmfeXf4Bfvlpi/P8N7xjiyc=
+sidebar_class_name: "get api-method"
+info_path: api/service-manager/services-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a unit file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/service-manager/{hostId}/units/{unit}/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The unit file, its drop-ins, the Termix override and the combined view from systemctl cat.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"unit","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The files."}}}
+>
+  
+</StatusCodes>
+
+
+      
