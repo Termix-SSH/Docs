@@ -1,0 +1,69 @@
+---
+id: update-a-container
+title: "Update a container"
+description: "For a compose container, pulls its image and recreates the service. For any other container, pulls the image only, so the container has to be recreated by hand."
+sidebar_label: "Update a container"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v3EYM/SsETy0w2XWD9KKb2yCIUxQ1ug6MwlgUtESvpivNKDOU1+pC/73gjKyV6ziALwV6kkTx4z2S8+aIFccy2E6sd1jgBx+AoPRt5yND6Z2QdRwMdH3TRLASwba0YyBXQeAyMAlHkJohcri3Ja8g5XADeKk5PM+hvjmHd81gIPpkmv2gpgji4ZbnAhXcDlCTq1ZoUGgXsbjB977cc8CtwY4CtSwc1H5Eq0Q6khoNOmoZC4wco/XuokKDgb/0NnCFhYSeDcay5pawOKIMXXKWYN0Ox9F8NdcM9JXZtuocO+8iR/3/9uxMH0/7fzU350AxNYwrk5q9aPGiL4eaHVgBGxdje5wEjgbffa3KZvMRppaA8wJ3vncV+JA+Su8cl8LVFP/uefzP86zm6OT840uU+q4iYbgj26S8o8GWpfaVdtdHQZObXOC6a/qddW+os+sqTXidg+P6OE9xXB8XUxjRoFJ+nH8fGizwmE368ymeP3wf4IpDax8g+6DBewqWbps8mcmamNxR3wgWWIt0sVivJQWu+IHaruFV6Vsc02wjl32wMiQIt0yBw3mvlG62ukil93vLSwt19hceZssixUZ3KENZJppXSrHgtGr6nZ3QTC8ffGhJMX+6vnrGfjONXfyeHUR2Atal5dIiPti/ST2hZqo4AEX4KSWddzAFpmkvKc3YMis0+eRkl9PZ+esgLyL6dH0F2R8iC5BAtDv3xroVXOuWd4EVrtF1F9pzVEvJFbuSwd9zeJFFQrts96s7eX55AXseIAoFsW4HBys1SPvw5zM6s+vrW7vnwcChtmWdC8VTmRVcCFApUcMmX/AHN0WX5PQkUin6n9zgHQM3kfNZs+7OJ9ZWGqWZpRPOLy909TnEDP2H1dvV2TNCv5JTPZpitNqlr1pyJ8WO4B0MeqxqHyXmYWw2H03G3/hdNMpI0bsqCZWLvskCpce/JafwpiX5nMWCTgX+jemYRJid/E9urLxswg+y7hqyTnknlTpOsneDJ9lTsvlqMzhJHxoslldYsbyDtga17ZrkeLylyJ9DM45q/tJzUD3anvQtqVNlo75XWNxRE/kbzf3u9+l6+x5e4vF47t2QZLTp9QsN7nl4cvGq5P2HhZcdGrfL++byt80VjuM/JiUbJQ==
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a container"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/updates/{sessionId}/{containerId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For a compose container, pulls its image and recreates the service. For any other container, pulls the image only, so the container has to be recreated by hand.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"containerId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The image was pulled, and the service recreated when it is a compose service."},"400":{"description":"SSH session not found or not connected."},"404":{"description":"Container not found."},"500":{"description":"The update failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

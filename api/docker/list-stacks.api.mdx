@@ -1,0 +1,69 @@
+---
+id: list-stacks
+title: "List stacks"
+description: "Stacks in the host's stacks folder plus any other compose project that exists on the host."
+sidebar_label: "List stacks"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v40YM/SsEL22BWTvdthfdUmy3zbYFgtpFUATGYiLR1qylGe2QSqwK+u8FZxTbaZICe+hJEocf73HIpxEr4jK6TlzwWOBKbLlncB6kJqgDy1cMnI3b0FQUoWt6BusHCFJThDK0XWCCLoZPVApIbQXo4FgYwinNAg2K3TEWt/gulHuKuDHY2WhbEopqH9EphM5KjQa9bQkLZGJ2wV9VaDDS595FqrCQ2JNBLmtqLRYjytAlZ4nO73CaNurMXfBMrOdvLy708ZTruqaZ2gIng9+/5LPK5cEHgW3ofQUhHjmB43TAfdeFKFTNeb57IY/WgdZ6u6OWfAoN220K+OGlwu+ta6gCCdA4lhPOyWBLUocKC9yRoMn9KnDZNf3O+Te2c8sqNXiZg5bjsYcTGmSK94/97mODBY7ZpIdPMfwV+ghriq07QPZBg/c2OnvX5L7O1oR+a/tGsMBapONiuZQUuKCDbbuGFmVocUo3w1T20cmQINyRjRQve+Vwu5nMiGUIe0fnFtu5X2k4Ws5SrHQCMpTzRMeBUCw4D4p+Zyc088v7EFurmD/crJ+xf7x6CXvywOnS8jxrkRDd31Y9oSara2EZfkxJwfoquaXAdMPnlI7YMis0eeqzy2nuPz3Iq4g+3Kwh+wOTgBVgt/NvnF/ATU0eukgK14ATELsnVktJFfmSINxTfJVFQnve7i/u5OX1Fexp0IGN4vwOHpzUIO3h4zM6R9cvb+2eBgMPtSvrXIhPZRZwJWBLYQ2bfSE8+Dm6tF5X1pai59YPwRNQw5R3y/ltSKydNEozSxVcXl/p6FPkDP3bxdvFxTNCv6f1hjlGq12HqrUeyuDFOk8xSeKga6X6wfkyVqtfTMbfhB0bZaTofQVWIzk0lO6lCyyt9QpvHpLfTtLwbzC6R17Iy/8u6nk+hA6y7BrrvEJNwjLO0nSLJ2lSmFn9DR6BFyeR3xjUxBo0jneW6c/YTJOaP/cUVTI2JwlKAlI51vcKi61tmP6jDV//Mf8/voHXcD+uph+S0jW9fqHBPQ1P/kXT5lyHf/5pjdP0D2U7hiI=
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List stacks"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/stacks/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stacks in the host's stacks folder plus any other compose project that exists on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stacks."},"400":{"description":"Session not found or the host is not supported."},"403":{"description":"Stack management is off."},"500":{"description":"Failed to list stacks."}}}
+>
+  
+</StatusCodes>
+
+
+      

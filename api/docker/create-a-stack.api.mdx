@@ -1,0 +1,70 @@
+---
+id: create-a-stack
+title: "Create a stack"
+description: "Makes a folder in the stacks folder with a compose file and an optional env file."
+sidebar_label: "Create a stack"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v4zYQ/SuDObUAI6fb9lDdstsu6i0WDdYpgiIwirE0thhLpJakbGsF//diSMVy1kmBPdQX28P5eDN8fDNgyb5wug3aGszxI23ZA8Ha1iU70AZCxeADFVv/ZNzrUAFBYZvWeoa1rhnIlEAGbMxDNbDZxYMMFQbaeMwf8FdbbNnhUmFLjhoO7MQ+oJbKLYUKFRpqGHP07L22Zl6iQsefO+24xDy4jhX6ouKGMB8w9G10Dk6bDR6Py+TMPry1ZS8eX8cW1gQ2QY6obWtdkACePXrpfrhMbVePXIRnIB4SRskVBxAbcrZlFzR7iU09XMCbIl46Y7N7qSX5SHXfWuNT+jfX1/L1/OIWckVQOKbAZSYJf3rJbW52VOsSBCJYB+M8xoAfX8vbkKENN2wCaA92vR4DfrkMuElsSSwJlfapFh+0Dz6G/fwSsPekay4h2LGHiXcZygQaDpUthSfWy31EuuQ4a+tuo80VtXpWRn7NEllnw4lCR1To2e2e6Na5GnMckkkOnyP523YO7tg1+gDJBxXuyGla1ekCRmvsYU1dHTDHKoTW57NZiIEZH6hpa84K28glLgVB0Tkd+ghhxeTY3XTSw8PyqAYsrN1qPrdQq//g/mQ5S7EQliYo54lO5BEsOL4T+Z+cUI0/3lvXkGD+cH930f0iTQ2C3bIBH288iYAUsU5/iS8GKibRAvLwNiaNCiBuMTBLbJ9aOmFLXaFKjz65TM/+cR9eRfTh/g6SP3gOQAG83pgrbTK4r9hA61jgKtABQpSx1nHBJZuCwe7YvdpFRHs+7m+e5M3tHLbcC2Fd0GYzsr85/HPRzsn120e75V7BvtJFlQr5qUwG8wBUBC9hoy/YvRmjCzLGRgc5J9Nbw8C15/S4RP4+TcL5WyLvJGVPcnSmYJMpCteZkGmztnGEOkiOUfbh5nYu74idT3P4IXuTXV9M52MUGhhjBPqtLRsyUahIG3YerIFe3mhlffDpZheL31UaRm03Xsl4ZBSylCTSW9lERxXFoyFz1tm7pDaUtOZrPMO0MP6f1ZhoFvgQZm1N2gjIqE/DqHAPOCmcoEs7VGGqiwrzaVUuFcpMJGgYVuT5L1cfj2L+3LET5VlOShZ1qNRefpeYr6n2/B/df/dpXIDfw2u4n1646aNg1p38Q4Vb7p9t9OPyqDCRPIJI5+9Sqas7yTLFX2xpEcLTMrj9cyESthq3fWNLiXG0l41N+1Q/TT7KZbQNWJPZdLSJihNzyudfARgdmQ==
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a stack"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/stacks/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Makes a folder in the stacks folder with a compose file and an optional env file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","compose"],"properties":{"name":{"type":"string"},"compose":{"type":"string"},"env":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Stack created."},"400":{"description":"Invalid name or content."},"403":{"description":"Stack management is off."},"409":{"description":"A stack with this name exists."},"500":{"description":"Failed to create the stack."}}}
+>
+  
+</StatusCodes>
+
+
+      

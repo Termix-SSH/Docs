@@ -1,0 +1,69 @@
+---
+id: get-a-stack
+title: "Get a stack"
+description: "The compose file, env file and services of a stack."
+sidebar_label: "Get a stack"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv2zYQ/iuHe9oA1s7a7kVvGba2abEhmF0EQ2AMF+lssZZIlTwl0QT99+FI1XbnZkD2sCfTxzve991Hfhqx4lgG24n1Dgtc1wylbzsfGba2YQPs7tMKyFUQOdzbkiP4LRBEoXK/QINCu4jFLf7syz0H3BjsKFDLwkHjI1o9uyOp0aCjlrHAyDFa764qNBj4c28DV1hI6NlgLGtuCYsRZehSsgTrdjhN5ttnKZDfdP2cszaaHDvvIkfdf3lxoT/nA5l5TgZfX7w6T1npNrTkaMctOwGr89nOBa+fKnBeYOt7V6XEH7/V/A3ZhisQD42nCuQEy2SwZal9hQXuWNDkkRS47Jp+Z90L6uyySnosU01cjoeRT8vxMLIJDaqsX6TqQ4MFjjmkm19D+sP3AdYcWvsIOQcN3lOwdNfkMc7RRGZLfSNYYC3SxWK5lFS44Edqu4YXpW9xSkJELvtgZUgQ7pgCh8te+dxuVPPS+73l0wh19gMPh8jJESsVPEM5Peigv2LB+V7o/5yEZl688aElxfz+Zn3GfpUnCOL37CAmsV3SRZv4YP8izYSaqeIAFOGndGh6PJqWCpPgp5QO2DIrNPmS55TjNf/0IE8ien+zhpwPkQVIINqde2HdAm5qdtAFVrgGrIDQnqNGSq7YlQz+nsOTLBLa03E/e5KX11ew50HvbhDrdvBgpQZpH/88o3NIff5o9zwYeKhtWedG8dhmAVcCVErUsjkX/IObq0ty+hipFN0nN3jHwE3k/M6s2/rE2kqjNLPLweX1lV59DjFD/2HxcnFxRujXZAsw12i3a1+15KD0Tsg6DhG8g0GfVe2jxCzGavXOZPyN30WjjBS9q4C0MvqGky6dj9KSU3jzJXmr6meb+CcYfUdO2Ml/N/osvPCjLLuGrFMMyTHG2X9u8eg/2j9/EUy26IgGi1PjL47OvTGo/PWEcbyjyB9DM00a/txzUGPYHI0m2URlo64rLLbURP4Xst/9Pn8UvoenSHx5gG5Iftb0+g8N7nn46mOl3vN/Nj7MZ9qcWv7bX9Y4TX8Dv0Omsw==
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a stack"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/stacks/{sessionId}/{stackName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The compose file, env file and services of a stack.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"stackName","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stack."},"403":{"description":"Stack management is off."},"404":{"description":"Stack not found."},"500":{"description":"Failed to load the stack."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: run-a-stack-action
+title: "Run a stack action"
+description: "Deploy, redeploy, pull, start, stop, restart, pause, unpause, down or destroy a stack, or run most of them on one service."
+sidebar_label: "Run a stack action"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVt1v40QQ/1dG+wTSNikHvPitx3Eih4CqCVSoitDEnsTb2Du+3XVSn5X/Hc2uG6dNC+oL+MXr2fn++I17VZDPnWmCYasy9YGaijsNjorh1LRVpcEHdEFe3Mjl8Nlg60lDa4dDwXsL7KAgHxx3gCKXb7XQXGuhZh+A1xBKqoEtsCXw5HYmp4nSKuDGq+xOfeB8S04ttWrQYU2BnNB7ZcTFBkOptLJYk8qUJ+8N21mhtHL0uTWOCpUF15JWPi+pRpX1KnRNZA7O2I06HPTLusTZX+X8Fl3LxEw+vOeiE47nsjnbQDbIFTZNZXKUbE/vvaS8P1fNq3vKwxMn7hTmsUSSFMcNuWDIR42Jfu6YVkNqX7xzVPOO/uCqrZOegWPFXBHakeWjqV5miI9w+YatTzzvLi/l9bSnFiVB8hIcWg17E0owwQO3oWnDRGx995LgzO6wMsWjMLuxWaLIt+cicykh1GhxQzXZAMYDr9dR4Pt/cW6NpqJiIu2hagolF9Ih7KUSsVEyNW2qdmPsBTZmWsQuncam8dP+2IiHaX9spMN0KE8qxmMft65SmeoT6aD0M5/+5NbBglxtHiDxKK126AyuhloM1BjNGtsqqEyVITQ+m05DFJzQA9ZNRZOca6nVUjzIW2dCF11YETpyV62EdbeUgciZt4ZOKdiYn6k7Uk5UzKVlkyunio5NIr6oYWhi00QmpYfDR3Y1is+fbhdn0c9TIiHwliz4WEQrkAFihJ35EscHSsKCHKCH91EpoC0iWxSMFT8N6ehbikrphACJZcSA+3141aNPtwtI/OApAAbwZmMvjJ3AbUkWGkfirgYTIOCWvFByKsjmBLwj92oU0dvTdL85k1fXM9hSl4Da2E2aslA//HUWzpH17andUqdhX5q8TIb8aGYCsyCT5EVs4AXe20E6R2s5Msg92k6wnypPad4EC29GFP0xNe8pvj1i1wmsjaRnaJZg9wl+CekgNV9zzK4Jon5YNXB1PZMRI+eTrW8m7yaXZ4n7JcIKDDIS1TUXNVoQgEdjyXnZap2Mb8leEE6KPp//NIBexRsfd6lkyRaAIum5SoAmUFNjhPKhGW9a+7hD4QgkT3zqx+XyP+/u1K6BHsK0qdDEDRJxrh/A806N4ClhpCWv09b1SqvsdJdnp8t43H2SVlHV9yv09LurDgchf27JCa4tR5yMKFcYL+dCZWusPP1D8r66GXbt1/BaNI/4YbsIx1UrX0qrLXVPfkQEOv9Lw8dEHZYHrdLsxujT/Q/J1MVCtIzyZ38igu/HtXf921yQeTX80dRciIzDvQwb7pN9juHELRBpvarQblrcRCCNOuX5G6k+lzc=
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a stack action"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/stacks/{sessionId}/{stackName}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deploy, redeploy, pull, start, stop, restart, pause, unpause, down or destroy a stack, or run most of them on one service.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"stackName","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action"],"properties":{"action":{"type":"string"},"service":{"type":"string"},"removeVolumes":{"type":"boolean"},"removeFiles":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran, with its output."},"400":{"description":"Invalid action or service."},"403":{"description":"Stack management is off."},"500":{"description":"The action failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

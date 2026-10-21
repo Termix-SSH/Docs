@@ -1,0 +1,70 @@
+---
+id: save-the-compose-file
+title: "Save the compose file"
+description: "Replaces the compose file of a stack in the stacks folder."
+sidebar_label: "Save the compose file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu4zYQ/ZXBPLUAY6Xb7YvesrtdNFu0COIsgiIwirE0thhLpJak7LiC/n0xpCI7cVIgKFC9SCLnduZypseSfeF0G7Q1mOM1tzUV7CFUDIVtWusZVrpmsCsg8IGKDWgTr+OPh5WtS3YzVBho7TG/w0+22LDDhcKWHDUc2Ml5j1pctBQqVGioYczRs/famssSFTr+1mnHJebBdazQFxU3hHmPYd9G4eC0WeMwqJdtSUB/yvdbbC2SMPvwwZZ7kXiuW1gT2AS5oratdUGSrezeS8r6U9N2ec9FeBLE3WREsuJsyy5o9qJ0ZP15aPKIFd9a45P0u/NzeT2t2py2XM5wUPj+/OcXrmPVGjK05oZNAO3BrlajwvvXFIwNsLKdSZZ/ecnxZ9I1lxAseNryTCqDDYfKllKcTnIQS5Rj1tbdWpszanVWxv7IUv9k/dQCQ9ZPJRyysftQoWe3fWyhztWYY5+OBlTPAvrLdg5u2DX6AZIMKtyS07SsUwLH0whlRV0dMMcqhNbnWRai4owfqGlrnhW2kSIsJIKiczrsYwhLJsfuohNcdwvpxcLajebjE2r177yfTo5MzKVbUijHhqbiSyw49qv8JyFU48dn6xqSmL/c3pygn6dMQrAbNuBjqdOsihPr9D+xc6FiKtkBefgQjQKZMopFxVjuY0hTbAkVqjR8SeQwfve78GpEX25vIMmD5wAUwOu1OdNmBrcVG2gdS7gKdIBAG/ZyUnDJpmCwW3avoojRHqf7zZm8uLqEDe+Fz1zQZg07HSoIzcPfJ3Am0bendsN7BbtKF1Vy5A9uZnAZgIrgRW2UBbszo3ZBRkaRiiD3ZPbWMHDtx3kTGro+ENivqXmfMMvEKFK5lY050kGERq6Gi6tLGRR2PgH9afZudn4C/49IITDqSGxXtmzIgHgibdh5sAb2MoSV9cGn0s3nv6mEtrZrrwS/YDUlkGh6W3OsYmt9aChy6thSQmwnq+h5WMdA/9v+Sn0T+CFkbU3aSFCRcPqRxu7wQGMSRlp0Km0ejwrz432WHy+kRzpbKJTUiK2+X5Lnr64eBjn+1rEThlkcGCvyTam9fJeYr6j2/C/of7geF86P8Bqcx0k2+0iMdSd/qHDD+yfbWEjs/3Q8ZWpYDArTFEX06f5jcnV2I1YO+ifrWJh2WkBXX4Uil+NWb2wpKo52splpl9zbiCbScTzrsSaz7mgdGS2alOc7ABAnYw==
+sidebar_class_name: "put api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the compose file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/docker/stacks/{sessionId}/{stackName}/compose"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the compose file of a stack in the stacks folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"stackName","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["content"],"properties":{"content":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"403":{"description":"Stack management is off."},"404":{"description":"Stack not found."},"500":{"description":"Failed to save."}}}
+>
+  
+</StatusCodes>
+
+
+      

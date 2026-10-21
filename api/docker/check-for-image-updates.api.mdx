@@ -1,0 +1,69 @@
+---
+id: check-for-image-updates
+title: "Check for image updates"
+description: "Compares the image of every container with the registry. Results are kept for 30 minutes unless refresh is set."
+sidebar_label: "Check for image updates"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsETy2gtdNte9Et3Xa72aJAsE4RFEGwYCTamlqa0Q6pJKqh/15wRv7IJjnsqSfbNDnz3iP5Zoc1SxVdry54LPFd6HqKLKANg+towxDWwPccR6iCV3KeIzw4bVJG5I0TjeMCPrEMrQpQZNhyr7AOEX48g875QVlg8C2LQOR1ZGnACQjrAgtU2giWN/hrqLYc8bbAniJ1rBwtvkNnuHrSBgv01DGWKCzigr+oscDIXwYXucZS48AFStVwR1juUMc+JWt0foPTVMxnfRk4jsfDZkj4QuldCC2Tx2m6tYukD15YLOHt2Zl9PBXvqmEY+pqUQZR0kKQdVU1WcoFTgT+9VLhafYCZE/hg2g2+hhDTjyp4z5Vynep/fqn+PbmWa9AAVcPVNmmfgcjCiGPH2oQaS9ywYpHVLHHZt8PG+TfUu2Wd5F/OVcvdQeLJhOF4v2/HEFsscZdD9udTKH+HIcIVx849Qs7BAu8pOrprs3RzNJFY09Aqltio9lIul5oKF/xIXd/yogodTkl84WqITscE4Y4pcjwfjMTNrfW1CmHr+DRCvfuDx0Pk5IiVdTlDOT3o0HTDsh+GNAQpCYv5y/sQOzLMH6+vnrFfzU3UsGUPwl7B+bQpdkmI7l+yTGiYao5AAr+kQ4F8ndJSYWr0KaUDtswKizzIOeU4yf886KuIPl5fQc63xQNSELfxb5xfwHXDHvrIBrcAp6C0ZbFIxTX7iiHcc3yVRUJ7Kvc3K3l+eQFbHm1pojq/mf2le/z8jM4h9dul3fJYwEPjqiZfJMdrFnChQJXZl+xzITz4uboib4tIldr/5MfgGbgVzsvl/Dok1k5bo5mdDM4vL2z0OUqG/sPi7eLsGaE/yZvJzjV222WoO/JHtxUIHkZbqyaISm7GavWhyPjbsJEi+Y2kcrJKCW22mz6IduQN3jwk7w4Oke193vivgdlOeWWv/8+jkAdI+VGXfUvOG5fkPLvZvG7waF6GPb8eBR7plMdX4rZA086qdrs7Ev4rttNk4fwWmKnUTsyiaizX1AoXuOXxyetwT+1goNDMZO9oL5e+quR3n+bX6nt4jeV+0/14eucezpHTdHvq67//doXT9B+mobLH
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check for image updates"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/updates/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Compares the image of every container with the registry. Results are kept for 30 minutes unless refresh is set.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"refresh","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The update status of each image."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Failed to check for updates."}}}
+>
+  
+</StatusCodes>
+
+
+      

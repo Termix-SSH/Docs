@@ -5,10 +5,18 @@ sidebar_position: 90
 slug: "/docker/reference"
 custom_edit_url: null
 plugin_id: "docker"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
+
+### Admin
+
+Set by an admin in **Settings**, under the plugin's name. It applies to everyone.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Stack management | boolean | `false` | Let hosts use compose stack management. While this is off, it is hidden and blocked for everyone. |
 
 ### User
 
@@ -30,6 +38,8 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | Enable Docker | boolean | `false` | Manage containers on this host. |
 | Container Runtime | select | `"docker"` | Choose the CLI used for container management on this host |
 | Show containers panel in terminals | boolean | `true` | Let the containers panel open beside this host's SSH terminal. |
+| Stack management | boolean | `false` | Manage compose stacks on this host. An administrator also has to allow it. |
+| Stacks folder | string | `"/opt/stacks"` | The folder on the host where each stack has its own folder with a compose file. |
 
 ## Permissions
 

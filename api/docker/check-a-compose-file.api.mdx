@@ -1,0 +1,70 @@
+---
+id: check-a-compose-file
+title: "Check a compose file"
+description: "Runs compose config on the given text and returns any errors."
+sidebar_label: "Check a compose file"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v40YM/SsETy2g2Om2veiW3XbRbFE0iLMIisAoaImWJpZmtDNUHFXwfy84I38kzhZYVBdbFMl5j0M+jlhyKLzpxDiLOd72NkDh2s4FhsLZtanAWZCaoTJPbEH4WYBsCZ6l9zYA2QHYe+fDDDMUqgLmD/iLKzbscZlhR55aFvZqH9HoKR1JjRlaahlzDByCcfa6xAw9f+mN5xJz8T1nGIqaW8J8RBm66Cze2Ap3u2Vy5iDvXTmox+vYwllhK/qJuq4xBSnJ+WNQpuN5ard65EJegHjAqRaRiXcdezEcNGj/4Rzantg5Zn00feicDSnNu8tL/Xl5C/c1S80+ln1tGgYT4IkaU2awNVJHu+ul62Wmx/30Vo67k1hxDlammpx/PHdeCBUbaMlSxS1b0SC3XseAn9/K/pFMwyWIg6LmYnNAOkNl2LLUrtSLdkELGu87x3nX9JWxF9SZeRkbZB704DAfDz2wm0eiJIwZBvZP+8bpfYM5jsm0w+wVoL9c7+GOfWueIflghk/kDa2aVOnJGqmsqW8Ec6xFupDP5xIDZ/xMbdfwrHCt3tZSERS9NzJECCsmz/6qVzIPy12mTeA2hk8t1JnfeThYTlIstN8SlNNEhy5RLDh1vL4nJ8ymPx+db0kxf7q/O2O/SOUDcRu2EOINpqnVQ5w3/8Teh5qpZA8U4H1MGidZ3WJgvO5TSgdsiRVmaXyTy3GAH7fyVUSf7u8g+UNgARIIprIXxs7gvmYLnWeFm4ERENpwUEvBJduCwT1NQ/AWi4j2tNzfXMmrm2vY8ABByIux1TRc7fPfZ3QOrt9e2g0PGWxrU9TpoHA8ZgbXAlRI0LDJF9zWTtEFWeuig34nOzjLwE2YpkyF7PYogb+m5n2hTXvpOWrtQaOMXbtYMyMaNCk2XN1c6+CwD4n4D7N3s8uzcvwRlQKmGMV648qWrK4MIWPZB10bgw5l7YKEdJWLxW+TgjWuCpnWQ7nbEkgjg4sCkkXZaCmq9IT7Q1QZOqwm1ZrXqMaj4v//PZY6Sb3mXUPGKqwoQeOkZg94VDNFkhZehknRMMP8dK8dRG2ZoRZE48dxRYE/+2a3U/OXnr3qzPKoW1F1ShP0f4n5mprA/0H6u9tpcX0PX6Own2c7JFC9vmGGGx5ebOLdcpdhaukIIn3/kI66uNMsx/iz7aqyd9gBN38uVLBW05ZuXakxnra6aWmbzneRThTHaBuxIVv1VEV9iTn1+ReClwBr
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check a compose file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/stacks/{sessionId}/validate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs compose config on the given text and returns any errors.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["compose"],"properties":{"compose":{"type":"string"},"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether the file is valid, with the output."},"400":{"description":"The file is too big."},"403":{"description":"Stack management is off."},"500":{"description":"Failed to check the file."}}}
+>
+  
+</StatusCodes>
+
+
+      

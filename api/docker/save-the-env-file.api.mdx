@@ -1,0 +1,70 @@
+---
+id: save-the-env-file
+title: "Save the env file"
+description: "Replaces the .env file of a stack in the stacks folder."
+sidebar_label: "Save the env file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDObUAI6fb7UW37G4XzRYtgjiLoAiMYiyNLcYSqSUpO6qg/74YUrGdOCkQFKgvlqiZ4Xvz8WbAkn3hdBu0NZjjNbc1FewhVAwZmy2sdM1gV0DgAxUb0CZ+iy8eVrYu2WWoMNDaY36Hn2yxYYcLhS05ajiwk/MBtcRvKVSo0FDDmKNn77U1lyUqdPyt045LzIPrWKEvKm4I8wFD30bj4LRZ4ziql2MJoD/l+S2xFsmYffhgy14snvsW1gQ2QT5R29a6IEnV7N5LvobT0HZ5z0V4AuJuH0Sy4mzLLmj24nQU/Tk0+UkU31rjk/W783P5e1qyOW25zHBU+P785xc+x6o1ZGjNDZsA2oNdrSaH9685GBtgZTuTIv/y0sWfSddcQrDgacuZVAYbDpUtpTid5CCWKMdZW3drbc6o1bMy9scs9c9s2LfAOBv2JRxnbLao0LPbPrZP52rMcUhHI6pnYP6ynYMbdo1+gGSDCrfkNC3rlLzpNNJYUVcHzLEKofX5bBaiY8YP1LQ1Z4VtpAALQVB0Toc+QlgyOXYXnXC6W0gfFtZuNB+fUKt/535/chRiLp2SoBwH2hdesODUq/KejFBND5+ta0gwf7m9OWE/T1mEYDdswMcypzmVS6zT/8SuhYqpZAfk4UMMCmTKaBYdY6mPKe2xJVao0uAlk8Po3e/Cq4i+3N5AsgfPASiA12tzpk0GtxUbaB0LXAU6QKANezkpuGRTMNgtu1dZRLTH6X5zJi+uLmHDvWiZC9qsYadDBaF5+PuEzt707andcK9gV+miShf5wzUZXAagInhxm2zB7szkXZCRMaQiyHcyvTUMXPtp1kSCrg/i9Wtq3ieqslcTqdzKxhzpIEaTTsPF1aUMCjufiP6UvcvOT+j/EeUDJh/BdmXLhgzITaQNOw/WQC9DWFkffCrdfP6bSmxru/ZK+AtXUwKJp7c1xyq21oeGop5OLSWiFjPyuIKeQzom+R+WVmqYwA9h1takjaCJSjNM2nWHB+0SDGm7qbRuPCrMj5dYfryFRMMWCiUfEmcYluT5q6vHUY6/dexEVhYHmYoiU2ovzyXmK6o9/wvtH66nDfMjvEblcXxNH9Ww7uQNFW64f7J+Rbn+z4v3WRoXo8I0OpF9+v4xXXV2I1EO/if7V+R1v3GuvoouLqc13thSXBztZBXTLl1vI5uowfFswJrMuqN1lLEYUn7fAdIaH14=
+sidebar_class_name: "put api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the env file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/docker/stacks/{sessionId}/{stackName}/env"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the .env file of a stack in the stacks folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"stackName","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["content"],"properties":{"content":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"403":{"description":"Stack management is off."},"404":{"description":"Stack not found."},"500":{"description":"Failed to save."}}}
+>
+  
+</StatusCodes>
+
+
+      

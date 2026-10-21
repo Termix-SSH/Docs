@@ -7,7 +7,7 @@ description: "Manage Docker and Podman containers on your hosts over SSH, with l
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Docker/edit/main/docs/index.md"
 plugin_id: "docker"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Docker lets you manage the containers on your hosts from Termix: start, stop, restart, pause and remove them, watch their stats, read their logs and open a shell inside them. It works with Docker and Podman.
@@ -32,6 +32,34 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
 - Stats: Live CPU, memory, network and disk use per container.
 - Logs: Read a container's logs, follow them live, and download them.
 - Console: Open a shell inside a running container.
+- Updates: See which containers have a newer image and update them.
+- Stacks: Manage compose projects when stack management is on.
+
+## Updates
+
+Termix checks the registry for a newer image when you open the Docker tab and every 30 minutes after that. Containers with a newer image get an Update badge. Use the arrow button in the header to check again.
+
+The Update button on a container pulls the new image. If the container belongs to a compose project, it also recreates that service, which restarts the container. A container that was not started by compose only gets the new image pulled, so recreate it yourself to use it.
+
+Checks use `docker buildx imagetools inspect` for Docker and `skopeo` for Podman, so one of them has to be installed on the host. Images pinned by digest or built locally are skipped. Private registries need the host to be logged in.
+
+## Stacks
+
+Stack management is for compose projects. It is off by default and invisible until you turn it on.
+
+1. An admin opens Settings, Plugins, Docker and turns on Stack management.
+2. On a host, turn on Stack management in the Docker section. The Stacks folder defaults to /opt/stacks.
+3. Open the Docker tab. A Containers | Stacks switcher shows at the top.
+
+Each stack is a folder in the Stacks folder with a compose file and an optional .env file. Compose projects that run elsewhere on the host also show up, without file editing.
+
+- New stack: Pick a name and paste a compose file, then create.
+- Compose: Edit the file, check it, then save or save and deploy. Ctrl+S saves.
+- Environment: Edit variables in a table with hidden values, or as raw text.
+- Actions: Deploy, pull and deploy, restart, pause, stop, take down or destroy. Most also work on one service.
+- Logs and terminal: Read the logs of the whole stack or one service, and open a shell in a running service.
+
+Stack management needs a Linux or macOS host with the compose plugin installed, and SFTP enabled for the SSH user.
 
 ## Containers panel beside a terminal
 
