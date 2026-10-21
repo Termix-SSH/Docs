@@ -3,11 +3,11 @@ title: "Tunnels"
 sidebar_label: "Overview"
 sidebar_position: 0
 slug: "/tunnels"
-description: "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
+description: "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/index.md"
 plugin_id: "tunnels"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconnects on its own. Tunnels can start when Termix starts, so they are always there, and the desktop app can run tunnels on your own computer.

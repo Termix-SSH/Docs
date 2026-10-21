@@ -1,0 +1,70 @@
+---
+id: add-a-forwarded-port
+title: "Add a forwarded port"
+description: "Add a forwarded port"
+sidebar_label: "Add a forwarded port"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v5DYM/SsETy2gzKSLXupbtuhHtocGmymCIhgUHJsZK2NLXonOxDX83xeUPB+7szmsL7apR+qRIp9GFNpGLB5x1TvHTcS1wY4CtSwcdGFE67DAjqRGg45axgJthQYDf+pt4AoLCT0bjGXNLWExogxdQjnhLQecpnVGc5T3vhoU8rVz6Z2wE12irmtsSWK9Wz5H79R2EdtvnrkUnKZp0tix8y5yVMC762t9VRzLYDuNggWuagbHe+h8kAVOBn++/uXbqK7fNLZMQLARhHbsFqi7fIm9qSogePJhT6HiKjmgwZal9pUWzEf9T3UrcNk1/da6K+rsUnKll1sS3tMQl6OtpqX6RzQYObwcKt+HBgscs2nCryn86/sAKw6tfYWMQYMvFCxtmlyL2ZoSfaK+ESywFulisVxKclzwK7Vdw4vSt1rNtTIo+2BlSBQ2TIHDTa9ZPK4nM2Lp/c7yuYU6+xcPR8tZiHs9tkzlPNDxFJULzp2j/xmEZv743YeWlPOHh9VF9vcco/UOxO/YQWQnYB1IzaCb+GD/Ty0ENVPFASjC+xQUyFUJlhxTM5yndOSWs0KT+z9DThPwvJc3GX14WEHGQ2QBEoh2666sW8BDzQ66wErXgJXUX1EtJVfsSgb/wuHNLBLb83J/dyVv7m5hxwNEoSDWbWFvpQZpX/+7SOcI/f7S7ngwsK9tWeeN4mmbBdwKUClR3WYs+L2bvUtyzieArpMbvGPgJnKeQdWDjycl+S03LxbjpOf05FNFrKjpoGhwc3erc8Eh5rx+WrxbXF8e3v2feejnkdbaSE0CgUvvHCtj78Dqa+8MPNjAf/QUKjjMcYYn/Yg1dMG+kHAaTFtyNDm9xmo1ZwmAp+DbVISK4058B9R16YxVPVpK0jc33Bt680USx24QfpVl15B1GizJyDhL0SOepAgNzkzQ4CENNFgkfc+KtDZYq5QVjziOG4r8T2imSc2feg4qEuuT6CTJqGzU7wqLJ2oiX3A8Sj3+8HG+BX4EpfIt7odhdEPStqbXPzS44yHfQ9N6MpgbMe2eF37Ne1yt1P3keHG1qFgdJfvu73uVmc18RbW+Up9Ae73saJ839imPJGnJNmJDbtvTNqlCiqnPZ/sAizo=
+sidebar_class_name: "post api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a forwarded port"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tunnels/gateways/{id}/ports"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a forwarded port
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new port."},"409":{"description":"The public port is taken."}}}
+>
+  
+</StatusCodes>
+
+
+      

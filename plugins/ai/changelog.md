@@ -6,9 +6,15 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Fixed
+
+- The AI Agents button no longer shows on hosts where the AI assistant is turned off
+
 ## 1.2.0
 
 ### Added

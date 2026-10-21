@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Tunnels API",
-    "version": "1.1.0",
-    "description": "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app."
+    "version": "1.2.0",
+    "description": "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app."
   },
   "servers": [
     {
@@ -63,6 +63,71 @@
     }
   ],
   "paths": {
+    "/plugin-api/tunnels/saved": {
+      "get": {
+        "summary": "List saved tunnels",
+        "description": "Returns the saved server tunnels of every host the caller can reach.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of { hostId, connections }."
+          },
+          "403": {
+            "description": "Missing the tunnels.use permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/saved/{hostId}": {
+      "put": {
+        "summary": "Save the tunnels of a host",
+        "description": "Replaces the saved server tunnels of a host. An empty list removes them.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "connections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved list."
+          },
+          "400": {
+            "description": "A tunnel is not valid."
+          },
+          "403": {
+            "description": "No edit access to the host."
+          }
+        }
+      }
+    },
     "/plugin-api/tunnels/status": {
       "get": {
         "summary": "Get tunnel statuses",
@@ -357,6 +422,382 @@
           },
           "404": {
             "description": "Preset not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways": {
+      "get": {
+        "summary": "List gateways",
+        "description": "Returns the caller's WireGuard gateways with their ports and live state.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of gateways."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a gateway",
+        "description": "Links a private host to a public host over WireGuard and sets both up.",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "privateHostId": {
+                    "type": "integer"
+                  },
+                  "publicHostId": {
+                    "type": "integer"
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "listenPort": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new gateway."
+          },
+          "400": {
+            "description": "A host is not ready or the input is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/preflight": {
+      "post": {
+        "summary": "Check a host for gateway use",
+        "description": "Reports whether a host has root or passwordless sudo, WireGuard, nftables and systemd.",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What the host has."
+          },
+          "403": {
+            "description": "No edit access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/install": {
+      "post": {
+        "summary": "Install WireGuard and nftables on a host",
+        "description": "Installs the missing packages with the host's package manager.",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Installed."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}": {
+      "get": {
+        "summary": "Get a gateway",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Change gateway settings",
+        "description": "Name, public address, tunnel port and port scan settings.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The gateway."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a gateway",
+        "description": "Takes the tunnel and its rules off both hosts, then deletes the gateway.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}/apply": {
+      "post": {
+        "summary": "Apply a gateway again",
+        "description": "Writes the tunnel config and forwarding rules to both hosts.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}/check": {
+      "post": {
+        "summary": "Check a gateway now",
+        "description": "Reads the tunnel and rule state from both hosts.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gateway with fresh state."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}/scan": {
+      "post": {
+        "summary": "Scan for listening ports",
+        "description": "Looks for new listening ports on the private host and the extra scan hosts.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "How many new ports were found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}/ports": {
+      "post": {
+        "summary": "Add a forwarded port",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new port."
+          },
+          "409": {
+            "description": "The public port is taken."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/gateways/{id}/ports/{portId}": {
+      "patch": {
+        "summary": "Change a forwarded port",
+        "description": "Also turns a port on or off.",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "portId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The port."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a forwarded port",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "portId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
           }
         }
       }

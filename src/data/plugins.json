@@ -59,7 +59,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-AI",
     "docs": "https://docs.termix.site/plugins/ai",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Ask about your hosts, snippets, fleets, alerts, automations and more",
       "Proposes changes instead of making them, and nothing runs until you approve it",
@@ -96,8 +96,14 @@
     "videoId": "5usBJanMqiI",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T05:06:23.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T20:42:58.000Z"
       },
@@ -2162,18 +2168,20 @@
   {
     "id": "tunnels",
     "name": "Tunnels",
-    "description": "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app.",
+    "description": "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app.",
     "category": "Networking",
     "icon": "ArrowLeftRight",
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
     "docs": "https://docs.termix.site/plugins/tunnels",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Local, remote and dynamic SOCKS5 forwarding",
       "Reconnects on its own when a tunnel drops",
       "Start tunnels on boot",
       "Route a tunnel through a second host",
+      "WireGuard gateways that forward public ports to services on a private host",
+      "Finds listening ports on its own, with a switch for each one",
       "Client tunnels on your own computer from the desktop app, with presets you can save to the server"
     ],
     "capabilities": [
@@ -2185,7 +2193,8 @@
       "ui:surface",
       "users:impersonate",
       "db:core-refs",
-      "desktop:local"
+      "desktop:local",
+      "secrets:own"
     ],
     "env": [],
     "dependencies": {},
@@ -2194,8 +2203,14 @@
     "videoId": "RJu5gzn8_fo",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-21T05:08:40.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:16:29.000Z"
       },
@@ -2216,12 +2231,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:21.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T02:57:45.000Z"
       }
     ]
   },

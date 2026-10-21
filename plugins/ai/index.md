@@ -7,7 +7,7 @@ description: "An AI assistant that reads your setup and proposes changes for you
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/index.md"
 plugin_id: "ai"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 AI Assistant brings an assistant that knows your Termix setup. Ask it about your hosts, snippets, fleets, alerts and more, or ask it to change them. It works as you, with your permissions, through the Termix CLI that ships inside the plugin. See [AI assistant](assistant.md).

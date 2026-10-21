@@ -12,6 +12,18 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "tunnels/list-saved-tunnels",
+          label: "List saved tunnels",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "tunnels/save-the-tunnels-of-a-host",
+          label: "Save the tunnels of a host",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "tunnels/get-tunnel-statuses",
           label: "Get tunnel statuses",
           className: "api-method get",
@@ -68,6 +80,84 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "tunnels/delete-a-client-tunnel-preset",
           label: "Delete a client tunnel preset",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "tunnels/list-gateways",
+          label: "List gateways",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "tunnels/create-a-gateway",
+          label: "Create a gateway",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/check-a-host-for-gateway-use",
+          label: "Check a host for gateway use",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/install-wire-guard-and-nftables-on-a-host",
+          label: "Install WireGuard and nftables on a host",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/get-a-gateway",
+          label: "Get a gateway",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "tunnels/change-gateway-settings",
+          label: "Change gateway settings",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "tunnels/remove-a-gateway",
+          label: "Remove a gateway",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "tunnels/apply-a-gateway-again",
+          label: "Apply a gateway again",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/check-a-gateway-now",
+          label: "Check a gateway now",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/scan-for-listening-ports",
+          label: "Scan for listening ports",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/add-a-forwarded-port",
+          label: "Add a forwarded port",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/change-a-forwarded-port",
+          label: "Change a forwarded port",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "tunnels/remove-a-forwarded-port",
+          label: "Remove a forwarded port",
           className: "api-method delete",
         },
         {

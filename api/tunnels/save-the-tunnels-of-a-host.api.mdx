@@ -1,0 +1,70 @@
+---
+id: save-the-tunnels-of-a-host
+title: "Save the tunnels of a host"
+description: "Replaces the saved server tunnels of a host. An empty list removes them."
+sidebar_label: "Save the tunnels of a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu20YQ/ZXBPLUALblpn/SmFL04BQrDVmAUhlCMyJG4Frm72R1KZgn9ezC7tKRYcYAA5QvJ3bmcuZ0ZsOJYBuPFOIszvGPfUMkRpGaItOMKIocdB5DOWm4iuDUQ1C7KBOYWuPXSQ2OiQODW7bJmO8EChTYRZ4+4yIq4LNBToJaFg14MaNSjJ6mxQEst4wzV8E2FBQb+1JnAFc4kdFxgLGtuCWcDSu9V0ljhDQc8HJZZmqO8d1WvIq+VS2eFregVed+YkjTc6VPUmIdL2271xKVggT44z0EMR70tnbVcqmo8E6YQqMcCjXAbL40c8qMYo3c2ZlPvrq/19WXyF8eca0IneCjwl6/JzcdigIlgncCOGlON4j9fiv/tgCsjQGXJMYK4VNxUQlRgLUvtKi1Fl2LWgsxw6ptuY+wVeTMdaz9N4KZDLtIBC8y9kavZhQZnOOQjvfwSxT+uC7Dg0JrnsaWwwB0FQ6sm52Q8TfjX1DWi/SDi42w6laQ44WdqfcOT0rWa2KUiKLtgpE8QVkyBw7zTAB6Xh0JL5raGz0/Im7+4P56cmbjXNshQzg0dC6pYcOxE/c9CWIwfv7vQkmL+8LC4iP6eYzTOgrgtW4hsBYxNdVAnLpj/UktCzVRxAIrwPhkFslUSS4qpxuchnZowRaVdqN6yyGmqnvbyJqIPDwvI8hBZgASi2dgrYyfwULMFH1jhFmAEhLYc9aTkim3J4BIzvBFFQnue7u/O5Pz2BrbcQxQKYuwG9kZqkPb534twjqLfn9ot9wXsa1PW2VE8uZnAjc6NRFUbZcHt7ahdktX5o1L0nmzvLAM3kfNgKb/cnZjpt9y8F0zyOByWB63c2qUcGVGhF96E+e2NTgqHmCP9afJucn1Zzvs/wbsgsHZhT6HSbElNSsujswjOgtHX3hbwYAL/0VGoYEPCe+pjFvfdqjGxBh/MjoTTqJqSY5EDbozm92UXrINrU1oqjltxHsj7VHXvorSUyHVswXvacW7k13vkdSjDia7/13WUW0/4Waa+IWMVZ+KsYaS8RzxRniqMe6vA5BgLnI3baVmkPaUaw7CiyB9Dczjo8aeOg1LR8kRtiZgqE/W7wtmamsjfiPiHu3F3/QhvgX4ZedsnBm06/cMCt9yfNmhqqdzyCUG+/DX7uVqoiZPyxVJUWjyuhduPymercbe2rlKVQHvd0rTPvp0/rsV0NmBDdtPRJtFPMqnPZ3V77U8=
+sidebar_class_name: "put api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the tunnels of a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/tunnels/saved/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the saved server tunnels of a host. An empty list removes them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"connections":{"type":"array","items":{"type":"object"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved list."},"400":{"description":"A tunnel is not valid."},"403":{"description":"No edit access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

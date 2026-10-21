@@ -1,0 +1,68 @@
+---
+id: create-a-gateway
+title: "Create a gateway"
+description: "Links a private host to a public host over WireGuard and sets both up."
+sidebar_label: "Create a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv4zYM/isEn90kd9iT33rDtuttwIo1QzEUwcDYbKzGlnQS3dQz8t8HSm7iNXcHHDA/xA71UfxIip9GrDlWwXgxzmKJvxm7j0Dgg3kmYWhcFBCnln7bmiob3DMHuDeBf+kp1EC2hsgSYeukgd4vsEChXcTyAde9tdxG3BQY+HPPUT64esByTH9N4BpLCT0XWDkrbEWXyPvWVKSclk9RiY0Yq4Y70i8ZPGOJbvvElWCBPjjPQQxHXbXU8QwVJRi7w6PCUkofXZSbeoYwVnjHIUFSjt9CsK29M5nlRYTWRGF764J8yTk9WoXonY2Z7PvVSl//7cG6YbB8gB0JH2hY6NY/fAl4nbthIlgnEJjqAVwAaRiM9f1p5ZlaUy9Qo3csjauxRO9iqh1JgyUufdvvjL0ib5aSO7acwkcsMHJ45qD9HLEPLZY4ZtMRizec/nJ9gDWHzrxAxmCBzxQMbduc82RN2TxS3wqW2Ij4WC6XkhwX/EKdb3lRuU7rtlEGVR+MDInClilwuO6V+sPmWIxYObc3PLeQN7/ycLLMtrjTg5SpzDc6NUy5aM4JhuUEwmL6+NmFjpTzp/v1RfZ3HKNxFsTt2UJkK2BsaogGccH8kw41NEw1B6AIH9KmaYQUlhxTx+cpnbjlrLBAo9EyBIvpzOPTQb7K6NP9GjJeRxVIIJqdvTJ2AfcNW/CBlW4BRkBoz1EtFddsK87z/rUsEtt5ub+7kte3N7DnAaJQEGN3cDDSgHQvf1+kc4J+f2n3PBRwaEzV5EDxHGYBNwJUSVS3CQvuYCfviqyOEVWi62QHZxm4jZxnShXqj7O2/ZQP71mLXhXiQoJWbxVnNReYs9tcV1ZHbf6jS2U2onFeNRaub2902DjEXKx3i/eL1eWJuPsI3gWBRxcOFGotuDSkAlI5a1nL4CwYfR1sMdP5V0XI8EQ9NqerQufaVByLXLPWaIsmMYHH4LpU2ZrjXpwH8j4dHNWhjuysWj8G1u3oNdzbBMbzTfE/Xlf5xAq/yNK3ZKxyS1I3Thr5gGeNVIfpXivwpJObAjWcQsdxS5H/DO3xqObPPQeVrs1ZCrNOYT6tSdX2PGj2ObertRJSeNvnwX9zI6qincT89vc71aLtdLN2rlafQAcs0m+JWKBL9Uu6l2wjtmR3Pe2SdKQ99fkX4ZPPgg==
+sidebar_class_name: "post api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tunnels/gateways"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Links a private host to a public host over WireGuard and sets both up.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"privateHostId":{"type":"integer"},"publicHostId":{"type":"integer"},"endpoint":{"type":"string"},"listenPort":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new gateway."},"400":{"description":"A host is not ready or the input is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

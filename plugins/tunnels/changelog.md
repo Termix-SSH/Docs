@@ -6,9 +6,24 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Gateways: link a private host to a public host over WireGuard and forward public ports to services on the private side, for game servers and other things behind a home network
+- Termix sets up WireGuard and the forwarding rules on both hosts over SSH, keeps them in their own interface and rule table, and puts them back if they go missing
+- Gateway health shows the last handshake, missing rules, and whether each target answers
+- Optional port scan on the private host and extra hosts, with a switch for each port it finds. On a Proxmox host it also scans running VMs and containers
+- A list of public ports to open in your cloud firewall
+
+### Changed
+
+- Server tunnels are now set up in the Tunnels tab instead of the host editor, which keeps the on/off switch for each host (off unless the host defaults turn it on). Tunnels you already saved move over on their own
+- The Tunnels tab has an Add tunnel button and an Edit button on each tunnel
+
 ## 1.1.0
 
 ### Changed

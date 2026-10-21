@@ -1,0 +1,68 @@
+---
+id: check-a-host-for-gateway-use
+title: "Check a host for gateway use"
+description: "Reports whether a host has root or passwordless sudo, WireGuard, nftables and systemd."
+sidebar_label: "Check a host for gateway use"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v4zYQ/SuDOTN2uu1Jt2zRj2yBNti4MIrAKGhpbDGWSC5nFEcV/N+LIf3VBHvYQ3Ww5OEb8s0b8nHChrhOLooLHiv8TDEkYdi3JC0lsNAGFmgtQwpBICSIlnkfUtMRM/DQBANLl+iXwabGgN+IXXfEYH0DPLJQ38zQoNgtY/WEi8F76hhXBhN9GYjlY2hGrKb81yVqsJI0kME6eCEvOmRj7FxtleP8mZXohFy31Fv9kjESVhjWz1QLGowpREriiHVU+d83VzjnhbaU8JAfpcExeC7oD7e3+vqvKMvWCkhLZy1meDD4w+3376G/B6DGCdi6VnkknPNmqIv1JG1osMIYOHO10mKF89gNW+dvbHRzKQrNt1Zob0eex0Sbzm1bxTOlF0qq5IRD6rDCqYQOaN5Q+SsMCRaUevcKBYMGX2xyuT9ZwhLNRWzs0AlW2IpEruZzyYkzerV97GhWh14FWymDekhOxkxhTTZRuhu0iKfVwUxYh7BzdB2x0f1G4zlyNcWjtrBQuZ7o3CnlojVnGFZHEJrjx88h9VY5f1ou3lX/SMwueJCwIw9MXsD53AxdJCT3T95O0JJtdJ8zfMyT5n2rsJyYG31d0plbqQoNOl2tQNCgt5np816+yujTcgEFD0wCVoDd1t84P4NlSx5iIqVrwAmI3RFrpKaGfE0QXih9tYrM9lrub1by7uEedjQCi03i/Bb2TlqQ/vXvd+Wcod8u7Y5GA/vW1W1ZiC/LzOBeD4+wph2xEPb+mF1b70MG6Lj1Y/AE1DGV06Xe8PniKj+VzXvtArcH7dgmZG2c6ODJkuDu4V5PCCUuFX43+zC7fd/Gx19BPRI2Ie1talQlUYNIVAfvSbkHD05fe3/ljXA60AUeh3XnuIWY3IsVykfU1cSmFNo51fXoBbBJoc9yNMQ7CRFsjLnbaiO9zYZ43Ho/tlTvTr69Cem0LAxMb4uZLib7Pzp/2YJCrzKPnXVeeWfvmo7294QX+9OE4xVh8KRYNvWTCa5M7qamTdPaMv2ZusNBw18GSupLq4vPFRPCshWzZe1oVJVK3TcLJafwbiin+s1Fo3Z19uyHPx7VaNbHC6sPjeYku0eTfytEgyFrm00txybsrN8Odpt9Ic+pz79n6J0R
+sidebar_class_name: "post api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Check a host for gateway use"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tunnels/gateways/preflight"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports whether a host has root or passwordless sudo, WireGuard, nftables and systemd.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What the host has."},"403":{"description":"No edit access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      
