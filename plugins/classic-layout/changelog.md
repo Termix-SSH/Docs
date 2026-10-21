@@ -6,9 +6,15 @@ slug: "/classic-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-layout"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Fixed
+
+- The bottom of the app was cut off under the title bar in the desktop app
+
 ## 1.0.0
 
 ### Added
