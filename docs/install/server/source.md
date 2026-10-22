@@ -22,7 +22,7 @@ npm ci
 npm run build
 ```
 
-`npm run build` builds the plugin SDK, the web UI, the server and the bundled plugins into `dist/`.
+`npm run build` builds the plugin SDK, the web UI, the server and the bundled plugins into `dist/`. It bundles the standard plugin set. Set `TERMIX_PLUGIN_PROFILE=minimal` or `full` to pick another, see [plugin sets](/install/server/docker#plugin-sets).
 
 ## Run
 

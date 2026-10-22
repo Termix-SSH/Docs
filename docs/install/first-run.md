@@ -30,7 +30,7 @@ Each plugin can be:
 - Off: It stays installed but does nothing. Turn it on any time.
 - Remove: It is deleted from the server with its data. You can install it again from the Plugins tab.
 
-The recommended set covers what most people want: the SSH terminal, the file manager, metrics and a few more. Read about each one in the [plugin list](/plugins).
+The recommended set covers what most people want: the SSH terminal, the file manager, metrics and a few more. Read about each one in the [plugin list](/plugins). The list only shows plugins that are in your image. For more, use a bigger [image tag](/install/server/docker#plugin-sets) or install them later from the Plugins tab.
 
 Some plugins need others. Termix keeps those on and tells you why.
 

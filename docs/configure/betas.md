@@ -17,7 +17,7 @@ Use the `beta` tag:
 image: ghcr.io/termix-ssh/termix:beta
 ```
 
-Then `docker compose pull && docker compose up -d`. To go back, change the tag to `latest`. Back up first, since a beta can change the database in a way an older version can't read.
+Add `-minimal` or `-full` (`beta-full`) for a different [plugin set](/install/server/docker#plugin-sets). Then `docker compose pull && docker compose up -d`. To go back, change the tag to `latest`. Back up first, since a beta can change the database in a way an older version can't read.
 
 ### Desktop
 
