@@ -7,7 +7,7 @@ description: "A simple Termix layout for small setups with a top bar, a Home scr
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Simple-Layout/edit/main/docs/index.md"
 plugin_id: "simple-layout"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Simple Layout is a layout for small setups, like a home lab with a handful of hosts. It leaves out the sidebar, docks, split view and the long settings lists.
