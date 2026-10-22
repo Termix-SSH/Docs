@@ -43,6 +43,8 @@ Assets, in the AI tab, collects every host you can connect to with one read-only
 
 Turn on Enable AI Assistant in a host's settings to get an assistant panel next to its terminal. It knows which host you are on and reads your setup through a fixed set of tools.
 
+Open it from the terminal toolbar button, which also hands it what is on screen, from the tab menu, or from the edge of the terminal. On Termix 26.10.3 and later it sits in the panel bar with the other panels, so you can resize it, move it to either side or the bottom, and turn it off for a host with Panel beside the terminal.
+
 | It can read                                 |                                                         |
 | ------------------------------------------- | ------------------------------------------------------- |
 | Hosts                                       | Names, addresses and settings. Never passwords or keys. |

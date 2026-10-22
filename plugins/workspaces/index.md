@@ -20,6 +20,10 @@ Open the tabs and splits you want, then open Workspaces from the sidebar and pre
 
 Click a workspace in the list and confirm. Your current tabs close and the workspace's tabs open in the same layout, connecting to each host again.
 
+## On the dashboard
+
+Add the Workspaces card in the dashboard's edit mode to open a saved workspace, or your last session, in one click. It asks before replacing your open tabs.
+
 ## Change one
 
 - Update with Current overwrites a workspace with what you have open now.

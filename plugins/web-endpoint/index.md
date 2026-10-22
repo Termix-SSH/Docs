@@ -24,6 +24,12 @@ It needs the [Tunnels](/plugins/tunnels) plugin.
    - Open in: a Termix tab, or an Isolated desktop window in the desktop app.
 3. Save, then pick the endpoint from the host's menu.
 
+## Beside the terminal and on the dashboard
+
+A host with a web UI that opens inside Termix gets a Web UI panel beside its SSH terminal. Open it from the terminal edge or its tab menu, and pick the endpoint when the host has more than one. Turn it off for a host with Panel beside the terminal.
+
+Add the Web UIs card in the dashboard's edit mode to open any of your web UIs in one click.
+
 ## Direct or SSH tunnel
 
 - Direct: your browser opens the host's address and port itself. The port has to be reachable from where you are.

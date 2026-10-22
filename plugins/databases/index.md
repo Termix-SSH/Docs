@@ -52,6 +52,10 @@ The console is read only for users who have connect access but not edit access t
 
 Client commands such as `\` lines in PostgreSQL, `.` lines in SQLite and `system` or `source` in MySQL are not allowed.
 
+## Beside the terminal
+
+The same view opens as a panel beside the host's SSH terminal, from the terminal edge or its tab menu. Turn it off for a host with Panel beside the terminal.
+
 ## Access
 
 - Anyone with connect access to the host can list logins and read data.

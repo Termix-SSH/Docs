@@ -30,6 +30,12 @@ The Runs list shows every run: what started it, how long it took, whether it wor
 
 If it is already running decides what happens when the trigger fires again before the last run is done: skip the new run, wait and run after, or run both at once.
 
+### On the dashboard and beside a terminal
+
+Add the Upcoming automations and Automation runs cards in the dashboard's edit mode. The first lists scheduled automations by when they run next, the second the latest runs.
+
+The Automations panel beside an SSH terminal shows that host's maintenance state, the automations that use the host, and their latest runs. Open it from the terminal edge or its tab menu. Turn it off for a host with Panel beside the terminal.
+
 ## Maintenance
 
 Doing work on a host? Open its Maintenance settings and press Start now, or schedule a window once, weekly or monthly. While a host is in maintenance, automations that watch its status, health checks, metrics, containers and tunnels don't fire for it. Scheduled automations and manual runs still work.

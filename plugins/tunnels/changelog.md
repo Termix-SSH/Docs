@@ -6,9 +6,24 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Added
+
+- Tunnels panel beside an SSH terminal: the host's tunnels with live status, start and stop
+- Tunnels dashboard card: every tunnel you can reach, with start and stop
+
+### Changed
+
+- The tunnel grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
+### Fixed
+
+- Saved tunnels now sync to a linked desktop, including for hosts shared with the account
+
 ## 1.2.0
 
 ### Added
