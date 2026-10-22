@@ -50,6 +50,23 @@ Plugins that ship with Termix stay uninstalled after an update or a new containe
 
 A plugin that fails to start shows as Stopped unexpectedly with the error. Press Restart to try again. Report an issue opens an issue in the plugin's repo with your versions filled in.
 
+## Safe mode
+
+If a plugin breaks the server or the app so badly that you cannot get to the Plugins tab, start Termix in safe mode. Set `TERMIX_SAFE_MODE=1` and restart:
+
+```yaml
+services:
+  termix:
+    environment:
+      TERMIX_SAFE_MODE: "1"
+```
+
+In safe mode only layout and theme plugins (and the plugins they need) start, so the app still draws. Every other plugin stays off, and everyone sees a Safe mode notice. Open Plugins and disable or uninstall the plugin that caused the problem. You cannot turn plugins on while safe mode is on.
+
+Safe mode does not change which plugins are enabled. Remove `TERMIX_SAFE_MODE` and restart, and every enabled plugin starts again.
+
+If the layout itself is the problem, use the [repair screen](/develop/repair-view) instead, or both.
+
 ## Install from a file
 
 Plugin authors can install a `.tmxplug` file that is not in the registry. Turn on Plugin developer mode in Settings, General first. Only do this with plugins you trust. See [develop](/develop/quick-start).

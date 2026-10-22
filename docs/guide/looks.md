@@ -32,6 +32,8 @@ Accent color, interface font, font size and density work with every theme. A the
 
 If a layout cannot load, Termix shows a [repair screen](/develop/repair-view) where you can switch, reset or, as an admin, update or restore the layout. Add `?safe-layout=1` to the address to open it on purpose.
 
+If another plugin breaks the app, start the server in [safe mode](/guide/plugins#safe-mode) to run only layout and theme plugins.
+
 If the layout you picked is uninstalled, you get the default layout instead. A theme that goes missing shows as System until it is back.
 
 Plugin authors can [write a layout](/develop/layouts) or [a theme](/develop/themes).
