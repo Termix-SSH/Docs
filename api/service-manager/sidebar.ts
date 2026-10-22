@@ -114,6 +114,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "service-manager/every-watched-unit",
+          label: "Every watched unit",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "service-manager/watched-units",
           label: "Watched units",
           className: "api-method get",

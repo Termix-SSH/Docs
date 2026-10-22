@@ -60,6 +60,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "file-manager/move-many-files-or-directories-to-the-trash",
+          label: "Move many files or directories to the trash",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "file-manager/stop-a-bulk-delete-from-starting-more-items",
+          label: "Stop a bulk delete from starting more items",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "file-manager/rename-a-file-or-directory",
           label: "Rename a file or directory",
           className: "api-method put",

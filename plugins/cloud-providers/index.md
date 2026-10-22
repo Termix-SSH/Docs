@@ -7,7 +7,7 @@ description: "Add hosts from AWS, Azure, Google Cloud, DigitalOcean, Hetzner and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Cloud-Providers/edit/main/docs/index.md"
 plugin_id: "cloud-providers"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Cloud Providers turns the servers in your cloud accounts into Termix hosts. You can import the ones you pick, or sync a whole account on a timer.

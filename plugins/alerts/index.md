@@ -22,6 +22,10 @@ New alerts also pop up while you use Termix. Pick which ones under Alert popups 
 
 Add the Alert Feed widget to your homepage to see the latest ones there.
 
+## On the dashboard
+
+Add the Alerts card in the dashboard's edit mode to keep your inbox on the dashboard. It shows the same list as the Alerts panel.
+
 ## Channels
 
 A channel is somewhere outside Termix an alert can go. Add them under Channels:

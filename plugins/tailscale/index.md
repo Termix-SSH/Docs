@@ -25,6 +25,10 @@ Open the Tailscale panel from the sidebar to see your devices. Add host adds one
 
 The key is stored encrypted. It is only used to list devices.
 
+## On the dashboard
+
+Add the Tailnet card in the dashboard's edit mode. It shows how many devices are online, counting a device seen in the last five minutes as online, and lists them with the online ones first.
+
 ## Tailscale SSH
 
 If a host runs [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh), Termix can connect with no credentials at all. Tailscale checks who you are and whether your tailnet's ACL allows it.

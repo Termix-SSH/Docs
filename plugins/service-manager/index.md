@@ -7,7 +7,7 @@ description: "Manage services, timers and logs on your hosts over SSH."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Service-Manager/edit/main/docs/index.md"
 plugin_id: "service-manager"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Services lets you manage the services on your hosts from Termix. Start, stop and restart them, see why one failed, edit its unit file, check timers and read the logs, all from one tab.

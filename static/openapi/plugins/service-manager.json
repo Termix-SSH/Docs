@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Services API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Manage services, timers and logs on your hosts over SSH."
   },
   "servers": [
@@ -768,6 +768,20 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/plugin-api/service-manager/watches": {
+      "get": {
+        "summary": "Every watched unit",
+        "description": "The units the signed in user watches on every host they can still reach with Services on, with the last state seen. Feeds the dashboard card.",
+        "tags": [
+          "Services"
+        ],
+        "responses": {
+          "200": {
+            "description": "The watched units with their host."
           }
         }
       }

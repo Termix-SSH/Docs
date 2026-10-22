@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "File Manager API",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Browse, edit and move files over SFTP, including straight from one server to another."
   },
   "servers": [
@@ -352,6 +352,46 @@
           },
           "500": {
             "description": "Failed to delete item."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/deleteItems": {
+      "post": {
+        "summary": "Move many files or directories to the trash",
+        "description": "Moves up to 500 paths per call to the trash, or deletes them permanently when permanent is true. Each path succeeds or fails on its own and is reported in results.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Per-path results",
+            "in request order.": null
+          },
+          "400": {
+            "description": "Bad session or paths."
+          },
+          "403": {
+            "description": "The session belongs to someone else."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/deleteItems/cancel": {
+      "post": {
+        "summary": "Stop a bulk delete from starting more items",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "The operation will start no further items."
+          },
+          "400": {
+            "description": "Bad session or operation id."
+          },
+          "403": {
+            "description": "The session belongs to someone else."
           }
         }
       }
