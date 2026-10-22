@@ -1,10 +1,10 @@
 ---
 title: "Macros"
 sidebar_position: 12
-slug: "/ssh-terminal/v/1.0.0/macros"
+slug: "/ssh-terminal/v/1.1.0/macros"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: false
 ---
 A macro types into a terminal for you, and can wait for the terminal to say something before it carries on. That is the difference between a macro and a [snippet](/plugins/snippets): a snippet fires one command, a macro holds a short conversation.
@@ -13,7 +13,7 @@ Use one for anything with prompts in the middle. Logging into a device that asks
 
 ## Creating a macro
 
-Open the **Macros** panel from the sidebar and make a new one. Give it a name, then add steps. They run in order, top to bottom.
+Open the Macros panel from the sidebar and make a new one. Give it a name, then add steps. They run in order, top to bottom.
 
 ## Step types
 

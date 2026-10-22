@@ -2,10 +2,10 @@
 title: "Reference"
 sidebar_label: "Reference"
 sidebar_position: 90
-slug: "/ssh-terminal/v/1.0.0/reference"
+slug: "/ssh-terminal/v/1.1.0/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: false
 ---
 ## Settings
@@ -75,6 +75,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | --- | --- | --- |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
+| `desktop:local` | High | Use this computer. Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |

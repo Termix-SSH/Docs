@@ -6,9 +6,18 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Fixed
+
+- Apple Remote Desktop with a macOS account no longer shows a black screen in the built-in engine
+- The built-in engine connects to Windows servers that offer a UDP transport while licensing, instead of failing with a license error
+- Right Alt now reaches Windows as Alt on layouts without AltGr, so the Korean Han/Eng key switches the language
+- Debug logs from the built-in engine, like the sound channel lines, now show when the log level is debug
+
 ## 1.2.0
 
 ### Changed

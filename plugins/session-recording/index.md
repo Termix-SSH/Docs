@@ -26,6 +26,10 @@ Open one to play it back. Drag the timeline, pause, and change the speed. Termin
 
 You only see your own recordings.
 
+## On the dashboard
+
+Add the Recent recordings card in the dashboard's edit mode. Click a recording to open it in Session Logs.
+
 ## How long they are kept
 
 Recordings are deleted after 30 days. Admins change it with Retention (days) in Settings, Session Recording. Old ones are cleaned up at start and once a day.

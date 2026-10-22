@@ -6,9 +6,15 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Fixed
+
+- Pasting or uploading an image to a Windows OpenSSH host works when the host has no C:\tmp folder
+
 ## 1.1.0
 
 ### Added

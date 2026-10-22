@@ -62,6 +62,10 @@ When a server is gone from the cloud, the account decides what happens to its ho
 
 Deleting an account does not delete its hosts.
 
+## On the dashboard
+
+Add the Cloud accounts card in the dashboard's edit mode. It lists each account with when it last synced, or the error when a sync failed, and a Sync now button for users who can manage accounts.
+
 ## Logins
 
 New hosts use the account's default SSH user and default login. If the cloud knows the user (Azure and Lightsail do) that is used instead. To use another user for one server, add the tag `termix-user:name` to it in the cloud, or the label `termix-user` with the value `name` where the cloud uses key and value tags.

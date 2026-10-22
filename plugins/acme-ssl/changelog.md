@@ -6,9 +6,15 @@ slug: "/acme-ssl/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "acme-ssl"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- HTTPS certificate dashboard card: days left on the certificate, the last error and a button to renew now
+
 ## 1.0.2
 
 ### Changed

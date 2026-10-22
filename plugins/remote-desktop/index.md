@@ -7,7 +7,7 @@ description: "RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Remote-Desktop/edit/main/docs/index.md"
 plugin_id: "remote-desktop"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 Remote Desktop opens RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser, in tabs and split screen like any other session. It has clipboard sync, file transfer through an RDP drive, audio, printing, jump hosts, sharing and recording.

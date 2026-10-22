@@ -33,6 +33,10 @@ It talks to your hosts over SSH, the same way the terminal does. Nothing is inst
 - Alerts: Press the bell on a service to get an alert when it fails or stops, and another when it runs again. Alerts go to your Alerts inbox and channels, like other Termix alerts.
 - Terminal panel: Open the services panel beside an SSH terminal to start, stop and restart services and see a service's log while you work.
 
+## On the dashboard
+
+Add the Watched services card in the dashboard's edit mode. It lists every service you watch with the bell, on every host, down ones first. Click one to open that host's Services tab.
+
 ## Host settings
 
 - Use sudo: Runs changes and protected reads with passwordless sudo when the login is not root. On by default.
