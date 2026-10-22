@@ -40,6 +40,10 @@ With Renew automatically on, the plugin checks twice a day. It gets a new certif
 
 The SSL page in Settings shows that ACME Certificates renews the certificate. If you turn the plugin off, the last certificate keeps being served until it expires.
 
+## On the dashboard
+
+Admins can add the HTTPS certificate card in the dashboard's edit mode. It shows how many days the certificate has left, turning orange under 14 days and red under 3, the last error, and a button to renew now.
+
 ## Another certificate authority
 
 Pick Custom ACME directory and paste the authority's directory URL. It must be https. This works with Buypass, step-ca and other authorities that don't need external account binding (EAB). ZeroSSL needs EAB, so it does not work yet.
