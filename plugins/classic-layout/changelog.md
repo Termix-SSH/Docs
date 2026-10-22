@@ -6,9 +6,15 @@ slug: "/classic-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-layout"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
+## 1.0.2
+
+### Fixed
+
+- Cloning a host now keeps which settings are custom and which follow the defaults
+
 ## 1.0.1
 
 ### Fixed

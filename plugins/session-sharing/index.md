@@ -46,6 +46,10 @@ A meeting room is for showing sessions to a group. Open Meetings from the sideba
 - Persistent room keeps the room around after the meeting ends, to reuse.
 - End meeting disconnects everyone.
 
+## On the dashboard
+
+Add the Sharing card in the dashboard's edit mode. It lists your live shares on every host, with Revoke, and your meeting rooms. Click a room to open it.
+
 ## Turning it off
 
 Admins can turn sharing off for everyone with Allow Session Sharing in Settings, Session Sharing. Each host also has its own Allow Session Sharing switch. With the server setting off, nothing can be shared.

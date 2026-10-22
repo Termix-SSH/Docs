@@ -35,6 +35,8 @@ And two places a tunnel can run:
 
 Start, stop and watch tunnels from the Tunnels tab. Search them, and switch between a grid, a list and a compact list with the view buttons. Use the pencil on a tunnel to change or delete just that tunnel, and Add tunnel to add one. The host editor only has the on/off switch. Tunnels saved before 1.2.0 were moved over for you.
 
+The same list sits beside an SSH terminal: open the Tunnels panel from the terminal edge or its tab menu to start and stop that host's tunnels. Turn it off for a host with Panel beside the terminal. The Tunnels dashboard card lists every tunnel you can reach; add it in the dashboard's edit mode.
+
 ### Through a second host
 
 An endpoint can be another SSH host. Termix connects to the first host, then through it to the endpoint, checking the endpoint's host key and login like any other connection.

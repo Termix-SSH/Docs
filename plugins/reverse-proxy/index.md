@@ -47,6 +47,10 @@ The host's own settings only customize routes. Under Reverse proxy in a host's s
 
 The target is the host's own address unless a route or the host settings say otherwise.
 
+## On the dashboard
+
+Add the Reverse proxy card in the dashboard's edit mode. It shows how many routes are running, lists the ones that are stopped or failing, and your certificates with the soonest to expire first.
+
 ## Web routes
 
 Point the domain's DNS record at your server, then add the route.

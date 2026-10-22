@@ -59,6 +59,10 @@ Open the Kubernetes button on the right edge of an SSH terminal, or Kubernetes p
 
 In Settings, Kubernetes you can open the panel with every new terminal, pick its side and size, and hide the edge button. Turn off Show Kubernetes panel in terminals on a host to keep it from opening there.
 
+## Kubernetes clusters card
+
+Add the Kubernetes clusters card in the dashboard's edit mode. It shows ready nodes and running and failing pods on each host with Kubernetes on. Termix checks a few clusters at a time with read only kubectl calls and keeps the result for a minute while the card is on screen. Use the refresh button to check again now.
+
 ## With other plugins
 
 Other plugins can list pods, restart and scale workloads through the `kubernetes.workloads` service, and follow pod changes (started, restarted, crash looping, failed, removed) through `kubernetes.events`.

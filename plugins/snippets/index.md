@@ -39,6 +39,8 @@ When a snippet has inputs, Termix asks for them and shows a preview before runni
 ## Run one
 
 - In a terminal: Click the snippet to send it to the terminal you are in. With several terminals selected, it goes to all of them.
+- Beside a terminal: Open the Snippets panel from the edge of an SSH terminal or its tab menu. Clicking a snippet runs it in that terminal. Turn the panel off for a host in its Snippets settings.
+- From the dashboard: Add the Snippets card in edit mode. It runs snippets with target hosts and copies the rest.
 - On hosts: Set Target hosts on the snippet and use Run on target hosts. It runs over SSH on each one, without a terminal, and shows each result.
 - From a key: Bind a snippet to a key in Settings, Keybindings.
 - From the command palette: Search for it by name.

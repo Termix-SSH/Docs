@@ -53,6 +53,10 @@ Turn on Enable Proxmox Stats on the node and pick Proxmox Stats from its menu. T
 
 Poll interval sets how often it refreshes, 15 seconds or more. If the node name isn't the same as its hostname, set Node name override.
 
+## Proxmox nodes card
+
+Add the Proxmox nodes card in the dashboard's edit mode. It shows CPU, memory, disk and running guests for every node with Proxmox Stats on, and only collects them while the card is on screen. Click a node to open its stats.
+
 ## Troubleshooting
 
 - pvesh was not found: The host isn't a Proxmox node, or the SSH user can't run `pvesh`.

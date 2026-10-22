@@ -7,7 +7,7 @@ description: "The classic Termix layout with an icon rail, sidebar, tab bar and 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Classic-Layout/edit/main/docs/index.md"
 plugin_id: "classic-layout"
-plugin_version: "1.0.1"
+plugin_version: "1.0.2"
 plugin_latest: true
 ---
 Classic Layout is the default Termix layout. It draws the whole app, so it is always installed.

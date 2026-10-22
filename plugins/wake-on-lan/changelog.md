@@ -6,9 +6,15 @@ slug: "/wake-on-lan/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "wake-on-lan"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Wake-on-LAN dashboard card: wake any host with a MAC address in one click
+
 ## 1.0.2
 
 ### Changed

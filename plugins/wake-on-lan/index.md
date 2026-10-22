@@ -7,7 +7,7 @@ description: "Wake sleeping machines by sending a Wake-on-LAN packet to their MA
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/edit/main/docs/index.md"
 plugin_id: "wake-on-lan"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Wake-on-LAN wakes sleeping or powered off machines by sending them a magic packet. Wake a host in one click, before a remote desktop session, or from an automation.
@@ -24,6 +24,10 @@ Wake-on-LAN wakes sleeping or powered off machines by sending them a magic packe
 Pick Wake from the host's menu. With [Remote Desktop](/plugins/remote-desktop), you can also wake a host from its connect screen.
 
 [Automations](/plugins/automations) has a Wake a host step. Pair it with a schedule to bring machines up in the morning.
+
+## On the dashboard
+
+Add the Wake-on-LAN card in the dashboard's edit mode. It lists every host with a MAC address and wakes one with a click.
 
 ## It doesn't wake
 

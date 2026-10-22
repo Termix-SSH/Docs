@@ -67,6 +67,10 @@ Open the Docker button on the right edge of an SSH terminal, or Docker panel in 
 
 In Settings, Docker you can open the panel with every new terminal, pick its side and size, and hide the edge button. Turn off Show containers panel in terminals on a host to keep it from opening there.
 
+## Docker hosts card
+
+Add the Docker hosts card in the dashboard's edit mode. It shows running, stopped and unhealthy containers on each host with Docker on. Termix checks a few hosts at a time over SSH and keeps the result for a minute, so the card only costs one docker ps per host each minute while it is on screen. Use the refresh button to check again now.
+
 ## With other plugins
 
 - [Automations](/plugins/automations) can run when a container exits, starts, restarts or turns unhealthy, and can start, stop or restart containers as a step.
