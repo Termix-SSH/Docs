@@ -104,7 +104,7 @@ Every field is listed in the [manifest reference](/develop/reference/manifest), 
 - `feature`: for `native`, the app feature that stands in for the plugin.
 - `note`: a locale key or plain text the app shows next to the plugin.
 
-It needs Termix 26.10.6. Older versions refuse a manifest that has it, so set `"engine": { "termix": ">=26.10.6", "api": "^1.13" }`.
+It needs Termix 26.10.6. Older versions refuse a manifest that has it, so set `"engine": { "termix": ">=26.10.6", "api": "^1.13" }`. How the app runs your plugin and checks its version is in [Mobile app](/develop/mobile).
 
 ## Environment variables
 

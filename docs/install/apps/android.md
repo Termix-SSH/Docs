@@ -5,9 +5,15 @@ description: Install the Termix app on Android.
 
 # Android
 
-The mobile app signs in to your Termix server. It does not run a server of its own.
+From app version 2.0.0 the app works on its own with no Termix server: hosts, logins and snippets live on the phone, and SSH, files, tunnels, Docker, metrics, services and remote desktop connect straight from it. Link one or more Termix servers to sync your data and to use what only a server can do.
 
-The app only shows what your server has turned on. If a feature's plugin is not installed or is turned off, such as Docker, tunnels, host metrics or remote desktop, the app hides it. Turn the plugin on in Termix and it shows up the next time you refresh the host list or reopen the app. This needs app version 1.6.0 or later.
+## Plugins
+
+Settings, Plugins lists the plugins on a linked server, their version, whether they are on, and how each shows in the app: with the app's own screens, in a web view with the same screens as the web app, or not at all. Everything lists what works on the phone and what needs the server.
+
+When an admin turns a plugin off, the app hides it the next time it checks: when you come back to the app, pull down the list, or the server says it is off. A plugin made for a newer app says to update the app, and one made for an older one says to update the plugin.
+
+Before 2.0.0 the app needs a server, and it hides features whose plugin is off or not installed (1.6.0 and later).
 
 ## Google Play
 

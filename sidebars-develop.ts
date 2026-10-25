@@ -24,6 +24,7 @@ const sidebars: SidebarsConfig = {
         "layouts",
         "themes",
         "repair-view",
+        "mobile",
         "more-extension-points",
         "i18n",
       ],
