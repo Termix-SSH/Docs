@@ -47,6 +47,10 @@ So ask only for the API you use. A plugin that needs `^1.13` opens on every app 
 
 Termix sends `engine` in its plugin list from 26.10.6. On older servers the app cannot check, and opens the view.
 
+## Host settings
+
+The app's host editor also shows your `contributes.settings.host` fields when the app has no screen of its own for your plugin. It draws `boolean`, `string`, `number`, `select`, `secret` and `textarea` fields, honors `enableKey`, `requires`, `min`, `max` and `hidden`, and says to use the web app for the rest. Labels come from your `locales/en.json`, so keep every `labelKey` there. Saving sends only the fields that changed, through the same host settings route the web app uses.
+
 ## Turning a plugin on or off
 
 There is no push from the server. The app reloads the plugin list when it comes back to the front, when the user pulls down the plugin list, and when any request answers 503 with your `pluginId` (core does that for a plugin that is off). A tab of a plugin that was turned off says so and comes back when the plugin is on again.
