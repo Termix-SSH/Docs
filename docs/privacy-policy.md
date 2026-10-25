@@ -28,6 +28,7 @@ Only aggregated, anonymized data is periodically transmitted to external service
 Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:
 
 - [Expo](https://expo.io/privacy)
+- [PostHog](https://posthog.com/privacy), only if you choose to share anonymous usage statistics
 
 The Service Provider may disclose User Provided and Automatically Collected Information:
 
@@ -36,6 +37,8 @@ The Service Provider may disclose User Provided and Automatically Collected Info
 - with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
 
 ## Opt-Out Rights
+
+From version 2.0.0 the Application can send anonymous usage statistics. It asks first and sends nothing until you say yes. You can turn it off any time in Settings. [What is sent](/install/apps/usage-statistics).
 
 You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.
 
