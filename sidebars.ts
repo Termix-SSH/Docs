@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
             "install/apps/ios",
             "install/apps/android",
             "install/apps/mobile-sign-in",
+            "install/apps/f-droid",
             "install/apps/usage-statistics",
           ],
         },

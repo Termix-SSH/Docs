@@ -23,4 +23,6 @@ Get [Termix on Google Play](https://play.google.com/store/apps/details?id=com.ka
 
 Download [termix_android.apk](https://github.com/Termix-SSH/Mobile/releases/latest/download/termix_android.apk) on your phone and open it. Android asks you to allow installs from your browser the first time.
 
+There is also a [build for F-Droid](f-droid.md) with no Google code.
+
 The app's code is in the [Mobile repo](https://github.com/Termix-SSH/Mobile).
