@@ -1,6 +1,6 @@
 ---
 title: Signing in on the phone
-description: Proxies, client certificates, passkeys, Face ID and links into the Termix app.
+description: Proxies, client certificates, certificate pins, passkeys, Face ID and links into the Termix app.
 ---
 
 # Signing in on the phone
@@ -31,6 +31,27 @@ Proxy also takes any extra headers and a basic auth username and password. The a
 If your proxy asks for a client certificate, import it in the app as a `.p12` or `.pfx` file under Proxy, Client certificate. You can do this on the address step before you sign in.
 
 The key goes into the iOS Keychain or the Android Keystore and never leaves the phone. The app sends the certificate on every request, socket, the terminal relay, file uploads and downloads, and remote desktop through the server. Images inside plugin pages load straight from the server, so they may not show behind mTLS.
+
+## Certificate pin
+
+Use a pin when your server has a self-signed certificate, or when you want the app to refuse any other certificate. Open Proxy and client certificate (on the address step or in Settings, Sync and proxy) and go to Certificate pin.
+
+- Read the key from the server shows the key the server sends. Check it against your server, then pin it.
+- Or paste a pin. It is the base64 SHA-256 of the server's public key, the same value as `pin-sha256`. To get it on the server:
+
+```bash
+openssl x509 -in cert.pem -pubkey -noout \
+  | openssl pkey -pubin -outform der \
+  | openssl dgst -sha256 -binary | base64
+```
+
+A pinned server is trusted by its key alone, for API calls, sockets, the terminal relay and sign in pages. If the server shows another key, sync stops and says the server key changed. Before you change the server's certificate, pin the new key too, then remove the old one.
+
+On iPhone, sign in pages and remote desktop through the server also refuse another key. On Android they use a pin to accept a self-signed certificate, and the app's own requests refuse another key.
+
+## RDP certificates
+
+When the phone opens an RDP host itself, it shows the computer's certificate fingerprint the first time and asks you to trust it. Your password is only sent after that. If the certificate changes later, the app warns you first. Windows makes a new self-signed certificate now and then, so a change after a long time is normal.
 
 ## Passkeys and security keys
 
