@@ -1,68 +1,75 @@
-This privacy policy applies to the Termix - SSH Companion app (hereby referred to as "Application") for mobile devices that was created by Luke Gustafson (hereby referred to as "Service Provider") as an Open Source service. This service is intended for use "AS IS".
+---
+title: Privacy policy
+description: Privacy policy for the Termix mobile app on the App Store and Google Play.
+---
 
-## Information Collection and Use
+# Privacy policy
 
-The Application collects information when you download and use it. This information may include information such as
+This policy covers the Termix mobile app for iOS and Android ("the app"). The app is free and open source, made by Luke Gustafson. The source code is on [GitHub](https://github.com/Termix-SSH/Mobile).
 
-- Your device's Internet Protocol address (e.g. IP address)
-- The pages of the Application that you visit, the time and date of your visit, the time spent on those pages
-- The time spent on the Application
-- The operating system you use on your mobile device
+In short: your hosts, logins and sessions stay on your phone or go to servers you choose. The app only sends anonymous usage statistics to us if you say yes, and you can turn that off any time.
 
-The Application does not gather precise information about the location of your mobile device.
+## Your data stays with you
 
-The Application collects your device's location, which helps the Service Provider determine your approximate geographical location and make use of in below ways:
+- Hosts, logins, keys, passwords, snippets and settings are saved on your phone in an encrypted database. The key is kept in the phone's secure storage.
+- If you link the app to a Termix server, this data is synced with that server. You run that server or someone you trust does. We never see it.
+- When you connect to a host, the app talks to that host directly or through your Termix server. Commands, terminal output and files go only there.
+- We do not run any server that stores your data, and we have no user accounts.
+- Android backups of app data are turned off.
 
-- Geolocation Services: The Service Provider utilizes location data to provide features such as personalized content, relevant recommendations, and location-based services.
-- Analytics and Improvements: Aggregated and anonymized location data helps the Service Provider to analyze user behavior, identify trends, and improve the overall performance and functionality of the Application.
-- Third-Party Services: Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.
+## Anonymous usage statistics
 
-The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.
+The app can send a short anonymous report once a day so we can see which parts are used and where things break. It is off until you answer the question the app asks on first start. You can change your answer any time in Settings, Privacy and usage statistics.
 
-For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information. The information that the Service Provider request will be retained by them and used as described in this privacy policy.
+If you say yes, the app sends:
 
-## Third Party Access
+- A random install id made on your phone. It is not linked to you, your device or any account. You can reset it in Settings.
+- App version, platform (iOS or Android) and OS major version
+- Whether the app is used alone or linked to a server
+- Rough counts, like how many hosts you have and how often each built in feature was opened, sent as ranges (0, 1, 2 to 5 and so on)
+- The result class of connections, like ok, network or auth failure
+- The type of an error when the app crashes, like TypeError, and whether it was fatal
 
-Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.
+It never sends host names, usernames, IP addresses of your hosts, ports, paths, commands, terminal output, file names, passwords, keys, tokens, server addresses, error messages or stack traces.
 
-Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:
+Reports go to [PostHog](https://posthog.com/privacy), hosted in the United States. Like any web request, PostHog sees your IP address when the report arrives. The app asks PostHog not to use it for a location and turns off session replay, screen tracking and person profiles.
 
-- [Expo](https://expo.io/privacy)
+If you turn it off, the app stops sending and deletes anything it had waiting.
 
-The Service Provider may disclose User Provided and Automatically Collected Information:
+## Permissions
 
-- as required by law, such as to comply with a subpoena, or similar legal process;
-- when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
-- with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
+The app only asks for a permission when you use the feature that needs it.
 
-## Opt-Out Rights
+- Camera: to scan a host QR code. Images are read on your phone and never saved or sent.
+- Face ID or fingerprint: to unlock the app. Your phone checks it. The app never gets your biometric data.
+- Local network (iOS): to check if your hosts are online and to wake them on your network.
+- Notifications (Android): to show that sessions are running in the background.
 
-You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.
+The app does not use your location, contacts, microphone or photos, and it does not track you across other apps or websites.
 
-## Data Retention Policy
+## Other connections
 
-The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at mail@termix.site and they will respond in a reasonable time.
+- To check for a new version, the app asks GitHub for the latest release. Only the normal request reaches GitHub, like your IP address. See the [GitHub privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+- Plugin pages from your Termix server open inside the app and talk only to that server.
+
+## Ads and selling data
+
+The app has no ads. We do not sell or share data, and we do not use it for marketing.
+
+## Deleting your data
+
+Data on your phone is deleted when you remove the app. Data synced to a Termix server is controlled by whoever runs that server. Usage statistics have no link to you, so we cannot find your reports. Reset the install id in Settings if you want later reports to look like a new install.
 
 ## Children
 
-The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.
-
-The Application does not address anyone under the age of 13\. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (mail@termix.site) so that they will be able to take the necessary actions.
-
-## Security
-
-The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.
+The app is not made for children under 13 and does not knowingly collect information from them.
 
 ## Changes
 
-This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.
+We may update this policy when the app changes. The newest version is always on this page.
 
-This privacy policy is effective as of 2025-09-30
+This policy is effective as of 2026-10-27.
 
-## Your Consent
+## Contact
 
-By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.
-
-## Contact Us
-
-If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at mail@termix.site.
+Questions about privacy: mail@termix.site
