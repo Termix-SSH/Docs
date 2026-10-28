@@ -44,7 +44,7 @@ The app builds each event from a fixed list of fields and drops any event that h
 
 ### Your IP address
 
-Like any web request, the connection reaches PostHog with your IP address. The app does not put it in the report and asks PostHog not to use it for a location. The project settings on the PostHog side decide whether it is stored.
+Like any web request, the connection reaches PostHog with your IP address. The app does not put it in the report and asks PostHog not to use it for a location. The Termix PostHog project throws the IP away, so it is never stored. A custom build that sends to its own project follows that project's settings.
 
 ### See the next report
 
