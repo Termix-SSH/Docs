@@ -7,7 +7,7 @@ description: "Sync the desktop app with one or more servers, and manage other Te
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Sync/edit/main/docs/index.md"
 plugin_id: "sync"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Sync keeps the Termix desktop app and your servers in step. The desktop app keeps its own copy of what a server holds, so it works offline and catches up when it can reach the server again. You can link the desktop app to several servers, and a server can manage other Termix servers as remote sites.

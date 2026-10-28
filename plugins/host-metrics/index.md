@@ -7,7 +7,7 @@ description: "Live CPU, memory, disk, network and GPU stats, plus tools to manag
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Host-Metrics/edit/main/docs/index.md"
 plugin_id: "host-metrics"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Host Metrics shows live stats for your Linux hosts: CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, open ports and logins. It keeps history for charts, runs health checks, and has managers for services, packages, cron jobs, the firewall, users, certificates, logs and WireGuard.

@@ -1,0 +1,69 @@
+---
+id: container-counts-on-every-docker-host
+title: "Container counts on every Docker host"
+description: "Running, stopped and unhealthy containers on each host the caller can reach with Docker turned on. Results are kept for a minute; refresh=1 checks again."
+sidebar_label: "Container counts on every Docker host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlE1v3EYMhv8KwfNEG+eoogf3K3GKIEbswigMo6AlrjSRxFFnqLXVhf57Qc2uP5FDbjntLofDeV4u+e6x5lRFP6oPgiV+mUS8NA6ShnHkGkhqmKRl6rWdoQqi5IVjgiDAVLXQhqSgLUNFfc8RKhKI68md1xZ+C1XHEXSKwjUEKeALp6nXBBQZOh4VtiECweBlUv4JIm8jp/bnE6harroE1JCXAh0qNQnLa8wl8cbhSJEGVo4W36M3Bf9OHGd0KDQwlngohw5T1fJAWO5R59GOkkYvDS7LjcPIaQySONn5u7dv7eN5Zz4LA4vGGUaOq+oCl8XhwNqGGktsWNGQtMUSN2M/NV7e0Og39cq7SdMw0IqWOO6OzFPsscR9Di3oXrz6d5giXHIc/D3kHHS4o+jpts+wh+jKu6WpVyyxVR1TudnoerHgexrGnosqDLischNXU/Q6rwi3TJHj6WTg1zeL22MVQuf5aYRG/yfPD5EnJS6srRnlaaGHLhvLsfv2OyehO3z5I8SBjPnj1eUr9Reckg8CGjoWSCwKXtZhs0dC9P+RZULLVHMESvDLWnSdWktbLxa4uGeSHtiyKnR5cnLK4+h8vdNvEn28uoScD4kVSCH5Rt54KeCqZYExsuE68ApKHSeLVFyzVAxhZxvxDRUr7dN2f3cnT8/PoOMZklJUL01eRB3u/3kl5yH1+1vb8ezgrvVVmx9Kj88UcKZAle14OuZCuJPD7YpEwppg5yRzsNXqE+eF8rINq2qvvck8OMjp+ZmNPseU0U+Kd8XJK0GfSKjho+vYa+ehHkheONdsa2U7nPKfcXHxwWX+PjTJ3I+MXmogu5lCz+v/MoakA4nhHYbk12NdqMIkmn1xx3E+MtgrLzFtw0RZ9Ed33Dx4yve6GXvyYj1YHWt/MLprfDQ6U5mt2eHR7G4crg0or3G/v6XEf8V+WSycfdr8p/bJ3KzGckt9Yocdz8+ce0f9ZBxovnM0v+xMj/b7/vdLXJb/AdStXsk=
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Container counts on every Docker host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/summary"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Running, stopped and unhealthy containers on each host the caller can reach with Docker turned on. Results are kept for a minute; refresh=1 checks again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"refresh","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per host."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -66,7 +66,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-AI",
     "docs": "https://docs.termix.site/plugins/ai",
-    "latest": "1.2.1",
+    "latest": "1.3.0",
     "features": [
       "Ask about your hosts, snippets, fleets, alerts, automations and more",
       "Proposes changes instead of making them, and nothing runs until you approve it",
@@ -78,7 +78,8 @@
       "With the ai.ops.use permission, it also runs shell commands across the hosts, folders, tags or fleets you select",
       "Auto-ops: automations start the assistant to investigate and report, or propose a plan you approve, with ready-made presets",
       "Asset inventory: a read-only collector maps hosts, Proxmox guests, containers, listening ports and connections into zones, daily and on host changes",
-      "Asset graph: a model annotates each asset's role, importance and business system, with your edits locked, and a graph view shows what fails when an asset does"
+      "Asset graph: a model annotates each asset's role, importance and business system, with your edits locked, and a graph view shows what fails when an asset does",
+      "The assistant in the panel bar beside any SSH terminal"
     ],
     "capabilities": [
       "hosts:read",
@@ -103,8 +104,14 @@
     "videoId": "5usBJanMqiI",
     "versions": [
       {
-        "version": "1.2.1",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:13:43.000Z"
+      },
+      {
+        "version": "1.2.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T05:06:23.000Z"
       },
@@ -125,12 +132,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:28:14.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T02:56:48.000Z"
       }
     ]
   },
@@ -250,14 +251,15 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Automations",
     "docs": "https://docs.termix.site/plugins/automations",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
       "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
       "Conditions, waits and variables for more complex flows",
       "Run on one host, a fleet or every host",
       "Test runs and a history of every run",
-      "Maintenance windows that pause automations while you work on a host"
+      "Maintenance windows that pause automations while you work on a host",
+      "An automations panel beside any SSH terminal, plus upcoming and recent run dashboard cards"
     ],
     "capabilities": [
       "hosts:read",
@@ -282,8 +284,14 @@
     "videoId": "mHCil45TCB8",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:11:00.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T05:05:57.000Z"
       },
@@ -304,12 +312,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:28:13.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T05:56:35.000Z"
       }
     ]
   },
@@ -489,14 +491,15 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Databases",
     "docs": "https://docs.termix.site/plugins/databases",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Save database logins per host with sealed passwords",
       "Browse databases, tables and views",
       "Page, sort and filter table data",
       "Add, edit and delete rows by primary key",
       "See columns, types and indexes",
-      "Run SQL in a console and export results as CSV or JSON"
+      "Run SQL in a console and export results as CSV or JSON",
+      "A databases panel beside any SSH terminal"
     ],
     "capabilities": [
       "hosts:read",
@@ -514,8 +517,14 @@
     "videoId": "FZ7QuMcDjKM",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:12:18.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T22:54:41.000Z"
       }
@@ -530,7 +539,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Docker",
     "docs": "https://docs.termix.site/plugins/docker",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Start, stop, restart, pause and remove containers",
       "Live CPU, memory, network and disk stats",
@@ -539,7 +548,8 @@
       "Works with Docker and Podman",
       "A containers panel beside any SSH terminal",
       "Optional stack management for compose projects",
-      "Check images for updates and update containers"
+      "Check images for updates and update containers",
+      "A dashboard card with running and stopped containers on each host"
     ],
     "capabilities": [
       "hosts:read",
@@ -554,11 +564,17 @@
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/docker/docker-api",
-    "videoId": "V7F5w_dd0eM",
+    "videoId": "uy-FZQ9Nkak",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:06.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T02:41:16.000Z"
       },
@@ -579,12 +595,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:28:11.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T02:56:43.000Z"
       }
     ]
   },
@@ -827,7 +837,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
     "docs": "https://docs.termix.site/plugins/host-metrics",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
       "History charts for each host",
@@ -835,7 +845,8 @@
       "Health checks for your hosts and services",
       "A layout you can rearrange per host",
       "Live stats in the terminal toolbar",
-      "A live metrics panel beside any SSH terminal"
+      "A live metrics panel beside any SSH terminal",
+      "A dashboard card with the hosts working hardest"
     ],
     "capabilities": [
       "hosts:read",
@@ -861,8 +872,14 @@
     "videoId": "_psvlU-s7D4",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:13:23.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:45:57.000Z"
       },
@@ -883,12 +900,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T02:17:32.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T02:56:58.000Z"
       }
     ]
   },
@@ -1028,7 +1039,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Kubernetes",
     "docs": "https://docs.termix.site/plugins/kubernetes",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Browse pods, deployments, statefulsets, daemonsets, jobs and cronjobs",
       "Scale, restart, roll back and change images of workloads",
@@ -1039,7 +1050,8 @@
       "CPU and memory from metrics-server",
       "Helm releases with history, values, rollback and uninstall",
       "Works with kubectl, k3s, MicroK8s and OpenShift",
-      "A pods panel beside any SSH terminal"
+      "A pods panel beside any SSH terminal",
+      "A dashboard card with ready nodes and failing pods on each cluster"
     ],
     "capabilities": [
       "hosts:read",
@@ -1057,8 +1069,14 @@
     "videoId": "cuOnAbfsO3I",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:16.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T23:17:00.000Z"
       }
@@ -1339,12 +1357,13 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Proxmox",
     "docs": "https://docs.termix.site/plugins/proxmox",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Find and import VMs and LXC containers from a node",
       "Keep imported hosts in sync on a schedule",
       "Set up Windows guests for RDP and turn on Docker for guests by name",
-      "Node, guest, storage and cluster stats in their own tab"
+      "Node, guest, storage and cluster stats in their own tab",
+      "A dashboard card with CPU, memory, disk and guests for each node"
     ],
     "capabilities": [
       "hosts:read",
@@ -1364,8 +1383,14 @@
     "videoId": "FCDouJdgYRk",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:02.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:38:49.000Z"
       },
@@ -1507,13 +1532,14 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy",
     "docs": "https://docs.termix.site/plugins/reverse-proxy",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "TCP, UDP, HTTP and HTTPS routes for each host, with status, search and filters",
       "Free Let's Encrypt certificates that renew on their own, plus self-signed and uploaded certificates",
       "Optional Termix login in front of any web route",
       "WebSocket support, forced HTTPS, custom headers and IP allow and deny lists",
-      "One overview of every route, its status and its certificate"
+      "One overview of every route, its status and its certificate",
+      "A dashboard card with routes that are down and certificates by expiry"
     ],
     "capabilities": [
       "hosts:read",
@@ -1533,8 +1559,14 @@
     "videoId": "yvk_JjcTKsM",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:00.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T23:06:42.000Z"
       }
@@ -1797,14 +1829,15 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
     "docs": "https://docs.termix.site/plugins/session-sharing",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Share terminal, RDP, VNC and Telnet sessions",
       "Share by link with anyone, or with a Termix user",
       "Read-only or read and write",
       "Links that expire or can be revoked",
       "Meeting rooms where a presenter shows a session and can hand over control",
-      "Guest links for people without an account"
+      "Guest links for people without an account",
+      "A dashboard card with your live shares and meeting rooms"
     ],
     "capabilities": [
       "hosts:read",
@@ -1833,8 +1866,14 @@
     "videoId": "7VUOXIKlR5Q",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:37.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:57:56.000Z"
       },
@@ -1877,7 +1916,7 @@
     "dependencies": {},
     "hasApi": false,
     "apiPath": null,
-    "videoId": "KAa9WinKwfw",
+    "videoId": "ZFAPeEuqfJ0",
     "versions": [
       {
         "version": "1.0.1",
@@ -2036,14 +2075,16 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
     "docs": "https://docs.termix.site/plugins/snippets",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Save commands and notes in folders",
       "Run them in one or more terminals, or straight on a set of hosts",
       "Variables for the host and your own inputs",
       "Run a snippet each time you connect to a host",
       "Share snippets with users or roles",
-      "Import and export as JSON"
+      "Import and export as JSON",
+      "A snippets panel beside any SSH terminal",
+      "A dashboard card to run host snippets or copy any snippet"
     ],
     "capabilities": [
       "db:own",
@@ -2068,8 +2109,14 @@
     "videoId": "g2TJdWLKhJI",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:09:13.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:57:57.000Z"
       },
@@ -2258,7 +2305,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Sync",
     "docs": "https://docs.termix.site/plugins/sync",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
       "Link several servers and accounts and switch between them, each with its own copy",
@@ -2285,11 +2332,17 @@
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/sync/sync-api",
-    "videoId": "7tPhaP4aNuM",
+    "videoId": "mBiGtdZxdK0",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:10:34.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T20:21:25.000Z"
       }
@@ -2413,14 +2466,15 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor",
     "docs": "https://docs.termix.site/plugins/tmux-monitor",
-    "latest": "1.0.4",
+    "latest": "1.1.0",
     "features": [
       "Every host's tmux sessions in one place",
       "Live pane previews",
       "Resource use for each session",
       "Search across every pane",
       "Create, rename, split and kill sessions, windows and panes",
-      "Attach a terminal in one click"
+      "Attach a terminal in one click",
+      "A tmux panel beside any SSH terminal to attach and switch sessions"
     ],
     "capabilities": [
       "hosts:read",
@@ -2437,8 +2491,14 @@
     "videoId": "d0PwHYi1hDM",
     "versions": [
       {
-        "version": "1.0.4",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:13:07.000Z"
+      },
+      {
+        "version": "1.0.4",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:16:18.000Z"
       },
@@ -2459,12 +2519,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:18.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-09T21:42:26.000Z"
       }
     ]
   },
@@ -2553,7 +2607,7 @@
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/tunnels/tunnels-api",
-    "videoId": "RJu5gzn8_fo",
+    "videoId": "taRk5rpu0EA",
     "versions": [
       {
         "version": "1.2.1",
@@ -2758,11 +2812,12 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Web-Endpoint",
     "docs": "https://docs.termix.site/plugins/web-endpoint",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Open a web UI in a Termix tab or its own desktop window",
       "Connect directly, or over an SSH tunnel through the host",
-      "Embedded pages never see your Termix login"
+      "Embedded pages never see your Termix login",
+      "A web UI panel beside the SSH terminal and a dashboard card to open any web UI"
     ],
     "capabilities": [
       "hosts:read",
@@ -2779,8 +2834,14 @@
     "videoId": "1eVUCFcnlXw",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:10:24.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:16:15.000Z"
       },
@@ -2813,12 +2874,13 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Workspaces",
     "docs": "https://docs.termix.site/plugins/workspaces",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Save your tabs and split layout as a named workspace",
       "Reopen it in one click",
       "Recover your last session",
-      "Syncs between the desktop app and a Termix server"
+      "Syncs between the desktop app and a Termix server",
+      "A dashboard card to open a saved workspace"
     ],
     "capabilities": [
       "db:own",
@@ -2832,8 +2894,14 @@
     "videoId": "bcvDoszTJzQ",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-22T18:10:42.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:05:52.000Z"
       },

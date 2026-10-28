@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Session Sharing API",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Share live sessions by link or with another user, and present sessions to a group in meeting rooms."
   },
   "servers": [
@@ -209,6 +209,28 @@
           },
           "400": {
             "description": "Invalid host id"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/plugin-api/session-sharing/active": {
+      "get": {
+        "summary": "List every active share the caller made",
+        "description": "Shares that are not revoked or expired, on any host, newest first. Feeds the dashboard card.",
+        "tags": [
+          "Session Sharing"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of active shares"
           },
           "500": {
             "description": "Server error"

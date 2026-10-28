@@ -7,7 +7,7 @@ description: "Reverse proxy for TCP, UDP, HTTP and HTTPS with free certificates 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/edit/main/docs/index.md"
 plugin_id: "reverse-proxy"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Reverse Proxy shares services running on your hosts through your Termix server. Routes belong to hosts and are managed in one tab. A route can be a web address with a free certificate, or a raw TCP or UDP port.

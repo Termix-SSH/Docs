@@ -7,7 +7,7 @@ description: "Save your open tabs and split layouts and reopen them in one click
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Workspaces/edit/main/docs/index.md"
 plugin_id: "workspaces"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Workspaces saves your open tabs and split layout under a name, so you can bring it all back in one click. Keep one for production debugging, one for the homelab, one for a project.

@@ -30,6 +30,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "session-sharing/list-every-active-share-the-caller-made",
+          label: "List every active share the caller made",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "session-sharing/list-live-ssh-sessions-other-users-shared-with-the-caller",
           label: "List live SSH sessions other users shared with the caller",
           className: "api-method get",

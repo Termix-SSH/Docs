@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "AI Assistant API",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "description": "An AI assistant that reads your setup and proposes changes for you to approve."
   },
   "servers": [
@@ -202,6 +202,61 @@
                         }
                       }
                     }
+                  },
+                  "advanced": {
+                    "type": "object",
+                    "nullable": true,
+                    "additionalProperties": false,
+                    "description": "Optional provider request settings. Null clears them.",
+                    "properties": {
+                      "endpoint": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "responses",
+                          "chat"
+                        ]
+                      },
+                      "reasoningEffort": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "minimal",
+                          "low",
+                          "medium",
+                          "high",
+                          "xhigh",
+                          "max"
+                        ]
+                      },
+                      "reasoningSummary": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "concise",
+                          "detailed",
+                          "off"
+                        ]
+                      },
+                      "verbosity": {
+                        "type": "string",
+                        "enum": [
+                          "low",
+                          "medium",
+                          "high"
+                        ]
+                      },
+                      "maxOutputTokens": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000000
+                      },
+                      "temperature": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 2
+                      }
+                    }
                   }
                 }
               }
@@ -266,6 +321,61 @@
                         }
                       }
                     }
+                  },
+                  "advanced": {
+                    "type": "object",
+                    "nullable": true,
+                    "additionalProperties": false,
+                    "description": "Replaces every advanced setting. Null clears them.",
+                    "properties": {
+                      "endpoint": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "responses",
+                          "chat"
+                        ]
+                      },
+                      "reasoningEffort": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "minimal",
+                          "low",
+                          "medium",
+                          "high",
+                          "xhigh",
+                          "max"
+                        ]
+                      },
+                      "reasoningSummary": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "concise",
+                          "detailed",
+                          "off"
+                        ]
+                      },
+                      "verbosity": {
+                        "type": "string",
+                        "enum": [
+                          "low",
+                          "medium",
+                          "high"
+                        ]
+                      },
+                      "maxOutputTokens": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000000
+                      },
+                      "temperature": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 2
+                      }
+                    }
                   }
                 }
               }
@@ -275,6 +385,9 @@
         "responses": {
           "200": {
             "description": "Provider updated."
+          },
+          "400": {
+            "description": "Invalid request body."
           },
           "404": {
             "description": "Provider not found."

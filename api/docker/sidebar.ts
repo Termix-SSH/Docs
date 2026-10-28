@@ -24,6 +24,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "docker/container-counts-on-every-docker-host",
+          label: "Container counts on every Docker host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "docker/whether-stack-management-is-on",
           label: "Whether stack management is on",
           className: "api-method get",

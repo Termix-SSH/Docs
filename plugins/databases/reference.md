@@ -5,10 +5,21 @@ sidebar_position: 90
 slug: "/databases/reference"
 custom_edit_url: null
 plugin_id: "databases"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
+
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Open the databases panel with a terminal | boolean | `false` | Show the databases panel when a terminal opens on a host that has it. |
+| Databases panel side | select | `"right"` | Where the panel sits next to the terminal. |
+| Databases panel size | number | `480` | Width, or height at the bottom, in pixels. |
+| Databases panel edge button | boolean | `true` | Show a small button on the terminal edge to open the panel. |
 
 ### Host
 
@@ -17,6 +28,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Databases | boolean | `false` | Show the Databases tab for this host in its menu. |
+| Panel beside the terminal | boolean | `true` | Offer a databases panel next to this host's SSH terminal. |
 
 ## Permissions
 

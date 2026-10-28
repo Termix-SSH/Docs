@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "kubernetes/health-of-every-cluster",
+          label: "Health of every cluster",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "kubernetes/establish-ssh-session-for-kubernetes",
           label: "Establish SSH session for Kubernetes",
           className: "api-method post",

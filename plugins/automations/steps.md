@@ -4,7 +4,7 @@ sidebar_position: 12
 slug: "/automations/steps"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/steps.md"
 plugin_id: "automations"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Steps are what an automation does. They run in order, top to bottom.

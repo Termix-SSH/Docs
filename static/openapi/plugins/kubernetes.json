@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Kubernetes API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Manage Kubernetes clusters from your hosts over SSH, with logs, metrics, YAML and a shell."
   },
   "servers": [
@@ -63,6 +63,29 @@
     }
   ],
   "paths": {
+    "/plugin-api/kubernetes/summary": {
+      "get": {
+        "summary": "Health of every cluster",
+        "description": "Ready nodes and running and failing pods for each host the caller can reach with Kubernetes turned on. Results are kept for a minute; refresh=1 checks again.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
     "/plugin-api/kubernetes/ssh/connect": {
       "post": {
         "summary": "Establish SSH session for Kubernetes",

@@ -6,9 +6,21 @@ slug: "/tmux-monitor/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tmux-monitor"
-plugin_version: "1.0.4"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Tmux panel beside an SSH terminal: see the host's sessions, attach or switch the terminal to one, jump to a window and start a new session
+- Open sessions, windows and panes side by side in a split view, across hosts, with up to four terminals
+
+### Fixed
+
+- Mouse selections stay highlighted and copied after you release the mouse while tmux mouse support is on
+- Sessions show up on Windows hosts that run native psmux and also have Git for Windows
+
 ## 1.0.4
 
 ### Fixed

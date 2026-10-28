@@ -12,7 +12,7 @@ plugin_latest: true
 ---
 Usage Statistics sends a small anonymous report once a day so the Termix team can see how Termix is used: which platforms it runs on, which features people open, which plugins are on. It helps decide what to work on.
 
-It never sends usernames, hostnames, commands or credentials. Like any web request, the analytics service can see the IP address your server sends from.
+It never sends usernames, hostnames, commands or credentials. Like any web request, the analytics service sees the IP address your server sends from. It is only used to find the country and is never stored.
 
 ## What is sent
 

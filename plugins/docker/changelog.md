@@ -6,9 +6,19 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Added
+
+- Docker hosts dashboard card: running, stopped and unhealthy containers on each host with Docker on
+
+### Changed
+
+- The container grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
 ## 1.2.0
 
 ### Added

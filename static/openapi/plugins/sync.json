@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Sync API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Sync the desktop app with one or more servers, and manage other Termix servers as remote sites from a master."
   },
   "servers": [
@@ -642,6 +642,40 @@
         "responses": {
           "200": {
             "description": "The conflicts, oldest first."
+          }
+        }
+      },
+      "post": {
+        "summary": "Settle every conflict",
+        "description": "Desktop only. keep \"mine\" puts this device's version of each one back, and the next sync sends them to the server. keep \"server\" drops them all.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keep": {
+                    "type": "string",
+                    "enum": [
+                      "mine",
+                      "server"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Settled. Holds how many were settled and how many failed."
+          },
+          "400": {
+            "description": "keep is not mine or server."
           }
         }
       }

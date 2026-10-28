@@ -6,9 +6,17 @@ slug: "/automations/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "automations"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Automations panel beside an SSH terminal: the host's maintenance state, the automations that use the host with Run now, and their latest runs
+- Upcoming automations dashboard card: scheduled automations in the order they run next
+- Automation runs dashboard card: the latest runs and how they went
+
 ## 1.1.0
 
 ### Added

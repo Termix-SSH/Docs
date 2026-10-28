@@ -6,9 +6,15 @@ slug: "/sync/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sync"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Added
+
+- Keep all mine or keep all server settles every sync conflict at once, after a confirm
+
 ## 1.0.0
 
 ### Added

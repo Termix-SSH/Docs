@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.10.4",
+    "version": "26.10.5",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -3414,7 +3414,7 @@
     "/plugins": {
       "get": {
         "summary": "List installed plugins and their runtime state",
-        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose, and, for admins, `managedByServer` marks plugins whose on/off state the server decides.\n",
+        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose, and, for admins, `managedByServer` marks plugins whose on/off state the server decides.\nWhile TERMIX_SAFE_MODE is on, an enabled plugin that safe mode keeps off reports `state: \"safe-mode\"`.\n",
         "tags": [
           "Plugins"
         ],
@@ -3754,7 +3754,7 @@
             "description": "No such plugin."
           },
           "409": {
-            "description": "This desktop is linked to a server, which decides whether the plugin runs."
+            "description": "This desktop is linked to a server, which decides whether the plugin runs, or safe mode is on and the plugin is not a layout or theme."
           }
         }
       }
@@ -3785,6 +3785,9 @@
           },
           "404": {
             "description": "No such plugin, or it is not on disk."
+          },
+          "409": {
+            "description": "Safe mode is on and the plugin is not a layout or theme."
           },
           "500": {
             "description": "The plugin failed to start again."
@@ -4939,7 +4942,7 @@
     "/user-preferences/look": {
       "get": {
         "summary": "Get the layout and theme to show the current user",
-        "description": "The user's own choice, the admin defaults (a layout no installed plugin brings reads as null), the default look of the bundled plugins, whether TERMIX_SAFE_LAYOUT forces the repair view, and installed layout or theme plugins that could not load. The browser resolves the final look from these.",
+        "description": "The user's own choice, the admin defaults (a layout no installed plugin brings reads as null), the default look of the bundled plugins, whether TERMIX_SAFE_LAYOUT forces the repair view, whether TERMIX_SAFE_MODE runs only layout and theme plugins, and installed layout or theme plugins that could not load. The browser resolves the final look from these.",
         "tags": [
           "User Preferences"
         ],
@@ -4988,6 +4991,9 @@
                       }
                     },
                     "safeLayout": {
+                      "type": "boolean"
+                    },
+                    "safeMode": {
                       "type": "boolean"
                     },
                     "unavailable": {

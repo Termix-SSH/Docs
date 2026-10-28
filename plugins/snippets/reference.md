@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/snippets/reference"
 custom_edit_url: null
 plugin_id: "snippets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -21,6 +21,18 @@ Each person sets these for themselves in **Settings**.
 | Always show buttons | boolean | `true` | Keep the run, copy and edit buttons under each snippet visible. Turn off to show them only on hover. |
 | Confirm before running | boolean | `false` | Ask before a command snippet runs in a terminal. |
 | Fill sudo password | boolean | `false` | When a snippet runs on a host without a terminal, answer its sudo prompt with the host's sudo password, or its SSH password if none is set. |
+| Open the snippets panel with a terminal | boolean | `false` | Show the snippets panel when a terminal opens on a host that has it. |
+| Snippets panel side | select | `"right"` | Where the panel sits next to the terminal. |
+| Snippets panel size | number | `360` | Width, or height at the bottom, in pixels. |
+| Snippets panel edge button | boolean | `true` | Show a small button on the terminal edge to open the panel. |
+
+### Host
+
+Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Panel beside the terminal | boolean | `true` | Offer a snippets panel next to this host's SSH terminal. |
 
 ## Environment variables
 

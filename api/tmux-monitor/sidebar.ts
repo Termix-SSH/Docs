@@ -82,6 +82,18 @@ const sidebar: SidebarsConfig = {
           label: "Replace the acting user's tags on a session",
           className: "api-method put",
         },
+        {
+          type: "doc",
+          id: "tmux-monitor/create-a-grouped-session-pinned-to-one-window",
+          label: "Create a grouped session pinned to one window",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tmux-monitor/remove-a-view-session-that-was-never-attached",
+          label: "Remove a view session that was never attached",
+          className: "api-method post",
+        },
       ],
     },
   ],

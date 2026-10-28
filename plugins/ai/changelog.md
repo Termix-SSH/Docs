@@ -6,9 +6,27 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- The assistant starts on the model you used last
+- Advanced settings for OpenAI and OpenAI compatible providers: endpoint (Auto, Responses API or Chat Completions), reasoning effort, reasoning summary, verbosity, max output tokens and temperature. Left on Default, nothing extra is sent
+
+### Changed
+
+- The terminal assistant lives in the panel bar beside the SSH terminal on Termix 26.10.3 and later, so it can be resized, moved to a side or the bottom, and ordered with the other panels
+- Panel beside the terminal host setting and panel settings for where it opens and how big it is
+- OpenAI providers on api.openai.com use the Responses API, so reasoning models such as GPT-5.6 and GPT-6 keep their reasoning while calling tools. OpenAI compatible providers and custom base URLs still use Chat Completions
+- The Thinking block shows markdown, and images in model text are never loaded
+
+### Fixed
+
+- OpenAI models that refuse tools with their default reasoning now work, by asking again with reasoning off
+
 ## 1.2.1
 
 ### Fixed

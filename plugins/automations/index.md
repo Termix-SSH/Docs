@@ -7,7 +7,7 @@ description: "Run steps on your hosts on a schedule or when something happens."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Automations/edit/main/docs/index.md"
 plugin_id: "automations"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Automations run steps on your hosts when something happens. Restart a service when it stops answering, clean up a disk when it fills, wake machines in the morning, or send yourself an alert when a container dies.

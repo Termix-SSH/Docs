@@ -6,9 +6,16 @@ slug: "/snippets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "snippets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Snippets panel beside an SSH terminal: search and click a snippet to run it in that terminal
+- Snippets dashboard card: run snippets that have target hosts, or copy any snippet
+
 ## 1.0.2
 
 ### Added

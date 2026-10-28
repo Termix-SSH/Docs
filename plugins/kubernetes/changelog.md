@@ -6,9 +6,19 @@ slug: "/kubernetes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "kubernetes"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
+## 1.0.1
+
+### Added
+
+- Kubernetes clusters dashboard card: ready nodes and running and failing pods on each cluster
+
+### Changed
+
+- The resource and Helm grids fit as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
 ## 1.0.0
 
 ### Added

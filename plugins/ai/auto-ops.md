@@ -4,7 +4,7 @@ sidebar_position: 13
 slug: "/ai/auto-ops"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-AI/edit/main/docs/auto-ops.md"
 plugin_id: "ai"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 Auto-ops lets the assistant work when nobody is at the keyboard. An automation from the Automations plugin starts it, on a schedule, when a metric crosses a threshold, when a host goes down, or on any other trigger. The assistant follows a runbook, looks into the hosts and writes a report. It can also propose a fix, which runs only after someone approves it.

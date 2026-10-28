@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "host-metrics/latest-cpu-memory-and-disk-for-every-host",
+          label: "Latest CPU, memory and disk for every host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "host-metrics/get-host-metrics",
           label: "Get host metrics",
           className: "api-method get",
@@ -186,6 +192,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "host-metrics/lightweight-live-cpu-memory-network-and-process-sample-linux",
+          label: "Lightweight live CPU, memory, network and process sample (Linux)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "host-metrics/detect-available-management-tooling-on-a-host",
           label: "Detect available management tooling on a host",
           className: "api-method get",
@@ -210,14 +222,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "host-metrics/edit-or-delete-an-identified-firewall-rule-or-change-a-default-policy",
+          label: "Edit or delete an identified firewall rule, or change a default policy",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "host-metrics/read-the-host-firewall-iptables-nftables-or-ufw",
           label: "Read the host firewall (iptables, nftables or ufw)",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "host-metrics/add-or-delete-an-input-rule",
-          label: "Add or delete an input rule",
+          id: "host-metrics/add-a-simple-input-rule-deletion-requires-the-management-endpoint",
+          label: "Add a simple input rule (deletion requires the management endpoint)",
           className: "api-method post",
         },
         {

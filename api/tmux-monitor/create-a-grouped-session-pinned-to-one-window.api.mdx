@@ -1,0 +1,69 @@
+---
+id: create-a-grouped-session-pinned-to-one-window
+title: "Create a grouped session pinned to one window"
+description: "Shares the session's windows but has its own current window, so a split viewer can show one window or pane without moving other clients. Unattached view sessions are swept by the overview."
+sidebar_label: "Create a grouped session pinned to one window"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v3DYQ/SuDubQFaK1T5KSbUyCAUxQ16g2MwlgEs9J4xa5EKpyRd9WF/nsxkvbDMVwg15wkDt+Q7w05jwcsWYrkW/UxYI73FSUW0IpBWMTH8JPAzocy7gTWnUJFAl4F4i5A0aXEQed5BxKBQNraKzx73nGCggJIFXcQA88wiAlaGodaxU6hic8+bCBqZQm156CSwedAqlRUXI5rHdkIUGKQHbcK637kGZ85GSRDh0obwfwRl023hz9i8BoTrhy2lKhh5WSzB/QmtSWt0GGghjHHKorelugw8dfOJy4x19SxQykqbgjzA2rfGtIH5Q0nHIaVoaWNQVgM8Ov1tX1eVnRZ8QsFYBtmODh8f/3+Nfx+RsV0rFeICk+xC2WGw+CwYa1iafyjKLpJRo6Ltu42PlxR6xfadPurZlK/OEzKhoWRuJpJoEPh9HysR5dqzPEwhQZ033D6O3YJlpwav4cJgw6fKXla15PyOTqqeaKuVquoaiv5YqFjYsZ7atqasyI2OIy1Ey665LUfKayZEqebzsQ8rgZ3wCLGrefLCLX+d+5PkYsl7u2QJiqXC53OzLjgfJY2nkDo5p+PMTVknD89LF+pP56Ixi0HELvwPow3zzaJyf9LhoSKqeQEJPBhXBQolCNsTBxP/FLSidukCt10KyfI+V7+s9M3GX16WMKEB2EFUhC/CVc+ZPBQcYA2sdF14BWUtiwWKbjkUExt86aKke1lub+7kjd3t7DlHkQpqfW3tTtos//ySs4J+v2l3XLvYFf5opo2kvM2GdwqUKFiaTPWXGvOLihYY1GhNk+hN4fiWnjqMh+e4qjaa20yLw0Fbu5urQE4ySTgXfYuu34l60OKO+Fpsxg0xRqsMU9O5k6+ahCzRAEqUhSB3hrO+lbGg7BObygYn/lW/JaYlIFgk2LXcnkyl9aHwCVovHDcb5lZawXloD+A30+XUnmvi7YmH6xco5sdZmN8xLMxWsKFNaLD/GT7L9xx5cb3wLIPhzUJf071MFj4a8fJDGt1NsDRvkov9l9i/kS18P9U/Oe/5gfmF3hLwNEYQj/6bN3ZCB1uuT+/VMPq8jG4+/N+icPwH27xvY8=
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a grouped session pinned to one window"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/view-session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Shares the session's windows but has its own current window, so a split viewer can show one window or pane without moving other clients. Unattached view sessions are swept by the overview.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The view session name."},"404":{"description":"Session or window not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

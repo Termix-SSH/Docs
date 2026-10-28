@@ -1,0 +1,69 @@
+---
+id: health-of-every-cluster
+title: "Health of every cluster"
+description: "Ready nodes and running and failing pods for each host the caller can reach with Kubernetes turned on. Results are kept for a minute; refresh=1 checks again."
+sidebar_label: "Health of every cluster"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlE1vHDcMhv8KwbMya+e4RQ8u0DZOGjSIXRiBYRT0DHdHWY00FTlrTxfz3wtq9ssxcsixp9VSHOp5JfLdYcNSZ9+rTxGX+JmpGSGmhgUoNpCHGH1cl/WKfLB1nxqBVcrAVLfQJlHQlqGmEDhDTRFy2Xny2sKH4ZFzZGUBHXLkBlKs4DPLEFSAMsOGey3lCDofB+WfIPMqs7Q/X0Ldcr0RoDX5WKFDpbXg8h5PZfHBYU+ZOlbOtrdDb0r+GTiP6DBSx7jEfUl0KHXLHeFyhzr2tiWafVzjND04zCx9isJi+28vLuzn5Q39GRk4ah6h51zUVzhNDjvWNjW4xDUrGpK2uMRFH4a1j2+o94vNkXkhQ9dRwRPO2wP3kAMucTeHJnTfnPwlDRluOXf+GeYcdLil7OkxzMD7aGFe0RAUl9iq9rJcLLR8WPEzdX3gqk4dTkWycD1kr2NBeGTKnK8Gg79/mNwO65Q2ns8j1PsPPB4jZyVu7GpnlPNCx5s2lsML2P85Cd1+8VvKHRnz+7vbV+pvWMSnCJo2HEE4KvhYGs8OSdn/S5YJLVPDGUjgl1K0tK6llQ8rnNwLSUe2WRW6uXvmlFP7fH3S7xK9v7uFOR+EFUhB/Dq+8bGCu5Yj9JkN14FXUNqwWKTmhmPNkLacv6ui0J5f9w/f5NWna9jwCKKU1Ya3DKV2z3+/knNM/fGr3fDo4Kn1dTsfJKdjKrhWoNpmXQ65kJ7i/uuaYkwlwfYpjsnGKwjPQ+XjKhXVXoPJPHOTq0/X1v6cZca/rC6qy1eiPlKkNZ+7UB0GMaeAVU4djDZTNsQyv8TNzTs3w4e0Fgcda/a1OPhy9fGPQkwgLYdQnqZPoh1FI9z3yTumoC2kFfCW83g47VsuG6uoHPX/YLlzxyk/66IP5KMpL1a127vcPZ5cDh2efM46dO90Dw4N25J3u0cS/iuHabLwbNRmPo0Xs7IGlysKwg43PL6w7i2FwVjQTOfgfLMtnfz3919vcZr+A4cWYkI=
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Health of every cluster"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/summary"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Ready nodes and running and failing pods for each host the caller can reach with Kubernetes turned on. Results are kept for a minute; refresh=1 checks again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"refresh","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per host."}}}
+>
+  
+</StatusCodes>
+
+
+      

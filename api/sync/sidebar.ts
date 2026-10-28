@@ -180,6 +180,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "sync/settle-every-conflict",
+          label: "Settle every conflict",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "sync/settle-a-conflict",
           label: "Settle a conflict",
           className: "api-method post",

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Docker API",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
   },
   "servers": [
@@ -137,6 +137,29 @@
           },
           "500": {
             "description": "The update failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/docker/summary": {
+      "get": {
+        "summary": "Container counts on every Docker host",
+        "description": "Running, stopped and unhealthy containers on each host the caller can reach with Docker turned on. Results are kept for a minute; refresh=1 checks again.",
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
           }
         }
       }

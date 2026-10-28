@@ -1,0 +1,70 @@
+---
+id: edit-or-delete-an-identified-firewall-rule-or-change-a-default-policy
+title: "Edit or delete an identified firewall rule, or change a default policy"
+description: "Requires edit access and a fresh snapshot from the firewall GET endpoint. Unsupported rules remain read-only. UFW replacements are not atomic; refresh after every attempt, including failures."
+sidebar_label: "Edit or delete an identified firewall rule, or change a default policy"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVt9v2zYQ/lcO97QBit1124v7lBZNl25dgzZBMATGwIhnizVFquTRjmb4fx+OlCO7Tlf0dXqxRd3v++47blFTrIPp2HiHM/xAn5MJFIG0YVB1TTGCchoULALFBqJTXWw8wyL4FrghWJhAG2UtvHl9DeR0543jCdy4mLrOByYNIVmKEKhVxkEgpc+8s/0Ebi5uIVBnVU0tOY6gAoHzDIp9a+oXEKh4VQumALSm0INiprbjCoyrbdLGLWGhjE2B4gQrZLWMOLvD33xkeEccTB1xXmGngmqJKcjXLRrJtlPcYIVOtYQzNBorDKUAGmccElUY64ZahbMtct9lKce0pIC73bxIU+SXXvci8qVy7R2TY/mkus6aWkmZp5+i1Hp7atvff6Kaj6K4Q99hVWLb1z6nE3xHgQ1F0ffdgZXIwbglVkgutWJBeokVarLEhBV23pq6x/ku231C8QtMJEvgAxQ1MJocG+5HBNQpBHIMrXJqmTsJgWLnXaQJ7g7i/qYradrZvU9Oj7A6Rdw3/XVUP1XVY18XPhSUFyyeD+YKWkFsmMXQMQjEyjiBmuEIpm0Tq3sr2CerY3a6VjbRtzO8GAtZ/L53BH5R8mq8qfOgcAqONCx8AG4UDxoT3OVH8FHSzc1//uyZ/Bz7eZd4H3pMll+AcZISQ0zjUPvEXZLKcENuP2wTnLlk7a7CX54yfOnWyhoNxhXVyErKtW+SD5AOJl9AmuM4tPrzqdU//RHjsM8FaXwUF9IoS+uSjyZnSI/mfn0qyDz8j74zP5Ae6YQ9aKGC1jg6QlRkxYKhXYUtceO1kEQJInPFDKedTUvjzlRnphLeWVso5vilQCnE6R7F063Ru+FYikZhvWeiFCzOcFuOdieA+cunANcS6wMUGRSwBSMAzP0fTnMRFipZxhk2zF2cTac5yYcJPai2szSpfSsYmksEdQqG+xzCPalA4TxJhnfzXbXF2vuVocMT1ZnfqX88OTDxUWishHJo6HESJBYcmFTeixBWw58LH1olMb+9vT7J/iPFKB1kvyIHUXpkXG6ZOPHB/FM63JDSFEBFeJmNZniLWFbMA3qY0mNsJSshWPFWRMaN8GlzShv7iN7eXkORh0iysSCapTszbgK3Mk1dIAm3AsPAakVRTmrS5GoCv6bw1SxytIfl/u5Knl9dwop6gXNgYa2N4Qa4ffj7JJ1H0e8v7Yr6CjaNqZviKI5uJnApsywbPe5lwW/coF0rl7d8zfJdud47ArJxGD3Zjx/Gzfq6gHe/5/brTFbXyLLjjjk4K3tgJOf9J1l8buFzZQ2L6aPrApxfXcqQUYilSD9Nnk+enZTuD7MmeHV1U0FLrQ99BdrEVQWOeOPDKmf65uomk0qsoLNJiM3bTG+FCqCX6RbqKEtEuKZV+XIwQPB13lAByvIG5Yb9uzB0sCNlZVUiVjfKLQkUDFQwbI4vY9+OV5P/w5WvTAfTA087q4yTUmZa3Q60fYcjbWOFh1x9+ronb6xwnyhWOMtXsIHB50VJDG+39yrSTbC7nRx/ThSEVOcjSWeK1SbKf42zhbKR/qMfPwwN0T/C13Lbk5frccQ2Vriivtxjd3K3K4ObvZcPr4qPs2tRHxVPrqZC7o/r7+r9R6Hl++GK23otOkFt5JqqNsWxz3nkFZDPtmiVWyYp1QyLTXn+BZ27WXI=
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Edit or delete an identified firewall rule, or change a default policy"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/manage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Requires edit access and a fresh snapshot from the firewall GET endpoint. Unsupported rules remain read-only. UFW replacements are not atomic; refresh after every attempt, including failures.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["op","id","snapshot"],"properties":{"op":{"type":"string","enum":["edit","delete","policy"]},"id":{"type":"string","description":"Rule or policy identity from the current management response."},"snapshot":{"type":"string","description":"Host-bound firewall snapshot from the current management response."},"spec":{"type":"object","description":"For edit only. A managed rule specification retaining its immutable fields."},"value":{"type":"string","description":"For policy only. One of the choices returned for that policy."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Mutation result; inspect success and output","then refresh.":null},"400":{"description":"Invalid input","stale snapshot or unsupported operation.":null},"403":{"description":"No edit access to the host","or elevation denied.":null},"500":{"description":"Host operation failed; refresh to determine the current state."}}}
+>
+  
+</StatusCodes>
+
+
+      

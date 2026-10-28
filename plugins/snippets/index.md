@@ -7,7 +7,7 @@ description: "Save the commands you run often and run them in a terminal or on m
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Snippets/edit/main/docs/index.md"
 plugin_id: "snippets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Snippets are commands you save so you don't type them again: a restart, a log tail, a long diagnostic one-liner. Run them in a terminal, in several terminals at once, or straight on a set of hosts with no terminal open.

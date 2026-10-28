@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ai/reference"
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -39,6 +39,10 @@ Each person sets these for themselves in **Settings**.
 | --- | --- | --- | --- |
 | Enable the AI assistant | boolean | `false` | Let the assistant read your setup and suggest changes for you to approve. |
 | Allow read-only diagnostic commands | boolean | `false` | The assistant may run a short list of safe commands like df and uptime without asking each time. Anything that changes a server is always proposed first. |
+| Open the assistant panel with a terminal | boolean | `false` | Show the assistant panel when a terminal opens on a host that has it. |
+| Assistant panel side | select | `"right"` | Where the panel sits next to the terminal. |
+| Assistant panel size | number | `400` | Width, or height at the bottom, in pixels. |
+| Assistant panel edge button | boolean | `true` | Show a small button on the terminal edge to open the panel. |
 
 ### Host
 
@@ -47,6 +51,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Enable AI Assistant | boolean | `false` | Allow the AI assistant to help in this host's terminal. Off by default, and still needs AI enabled for your account. |
+| Panel beside the terminal | boolean | `true` | Offer a assistant panel next to this host's SSH terminal. |
 
 ## Permissions
 

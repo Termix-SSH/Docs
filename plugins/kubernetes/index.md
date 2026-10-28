@@ -7,7 +7,7 @@ description: "Manage Kubernetes clusters from your hosts over SSH, with logs, me
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Kubernetes/edit/main/docs/index.md"
 plugin_id: "kubernetes"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Kubernetes lets you manage your clusters from Termix: browse workloads, read logs, open a shell in a pod, scale and restart deployments, edit YAML, drain nodes and roll back Helm releases.

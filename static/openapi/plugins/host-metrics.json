@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Host Metrics API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
   },
   "servers": [
@@ -63,6 +63,20 @@
     }
   ],
   "paths": {
+    "/plugin-api/host-metrics/metrics/summary": {
+      "get": {
+        "summary": "Latest CPU, memory and disk for every host",
+        "description": "The newest sample already collected for each host the caller can connect to. It never starts collection, so hosts nobody looked at lately are missing. Feeds the dashboard card.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host with a recent sample."
+          }
+        }
+      }
+    },
     "/plugin-api/host-metrics/metrics/{id}": {
       "get": {
         "summary": "Get host metrics",
@@ -1252,6 +1266,34 @@
         }
       }
     },
+    "/plugin-api/host-metrics/host-metrics/managers/live/{id}": {
+      "get": {
+        "summary": "Lightweight live CPU, memory, network and process sample (Linux)",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One live sample",
+            "shared per host and reused until the admin minimum interval passes. Includes minIntervalS.": null
+          },
+          "403": {
+            "description": "No access",
+            "or live updates are disabled (code LIVE_DISABLED).": null
+          }
+        }
+      }
+    },
     "/plugin-api/host-metrics/host-metrics/platform/{id}": {
       "get": {
         "summary": "Detect available management tooling on a host",
@@ -1419,6 +1461,83 @@
         }
       }
     },
+    "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/manage": {
+      "post": {
+        "summary": "Edit or delete an identified firewall rule, or change a default policy",
+        "description": "Requires edit access and a fresh snapshot from the firewall GET endpoint. Unsupported rules remain read-only. UFW replacements are not atomic; refresh after every attempt, including failures.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "op",
+                  "id",
+                  "snapshot"
+                ],
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "enum": [
+                      "edit",
+                      "delete",
+                      "policy"
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Rule or policy identity from the current management response."
+                  },
+                  "snapshot": {
+                    "type": "string",
+                    "description": "Host-bound firewall snapshot from the current management response."
+                  },
+                  "spec": {
+                    "type": "object",
+                    "description": "For edit only. A managed rule specification retaining its immutable fields."
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "For policy only. One of the choices returned for that policy."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mutation result; inspect success and output",
+            "then refresh.": null
+          },
+          "400": {
+            "description": "Invalid input",
+            "stale snapshot or unsupported operation.": null
+          },
+          "403": {
+            "description": "No edit access to the host",
+            "or elevation denied.": null
+          },
+          "500": {
+            "description": "Host operation failed; refresh to determine the current state."
+          }
+        }
+      }
+    },
     "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}": {
       "get": {
         "summary": "Read the host firewall (iptables, nftables or ufw)",
@@ -1455,7 +1574,7 @@
     },
     "/plugin-api/host-metrics/host-metrics/managers/firewall/{id}/rule": {
       "post": {
-        "summary": "Add or delete an input rule",
+        "summary": "Add a simple input rule (deletion requires the management endpoint)",
         "tags": [
           "Host Metrics"
         ],
@@ -1485,8 +1604,7 @@
                   "op": {
                     "type": "string",
                     "enum": [
-                      "add",
-                      "delete"
+                      "add"
                     ]
                   },
                   "protocol": {

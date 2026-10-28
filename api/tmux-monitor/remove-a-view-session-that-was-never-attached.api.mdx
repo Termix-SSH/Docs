@@ -1,0 +1,69 @@
+---
+id: remove-a-view-session-that-was-never-attached
+title: "Remove a view session that was never attached"
+description: "Only a session this plugin marked as a view session and that has no attached client is removed; anything else is left alone."
+sidebar_label: "Remove a view session that was never attached"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlU1v4zYQhv/KYE5dgJGzPaqn7GGB7KLYIHERFIFRTKSJxVoiteTItmrovxdDyh+bIAX21pPl0ZB83+HMowPWHKtge7HeYYnfXDsCQeQYrXcgjY3Qt8PaOugobLgGikCwtbw7JZGrQRoSaCiC80AiVDVcQ9VadgI2QuDOb7n+DciN0li3Bm4j65uWXwSo9Y4LNCi0jlg+4bIb9vC7d1Z8wJXBngJ1LBz07QGtSu1JGjToqGMssfFRbms0GPj7YAPXWEoY2GCsGu4IywPK2GumdcJrDjhNK82OvXeRoyb8en2tPz9W5J5bpsi1AR/A+axePIQcL3CaDHYsja9VlI+CJmsrcZFLd0W9XUg37K+6bGlxyHKnhRbyai7kYt4SDUYO26PZIbRY4iGHJjSv9P3phwBLDp3dQ85Bg1sKlp7bbGuOJmcvNLSi5RLpY7lYSFpY8J66vuWi8h1OqTCRqyFYGZOEZ6bA4WZQU0+ryRyw8n5j+TJCvf3K4ylyscWD3kCWcrnR6UJUC84Xpf9zEpr54bMPHanmL4/LN+4fjo3qN+wgpnbTtmXQQ3yw/5BmQsNUc9Dm/ZQ2nZuW88ICJ/ODpZO27ApNbrmccm66v3fyrqIvj0vI+RBZgASiXbsr6wp4bNhBH1jlGrACQhuOGqm4Zlcx+C2Hd10ktZfl/ulK3tzdwoZHiEJBtJ93VhqQbv/XGzun1J8v7YZHA7vGVk0+KJ6PKeBWgCqJumzOBb9z8+qKnPMpIeHGjd5xIkaeNutefHJtpVWbl7SAm7tbHQAOMRv4WHwsrt/Y+hT8LnI+zDsJvgUd0CPTooGddbXfxZTSk+MIVAUfI4w6cDq/MV2ETnxHTvXMXXGfYPeakomQOyUk6+UeIflamY6WE3byP4BxbirhvSz6lqxTu4lGhxlwT3gGnC64QBwaLE9MvqRcQnTm3MokbOs+h8MzRf4jtNOk4e8DB0XP6oyyBKLaRn2usXyhNvJ/1O6X+/k78AHes3IccTcmYraD/kODGx7PH5RpdYn3u28PS5ymfwE7gYP+
+sidebar_class_name: "post api-method"
+info_path: api/tmux-monitor/tmux-monitor-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a view session that was never attached"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tmux-monitor/{hostId}/view-session/release"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only a session this plugin marked as a view session and that has no attached client is removed; anything else is left alone.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Released, or nothing to release."}}}
+>
+  
+</StatusCodes>
+
+
+      

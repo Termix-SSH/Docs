@@ -1,0 +1,68 @@
+---
+id: settle-every-conflict
+title: "Settle every conflict"
+description: "Desktop only. keep 'mine' puts this device's version of each one back, and the next sync sends them to the server. keep 'server' drops them all."
+sidebar_label: "Settle every conflict"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlU1z2zYQhv/Kzl56QSQnkxNvTtNMnB7qidzxdGxNBwJXIkwSYIClJJbD/95ZgJZUuznkFh4kElhg3/3AgxFLiibYjq13WOBHijX7DrxrhgXURB08YmsdPSJ0PUfgykYoaW8N/RJhTyFa78BvgbSpwDuCjTa1Au1K4IrA0ZEhDs5AJFfKemqBfZqLFPYUTm7y5yNCGXw3W+qmWaBC1ruIxQOuBmdwrTDQt54if/DlgMWYPm2gEgsOPSk03jE5linddY01WsJbPkWJccRoKmq1vPHQERboN09kGBV2wXcU2FKUWdF1YRU5WLdDheT6VtRIXlDNunE9pUfExc67mPd4d3Ulf//N8oqYGyoX8Nk3ZYTKH6DVboADBclKmkwZPM1stZUFOCl8/387phTaCM4ziCzw4Tm9KJpa4sqXWGDnYwpUc4UFLqUyy8a6emm82zbWcDxFJBkfsQ8NFjjmoQnVC8d/+T7AHYXWHmeHqHCvg9WbJmdgHk2St7pvGAusmLtYLJecFi7oqNuuoYXxLU7TtBYFpg+WhyRhQzpQuO5F8sN6UiMa72tLlyO6s7/TcBq52GIl1c5SLjc6lVW0SMzJDIvZCNX88smHVovmL/d3r6JfUUz9z74mJx3OYF3qbXHig/0ndR5UpEsKoCN8SJuejkdamMp6GdJJW44KFVrxlk1QodNJ6dOBv6voy/0dZHtpKNAM0e7cG+sWcF+Rgy6QyFVgGVjXFGXEUEnOEPg9he9GkdRepvuHM3l9ewM1DRBZB7ZuBwfLFXB7/PtVOCfTH09tTYOCQ2VNlR3Fs5sF3DBow1GWzbbgD25ebbSTc6QNy7x2g2CNmkj5LAlGvp4B9Ftu3jMwMhcmKdrWp/RYlvlEL7i+vZETksGJBb5dXC3evi6jmIqycgay7rqs3+fD3frwDNCYadtqp3cEnit6cSJTmIFazwTRMkXYBt+ChlZHngsqXGh1wuPcXRlSQHsKAzzT4aXQ8czan/buyM3JdORl12jrJNxEtXHG4AOKE1QoIMR0fcwoXCusBJjFA47jRkf6MzTTJMPfegpCp/WZdhlFmBsygaumAQv8NWfozZ0IEfOmz2f7xc0k0Dpx+vaPleBmM99wrS9lTdAHVOm3QFToUxUS2tLYiI12u17vEh3SnvL8C0i2vao=
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Settle every conflict"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/link/conflicts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. keep "mine" puts this device's version of each one back, and the next sync sends them to the server. keep "server" drops them all.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"keep":{"type":"string","enum":["mine","server"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Settled. Holds how many were settled and how many failed."},"400":{"description":"keep is not mine or server."}}}
+>
+  
+</StatusCodes>
+
+
+      

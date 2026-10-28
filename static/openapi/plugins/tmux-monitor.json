@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Tmux Monitor API",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "Browse and control tmux sessions, windows and panes across your hosts."
   },
   "servers": [
@@ -373,6 +373,57 @@
         "responses": {
           "200": {
             "description": "Tags saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/view-session": {
+      "post": {
+        "summary": "Create a grouped session pinned to one window",
+        "description": "Shares the session's windows but has its own current window, so a split viewer can show one window or pane without moving other clients. Unattached view sessions are swept by the overview.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The view session name."
+          },
+          "404": {
+            "description": "Session or window not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/tmux-monitor/{hostId}/view-session/release": {
+      "post": {
+        "summary": "Remove a view session that was never attached",
+        "description": "Only a session this plugin marked as a view session and that has no attached client is removed; anything else is left alone.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Released, or nothing to release."
           }
         }
       }
