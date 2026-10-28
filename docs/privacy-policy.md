@@ -32,7 +32,7 @@ If you say yes, the app sends:
 
 It never sends host names, usernames, IP addresses of your hosts, ports, paths, commands, terminal output, file names, passwords, keys, tokens, server addresses, error messages or stack traces.
 
-Reports go to [PostHog](https://posthog.com/privacy), hosted in the United States. Like any web request, PostHog sees your IP address when the report arrives. The app asks PostHog not to use it for a location and turns off session replay, screen tracking and person profiles.
+Reports go to [PostHog](https://posthog.com/privacy), hosted in the United States. Like any web request, PostHog sees your IP address when the report arrives. It is thrown away and never stored with the report, and the app asks PostHog not to use it for a location. The app also turns off session replay, screen tracking and person profiles.
 
 If you turn it off, the app stops sending and deletes anything it had waiting.
 
