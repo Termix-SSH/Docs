@@ -169,6 +169,18 @@ function parseMarkdown(text) {
   return { data, body: text.slice(match[0].length) };
 }
 
+/**
+ * Turns "./page" links into "./page.md" file links. Old plugin tags use the
+ * URL form, which breaks on version pages.
+ */
+function fileLinks(body, pages) {
+  return body.replace(
+    /\]\(\.\/([\w-]+)(#[^)\s]*)?\)/g,
+    (link, page, hash = "") =>
+      pages.has(page) ? `](./${page}.md${hash})` : link,
+  );
+}
+
 function semverParts(v) {
   const [core, pre] = String(v).split("-");
   return { nums: core.split(".").map(Number), pre: pre ?? null };
@@ -784,8 +796,15 @@ async function syncPlugin(plugin, capabilities) {
       }
     }
 
+    const pages = new Set(["reference", "changelog"]);
+    if (fs.existsSync(docsDir)) {
+      for (const name of fs.readdirSync(docsDir)) {
+        if (/\.md$/.test(name)) pages.add(name.replace(/\.md$/, ""));
+      }
+    }
     const index = read(path.join(docsDir, "index.md"));
     const parsed = index ? parseMarkdown(index) : null;
+    if (parsed) parsed.body = fileLinks(parsed.body, pages);
     const envLink = `/plugins${slug}/reference#environment-variables`;
     const envNote =
       manifest.env?.length && !parsed?.body.includes(envLink)
@@ -832,7 +851,7 @@ async function syncPlugin(plugin, capabilities) {
             custom_edit_url: editUrl(plugin, docs.ref, `docs/${name}`),
             ...meta,
           }) +
-            body.trim() +
+            fileLinks(body, pages).trim() +
             "\n",
         );
       }
