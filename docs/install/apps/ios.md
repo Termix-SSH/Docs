@@ -5,7 +5,7 @@ description: Install the Termix app on iPhone and iPad.
 
 # iOS
 
-The app works on its own with no Termix server, and can link to one or more servers to sync. See [mobile app](mobile.md) for what it does.
+The app works on its own with no Termix server, and can link to one or more servers to sync. See [mobile app](/mobile) for what it does.
 
 ## App Store
 

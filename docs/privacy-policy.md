@@ -38,7 +38,7 @@ The Service Provider may disclose User Provided and Automatically Collected Info
 
 ## Opt-Out Rights
 
-From version 2.0.0 the Application can send anonymous usage statistics. It asks first and sends nothing until you say yes. You can turn it off any time in Settings. [What is sent](/install/apps/usage-statistics).
+From version 2.0.0 the Application can send anonymous usage statistics. It asks first and sends nothing until you say yes. You can turn it off any time in Settings. [What is sent](/privacy#mobile-app).
 
 You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.
 

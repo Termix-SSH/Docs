@@ -5,17 +5,17 @@ description: What the Termix app for iPhone, iPad and Android does, with or with
 
 # Mobile app
 
-The Termix app for [iOS](ios.md) and [Android](android.md) is an SSH client that works on its own. From version 2.0.0 you don't need a Termix server: hosts, logins and snippets live on the phone and the phone connects to them itself. Link a server when you want your data in sync with Termix on the web and desktop, or when you want a feature only a server has.
+The Termix app for [iOS](/install/apps/ios) and [Android](/install/apps/android) is an SSH client that works on its own. From version 2.0.0 you don't need a Termix server: hosts, logins and snippets live on the phone and the phone connects to them itself. Link a server when you want your data in sync with Termix on the web and desktop, or when you want a feature only a server has.
 
 ## First start
 
 A new install asks how you want to start:
 
 - Use without a server. Everything stays on the phone. You can link a server any time later.
-- Link a Termix server. See [linking a server](mobile-linking.md).
+- Link a Termix server. See [linking a server](linking.md).
 - Import. Bring hosts from a Termix host file, an SSH config, a QR code or a backup.
 
-The app then asks once whether to share anonymous usage statistics. It stays off until you answer. See [usage statistics](usage-statistics.md).
+The app then asks once whether to share anonymous usage statistics. It stays off until you answer. See [usage statistics](/privacy#mobile-app).
 
 ## This device
 
@@ -58,7 +58,7 @@ The choice is a host setting, so it syncs with the host. If a connection fails, 
 
 ## Server features
 
-A linked server adds what the phone can't do alone, like session sharing, server side history, alerts, and plugins with no phone version. See [plugins on the phone](mobile-plugins.md).
+A linked server adds what the phone can't do alone, like session sharing, server side history, alerts, and plugins with no phone version. See [plugins on the phone](plugins.md).
 
 Features that need a server say so and offer to connect the host through it.
 
@@ -70,8 +70,7 @@ iOS stops network connections soon after you leave the app. Tabs reconnect when 
 
 ## More
 
-- [Linking a server](mobile-linking.md)
-- [Plugins on the phone](mobile-plugins.md)
-- [Signing in on the phone](mobile-sign-in.md): proxies, client certificates, pins, passkeys and links into the app
-- [Usage statistics](usage-statistics.md)
-- [F-Droid build](f-droid.md)
+- [Linking a server](linking.md)
+- [Plugins on the phone](plugins.md)
+- [Signing in on the phone](sign-in.md): proxies, client certificates, pins, passkeys and links into the app
+- [F-Droid build](/install/apps/f-droid)

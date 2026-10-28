@@ -12,7 +12,7 @@ The F-Droid build of the Android app is the same app with no Google code in it. 
 - No Play Services, ML Kit or install referrer library.
 - Scan a code is not in this build. Import hosts from a file, or paste a link, instead.
 - Everything else works the same, including the terminal, files, tunnels, Docker, metrics, services and remote desktop.
-- Usage statistics are in the app but off until you answer the question on first start. See [usage statistics](usage-statistics.md).
+- Usage statistics are in the app but off until you answer the question on first start. See [usage statistics](/privacy#mobile-app).
 
 ## Build it yourself
 

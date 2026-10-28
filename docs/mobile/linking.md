@@ -14,7 +14,7 @@ The Termix app (2.0.0 and newer) works without a server. Link one when you want 
 3. Sign in with any login the server offers: password, LDAP, SSO, passkeys or security keys. A second factor is asked for after.
 4. The first time, the app asks what to do with the hosts already on This device.
 
-If a proxy or a client certificate sits in front of the server, see [signing in on the phone](mobile-sign-in.md).
+If a proxy or a client certificate sits in front of the server, see [signing in on the phone](sign-in.md).
 
 ## Merge or replace
 
