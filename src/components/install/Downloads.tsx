@@ -33,12 +33,14 @@ export default function Downloads({
 }): React.ReactNode {
   const rows = releases.assets
     .map((asset) => {
-      const m = /^termix_([a-z]+)_([a-z0-9]+)_([a-z]+)\./.exec(asset.name);
+      const m = /^termix_([a-z]+)_([a-z0-9]+)_(full_)?([a-z]+)\./.exec(
+        asset.name,
+      );
       if (!m || m[1] !== platform) return null;
       // App Store builds and the desktop updater's own files are not downloads.
-      if (m[3] === "mas" || m[3] === "update") return null;
+      if (m[4] === "mas" || m[4] === "update") return null;
       if (asset.name.endsWith(".blockmap")) return null;
-      return { ...asset, arch: m[2], kind: m[3] };
+      return { ...asset, arch: m[2], kind: m[4], full: Boolean(m[3]) };
     })
     .filter(Boolean) as {
     name: string;
@@ -46,6 +48,7 @@ export default function Downloads({
     size: number;
     arch: string;
     kind: string;
+    full: boolean;
   }[];
 
   if (rows.length === 0) {
@@ -74,7 +77,10 @@ export default function Downloads({
         <tbody>
           {rows.map((r) => (
             <tr key={r.name}>
-              <td>{KIND_LABEL[r.kind] ?? r.kind}</td>
+              <td>
+                {KIND_LABEL[r.kind] ?? r.kind}
+                {r.full ? " | Full (all plugins)" : ""}
+              </td>
               <td>{ARCH_LABEL[r.arch] ?? r.arch}</td>
               <td>
                 <a href={r.url}>{r.name}</a>
@@ -84,6 +90,13 @@ export default function Downloads({
           ))}
         </tbody>
       </table>
+      {rows.some((r) => r.full) && (
+        <p>
+          Full builds include every official plugin and work without internet.
+          The other files include the standard plugins. You can turn plugins on
+          or off in the app either way.
+        </p>
+      )}
       <p>
         These are from{" "}
         <a href={releases.url}>
