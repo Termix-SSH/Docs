@@ -5,10 +5,19 @@ sidebar_position: 90
 slug: "/fleets/reference"
 custom_edit_url: null
 plugin_id: "fleets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
+
+### Admin
+
+Set by an admin in **Settings**, under the plugin's name. It applies to everyone.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Retries after a connection timeout | number | `2` | How many more times a fleet action tries a host whose SSH connection timed out. Only the failed hosts try again, and nothing runs twice. |
+| Seconds between retries | number | `5` | How long to wait before trying a timed out host again. |
 
 ### User
 

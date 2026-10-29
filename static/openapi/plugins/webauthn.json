@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Passkeys API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Sign in with a passkey or security key instead of a password."
   },
   "servers": [
@@ -105,6 +105,20 @@
           },
           "400": {
             "description": "Registration failed or challenge expired."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/login-options": {
+      "get": {
+        "summary": "Whether the sign in page shows the Passkeys button",
+        "description": "Public. passwordless is false when an admin turned passkey sign in off.",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "The login page options."
           }
         }
       }

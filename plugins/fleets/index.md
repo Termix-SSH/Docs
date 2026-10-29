@@ -7,7 +7,7 @@ description: "Group hosts into fleets and run commands, package actions and file
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Fleets/edit/main/docs/index.md"
 plugin_id: "fleets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 A fleet is a group of hosts you treat as one thing. Instead of opening five servers and typing the same command five times, you put them in a fleet and run it once.

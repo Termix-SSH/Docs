@@ -1,0 +1,70 @@
+---
+id: whether-a-session-can-be-recorded-and-is-recording
+title: "Whether a session can be recorded and is recording"
+description: "For the user who opened the session. available is false when Session Recording is off or the session does not run in the built-in engine."
+sidebar_label: "Whether a session can be recorded and is recording"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNld9v4zYMx/8Vgk8boDq9bU9+63a7oTfgUPSyFUMXDIrNxFpsySfSTT3D//uBsvPrug64tz3FISmKH4r6asCSuIiuFRc85vguRJCKoGOKsK8ChJY8lcnGxOyCz8A+WVfbdU3gGDa2ZoJ9RR4+TgFwT0WIpfNb9YfNBuakcwIoAzH4IBA7D84n37pztVw5D+S3zlP2p0eDYreM+SPeUxOE4C3xTkKLK4OtjbYhoaj+AZ3W3lqp0KC3DWGO82a3JRqM9KlzkUrMJXZkkIuKGov5gNK3KVii81scx5UGcxs8E6v/u+tr/bls0onf+hLigTbD0eAP129eLvgQBNhttZHOZziOBhuSKpSY45YEzVR7jou27rbOX9nWLWKCvion6MXMw4vhSDYujnujQab4dOhHF2vMcZhMI5ov6vkjdBGWFBv3DFMMGnyy0SlU4p6tiWRju1owx0qk5XyxkLQwo2fbtDVlRWhwTJ1jKrropE8lrMlGijedcj2uRjNgEcLO0bnFtu5X6o+WsxQf9YSmUs4THQ9Ma8H5IPX/FIRm/ngXYmO15vcPyxf0hzGVsCMPTF4OQ6ibhOj+sRoJFdmSIliGH1PSdNoalham0z5HOtY2UaGZpnIKOc3l33t5taL3D0uY4oFJwE5Tc+V8Bg96wdpIWq4BJyB2R6yWgkryBUF4ovgqRar2vN1f3cmbu1vYUQ8sNore7b2TCqR5/usFzjH061u7o97AvnJFNW3Ep20yuBWwhbAum2Mh7P28urBeJcUWon7r++AJqGaa7pvzm5CondSKeSkpcHN3q1eAIk8Ib7Lvs+sXYPdv7wz8/uEnAzdtWxN8kUTLWFLtSQ5Sx4rf621bx7BnimbiKWrXroONpYGNqwkkWs8bdXNlVYr+RVnawNJYrxDzKD1UJJXiH5W1sB7WNC+kMmVxDOcycUGkl9ILefn/Sf80nULPsmhr67y2IMnaMIvlI57EMmn8uVwmPZyOAA3ml4/BoRkrg1Vg0VTDsLZMv8V6HNX8qaOoMrY6yWIStdKxfpeYJ/b/6OY39/Ob8y28RnOQC98n9a07/YcGd9RfvF/j6vy9+OXnJY7jZzwDsEg=
+sidebar_class_name: "get api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Whether a session can be recorded and is recording"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/remote-desktop/sessions/{sessionId}/recording"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For the user who opened the session. available is false when Session Recording is off or the session does not run in the built-in engine.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"available and recording."},"401":{"description":"Not signed in."}}}
+>
+  
+</StatusCodes>
+
+
+      

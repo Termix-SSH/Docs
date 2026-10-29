@@ -7,7 +7,7 @@ description: "SSH terminal sessions with tabs, split screen, history, macros and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 SSH Terminal is the terminal in Termix. Click a host and you are in a shell on it, in a tab you can split, rename and keep open across devices. It handles jump hosts, host key checks, tmux and Mosh, and keeps your session alive when your connection drops.

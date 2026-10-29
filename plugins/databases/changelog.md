@@ -6,9 +6,20 @@ slug: "/databases/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "databases"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Added
+
+- A Routines view lists stored procedures and functions with their code, for MySQL, MariaDB and PostgreSQL
+- Save SQL scripts in the console and load them again with one click
+
+### Fixed
+
+- The table list and the data grid scroll again instead of cutting off after the first rows
+
 ## 1.1.0
 
 ### Added

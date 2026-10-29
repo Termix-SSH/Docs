@@ -6,9 +6,27 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Connect from host setting for the mobile app: the phone, this server, or automatic
+- Auto-Tmux host option Ask when one session exists, so a new tab can start its own tmux session instead of joining the only one
+- Ctrl+click (Cmd+click on Mac) opens a link right away, and a new link setting opens links only that way so a plain click can select text
+- An Edit host button on the connection failure screen opens the host's editor (needs Termix 26.10.6)
+- Su Password Auto-fill: at a su prompt the terminal offers the password saved on another host with the same address and that user, and never offers the login password there
+- rz and sz (lrzsz) file transfers in the terminal, with progress and cancel
+
+### Fixed
+
+- Right click goes to programs that use the mouse, like tmux with mouse mode, instead of pasting into their menus. Hold Shift for the old behavior
+- Reconnecting a tab no longer types stray text like 1;2c at the prompt
+- A tab that reconnects to its live session no longer logs in to the host again first, so auth logs and fail2ban stay quiet
+- Hosts with Cloudflare Tunnel on now work in File Manager, Snippets and every other feature, not only the terminal
+
 ## 1.1.1
 
 ### Fixed

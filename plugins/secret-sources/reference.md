@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/secret-sources/reference"
 custom_edit_url: null
 plugin_id: "secret-sources"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -16,7 +16,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
-| Private endpoint allowlist | textarea | `"localhost\n127.0.0.1\n::1\nhost.docker.internal"` | Private or loopback hosts a secret source may reach, one per line. A self-hosted 1Password Connect server usually needs its own address listed here. |
+| Private endpoint allowlist | textarea | `"localhost\n127.0.0.1\n::1\nhost.docker.internal"` | Private or loopback hosts a secret source may reach, one per line. A self-hosted server, like 1Password Connect, Vault or bw serve, usually needs its own address listed here. |
 
 ## Capabilities
 

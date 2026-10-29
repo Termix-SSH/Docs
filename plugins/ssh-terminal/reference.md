@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ssh-terminal/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -33,6 +33,7 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Command Autocomplete | boolean | `false` | Show autocomplete while typing if you press tab |
+| rz and sz file transfers | boolean | `true` | Upload and download files with rz and sz (lrzsz) right in the terminal. |
 | Always show macro buttons | boolean | `false` | Keep the run and delete buttons under each macro visible. Turn off to show them only on hover. |
 | Always show history buttons | boolean | `false` | Keep the copy and delete buttons under each command visible. Turn off to show them only on hover. |
 
@@ -44,6 +45,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | --- | --- | --- | --- |
 | Enable Terminal | boolean | `true` | Offer an SSH terminal for this host. |
 | Command History | boolean | `true` | Record commands run in this terminal for history and autocomplete |
+| Connect from (mobile app) | select | `"auto"` | Where the mobile app opens SSH for this host: the phone, this server, or the phone when it can reach the host. |
 
 ## Environment variables
 
@@ -75,6 +77,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | --- | --- | --- |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
+| `ssh:transport` | High | Choose how hosts are reached. It can carry the SSH connection to a host over its own route, so it sees everything sent to and from those hosts, passwords included. |
 | `desktop:local` | High | Use this computer. Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |

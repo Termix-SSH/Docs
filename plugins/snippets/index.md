@@ -7,7 +7,7 @@ description: "Save the commands you run often and run them in a terminal or on m
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Snippets/edit/main/docs/index.md"
 plugin_id: "snippets"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Snippets are commands you save so you don't type them again: a restart, a log tail, a long diagnostic one-liner. Run them in a terminal, in several terminals at once, or straight on a set of hosts with no terminal open.
@@ -35,6 +35,23 @@ journalctl -u ${INPUT_1:Service} --since "${INPUT_2:Since}" -n 200
 ```
 
 When a snippet has inputs, Termix asks for them and shows a preview before running.
+
+## Secrets
+
+Keep keys and passwords out of your snippets. Open the snippet settings, add a secret under Secrets, then use it
+in any command as `{{NAME}}`:
+
+```bash
+SOPS_AGE_KEY={{SOPS_AGE_KEY}} sops -d secrets.enc.yaml
+```
+
+Secrets are stored encrypted on the server, belong to you only and are never shown again after you save them. They
+are not synced to the desktop app. When a snippet runs, Termix fills in your own value, so a shared snippet uses the
+secret of whoever runs it. Every use is written to the audit log with the names, never the values.
+
+A run on hosts fills the secret on the server and hides the value in the output it shows you. A run in a terminal
+types the value into the terminal, so the shell and its history can see it there. If a secret is missing, the
+snippet does not run.
 
 ## Run one
 

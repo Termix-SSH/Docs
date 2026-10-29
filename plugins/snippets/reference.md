@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/snippets/reference"
 custom_edit_url: null
 plugin_id: "snippets"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -69,6 +69,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+| `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 
 ## Services
 

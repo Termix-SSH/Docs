@@ -7,7 +7,7 @@ description: "Sign in with a passkey or security key instead of a password."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-WebAuthn/edit/main/docs/index.md"
 plugin_id: "webauthn"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Passkeys lets you sign in to Termix with a passkey or a security key instead of a password: Face ID, Touch ID, Windows Hello, a YubiKey, or a passkey synced by your password manager. Passkeys can't be phished, since they only work on the site they were made for.
@@ -27,6 +27,10 @@ You can add as many as you like. Synced passkeys are marked synced. Remove one w
 Press Sign in with passkey on the sign in page and pick your passkey. No username or password needed.
 
 An account that only signs in through SSO or LDAP can't use a passkey to sign in on its own, so disabling the user at the identity provider always locks them out. Accounts that also have a password are not affected.
+
+An admin can turn off Passkey sign in in Settings, Passkeys. The button then leaves the sign in page and passkeys no
+longer sign anyone in on their own, which is useful when your identity provider already asks for a passkey. Security
+keys as the step after a password keep working.
 
 ## As a second factor
 

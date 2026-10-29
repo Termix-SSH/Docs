@@ -1,0 +1,69 @@
+---
+id: list-stored-procedures-and-functions
+title: "List stored procedures and functions"
+description: "Lists the stored procedures and functions of a database with their definitions. Empty for SQLite."
+sidebar_label: "List stored procedures and functions"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v00AQ/SujOYG02JSjb634UKFILQmqUBWhjT2Jl9i7Znfc1Fj+72i8zge0EYIDpySTNzPvzey+7bGgkHvTsHEWM7wygQNwSRDYeSqg8S6novUUQNsCVq3NBRrArUBDoVkvdSDYGi4lzXgoaGWsGUEJvKkb7mDlPMxurgxTggpZrwNmd/h6Sg64UNhor2ti8vJXj0bINJpLVGh1TZhh6QJfFqjQ0/fWeCowY9+SwpCXVGvMeuSuEaSxTGvyOAzqyUq5s/ZfK31vyXeHUsUSn0gL7I1d4zAspEdonBWVWY+vXr6Uj19nPi/p5JgTaY01cekKzHBNjCqqyTBtqnZt7AvdmHS3iJD2cU5DKiopVkn7KHlIvWvZWArCmvz9btytrzDDPoYGVL8x/OJaD3PytXmAiEGF99obvayisCk6alvptmJZGHMTsjTlMTGhB103FSW5q3EYRxMob73hbqSwJO3Jn7ci7W4h886d2xg6jujGfKBuHzkqMZMVRCrHhfYbES67TcnvCEI1fXnrfK2F8/vb+SP1MwrBOAvsNmQhkGUwdrwj0sR580MLEkrSBXnQAS7GouMmBTYmJjioXyTtuUVVqOIBi5DDCfu25ZOM3t/OIeIhEINmCGZtXxibwG1JFhpPQleBYWC9oSCRnAqyOYG7J39Sxcj2eNx/Pcnz60vYUAeBtWdj15NF1A9fH8nZQ/9+tBvqFGxLk5exUTi0SeCSQeccJG3CgtvaKTvX1roRIP9r2zlLQFWgeOWMXblRteFKZO7NCs6vL+X0kw+R/Vlylpw90nTh3TbQ2IkKw/Cxm91cKfgol+b1hYJrF3jtaXZzNWKiO+79NICz0Mmtk9scYOVdDUKQ9XJcTeMC19oKw+mciHP/ybR/Zyl3zDJZ/l/OH48Q0wOnTaWNFSmj9/STqd3hwdSE7f6JUJjtH4AjZ5P4wc535rZQ42sh5fpe8j/7ahgkHO1b/KYwQdyrwGylq0AKN9TtDP1eV60QRbGYnc89nXVyns8+TY/LczilfHf/bXfcc8dkkiu+9x+7TsMcFsfPzrs3cxyGn79X0fY=
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List stored procedures and functions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/routines"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the stored procedures and functions of a database with their definitions. Empty for SQLite.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The procedures and functions."}}}
+>
+  
+</StatusCodes>
+
+
+      

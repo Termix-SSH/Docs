@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Remote Desktop API",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "description": "RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
   },
   "servers": [
@@ -91,6 +91,82 @@
           },
           "401": {
             "description": "Not signed in."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/sessions/{sessionId}/recording": {
+      "get": {
+        "summary": "Whether a session can be recorded and is recording",
+        "description": "For the user who opened the session. available is false when Session Recording is off or the session does not run in the built-in engine.\n",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "available and recording."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      },
+      "post": {
+        "summary": "Start or stop recording a session",
+        "description": "Only the user who opened the session. A recording started partway through begins with the current screen.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "on"
+                ],
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Whether it is recording now."
+          },
+          "400": {
+            "description": "on is missing."
+          },
+          "403": {
+            "description": "Not the session owner."
+          },
+          "404": {
+            "description": "No such session in the built-in engine, or Session Recording is off."
           }
         }
       }

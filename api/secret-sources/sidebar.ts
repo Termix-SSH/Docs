@@ -18,8 +18,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "secret-sources/create-a-secret-source-1-password-connect",
-          label: "Create a secret source (1Password Connect)",
+          id: "secret-sources/create-a-secret-source",
+          label: "Create a secret source",
           className: "api-method post",
         },
         {

@@ -2,12 +2,12 @@
 title: "SSH Terminal"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/ssh-terminal/v/1.0.1"
+slug: "/ssh-terminal/v/1.1.1"
 description: "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
 hide_title: true
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.1"
+plugin_version: "1.1.1"
 plugin_latest: false
 ---
 SSH Terminal is the terminal in Termix. Click a host and you are in a shell on it, in a tab you can split, rename and keep open across devices. It handles jump hosts, host key checks, tmux and Mosh, and keeps your session alive when your connection drops.
@@ -24,10 +24,10 @@ Turn Enable Terminal off for a host that should never get a terminal.
 
 ## Sessions that survive
 
-- **Disconnects.** If your browser drops, the session stays alive on the server for 30 minutes. Reopen the tab and you pick up where you left off. Admins change the time or turn it off in Settings, SSH Terminal.
-- **Reconnect automatically.** Turn it on for a host and Termix reconnects on its own after a network blip or sleep, keeping the scrollback.
-- **Auto tmux.** Turn it on for a host and every connection attaches to a tmux session, or makes one. Use it for sessions that must outlive the 30 minutes.
-- **Mosh.** Turn on Auto mosh to prefer Mosh over SSH when the host has it.
+- Disconnects: If your browser drops, the session stays alive on the server for 30 minutes. Reopen the tab and you pick up where you left off. Admins change the time or turn it off in Settings, SSH Terminal.
+- Reconnect automatically: Turn it on for a host and Termix reconnects on its own after a network blip or sleep, keeping the scrollback.
+- Auto tmux: Turn it on for a host and every connection attaches to a tmux session, or makes one. Use it for sessions that must outlive the 30 minutes.
+- Mosh: Turn on Auto mosh to prefer Mosh over SSH when the host has it.
 
 ## The toolbar
 
@@ -51,7 +51,9 @@ Paste or drop an image into a terminal and Termix uploads it to the host and typ
 
 ## Local terminal
 
-In the desktop app, open Local Terminal from the rail or the command palette for a shell on your own computer. It uses PowerShell on Windows, zsh on macOS and your `SHELL` on Linux. Set `TERMIX_LOCAL_SHELL` to use another.
+In the desktop app, open Local Terminal from the rail or the command palette for a shell on your own computer. You can also give Open new Local Terminal a shortcut in Settings, Keyboard Shortcuts. It works from anywhere in the app, including an SSH terminal, and each use opens and focuses a new session. It uses PowerShell on Windows, zsh on macOS and your `SHELL` on Linux. Set `TERMIX_LOCAL_SHELL` to use another.
+
+The clipboard settings in SSH Tools also apply to Local Terminal: right-click copy/paste, Ctrl+V paste and automatic copying of selected text. With automatic copying enabled, finishing a selection copies it and right-click pastes.
 
 ## Look and feel
 
@@ -67,4 +69,4 @@ Theme, font, cursor, scrollback, background image, syntax highlighting, local ec
 
 ## Environment variables
 
-This plugin reads some environment variables on the Termix server. See the [reference](/plugins/ssh-terminal/v/1.0.1/reference#environment-variables) for the list.
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/ssh-terminal/v/1.1.1/reference#environment-variables) for the list.

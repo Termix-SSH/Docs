@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings

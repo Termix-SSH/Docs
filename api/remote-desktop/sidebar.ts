@@ -18,6 +18,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "remote-desktop/whether-a-session-can-be-recorded-and-is-recording",
+          label: "Whether a session can be recorded and is recording",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/start-or-stop-recording-a-session",
+          label: "Start or stop recording a session",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "remote-desktop/mint-a-connection-token-for-an-address",
           label: "Mint a connection token for an address",
           className: "api-method post",

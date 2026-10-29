@@ -30,6 +30,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "webauthn/whether-the-sign-in-page-shows-the-passkeys-button",
+          label: "Whether the sign in page shows the Passkeys button",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "webauthn/start-passkey-login",
           label: "Start passkey login",
           className: "api-method post",

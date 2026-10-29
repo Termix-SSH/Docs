@@ -1,10 +1,10 @@
 ---
 title: "Appearance"
 sidebar_position: 11
-slug: "/ssh-terminal/v/1.0.1/appearance"
+slug: "/ssh-terminal/v/1.1.1/appearance"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.0.1"
+plugin_version: "1.1.1"
 plugin_latest: false
 ---
 How the terminal looks and feels is set per host, in the host's Terminal section. Set it once for all your hosts with [host defaults](/guide/host-defaults). These settings are personal: on a host shared with you, you see your own.
@@ -43,10 +43,10 @@ Only plain printable keys are guessed. Password prompts and control keys never a
 
 ## Input
 
-- **Right click selects word**, Zoom with Ctrl or Cmd and scroll.
-- **Option is Meta** on a Mac.
-- **Fast scroll key** and speed.
-- **Backspace** mode, for old devices that want Ctrl+H.
-- **Link click**: open links straight away, or ask first.
-- **Offer to fill password prompts** and Fill sudo prompts with the host's saved passwords.
-- **Use the SSH title** for the tab name.
+- Right click selects word, Zoom with Ctrl or Cmd and scroll.
+- Option is Meta on a Mac.
+- Fast scroll key and speed.
+- Backspace mode, for old devices that want Ctrl+H.
+- Link click: open links straight away, or ask first.
+- Offer to fill password prompts and Fill sudo prompts with the host's saved passwords.
+- Use the SSH title for the tab name.

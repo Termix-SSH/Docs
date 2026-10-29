@@ -497,7 +497,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Databases",
     "docs": "https://docs.termix.site/plugins/databases",
-    "latest": "1.1.0",
+    "latest": "1.1.1",
     "features": [
       "Save database logins per host with sealed passwords",
       "Browse databases, tables and views",
@@ -523,8 +523,14 @@
     "videoId": "FZ7QuMcDjKM",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.1.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:23:01.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:12:18.000Z"
       },
@@ -683,7 +689,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
     "docs": "https://docs.termix.site/plugins/fleets",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Group hosts by hand or with tag rules, so new hosts join on their own",
       "Run one command on every host and see each result",
@@ -709,8 +715,14 @@
     "videoId": "WnQLS1N6oIA",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:23:32.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:06:02.000Z"
       },
@@ -1006,7 +1018,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Import-Export",
     "docs": "https://docs.termix.site/plugins/import-export",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Import hosts from a Termix JSON file",
       "Import hosts from an SSH config file",
@@ -1029,8 +1041,14 @@
     "videoId": "khRjXFQK4Wk",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:21:34.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:55:55.000Z"
       }
@@ -1307,7 +1325,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-WebAuthn",
     "docs": "https://docs.termix.site/plugins/webauthn",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Passkeys and security keys",
       "Counts as a second factor when it checks your PIN or fingerprint",
@@ -1329,8 +1347,14 @@
     "videoId": "u8isRJFMPwE",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:22:28.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:56:13.000Z"
       },
@@ -1429,7 +1453,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
     "docs": "https://docs.termix.site/plugins/remote-desktop",
-    "latest": "1.2.1",
+    "latest": "1.3.0",
     "features": [
       "RDP, VNC, Apple Remote Desktop and Telnet from any browser, with nothing else to install",
       "Tabs and split screen like any other session",
@@ -1504,8 +1528,14 @@
     "videoId": "enggttL3hz8",
     "versions": [
       {
-        "version": "1.2.1",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:22:01.000Z"
+      },
+      {
+        "version": "1.2.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T17:48:57.000Z"
       },
@@ -1526,12 +1556,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-12T16:15:10.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:29:59.000Z"
       }
     ]
   },
@@ -1627,16 +1651,16 @@
   {
     "id": "secret-sources",
     "name": "Secret Sources",
-    "description": "Pull host passwords and keys from 1Password when you connect instead of storing them in Termix.",
+    "description": "Pull host passwords and keys from 1Password, Bitwarden, Infisical or HashiCorp Vault when you connect instead of storing them in Termix.",
     "category": "Access & Security",
     "icon": "KeyRound",
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
     "docs": "https://docs.termix.site/plugins/secret-sources",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
-      "Works with a self-hosted 1Password Connect server",
-      "Use op://vault/item/field references in a host's password or key fields",
+      "Works with 1Password Connect, Infisical, Bitwarden Secrets Manager, HashiCorp Vault and Bitwarden or Vaultwarden through bw serve",
+      "Use references like op://vault/item/field or vault://secret/app#password in a host's password or key fields",
       "Secrets are fetched each time you connect and never stored in Termix"
     ],
     "capabilities": [
@@ -1655,8 +1679,14 @@
     "videoId": "5b_fTbM-sz4",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:23:28.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:55:27.000Z"
       },
@@ -2093,11 +2123,12 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
     "docs": "https://docs.termix.site/plugins/snippets",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Save commands and notes in folders",
       "Run them in one or more terminals, or straight on a set of hosts",
       "Variables for the host and your own inputs",
+      "Encrypted secrets you can use as {{NAME}} in a command",
       "Run a snippet each time you connect to a host",
       "Share snippets with users or roles",
       "Import and export as JSON",
@@ -2113,7 +2144,8 @@
       "hosts:write",
       "ui:surface",
       "events:core",
-      "db:core-refs"
+      "db:core-refs",
+      "secrets:own"
     ],
     "env": [
       {
@@ -2127,8 +2159,14 @@
     "videoId": "g2TJdWLKhJI",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:23:44.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:09:13.000Z"
       },
@@ -2161,7 +2199,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
     "docs": "https://docs.termix.site/plugins/ssh-terminal",
-    "latest": "1.1.1",
+    "latest": "1.2.0",
     "features": [
       "Tabs and split screen",
       "Jump hosts and host key verification",
@@ -2180,6 +2218,7 @@
       "credentials:use",
       "credentials:read",
       "ssh:connect",
+      "ssh:transport",
       "network:serve",
       "db:own",
       "events:core",
@@ -2223,8 +2262,14 @@
     "videoId": "htdU7pw1fiw",
     "versions": [
       {
-        "version": "1.1.1",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-10-29T22:17:32.000Z"
+      },
+      {
+        "version": "1.1.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T17:49:44.000Z"
       },
@@ -2245,12 +2290,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-12T16:15:39.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:30:33.000Z"
       }
     ]
   },

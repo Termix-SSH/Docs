@@ -12,6 +12,36 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "snippets/list-the-current-users-snippet-secrets-without-values",
+          label: "List the current user's snippet secrets, without values",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "snippets/save-a-secret-for-name-in-snippets",
+          label: "Save a secret for {{NAME}} in snippets",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "snippets/rename-a-secret-or-replace-its-value-or-description",
+          label: "Rename a secret or replace its value or description",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "snippets/delete-a-secret",
+          label: "Delete a secret",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "snippets/get-secret-values-to-type-a-snippet-into-a-terminal",
+          label: "Get secret values to type a snippet into a terminal",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "snippets/list-the-current-users-snippet-folders",
           label: "List the current user's snippet folders",
           className: "api-method get",

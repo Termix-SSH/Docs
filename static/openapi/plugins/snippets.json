@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Snippets API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Save the commands you run often and run them in a terminal or on many hosts in one click."
   },
   "servers": [
@@ -63,6 +63,182 @@
     }
   ],
   "paths": {
+    "/plugin-api/snippets/secrets": {
+      "get": {
+        "summary": "List the current user's snippet secrets, without values",
+        "tags": [
+          "Snippets"
+        ],
+        "responses": {
+          "200": {
+            "description": "Secret names and descriptions."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save a secret for {{NAME}} in snippets",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Secret saved. The value is never returned."
+          },
+          "400": {
+            "description": "Invalid name or value."
+          },
+          "409": {
+            "description": "A secret with this name already exists."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/secrets/{id}": {
+      "put": {
+        "summary": "Rename a secret or replace its value or description",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Secret updated."
+          },
+          "400": {
+            "description": "Invalid name or value."
+          },
+          "404": {
+            "description": "Secret not found."
+          },
+          "409": {
+            "description": "A secret with this name already exists."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a secret",
+        "tags": [
+          "Snippets"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Secret deleted."
+          },
+          "404": {
+            "description": "Secret not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/snippets/secrets/resolve": {
+      "post": {
+        "summary": "Get secret values to type a snippet into a terminal",
+        "description": "Returns the current user's own values for the names given. Every call is audited.\n",
+        "tags": [
+          "Snippets"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "names"
+                ],
+                "properties": {
+                  "names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "snippetId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The values by name."
+          },
+          "400": {
+            "description": "No names given."
+          },
+          "404": {
+            "description": "One or more secrets are not saved (code MISSING_SECRETS, names in missing)."
+          }
+        }
+      }
+    },
     "/plugin-api/snippets/folders": {
       "get": {
         "summary": "List the current user's snippet folders",

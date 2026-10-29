@@ -1,0 +1,70 @@
+---
+id: start-or-stop-recording-a-session
+title: "Start or stop recording a session"
+description: "Only the user who opened the session. A recording started partway through begins with the current screen."
+sidebar_label: "Start or stop recording a session"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv20YQ/iuDObXASnKbnHhzHgWcAokhuzUKQyhW5Ihci9xlZpeWWYL/PZhd6mErDpBLdZE0+8175psBC/I5mzYYZzHDL7buIVQEnSeGXeXAtWSpiDJP3htn53AJTLnjwtgSfNAcqIBWc9hpUWbXlRWsqTTWw86EKirnHTPZAD5nIjtHhUGXHrN7XFLjAsEH8tvgWlwpbDXrhgKxvA9oJLJWhwoVWt0QZjiFclWgQqavnWEqMAvckUKfV9RozAYMfRvBgY0tcRxXCUw+vHNFL4iXurmzgWyQJ922tcm1FGbx4KU6w7lpt36gPDwL4h6djUmwa4mDIS/4pD9prZ2rSVsc40eUfeusT8jfLy7k63lf7ioKFTGYAMafVN+63RxHhW+/p+SsgBvjvbHlBHtzDvvswml7we0s8QR/+z04+C6vDnBjo/a6M3WYGQtkS2NJgWO4mSDLQ7zGg9ts5ihZNxQqV0hrnZcSxg5nuGjrrjR2pluz4DgasyKNxmJy6RfDof/j4lAMVOiJH/dT03GNGQ5JNKJ6kcY/rmO4JW7MEyQMKnzUbPS6To2YpLEAG93VATOsQmh9tliEqDinJ920Nc1z10gzVxJB3rEJfQxhTZqJLzvJ6341qgFz57aGTiW6NX9Sf5CcmLiRYUuhnBo6TJHEgtO4x6mKIFTTjz8cN1pi/nR3e5b9vjPBbcmCl8Wc+ihOHJv/4uBDRbogBu3hXTQK2iYuiIpxSE5TOsSWskKVdjdBjtv7sAuvRvTp7hYSHjwF0AG8Ke3M2DncVWShZZJwlaxC0FvyIsmpIJsTuEfiV7OI0Z6W+6creXl9BVvqE+fJOCd2a57+PUvnAP350m6pV7CrjOyYOPJHN3O4CqDz4EVtwqZ9jdq5ttZFgLxr2ztLQLWntHDCYssj/31Mw7tnJyHAURq2cbE0JsjbC3aGy+sr2RNin/L8bf5mfnGW/fLDtYK/P79XcNm2NcELIxLrLdWWwp5FvNSol5Vcs9t5YpWSzmvTrp3mQsHG1ASBtfUbefaVFlaPtg4UEFssdNLoyLfTvN1IGYWQvHg/sqfeu3+ZwHA8BP/vSUzzGOgpLNpaGyv5RCIbJnq8xyM9xrNzSpCRAVM9UWH2/EjuWXKlsBLCze5xGNba019cj6OIv3bEQlyrIxFGGiuMl98FZhtde/pBrX5ZTmfwV3gtmz1B2D7ybd3JP1S4pf7ZXR9Xo8K0IzGI9P4+uZrdipWj/tmtFh493JfrLzfCgOvp5jeuEB3WO6mL3iX/LqYT2TbKBqy1LTtdRsKKNuXzDR7ZNAU=
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start or stop recording a session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/sessions/{sessionId}/recording"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only the user who opened the session. A recording started partway through begins with the current screen.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["on"],"properties":{"on":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether it is recording now."},"400":{"description":"on is missing."},"403":{"description":"Not the session owner."},"404":{"description":"No such session in the built-in engine, or Session Recording is off."}}}
+>
+  
+</StatusCodes>
+
+
+      

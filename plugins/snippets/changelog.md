@@ -6,9 +6,20 @@ slug: "/snippets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "snippets"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Secrets: save encrypted values in the snippet settings and use them in a command as `{{NAME}}`
+- Runs on hosts hide secret values in the output, and every secret use is audited
+
+### Fixed
+
+- Snippets with target hosts now run in the terminals picked in Run in, instead of always running on their target hosts
+
 ## 1.1.0
 
 ### Added

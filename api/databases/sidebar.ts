@@ -60,6 +60,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "databases/list-stored-procedures-and-functions",
+          label: "List stored procedures and functions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "databases/describe-a-table",
           label: "Describe a table",
           className: "api-method get",

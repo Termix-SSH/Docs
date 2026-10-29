@@ -6,9 +6,17 @@ slug: "/secret-sources/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "secret-sources"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Infisical, Bitwarden Secrets Manager and HashiCorp Vault sources, with `infisical://`, `bws://` and `vault://` references
+- Bitwarden and Vaultwarden vaults through `bw serve`, with `bw://item/field` references
+- Pick the type of a new source, and Test shows what it found for each type
+
 ## 1.0.2
 
 ### Changed

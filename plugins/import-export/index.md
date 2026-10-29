@@ -7,7 +7,7 @@ description: "Import hosts from a JSON file or an SSH config file and export the
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Import-Export/edit/main/docs/index.md"
 plugin_id: "import-export"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Import and Export moves your hosts in and out of Termix. Use it to bring hosts in from another setup, back them up, or hand a set of hosts to someone else.

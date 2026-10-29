@@ -6,9 +6,15 @@ slug: "/fleets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "fleets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Fleet actions try a host again when its SSH connection times out, only for the hosts that failed, with admin settings for how many tries and how long to wait
+
 ## 1.0.2
 
 ### Added

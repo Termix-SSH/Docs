@@ -6,9 +6,30 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Sign out button for RDP that signs out of Windows after you confirm
+- Record button to start and stop a recording during a session on the built-in engine, with Session Recording on
+
+### Changed
+
+- A TLS failure on the built-in engine says why it failed
+
+### Fixed
+
+- A remote desktop no longer freezes after the browser tab was hidden or the screen locked; it reconnects on its own when the connection dropped (#104)
+- The built-in engine no longer ends a session because a hidden tab or a phone in the background stopped sending keepalives for a few seconds
+- RDP in the built-in engine keeps its display scale after the window is resized or a phone is rotated
+- Copying text in a remote session reaches your clipboard when Termix is opened over plain HTTP: it is put there on your next click or key press, with a note saying so
+- The Korean Han/Eng and Hanja keys switch the input language in RDP sessions on the built-in engine, also from clients with a Korean keyboard driver
+- The built-in engine connects to Windows Server 2019 hosts that send a short multitransport message during connect
+- Open in Windows Remote Desktop shows the mstsc window instead of opening it hidden
+
 ## 1.2.1
 
 ### Fixed

@@ -4,7 +4,7 @@ sidebar_position: 12
 slug: "/ssh-terminal/macros"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/macros.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 A macro types into a terminal for you, and can wait for the terminal to say something before it carries on. That is the difference between a macro and a [snippet](/plugins/snippets): a snippet fires one command, a macro holds a short conversation.

@@ -4,7 +4,7 @@ sidebar_position: 11
 slug: "/fleets/inventory"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Fleets/edit/main/docs/inventory.md"
 plugin_id: "fleets"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Inventory answers a simple question: what is actually running on these machines? It collects the basics from every host in a fleet so you can see them side by side instead of connecting to each one.

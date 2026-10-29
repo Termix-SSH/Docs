@@ -6,9 +6,15 @@ slug: "/webauthn/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "webauthn"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- An admin setting to turn off passkey sign in, which hides the Passkeys button on the sign in page. Security keys as a second factor keep working
+
 ## 1.1.0
 
 ### Added
