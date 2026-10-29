@@ -22,6 +22,8 @@ The first time you connect, Termix shows the host's key fingerprint and asks you
 
 Turn Enable Terminal off for a host that should never get a terminal.
 
+The mobile app can open SSH from the phone itself or through this server. Connect from (mobile app) picks which for a host: Automatic uses the phone when it can reach the host and the server otherwise. Each user picks their own.
+
 ## Sessions that survive
 
 - Disconnects: If your browser drops, the session stays alive on the server for 30 minutes. Reopen the tab and you pick up where you left off. Admins change the time or turn it off in Settings, SSH Terminal.
@@ -48,6 +50,16 @@ A macro types into a terminal for you and waits for it to answer, for logins and
 ## Images
 
 Paste or drop an image into a terminal and Termix uploads it to the host and types its path. This is handy for coding agents like Claude Code running in the terminal. Admins pick where images are stored and for how long in Settings, SSH Terminal.
+
+## rz and sz
+
+With `lrzsz` installed on the host, you can move files right in the terminal:
+
+- `sz file.tar.gz` downloads the file to your computer. Several names download several files.
+- `rz` shows a bar at the bottom of the terminal. Press Choose files and pick what to upload.
+
+The bar shows progress and has a button to cancel. Transfers are not kept in session recordings or in the output a
+reattached tab replays. Turn it off with rz and sz file transfers in your SSH Terminal settings.
 
 ## Local terminal
 

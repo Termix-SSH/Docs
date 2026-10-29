@@ -1,11 +1,11 @@
 ---
 id: stream-download-a-file
 title: "Stream-download a file"
-description: "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP."
+description: "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP. Over SFTP an open ended Range header (bytes=N-) resumes from byte N with a 206; SCP legacy mode always sends the whole file."
 sidebar_label: "Stream-download a file"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVcFu40YM/RWCpy4wtjdFe9Et2W6AbLuoUWcRFIFR0BJtTSzNaGeoOK7gfy84o9jeJHvYW32wZYrkPD6SbwasOJbBdmK9wwJ/8zvXeKoiEKxtw0D6tLKOwh6iBKZ2Cl8iR1h8mEPDGyr30PqK4aeSBPwjB+AnLt/BrmYHUjPUPgrUFCGW3R85gB2tGq4MeKk57Gxk6FPO69v5FA0KbSIW93itCD6Tow0HXBoM/LXnKFe+2mMxpL82cIWFhJ4Nlt4JO9FX1HWNLUmrmj1ELW3AWNbckj7JvmMs0K8euBQ02AXfcRDLMflxjNa7m+rMNUqwboMHgx1J/caL9FGEsfMu5kQ/v3+vP98yfJW5TOSOhGraX97y/WxjtG4Dz4VCR4FaFg4xBf36VtBzC2FNtuFqioqrZal9hQV2PqaKUxU465p+Y92EOjtTRJM2kz2rxiTagUVCiQYjh0cO2pkB+9BggUM2HdC8APG37wPccmjtE2QfNPhIwWrjR5aTNcFfU98IFliLdLGYzSQFTvmJ2q7haelbJXipCMo+WNknCCumwOGy10rulwczYOn91vK5hTr7O++PlrMUC52GDOU80bGxikVrTm5YjE5oxodrH1pSzJ/ubl9Vv8gTBOK37CCyE7B5GfQQH+y/aTKhZqo46I5dpaRArkpuKTC1+LykI7ZcFRq0elp2QYOOEtKHnXwX0ae7W8j+EFmABKLduIl1U7jThe0CK1wDVkBoy1EtJVfsSs7b/b0qEtpzun+Yycv5DWxZZYaC6NjvrNQg7dM/r8o5uv44tVveG9jVtqzzQfF0zBRuBKiUqGGjL/idG6NLcs4nh6SKbu8dAzeR84qpzPx1EqiPeXhfCMqzXhw38CQs1q19Ys2Khn0jfnA5v9EF4hAzARfTi+nFK1qugt9FNsCVlQS59Y+cpCbm5qnAGrCubPpKGY4SyG5qgXXwLWg9eS1BPJBL6pz6qqrRUlLRcciyKEyedWK8Ll4iGk6a/H+5WvJMCj/JrGvIOi0vidkwtuQeT6KIBs9lUct7LYxLgwpEI4dhRZG/hOZwUPPXnoNq1fKkfVmYMI9nkrEt77HAD5mnya3iU/emz5v+4h5TCTuK+fzPhYrParwPlSwsMNAOTfouEA361IskdMk2YENu09MmaUXKqZ//ABEkymc=
+api: eJztVk1v20gM/SsETy0g20mw24MWe0i6GyDdbRs0LoJFECxoibYmlmbUGSq2auS/LzgjfzRODr2vDvZ4RHIeH8k33mDJofCmFeMs5viHW9naURmAYG5qBtLVzFjyPQTxTM0YvgYOcPP+GmpeUNFD40qGNwUJuEf2wGsu3sKqYgtSMVQuCFQUIBTt38mBLc1qLjNwUrFfmcDQxZiX0+sxfNYgugSy4Fq2wLbkEr6QXTBUTCV7eDPrhcPvn0ZvwXPoGg4w964B3YZPsDJSAcHZybvfjpBSvaI+QGBbhohwVbmaY7pjzFBoETC/w0tN/yNZWrDH+ww9f+s4yIUre8w38afxXGIuvuMMC2eFregratvaFKSUTh6C8rrBUFTckK6kbxlzdLMHLgQzbL1r2YvhEO04BOPsVXlgGsQbu8CnDFuS6oUX8VGEoXU2pEBnJyf69WN5L1IhY2WHamrYs5N3x7bTipVaATePLEWnyLHEN5GNXVmCkJcY7JeXDv5oQjB2AVvWoCVPDQv7kJxOX0FwEB1MgJaCxPPZlofAYpBfXzp529EwJ1NzOUZlqmGpXIk5ti7EGkRecdLW3cLYEbVmolFHTSr/pByCaE/cRN4ww8D+kb32ygY7X2OOm7T1hNkzEP+4zsOUfWPWkGwww0fyRudgqHvcjfDn1NWCOVYibcgnE4mOY15T09Y8LlyjJb9XBEXnjfQRwozJsz/vNJO7+6dsg4VzS8OHO9Sav7jf7RyEuNH+TFAOA+1aTbFoztEM88EIs2Fx6XxDivnD7fQo+5vU0yBuyVbnTsAkbdBDnDff46xsR5sCXMSgQLaMZtExlvgwpR22lBVmaPS0ZIIZWopIH1byKqIPt1NI9hBYgASCWdiRsWO4Vf1qPSvcDIyA0JKD7hRcsi04id1rWUS0h3T/NJPn11ew5D71vs5O1DRp1v8epbMz/Xlql9xnsKpMUaWDwv6YMVwJUCFB3QZbcCs7eBdkrYsG8ZKwvbMMXAdOI6bC92UvmX+m5n0mcVsF203gXuqMnbvImhF1+0GO4fz6SgeIfUgEnI5Px2dHtFx4twqcAZdGIuTGPSa5CKl4eslkYGxRd6UyHMSTWVSSZE7zSWMJ4oBsvKxiXVU1Goq6PjRZEoXRVieG2/M5os3+lvj/ps22AyG8lklbk7HKbVTSzdAPd7hXZMzwUJOV22NVvs9QWVDPzWZGgb/6+ulJt7917FUo7/fCm1QRU55RQ5fcY47vU5FGU8Wn5nWXZObZta76ubtJrj/fqPLNhr8Hmj/m6GmFWfzMETN0sRGiysa9DdZkFx0tolDFmPr8B/XOUFc=
 sidebar_class_name: "post api-method"
 info_path: api/file-manager/file-manager-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.
+Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP. Over SFTP an open ended Range header (bytes=N-) resumes from byte N with a 206; SCP legacy mode always sends the whole file.
 
 <Heading
   id={"request"}
@@ -59,7 +59,7 @@ Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when t
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"Binary file stream."},"400":{"description":"Missing required parameters."},"500":{"description":"Download failed."}}}
+  responses={{"200":{"description":"Binary file stream."},"206":{"description":"The rest of the file from the requested Range start."},"400":{"description":"Missing required parameters."},"416":{"description":"The Range start is past the end of the file."},"500":{"description":"Download failed."}}}
 >
   
 </StatusCodes>

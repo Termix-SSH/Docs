@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "File Manager API",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Browse, edit and move files over SFTP, including straight from one server to another."
   },
   "servers": [
@@ -1110,7 +1110,7 @@
     "/plugin-api/file-manager/downloadFileStream": {
       "post": {
         "summary": "Stream-download a file",
-        "description": "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP.",
+        "description": "Downloads a file as a binary stream. Uses SCP legacy mode (cat over exec) when the host has scpLegacy enabled, otherwise uses SFTP. Over SFTP an open ended Range header (bytes=N-) resumes from byte N with a 206; SCP legacy mode always sends the whole file.",
         "tags": [
           "File Manager"
         ],
@@ -1136,8 +1136,14 @@
           "200": {
             "description": "Binary file stream."
           },
+          "206": {
+            "description": "The rest of the file from the requested Range start."
+          },
           "400": {
             "description": "Missing required parameters."
+          },
+          "416": {
+            "description": "The Range start is past the end of the file."
           },
           "500": {
             "description": "Download failed."

@@ -6,9 +6,34 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.1.1"
+plugin_version: "1.1.2"
 plugin_latest: true
 ---
+## 1.1.2
+
+### Added
+
+- Downloads can pick up where they stopped instead of starting over
+
+### Changed
+
+- Folders open faster the first time, with listings fetched ahead when you hover a folder and shared between requests
+
+### Fixed
+
+- The grid lays out right again after switching back to a file manager tab
+- List rows keep a fixed height, so the gaps no longer jump after opening a folder
+- A sudo password for a directory listing goes over stdin, so it no longer shows in the host's process list
+- An empty folder shows a loading state instead of No files found while it loads
+- Uploaded files with non-English names keep their names instead of turning into garbled text
+- Sorting by name puts zero padded and hex file names (like WAL files) in the right order
+- You can select text in a file name while renaming it, instead of dragging the file
+- Selected text in the editor stands out from the current line highlight
+- Deleting, renaming or creating a folder updates the folder tree in the sidebar right away
+- Downloading a file only root can read asks for the sudo password and downloads it, instead of failing with an error or an empty file
+- Uploads work on hosts without an SFTP server and in SCP legacy mode, by writing the file over a plain SSH command
+- Folders open on routers with Dropbear and no SFTP server (SCP legacy mode) instead of reconnecting over and over
+
 ## 1.1.1
 
 ### Fixed

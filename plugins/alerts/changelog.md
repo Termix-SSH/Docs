@@ -6,9 +6,16 @@ slug: "/alerts/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "alerts"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Telegram channels: alerts go to a chat, group or channel through your own bot
+- Webhook channels can send your own JSON body with placeholders like {{title}} and {{message}}, for services like Mattermost
+
 ## 1.1.0
 
 ### Added

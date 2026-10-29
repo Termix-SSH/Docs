@@ -2,12 +2,12 @@
 title: "File Manager"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/file-manager/v/1.0.1"
+slug: "/file-manager/v/1.1.1"
 description: "Browse, edit and move files over SFTP, including straight from one server to another."
 hide_title: true
 custom_edit_url: null
 plugin_id: "file-manager"
-plugin_version: "1.0.1"
+plugin_version: "1.1.1"
 plugin_latest: false
 ---
 File Manager lets you browse and change files on your hosts over SFTP. Upload, download, rename, move, delete, edit files in a code editor, preview images and video, and copy files straight from one server to another.
@@ -30,6 +30,16 @@ Then pick Files from the host's menu, or the file button in the tab bar.
 ### Sudo
 
 If you don't have permission for a file, Termix asks for the sudo password and does it with sudo. If the host has a Sudo Password saved, it is used for you.
+
+## Files panel beside a terminal
+
+Open the files button on the right edge of an SSH terminal, or Files panel in the tab's menu, to show your files next to the terminal. It connects to the same host on its own, so there is nothing to set up. Drag its edge to resize it, and use the arrow in its header to move it to the left, right or bottom.
+
+- It opens in the folder your terminal is in and follows it when you cd. Turn off Follow terminal in the panel to browse on your own.
+- The refresh button jumps to the terminal's folder now. The terminal button types a cd into the terminal for the folder you are viewing, so only use it at a prompt.
+- History lists the folders you used most and most recently on this host.
+
+Turn off Show files panel in terminals in a host's File Manager section to keep it from opening there. In Settings, File Manager you can open the panel with every new terminal, pick its side and size, hide the edge button, set how often the terminal folder is checked, and set how many folders history keeps.
 
 ## Trash
 
