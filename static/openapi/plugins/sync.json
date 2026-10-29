@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Sync API",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Sync the desktop app with one or more servers, and manage other Termix servers as remote sites from a master."
   },
   "servers": [
@@ -289,7 +289,7 @@
     "/sync/v2/session/refresh": {
       "post": {
         "summary": "Keep a linked client's session from expiring",
-        "description": "Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token.",
+        "description": "Returns a fresh device session when the current one ends within 60 days, and ends the old one five minutes later. Asking again with the old token in that time returns the same new token. Otherwise returns null and the client keeps its token.",
         "tags": [
           "Sync"
         ],
@@ -449,6 +449,39 @@
           },
           "404": {
             "description": "No such host the caller can connect to."
+          }
+        }
+      }
+    },
+    "/sync/v2/ids": {
+      "post": {
+        "summary": "This server's ids for many rows, by sync id",
+        "description": "The batch form of /sync/v2/hosts/{syncId}. Send lists of sync ids by type (hosts, snippets and so on). Hosts are the ones the caller can connect to, other types only the caller's own rows. Unknown ids are left out. Up to 1000 ids in all.",
+        "tags": [
+          "Sync"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ids by type, then by sync id."
+          },
+          "400": {
+            "description": "The body is not lists of sync ids, or has too many."
           }
         }
       }

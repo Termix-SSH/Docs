@@ -108,6 +108,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "sync/this-servers-ids-for-many-rows-by-sync-id",
+          label: "This server's ids for many rows, by sync id",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "sync/status-of-the-hosts-this-account-can-see-keyed-by-sync-id",
           label: "Status of the hosts this account can see, keyed by sync id",
           className: "api-method get",

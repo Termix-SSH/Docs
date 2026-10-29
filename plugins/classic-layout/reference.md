@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/classic-layout/reference"
 custom_edit_url: null
 plugin_id: "classic-layout"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Permissions

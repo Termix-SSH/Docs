@@ -1,0 +1,68 @@
+---
+id: this-servers-ids-for-many-rows-by-sync-id
+title: "This server's ids for many rows, by sync id"
+description: "The batch form of /sync/v2/hosts/{syncId}. Send lists of sync ids by type (hosts, snippets and so on). Hosts are the ones the caller can connect to, other types only the caller's own rows. Unknown ids are left out. Up to 1000 ids in all."
+sidebar_label: "This server's ids for many rows, by sync id"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU1v4zYQ/SuDuWwLcGUn6Em33aJFsz00aBwERRAUY2lsMZZILWccRxX834uhtLE36R72XB1scvhIvvl6HLFmqZLv1ceAJa4ahjVp1cAmpg7iBhYyhGrxdLlooqgsRpte1ccCbjjU0HpRMZiZwdcC6wF06Bl+yHgHEnzfswpQqEEixPBjAb/ZGlBi0IYhBpY8qKhtOUFFAaoYAlcKGh1EbTjlUwViaIcz7DuBeAiQ4kEKuA27YDOjYWe3vFGIey3gtgeNcLFcLvOiD0BtW6BDpa1geY83Q6jwwWHiz3sW/RjrAcsxT33iGktNe3ZYxaAc1Jao71tfkcVt8SgWvBGlargjGxlZLDGuH7lSdEh17Q1K7XWKPSf1LGc4SokGdOiVu3O7aPJhi8f8GTvpY5Bp6+VyaX9f5+/qlAFnYQo2m3NT4NHhT/+1K2c91gN4gRD1bVYdxAQNCWiM0FEYCjQ+HWsTayyxj2Je9qQNlvhSMr4WdCicnjhZmEfcpxZLHCfTEd0rIn/FfYIVp84/w4RBh0+UPK3byevZml3Y0L5VLLFR7aVcLDRvLPiZur7looqdRe7BGFT75HXIFNZMidOHvVG9fzi6EasYd57PLdT733l4sZwdcWMpnqicH/SSMeNiPmcYljMI3Tz4NaaOjPOnu9Ub729YxMcAGnccQDioVaoVu10Sk/8nlxs0TDUnIIGP+dDcWgbLG3Oaz106VVn2ysrMbpsg6DBQZvp40G8y+nS3ggkPwgqkIH4b3vtQwJ0VWZ/Y6DrwCko7FrNUXHOoGOKTde83vMhsz8P93ZH8cH0FOx5AlJL6sIWD1wa0e/77jTsv0O8P7Y4HB4fGV810kZyuKeBKgSoTNPmCNVWad1cUrKeoUlunMMTAwK3w1EOmHX+eVOeXqXixHI+Wp03MEfFqpqxS8OH6ypqCk0xOXRQXxfJt5gxqZGqWncYeqO8nynZ9TNDFxHOPictEOwq05Vltv2rC7FniLiqDeGWBTYodEHQkOufQJKCjLINzQa0aL/MB7yTr7sbupTBkvXZn0vSa/nhS2v/fkzSVv/KzLvqWfLDoZt0cZ4G9R3PNiuDSmrkWe7nMN1saxzUJ36b2eDTz5z0n072Hk45OIodTqWdJ3PGAJf48hfz9yggYvN1PqvHqoTM5fFH+6z9uTMjW84PZxdr2JDqgy78losOY05pFM9tGbCls97TNupPPtO9fIcP1MQ==
+sidebar_class_name: "post api-method"
+info_path: api/sync/sync-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"This server's ids for many rows, by sync id"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/sync/v2/ids"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The batch form of /sync/v2/hosts/\{syncId\}. Send lists of sync ids by type (hosts, snippets and so on). Hosts are the ones the caller can connect to, other types only the caller's own rows. Unknown ids are left out. Up to 1000 ids in all.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Ids by type, then by sync id."},"400":{"description":"The body is not lists of sync ids, or has too many."}}}
+>
+  
+</StatusCodes>
+
+
+      

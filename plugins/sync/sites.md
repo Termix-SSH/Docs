@@ -4,7 +4,7 @@ sidebar_position: 60
 slug: "/sync/sites"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Sync/edit/main/docs/sites.md"
 plugin_id: "sync"
-plugin_version: "1.0.1"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 A Termix server can manage other Termix servers as remote sites, for example one at home and one at work. The SSH hosts of each site become real hosts in your own host list, in a folder named after the site. You open them like any other host, and the terminal, files, Docker, tunnels and metrics all work. The remote server reaches the host. The master only passes the connection along.

@@ -1,11 +1,11 @@
 ---
 id: keep-a-linked-clients-session-from-expiring
 title: "Keep a linked client's session from expiring"
-description: "Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token."
+description: "Returns a fresh device session when the current one ends within 60 days, and ends the old one five minutes later. Asking again with the old token in that time returns the same new token. Otherwise returns null and the client keeps its token."
 sidebar_label: "Keep a linked client's session from expiring"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVMFu3DgM/RWCl72onklQ9OBb9lAg7aFBM0WwCAaFYjNjdWzJFemZ8Rr+94KSO0ka9NBbTzaoJ/I9inwT1sRVdL244LHEzyRD9AwWHiNxAzUdXEXAxOyCh2NDHqQhqIYYyQsET0C+Zjg6aZyHd2uo7cgGrK/zgaJDWyuygE/SUDw6JohLIT+0bQKnrK3TpHuinsEJg4Q9+QINit0xlvd4O/oKtwYjcR88E2M54eV6rZ+XSjYNgadjTmEgxFSqwNng2/XFa/ztIjHSIeyp1gt06l2kusB5NtiRNKHGEvvAggZ7Kw2WuOLRV6vD5Wpp0SpS6hwaZIoHikp7wiG2WOKUQzOaX4r/F4YIG4qdO0HGoMGDjc4+tFnjEk20H+3QCpbYiPRcrlaSLhZ0sl3fUlGFDud53iqDaohOxkThgWykeDUo7fvtbCasQtg7eh6xvftI4znyLMVt1VCXqTxPNKGMPS1cVHOCYbmA0Cw/70PsrHL+cLd5pf5n69NTAesIuDxmWiRE979VJDRka4pgGf5NSc9zs4zJbF5IOnPLqtCg02oZgga9TUy/HeW3jD7cbSDjgUnACrDb+TfOF3Cnq9BHUroGnIDYPbFGKqrJVwThQPG3KhLb5+3+405e3VzDnkZgsVGc36UVBOlOX1/JOUP/vLV7Gg0cG1c1uRA/lSngWsBWwnptwUI4+uV2Zb0PCaDn1o/JK1qmvE/OP4ak2kmrMnWz4ermWgefImfiF8W6uHj9OgrVgjXxXkIPtu8zLS0RInQh0rJHixV11tsdQVD/ebloiX2kLggBOyGGxxg6sNBZluWddOU765XuMjQfiXqw0DqvXpF96x8++2RKkezD+d2v/HXxvJCXv9lv8ywKnWTVt9Z5bUMysWlxvntU59PXukxelwijOnP2v63BRp2yvMdperBMX2I7zxr+PlBUS9o+WVz2nyePvfl0u8F5/gHVjU42
+api: eJzllE1v5DYMhv8KwUsvWs8kWPTgW3pYILuHDZopgiIYFIrNGau2JVek56OG/3tByTuZbLCHPfc0A/ml+JAi3wlr4iq6QVzwWOLvJGP0DBZ2kbiBmg6uImBidsHDsSEP0hBUY4zkBYInIF8zHJ00zsOva6jtmQ1YX+cPqg5dnZQ7dyDonR+FGDorFAu449b5Pdi9dT7dcomQ0JIHpwmtgLieIC54KmHbE3g6Zl0BX6WheHT8qvJj1yWQRNw5BW6JBgYnvIShQbF7xvIZH8++wq3BSDwEz8RYTni7XuvP2y5tmqvMBkJMqQqcDX5c37zXPy7ti3QILdUaQKfBRaoLnGeDPUkTaixxCCxocLDSYIkrPvtqdbhdLe1fRUqvggaZ4oGiYk84xg5LnPLRjOa75H+GMcKGYu9OkDVo8GCjsy9drnE5Tdg7O3aCJTYiA5erlaTAgk62HzoqqtDjPM9bJajG6OScEF7IRop3o2I/b2czYRVC6+j6xA7uC50vJ1dXPFYN9Rnl+qIJ5TzQwqI1JxmWiwjN8udTiL1V5s9Pm3fVf2t9HibWEXB5hDVJiO5fq0poyNYUwTL8li69zM0yJrN5U9KFLVeFBp1myxI06G0i/fsoPyT6/LSBrAcmASvAbu8/OF/Ak67ZEElxDTgBsS2xnlRUk68IwoHiD6tItNft/ulO3j3cQ0tnYLFRdD3zYvanv96Vc5H+fGtbOhs4Nq5qciJ+TVPAvYCthDVs0UI4+iW6st6HJNDv1p+TD3VMeZ+c34VUtZNOy9TNhruHex18ipzBb4qbYv3+dVSqCWviVsIAdhgylqYIEfoQadmjxeZ66+2eIKj/vF20RB+pD0LATk1vF0MPFnrLsryTrnxvveIuQ/OFaAALnfPqFdm3fuGLB6crkn04v/+eXxfPC3n5v3p5nnOhk6yGzjqvLU4GOS2u+ozqqjoJt8lHUzNQXT9769Zgoy5cPuM0vVimP2I3z3r8z0hR7W77ap/Z2179++Hr4wbn+T+YJJEM
 sidebar_class_name: "post api-method"
 info_path: api/sync/sync-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns a fresh device session when the current one ends within 60 days, and ends the old one. Otherwise returns null and the client keeps its token.
+Returns a fresh device session when the current one ends within 60 days, and ends the old one five minutes later. Asking again with the old token in that time returns the same new token. Otherwise returns null and the client keeps its token.
 
 <ParamsDetails>
   

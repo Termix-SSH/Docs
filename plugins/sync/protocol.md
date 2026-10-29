@@ -4,7 +4,7 @@ sidebar_position: 60
 slug: "/sync/protocol"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Sync/edit/main/docs/protocol.md"
 plugin_id: "sync"
-plugin_version: "1.0.1"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Any client can sync with a Termix server through the sync endpoints. The desktop app uses them, and the same endpoints are open to other clients. The reference for each endpoint is in the API reference under Sync.
