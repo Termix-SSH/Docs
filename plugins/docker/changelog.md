@@ -6,9 +6,15 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.2.1"
+plugin_version: "1.2.2"
 plugin_latest: true
 ---
+## 1.2.2
+
+### Changed
+
+- Needs Termix 26.10.6 or newer
+
 ## 1.2.1
 
 ### Added
