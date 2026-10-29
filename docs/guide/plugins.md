@@ -71,6 +71,8 @@ If the layout itself is the problem, use the [repair screen](/develop/repair-vie
 
 Plugin authors can install a `.tmxplug` file that is not in the registry. Turn on Plugin developer mode in Settings, General first. Only do this with plugins you trust. See [develop](/develop/quick-start).
 
+This also works for an official plugin on a server or desktop that cannot reach the registry. Download both the `.tmxplug` and the `.tmxplug.sig` from the plugin's GitHub release and pick them together in Install from file. With the signature, it installs as an official plugin instead of an unverified one, which some plugins need to start (Termix 26.10.6 and later).
+
 ## Registries
 
 A registry is a list of plugins Termix can install. Manage them in Plugins, Registries.
