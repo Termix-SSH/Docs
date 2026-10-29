@@ -1,0 +1,68 @@
+---
+id: save-a-personal-named-dashboard-layout-template
+title: "Save a personal named dashboard layout template"
+description: "Save a personal named dashboard layout template"
+sidebar_label: "Save a personal named dashboard layout template"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVduO4zYM/RWCz8pl2z75bXbRy2y3aNDJYFAMgoKxObEmtuSV6CRukH8vKOU2m+3D5CGxaF4OT8ijPQqtIhbP+JuPAn+wBFtGXBgM/LXnKB99NWCxT0cbuMJCQs8GS++Enegr6rrGliTWu8lr9E5tsay5JX2SoWMs0C9fuRQ0V4me0VHLaLChwfeiRbvgOw5iOWpoen1JESVYt0KDrXVf2K2kxuKDwZZ259N0ejin+07timMZbKdIscB5zXDdNXSBXziwKzlCTgLWlU1fWbeC2HiJQK6C0jd96+IYD+mjLcXOu5hB/zCd6s/bUg+04QqE264h4TEeDP70Pb97t6HGVqCdgw9HFFrpW/CaEQg6DtE7alJEBRXFeukpVCf8p5LKGkvtKyyw81HJ6Egpw0nX9CvrRtTZSe2jjNrMxttDTjc6pYtoMHLYcNDZ2WMfGixwn02HG6b/9n2AOYfW7iD7oMENBUvLJrN2tCZCXqhvBAusRbpYTCaSAse8o7ZreFz6VplfKIKyD1aGBGHJFDjc9drU8+Jg9lh6v7Z8baHO/s7D2XKV4kHnNUO5TnQeIcWiPSc3LI5OaI4Pv/jQkmL+/DS/6f6BY7Tegfg1O4jsdKxAagYt4oP9N+0O1EwVB6AIH1PSNGzqlgLT0Fy3dMaWu0KDVqtlFzTH7cHX7e3knxB9fppD9ofIAiQQ7cqNrBvDU81OF0LhGrACQmtOK1JypSsCfsPhf7tIaK/pfjeTd7N7WPMAUSiILuDWSg3S7v65aefs+n5q1zwY2Na2rHOheCkzhnsBKnXp48kX/NYdo0tyzicHfU9u8I6Bm8h5W1UI/7pI6M95eC+qdlGzs1xpmHUvPpFlRb3fqDLcze51bzjE3PeH8Y/j6Q0bX+yG4dPs0UDLrQ+DgcrGtQHHsvVhncD/OnvUfiUa6Jo+gnjf6De05GjFMOjCqgDE9EeqYrTkrtC/X37egDxPg/BOJl1D1mmdJCP7ozI940WZ0OC1HN0eb/RpkV00zX6/pMiPoTkc1Py156CSsbhIUNYHzFOS1GTNAxb4KV9yo7mCVfemzwv3zYWnSnKW19mfD6oBy+PF2fpKYwJt9fKjLRaIBn0iIulNsu2xIbfqaZVWNuXUz3+eyags
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save a personal named dashboard layout template"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/host-metrics/layout-templates"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Save a personal named dashboard layout template
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","layout"],"properties":{"name":{"type":"string","minLength":1,"maxLength":100},"layout":{"type":"object","description":"The Host Metrics preferences layout including slots and columns."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved template."},"400":{"description":"Invalid name or layout."}}}
+>
+  
+</StatusCodes>
+
+
+      

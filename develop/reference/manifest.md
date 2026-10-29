@@ -66,6 +66,7 @@ This page is made from `manifest.schema.json` in the plugin SDK. Point your edit
 | `uses` | Other plugins' action, slot and extension point ids this plugin calls, fills or extends. |
 | `layouts` | Whole-app layouts the frontend registers with app.registerLayout. Needs the ui:layout capability. |
 | `themes` | Themes: one CSS file each with token rules scoped under .<id>. Needs the ui:theme capability. |
+| `mobile` | How the plugin shows in the Termix mobile app. Needs plugin API 1.13 (Termix 26.10.6). |
 
 ## Categories
 

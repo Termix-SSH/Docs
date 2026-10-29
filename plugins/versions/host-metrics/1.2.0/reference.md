@@ -2,10 +2,10 @@
 title: "Reference"
 sidebar_label: "Reference"
 sidebar_position: 90
-slug: "/host-metrics/v/1.0.1/reference"
+slug: "/host-metrics/v/1.2.0/reference"
 custom_edit_url: null
 plugin_id: "host-metrics"
-plugin_version: "1.0.1"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 ## Settings
@@ -16,8 +16,10 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
-| Metrics interval (seconds) | number | `30` | How often a host being viewed is sampled, unless the host sets its own interval. |
+| History sampling interval (seconds) | number | `30` | How often samples are stored for the history charts, unless the host sets its own interval. Live views are controlled by the live settings below. |
 | History retention (days) | number | `7` | How long metrics samples are kept for the history charts. |
+| Live updates | boolean | `true` | Lets users open the lightweight live view of CPU, memory, network and processes. Separate from the history sampling interval. |
+| Live update minimum (seconds) | number | `2` | The fastest a host is sampled for live updates, however many users or tabs are watching. Users can pick slower rates; a faster choice is raised to this minimum. |
 
 ### User
 
@@ -26,6 +28,19 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Temperature unit | select | `"celsius"` | How temperatures are shown in Host Metrics. |
+| Live update rate | select | `"2"` | How often CPU, memory, network and processes refresh in the Host Metrics tab, the terminal toolbar, and dashboard and homepage widgets (those never go faster than every 5 seconds). Each update reads /proc on the host. Never faster than the server's live update minimum. Off keeps the slower regular sampling. |
+| Open the metrics panel with new terminals | boolean | `false` | Show live metrics beside every SSH terminal. You can still open and close it from the button on the right edge. |
+| Metrics panel side | select | `"right"` | Where the metrics panel sits next to a terminal. |
+| Metrics panel size | number | `300` | Width in pixels, or height when it is at the bottom. You can also drag its edge. |
+| Show the panel button | boolean | `true` | Show a small button on the right edge of a terminal that opens the metrics panel. |
+
+## Environment variables
+
+Set these on the Termix server, for example under `environment:` in your compose file. See [environment variables](/configure/environment-variables) for the ones core and other plugins read.
+
+| Variable | Default | What it does |
+| --- | --- | --- |
+| `METRICS_POLL_CONCURRENCY` |  | How many hosts to poll at the same time, up to 50. Unset scales with the number of hosts, from 5 to 50. |
 
 ## Permissions
 

@@ -1,11 +1,11 @@
 ---
 id: stop-a-folder-share-from-applying-to-hosts-added-later
 title: "Stop a folder share from applying to hosts added later"
-description: "Grants already fanned out to hosts stay; revoke those per host."
+description: "Grants already fanned out to hosts stay, unless fromHosts=true, which also removes the same user's or role's access from every host in the folder and its subfolders that the caller may manage sharing on."
 sidebar_label: "Stop a folder share from applying to hosts added later"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMGO0zAQ/ZXRnEMKSHAIpwIF7cJhxRat0KpCU3tamyZ2sCdtQ5R/R05C29VqDytxs8ZvZt4bj1+HmqMKthbrHRb4OZCTCFQGJt3ChpxjDb4REA/GR4kQhdp3EHjvdwxifGSoOQyXOWYotI1Y3OO39/MPuMqwYjFeY4GaSxbGDGsSgwXOwprUbONLzWFGSnGMs87qHjOMHPYcUpkOm1Bigd0YSpcPCf/wTYAlh8oeYcRghnsKltYlRyy6qVg6ad5QUwoWaETqWMxmMiTmfKSqLjlXvsK+71eJgWqClXagsGYKHOZNon2/6rMOlfc7y5cRqu0Xbk+RixK3ynA1Urks1KG0NU9ckuYBhsUEwmw6fPKhosT5+m75SP0tx2i9A/E7dhDZCVgHYhhSEx/sH0pIMEyaA1CE90NRIKcH2JCYY589kHTiNqrCDG3qNkIwQ0cD018HeZLR9d0SRjxEFiCBaLfuhXU53Bl2UAdOdDOwAkI7jimiWLNTDH7P4UkVA9vLcT97kvObK9hxmzY5iHVbOFgxINXx5yM5J+jzR7vjNoODscqMjeK5TQ5XAqTSR4v/sOAPbspW5JwfAOmeXOsdA5eRc+z79BYbP6i2UiaZ0/bPb67S6nOII/XXb/NXL/M3jyQtDYPygeGcl8OClIG6bLbWgfaqqTjZgJWYaEHwjXAcBl/7KBW51H/aglvxNRCMHxmiocCwCb4CquuyTeM9WQdpzRpKkuFVHtBKf8oJO/k/JjQuhPBRZnVJ1iXqg5N0k/3cY7IfzHDkjRmOFoQZFlYn40q1Eq7r1hT5eyj7PoV/NxySLazONjN6wNnpPi6+LpYL7Pu/r6Pbtw==
+api: eJzdVcFu20YQ/ZXBXNICLOUGQQ4EenBap3VaFIGtwggMoxhxR+JWy11mdyibFfjvxSwpWY7jQ649SRi+nXnzZvbtHg2nOtpObPBY4a+RvCQgF5nMAGvyng2EXkACNCFJgiQ0FNB7xynBOob2Nw3/JLHnAu4bWzdALgWI3IYdJ5CGIVHL0CeOrxKECDE4fpWA6vqQA3jHccgVwPp8Zh2c4QjkDVgt26+miGYkyZCanOMILQ3QkqcNQ2ooWr+B4EssUGiTsLrFq3fnP+NdgR1Falk4anSPVjvuSBos0FPLWKE1WGDkz72NbLDKTWGqG24Jqz3K0GWUF95wxHEs5iyfe47DY5qjLPiV06sQHJPHcbzTWqkLPnFSwOuzM/15OpKrrKMpZ0HN+0NuqEOvw1IlsnCbaXgzrsSxwDdnb55n/DNA6usGYu+41CawZWmCwQoNOxbGYpKlwkVcUb2YhF9M81rsrRm1L467g5J9dFjhfgrpx6cFP4U+wpJjax9gwmCBO4qWVm7qfI5mqmvqnWCFjUiXqsVC8sGSH6jtHJd1aHHM2iWu+2hlyBRWTJHjea+0b+90MHUIW8unEers7zwcIycprnVIE5XTRMeZKZfDLPMMMwiL+c/7EFtSzh9uls+6v+aUbPAgYcseEvvjimuREO2/pEhomPLCJ3iXk+bVV1g+mMd52tKR29QVFtMmTpDHVfznXl5k9OFmCRMeEguQQLIb/4P1Jdw07KGLrHQLsAJCW04aqdmwrxnCjuOLXWS2p3J/s5LnHy9hy4PaTRS90vdWGpD24e9n7Ryh3y7tloeDaeVC6bFMCZcCVKsbpgMWwr2fT9fkfcgA/U5+CJ6BXZpvlPXrkLu24rTNefvPP17q6nNME/XXb8sfz8q3z1paqruFyPB4roQLqhvoXL+xHkyo+5b1uqs5hnsPMfTCKQvfhSQtea0/b8G1hA7o4Knqkjz5LnWdG1Teo7+TMWzAkeSpPKGld8oLe/n/vRTTcgo/yKJzZL3KmF1tP1vhLaoVYoFTbixwIoUFVtbo66KUFLffryjxX9GNo4anp0EtytikhmewWpNLXOCWhy8eix25XomgmtPBIb9++MXJfHc1v1/fw0udHZzDD6c1D4SswfHu9FX45eKPi+UFjuN/G5HW3w==
 sidebar_class_name: "delete api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Grants already fanned out to hosts stay; revoke those per host.
+Grants already fanned out to hosts stay, unless fromHosts=true, which also removes the same user's or role's access from every host in the folder and its subfolders that the caller may manage sharing on.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"query","name":"fromHosts","schema":{"type":"boolean"}}]}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Grants already fanned out to hosts stay; revoke those per host.
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  responses={{"200":{"description":"Removed. removedFromHosts counts the host grants removed."},"404":{"description":"No such rule."}}}
+>
   
 </StatusCodes>
 

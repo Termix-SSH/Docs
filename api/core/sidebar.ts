@@ -204,12 +204,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "core/delete-user-account",
-          label: "Delete user account",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
           id: "core/change-user-password",
           label: "Change user password",
           className: "api-method post",
@@ -327,6 +321,12 @@ const sidebar: SidebarsConfig = {
           id: "core/remove-external-sign-in-from-a-password-account",
           label: "Remove external sign-in from a password account",
           className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/delete-user-account",
+          label: "Delete user account",
+          className: "api-method delete",
         },
         {
           type: "doc",
@@ -927,6 +927,18 @@ const sidebar: SidebarsConfig = {
           id: "core/get-the-current-recipients-shared-host-protocol-authentication-override",
           label: "Get the current recipient's shared-host protocol authentication override",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/get-the-current-users-personal-login-for-shared-hosts-in-a-folder",
+          label: "Get the current user's personal login for shared hosts in a folder",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/set-the-current-users-personal-login-for-shared-hosts-in-a-folder",
+          label: "Set the current user's personal login for shared hosts in a folder",
+          className: "api-method put",
         },
       ],
     },

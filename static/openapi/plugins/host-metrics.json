@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Host Metrics API",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
   },
   "servers": [
@@ -73,6 +73,23 @@
         "responses": {
           "200": {
             "description": "One entry per host with a recent sample."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/health/summary": {
+      "get": {
+        "summary": "Latest dashboard health check results for every host",
+        "description": "For each host the caller can connect to, the newest stored result of each of the caller's health checks marked to show on the dashboard, and the worst level among them. It reads stored results only and never runs a check.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host with at least one dashboard check result."
+          },
+          "500": {
+            "description": "The results could not be read."
           }
         }
       }
@@ -448,6 +465,154 @@
           },
           "403": {
             "description": "No access to this host."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/host-metrics/layout-templates": {
+      "get": {
+        "summary": "List the acting user's dashboard layout templates",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Personal named layouts."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save a personal named dashboard layout template",
+        "tags": [
+          "Host Metrics"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "layout"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "layout": {
+                    "type": "object",
+                    "description": "The Host Metrics preferences layout including slots and columns."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved template."
+          },
+          "400": {
+            "description": "Invalid name or layout."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/host-metrics/layout-templates/{id}": {
+      "delete": {
+        "summary": "Delete a personal template without changing host layouts",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Template deleted."
+          },
+          "404": {
+            "description": "Template not found for this user."
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/host-metrics/layout-templates/hosts": {
+      "get": {
+        "summary": "List accessible hosts by name and folder, without credentials",
+        "tags": [
+          "Host Metrics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Hosts with connect access",
+            "matching layout preferences.": null
+          }
+        }
+      }
+    },
+    "/plugin-api/host-metrics/host-metrics/layout-templates/{id}/apply": {
+      "post": {
+        "summary": "Replace the acting user's layouts on selected accessible hosts",
+        "description": "Applies once. No other users, health checks or host sampling settings change.",
+        "tags": [
+          "Host Metrics"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostIds"
+                ],
+                "properties": {
+                  "hostIds": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 100,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-host success or failure; failed hosts can be retried."
+          },
+          "400": {
+            "description": "Invalid host selection."
+          },
+          "404": {
+            "description": "Template not found for this user."
           }
         }
       }
@@ -1399,6 +1564,9 @@
                         },
                         "path": {
                           "type": "string"
+                        },
+                        "dashboard": {
+                          "type": "boolean"
                         }
                       }
                     }

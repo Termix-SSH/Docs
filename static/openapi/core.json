@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.10.5",
+    "version": "26.10.6",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -1249,50 +1249,6 @@
         }
       }
     },
-    "/users/delete-account": {
-      "delete": {
-        "summary": "Delete user account",
-        "description": "Deletes the authenticated user's account.",
-        "tags": [
-          "Users"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "password": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Account deleted successfully."
-          },
-          "400": {
-            "description": "Password is required."
-          },
-          "401": {
-            "description": "Incorrect password."
-          },
-          "403": {
-            "description": "Cannot delete external authentication accounts or the last admin user."
-          },
-          "404": {
-            "description": "User not found."
-          },
-          "500": {
-            "description": "Failed to delete account."
-          }
-        }
-      }
-    },
     "/users/change-password": {
       "post": {
         "summary": "Change user password",
@@ -2042,6 +1998,50 @@
           },
           "500": {
             "description": "Failed to unlink."
+          }
+        }
+      }
+    },
+    "/users/delete-account": {
+      "delete": {
+        "summary": "Delete user account",
+        "description": "Deletes the authenticated user's account and all of their data.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account deleted successfully."
+          },
+          "400": {
+            "description": "Password is required."
+          },
+          "401": {
+            "description": "Incorrect password."
+          },
+          "403": {
+            "description": "Cannot delete external authentication accounts or the last admin user."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to delete account."
           }
         }
       }
@@ -2953,10 +2953,35 @@
     "/rbac/folder/access/{id}": {
       "delete": {
         "summary": "Stop a folder share from applying to hosts added later",
-        "description": "Grants already fanned out to hosts stay; revoke those per host.",
+        "description": "Grants already fanned out to hosts stay, unless fromHosts=true, which also removes the same user's or role's access from every host in the folder and its subfolders that the caller may manage sharing on.",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fromHosts",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed. removedFromHosts counts the host grants removed."
+          },
+          "404": {
+            "description": "No such rule."
+          }
+        }
       }
     },
     "/rbac/host/{id}/access": {
@@ -3383,6 +3408,91 @@
         ]
       }
     },
+    "/rbac/folder-auth/{protocol}": {
+      "get": {
+        "summary": "Get the current user's personal login for shared hosts in a folder",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "folder",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The folder, protocol and credential id, or null when none is set."
+          },
+          "400": {
+            "description": "Invalid folder or protocol."
+          }
+        }
+      },
+      "put": {
+        "summary": "Set the current user's personal login for shared hosts in a folder",
+        "description": "Used for every host shared with the user in this folder and its subfolders that has no personal login of its own. credentialId null clears it.\n",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "folder",
+                  "credentialId"
+                ],
+                "properties": {
+                  "folder": {
+                    "type": "string"
+                  },
+                  "credentialId": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "Invalid folder, protocol or credential id."
+          },
+          "404": {
+            "description": "The credential is not one the user can use."
+          }
+        }
+      }
+    },
     "/plugins/public": {
       "get": {
         "summary": "List the plugin frontends anonymous guest pages need",
@@ -3414,7 +3524,7 @@
     "/plugins": {
       "get": {
         "summary": "List installed plugins and their runtime state",
-        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose, and, for admins, `managedByServer` marks plugins whose on/off state the server decides.\nWhile TERMIX_SAFE_MODE is on, an enabled plugin that safe mode keeps off reports `state: \"safe-mode\"`.\n",
+        "description": "Returns every plugin known to the database, merged with the loader's live state so the UI can tell \"enabled but failed\" from \"disabled\". Open to any authenticated user, not just admins: the app shell calls this on every session to decide which plugin-contributed tabs and rail items to register, so gating it behind admin.plugins.manage would break the shell for non-admin users.\nNon-admins get only what the shell needs. What a plugin is allowed to do, what has been granted to it and why it failed are operational details, so capabilities, grants, lastError and publicRoutes are included only for holders of admin.plugins.manage. publicRoutes lists the HTTP paths and socket paths a running plugin serves without core's login check.\nThe frontend fields drive the browser's plugin loader: `frontend` says there is a bundle at `/plugin-assets/<id>/frontend.js,` `assetVersion` is its cache key, `css` says a stylesheet sits beside it, and `locales` lists the languages it ships (\"en\" and xx_YY). `dependencies` and `optionalDependencies` let the loader activate frontends in the same order the server does. `engine` holds the manifest's `api` and `termix` ranges, so other clients (the mobile app) can tell whether they understand the plugin.\nOn a desktop linked to a server, `runsOnServer` marks plugins that only run on that server and stay off here on purpose, and, for admins, `managedByServer` marks plugins whose on/off state the server decides.\nWhile TERMIX_SAFE_MODE is on, an enabled plugin that safe mode keeps off reports `state: \"safe-mode\"`.\n",
         "tags": [
           "Plugins"
         ],
@@ -4602,7 +4712,7 @@
     "/plugins/upload": {
       "post": {
         "summary": "Upload a .tmxplug to install from a file",
-        "description": "Developer mode only. The body is the raw .tmxplug (at most 50 MB). The file is checked (archive, manifest, plugin API) and held for 30 minutes, but nothing is loaded. The answer lists what it asks for so the admin can agree, then POST /plugins/upload/{token}/install installs it. A file can replace an earlier upload with the same id, never a bundled or registry plugin.\n",
+        "description": "Developer mode only. The body is the raw .tmxplug (at most 50 MB).\n The release's .sig may come base64 encoded in the\n X-Termix-Plugin-Signature header; an official one makes the file\n install as an official plugin, and it may then fill in a plugin\n whose download failed.\nThe file is checked (archive, manifest, plugin API) and held for 30 minutes, but nothing is loaded. The answer lists what it asks for so the admin can agree, then POST /plugins/upload/{token}/install installs it. A file can replace an earlier upload with the same id, never a bundled or registry plugin.\n",
         "tags": [
           "Plugins"
         ],

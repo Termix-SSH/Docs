@@ -18,6 +18,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "host-metrics/latest-dashboard-health-check-results-for-every-host",
+          label: "Latest dashboard health check results for every host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "host-metrics/get-host-metrics",
           label: "Get host metrics",
           className: "api-method get",
@@ -74,6 +80,36 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "host-metrics/save-the-host-metrics-layout-for-a-host",
           label: "Save the Host Metrics layout for a host",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-the-acting-users-dashboard-layout-templates",
+          label: "List the acting user's dashboard layout templates",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/save-a-personal-named-dashboard-layout-template",
+          label: "Save a personal named dashboard layout template",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/delete-a-personal-template-without-changing-host-layouts",
+          label: "Delete a personal template without changing host layouts",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/list-accessible-hosts-by-name-and-folder-without-credentials",
+          label: "List accessible hosts by name and folder, without credentials",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "host-metrics/replace-the-acting-users-layouts-on-selected-accessible-hosts",
+          label: "Replace the acting user's layouts on selected accessible hosts",
           className: "api-method post",
         },
         {

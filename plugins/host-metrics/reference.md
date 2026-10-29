@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/host-metrics/reference"
 custom_edit_url: null
 plugin_id: "host-metrics"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -30,6 +30,7 @@ Each person sets these for themselves in **Settings**.
 | Temperature unit | select | `"celsius"` | How temperatures are shown in Host Metrics. |
 | Live update rate | select | `"2"` | How often CPU, memory, network and processes refresh in the Host Metrics tab, the terminal toolbar, and dashboard and homepage widgets (those never go faster than every 5 seconds). Each update reads /proc on the host. Never faster than the server's live update minimum. Off keeps the slower regular sampling. |
 | Open the metrics panel with new terminals | boolean | `false` | Show live metrics beside every SSH terminal. You can still open and close it from the button on the right edge. |
+| Background grace period | select | `"10"` | How long the page can be hidden (for example while you alt-tab) before Host Metrics disconnects from the host. Coming back within this time keeps the connection. |
 | Metrics panel side | select | `"right"` | Where the metrics panel sits next to a terminal. |
 | Metrics panel size | number | `300` | Width in pixels, or height when it is at the bottom. You can also drag its edge. |
 | Show the panel button | boolean | `true` | Show a small button on the right edge of a terminal that opens the metrics panel. |
