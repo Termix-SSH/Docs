@@ -6,6 +6,11 @@ const moved: Record<string, string> = {
   "/install/connector/macos": "/install/apps/macos",
   "/install/connector/ios": "/install/apps/ios",
   "/install/connector/android": "/install/apps/android",
+  "/install/apps/mobile": "/mobile",
+  "/install/apps/mobile-linking": "/mobile/linking",
+  "/install/apps/mobile-plugins": "/mobile/plugins",
+  "/install/apps/mobile-sign-in": "/mobile/sign-in",
+  "/install/apps/usage-statistics": "/privacy",
   "/benchmarks": "/install/benchmarks",
   "/server-stats": "/plugins/host-metrics",
 

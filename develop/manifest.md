@@ -85,8 +85,26 @@ Unknown fields are refused, at every level. A typo fails validation instead of b
 | `http`                   | Redirects from old URLs.                                                     |
 | `guest`, `guestViews`    | Views that work without signing in, like a shared session.                   |
 | `uiPresets`              | What your UI shows in the Simple, Balanced and Advanced presets.             |
+| `mobile`                 | How the plugin shows in the mobile app. See below.                           |
 
 Every field is listed in the [manifest reference](/develop/reference/manifest), made from the schema.
+
+### Mobile app
+
+`mobile` tells the Termix mobile app what to do with your plugin. Without it the app shows nothing for it.
+
+```json
+"mobile": { "mode": "webview", "views": ["hello"], "sizes": ["phone", "tablet"] }
+```
+
+- `mode`: `webview` shows your UI from the server inside the app, `native` means the app has its own screens for it, `none` means nothing to show.
+- `entry`: a bundle made for the app, like `dist/mobile.js`, next to `frontend.js`. `termix-plugin build` makes it from `src/mobile/index.tsx`. Leave it out and your normal frontend runs in a phone sized frame.
+- `sizes`: `phone`, `tablet` or both.
+- `views`: the tab, panel or card ids the app offers. Every tab by default.
+- `feature`: for `native`, the app feature that stands in for the plugin.
+- `note`: a locale key or plain text the app shows next to the plugin.
+
+It needs Termix 26.10.6. Older versions refuse a manifest that has it, so set `"engine": { "termix": ">=26.10.6", "api": "^1.13" }`. How the app runs your plugin and checks its version is in [Mobile app](/develop/mobile).
 
 ## Environment variables
 

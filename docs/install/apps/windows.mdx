@@ -25,3 +25,11 @@ Update with `choco upgrade termix-ssh`. Chocolatey reviews every release by hand
 - Portable runs from a folder with nothing installed.
 
 Most PCs are x64. Pick ARM64 for Windows on ARM, like Snapdragon laptops. The x86 build is only for old 32-bit Windows. The ARM64 and x86 builds tell you when an update is out instead of installing it.
+
+## With every plugin
+
+The normal download ships with the most used plugins and downloads the rest when you turn them on. For a computer
+without internet, get the build that already has every official plugin: [termix_windows_x64_full_nsis.exe](https://github.com/Termix-SSH/Termix/releases/latest/download/termix_windows_x64_full_nsis.exe), x64 only. It needs Termix 26.10.6 or later.
+
+Updates from inside the app switch it to the normal build, which downloads any plugin it no longer ships. On a computer
+that stays offline, install the next full build by hand instead.

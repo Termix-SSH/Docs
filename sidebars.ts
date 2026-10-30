@@ -29,7 +29,12 @@ const sidebars: SidebarsConfig = {
             "install/apps/macos",
             "install/apps/linux",
             "install/apps/ios",
-            "install/apps/android",
+            {
+              type: "category",
+              label: "Android",
+              link: { type: "doc", id: "install/apps/android" },
+              items: ["install/apps/f-droid"],
+            },
           ],
         },
         "install/first-run",
@@ -75,6 +80,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Mobile app",
+      link: { type: "doc", id: "mobile/index" },
+      items: ["mobile/linking", "mobile/sign-in", "mobile/plugins"],
+    },
+    {
+      type: "category",
       label: "Admin",
       items: [
         "guide/admin-settings",
@@ -83,6 +94,7 @@ const sidebars: SidebarsConfig = {
         "guide/audit-log",
       ],
     },
+    "privacy",
     "contributing",
     "translations",
     "self-hosted-ai",

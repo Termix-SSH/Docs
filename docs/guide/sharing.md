@@ -33,6 +33,8 @@ By default the people you share with use your login for the host. Each gets an e
 
 Turn off Share SSH Authentication on the host to keep your login private. Then each person picks their own with Set personal SSH authentication from the host's menu. A personal login always wins over yours.
 
+When many hosts are shared with you in one folder, set your login once with the key button on the folder (Set personal login for shared hosts). It is used for every host shared with you in that folder and its subfolders. A login set on a single host still wins over the folder's, and a subfolder's wins over its parent's.
+
 ## Share a folder
 
 Share Folder shares every host in it. The share also stays on the folder: a host you add to it later, or move into it, gets the same access. Stop inheriting removes that rule for future hosts.
