@@ -36,6 +36,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "secret-sources/check-that-a-secret-reference-resolves-without-returning-the-secret",
+          label: "Check that a secret reference resolves, without returning the secret",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "secret-sources/check-that-the-source-is-reachable-and-the-token-is-accepted",
           label: "Check that the source is reachable and the token is accepted",
           className: "api-method post",

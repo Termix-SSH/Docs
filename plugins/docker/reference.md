@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/docker/reference"
 custom_edit_url: null
 plugin_id: "docker"
-plugin_version: "1.2.2"
+plugin_version: "1.2.3"
 plugin_latest: true
 ---
 ## Settings

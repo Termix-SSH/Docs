@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "SSH Terminal API",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
   },
   "servers": [
@@ -199,7 +199,7 @@
     "/plugin-api/ssh-terminal/user-settings": {
       "put": {
         "summary": "Save some of the caller's terminal settings",
-        "description": "Writes the caller's command autocomplete setting. The terminal uses it once, to move a value a browser kept before 2.9.0.",
+        "description": "Writes the caller's command autocomplete and clipboard settings. The terminal uses it once, to move values a browser kept locally.",
         "tags": [
           "Terminal"
         ],
@@ -211,6 +211,20 @@
                 "type": "object",
                 "properties": {
                   "commandAutocomplete": {
+                    "type": "boolean"
+                  },
+                  "rightClickAction": {
+                    "type": "string",
+                    "enum": [
+                      "copyPaste",
+                      "menu",
+                      "native"
+                    ]
+                  },
+                  "ctrlVPaste": {
+                    "type": "boolean"
+                  },
+                  "copyOnSelect": {
                     "type": "boolean"
                   }
                 }
@@ -224,6 +238,50 @@
           },
           "400": {
             "description": "A value the setting does not accept."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/watch-alert": {
+      "post": {
+        "summary": "Send the caller an alert for a watch rule that fired",
+        "description": "Sends a notification naming the rule and the host, through the caller's alert channels. Terminal output is never part of it. Needs connect access to the host and allows a limited number of alerts a minute.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "rule": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sent."
+          },
+          "400": {
+            "description": "Invalid host or rule name."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "No connect access to the host."
+          },
+          "429": {
+            "description": "Too many alerts this minute."
           }
         }
       }

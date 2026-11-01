@@ -6,9 +6,18 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.1.2"
+plugin_version: "1.1.3"
 plugin_latest: true
 ---
+## 1.1.3
+
+### Fixed
+
+- The file transfer rail item keeps its place now that the SSH Tools panel is gone
+- Uploads and deletes no longer hang when the SSH connection dies without notice. The connection is checked first, every SFTP step has a time limit, and you get an error or a reconnect instead of a stuck progress box
+- One stuck request no longer freezes the rest of the file panel
+- A host whose SSH key changed no longer retries over and over. It tells you to accept the new key in a terminal, then you can retry
+
 ## 1.1.2
 
 ### Added

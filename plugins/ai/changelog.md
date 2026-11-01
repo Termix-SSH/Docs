@@ -6,9 +6,15 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Fixed
+
+- The assistant no longer offers to open the SSH Tools panel, which Plugin SSH Terminal 1.3.0 removes
+
 ## 1.3.0
 
 ### Added

@@ -6,9 +6,37 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Broadcast: type in one terminal and every terminal in the group gets it, with a bar and colored border on each, a box to write and send commands, and a pause at password prompts so a password never reaches another host
+- Fill password answers only terminals that are asking, each with its own host's password
+- Watch output: alerts when output matches some text or a regex, a job goes quiet, or a background tab has new output
+- Find in all terminals: search every open terminal's scrollback and jump to a result
+- Save or copy a terminal's output as plain text
+- Reset display, clear scrollback, reset shell and send keys such as Ctrl+C or Ctrl+Z from a new Tools button in the tab bar next to split view (needs Classic Layout 1.1.1), the terminal's right click menu, the command palette and the phone key row
+- A Right click setting with copy or paste, a terminal menu, or the browser menu
+- Terminal overlay plugins can read the text at the prompt and paste into it, and they now work in the desktop app's local terminal too
+- A per-host Disable Nagle's Algorithm (TCP_NODELAY) option to reduce terminal input latency
+
+### Changed
+
+- Right click, Ctrl+V and copy on select are now terminal settings that follow your account, moved over from your browser once
+
+### Fixed
+
+- With Auto-Tmux, a new tab on a host whose only tmux session is already open asks what to do instead of mirroring that tab
+- Commands run right after answering a password prompt were left out of command history
+- Tools that send to a terminal no longer report success when its connection is closed
+
+### Removed
+
+- The SSH Tools panel. Its tools are now in the terminal's Tools menu and its switches are in settings
+
 ## 1.2.0
 
 ### Added

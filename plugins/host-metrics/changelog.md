@@ -6,9 +6,19 @@ slug: "/host-metrics/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "host-metrics"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Fixed
+
+- Live metrics no longer get stuck on hosts shown in several places at once, which filled the host's SSH connections and made the app report a lost server connection
+- A dashboard with many hosts no longer blocks the rest of the app. Live requests answer right away instead of waiting on the host, and only 6 dashboard rows update live at a time
+- Saving metrics history no longer slows down the whole server. History keeps one sample a minute per host and asks for a database save far less often
+- Opening metrics for a host whose SSH key has no saved passphrase now asks for the passphrase, and background collection stops retrying until then
+- Coming back to a browser tab after a while no longer shows the connection screen. The cards stay up while metrics reconnect, unless the reconnect fails
+
 ## 1.3.0
 
 ### Added

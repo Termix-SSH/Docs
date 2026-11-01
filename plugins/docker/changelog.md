@@ -6,9 +6,15 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.2.2"
+plugin_version: "1.2.3"
 plugin_latest: true
 ---
+## 1.2.3
+
+### Fixed
+
+- Opening Docker for a host whose SSH key has no saved passphrase now asks for the passphrase instead of retrying
+
 ## 1.2.2
 
 ### Changed

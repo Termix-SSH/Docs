@@ -7,7 +7,7 @@ description: "SSH terminal sessions with tabs, split screen, history, macros and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 SSH Terminal is the terminal in Termix. Click a host and you are in a shell on it, in a tab you can split, rename and keep open across devices. It handles jump hosts, host key checks, tmux and Mosh, and keeps your session alive when your connection drops.
@@ -39,9 +39,45 @@ A bar along the bottom of each terminal holds the host's other tools, like files
 
 Commands you run are saved per host, so you can search them in the History panel and press Tab for autocomplete when Command Autocomplete is on in your settings. Turn Command History off for a host whose commands are sensitive. Admins can turn history off for everyone.
 
-## SSH Tools
+## Tools
 
-The SSH Tools panel sends what you type to several terminals at once. Pick the terminals, then type or record keystrokes. It can also fill the saved password into the terminals you picked.
+The Tools button in the tab bar, next to split view, holds everything below. It works on the terminal you used last, named at the top of its menu. A number on it shows how many watch rules are on, and it turns yellow while a broadcast runs. The same tools are in the command palette and the terminal's right click menu, and on a phone they are the first key in the key row.
+
+### Broadcast
+
+Broadcast sends what you type to several terminals at once. Open Tools and choose Broadcast input. You can also give it a shortcut in Settings, Keyboard Shortcuts. Then pick the terminals: all open, this split, the same folder, or one by one.
+
+Each terminal in the group shows a bar and a colored border. Type in any of them and the others get it, including keys in programs like vim or top. Arrow keys and backspace are adjusted to suit each terminal. Compose opens a box where you can write a command, even several lines, and send it to the whole group with Ctrl+Enter.
+
+Typing pauses while a terminal asks for a password, so a password never reaches another host. Fill password answers only the terminals that are asking, each with its own host's saved password. Ctrl+C and the other signal keys still get through. Terminals that are offline are skipped and rejoin when they reconnect. Local terminals can't join a group.
+
+### Watch output
+
+Watch rules alert you when output matches some text or a regex, when output goes quiet for some seconds (a job finished), or when a background tab has new output. Quiet and new output rules fire only when you are looking elsewhere. Save a rule once, then switch it on for each terminal you want. A bell in the toolbar shows how many are on.
+
+You get a toast, and an alert through your Alerts channels if the Alerts plugin is on. Alerts name the rule and the host. The matching line appears only in the toast, since output can hold secrets. Rules run in your open Termix page, so nothing fires once it is closed.
+
+### Find in all terminals
+
+Press Ctrl+F and turn on the all terminals button to search the scrollback of every open terminal. Click a result to jump to that tab and line. Results stop at 500.
+
+### Save output
+
+Save output downloads the terminal's scrollback as a plain text file, and Copy output puts it on the clipboard. Save selection saves only the text you selected.
+
+### Fix a terminal and send keys
+
+Reset display fixes garbled text without touching the shell. Clear scrollback empties the history. Reset shell types `stty sane; reset` at the prompt, after asking you. Send key sends Ctrl+C, Ctrl+Z, Ctrl+\, Ctrl+D, Esc or any Ctrl + letter, which helps when a key is taken by your browser or system.
+
+## Clipboard
+
+These are in your terminal settings and follow your account:
+
+- Right click in the terminal: copy or paste, the terminal menu, or the browser menu. Hold Shift for the terminal menu, or for copy and paste if the menu is your choice. A program using the mouse, like tmux, gets the click unless you hold Shift.
+- Ctrl+V pastes: turn it off to send Ctrl+V to the shell. Ctrl+Shift+V still pastes.
+- Copy selected text automatically: with this on, finishing a selection copies it and right click pastes.
+
+If you changed these before version 1.3.0, your browser's choices move to your account once.
 
 ## Macros
 
@@ -65,7 +101,7 @@ reattached tab replays. Turn it off with rz and sz file transfers in your SSH Te
 
 In the desktop app, open Local Terminal from the rail or the command palette for a shell on your own computer. You can also give Open new Local Terminal a shortcut in Settings, Keyboard Shortcuts. It works from anywhere in the app, including an SSH terminal, and each use opens and focuses a new session. It uses PowerShell on Windows, zsh on macOS and your `SHELL` on Linux. Set `TERMIX_LOCAL_SHELL` to use another.
 
-The clipboard settings in SSH Tools also apply to Local Terminal: right-click copy/paste, Ctrl+V paste and automatic copying of selected text. With automatic copying enabled, finishing a selection copies it and right-click pastes.
+The [clipboard settings](#clipboard) also apply to Local Terminal.
 
 ## Look and feel
 

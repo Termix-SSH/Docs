@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ssh-terminal/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -34,6 +34,9 @@ Each person sets these for themselves in **Settings**.
 | --- | --- | --- | --- |
 | Command Autocomplete | boolean | `false` | Show autocomplete while typing if you press tab |
 | rz and sz file transfers | boolean | `true` | Upload and download files with rz and sz (lrzsz) right in the terminal. |
+| Right click in the terminal | select | `"copyPaste"` | Hold Shift to get the terminal menu instead, or copy and paste if the menu is your choice here |
+| Ctrl+V pastes | boolean | `true` | Turn off to send Ctrl+V to the shell. Ctrl+Shift+V still pastes |
+| Copy selected text automatically | boolean | `false` | Copies text as soon as you select it in the terminal |
 | Always show macro buttons | boolean | `false` | Keep the run and delete buttons under each macro visible. Turn off to show them only on hover. |
 | Always show history buttons | boolean | `false` | Keep the copy and delete buttons under each command visible. Turn off to show them only on hover. |
 
@@ -82,6 +85,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
+| `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |

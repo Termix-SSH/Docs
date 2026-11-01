@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Host Metrics API",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
   },
   "servers": [
@@ -1450,7 +1450,8 @@
         "responses": {
           "200": {
             "description": "One live sample",
-            "shared per host and reused until the admin minimum interval passes. Includes minIntervalS.": null
+            "shared per host and reused until the admin minimum interval passes. With ?stream it is read from a held stream per host": null,
+            "and with ?nowait it answers pending true instead of waiting for the stream's first frames. Includes minIntervalS.": null
           },
           "403": {
             "description": "No access",

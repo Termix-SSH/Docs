@@ -42,6 +42,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "ssh-terminal/send-the-caller-an-alert-for-a-watch-rule-that-fired",
+          label: "Send the caller an alert for a watch rule that fired",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "ssh-terminal/turn-auto-tmux-on-or-off-for-a-host",
           label: "Turn auto tmux on or off for a host",
           className: "api-method put",

@@ -6,9 +6,16 @@ slug: "/session-recording/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "session-recording"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Fixed
+
+- RDP, VNC and Telnet recordings play instead of showing a black screen
+- Remote desktop recordings fit the panel when you press play
+
 ## 1.1.0
 
 ### Added

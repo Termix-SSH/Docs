@@ -6,9 +6,15 @@ slug: "/sso/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sso"
-plugin_version: "1.0.4"
+plugin_version: "1.0.5"
 plugin_latest: true
 ---
+## 1.0.5
+
+### Changed
+
+- The Admin Group setting says that it decides admin at every sign in, including for accounts promoted in Termix or merged with an admin account
+
 ## 1.0.4
 
 ### Fixed

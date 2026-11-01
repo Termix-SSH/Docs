@@ -6,9 +6,19 @@ slug: "/classic-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-layout"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Added
+
+- Plugins can add buttons to the right of the tab bar, next to split view. SSH Terminal puts its terminal tools there
+
+### Fixed
+
+- The side rail no longer opens behind Customize sidebar and other panels when you hover over it
+
 ## 1.1.0
 
 ### Added

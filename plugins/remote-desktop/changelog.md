@@ -6,9 +6,16 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Fixed
+
+- Option characters on Apple Remote Desktop hosts, like Option+2 for @ on a Spanish keyboard, go through the Mac's own layout, and right Option works as Option
+- The Korean Han/Eng and Hanja keys switch the remote IME once per press. Holding them or a slightly long tap no longer flips it many times
+
 ## 1.3.0
 
 ### Added
