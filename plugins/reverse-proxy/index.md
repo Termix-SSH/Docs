@@ -58,6 +58,7 @@ Point the domain's DNS record at your server, then add the route.
 - Certificate: Let's Encrypt asks for a free certificate and renews it 30 days before it ends. The plugin answers the check on its HTTP port, so public port 80 must reach it. Set the certificate email in Settings first. Self-signed and your own certificate also work.
 - Redirect HTTP to HTTPS: on by default when a certificate is used. If visitors reach HTTPS on a port other than 443, set the public HTTPS port.
 - WebSockets work without any setting.
+- When an app redirects to its own address (like `http://100.64.0.5:8080/login`), the redirect is pointed back at the route's domain. Turn on Keep the original Host header if an app also needs to see the real domain, for example to build links in its pages.
 - Extra request headers, an allow list and a block list of IP addresses are available on every route.
 - Use Trust any target certificate when the target serves HTTPS with a self-signed certificate.
 
