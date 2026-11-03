@@ -6,9 +6,15 @@ slug: "/reverse-proxy/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "reverse-proxy"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Fixed
+
+- Redirects from an app no longer send visitors to the target's own address, like a Tailscale IP. They now point at the route's domain, and plain http redirects move to https
+
 ## 1.1.0
 
 ### Added
