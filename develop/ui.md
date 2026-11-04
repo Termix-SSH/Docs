@@ -55,6 +55,10 @@ The list of exports is fixed and checked in Termix's CI. Anything listed here is
 
 `DataView`, `MetricCard`, `Meter`, `MiniStat`, `StatRow`, `Sparkline`, `LineChart`, `BarSeries`, `RadialGauge`, and the dashboard grid pieces `GridLayout` and `CardMasonry`.
 
+## Tile pages
+
+`TileGrid` is the grid the dashboard, the host page and Host Metrics use: 12 columns, tiles you drag and resize while `editMode` is on, and one column on narrow screens. Slots are `{ id, x, y, w, h }`, with `x` and `w` in columns and `h` a fixed height in px or null for the tile's own height. Wrap each tile in `TileFrame` for the shared look, and show `TilePicker` beside the grid while editing so people can search, filter and add tiles. Save the slots where your plugin keeps preferences, run saved ones through `sanitizeTiles` and add new ones with `appendTile`. Needs Termix 26.11.1, so raise `engine.termix` when you use them.
+
 ## Connections
 
 `ConnectionGate` handles the whole connect flow for a host session: progress, host key checks, TOTP, passphrases, browser sign in and errors. Use it instead of building your own.

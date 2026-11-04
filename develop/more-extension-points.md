@@ -87,6 +87,21 @@ Declare an action in `contributes.keybindingActions`, register it with `app.regi
 
 Declare the id in `contributes.dashboardCards` and register the component with `app.registerDashboardCard`.
 
+The dashboard is a 12 column tile grid. `defaultSize: { w, h }` sets the width in columns and the height in px when someone adds the card. A card that can show many things, like one status out of many, can pass `entries(language)`: each entry is its own line in the add list with a title, a group and a `config`. The card gets that copy's `config` as a prop, can change it with `setConfig` and knows when the user is arranging the dashboard from `editMode`. Keep `config` small, it is saved in one line. Termix 26.11.1 and later.
+
+```tsx
+app.registerDashboardCard({
+  id: "status",
+  titleKey: "card.status",
+  defaultSize: { w: 4 },
+  entries: async () => [
+    { key: "disk", title: "Disk space", config: { check: "disk" } },
+    { key: "load", title: "Load", config: { check: "load" } },
+  ],
+  component: ({ config }) => <StatusTile check={String(config?.check)} />,
+});
+```
+
 ## Desktop app
 
 `ctx.desktop.openIsolatedWindow` opens a URL in its own window in the desktop app, with its own cookies. `app.desktop.available` tells the frontend it runs in the desktop app. These need the `desktop:window` capability.
