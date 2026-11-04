@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
         "settings",
         "permissions",
         "http-and-websockets",
+        "operations",
         "services",
         "auth",
         "layouts",
