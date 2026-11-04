@@ -51,7 +51,7 @@ The image is on two registries. They are the same image.
 | `26.10.0` | One exact version. Use this to stay on a version until you choose to update. |
 | `beta` | The newest beta. See [betas](/configure/betas). |
 | `latest-minimal` | The newest stable release with only the look plugins. |
-| `latest-full` | The newest stable release with every official plugin. |
+| `latest-full` | The newest stable release with every released official plugin. |
 
 Add `-minimal` or `-full` to any tag to pick a plugin set, for example `26.10.0-full` or `beta-minimal`. A tag with no suffix is the standard set.
 
@@ -63,7 +63,7 @@ Every image has the same server. Only the plugins inside it differ.
 | --- | --- | --- |
 | Minimal | The default look: the Classic layout and the Classic themes. | You want the smallest image and will install only what you need from the Plugins tab. It needs internet access to install anything. |
 | Standard | The look plugins plus the most used ones: SSH terminal, file manager, Docker, host metrics, snippets, tunnels, remote desktop, workspaces, alerts, TOTP, passkeys, SSO, sync, telemetry, serial, host status, import and export, credential tools. | Most installs. It works offline and has what most people want. |
-| Full | Every official plugin. | You want everything ready, or the server has no internet access. |
+| Full | Every official plugin with a stable release. | You want everything ready, or the server has no internet access. |
 
 Plugins that are not in your set are still in the registry. Install them any time from the Plugins tab, see [managing plugins](/guide/plugins). Plugins you install this way are saved in `/app/data`, so they stay when you update the image.
 
