@@ -32,13 +32,14 @@ Stable installs only get stable releases. A beta install moves to the next beta,
 
 Not every install can replace itself:
 
-| Installed with                                                                             | Updates                                                  |
-| ------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| Windows installer (`.exe`), 64-bit                                                         | Itself                                                   |
-| macOS disk image (`.dmg`) or Homebrew                                                      | Itself                                                   |
-| Linux AppImage or `.deb`                                                                   | Itself. The `.deb` asks for your password to install     |
-| Windows `.msi`, Chocolatey, portable `.zip`, 32-bit Windows, Linux `.tar.gz`, Flatpak, AUR | Tells you a new version is out and links to the download |
-| Mac App Store                                                                              | The App Store                                            |
+| Installed with                                                                    | Updates                                                       |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Windows installer (`.exe`), 64-bit                                                | Itself                                                        |
+| macOS disk image (`.dmg`) or Homebrew                                             | Itself                                                        |
+| Linux AppImage or `.deb`                                                          | Itself. The `.deb` asks for your password to install          |
+| Windows `.msi`, Chocolatey, portable `.zip`, 32-bit Windows, Linux `.tar.gz`, AUR | Tells you a new version is out and links to the download      |
+| Linux Flatpak                                                                     | `flatpak update`. The app also tells you a new version is out |
+| Mac App Store                                                                     | The App Store                                                 |
 
 Homebrew still works, but since the app updates itself, `brew upgrade` skips Termix unless you add `--greedy`.
 
