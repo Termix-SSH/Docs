@@ -23,6 +23,10 @@ Passwords, SSH keys and other secrets are encrypted with AES-256-GCM before they
 
 The data keys are wrapped with `ENCRYPTION_KEY`, a server key. That means an admin can reset a user's password without losing their data, and hosts can be shared. It also means anyone with the server's data folder can decrypt it. Guard the data folder.
 
+### Turn off saved logins
+
+Admins can turn off Allow saving passwords and keys in Settings, General. Nobody can then save a password or private key on a host or credential, and Termix asks for them when connecting. Hosts can still be shared. Logins already saved stay until they are removed. A linked desktop keeps its copy of a host, but passwords and keys it pushes are dropped on the server, and the next sync clears them from the desktop too. Hosts kept on the device only are not touched.
+
 ### The database file
 
 With SQLite, the whole database file is also encrypted on disk with `DATABASE_KEY`. Termix decrypts it into memory when it starts and writes it back encrypted. Turn this off with `DB_FILE_ENCRYPTION=false` only if the disk is already encrypted.
@@ -48,7 +52,7 @@ Never change a key on an install that has data. Termix can't open data made with
 
 ## Sessions
 
-A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General.
+A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General. The database keeps only a hash of each session token, so a copy of it holds no working sign ins.
 
 API keys act as the user who owns them. See [API keys](/guide/api-keys).
 
