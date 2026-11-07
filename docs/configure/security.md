@@ -25,7 +25,7 @@ The data keys are wrapped with `ENCRYPTION_KEY`, a server key. That means an adm
 
 ### Turn off saved logins
 
-Admins can turn off Allow saving passwords and keys in Settings, General. Nobody can then save a password or private key on a host or credential, and Termix asks for them when connecting. Hosts can still be shared. Logins already saved stay until they are removed. A linked desktop keeps its copy of a host, but passwords and keys it pushes are dropped on the server, and the next sync clears them from the desktop too. Hosts kept on the device only are not touched.
+Admins can turn off Allow saving passwords and keys in Settings, General. Nobody can then save a password or private key on a host or credential, and Termix asks for them when connecting. Hosts can still be shared. Logins already saved stay until they are removed. Passwords and keys a linked desktop pushes are dropped on the server. Hosts kept on the device only are not touched.
 
 ### The database file
 
