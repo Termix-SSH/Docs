@@ -26,13 +26,13 @@ Each plugin section has its own on switch, so you only turn on what the host nee
 
 Pick one method under Authentication Method. Termix uses only that one.
 
-| Method            | Use it for                                                                      |
-| ----------------- | ------------------------------------------------------------------------------- |
-| Password          | A password typed in here.                                                       |
-| Key               | An SSH private key pasted or uploaded here. Termix can make a key pair for you. |
-| Stored Credential | A [credential](/guide/credentials) many hosts share.                            |
-| SSH Agent         | Keys from an agent running on the Termix server, like 1Password or gpg-agent.   |
-| None              | The server needs no sign in, or it asks interactively.                          |
+| Method            | Use it for                                                                        |
+| ----------------- | --------------------------------------------------------------------------------- |
+| Password          | A password typed in here.                                                         |
+| Key               | An SSH private key pasted or uploaded here. Termix can make a key pair for you.   |
+| Stored Credential | A [credential](/guide/credentials) many hosts share.                              |
+| SSH Agent         | Keys from an agent available to the computer or server making the SSH connection. |
+| None              | The server needs no sign in, or it asks interactively.                            |
 
 Plugins add more, like short-lived certificates from [Vault](/plugins/vault), [Step CA](/plugins/step-ca) or [OPKSSH](/plugins/opkssh).
 
@@ -40,9 +40,37 @@ Other useful switches:
 
 - Force Keyboard Interactive asks for the password every time.
 - Allow Legacy Algorithms connects to old devices that only speak old SSH algorithms. It is less secure.
-- FIDO2 security keys (ed25519-sk and ecdsa-sk) work with SSH Agent in the desktop app. Load the key with ssh-add, and your key asks for a touch or PIN on your own machine. A pasted security key file cannot be used, since it only holds a handle.
-- SSH Agent Forwarding lets the remote host use your agent for the next hop.
+- FIDO2 security keys (ed25519-sk and ecdsa-sk) work with SSH Agent when the desktop app connects locally. Load the key with ssh-add, and your key asks for a touch or PIN on your own machine. A pasted security key file cannot be used, since it only holds a handle.
+- SSH Agent Forwarding lets the remote host use your agent for the next hop. It is not needed to authenticate this connection with SSH Agent.
 - Sudo Password fills sudo prompts in the terminal and in plugins that run sudo.
+
+## SSH Agent authentication
+
+The agent must be available to the Termix process making the SSH connection. In the desktop app, use a local Connection Origin to use an agent on your computer. If connections start from the server, the agent must be available there instead. A browser session uses the server's agent, not the browser computer's agent. See [where connections start](/configure/desktop-sync#where-connections-start).
+
+### PuTTY Pageant on Windows
+
+1. Start Pageant on the Windows computer running the Termix desktop app and load the key you want to use.
+2. Edit the host and open its SSH section.
+3. Set Authentication Method to SSH Agent.
+4. Enter `pageant` in Agent Socket Path. Use this exact lowercase value, not a path to `pageant.exe`.
+5. If the app is linked to a server, set Connection Origin to start from your computer.
+6. Save and connect.
+
+Termix passes `pageant` to its SSH library as a Windows agent identifier. Leaving the field empty only checks `SSH_AUTH_SOCK`; it does not automatically select Pageant.
+
+### Other agents and socket paths
+
+| Agent                 | Agent Socket Path                                                     |
+| --------------------- | --------------------------------------------------------------------- |
+| Windows OpenSSH agent | `\\.\pipe\openssh-ssh-agent`                                          |
+| Linux or macOS agent  | Leave empty to use `SSH_AUTH_SOCK`, or enter the agent's socket path. |
+
+Start the agent and load the key before connecting. An explicit path takes priority over `SSH_AUTH_SOCK`. If you leave it empty, that variable must be set in the environment of the Termix backend process, not just in an unrelated terminal window. For a container deployment, the socket must be accessible inside the container.
+
+A Termix backend running in WSL uses Linux socket paths. It cannot use the Windows-only `pageant` identifier or a Windows named pipe directly. The Windows desktop app connecting locally uses the Windows agent instead; opening the server's web UI from Windows does not change where the backend runs.
+
+If Termix reports that `SSH_AUTH_SOCK` is not set, supply the correct agent value or start Termix with that variable available. If it reports a missing socket, check the path in the environment where the connection starts. Agent authentication and SSH Agent Forwarding are separate settings; forwarding is only needed when the remote host must use your agent for another connection.
 
 ## Folders and sub-hosts
 
