@@ -7,7 +7,7 @@ description: "Generate SSH keys, check them and copy a public key to a host."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Credential-Tools/edit/main/docs/index.md"
 plugin_id: "credential-tools"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Credential Tools adds key helpers to Termix: make a new SSH key, check one you have, and put a public key on a host.

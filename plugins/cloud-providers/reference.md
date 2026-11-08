@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/cloud-providers/reference"
 custom_edit_url: null
 plugin_id: "cloud-providers"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Permissions
@@ -23,6 +23,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `operations:provide` |  |  |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |

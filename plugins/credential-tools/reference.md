@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/credential-tools/reference"
 custom_edit_url: null
 plugin_id: "credential-tools"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Permissions
@@ -22,6 +22,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `operations:provide` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
