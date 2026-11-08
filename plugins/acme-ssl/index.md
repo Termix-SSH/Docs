@@ -20,6 +20,7 @@ Use it when Termix serves HTTPS itself. If a reverse proxy like Caddy or Traefik
 - One of:
   - Port 80 on that domain reaching Termix, for the HTTP challenge. In Docker, publish it: `"80:8080"`.
   - A Cloudflare API token with `Zone:DNS:Edit` on the domain, for the DNS challenge. Port 80 can stay closed.
+  - Or the DNS plugin with a login for the domain, for the DNS challenge at any provider it supports. Port 80 can stay closed.
 - Port `8443` published, so the certificate can be served. See [HTTPS](/configure/https).
 
 ## Set it up
@@ -28,7 +29,7 @@ Use it when Termix serves HTTPS itself. If a reverse proxy like Caddy or Traefik
 2. Open Settings, then ACME Certificates.
 3. Fill in Domain and Email.
 4. Pick a Certificate authority. Try Let's Encrypt (staging) first if you are testing. Staging certificates are not trusted by browsers, but they don't count against Let's Encrypt's rate limits.
-5. Pick a Challenge type. For the DNS challenge, paste your Cloudflare API token.
+5. Pick a Challenge type. For the Cloudflare DNS challenge, paste your Cloudflare API token. For the DNS plugin challenge, add a login for your domain in the DNS plugin first. No token is needed here.
 6. Turn on Renew automatically and save.
 7. Press Request certificate now.
 
