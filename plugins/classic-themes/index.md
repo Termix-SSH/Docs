@@ -7,7 +7,7 @@ description: "Light, dark and seven more color themes for Termix."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Classic-Themes/edit/main/docs/index.md"
 plugin_id: "classic-themes"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Classic Themes holds the color themes that ship with Termix: light, dark, Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox. It is always installed.
