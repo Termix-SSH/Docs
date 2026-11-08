@@ -2,12 +2,12 @@
 title: "AI Assistant"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/ai/v/1.1.0"
+slug: "/ai/v/1.3.1"
 description: "An AI assistant that reads your setup and proposes changes for you to approve."
 hide_title: true
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.3.1"
 plugin_latest: false
 ---
 AI Assistant brings an assistant that knows your Termix setup. Ask it about your hosts, snippets, fleets, alerts and more, or ask it to change them. It works as you, with your permissions, through the Termix CLI that ships inside the plugin. See [AI assistant](assistant.md).
@@ -35,9 +35,15 @@ One assistant, in two views that share their conversations: a floating panel on 
 
 With the Automations plugin, automations can start the assistant on their own: on a schedule, when a disk fills up, when a host goes down. It investigates read-only and writes a report, or proposes a plan that runs only after someone approves it. Presets for a daily patrol, disk cleanup and host down triage get you started. See [Auto-ops](auto-ops.md).
 
+## Asset inventory
+
+Assets, in the AI tab, collects every host you can connect to with one read-only script: listening ports, connections, services, containers, Proxmox guests and cloud metadata. It sorts assets into zones by built-in and your own CIDR rules, marks hosts that sit in more than one zone, and links guests and containers to where they run. See [Asset inventory](assets.md).
+
 ## In the terminal
 
 Turn on Enable AI Assistant in a host's settings to get an assistant panel next to its terminal. It knows which host you are on and reads your setup through a fixed set of tools.
+
+Open it from the terminal toolbar button, which also hands it what is on screen, from the tab menu, or from the edge of the terminal. On Termix 26.10.3 and later it sits in the panel bar with the other panels, so you can resize it, move it to either side or the bottom, and turn it off for a host with Panel beside the terminal.
 
 | It can read                                 |                                                         |
 | ------------------------------------------- | ------------------------------------------------------- |
@@ -65,3 +71,5 @@ The plugin can also start a coding agent, like Claude Code, Codex, OpenCode or P
 | `ai.agents`           | Start coding agents on hosts. Admins only by default.                                    |
 | `ai.ops.use`          | Let the assistant run shell commands on hosts, and use auto-ops. Admins only by default. |
 | `ai.usage.view_all`   | See every user's token usage. Admins only by default.                                    |
+| `ai.assets.view`      | See the asset inventory. Admins only by default.                                         |
+| `ai.assets.manage`    | Collect assets, edit zone rules and the schedule. Admins only by default.                |

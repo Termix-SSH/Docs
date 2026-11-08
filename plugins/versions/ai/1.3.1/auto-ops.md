@@ -1,10 +1,10 @@
 ---
 title: "Auto-ops"
 sidebar_position: 13
-slug: "/ai/v/1.1.0/auto-ops"
+slug: "/ai/v/1.3.1/auto-ops"
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.3.1"
 plugin_latest: false
 ---
 Auto-ops lets the assistant work when nobody is at the keyboard. An automation from the Automations plugin starts it, on a schedule, when a metric crosses a threshold, when a host goes down, or on any other trigger. The assistant follows a runbook, looks into the hosts and writes a report. It can also propose a fix, which runs only after someone approves it.

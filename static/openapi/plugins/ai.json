@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "AI Assistant API",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "description": "An AI assistant that reads your setup and proposes changes for you to approve."
   },
   "servers": [
@@ -1327,6 +1327,65 @@
         }
       }
     },
+    "/plugin-api/ai/assets/exposure": {
+      "get": {
+        "summary": "List what each host exposes to the network",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/exposure/{key}/explain": {
+      "post": {
+        "summary": "Ask the assistant to explain one exposure",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/assets/exposure/{key}/priority": {
+      "put": {
+        "summary": "Set the priority of one exposure",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/plugin-api/ai/assets": {
       "get": {
         "summary": "The asset inventory",
@@ -1912,6 +1971,259 @@
           },
           "404": {
             "description": "No such asset."
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents": {
+      "get": {
+        "summary": "List your agent sessions",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "summary": "Start an agent session on a host",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/workspace": {
+      "post": {
+        "summary": "Change the folder an agent session works in",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}": {
+      "patch": {
+        "summary": "Rename, archive or restore an agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get one agent session with its events",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/queue": {
+      "post": {
+        "summary": "Change the queued messages of an agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/events": {
+      "get": {
+        "summary": "Stream an agent session's events (server sent events)",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/resume": {
+      "post": {
+        "summary": "Resume a stopped agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/input": {
+      "post": {
+        "summary": "Send a message to a running agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/{id}/stop": {
+      "post": {
+        "summary": "Stop a running agent session",
+        "tags": [
+          "AI"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/install": {
+      "post": {
+        "summary": "Install a coding agent on a host",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/plugin-api/ai/agents/forwarding": {
+      "post": {
+        "summary": "Set up port forwarding for a host's coding agent",
+        "tags": [
+          "AI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

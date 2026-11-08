@@ -1,10 +1,10 @@
 ---
 title: "Triggers"
 sidebar_position: 11
-slug: "/automations/v/1.0.1/triggers"
+slug: "/automations/v/1.2.0/triggers"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 The trigger decides when an automation runs. Every automation has one.

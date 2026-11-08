@@ -1,0 +1,70 @@
+---
+id: start-a-run
+title: "Start a run"
+description: "Runs a playbook, an ad-hoc module or a facts gather on the control host. Needs edit access to the control host and to every Termix host picked as a target."
+sidebar_label: "Start a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v40YM/SsETy0wsdOiJ9+yRQtkC7RBkmJRBEZBS4w1sTSjnaHiqIL+e8EZ2XLipMDeqostfg3JeXzUgCXHIthWrHe4wtvORSBoa+o33u8MkAMqLypfQOPLrmbwAQgeqZAIW5KKA3gHUjEU3knwNVQ+ygJ+Zy4jcGkFqCg4RhB/ZgbkSpXzM4ce7jk09iUrWlvsuATSZITClmWBBoW2EVcPeOWi3dSMa4MtBWpYOKhiQKtFtCQVGnTUMK5Q412XaDDw184GLnEloWODsai4IVwNKH2rltYJbzngOK6zNUf55MteTd46axnsRFXUtrUtSDu4fIraxuE8tt88cSGvsnjAnXVlKiL4loNYjuqRpLNnlGDdFg2y6xr1OlwOGqSy8gUaTPeB69HMyrMAo5laEU90FAL1aNAKN/HdVhisbWPl3Xj5Pt5RFBUXpylsvK+ZHI7p0SbE1ruY6/3x8lJ/XgPxvmIInSKLBPYUIQoF4XKh4X96z+MKnqnuGGwE50VfbGkUrhNaVNHYGK3bLlJdDUvlS8WLj3ozCTYrXLZ1t7Xuglq7pOy6HHLnxmXoXESDkcPzAXJdqHGFQxaNaN6k9ZfvwgHa2QYNPlOwtKlz/ZM0FfRIXS0KWpE2rpZLSY4LfqGmrXlR+EZ7uNYMii5Y6VMKG6bA4arT/B/Woxmw8H5n+VRCrf2N+6PkJMSdYjWnchroeHmaC07jki4zGaGZ/vzqQ0Oa8+cv92fV33GMVgnC79hBZCdgM13oIT7Yf9LcQMVUctB5/5SCZmaoODumSz8tacZvqkoBrKdlk3n0n/byYUafv9xDtofIAiQQ7dZdWLeALxU7aANrugasgNCOo0oKLtkVDP6Zw4dVpGxP2/3Nnby6uYYd9xnz1m1hb6UCaV7+PivnaPrtrd1xb2Bf2aLKB8X5mAVcK29LVLfJFvzeTd4FOR0xKiQxtOu9Y+A6ch4sJcHbmT5/yeCdqe2UwWa+monuSFMPl+sj/czqzDrz+0Q2ysujAuHRp5Zb0TMPuwKubq518DjE3LgfFpeLy7N23nbuyBeH1GKqedqChW8acmWEx+AboFfrzOQGkgPrntmJDz00VHK27U+IQK1jwolyT0NpZ0ygvdO7AFL2e5veMK+d//umzoAXfpFlW5N1WmtiymHiWd1jB57VTTatdIOreWEr2a4zHtRhGDYU+c9Qj6OKv3YclP/WM58mNixt1P8lrh6pjvwfPfzudlrG38NHOR94xvWJtutO39Dgjvv522LUzZvnLGWQlT/ncy7uNcTsfPa5oFx83EU3f9wpi26mz47Gl+oTaK/9oH0+3KdaEmMn2YA1uW1H20R6KaY+/wJWz2f+
+sidebar_class_name: "post api-method"
+info_path: api/ansible/ansible-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ansible/{hostId}/runs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs a playbook, an ad-hoc module or a facts gather on the control host. Needs edit access to the control host and to every Termix host picked as a target.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["kind"],"properties":{"kind":{"type":"string","enum":["playbook","adhoc","facts"]},"playbook":{"type":"string"},"hostIds":{"type":"array","items":{"type":"integer"}},"limit":{"type":"string"},"tags":{"type":"string"},"check":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The run that was started."},"400":{"description":"A value is not valid, or Ansible is missing."}}}
+>
+  
+</StatusCodes>
+
+
+      

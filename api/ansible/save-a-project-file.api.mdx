@@ -1,0 +1,70 @@
+---
+id: save-a-project-file
+title: "Save a project file"
+description: "A playbook is syntax checked on a temporary copy first, and the old file stays when the check fails."
+sidebar_label: "Save a project file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv40YM/isETy0wsdOiJ9+yRQtkewkSL4IiMApaoq2JpRntDGVHFfTfC87Ij6ybAnupLpL4mo/k8OOAJcci2Fasd7jAO2hr6tfe78BGiL0TeoOi4mLHJXgHBMJN6wOFHgrf9rCxIYoBciVIxeDrEja2ZohCfYRDxS7JUwjYkK3jDA0KbSMuXvDORbuuGVcGWwrUsHBQxYBW0bQkFRp01DAusPJR7ks0GPhrZwOXuJDQscFYVNwQLgaUvlVL64S3HHAcV9mao3zyZa8m3zoX3gk7URW1bW0L0lLMX6PWY7iO7devXMg7FC9HoMJvknIJvuUglqM6JuU5QJRg3RbHyfxakR6NH1vvYo7x8+2tvt4364n2XM400i//pl5WDHq2dtJ5gT3VtgQfUkMuW5v6kiKNBhuWypda/E6zzOBx3tbd1robau2cctPmQ27IONeGo8HIYX9sXxdqXOCQRSOab6D96bsASw6NfYNsgwb3FCyt65zwJE1JbairRS+ASBsX87kkxxm/UdPWPCt8o0VbKYKiC1b6BGHNFDjcdYr/ZTWaAQvvd5YvJdTaP7g/SS5CPGnfM5TLQKdmKRacrp7+ZyM008fvPjSkmD8/L6+yf+IYrXcgfscOIjsBm8dED/HB/p3uIFRMJQegCJ9S0NOUJcfU+MuUTthyVmjyEGWT8xi9HuRDRJ+fl5DtIbIACUS7dTfWzeBZR7kNrHANWAGhHUeVFFyyKxj8nsOHWSS0l+X+7krePdzDjntlliDWbeFgpQJp3v66Sudk+v2l3XFv4FDZosoHxfMxM7gXoEKiuk224A9u8i7I6ZRRIaon13vHwHXkPFdKKI9nKvotX94zPxzH/0gLFzxh3cangllRjyNrwt3DvY4Nh5jT/ml2O7u9KsZj5+DocST3mBBTeVP5AgrfNOTKCJvgGyBQRgy+Bh1vk9MnB9bt2YkPPTRUcrbtL8ZYrWPqcuujNJTYc7pySlRA0Aav3AkTX7yDOZyJ+H9bQvn+abnnbU3WKfhEXMeevOCZ9tDgRHxocHHaRSmXlUnLSR2GYU2Rv4R6HFX8teOgdLQ601sip9JG/S5xsaE68n8U44fHac/8CB9hPo696xOL1p3+ocEd9+e1Oa5Gg/naJwRZ+Ws+52apIc7OV5tQqfG0GR6+KKetp4Xa+FJdAh10KdIhn+1TKok/k2zAmty2o22ioBRSn38AcNfwvg==
+sidebar_class_name: "put api-method"
+info_path: api/ansible/ansible-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save a project file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/ansible/{hostId}/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A playbook is syntax checked on a temporary copy first, and the old file stays when the check fails.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["path","text"],"properties":{"path":{"type":"string"},"text":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"400":{"description":"The path is not valid or the syntax check failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -74,7 +74,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-AI",
     "docs": "https://docs.termix.site/plugins/ai",
-    "latest": "1.3.1",
+    "latest": "1.4.0",
     "features": [
       "Ask about your hosts, snippets, fleets, alerts, automations and more",
       "Proposes changes instead of making them, and nothing runs until you approve it",
@@ -103,7 +103,8 @@
       "users:impersonate",
       "users:read",
       "events:core",
-      "process:spawn"
+      "process:spawn",
+      "operations:invoke"
     ],
     "env": [],
     "dependencies": {},
@@ -112,8 +113,14 @@
     "videoId": "5usBJanMqiI",
     "versions": [
       {
-        "version": "1.3.1",
+        "version": "1.4.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:56:11.000Z"
+      },
+      {
+        "version": "1.3.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-01T23:03:02.000Z"
       },
@@ -134,12 +141,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T20:42:58.000Z"
-      },
-      {
-        "version": "1.1.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-18T05:22:21.000Z"
       }
     ]
   },
@@ -213,6 +214,48 @@
     ]
   },
   {
+    "id": "ansible",
+    "name": "Ansible",
+    "description": "Run Ansible playbooks and ad-hoc commands from a control host, with an inventory made from your Termix hosts.",
+    "category": "Infrastructure",
+    "icon": "Workflow",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Ansible",
+    "docs": "https://docs.termix.site/plugins/ansible",
+    "latest": "1.0.0",
+    "features": [
+      "Edit the playbooks in a project folder on the control host",
+      "Run playbooks with check mode, diff, tags, limit and extra vars",
+      "Use your Termix hosts and folders as the inventory",
+      "Live run output, a recap per host and run history",
+      "Run ad-hoc modules on any hosts",
+      "Gather and read facts from hosts"
+    ],
+    "capabilities": [
+      "hosts:read",
+      "credentials:use",
+      "credentials:read",
+      "ssh:connect",
+      "network:serve",
+      "ui:surface",
+      "operations:provide",
+      "kv:own",
+      "notify:send"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/ansible/ansible-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T20:29:36.000Z"
+      }
+    ]
+  },
+  {
     "id": "audit-tools",
     "name": "Audit Tools",
     "description": "Send the audit log to your SIEM and export it as CSV or NDJSON.",
@@ -221,7 +264,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
     "docs": "https://docs.termix.site/plugins/audit-tools",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Forward every audit entry to an HTTP collector as it happens",
       "Catch up on entries written while the collector or Termix was down",
@@ -233,7 +276,8 @@
       "network:outbound",
       "network:serve",
       "kv:own",
-      "ui:surface"
+      "ui:surface",
+      "notify:send"
     ],
     "env": [
       {
@@ -251,8 +295,14 @@
     "videoId": "bUwPFReNIvg",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:57:05.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:59:37.000Z"
       }
@@ -267,7 +317,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Automations",
     "docs": "https://docs.termix.site/plugins/automations",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
       "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
@@ -289,7 +339,9 @@
       "network:serve",
       "settings:read-core",
       "ui:surface",
-      "users:impersonate"
+      "users:impersonate",
+      "operations:invoke",
+      "operations:provide"
     ],
     "env": [],
     "dependencies": {
@@ -300,8 +352,14 @@
     "videoId": "mHCil45TCB8",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:58:29.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:11:00.000Z"
       },
@@ -322,12 +380,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:12:26.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:28:13.000Z"
       }
     ]
   },

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/audit-tools/reference"
 custom_edit_url: null
 plugin_id: "audit-tools"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -18,6 +18,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | --- | --- | --- | --- |
 | Collector URL | string |  | Every audit entry is posted here as one line of JSON. Leave empty to turn forwarding off. |
 | Bearer token | secret |  | Sent with each entry in the Authorization header. Optional. |
+| Alert when forwarding fails | boolean | `true` | Send an alert to admins when the collector stops accepting entries, and again when it works. |
 
 ## Environment variables
 
@@ -45,6 +46,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `audit:read` | Medium | Read the audit log. It can see who did what and when. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 

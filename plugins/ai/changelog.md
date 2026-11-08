@@ -6,9 +6,27 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- The assistant can find and run actions other plugins offer, such as restarting a container or service or waking a machine. Changes wait for your approval in Operations by default
+- Read only commands for drive and array health: smartctl, nvme, mdadm, btrfs, lvs, vgs and pvs
+- A Failing drive task preset: when Storage Health finds a failing or worn drive or a degraded pool or array, the assistant reads SMART and array state and reports what to do
+- A homepage widget with recent auto-ops tasks and plans waiting for approval
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Buttons next to fields in the assets and exposure settings are as tall as the fields
+
 ## 1.3.1
 
 ### Fixed

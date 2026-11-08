@@ -2,12 +2,12 @@
 title: "Automations"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/automations/v/1.0.1"
+slug: "/automations/v/1.2.0"
 description: "Run steps on your hosts on a schedule or when something happens."
 hide_title: true
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 Automations run steps on your hosts when something happens. Restart a service when it stops answering, clean up a disk when it fills, wake machines in the morning, or send yourself an alert when a container dies.
@@ -30,6 +30,12 @@ The Runs list shows every run: what started it, how long it took, whether it wor
 
 If it is already running decides what happens when the trigger fires again before the last run is done: skip the new run, wait and run after, or run both at once.
 
+### On the dashboard and beside a terminal
+
+Add the Upcoming automations and Automation runs cards in the dashboard's edit mode. The first lists scheduled automations by when they run next, the second the latest runs.
+
+The Automations panel beside an SSH terminal shows that host's maintenance state, the automations that use the host, and their latest runs. Open it from the terminal edge or its tab menu. Turn it off for a host with Panel beside the terminal.
+
 ## Maintenance
 
 Doing work on a host? Open its Maintenance settings and press Start now, or schedule a window once, weekly or monthly. While a host is in maintenance, automations that watch its status, health checks, metrics, containers and tunnels don't fire for it. Scheduled automations and manual runs still work.
@@ -48,6 +54,7 @@ Automations works on its own for schedules, webhooks, commands and alerts. Other
 | Wake a host                          | [Wake-on-LAN](/plugins/wake-on-lan)   |
 | A fleet as the target                | [Fleets](/plugins/fleets)             |
 | Run a snippet                        | [Snippets](/plugins/snippets)         |
+| Ask AI                               | [AI Assistant](/plugins/ai)           |
 
 The editor only offers what is available. If a plugin an automation needs is turned off later, the automation shows Needs and its runs are skipped until the plugin is back.
 

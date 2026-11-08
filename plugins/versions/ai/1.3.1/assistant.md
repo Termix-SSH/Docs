@@ -1,10 +1,10 @@
 ---
 title: "AI assistant"
 sidebar_position: 12
-slug: "/ai/v/1.1.0/assistant"
+slug: "/ai/v/1.3.1/assistant"
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.1.0"
+plugin_version: "1.3.1"
 plugin_latest: false
 ---
 The AI assistant works on all of Termix for you: it reads and changes hosts, credentials, snippets, fleets and alerts, opens views, and, if an admin allows it, runs shell commands on the hosts you pick.

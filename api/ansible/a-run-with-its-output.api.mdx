@@ -1,0 +1,69 @@
+---
+id: a-run-with-its-output
+title: "A run with its output"
+description: "The newest 200 KB of output and the recap per host. Needs edit access."
+sidebar_label: "A run with its output"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVGP2zYM/isEn1ZAl2RFn/yWAttwLVAUbYbDcAgKxWZiNTblivTlvMD/fZDkS7KlV6xA0Sfb1Cfy+yjq8xErkjK4Tp1nLHBVEzAdSBReLhbw9jX4Lfheu17BcgVaEwQqbQcdBai96AzeEVUCVDkFW5YkMkODaneCxT0uWdymIVwb7GywLSmFuHBEF+t1Vms0yLYlLDDmu63QYKAvvQtUYaGhJ4NS1tRaLI6oQxeRjpV2FHAczVczhZ7/XyLR4HiH47iOYOk8C0lcf7lYxMd1e0LPMxwNvlq8uga88yB9WU+g0WBLWvsKC9yRosksC5x3Tb9zfGM7N7e5Q/NjVj/OQ88yPyYFIxoUCg9PPetDgwUecygu/rv6X74PsKLQukfIGDT4YIOzmyarmqKJ99b2jcauq3ZSzOeaNs7o0bZdQ7PStzimvgiVfXA6JAobsoHCso867tex/aX3e0eXEdu5tzScIhcpPsb+ZyqXiU7HEbngdEzxO4PQTC+/+9DayPnN3epK/UcScZ5B/Z4YhFjBcZrYWMQH97eNSKjJVhTACrxOSU+DnTams72UdOKWVaHJ85Yh54n7fNBnGb25W0HGg5CCVRC34xvHM7iriaELFOkacApq9yQxUlJFXBL4BwrPqkhsL9v93Z1cvr+FPQ0gaoM63sHBaQ3aPn66knOCfn9r9zQYONSurHMhOZeZwW00DpW4bcKCP/C0u7TMPgHiuuXBMwE1Qvl+Od76pNppE2VOfgPL97dx9ilI5v7rbDFbXCn60DM87egaO2y830sqa6ub2pdQ+ra1XAlsg2/BQulZg2+S85mswTI4fiBWHwZobUUZO1zcxYiWdFSdF20tR8bT3CyjV+RMTmXy2v8SjZeMlVh/qEXnQVF61HnXWMeRYHKY4+RT93j2KTQ4ORUaLM5O3bPEQDbctUkeHncejxsr9GdoxjGGv/QUooGsz4aU7KRyEt8rLLa2EfqG7l8+TF7+Ap4j/3RReUi+1/TxCw3uaTj/XaJB/cSquTHj+vJf8MdvKxzHfwCeLY/g
+sidebar_class_name: "get api-method"
+info_path: api/ansible/ansible-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"A run with its output"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ansible/{hostId}/runs/{runId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The newest 200 KB of output and the recap per host. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"runId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The run."},"404":{"description":"No such run."}}}
+>
+  
+</StatusCodes>
+
+
+      

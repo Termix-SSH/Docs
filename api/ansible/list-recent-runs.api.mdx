@@ -1,0 +1,69 @@
+---
+id: list-recent-runs
+title: "List recent runs"
+description: "The newest 60 runs kept on the control host."
+sidebar_label: "List recent runs"
+hide_title: true
+hide_table_of_contents: true
+api: eJydlMFu40YMhl+F4KkFJrZ3D3vQLQXaIts9LHZdBEVgFLTEWFNLHO0MFUcV9O4FNUrsNEiB7cky9XPmI0X+I1acyug79UGwwG3NIHzipPBhA7GXBEfuFIKA1gxlEI2hgTokXaFDpUPC4g6vJfl9w7hz2FGklpWjvRjR26kdaY0OhVrGAi35pkKHkb/1PnKFhcaeHaay5pawGFGHzpRelA8ccZp2pk5dkMTJBO83G/t5DW/IK5wmhy1rHSos8MCKLjMUuO6a/uDlijq/pky9HjPRtLZkdJg4Pjzx97HBAsccmtD968o/Qh9hy7H1j5A16PCBoqd9k0mX6Ax7T32j1gHVLhXrtc6JK36ktmt4VYYWp7nWxGUfvQ4zwp4pcrzujf9uN7kRyxCOni8j1PnfeHiOXBzx1ZqaUS4Peu6xseDSe/ufReiWh19CbMmYP95uX1X/lVPyNhrhyAKJRcHnQbFLQvR/kymhZqo4AiX4aT4USKpZNieucHIvSnpmy1Why1OUJec5+uukbxJ9vN1C1kNiBVJI/iBXXlZwW7NAF9lwHXgFpSMni5RcsZQM4YHjm1XMtJft/u5OXn++gSMPkJSiejnAyWsN2j7++aqcZ+n3t/bIg4NT7cs6X5TO16zgRoFKTZa2aCGcZMkuSSTMAntPMgRh4CZx3isv92Gu2mtjZS67D9efb2z2OabM/m61WW1eVfSlF3jK6Boa9iEc03wtVVd1KKEMbUtSJbiPoQV6YTku10ACXh5YNMQBWqo4a4eLXTR1mj9VF5K2JEa8zM0nnxTsa4vCsvEvGG2/RFn0f/hhngTlR113DXkxgtlCxsWA7vBsQOhwsSB0WJxt0Zh2bvZJSxjHPSX+PTbTZOFvPUczht3ZaGabqHyy5wqLe2oS/0dRP3xZjPdHeIv5aQFlmP2s6e0fOjzycHbwaXdps7/+vMVp+gexWS39
+sidebar_class_name: "get api-method"
+info_path: api/ansible/ansible-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List recent runs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ansible/{hostId}/runs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The newest 60 runs kept on the control host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The runs."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,10 +1,10 @@
 ---
 title: "Steps"
 sidebar_position: 12
-slug: "/automations/v/1.0.1/steps"
+slug: "/automations/v/1.2.0/steps"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 Steps are what an automation does. They run in order, top to bottom.
@@ -20,6 +20,7 @@ Steps are what an automation does. They run in order, top to bottom.
 | Control a tunnel       | Connects or disconnects a saved tunnel.                                                                                               |
 | Wake a host            | Sends a Wake-on-LAN packet.                                                                                                           |
 | Call a URL             | Sends an HTTP request with a method, headers and body.                                                                                |
+| Ask AI                 | Has the [AI Assistant](/plugins/ai) look into a problem on hosts and report back. See [Ask AI](#ask-ai).                              |
 | Wait                   | Pauses for some seconds, like after a restart.                                                                                        |
 | Set a variable         | Saves a value for later steps, as `{{vars.name}}`.                                                                                    |
 | If / otherwise         | Runs steps when a condition is true, and others when it isn't. Conditions can nest.                                                   |
@@ -27,6 +28,27 @@ Steps are what an automation does. They run in order, top to bottom.
 | Stop                   | Ends the run as a success or a failure.                                                                                               |
 
 Call a URL blocks addresses on your private network by default. Turn on Allow local network addresses for a step that calls something on your LAN, and an admin has to allow the host first.
+
+## Ask AI
+
+Ask AI hands a runbook to the [AI Assistant](/plugins/ai). It looks into the problem on the hosts you pick and writes a report you can open in the assistant.
+
+- Runbook says what to look at and what a good answer looks like, in plain words. It can use templates, like `{{host.name}}`.
+- What the AI may do is Report only, or Propose a fix for approval. A proposed fix waits for someone to approve it in the AI Assistant, so the run doesn't wait for it.
+- Title names the report. It defaults to the automation name and the host.
+
+The AI gets what set the run off, like the metric, its value and the threshold, and your variables. It only reaches hosts you can, and only runs read-only commands while it looks.
+
+When it is done, later steps can use:
+
+| Template                | Gives you                                      |
+| ----------------------- | ---------------------------------------------- |
+| `{{vars.ai.status}}`    | `reported`, `proposed`, `skipped` or `failed`. |
+| `{{vars.ai.severity}}`  | `info`, `warning` or `critical`.               |
+| `{{vars.ai.summary}}`   | A sentence or two on what it found.            |
+| `{{vars.ai.taskRunId}}` | The task's id in the AI Assistant.             |
+
+The AI Assistant can skip a run, like when it is already looking into the same host. The step still succeeds and says why. A test run only reports and sends nothing.
 
 ## Picking hosts
 
@@ -64,9 +86,9 @@ When both sides look like numbers they are compared as numbers, so `10` is more 
 
 Each step has an on error setting:
 
-- **Stop** ends the run. The default.
-- **Continue** moves on to the next step.
-- **Branch** follows the otherwise path of the condition around it.
+- Stop ends the run. The default.
+- Continue moves on to the next step.
+- Branch follows the otherwise path of the condition around it.
 
 Each step has a timeout, 60 seconds by default, and the whole run stops after 300 seconds.
 
@@ -74,12 +96,12 @@ Each step has a timeout, 60 seconds by default, and the whole run stops after 30
 
 Restart nginx when it stops, and only tell someone if that didn't fix it:
 
-1. **Run a command** `systemctl is-active nginx` on the triggering host, on error Continue. Id `check`.
-2. **If** `{{steps.check.stdout}}` `!=` `active`
-   - **Run a command** `systemctl restart nginx`, with sudo
-   - **Wait** 10 seconds
-   - **Run a command** `systemctl is-active nginx`. Id `verify`.
-   - **If** `{{steps.verify.stdout}}` `!=` `active`
-     - **Send an alert**: `nginx on {{host.name}} won't come back up`
+1. Run a command `systemctl is-active nginx` on the triggering host, on error Continue. Id `check`.
+2. If `{{steps.check.stdout}}` `!=` `active`
+   - Run a command `systemctl restart nginx`, with sudo
+   - Wait 10 seconds
+   - Run a command `systemctl is-active nginx`. Id `verify`.
+   - If `{{steps.verify.stdout}}` `!=` `active`
+     - Send an alert: `nginx on {{host.name}} won't come back up`
 
 The first step continues on error because a stopped service exits with a non-zero code, which is exactly the case you are looking for.

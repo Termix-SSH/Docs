@@ -2,10 +2,10 @@
 title: "Reference"
 sidebar_label: "Reference"
 sidebar_position: 90
-slug: "/automations/v/1.0.1/reference"
+slug: "/automations/v/1.2.0/reference"
 custom_edit_url: null
 plugin_id: "automations"
-plugin_version: "1.0.1"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 ## Settings
@@ -17,6 +17,19 @@ Each person sets these for themselves in **Settings**.
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Always show buttons | boolean | `false` | Keep the test, run and delete buttons under each automation visible. Turn off to show them only on hover. |
+| Open the automations panel with a terminal | boolean | `false` | Show the automations panel when a terminal opens on a host that has it. |
+| Automations panel side | select | `"right"` | Where the panel sits next to the terminal. |
+| Automations panel size | number | `320` | Width, or height at the bottom, in pixels. |
+| Automations panel edge button | boolean | `true` | Show a small button on the terminal edge to open the panel. |
+
+### Host
+
+Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Enable maintenance | boolean | `false` | Show maintenance mode for this host. |
+| Panel beside the terminal | boolean | `true` | Offer a automations panel next to this host's SSH terminal. |
 
 ## Permissions
 
@@ -72,6 +85,7 @@ Services are how plugins call each other. Plugin authors can use these.
 | `docker.events` | ^1.0.0 | yes |
 | `host-metrics.viewers` | ^1.0.0 | yes |
 | `wake-on-lan.send` | ^1.0.0 | yes |
+| `ai.tasks` | ^1.0.0 | yes |
 
 ## Platforms
 

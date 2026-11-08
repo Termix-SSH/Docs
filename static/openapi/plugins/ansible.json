@@ -1,0 +1,490 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Ansible API",
+    "version": "1.0.0",
+    "description": "Run Ansible playbooks and ad-hoc commands from a control host, with an inventory made from your Termix hosts."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ansible/summary": {
+      "get": {
+        "summary": "Recent Ansible runs on every host",
+        "description": "One entry per host with Ansible turned on, checked as the caller and cached for a minute unless refresh=1.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/status": {
+      "get": {
+        "summary": "Ansible status on a control host",
+        "description": "Whether Ansible is installed, its version, the project folder and whether sshpass exists.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "404": {
+            "description": "No access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/files": {
+      "get": {
+        "summary": "List the files in the project folder",
+        "description": "Playbooks, roles, variables and templates, up to four folders deep. Playbooks are flagged.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The files."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/file": {
+      "get": {
+        "summary": "Read a project file",
+        "description": "Needs edit access to the host.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The path and its text."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save a project file",
+        "description": "A playbook is syntax checked on a temporary copy first, and the old file stays when the check fails.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "path",
+                  "text"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "The path is not valid or the syntax check failed."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a project file",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/targets": {
+      "get": {
+        "summary": "Hosts that can be used as the inventory",
+        "description": "Termix hosts the caller has edit access to, with their folder and tags.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/runs": {
+      "get": {
+        "summary": "List recent runs",
+        "description": "The newest 60 runs kept on the control host.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The runs."
+          }
+        }
+      },
+      "post": {
+        "summary": "Start a run",
+        "description": "Runs a playbook, an ad-hoc module or a facts gather on the control host. Needs edit access to the control host and to every Termix host picked as a target.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "playbook",
+                      "adhoc",
+                      "facts"
+                    ]
+                  },
+                  "playbook": {
+                    "type": "string"
+                  },
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "limit": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "string"
+                  },
+                  "check": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run that was started."
+          },
+          "400": {
+            "description": "A value is not valid, or Ansible is missing."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/runs/{runId}": {
+      "get": {
+        "summary": "A run with its output",
+        "description": "The newest 200 KB of output and the recap per host. Needs edit access.",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run."
+          },
+          "404": {
+            "description": "No such run."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a finished run",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/runs/{runId}/facts": {
+      "get": {
+        "summary": "Facts from a finished facts run",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/ansible/{hostId}/runs/{runId}/cancel": {
+      "post": {
+        "summary": "Stop a running run",
+        "tags": [
+          "Ansible"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stop was sent."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

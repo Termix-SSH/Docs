@@ -1,0 +1,69 @@
+---
+id: ansible-status-on-a-control-host
+title: "Ansible status on a control host"
+description: "Whether Ansible is installed, its version, the project folder and whether sshpass exists."
+sidebar_label: "Ansible status on a control host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VVGL40YM/itCTy3MJmm5J79toT32CuW4S1nKEopiK/Fc7BnfSE7iGv/3MjPeJN1lD+6hT7Hlb6Tv00hfRqxYymA7td5hgY81a80B7p3YbcNgBawTpabhyoBVgSMHsd4Z0JqhC/4Llwo731QcgFwFpzmDSN2RCPDZisoCDSrtBYsnnHPjxmBHgVpWDvHDiDZS6EhrNOioZSyw9qIPFRoM/LW3gSssNPRsUMqaW8JiRB26iLROec8Bp2kT0dJ5JywR8PNqFX/+q3RdM4iS9rLAyeC71bvXmD88UFmyCKhPeiObBU6TwZa19hUWuGdFk0kXuOyafm/dHXV2SVnmcswSpmWuhgaFw/FZch8aLHDMoQnNCwZ/+T7AmkNrz5AxaPBIwdK2yeLmaOK+o77R2DTVTorlUtPBBZ+p7RpelL7FKbVHuOyD1SFR2DIFDvd9VPC0mcyIpfcHy7cR6uzvPFwiNyk+x3vIVG4TXa4lcsH5uuJ7BqGZH37zoaXI+cPj+pX6zyxx1kD9gR0IOwXr0kXEIj7YfygioWZK4yfwS0qaBjHC0sF0v7eSLtyyKjR58DLkOnpfTvomow+Pa8h4EFYgBbF7d2fdAh5rdtAFjnTjyoDSgSVGSq7YlQz+yOFNFYntbbu/u5P3Hx/gwEOc7qDW7eFktQZtz3+/knOBfn9rDzwYONW2rHMhuZZZwIMClSrx2IwFf3Lz6ZKc8wkQv5MbvGPgRjhvlnU7n1RbbaLMZyu6//gQZz/bDxb402K1WL1S9Kl3F/PqGhq23h8klaXqrvYllL5tyVUCu+BbICi90+CbtNomayAH1h3ZqQ8DtFRxxg43uxjR2Tg6L9qSi4znuXkun/cdvHtR5SXnuG9O2en/7b95jJTPuuwasi7ST/4zzv71hFf/QoOzg6HB4mLDs4ltTHLmeGQctyT8Z2imKYa/9hyir2yuPpVcprISnyssdtQIf6MHP3yarf5HeIv18/66Idlh08c3NHjg4fqfMW1uffr9r2ucpn8BmP9oog==
+sidebar_class_name: "get api-method"
+info_path: api/ansible/ansible-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Ansible status on a control host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ansible/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether Ansible is installed, its version, the project folder and whether sshpass exists.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"404":{"description":"No access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

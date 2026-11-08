@@ -6,9 +6,29 @@ slug: "/automations/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "automations"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Added
+
+- Run an automation as a Termix action, from the command palette, the CLI, the phone app or another automation
+- Run an action step: any action a plugin offers, with its own form, on the trigger host, picked hosts or a fleet
+- An event happens trigger: start an automation when a plugin reports an event or an action fails
+- A failed runs status tile and a homepage widget with the latest runs
+
+### Fixed
+
+- The automations dashboard card scrolls as one list instead of squeezing your automations and runs into two small boxes
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- The maintenance page and the Automations tab use the Termix page header and tile look
+- Form labels match the rest of Termix
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.2.0
 
 ### Added
