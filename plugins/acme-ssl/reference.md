@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/acme-ssl/reference"
 custom_edit_url: null
 plugin_id: "acme-ssl"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -38,13 +38,23 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `operations:provide` |  |  |
 | `system:tls` | Critical | Manage certificates. It can replace the certificate Termix serves over HTTPS and answer domain checks from certificate authorities. |
+| `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+
+## Services
+
+Services are how plugins call each other. Plugin authors can use these.
+
+| Uses | Version | Optional |
+| --- | --- | --- |
+| `dns.records` | ^1.0.0 | yes |
 
 ## API
 

@@ -2,10 +2,10 @@
 title: "Reference"
 sidebar_label: "Reference"
 sidebar_position: 90
-slug: "/alerts/v/1.0.0/reference"
+slug: "/alerts/v/1.2.0/reference"
 custom_edit_url: null
 plugin_id: "alerts"
-plugin_version: "1.0.0"
+plugin_version: "1.2.0"
 plugin_latest: false
 ---
 ## Settings

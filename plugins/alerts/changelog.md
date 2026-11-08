@@ -6,9 +6,26 @@ slug: "/alerts/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "alerts"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Send yourself an alert through Termix actions, so rules, rollouts and the CLI can notify you, and see unread alerts as a status tile
+- Open Alerts from the command palette
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- The Alerts tab has the Termix page header and fills the width of the tab
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Password fields with the show button are the same height as the other fields next to them
+
 ## 1.2.0
 
 ### Added

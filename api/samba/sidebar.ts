@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "samba/samba-state-on-every-host",
+          label: "Samba state on every host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "samba/samba-status-on-a-host",
           label: "Samba status on a host",
           className: "api-method get",

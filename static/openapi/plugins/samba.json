@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Samba Shares API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create and manage Samba (SMB) file shares, users and permissions on your hosts from one tab."
   },
   "servers": [
@@ -63,6 +63,29 @@
     }
   ],
   "paths": {
+    "/plugin-api/samba/summary": {
+      "get": {
+        "summary": "Samba state on every host",
+        "description": "One entry per host with Samba turned on, checked as the caller and cached for a minute unless refresh=1.",
+        "tags": [
+          "Samba"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
     "/plugin-api/samba/{hostId}/status": {
       "get": {
         "summary": "Samba status on a host",

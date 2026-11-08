@@ -7,7 +7,7 @@ description: "Create and manage Samba (SMB) file shares, users and permissions o
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Samba/edit/main/docs/index.md"
 plugin_id: "samba"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Samba Shares lets you share folders on your hosts over SMB from Termix. Install Samba, create shares, add users and set folder permissions from one tab. Windows, macOS, Linux and phones can then open the shares.

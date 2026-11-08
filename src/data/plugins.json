@@ -8,7 +8,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
     "docs": "https://docs.termix.site/plugins/acme-ssl",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Certificates from Let's Encrypt or any ACME directory",
       "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
@@ -23,7 +23,9 @@
       "network:outbound",
       "network:serve",
       "notify:send",
-      "ui:surface"
+      "ui:surface",
+      "operations:provide",
+      "users:impersonate"
     ],
     "env": [],
     "dependencies": {},
@@ -32,8 +34,14 @@
     "videoId": "nJ6jDhurJRo",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:54:28.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T17:49:29.000Z"
       },
@@ -144,7 +152,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
     "docs": "https://docs.termix.site/plugins/alerts",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "One inbox for alerts from every part of Termix",
       "Popups for new alerts",
@@ -162,7 +170,9 @@
       "notify:hub",
       "secrets:own",
       "settings:read-core",
-      "ui:surface"
+      "ui:surface",
+      "operations:provide",
+      "notify:send"
     ],
     "env": [],
     "dependencies": {},
@@ -171,8 +181,14 @@
     "videoId": "NKtTox5jfP4",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:54:49.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-29T22:14:01.000Z"
       },
@@ -193,12 +209,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:28:09.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T05:56:26.000Z"
       }
     ]
   },
@@ -1635,7 +1645,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Samba",
     "docs": "https://docs.termix.site/plugins/samba",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Install Samba and start, stop or restart it on a host",
       "Create, edit and delete SMB shares with access options",
@@ -1650,7 +1660,8 @@
       "ssh:connect",
       "network:serve",
       "users:impersonate",
-      "ui:surface"
+      "ui:surface",
+      "operations:provide"
     ],
     "env": [],
     "dependencies": {},
@@ -1659,8 +1670,14 @@
     "videoId": "eplAs0N9I60",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-08T19:51:59.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-21T23:07:52.000Z"
       }
