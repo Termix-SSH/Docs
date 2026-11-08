@@ -32,17 +32,18 @@ On Termix 26.10.2 and later it can also read Termix itself through the CLI, sign
 
 ## Presets
 
-| Preset                    | When                                 | Level          |
-| ------------------------- | ------------------------------------ | -------------- |
-| Daily patrol              | Every day at 09:00                   | Report only    |
-| Disk space cleanup        | A disk at 85% or more for 5 minutes  | Propose a plan |
-| Host down triage          | A host goes offline                  | Report only    |
-| Service failure           | A health check starts failing        | Propose a plan |
-| Container anomaly         | A container exits or turns unhealthy | Propose a plan |
-| CPU overload              | CPU at 95% or more for 15 minutes    | Report only    |
-| Memory overload           | Memory at 95% or more for 10 minutes | Report only    |
-| Weekly security updates   | Mondays at 09:30                     | Report only    |
-| Weekly certificate expiry | Mondays at 09:45                     | Report only    |
+| Preset                    | When                                          | Level          |
+| ------------------------- | --------------------------------------------- | -------------- |
+| Daily patrol              | Every day at 09:00                            | Report only    |
+| Disk space cleanup        | A disk at 85% or more for 5 minutes           | Propose a plan |
+| Host down triage          | A host goes offline                           | Report only    |
+| Service failure           | A health check starts failing                 | Propose a plan |
+| Container anomaly         | A container exits or turns unhealthy          | Propose a plan |
+| CPU overload              | CPU at 95% or more for 15 minutes             | Report only    |
+| Memory overload           | Memory at 95% or more for 10 minutes          | Report only    |
+| Weekly security updates   | Mondays at 09:30                              | Report only    |
+| Weekly certificate expiry | Mondays at 09:45                              | Report only    |
+| Failing drive             | Storage Health finds a drive or array problem | Report only    |
 
 The enable form shows each preset's runbook. Change it there, and press Save as preset to keep it as your own. Turn on Share when saved as a preset to offer it to everyone who may use auto-ops.
 
