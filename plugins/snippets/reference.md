@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/snippets/reference"
 custom_edit_url: null
 plugin_id: "snippets"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -54,6 +54,15 @@ Give these to roles in **Settings**, **Roles**.
 | `snippets.delete` | user | Delete snippets and folders. |
 | `snippets.share` | user | Share snippets and folders with other users or roles. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `snippets.list`<br />List snippets | The server | Read only |  |
+| `snippets.run`<br />Run a snippet | A host | Changes | `snippet` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
@@ -67,6 +76,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |

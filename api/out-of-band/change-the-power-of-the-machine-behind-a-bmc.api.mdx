@@ -1,0 +1,70 @@
+---
+id: change-the-power-of-the-machine-behind-a-bmc
+title: "Change the power of the machine behind a BMC"
+description: "Change the power of the machine behind a BMC"
+sidebar_label: "Change the power of the machine behind a BMC"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVUtv2zgQ/iuDOe0CtJ0u9qRbEuwCbhHUSFwEi8BY0NRYYiyRKjmy4zX03xdDqrZbt4foYnPez2+OyLqKWLzg554nfjNZa1fiSmGng26JKQjziNZhgZ3mGhU63RIWaEtUGOhrbwOVWHDoSWE0NbUaiyPyoUtSjqmigMOwytIU+c6XBxH5Udl4x+RYWLrrGms0W+9mr9E7oV3Z9utXMowKu+A7CmwpJl0jahdykYN1FSok17eSq3eo0G82qLAK2tCmbyax7rn0e+GYg2koJReJcTWkLz0772J28sfNjfyUFE2wXXaIy5rg7uEetDHUMZXANYGptasIB4V//kzni9s6v3cwRi2Ovhe4T/rJVOf3FMBv0qPVpraOYE21dSVo8YwKW+Lal9ItH1NtpGkFzrqmr6yb6M7O/LnVs5J21lCcHW05zJJ9VBgp7L51vg8NFnjMpAF/jO4f3wdYUmjtG2QZVLjTwep1kys1UlPiG903jAXWzF0sZjNOilN6023X0NT4Foc0KZFMHywfUghr0oHCbS+JvKwGdUTj/dbSJUV39hMdTpQLE08yNjmUS0On6ZBYcJxceWchVOOfv31otcT88Xl5lf0TxWi9A/ZbchDJMViXuiNOfLD/pRGGmnRJAXSEu2QUtMvDkRSnMhyXKZ1iy1mhyvuXRc4b+LrnX0b08XkJWR4iMWiGaCs3sW4KzzU56GS4HSuwDKy3FIViqCRnCPyOwi+zSNFelvvdlbxdzGFLB4isA1tXwd5yDdy+/XuVzkn0/aXd0kHBvramzo7i2c0U5iwLF0VtlAW/d6O20c75JCB87Q7eEVATaZrWU/Do8Yxkf+XhvUQeAZhBmrbxqTyWhX8JsXC7mMuiUIhZ48P0Znpzlf5CFlJJ9tGHqIB2UofGVzEH6l30DUXY+DBun6BAzA18pHJjY61gvniYJ/m5Y2rg9mGZeigA0eoElONAvRNqvov1NAVMbzzrGm1TDRJ8HEcUesEzCgkCX5wcsZaQCBUW6bRkMFoprAXIihc8Htc60pfQDIOQv/YUBB9WZ7xJaFHaKP9LLDa6iXQV5unK4G+P4wH6HVD9PPxve+gOCdaaXl6ocEuHfAKH1aAwz2Dynhn32cdkKepnxaurJjh1AuzF5ydBmPV4HVtfik7QezlFep8d+5RHQrNEO2KjXdXrKgFCsinf/8kVsKA=
+sidebar_class_name: "post api-method"
+info_path: api/out-of-band/out-of-band-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change the power of the machine behind a BMC"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/out-of-band/devices/{id}/power"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Change the power of the machine behind a BMC
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","enum":["on","off","graceful-shutdown","cycle","reset"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The BMC accepted the change"},"400":{"description":"Unknown action"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -30,6 +30,24 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "sso/the-current-users-sso-links",
+          label: "The current user's SSO links",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "sso/start-linking-an-sso-provider",
+          label: "Start linking an SSO provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "sso/unlink-an-sso-provider",
+          label: "Unlink an SSO provider",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "sso/oidc-back-channel-logout",
           label: "OIDC back-channel logout",
           className: "api-method post",

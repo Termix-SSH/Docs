@@ -30,8 +30,11 @@ Capabilities are not user permissions. A capability says what the plugin's code 
 | `ssh:transport` | Choose how hosts are reached | It can carry the SSH connection to a host over its own route, so it sees everything sent to and from those hosts, passwords included. |
 | `device:serial` | Access serial and USB devices | It can open a physical serial port on the machine running Termix. |
 | `notify:hub` | Receive every alert | Stores and delivers the alerts all plugins send, including their contents. |
+| `operations:invoke` | Run other plugins' actions | Acts for the signed-in user on the actions its manifest lists. Approval rules still apply. |
+| `operations:approve` | Decide what needs approval | Can let actions run with no approval, or block them, for every user. |
 | `ui:layout` | Replace the whole app layout | When chosen, its code draws every screen, including your terminals and settings. |
 | `hosts:export` | Export hosts with their secrets | Can read your hosts in full, including saved passwords and keys, and hand them out. Every export is written to the audit log. |
+| `hosts:connect-policy` | Decide who can connect | Can block or allow every SSH and remote desktop connection to any host. |
 | `desktop:local` | Use this computer | Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
 
 ## Medium
@@ -51,6 +54,7 @@ Capabilities are not user permissions. A capability says what the plugin's code 
 | `users:read` | See usernames and roles | Never password hashes, never two factor state. |
 | `events:core` | Watch everything happening | Including activity from other users, not just yours. |
 | `notify:send` | Send alerts | To you or other users, and through the channels they set up. |
+| `operations:provide` | Offer actions | Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `audit:read` | Read the audit log | It can see who did what and when. |
 | `desktop:window` | Open desktop windows | Only in the Termix desktop app. |
 

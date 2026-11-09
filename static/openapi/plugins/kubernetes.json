@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Kubernetes API",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Manage Kubernetes clusters from your hosts over SSH, with logs, metrics, YAML and a shell."
   },
   "servers": [
@@ -71,6 +71,13 @@
           "Kubernetes"
         ],
         "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
           {
             "in": "query",
             "name": "refresh",

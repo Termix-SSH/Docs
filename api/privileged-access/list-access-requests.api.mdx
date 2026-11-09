@@ -1,0 +1,69 @@
+---
+id: list-access-requests
+title: "List access requests"
+description: "scope=mine (default) is the caller's own. pending, active and all need privileged-access.approve; pending only lists requests the caller may decide."
+sidebar_label: "List access requests"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcmO4zYQ/ZVCXZIAbNlZTgpy6ABJ0JMgaGAcNIKGEVRLZYsxRWrIkt2KoX8flCgvM0Yf5paTaaqW92p5PGLNqYq2Exs8lpiq0PFPrfUMX9e8od7JN2ATSMNQkXMcv0oQDr6Ajn1t/dYAVWL3DORrIOfAM9fQRbu3jrdc31FVcUoFdV0Me/7x5AfBuwGcTZIg8oee9XDJAi0NUHNlay7QoNA2YfmMj+e4cD/FxbXBjiK1LBzV5IhWeXzoOQ5o0FPLJ1poMFUNt4TlEWXopg8Srd+iQfZ9qxmUOhqcUaLBTE8PzuF6HNcGI6cu+MRJA323XOrPp2VcNXxmZcDzgZPAxsYkBY4Gf1h+f+vzJ3Od3q5cgeNosGVpQo0lblkUJkmDJS4612+tv6POLm4CLE5AlD/H/alOfXRY4jFfjWg+g/N36COsOLb2FbINGtxTtPTiMvP5diIyTQqW2Ih0qVwsZHIs+JXaznFRhRbHqXaJqz5aGSYIL0yR432vJJ7XozliFcLO8vUNdfZ3Hs43VyHeazMzlOtA594qllPP9X82QjMffg2xJcX87ml1w/49p2SDBwk79pDYC1g/zacmCdH+R2oJDVPNESjBz1PQaQ3UbHKcmn1N6Ywts0KTpzWbXMb134O8iejd0wqyPSQWIIFkt/7O+gKeGvbQRVa4BqyA0I51pLjimn3FEPYc32Qxob0u9xdX8v7xAXY8QBKKokt+sNKAtK//3NA5m355aXc8GDg0tmpyonRJU8CDqCAldZttVa5m74q8D5OBfic/BM/ALs3LZf0mTKytOKV5ozZw//igW8AxZRbfFstiecst7WATIuTNJQcvvAmRTwmr4D0rRglAVwsPTUhiMpm8uiANCbCvEwQPVibpzUoLm945oL7WNkeybupeF5K05JXEPEp/2CSnaFdC8AlgXTsv7OV//ADkQRR+lUXnyHplOynYcRbBZ7yIoCrj5wBQdXvmvzaotVan4/GFEv8V3TjqdX43VJtqm1Tpaiw35BIb3PFw9ZLsyfWKCFWRTrKYNesi0r/9ssJx/Aivb5P7
+sidebar_class_name: "get api-method"
+info_path: api/privileged-access/privileged-access-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List access requests"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/privileged-access/requests"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+scope=mine (default) is the caller's own. pending, active and all need privileged-access.approve; pending only lists requests the caller may decide.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"scope","schema":{"type":"string","enum":["mine","pending","active","all"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The requests, newest first."},"403":{"description":"Needs privileged-access.approve."}}}
+>
+  
+</StatusCodes>
+
+
+      

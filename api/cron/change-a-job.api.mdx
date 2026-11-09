@@ -1,0 +1,69 @@
+---
+id: change-a-job
+title: "Change a job"
+description: "Change a job"
+sidebar_label: "Change a job"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P20YM/SsETy0wsd0gl+q2CRBg08uicbAoFkZBa2hr1tKMMkOtVxX03wuOFNvJOkByyckSxY/3+PE8oNA+YfGA72LwuDHYUqSGhaNaB3QeC2xJKjToqWEssApJbi0ajPy5c5EtFhI7NpjKihvCYkDpW/V0XnjPEcfRXM3kfihLkuj8Hsdxo86pDT5x0u+vVyv9sZzK6FpxQSusK4YyBi+0BdoJRxC1VOT3vMDR4JvVn9ejHsN29rMQfA5TqpCcLxmcwJESRCa7UELfJHiXA4E0CxpsWKpglXAnaCbaBS7buts7/4pat1SMy2Hq5bh8DNu0HJwd0WDi+PSl/V2sscBhMunHr6v+E7oIa46Ne4bJBw0+UXS0racezdZMeEddLTpAkTYVy6XkwAU/U9PWvChDg2PucuKyi076DGHLFDnedMrgYaOTLEM4OL60UOv+4v5kuUjxUac5QblMdBquYsF56Po+OaGZH96H2JBi/nC/fsH+I6fkdFLhwB4SewE3zU2LhOj+I/WEislyBErwNicF8ja75cC8FJeUTtgmVmim1Z1czsv7eJTvIvpwv4bJHxILkC7R3r9yfgH3FXtoIytco1sldOCklpIt66aFp3lpr7HIaC/b/dOdvLm7hQP3kISiOL+Ho5MKpHn+9wWdk+vPt/bAvYFj5cpqKpTOZRZwK0ClJA2bfSEc/RxdkvchO+h38n3wDFwnns7O+V3IrJ3USlN1C27ubnXxOaYJ+B+L1WJ1ZTpsgKzNZWLns07owSa9915vSe8xmQkrgfbSdjXrdJ4cH0/sUp+Emyl+52pOeSxtSNKQV3TzjnyjCl/BOQ1O+FmWbU3Oa5J88cOsGA94Vgw0qPXQYHFSYMWuBmdVutWsMcOwpcSfYj2Oav7ccdRT3pylIR+2dUmfLRY7qhO/gFcGL+x1ZX77e9bo3wHNddhfTsb3WYHqTt/Q4IH781+GSsUvrOosjpvxQozvPq1xHP8HaeNfuQ==
+sidebar_class_name: "put api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a job"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/cron/{hostId}/jobs/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Change a job
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The crontab after the change."},"409":{"description":"The job changed on the host since it was read."}}}
+>
+  
+</StatusCodes>
+
+
+      

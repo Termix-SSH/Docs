@@ -1,0 +1,70 @@
+---
+id: save-a-config-file
+title: "Save a config file"
+description: "Saves the text, or a backup when backup is set, then tests the whole config. A broken config is put back."
+sidebar_label: "Save a config file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv40YM/isETy0wsdMedcsuWjRbFAg2XgRFYCxoiZYmlme0M1QcVfB/LzgjPxJvCuylvljDITkfXx9HrDiWwXZivcMC7+mZI0jDIPwiBnwAghWVm76DXcPu8G0jRBajmg6Eo2SjXeNbhtK7ta1ncAOr4DfsJoEadb0kFzM0KFRHLB7xgVdwz+GZQ8SlwY4CbVn0VDyOaBVWR9KgQUdbxgIbH+W2QoOBv/U2cIWFhJ4NxrLhLWExogydalonXHPA/X6ZtTnKB18NqvLWuPRO2IleUde1tiTNyfwpamLGS99+9cSlvELxiDHFgSYj1miC7ziI5Zic5OuTkyjBuhr3k8H3Ls5wXdzlanznKv0UWuy8i/nxX6+v9e91wRcNA7sK/HqqehTwvXS9zFA9bFkaX2kJejmEVeC8a/vauivq7HzHq6scV5yPuTT7+dq2jGaKNxeyDy0WOGbRHs0bIH/7PsCCw9a+wDGLzxQsrdq3yat4TX0r2goiXSzmc0mGM36hbdfyrPRbzcFSEZR9sDIkCCumwOGm1xgel3szYun9xvK5hDr7Jw9HyZmLe+2ADOXc0TH3igWnJtRzVkIzffzuw5YU86eHxUX09xyj9Q4kzUtkJ2Bdqog+4oP9J3UjNEwVB6AIH5JTIFflwqnhLPfLKaQjthwVmjxOWeU0UE87eRfRp4cFZH2deCCBaGt3Zd0MHnT4u8AK14AVENpwVEnJFbuSwT9zeDeKhPY83T+cyZu7W9jwAFEoiHU17Kw0INuXrxfhHFV/PLUbHgzsGls2+aF4emYGtwJUSlSzSRf8zk3WJTnnk4Lekxu8Y+A2cp4tpZbPJ1L6LTfveasf5vk4eMfzkRVOogMZnPGDdWuf8mpFHZ9TLdzc3eqEcYg5Q7/MrmfXF3n7ixzVDK627sXATUdlwym2j1RVA3gHgw6uzn0sIFrhaCa+N9D6OiblPxaLu3uT88bPHAYoG3J15huuYG1DlNQPnY+ypcS4U3PqSgI67JCJWF6BHM+y8b8usNyt+tC8a8k6DSDR3DjV6xFPRIkGz6gSDRbHPZaCWpq02NRoHFcU+Uto93sVf+s5KIEtT4SY6KyyUb8rLNbURv6PrPz0edpRP8N7uA9E4YbEu22vJzS44eG0cvfLvcE8KAlBvvyY37laqIuT8cUWVTI97pO7L8qCq2kZb32lJoF2ulBpl9/2KZTEuEk2Ykuu7qlOpJVc6u9fTC4GVw==
+sidebar_class_name: "put api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save a config file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/web-servers/{hostId}/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves the text, or a backup when backup is set, then tests the whole config. A broken config is put back.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server","path"],"properties":{"server":{"type":"string"},"path":{"type":"string"},"content":{"type":"string"},"backup":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the test output."}}}
+>
+  
+</StatusCodes>
+
+
+      

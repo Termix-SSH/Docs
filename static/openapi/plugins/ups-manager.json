@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "UPS Manager API",
+    "version": "1.0.0",
+    "description": "Watch your UPS devices over NUT, apcupsd or SNMP, with history, alerts and self tests."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ups-manager/summary": {
+      "get": {
+        "summary": "Latest reading of every UPS the user can see",
+        "description": "Uses the readings the background timer already took, so it never opens an SSH connection.",
+        "responses": {
+          "200": {
+            "description": "One row per UPS."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/detect": {
+      "get": {
+        "summary": "Which UPS tools and devices the host has",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Installed tools, NUT devices and running services."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources": {
+      "get": {
+        "summary": "The UPS devices set up on a host",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sources with their latest reading. Secrets are never returned."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a UPS to a host",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new source."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}": {
+      "put": {
+        "summary": "Change a UPS",
+        "description": "Secrets left out are kept. Send clearSecrets to remove them.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The changed source."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a UPS and its history",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/test-source": {
+      "post": {
+        "summary": "Read a UPS with the given settings without saving it",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The reading."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}/status": {
+      "get": {
+        "summary": "Read a UPS now",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The source with a fresh reading."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}/history": {
+      "get": {
+        "summary": "Charge, runtime, load and voltage over time",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Points, oldest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}/events": {
+      "get": {
+        "summary": "Power events for a UPS, newest first",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Up to 100 events."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}/commands": {
+      "get": {
+        "summary": "Instant commands a NUT UPS supports",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Command names with a risk level."
+          }
+        }
+      },
+      "post": {
+        "summary": "Send an instant command to a NUT UPS",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "What the UPS answered."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

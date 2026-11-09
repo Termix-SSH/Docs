@@ -1,0 +1,69 @@
+---
+id: stop-a-running-job
+title: "Stop a running job"
+description: "Stop a running job"
+sidebar_label: "Stop a running job"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20gM/SsET1tAsdIedUsXKJp+oEGdNlgERkFLjDWxNKPOUIlVQf99wRnFdpP0kEtPkqk35Hvk8HlEoU3A4hq/Gy89NfCZytpYDrjKsCNPLQt7RYxoLBbYkdSYoaWWscDaBTmvMEPPP3vjucJCfM8ZhrLmlrAYUYZOkcYKb9jjNGXPZjIvzLJSdOicDRwU8Ob0VB8Vh9KbTozTEktxXcfVQqs+8wkIfG+tsRu4dWvMsGWpXaXcXBDMEsUC867pN8aeUGfyu9Snk3buU64tCPmYOjHlt24d8tFUU16SLbnBDAP7u4ce9r7BAscUmvAxq/9c7+GSfWt2kDCY4R15Q+sm6ZyjUeoN9Y3oFES6UOS5xIML3lHbNbwoXYtT7FTgsvdGhkhhzeTZn/Uq7Xql4yid2xo+jlBnPvKwjxylWOpIEpXjRPsJKRecJ6e/Ewiz+eWd8y0p5w9Xl0/ULzkE4yyI27KFwFbAWJCaQYs4b36RIqFmqtgDBXgbkwLZKsLiwQVO2W+S9tySKszS/UuQww28vZc/MvpwdQkJD4EFSCCYjT0xdgFXNVvoPCvdDIyA0JaDRkqu2JYM7o79H1VEtsftfnEnzy7OYcsDBCEvepfvjdQg7e7HEzl76Mtbu+Uhg/valHUqFA5lFnAuQKUEPTZjwd3b+XRJ1roI0O9kB2cZuAmc1tLYGxdVG2lU5mMjgrOLc10C9iGJeL04XZw+kfavZxKOBVuytGH4+P0zzNsKD9sKzsKgO/bJ2H4HcXfTfJbL90lRY9Z6Ks5FbaAlq/TmS/KsbfzGZD8/4Z3kXUPGaqq4+OPsKNd4cBTV9shTMIvGqs9i77BqLBqIRjl7yyoBNeE4rinwN99Mk4Z/9ux13VcH+4jLX5mg7xUWN9QEfsK9dFbY6rX65+tsxq8As+c1PayVHaJLNb3+wgy3PBz+G9RO/mJVU+G0mo6s/OLL8hKn6X9OfWAm
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop a running job"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/jobs/{id}/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stop a running job
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Stopped."}}}
+>
+  
+</StatusCodes>
+
+
+      

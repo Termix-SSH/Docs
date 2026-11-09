@@ -1,0 +1,69 @@
+---
+id: start-pairing-a-moonlight-web-pc
+title: "Start pairing a Moonlight Web PC"
+description: "Returns a PIN to enter in Sunshine. Poll the pairing job for the result."
+sidebar_label: "Start pairing a Moonlight Web PC"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv2zYQ/iuHe9oAxk677mF6S1MMcId1hu0tGAKjoKWzxZoiFfIUxxX034ejZDuOmw0b9iSJ+u543/G7jy0WFPNgajbeYYYz4ia4CBqmk0/AHsgxBTAO5o2LpXE0gqm3FrgkqLUJxm3gi1/B2oe0Fig2lkeokPUmYnaPM6o8E3yguGVf41JhpLwJhveY3be4Ih0o3DRcYna/7JYKax10RUwhJoCRumrNJSp0uiLM0BSoMNBDYwIVmHFoSGHMS6o0Zi3yvk4ox7ShgJ0kDRRr7yJFAby9vpbHOfVFSYmJKUC7QviPsFP47lvYiXvU1hQwvQVTDLA3lzBhRY5NrmUBDhUPAT9cBpz3CkwEOQ4qwK/XMHQ419ZSgErvwXmGSAxNDb9676zZlDwk/+ky+RECd7SS3KfwFPTj9dt/Csp9Y4sUt5Kj1nkptQUItG4iFYMCHhqKUkensCIufSEH6COj6s8xw3Ftm41xV7o245A4XxU953F12HBc+shx3JqiG4vSUIQTHg+yaILFDNt+qUP1ou4/fRNgQaEyT9BjUOGjDkavbC+CYTUxXuvGMmZYMtcxG485BY7oSVe1pVHuK+ySjA7SnYvY+jzPBXzUniTCQZPy3YNQDS8/+1Bp2fDj3eKi9DnFKHJhvyUHkRzL/ElrZRMfzNdeTiXpggLoCO9T0iRbgaXAdKS591tDL2rTtfmF9qj6yeohp9n6suNXK/p4t4Aen3SjGaLZuCvjRnBXkoM6kJSrwDCw3lKUlZwKcjmBf6TwKotUbV/Yf+zkzXQCW9pDZB1YXGlnuASunj5f0DlC/31rt7RXsCtNXvYbxdM2I5gw6JyjhA1Y8Ds3ROfaydzonOW/dnvvCMhG6gfFuLVPrA1bunSCm+lE9Esh9hTejN6Nri+IzT5MFfzx6VbBTV1bgvMkCmZNZPlIBS3IOhIDSGcbpRF7GZpV8LtIQfXMcmvqldehULA2loCDdnEtv2Opk/tLrkC5D4Vxm3SOMuuVdkJnENVcenW8LzScu8r09iWTFnPvmBz/z1dSLymmJx7XVhsn1SYjaQdnuseTM6U75rk3ocKjO6HC5E+oMEvXUbKoZb8qedp2pSP9HmzXyfJDQ0EuvOXJhZKNFSbKe4HZWttIf9OH72bD9fE9vEblMOBun8zONvKFCre072/Nbvnck6e/zcV99PnAvRiwVOU3E7dtj1iI3XTdcZ9kP7JV1/0FCEXgww==
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start pairing a Moonlight Web PC"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/moonlight/hosts/{id}/pair"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a PIN to enter in Sunshine. Poll the pairing job for the result.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The job id and PIN."},"400":{"description":"Invalid PC id."},"401":{"description":"Authentication required."},"403":{"description":"Remote Desktop is turned off or the caller may not set up Moonlight."},"409":{"description":"Moonlight Web is not set up."},"502":{"description":"Moonlight Web could not be reached or refused the request."}}}
+>
+  
+</StatusCodes>
+
+
+      

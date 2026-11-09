@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Single sign-on API",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "description": "Sign in with any OpenID Connect provider, GitHub or Google."
   },
   "servers": [
@@ -111,6 +111,82 @@
         "responses": {
           "302": {
             "description": "Back to the app."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/links": {
+      "get": {
+        "summary": "The current user's SSO links",
+        "description": "Each enabled provider and whether the signed in user is linked to it.",
+        "tags": [
+          "SSO"
+        ],
+        "responses": {
+          "200": {
+            "description": "{ allowed, providers } where each provider has id, label and linked."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/links/start": {
+      "post": {
+        "summary": "Start linking an SSO provider",
+        "description": "Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "{ redirectUrl }"
+          },
+          "403": {
+            "description": "An admin turned linking off."
+          },
+          "404": {
+            "description": "No such provider."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/links/{provider}": {
+      "delete": {
+        "summary": "Unlink an SSO provider",
+        "description": "Removes the provider from the signed in user's account.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "provider",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unlinked."
+          },
+          "409": {
+            "description": "It is the user's only way to sign in."
           }
         }
       }

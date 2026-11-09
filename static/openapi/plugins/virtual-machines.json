@@ -1,0 +1,1605 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Virtual Machines API",
+    "version": "1.0.0",
+    "description": "Create and manage KVM virtual machines on your Linux hosts over SSH with libvirt."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/virtual-machines/images": {
+      "get": {
+        "summary": "Cloud images a new VM can start from",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "responses": {
+          "200": {
+            "description": "The built-in image list."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/summary": {
+      "get": {
+        "summary": "VMs on every host you can reach",
+        "description": "One cached read per host with Virtual Machines turned on, at most 4 hosts at a time.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Set to 1 to skip the cache."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/status": {
+      "get": {
+        "summary": "Whether this host can run VMs",
+        "description": "Reports libvirt, KVM, the service, and the tools a new VM needs.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/install": {
+      "post": {
+        "summary": "Install libvirt and QEMU on this host",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Installed."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/inventory": {
+      "get": {
+        "summary": "VMs, pools and host resources",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fresh",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Set to 1 to skip the cache."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The inventory."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms": {
+      "post": {
+        "summary": "Make a new VM",
+        "description": "Starts a job on the host that downloads the image when needed, makes the disks and defines the VM.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The job."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}": {
+      "get": {
+        "summary": "One VM with its devices",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The VM."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a VM",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "deleteDisks",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Set to 1 to delete the disks no other VM uses."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "What was removed and kept."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/stats": {
+      "get": {
+        "summary": "Live counters for one VM",
+        "description": "Raw CPU, disk and network counters. The client works out rates.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The counters."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/power/{action}": {
+      "post": {
+        "summary": "Start, shut down, reboot, stop, suspend or resume a VM",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "shutdown",
+                "reboot",
+                "stop",
+                "suspend",
+                "resume"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/autostart": {
+      "post": {
+        "summary": "Turn autostart on or off",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/clone": {
+      "post": {
+        "summary": "Copy a shut down VM",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The job id."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/hardware": {
+      "patch": {
+        "summary": "Change CPUs or memory for the next start",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "vcpus": {
+                    "type": "integer"
+                  },
+                  "memoryMib": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/disks": {
+      "post": {
+        "summary": "Add a new disk",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pool": {
+                    "type": "string"
+                  },
+                  "gib": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new disk's name."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/disks/{target}": {
+      "delete": {
+        "summary": "Detach a disk",
+        "description": "The volume stays in its pool.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "target",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detached."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/media": {
+      "post": {
+        "summary": "Insert or eject an ISO",
+        "description": "An empty volume ejects.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pool": {
+                    "type": "string"
+                  },
+                  "volume": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/nics": {
+      "post": {
+        "summary": "Add a network card",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "network",
+                      "bridge"
+                    ]
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Added."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/nics/{mac}": {
+      "delete": {
+        "summary": "Remove a network card",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "mac",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/xml": {
+      "get": {
+        "summary": "The VM's config as XML",
+        "description": "Needs edit access, since it holds the display password.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The XML."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save the VM's config",
+        "description": "The host checks the XML first and keeps a backup of the old config.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "xml": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/use-vnc": {
+      "post": {
+        "summary": "Switch a SPICE display to VNC",
+        "description": "Takes effect the next time the VM starts.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/console": {
+      "post": {
+        "summary": "Open the VM's graphical console",
+        "description": "Tunnels the VNC port through the host with SSH and returns a Remote Desktop display token.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The token."
+          },
+          "409": {
+            "description": "Remote Desktop is off, the VM is not running or it has no VNC display."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/watch": {
+      "put": {
+        "summary": "Get alerts when this VM stops",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/snapshots": {
+      "get": {
+        "summary": "A VM's snapshots",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The snapshots."
+          }
+        }
+      },
+      "post": {
+        "summary": "Take a snapshot",
+        "description": "A running VM keeps its memory in the snapshot too.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Taken."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/snapshots/{name}/revert": {
+      "post": {
+        "summary": "Put a VM back to a snapshot",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reverted."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/snapshots/{name}": {
+      "delete": {
+        "summary": "Delete a snapshot",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools": {
+      "post": {
+        "summary": "Add a folder storage pool",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Added."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/volumes": {
+      "get": {
+        "summary": "Volumes in a pool",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The volumes."
+          }
+        }
+      },
+      "post": {
+        "summary": "Make an empty qcow2 volume",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "gib": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Made."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/volumes/{volume}": {
+      "delete": {
+        "summary": "Delete a volume no VM uses",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "volume",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/download": {
+      "post": {
+        "summary": "Download a file into a pool",
+        "description": "The host downloads it in a job, so it survives a Termix restart.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The job."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/{action}": {
+      "post": {
+        "summary": "Start or stop a pool, or set its autostart",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "stop",
+                "autostart",
+                "noautostart"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}": {
+      "delete": {
+        "summary": "Forget a pool",
+        "description": "Files in its folder stay on the disk.",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/networks": {
+      "get": {
+        "summary": "Virtual networks",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The networks."
+          }
+        }
+      },
+      "post": {
+        "summary": "Make a virtual network",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "nat",
+                      "isolated",
+                      "bridge"
+                    ]
+                  },
+                  "subnet": {
+                    "type": "string"
+                  },
+                  "bridge": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Made."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/networks/{name}/leases": {
+      "get": {
+        "summary": "DHCP leases on a network",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The leases."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/networks/{name}/{action}": {
+      "post": {
+        "summary": "Start or stop a network, or set its autostart",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "stop",
+                "autostart",
+                "noautostart"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/networks/{name}": {
+      "delete": {
+        "summary": "Delete a network",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/jobs": {
+      "get": {
+        "summary": "Recent jobs on this host",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The jobs."
+          }
+        }
+      }
+    },
+    "/plugin-api/virtual-machines/hosts/{hostId}/jobs/{id}/cancel": {
+      "post": {
+        "summary": "Stop a running job",
+        "tags": [
+          "Virtual Machines"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stopped."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

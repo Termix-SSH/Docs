@@ -1,0 +1,68 @@
+---
+id: add-a-storage-login
+title: "Add a storage login"
+description: "Add a storage login"
+sidebar_label: "Add a storage login"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVlUtv4zYQgP/KYM7yY9teqptTtEB2UWxQpwiKwCjG0sRiLJFccuRHDf/3YkjFdmLvYXWxNZz3DD8dUGgVsXzGr8tXrgTm4gKtGBcFBv7Wc5Q7V++xPKRXE7jGUkLPBVbOClvRI/K+NRWJcXbyGp1VWawa7kj/yd4zluhSACzQB+c5iOGopz64jak5XGhGCcau8FigpY5vHrCtvTM5+tVh4JXJSVwdeZJmLvv20uvSuZbJ6jFVFcf4hff39U3zyFVgmb1p3dBJj6YQvbMxl/jT9JP+1ByrYLyk3HBWVa63AlTXXKvvX6bTa60/TYzGrsAFMHZDranhxXBbx2zx6w2/FmhwvTXSgDQkoH0E3pkoETW9DyZ1DQQxTx5atzIWC+xYGldjid7FNDaSBkuc+LZfGTsibyZ5pKPBcjLEjaiNChsOulgH7EOLJR6y6Igfo//j+gCPHDqzg6yDBW4oGFq2uX+DNJX6Qn0rWGIj4mM5mUgyHPOOOt/yuHKdzmCRRtUHI/uUwpIpcJj1WsHz4lgcsHJubfhSQt584f1JcuFirqucU7l0dJq95qI1JzVdqKSExfDnDxc60pw/Pz1eVT/nGI2zIG7NFiJbAWNBGgYN4oL5L10raJhqDkAR7pJTIFsntWQ41nW4LOmUW64KCzQaLavg28XC1618N6PPT4+Q9SGyAAlEs7IjY8fw1LAFH1jTLcAICK05qqTimm3F4DYcvltFyvay3T/cydnDPax5D1EoiN6PvOrd7t+rck6qP97aNe8L2DamanKgeA4zhnsBqiSq2aALbmsH64qsdUlBz8nunWXgNvI4XT9l5F9nuv6el/c9Dd+IcprV6f3MvrPsDXlnyQXpMq/fse2sd4W0C9wZ++LSdIyonw/fCJg93OtV5RBz7E/j6Xh6NYC74LaRU1s6smo3/3lUuc6TmGXLkCFyws+yr9asfbWKupZj2hZlUEeJ6UM7bkPrXejTWgnvZOJbMgnyiUeHgWfPeOYZFvieaJi6lpm2KLBREJbPeDgsKfLfoT0eVfyt56CYWZyxlZmCebMSgdaptb/lb+boUfNS9bbPl/TD91Ppc+Lvw9e5cmM5fIc7V6tNoK3OnbZYoiaeak6MSrIDtmRXvRZRYvapz/+vbcFE
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a storage login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a storage login
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"provider":{"type":"string"},"name":{"type":"string"},"endpoint":{"type":"string"},"region":{"type":"string"},"pathStyle":{"type":"boolean"},"accessKeyId":{"type":"string"},"secretAccessKey":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Account added"},"400":{"description":"Missing or invalid fields"},"409":{"description":"An account with that name exists"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: lightweight-live-cpu-memory-network-process-and-gpu-sample-linux
+title: "Lightweight live CPU, memory, network, process and GPU sample (Linux)"
+description: "Lightweight live CPU, memory, network, process and GPU sample (Linux)"
+sidebar_label: "Lightweight live CPU, memory, network, process and GPU sample (Linux)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9vGzcM/lcIviwBlHO29eleCrfJOndpFzRJgyIICuaO9mm+k66izo5n3P8+UOdfmdeHAns5WxRFfh9FflpjpJlg/oC/e4nwgWOwheCjwZYCNRw56O4arcMcW4oVGnTUMOZoSzQY+FtnA5eYx9CxQSkqbgjzNcZVm7xc5BkH7PtH9ZbWO2FRh1/Oz/WnZCmCbaP1muJPx1DbBYNQ09aMBqWiwCW0HKBSjORKCNwJl9C5aGuIFQOVjXXQWGebrgHNGRZUQ0siLBnc21jBa4mBqQEbwQoEphKmwTdAUHFdwmZ3mwdz19W1wWVliwq8S0aBpUYiBx8/Ty4mY/ABxh8u4N31HVAtHgoKwbLArO0S0FnbjXeh1JDOv3Z+SQpD2ciSg0DLrrRuBlpFsE6iwvNTUD+1T31IRAeUPwlMbZAIU70kyWDiirorWbQEkw37m2xI3Bt8df7rcak/eqCiYBE06MNQ9a4tKbIABYbSCj3VXMJJ4UuGq8nny68Xk5vxm6vLi9Nt7N78K+qVnVVxyfodQr69vjPQcOPDyoDjuPRhbqANXlOnImn1huuGkyvruudTNNhwrHyJOc44ohlaL8dRW3cz686otSO9kLNm6NiXi4YczTjISAGM1rbstY84LLbd3IUac1wPJt18yeGL7wLccmjsMww+aHBBwWo9Uu9urKmmU+rqiDlWMbaSj0YxHcz4OVHKCt9gn7pfuOiCjasE4YkpcBh3SuvhsTdrLLyfWz60UGv/4NXOchDiRsdsgHIYaDd1igU306jrwQnN5s9vPjSkmN/f3x6xv2ER6x1EP2cHwi6Cdan5NIkP9m9ST6iYSg5AAm9S0HSX6pYOZtibF5R22AZWaAZNGVz2qvLXMn4X0fv7Wxj8QTgCRRA7c2fWZXBfsYM2sMI1OliR5ixqKbhkVzD4BYfvskhoD8v9w5UcX09gziuQSCFNbJr02Dx/PaKzc/3x0s55ZWCQpJRI9mkymESgIooe2/iCX7rN6YKc88lB98mtvGPgWjhDHWLrpj6xtrFWmofPAYyvJzoAHGQg8HP2Kjs/onV1NO2llflu5vejHimKgbbuBKL3tX5hGFlY6eQlpU030nqJDTkFtmmP/0teXkDfXXbk5zhqa7JOsyeVWG+k5wH30oMGD/XmeLkVIDSoINFgbkt9VYeX5QHX6ycSvgt136v5W8dBZeFxLzNJJLYSjPmUauEj2IV3kZ2238mnzUN8Cmj+m852/NwqqVnd6QoNznk1vOb9Y3+gu+8ub7Hv/wEwrc8+
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Lightweight live CPU, memory, network, process and GPU sample (Linux)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/host-metrics/managers/live/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lightweight live CPU, memory, network, process and GPU sample (Linux)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One live sample","shared per host and reused until the admin minimum interval passes. With ?stream it is read from a held stream per host":null,"which on hosts with an NVIDIA or AMD GPU also carries gpu and gpuAt":null,"and with ?nowait it answers pending true instead of waiting for the stream's first frames. Includes minIntervalS.":null},"403":{"description":"No access","or live updates are disabled (code LIVE_DISABLED).":null}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/host-metrics/reference"
 custom_edit_url: null
 plugin_id: "host-metrics"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 ## Settings
@@ -49,7 +49,15 @@ Give these to roles in **Settings**, **Roles**.
 
 | Permission | Who has it at first | What it allows |
 | --- | --- | --- |
-| `host-metrics.use` | admin, user | View host metrics and use the host managers (services, packages, firewall and more) on hosts you can reach. |
+| `host-metrics.use` | admin, user | View host metrics and use the host managers (processes, health checks and more) on hosts you can reach. |
+
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `host-metrics.health`<br />Health checks | A host | Read only |  |
 
 ## Capabilities
 
@@ -64,6 +72,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |

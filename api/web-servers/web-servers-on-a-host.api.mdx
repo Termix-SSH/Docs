@@ -1,0 +1,69 @@
+---
+id: web-servers-on-a-host
+title: "Web servers on a host"
+description: "Which of nginx, Apache and Caddy are installed, their versions and state, certbot, php-fpm sockets and whether the caller gets alerts for this host."
+sidebar_label: "Web servers on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWCpxaYtTc96rYtmnQTFFh0XRjFwihoiZamlmaUGWpt1dC/F5xRbCebDZBbT5Y4b8j3aPLphBXHMtherHdY4LqxZQN+B6627mjgrqeyYSBXwS9UVSNQYLAuCrUtVwakYRvgmUO03sWEi0LCBkoOsvVioG/6m13fQfTlniVjDg1Lw0GvQ6mpAtTprOUgEXZej2yExkdZoEGhOmLxhGvewiMHrYcbgz0F6lj0rXg6oVUFPUmDBh11jAVqgvsKDQb+ONjAFRYSBjYYy4Y7wuKEMvaKtE645oDTtFF07L2LHBXw0+2t/nzeqFXDSekQFzhNBjuWxldYYM2CJrMocNm3Q23dDfV2eeDtTczcl6fMa1rmFGhwPkk6htBigaccmtB8UfovPwRYcejsETIGDT5TsLRtM+M5mkjvaGhFOyHSx2K5lHRxwUfq+pYXpe9wSpojl0OwMiYKW6bA4W5QFU+byZyw9H5v+TpCvf3A4zlyleJRm5upXCc691q54Pwf6HsGoZkf3vrQkXJ+v169UP/IUWcNxO/ZQWQnYF0aJC3ig/2XFAkNU8UBKMLPKWmaO4WliwuczGeSztyyKjR5mjLkMk//HORVRu/XK8h4iCxAAtHW7sa6BawbdtAHVroGrIDQnqNGSq7YlQz+eV6Hr6lIbK/b/d2dvHu4hz2POrJBrKvhYKUB6Y5/v5Bzhn5/a/c8GjgkC0mF4qXMAu4FqNQdj5+w4A9uvl2Scz4B9Jzc6B0Dt5Hzdlm380m1lVZlXvkA3D3c6/xnC8IC3yxuF7cvVP1Ojmp+1da8g1HXSvcyFhCtcDRQereztYHW19m3flutHh5NVsXPHEYoG3I1g3AUrmBngxrWZLD3UTpySnoeHeU8b7mWo1TrS566Z07Yyf/Yi/PkCR9l2bdkncpNlnWabe8JL7aHBq+MDw0WZ0uevW9jkkvrtdNpS5H/DO00afjjwEHtaHOxt2ROlY36XGGxozbyN1r4wx+z7f8IrzH/tPZuTC7aDvqGBvc8Xr4f0+ba4t/9usJp+g9SYoGE
+sidebar_class_name: "get api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Web servers on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/web-servers/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Which of nginx, Apache and Caddy are installed, their versions and state, certbot, php-fpm sockets and whether the caller gets alerts for this host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: start-or-stop-a-smart-self-test
+title: "Start or stop a SMART self test"
+description: "Start or stop a SMART self test"
+sidebar_label: "Start or stop a SMART self test"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu4zYQ/ZXBPLUAY6d91Fu26GKzbdogTtdoA6MYSxOLsURqyVEc1dC/L4ZUbKfuolg9icO5nLnwzB47CtSycIhYPOzROiywI6nRoKOWscDaR7mu0GDgz70NXGEhoWeDsay5JSz2KEOnmtYJbzjgOK6yNkd556tBVUrvhJ3oL3VdY0sS6938KXqnsjNffv3EpaDBLviOg1iOelvxsy35RC9KsG6Do0Eq1eP5lUF2fYvFA8baB3XZ+CSmtR5XY/oUcOy8iznOj5eXOVwsg+2yY1zWJLCjCJV3PEM1equwEAoCPkAU3wHB4ubq7h4iN48gHDV0y1L7Smvs0zmVusB51/Qb6y6os/MoPtCGL2qmRur5Ptd/nKubyUvk8PzasT40WOA+i0b8N6Q/fR/gnkNrXyDroMFnCpbWTU51kqZsH6lvRHsu0sViPpdkOOMXaruGZ6VvcUzdjVz2wcqQIKyZAoerXlN5WI1Gu+23lk8l1NlfeDhITlwstPUZyqmjQxsVC07TpueshGb6ee9DS4r54/L+LPsFx2i9A/FbdhDZCVgHUjNoEB/sP2kMoWaqOABFeJecArkqqSXDmY7XaUoHbDkrNPndZJXjy3nayVcRfVzeQ9aHyAIkEO3GXVg3g2XNDrrACteAFRDaclRJyRW7ksE/c/hqFgntabm/uZJXt9ew5QGijrN1G9hZqUHal7/P0jmofntptzwY2NW2rHOgeAwzg2sBKiWq2aQLfucm65Kc80lB78kN3jFwE6c3qZxyd2Sfn/PwnrLHkRpeSWPihlE7+ehTzayoES7yc4QP6TnC1e21PiAOMdv9MLucXZ6VZUlS1lAF+8wJMYVAA+QXnbu3WHwoMj8Y+O3TDRv46/3CQFtR1RpYS3iMyfLXTzcmF6a2ygyDAWpYq6W3B2qJqetKKi0lDpxG8P8Z6Q3ww6gIv8i8a8g69Zs4Zj+R1QMeyUqn6Q1docHisDAOjLUyaYuo7X6/psh/hGYcVfy556AksjqSUqKUykb9r7B4pCbyGczDOsHv7qa19D2g+W/4r4/VDYn7ml5PaHDLw3G/javRYB7WhCBf/pTjXNyri6Px2QpTQjtw++3vC6Wi9bT6Wl+pTaCdLlHa5eA+5ZJoL8n22JDb9LRJzJF86vcF6X6gJg==
+sidebar_class_name: "post api-method"
+info_path: api/storage-health/storage-health-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start or stop a SMART self test"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/storage-health/{hostId}/selftest"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start or stop a SMART self test
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"device":{"type":"string"},"action":{"type":"string","enum":["short","long","abort"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was done."}}}
+>
+  
+</StatusCodes>
+
+
+      

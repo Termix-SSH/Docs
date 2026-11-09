@@ -1,0 +1,69 @@
+---
+id: run-a-job-now
+title: "Run a job now"
+description: "Runs the job's command once as the crontab's user and returns its output. Stops after 2 minutes."
+sidebar_label: "Run a job now"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDubQLcKV0j7qlBQpke2iQeBEUgVHQ0thiLJFazjC2aui/FyM6tvcji93LniQNh5z3HmeeDtgQ19EN4oLHCu+SZ5CW4CmsfmGoQ99b30DwNYHNK3UMXqyuJqYIuhxJUvQMThhCkiFJAfcSBga7ForwDnrnkxAXaFDshrF6xD9i8Lg0ONhoexKKGj2gUxiDlRYNetsTVtgGlpsGDUb6mFykBiuJiQxy3VJvsTqgjINmOi+0oYjTZL56kvuuU1ii8xucpqUm8xA8E+v6u6srfXwq2aKlI+lZC9o7gTo0VCgK7Ena0CiQwIIm46mwHLq0cf6tHVypgpaHTHIqn8KKy4NrpjImjwaZ4vOLNil2WOEhhyY0nyH5J6QIC4q920POQYPPNjq76jKBY3TmsLapE1VXZOCqLGXeWNDe9kNHRR16nGYJmOoUnYwzhBXZSPE6KYvHpcpch7B1dBmxg/uLxlPk4oh7lTpDuTzopLxiweON6HdOQnN8+TPE3irm9w+LL9jfE7MLHiRsyQOTF3B+7lgtEqL7z2omtGQb7VuG3+dD51vTtHljgZP5hNIJW2aFJvdVTjl31tNOXkX0/mEBOR+YBKwAu41/63wBDy15GCIpXANOQOyWWCM1NaRTF54pvspiRnsp9w8reX17A1sagcVGcX4DOyctSL//9ws6p9Qfl3ZLo4Fd6+o2F+JzmQJuBGwt/OIvWiLs/HF3bb0Pc4KuWz8GT0AdH8fL+XWYWTvplKaaClzf3mjjU+QM/Lfiqrj6yu2QAds02cGSn41NfY8heBh1lnQm2WSsFlTLJnWkt/PsaHdixyML9Xn/2nVqc5OZB763XtEde+QuebBaAXzYfY5HB8kLeflJLpzbRGgv5dBZ5xXy7C+Ho0c94tmj0KAWRIPVyYxVKQ1kT02zl+ui7jwcVpbpQ+ymScMfE0W1j+XZjmYzaRzre4PV2nZM31Dk17ujab+B18C/jKkfZ9frkn6hwS2N53+I2tNPrOoanJaXf4Hbv+8XOE3/A4FHj+4=
+sidebar_class_name: "post api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a job now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/cron/{hostId}/jobs/{id}/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs the job's command once as the crontab's user and returns its output. Stops after 2 minutes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The output and exit code."}}}
+>
+  
+</StatusCodes>
+
+
+      

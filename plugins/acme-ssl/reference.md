@@ -32,18 +32,27 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `acme-ssl.manage` | admin | See the certificate status and request a new certificate now. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `acme-ssl.certificate`<br />HTTPS certificate | The server | Read only |  |
+| `acme-ssl.request`<br />Request a certificate now | The server | Changes |  |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:provide` |  |  |
 | `system:tls` | Critical | Manage certificates. It can replace the certificate Termix serves over HTTPS and answer domain checks from certificate authorities. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |

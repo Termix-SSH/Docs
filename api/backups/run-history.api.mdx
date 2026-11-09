@@ -1,0 +1,69 @@
+---
+id: run-history
+title: "Run history"
+description: "Backups and restores, newest first, on hosts you can see."
+sidebar_label: "Run history"
+hide_title: true
+hide_table_of_contents: true
+api: eJyllE1v20gMhv8KwfNETveoW4ptF+legjaLYBEYBS3R1tTSjDqk4mgN/feCGsd2m03Rj5MNzsvhS4rz7LFmqZLv1ceAJb6majv0AhRqSCwaE4uDwDsWhbVPog5igCaKCoxxgIoCCHOBDpU2guX90x24dNhToo6Vkx3s0VuJzwOnER0G6hhL/BRX1zU6lKrhjrDco469HfigvOGE0+T+P9NM/GLqitcx8S+ltr7z+v3MpcPE0scgLCb44/LSfr6e9BX0tGGIa0hDkMIKYsfaxBpL3LCV6EkbLHHRt8PGhwvq/WKVZ7uwHDPB6eFpuENqscR9Dk3ovqn3bxwS3HLq/CNkDTp8oORp1Wabh+jsdE1DqzZj1V7KxULnxIIfqetbLqrY4TQ3KlwNyes4W1gxJU5Xg9m+X9oEqxi3ns8j1Pu/eTxGzq74YBPNVs4vOg7YvDwNPn9EE6E7/HkbU0fm+d3d7bPuP7CIjwE0btkWNij4ANowWJGY/H9kSmiYak5AAq/nS+eHYLI5scDJfdXS0VvuCl1emSw52/Gdvujo3d0tZD0IK5CC+E248KGAu4YD9InNrgOvoLRlsUjFNYeKIT5werGL2e35uH96klc317DlEUQpqQ8b2HltQLvHj8/aOUp/frRbHh3sGl81uZCcyhRwrUCViqUdtBB34ZBdUQhxFtg5hTEGBm6F83PyYR3nrr22fAa3q5tr231Okr2/Ki6Ly2cdmRqGHtaxrTmJg5qUViSc6fhnrLac5qARcbTnlbE4uzd4+sqZ6QCrFHfCDuq4C22k+hyv81fqo2hHwcweVub9EKDxphi/dWavKigH/V1e52VQftRF35IP5mSmyP6Anns8oce24wB2hzN+lm5GsMn2exvMP6mdJgtnZBoRai/GlxrLNbXCDrc8nkH/gdrBPKCR4QXtEfM/Ij6C/UfETyg/aZcnJGZenZD815tbnKYvpb52Ow==
+sidebar_class_name: "get api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/backups/runs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Backups and restores, newest first, on hosts you can see.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"jobId","schema":{"type":"integer"}},{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"before","schema":{"type":"integer"}},{"in":"query","name":"limit","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A page of runs."}}}
+>
+  
+</StatusCodes>
+
+
+      

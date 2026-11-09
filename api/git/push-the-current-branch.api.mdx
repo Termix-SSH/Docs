@@ -1,0 +1,70 @@
+---
+id: push-the-current-branch
+title: "Push the current branch"
+description: "Runs git push, or git push -u when the branch has no upstream. Never forces. Needs edit access."
+sidebar_label: "Push the current branch"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v3DYM/lcIPm2AYmd9vLd02IZ0wBokKYIhOBQ6m7GVsyVVonJxD/7fB0qX861pBvRl93IWRVIff33cY0uxCcazcRZXeJ1shM4w+BR7BS4cD3CWYNeTBe4JNkHbpodeR7AOko8cSI8V/EVPFODBhYainKiNQK1h0E1DMVaokHUXcXWPfxjGtUKvgx6JKYhwj0ZAeM09KrR6JFxh7yJftqgw0JdkArW44pBIYWx6GjWu9siTF01jmToKOM/rok2R37t2EpXGWSbL8qm9H0yjJeL6MUrY+9e+3OaRGkaFPjhPgQ1Fuc3QFq3IwdgOZ3ludEzfuco/uY/e2Vi8vDs/l79/p95tQds2p1dy7hL7xBWK8Ujcu1Yy42LGlFFg7YfUGXumvak7w/W+pGquA3lXS9FQYaTw9JLdFAZc4b6IZlTfIPjbpQC3FEbzDEUHFT7pYPRmKMAP0oz9QaeBpT7MPq7qmrNhRc969ANVjRsl+LUgaFIwPGUIG9KBwkWSAO7Xs5LKuK2hU4n25k+ajpITFzdSpgLl1NEx6YIFD50h56KE6vDxuwujFswf7m5fRX9DMRpngd2WLESyDKZ0uzzigvmaWwZ60i0F0BHeZ6fHqmXDSprhNKQjthIVqtLjRWXp8scdv4now90tFH2IxKAZounsmbEV3MlE+kACV4FhYL2lKJKGWrINgZOJfCuKjPY03T+cyYurS9jSBJF1YGM72Bnugcfnz6/COar+eGq3NCnY9abpy0NxeaaCS6EXjmJ20AW3swfrRlvrsoLcazs5S0BDpDJZMv/XC1P8Vpp3mfSXMV4G/GTmjX1wOWWGxUYoDS6uLmVoKMQS9C/VeXX+ncqSAp+GQUHjxlEI0raFZmX2ZX4jOAuTTKRMdVRZY0vkJcgRkgd20Gqmkgqd2GWPuaTCE6POzHboryvxLelpUghSgELh3yI7Icr/YxeUXmN65toP2ljBnknqJf/3uHAcKuyMTMnqZCV4J3woVLdWeVWIzX6/0ZE+hWGeRfwlURD2WS9slrmoNVG+W1w96CHSf6Tip+vD7vkZ3oL9MuV2yqQ5JDmhwi1NyxKb17PC0uUZQbn8tbxzdisuFuNXe0qY8LgKrj7eCIdtDvttdK3YBL2TtOhdedzlWDJfZtkeB227pLtMOdmn/P4Bbd/ENA==
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Push the current branch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/push"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git push, or git push -u when the branch has no upstream. Never forces. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"remote":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

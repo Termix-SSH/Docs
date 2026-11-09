@@ -1,0 +1,70 @@
+---
+id: clone-a-repo-onto-the-host
+title: "Clone a repo onto the host"
+description: "Runs git clone with the login user's own keys and adds the repo. The folder must not exist. Needs edit access."
+sidebar_label: "Clone a repo onto the host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVd9v4zYM/lcIvmwDVKfbY956h93QG7AVbYZiKIKDarO2GlvSiXTTzMj/PlByk9x1PeCe5hfbFEl9/PVxwoa4Ti6KCx6XeD16htYJ1H3wBFsnHUhH0IfWeRiZ0g8MYethQzsG6xuwTcNZJVEMFaw6gofQN5RgGFnABwF6diwV/EHUMFDjBGxdE3OFBsW2jMs7/M0Jrg1Gm+xAQkmFEzrFFK10aNDbgXCJXWC5bNBgos+jS9TgUtJIBrnuaLC4nFB2UTWdF2op4X6/LtrE8i40O1X52rgOXsiLHtkYe1dbTcjikTUr02vf4f6RakGDMYVISRyxno6pP1FiSc63uDclhNcH+VFsHIPn4uKX83N9fVmWVc4vj71UqBYDSRcazU3gjCL7x0Xsx9b5MxvdonWymEqy9otcTTTIlJ5ecpux4lREezRfXfl3GBOsKA3uGYoOGnyyydn7viCdpRnsgx170eqIRF4uFpINK3q2Q+ypqsOg0a4VQT0mJ7sM4Z5sonQxKvi79d5MWIewcXQqsdH9TruD5MTFjRalQDl1dMiyYsG5L/S/KKGZPz6ENFjF/PF29Sr6G2J2wYOEDXlg8gLO5zbXS0Jy/+QGgY6strpleJed5pFQtWxYae1PQzpgK1GhKR1eVI49/riVNxF9vF1B0QcmASvArvVnzldw25GHmEjhGnACYjfEKqmpIV8ThCdKb0aR0Z6m+7szeXF1qcQALDaJ8+3MH8Pzp1fhHFS/P7Ub2hnYdq7uykV8vKaCSyUXYTWbdZWuZuvaeuUjW4ueW79TjqOeqUyVTvv1kSd+Lc17mOuXsT2M23G+nX8IOV9O1EDZDC6uLnViKHGJ+OfqvDr/j7KSgTj2vYE6DINyo28gjtxlGlZSZQgedjqOOs5sssaGKGqEA4wRJEBjZaZrO0rIHnM9lSAGm0lsbq73mdltdg3BS8iJ6gqRfAFuOtLi/7AYSusJPcsi9tZ5jWbm15L/OzzSHRpsnQawPOyHwnlrkzeGak/TvWX6K/X7vYo/j5SUhtZHWsuk1DjW7waXD7Zn+kZOfryet8hP8Bbgl3H3u8ye/ah/aHBDu+Mu26/3Bku7ZwTl8H2552ylLo7Gr9aTUuJhH1z9eaNkdj+vuSE0apPsVhem3ZbLQ44lE2eWTdhb3462zdyTferzLyThzGo=
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Clone a repo onto the host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/clone"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git clone with the login user's own keys and adds the repo. The folder must not exist. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The result."}}}
+>
+  
+</StatusCodes>
+
+
+      

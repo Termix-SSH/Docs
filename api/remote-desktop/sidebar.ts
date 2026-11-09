@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "remote-desktop/list-my-open-remote-desktop-sessions",
+          label: "List my open remote desktop sessions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "remote-desktop/look-up-guacds-id-for-a-session",
           label: "Look up guacd's id for a session",
           className: "api-method get",
@@ -68,6 +74,48 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "remote-desktop/open-the-native-rdp-client",
           label: "Open the native RDP client",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/check-the-moonlight-web-server",
+          label: "Check the Moonlight Web server",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/list-moonlight-web-p-cs",
+          label: "List Moonlight Web PCs",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/add-a-sunshine-pc-to-moonlight-web",
+          label: "Add a Sunshine PC to Moonlight Web",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/list-the-apps-of-a-moonlight-web-pc",
+          label: "List the apps of a Moonlight Web PC",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/start-pairing-a-moonlight-web-pc",
+          label: "Start pairing a Moonlight Web PC",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/read-a-pairing-job",
+          label: "Read a pairing job",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "remote-desktop/get-the-stream-address-for-a-host",
+          label: "Get the stream address for a host",
           className: "api-method post",
         },
       ],

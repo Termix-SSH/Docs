@@ -1,0 +1,70 @@
+---
+id: preview-or-apply-a-bind-file
+title: "Preview or apply a BIND file"
+description: "Preview or apply a BIND file"
+sidebar_label: "Preview or apply a BIND file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v4zYM/lcIPm2AGncb9uK39m4DcsO6ou1QDEUwMDYTq7ElnyQn9QX+3w+UXCfX5HC7l/nFNkVSH3993GOgtcf8Cd/f3ONCYUuOGg7sRLhHbTDHlkKFCg01jDlSUdjOhHmJCh1/7LTjEvPgOlboi4obwnyPoW9FWZvAa3Y4DOqss0/W8H/z5IPTZo3DsEjK7MO1LXvReGtbWBPYBDmitq11QUFbkz17a0R24toun7kIqLB1tmUXNPt4yi/hDAAVnfZHJ0trayYjR47bmgo+dxgf0fCtNT5d8fPlpbxK9oXTraDEHB8qhqIis2avgEwJu4pDxQ5CxT3s2DE0VLLk9I3lreOt5h1YBxEjEFzPb97DSteMChsOlS2lBtbHcKUUOWZt3a21uaBWZ6Xx2Vhgn+2nUg+ZFMpn+1SvIdNNa5348Oy2r83SuRpz3CfRgG/R/WM7Bw/sGv0CSQcVbslpWtYpHaM0ZmRFXR0wxyqE1udZFqLhjF+oaWueFbaRlC4EQdE5HfoIYcnk2F11EtjTQpqusHaj+VhCrf6D+0ly5OJeOiNBOXY01VKw4NibsbZRCdX48bt1DQnmD48PJ9Hfs/faGgh2wwY8mwDaSElBLrFOf4pdChVTyQ7Iw3V0GjtA1KLhTJrsOKQJW4oKVZqypHKYs+dd+CqiD48PkPTBcwAK4PXaXGgzg8eKDbSOBa4CHSDQhr1ICi7ZFAx2mxrzbBSzNC2HdH93Jq9u57DhHnwgF7RZw06HCkLz8u9JOJPq96d2w72CXaWLKl3kD9fMYB6AiuDFbNQFuzOjdUHG2Kgg52R6axi49jyL4ymUc3cgq99S8x7I5ZVUJk5JBDaxiPwOUtKVjUY6iLVwNVzdzmV82PkU/k+zy9nlSVL+JENrBjFwXFhX+gi7tA1p44EKZ72Hd7XtylVNjhXc2S4w/PqLghtquKiY2mhiIwW1zm51yc7H0gqPNBRJdeyzbzDQF+CmZpBcZG1NOlJoZJH9SE5PeCAnsTdecjUSFCrMj7dR5CgRTltlpKmFwkooL3/C/X5Jnv929TCI+GPHTphjcWCiyCOl9vJdYr6i2vMJ8mnF4A934/b5EVCdj+h1Qk0fCa/u5A8Vbrj/Yp8KOf2PF49ZGhaDwjQaMfR0+C7dc/EgLg7GJ/tU6HPaK7d/3QvxLce93NhSbBztZMHTLl1uYyyRZKNsjzWZdUfryFPRpzyfAVri9Rs=
+sidebar_class_name: "post api-method"
+info_path: api/dns/dns-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Preview or apply a BIND file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Preview or apply a BIND file
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"zoneId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"text":{"type":"string"},"apply":{"type":"boolean"},"replace":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The changes, and whether they were made"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: add-a-record
+title: "Add a record"
+description: "Add a record"
+sidebar_label: "Add a record"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsETy0wa3n7cdEt7aJAtmgaxC6CIjAKZoaxppZmtDOUE6+g/76gpDjeeBfoXnqyRD2S73GGzz0KbTOWd/juaoUbgy0lalg4abBHH7DElqRCg4EaxhLJ2tgFuXRoMPGHzid2WErq2GC2FTeEZY9yaBXsg/CWEw6D+WKxjzHwf6uUJfmwxWHYKDi3MWTO+v2H5Vv9cZxt8q34qF1u2MbkgJxjh4PBn5bLc9C6YkgT0GcIUWBPtXdK9hXywjmgGYsGG5YqOhUTs6CZNJVYtHW39eENtb5wIRfzpHLRH2c2FKo4F/0kfCimmhkNZk7757F3qcYS+yk04Gs6f8cuwZpT459gwqDBPSVP9/U0lDk6Sn6grhYssRJpc1kUMiYu+ImatuaFjQ0O41gz2y55OYwU7pkSp4tOld1t9PhsjDvPpxFq/e98OEZOSqz0+CYqp4WOp6lccD5lfZ9AaOaH32JqSDm/v12fqV9xzj4GkLjjAJmDgA8gFYM2icl/JEVCxeQ4AWX4ZSwKFNwIGxMXei1OJR25TarQTPd1grzc2H8f5auM3t+uYcJDZgESyH4b3viwgNuKA7SJla4BLyC046wRy46DZYh7Tl9VMbI9Hfc3T/Li+hJ2fIAslMSHLTx6qUCap3/O5Byh3z7aHR8MPFbeVlOj/NJmAZcCZCVr2oyF+BjmbEtBN5Cs6HcKhxgYuM68GPfRh4c4qvZSq8x3Vyu4uL7Ue88pT7zfLpaL5ZmaPyjQlkET5mUb+7nYkA8ZyKaYM/xax8491JTYwE3shOHnHw1cUcO2YmrHlCgVJ2hT3HvHKY9nog7QUFBq8wV55RWfkTmemvCTFG1NPmiRcd372Ubu8MVGND+oOTxbCRosTw14dBMNnhjpZCgbg5W6U3mHfX9Pmf9K9TBo+EPHSXd88+IZ48Y7n/XZYflAdeYz6jYG4aB36bub2a2/BzRflvS8S+EwWlPd6Rsa3PHhs/8QtZH/sfE8pmEznLj49Z+rNQ7DJ0XXaY0=
+sidebar_class_name: "post api-method"
+info_path: api/dns/dns-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a record"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/records"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a record
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"zoneId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Record added"},"400":{"description":"The record is not valid"}}}
+>
+  
+</StatusCodes>
+
+
+      

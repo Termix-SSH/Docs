@@ -1,0 +1,70 @@
+---
+id: start-stop-restart-or-reload-a-server
+title: "Start, stop, restart or reload a server"
+description: "enable and disable choose whether it starts at boot. Start, restart and reload test the config first."
+sidebar_label: "Start, stop, restart or reload a server"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P4zYM/SsEL20BTTLt0bfZRYvOFkUHmxSDIggKxWZsTWzJK9GTuIb/e0HJiTMbTIG91JdEFEk9fj0OWFDIvWnZOIsZktW7mkDbAgoT4v+8ci4QHCviijwYhsDacwDNsHOOF7CSswJP8SIae6qdLoApMHBFkDu7NyXsjQ+8QIWsy4DZBp9pByvyr+QDbhW22uuGWE7ZZkAjkFrNFSq0uiHMsHKBHwtU6OlLZzwVmLHvSGHIK2o0ZgNy34qmsUwleRzHbdKmwB9c0YvK18a5s0yW5Uq3bW1yLflYvgRJynDr2+1eKOc3KDYYYhyoUOcxmxKPdy15NhSim6QwuwnsjS1xvJjcXCkk2zXRu+QWFQZ2bXz4LEipjppSL1Q4VQ63Y/yicutsSCh+ur+Xn7d1X1cEAs/kBI22uiT/XQDXcdvxAsVHQ1y5Qurhgjwby5Lhsq270tg73ZrlkXZ3KcawHFKhxuXkVZBPdZbKdr7GDIckGgXzGzh/uc7DmnxjTnBJ66v2RuL6KpcF7XVXs/QGcxuy5ZKj4YJOumlrWuSuwTF2QaC884b7CGFH2pN/6CSMzXZUA+bOHQxdS3RrfqP+IrlysZKWSFCuHV3qJ1hw6ko5JyVU059fnG+0YP70vL6JfkUhGGeB3YEsBLIMxsYxkkecN//E9oSKdEEedIAP0WmcPFGLhgvpq+uQLthSVKjSfCWVecJejvwuok/Pa0j6EIiFAYIp7Z2xC3iuyELrSeAqYQnWBwoiyakgmxO4V/LvRhHRXqf7mzP58PQIB+oTOxlbwtFwBdyc/r4J56L67ak9UK/gWJm8OtPg5ZkFPDLoXJgxnHXBHe1knWtrXVSQe217ZwmoDpTmS7jm88xSP6fmvW71mRPObDGRwiiV3LuYM8NidM2r8PD0KNNDPiSjHxf3i/ubnPwepx5saexJwUOr8yrtgY+6KHpwFnoZShnrkEEwTEFNtK6gdmWIyr+u108rlXJCr+R7yCttS4qbgIrzAhhVpJFGR8qbGm9aI0Jw8zJx/rxL9MwEb5APM3v/f+srtSbTiZdtrY2ViCKnDRMxbnAmRlR4RY2oMLtssTM7blXcbGI3DDsd6E9fj6OIv3TkhbC2MwFG+priKzDb6zrQfyTl+8/TkvoB3oN+JgbbR56tOzmhwgP1884dt6PCNBgRQbr8mN65W4uL2fhmjQp5XnbI0x8rob3dtI4bV4iN10fZZ/qYHncxlkixUTZgrW3Z6TKyVPQp37/0hgkv
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start, stop, restart or reload a server"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/service"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+enable and disable choose whether it starts at boot. Start, restart and reload test the config first.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server","action"],"properties":{"server":{"type":"string"},"action":{"type":"string","enum":["start","stop","restart","reload","enable","disable"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The service manager's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: lock-or-unlock-an-account
+title: "Lock or unlock an account"
+description: "Locking turns off the password and expires the account, so SSH keys stop working too. Refused for root and the login user."
+sidebar_label: "Lock or unlock an account"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v40YM/SsETy0wsdMedcsWWzTbFg3iLIIiMIqxRMsTS0PtcBTbFfTfC844snfdFN1Lq4skDod8/HocsCIpg+uiY48F/sLl1vkaYh+8AK/XEDcEnRXZcajA+gpo37lAkg5sWXLvowFhWCx+gi0dBCRyBzsO2RDzDO5p3QtVsOYAgTkmO3q/4dp56IXCDA1GWwsWT/hRKAguDXY22Jai/hVPAzpF2Nm4QYPetoQFbljibYUGA33qXaAKixh6MijlhlqLxYDx0Kmm85FqCjiO5m8tpde/sCMxOF/jOC6zMkl8x9VBNUr2kXzUT9t1jSutZnX+LJra4dIUr56pjGiwC9xRiI5ETxsutwpg0lsxN2Q9julRt9Kxl6z9/fW1vj4v48K+UDXTWLGluOFKw2VJvjTqAudd09fOX9nOzTX/V631tqYwH3JKxySV+aB5GeeKCQ0KhZfXavShwQKHLBrRfAHhd+4DPFBo3R6yDhp8scHZVZORH6UJ/Nr2TdR6xthJMZ/HdHFGe9t2Dc1KbjX6pSIo++DiIUFYkQ0UbnqN6GmphS2Zt47OJbZzP9NhkpyZWGg9MpRzQ1PaFQseOyCVISmhOX78yKG1ivnD48NF9AsScewh8pY8CPkIzqeWVycc3J+pN2BDtqIAVuBdMjpNRro4w9F8FtKELUeFJndyVjn18vMuvonow+MDZH0QimAjiKv9lfMzeNyQhy6QwjXgIkS7JVFJSRX5koBfKLwZRUJ7nu6vzuTN3a1SCEi0ISp77FzcQGz3f1yEM6l+fWq3dDCw27hykx3Jyc0MbiPYMopeO+oC7/zxdmm956Sg59Yf2BNQI5RHTQf9/kQJ73Pzno+0csqoRVtzSo+Lep4JD27ubnVEKEgO8bvZ9ez6IvBf05wmcDqhrxQsBurAfSdmYmtJmCdaZg8HnUmdb0m1UkZobeKmY+Mo/QMH6L0iButfzX8J44zs/uedkTss0j7Ou8Y6r4ElahqOVPeEJ6pDg+dkhwaLaYMkvlPJcRMkyluatGLUyjCsrNDH0Iyjij/1FJSFlidWS5xUOdHvCou1bYT+IW/f3B93zbfwViCv0+4PiTybXv/Q4JYOp+WnLPcfek3pGZejwTxhKep89EP2cvWgBk5XL5ahsvC0l+5+Wyh/ro5LtOVK7wS7021sd9k1p0gSVyfZgI31dW/rRHfJpj5/AWRpC38=
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Lock or unlock an account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/users/{name}/lock"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Locking turns off the password and expires the account, so SSH keys stop working too. Refused for root and the login user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"locked":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

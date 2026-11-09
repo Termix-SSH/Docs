@@ -1,0 +1,69 @@
+---
+id: wire-guard-logs
+title: "WireGuard logs"
+description: "Returns the latest journal lines of the wg-quick units."
+sidebar_label: "WireGuard logs"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVE1v5DYM/SsETy2geNIefUuB7mK2l8XuFEERDArG5tjakSVHojNxB/7vBWXPR5qmwKKn8VCP5HuU+I5Yc6qi7cUGjyV+YRmiTyAtgyPhJPAtDNGTA2c9Jwi7fHZobp4GW+1h8FZSgQaFmoTlA97byB8HijVuDfYUqWPhqEdHtNqiJ2nRoKeOscQ2JFnXaDDy02Aj11hKHNhgqlruCMsjytgr0nrhhiNOk1kqPQ0cx0upTBD/M3OrfVIffOKkgJ9vb/Xn9Qw2qj00IPwihbbDjqUNNZbYsKCZFZS46t3QWH9DvV0dbORGVa+Os6Jp5UKT2XB8PukfosMSj3NoQvOPxn+EIcKGY2dfYMagwWeKlh7dzHeJZso7GpzoBEX6VK5WkhMLfqGud1xUocMpK05cDdHKmCk8MkWOd4MqeNjqKKsQ9pavI9Tb33g8R65KfNXRzlSuC50nrVxON6D/ZxCa5eNDiB0p50/3mzfqv3JKNniQsGcPib2A9fmxaZMQ7V+kSGiZao5ACX7JRYF8nWE5scDJvJJ05jarQjO/nRlyeTzfDvIuo0/3G5jxkFiABJJt/I31Bdy37KGPrHQNWAGhPSeNVFyzrxjCM8d3VWS21+P+7knefV7DnkdIQlGsb+BgpQXpXv58I+cM/f7R7nk0cGht1c6N0qVNAWsBqiRp2oKFcPBLdkXehwzQc/Jj8AzsEs+bZf0uZNVWnMo8uwfcfV7r6+eYZvY/FbfF7RtNa5+EnINLXvAw6h7pGqZMoSNPDYO6QNxRxclA5Sz75bgKfmebBLsYOlB2Qo/5XvqQpCOv9JZHcumyLPcrMrpKXtjL//PR+f7VfFa9I+uVSjaO42I8D3gxHjR4th40WJ7tNBPcmuyvmnI8PlLi36ObJg3P1qmGUNuk9lJjuSOX2OCexyszfSY3KB9UGzh50b8nvjuMH74s3v4jvCfwtKN+vO55IrOomrbXXvzx1w1O09/bjlTs
+sidebar_class_name: "get api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"WireGuard logs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/wireguard/{hostId}/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the latest journal lines of the wg-quick units.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"lines","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The log text."}}}
+>
+  
+</StatusCodes>
+
+
+      

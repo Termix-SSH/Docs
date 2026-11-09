@@ -1,0 +1,69 @@
+---
+id: read-one-kind-of-thing-across-hosts
+title: "Read one kind of thing across hosts"
+description: "Rows from cache plus each host's state (ok, loading, offline, error, no-access). Answers right away and refreshes stale hosts behind it, so a page should poll until no host is loading."
+sidebar_label: "Read one kind of thing across hosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVVFv20YM/isEX9YCqpwUxR70lhXdkG7YijRFMARBcZFo6+bTnUpSdjRD/32gJMdenQzI455snD7yvo8fj9xhRVKyb9WniAVepa3AklMDpStrgjZ0AuTKGuok+oOAqFOCV2mdQUiu8nGVQVoug4+UATEnziCmN64sSeR1DhdRtsQC7Fe1gtu6HlysgGnJJDWNCQON2QXuqfaxAq8ZSAIHrVsRSJ26UEGbQoAuqg8Q04gHL3sOOWaobiVY3OIfLbEzOYJ3GbaOXUNKbN926E1k67TGDKNrCAv0FWbI9K3zTBUWyh1lKGVNjcNih9q3hhJlH1c4DNmc5FtH3B+yGKHLSjD7rqDvU9M4EDIeSlUOv5HbEKROYZkYaEPcj2pMwotvncv4VOh9SoFcxGG4M3nSpigkBnh7dmY/TxhvzrTEU3VHp3McMnx39u404PcE0pU1MEnquKQMEoPWBKULgRga10NMCkzOHM1NBDakdaqwwBUpZpMRBS7So2WLfTpZ7Hw1mDDizd69jgMWuJuOhpNa/5k6hmvixj/AhMEMN469uw+T9Pl0FLN0XVBzTrWVYrHQMTCnB9e0gfIyNTiMxRMqO/bajxTuyTHxRWfEb+/MlzKltafjE9f6X6l/PDlK8dlcmqgcJ3o0zbjszRxNHEGYzX9+Ttw44/zx5vpE/WcS8SmCpjVFEIoKPo6O2CWJ/d9jiaEmVxGDE/hpTDq6brAxcDT8WNIjt0kVZlMjTpBDJ/611WcZfby5hgkPQgpOQfwqvvExh5uaIrRMRjcDr6BuTWInJVUUS4K0IX5Wxcj2uNwvruTFp0tYU2/dzurjCrZea9Dm4euJnEfoy0u7pj6Dbe3LerpIDtfkcKngShULm7GQtnGOLl20V+RKte8u9ikSUBCaHpSPyzSq9hpM5tz9F58urfWJZaL+9sf8/Dw/P5F0be81McEhLocPNu7b0K18hCqVXUNRBbyK0QJOnZKMhW+TaOOi3T93wZU9dmO4tjmelqC11dSVnESmIf89B3tAUSnq/3z7TG2n9KCLNjgfrUDjvNrNY+4WD2Nu3DjzoMMMC1/ZrrK0htvt7p3QFw7DYMfTzLfhU3mxUVZhsXRB6D8q+aK18yT3NfX/WmsbFzpDoU24EyIT+rCODui7wwh+oYZXV/NSfg3PkdyPptgf37mn4ysc7o63zi8frnEY/gGX9BaS
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read one kind of thing across hosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/operations/resources/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rows from cache plus each host's state (ok, loading, offline, error, no-access). Answers right away and refreshes stale hosts behind it, so a page should poll until no host is loading.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"query","name":"hostIds","description":"Comma separated. Leave out for every host.","schema":{"type":"string"}},{"in":"query","name":"refresh","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Rows and per host state."},"404":{"description":"No such resource, or the caller may not read it."}}}
+>
+  
+</StatusCodes>
+
+
+      

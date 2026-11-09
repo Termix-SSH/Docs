@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Wake-on-LAN API",
-    "version": "1.1.0",
-    "description": "Wake sleeping machines by sending a Wake-on-LAN packet to their MAC address."
+    "version": "1.2.0",
+    "description": "Wake, shut down and track your machines from one power dashboard."
   },
   "servers": [
     {
@@ -63,6 +63,321 @@
     }
   ],
   "paths": {
+    "/plugin-api/wake-on-lan/devices": {
+      "get": {
+        "summary": "List devices with Power on and what the caller may do",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "responses": {
+          "200": {
+            "description": "Devices and permissions"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new host with Power on",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "responses": {
+          "201": {
+            "description": "Host created"
+          },
+          "400": {
+            "description": "Invalid name, address or MAC"
+          },
+          "403": {
+            "description": "Not allowed to add hosts, or to use that relay"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/status": {
+      "get": {
+        "summary": "Current status of every device the caller can see",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status per device"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/devices/{hostId}": {
+      "get": {
+        "summary": "One device's settings, without its passwords",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device settings"
+          },
+          "403": {
+            "description": "Needs edit access to the host"
+          },
+          "404": {
+            "description": "Host not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Save a device and turn Power on for its host",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "400": {
+            "description": "Invalid settings"
+          },
+          "403": {
+            "description": "Needs edit access, or access to a relay"
+          },
+          "404": {
+            "description": "Host not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/devices/{hostId}/wake": {
+      "post": {
+        "summary": "Wake a device with its saved method",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wake started"
+          },
+          "400": {
+            "description": "The device can't be woken"
+          },
+          "404": {
+            "description": "Host not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/devices/{hostId}/shutdown": {
+      "post": {
+        "summary": "Shut a device down with its saved method",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Shutdown started"
+          },
+          "400": {
+            "description": "No shutdown method is set"
+          },
+          "404": {
+            "description": "Host not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/devices/{hostId}/sleep": {
+      "post": {
+        "summary": "Put a device to sleep through Sleep-On-LAN",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sleep started"
+          },
+          "400": {
+            "description": "Sleep-On-LAN is off or did not answer"
+          },
+          "404": {
+            "description": "Host not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/devices/{hostId}/test": {
+      "post": {
+        "summary": "Run a saved command once and return its output",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "wake",
+                      "shutdown",
+                      "ping"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Exit code and output"
+          },
+          "400": {
+            "description": "No command is saved"
+          },
+          "403": {
+            "description": "Needs edit access to the host"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/scan": {
+      "post": {
+        "summary": "Find machines on a network, from a relay host or the server",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "relayId": {
+                    "type": "integer"
+                  },
+                  "cidr": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Machines found, matched against existing hosts"
+          },
+          "400": {
+            "description": "Invalid range"
+          },
+          "403": {
+            "description": "Not allowed to scan from there"
+          }
+        }
+      }
+    },
+    "/plugin-api/wake-on-lan/scan/attach": {
+      "post": {
+        "summary": "Attach a scan result to an existing host",
+        "tags": [
+          "Wake-on-LAN"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "ip": {
+                    "type": "string"
+                  },
+                  "mac": {
+                    "type": "string"
+                  },
+                  "relayId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Attached, no new host was made"
+          },
+          "400": {
+            "description": "Invalid address or MAC"
+          },
+          "403": {
+            "description": "Needs edit access to the host and connect to the relay"
+          }
+        }
+      }
+    },
     "/plugin-api/wake-on-lan/host/{id}/wake": {
       "post": {
         "summary": "Send a Wake-on-LAN magic packet to a host",

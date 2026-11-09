@@ -1,0 +1,70 @@
+---
+id: add-repos-to-a-host
+title: "Add repos to a host"
+description: "Adds git folders that already exist on the host. Needs edit access."
+sidebar_label: "Add repos to a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVW1r5DYQ/ivDfGrB2U1LP+23vaMtuUIbLilHCUuZWBNbWVvSSeNsXOP/XkZysnvJpXBQf7E9mpdn3h5NaDjV0Qax3uEGt8YkaKzAne8MxwTSkgB1kcmMwI82CXgH0jK0PskKfmc2CdhYAaprTmmFFQo1CTc3+KsV3FUYKFLPwlGFE1oNFEharNBRz7hB9XVhsMLInwcb2eBG4sAVprrlnnAzoYxBNa0TbjjiPO+KNid5582oKi+Na++EnegRhdDZmjTL9X3SVKfXvv3tPdeCFYboA0exnPRUoaYTNYqRRqzQCven8iTRugbn8ii6FLxLxcmP5+f6+rLa1y1/WegDRwYyhs0K5wp/+prRdjEBm8B5Acr9ihz8CjVsz9J6oyX2KSejld7gOnRDY90ZBbturKynUvN5rZYJK0wcH55aNMQONzgV0YzVCwh/+SHCNcfePkLRwQofKFq67Uq6izSDv6OhE22ySEib9Vqy4YofqQ8dr2rfa812iqAeopUxQ7hlihy3g4K/2c3VhLX3e8unEgr2Nx6fJScurrS3Bcqpo+deKRZcxkv/ixJWy8cvPvakmD98un6V/RWnZHUJ/J4dJHYCtqyEBvHR/pPnDFombRMleJedAjmT1bJhbvBpSsf5ylnpgGm0onJclfuDvInow6drKPqQWIAEkm3cmXUr+NSygxBZ4VZgBYT2nFRSs2FXM/gHjm9mkdGelvubK7m9vIA9j5CEoljXwMFKC9I//v0qnWfVby/tnscKDq2t2xIoHcOs4EI5SpKaLbrgD26xrsnlbapFz8mN3jFwl7hslZLGxyPd/FyG94Qebp72fzdr5+58rpEVVVIihO3lhW4Jx1Sy/GF1vjr/Siu5gjB0XQW173ulVWcgDKl9XvOkDDzqCuoKpypr7JmDZtXDEEA8GBIuudMgPnvMPVRS6Cnz3zJQW2MWt+KBss+XqKYjlf5fN0QZHuFHWYeOrFNsmXWmhbBu8EhYWGFjFdXm5KJQ1tpV+epQ7Wm6pcR/xm6eVfx54KhEsjsSU6YVY5N+G9zcUZf4PxL97uNynXwPbwF+Wlg3Zv7rBv3DCvc8Hi+1WQeiDGxGUA7flzhn1+riaPzqnlJSe2b0yz+ulI5ul/uu90ZtIh20IHQowX3OJVNflk3YkWsGajJ7ZJ/6/AuSjb+H
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add repos to a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repos"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds git folders that already exist on the host. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"paths":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The folders that were added."},"400":{"description":"A folder is not a git repo."}}}
+>
+  
+</StatusCodes>
+
+
+      

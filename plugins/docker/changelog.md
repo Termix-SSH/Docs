@@ -6,9 +6,26 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.2.3"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Containers can be listed, started, stopped, restarted, paused and removed from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions
+- Unhealthy containers show as a status tile on the dashboard and host page
+- A container counts tile on the host page and a Docker entry in the host command palette
+- Optional alerts for unhealthy, restarting or failed containers, set per host
+
+### Changed
+
+- Starting, stopping, restarting, pausing or removing a container now needs edit access to the host, not just connect
+- Container changes now show in run history
+- Needs Termix 26.11.1 or newer
+- Containers, stacks and stats use the Termix tile look, with cards edge to edge and lines between them instead of gaps
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.2.3
 
 ### Fixed

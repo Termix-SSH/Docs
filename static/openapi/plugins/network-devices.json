@@ -1,0 +1,431 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Network Devices API",
+    "version": "1.0.0",
+    "description": "See and manage routers, switches and access points over SNMP and router APIs."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/network-devices/drivers": {
+      "get": {
+        "summary": "List the device types and the keys each one needs",
+        "tags": [
+          "Network Devices"
+        ],
+        "responses": {
+          "200": {
+            "description": "The device types"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices": {
+      "get": {
+        "summary": "List devices with their last reading",
+        "tags": [
+          "Network Devices"
+        ],
+        "responses": {
+          "200": {
+            "description": "The devices. Keys are never included."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a device",
+        "tags": [
+          "Network Devices"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new device"
+          },
+          "400": {
+            "description": "Missing or wrong fields"
+          },
+          "409": {
+            "description": "The name is taken"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/test": {
+      "post": {
+        "summary": "Try a device's address and keys without saving it",
+        "tags": [
+          "Network Devices"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What the device reported"
+          },
+          "502": {
+            "description": "The device did not answer or refused the keys"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}": {
+      "put": {
+        "summary": "Change a device. Keys are replaced only when sent.",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The device"
+          },
+          "404": {
+            "description": "No such device"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a device",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed"
+          },
+          "404": {
+            "description": "No such device"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/poll": {
+      "post": {
+        "summary": "Read the device now",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The device with its new reading"
+          },
+          "404": {
+            "description": "No such device"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/clients": {
+      "get": {
+        "summary": "Clients the device knows about",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Clients from DHCP, ARP, Wi-Fi or the MAC table"
+          },
+          "502": {
+            "description": "The device did not answer"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/neighbors": {
+      "get": {
+        "summary": "Neighbors the device sees over LLDP or discovery",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The neighbors"
+          },
+          "502": {
+            "description": "The device did not answer"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/ports/{port}/state": {
+      "post": {
+        "summary": "Turn a port on or off",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "port",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "up": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Changed"
+          },
+          "400": {
+            "description": "This device type cannot do that"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/ports/{port}/poe-cycle": {
+      "post": {
+        "summary": "Turn PoE off and on again for a port",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "port",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done"
+          },
+          "400": {
+            "description": "This device type cannot do that"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/reboot": {
+      "post": {
+        "summary": "Restart the device",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The restart was started"
+          },
+          "400": {
+            "description": "This device type cannot do that"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/discover": {
+      "post": {
+        "summary": "Look for SNMP devices in an address range",
+        "tags": [
+          "Network Devices"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cidr": {
+                    "type": "string"
+                  },
+                  "community": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Devices that answered"
+          },
+          "400": {
+            "description": "The range is not valid or too large"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

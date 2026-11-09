@@ -1,0 +1,70 @@
+---
+id: revoke-and-remove-a-certificate
+title: "Revoke and remove a certificate"
+description: "Revoke and remove a certificate"
+sidebar_label: "Revoke and remove a certificate"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVGP2zYM/isEX7YCOue6R79diw24rkAPdxkOwyEYFJuJdbElV6KTeIb/+0DJ5yRNi6F+sU2R1PeR4qcBWW8D5i/4kTybjSk0U8CVwlZ73RCTl9UBjcUcW80VKrS6IcyxcoHvS1To6WtnPJWYs+9IYSgqajTmA3LfiqexTFvyOI6r5E2BP7iyF5dvgwtnmSzLkm7bWgAZZxevwVmxXeV261cq+ALFC+6ojxy8a4UWBQkQ4ykusDd2i2N8JDq0zobk+dvtrbxKCoU3reyPOS4rArIluA1wRVDUhiz/EsB13HacoWS5jHikvdsRaFuCp8btCTQUpzKjwoa4cqVU1gXhEAuc46Ktu62xN7o1i7OAsBhSzceFj6lRYSC/f+tR52vMcUimEb+F87frPCzJN+YIyQcV7rU3el0n3pM1Ut/ormbpMnMb8sWCY2BGR920NWWFa6R2K0FQdN5wHyGsSXvyd53QeFmNasDCuZ2hc4tuzZ/Uz5azFE/S3ATlPNHcM8GC0/mS/+SEavr4w/lGC+ZPz8sr9k8UgnEW2O3IQiDLYGzspGzivPk3HjSoSJfkQQf4EJPG9olbDMxwVBeUZmyJFao0KcnlNCuvB/4hok/PS0j+EIhBMwSztTfGZvBckYXWk8BVYBhY7yiIpaCSbEHg9uR/yCKiPS/3T1fy7uEedtRDYO3Z2C0cDFfAzfGfKzqz68+Xdke9gkNliiptFE7bZHDPoAsOEjb5gjvYKbrQ1rroIOva9s4SUB0ozaOoxuNJb35Ph3cWg1kEpGsbF+tjWBwu5BDuHu5lVMiHRPV9dpvdfqefpMCE0L2NvKUDLD8/nc98AGehl0GUSZ54yvpaWNgSdNFQFioVf7ZyHCzomjzDmjbOk9SgBzq2xlNsryhHo6M2Tmft/2XnAvd8JpiOvGhrbazkjWIyTIr0gidFQoXnhFBhfnYTRFlaqXg5SNwwrHWgv3w9jmL+2pEXpVidlCfqRmmCfJeYb3Qd6ArifCvgr4+Tzr8DVN+H/jaRto8CV3fyh2rq+QR2XI0K04mMCNLix7TPzVJSnIKvbiJRrVm8H748id6spxutcaXEeH2QiuhD2txFLlHbom3AWtttp7dRHmJOef4D+7GfTw==
+sidebar_class_name: "post api-method"
+info_path: api/certificates/certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke and remove a certificate"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/certificates/{hostId}/revoke"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke and remove a certificate
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["key"],"properties":{"key":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the client's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

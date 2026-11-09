@@ -6,9 +6,15 @@ slug: "/secret-sources/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "secret-sources"
-plugin_version: "1.1.1"
+plugin_version: "1.1.2"
 plugin_latest: true
 ---
+## 1.1.2
+
+### Fixed
+
+- Vault KV v1 references work with a token that can only read the v1 path
+
 ## 1.1.1
 
 ### Added

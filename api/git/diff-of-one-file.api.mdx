@@ -1,0 +1,69 @@
+---
+id: diff-of-one-file
+title: "Diff of one file"
+description: "The working tree change, the staged change, or a whole untracked file."
+sidebar_label: "Diff of one file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu2zgQ/ZXBnFqAldM96pZFt0HaS7H1IlgERsFIY4mVRLLkKI7W0L8XQyq2u6lbFEhPtsePb97MkG/2WFOsgvFsnMUS1y3BzoXO2AY4EEHVatuQAm4JIuuG6kPIBdCwa11PMFoOuuqohq3pqUCFrJuI5S1eGcaNQq+DHogpSHCPRnJ5zS0qtHogLLF1ka9rVBjoy2gC1VhyGElhrFoaNJZ75MkL0limhgLOs1qYvowUpiPVQvxTosjB2OY8j9TyHDyDq4Xn3DmFZMdBmiUdF2DqMyo8tBU387wRJdE7GykKyR8XF/LxdH612W6B6YELkYQDcetqLLEhRpWbU+LK92Nj7CvtzaoxvNrn/s+rQN6thEKEULh/HNkYeixxn0Mzqv8l/teNAdYUBvMAGYMK73Uw+q7PepdokrzVY88ydGYfy9WK08GCHvTgeyoqN+CcKo5UjcHwlCTckQ4ULkcp4HYj3a6c6wydRrQ372k6RE4oPkr7s5RTosM0RMvjlOR3BqFavrx1YdCi+d3N+kn1HylG4yyw68hCJMtgbHozksQF858WJLSkawqgI/yZSEHbOsHSwQJn9U1JB225KlT5emXI8X593vFZRe9u1pDxEIlBM0TT2FfGFnDTkgUfSOQqMAysO4oSqagmWxG4ewpnq0hqT9v9y528/HANHU3iK4HFcXaGW+Dh4dOTcg7QX29tR5OCXWuqNieKxzQFXDPoiqMcW7DgdnY5XWlrXQLI/9pOzhJQHyk/LGO3LlVtuJcyrwzD5YdrufcUYtb9urgoLr4zHFLgx75XULlhMJzS+TG20BgGeYIRnIVJHpU8zKgSoiPyonOA0QM7qDVTrkaP7BJjmop3kQdtRdxyRd6IJ7gtSAWLrX0jSZ6SZbL8rDsgXwexopXvtbGiLfnIfrGhWzzaECpsjFzk8mQVeCdKxY02Kq0IObPf3+lI/4R+niWc3VYMojZR7KbGcqv7SD+o8cXfi6m/hHNCO5qOu+Re96NAUDzmN6RZZvLjNBm6bJMjdHM02ufvwqMB2ek056OWZVLz5nTPXP21xnn+CgPU2Jc=
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Diff of one file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/repo/diff"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The working tree change, the staged change, or a whole untracked file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"file","required":true,"schema":{"type":"string"}},{"in":"query","name":"mode","schema":{"type":"string","enum":["tree","staged","untracked"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The diff text."}}}
+>
+  
+</StatusCodes>
+
+
+      

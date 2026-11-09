@@ -1,0 +1,70 @@
+---
+id: copy-a-shut-down-vm
+title: "Copy a shut down VM"
+description: "Copy a shut down VM"
+sidebar_label: "Copy a shut down VM"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsETy2gWGmPumWDFs1ugwZrN0ERGAUtMdbE0ox2hrKjGvrvBWcU2xtnge6lukji8OORHD7uUWgdsHjEe+OlpwZuqayN5YDLDDvy1LKwV409GosFdiQ1ZmipZSywdkFuKszQ85feeK6wEN9zhqGsuSUs9ihDp5rGCq/Z4zhm73rqe/Of/ATxxq5xHJdJmYN8cNWgGm9tS2eFregRdV1jShLjbP4cnFXZmWu3euZSMMPOu469GA56mgCeA9BHMYTO2ZBUf7681FfFofSm02hY4KJmeHYrMNVMs39zeu26AQhC3QtUbmfh/hYzbFlqV2mRXIiItFYF5l3Tr429oM7k29Swi3ZqWK69CPk+tWTMt23I91rVMS8bZxkzDOy3r83sfYMF7pNoxLew/nK9hwX71rxA0sEMt+QNrZqU6ySN6T5R34heB5EuFHku0XDGL9R2Dc9K12q9loqg7L2RIUJYMXn2V72m9rjUe1E6tzF8KqHOfOLhIDlxMdf2JSinjg59Uiw4XSD9T0qYTR+/Ot+SYv74sDjLfs4hGGdB3IYtBLYCxoLUDBrEefNPvEpQM1XsgQJ8iE6BbBXVouEMx+yrlA7YUlaYpUFIKsdReN7JNxF9fFhA0ofAAiQQzNpeGDuDh5otdJ4VbgZGQGjDQSUlV2xLBrdl/80sItrTcn93Ja/ubmDDAwQhL8auYWekBmlf/j5L56D6/aXd8JDBrjZlnQKFY5gZ3AhQKUHNJl1wOztZl2Stiwp6TnZwloGbwGkulRc+Hxnll3R5jwxwmHxt25OLBTKiGmfkCVd3Nzov7EPK96fZ5ezyrArXnkk4YmvJ0prh0/0tTIMNr4MNzsKg4/i7sf0LxDFPrZzPf0vJN2alVrGFyhgt2RPc71PMV1AOvRZ+kbxryFj1FUliP7HPIx7ZR5N7wz+YxW2g7+KwFrZt/J/IPfHQMimqw/1+RYH/9M04qvhLz16pYXmkmkgUlQn6XWHxRE3gM+wHoscfPk874EfA7P2cXkfQDpHRml7/MMMND8eFptTzP0aN9RmXY4bp2ses09F1inKxUAdH07OFptR42Bp3f8yV1FbTYmxdpTaedrphaZdCu5hJJNAo22NDdt3TOnJQ9KnPvz/AzQI=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Copy a shut down VM"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/clone"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Copy a shut down VM
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The job id."}}}
+>
+  
+</StatusCodes>
+
+
+      

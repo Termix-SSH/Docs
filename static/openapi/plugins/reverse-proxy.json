@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Reverse Proxy API",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Reverse proxy for TCP, UDP, HTTP and HTTPS with free certificates and Termix login, managed per host."
   },
   "servers": [
@@ -333,9 +333,25 @@
     },
     "/plugin-api/reverse-proxy/gate": {
       "get": {
-        "summary": "Sign in page for a protected route, hands off to the Termix login",
+        "summary": "Sign in page for a protected route, signs in to Termix on the page",
         "tags": [
           "Reverse Proxy"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "route",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {

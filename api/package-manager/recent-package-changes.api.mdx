@@ -1,0 +1,69 @@
+---
+id: recent-package-changes
+title: "Recent package changes"
+description: "From the package manager's own log or history."
+sidebar_label: "Recent package changes"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVF1v3TYM/SsEX9YCim/WR79lwDqkA4agzRAMwUXB2IytXVtyRTo3nuH/PtD2/Ui7DGifLFOH0jkUeUYsWYrkO/UxYI7vU2xBa4aOih1VDC0Fqjj9JBD3AZpYQUxQe9GYhgwdKlWC+T3eLHjBrcOOErWsnGxnRG8Hd6Q1OgzUMuZYR9HrEh0m/tL7xCXmmnp2KEXNLWE+og6dIX1QrjjhNG0NLV0MwmKAd5eX9nnJ/w/esyg8+iSa4TQ5bFnrWGKOFSu6hUeOm67pKx8uqPObVerFKnUzLuymzSoTHQqnp4OcPjWY47iEJnRfMfgr9gluObX+GRYMOnyi5OmhWYiv0Zn7I/WNWkFUO8k3G50TM36mtms4K2KL0yxduOiT12Gm8MCUOF31JuV+O7kRixh3ns8j1PnfeThGzo74ZDVeqJwfdCy5ccH1Kex/AaFbF+9jask4f7i7/Ub9JxbxMYDGHQcQDgo+zA1ll8Tk/yFDQs1UcgIS+GU+FCiUM2xOzHByLyQduS2q0C1NtUBObfX3Xl9l9OHuFhY8CCuQgvgqXPiQwV3NAbrERteBV1DasVik4JJDwRCfOL2qYmZ7Xu7vruTVzTXseABRSupDBXuvNWj7/PkbOUfo95d2x4ODfe2LerlITtdkcK1AhYqlrVgb+DW7oBDiDLB9CkMMDNwILyPmw2OcVXttTObBC+Dq5tqan5Ms5H/OLrPL/3ghnm/xQZSaBvquJGWBGGCwYbJxFAfClIraHWGWkriNT0ezErcGqXzhYUe7mhx2UbSlYHTXpvnIhdXyAC5qCuZjX7G0EQvKQX/IJJd2UH7WTdeQD8Zk9pFxNaR7PBnS7FIvLAkd5kfLPLjS1s02arnj+EDCf6Zmmiz8pedkRrE9Gc9sG6UXW5eYP1Ij/D8K33xcffktvEb/MJBhmP2t6e0PHe54OBn8tD134N9+vcVp+heGEjtL
+sidebar_class_name: "get api-method"
+info_path: api/package-manager/packages-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Recent package changes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/package-manager/{hostId}/history"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+From the package manager's own log or history.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Newest first."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: oidc-callback
+title: "OIDC callback"
+description: "Public. The redirect URI a Vault or OpenBao OIDC role allows. Matches the sign-in by the state the signer issued, has it sign the ephemeral key and tells the terminal to reconnect."
+sidebar_label: "OIDC callback"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1vIzcM/SsEz5Nxtuhpesqm3cbbLjaovQ2KwChoDe1RrZGmEseOa/i/Fxz5azdJ0e2tJ3soinqPH487rDmZaDuxwWOF9/3cWVPCtGGIXNvIRuDTL2Mg+JV6JxAifOzYv6UAH8ff30IMjoGcC5tUwgcS03ACaRiSXfor62G+zZ9CwqcDjmBT6rkuoKEEVgbrcMxdwy1HcrDiLZCvQdi5HFM4ttaTAwkQ2QTv2UiJBQotE1aPOJncwS1HsQtr9L3J8BbOCuwoUsvCUf12aJXsnz3HLRboqWWscICIBSbTcEtY7VC2XT6I1i9xvy9evmhC/Z/ucYwh/uPFWYGRUxd84qTn31xf68/nNRtI1mD9d0Ae7qYffoaOlppsEjAuJNYMJ3aLEvcFfvtSjOlFxRZkHddaaZvAB3DBLzkCGbFrLpUOtixNqLHCJQtqcqXBCked65fWX1FnR2vtllGwtRkZcm5OZqVMOa6PJeijwwp32bTH4gtEv4U+wlQL/gTZBwtcU7Q0dzkZB+vAZaHPYYWNSJeq0WjolKeSn6jtHJcmtLgf0pnY9NHKdoAwZ4ocb3pF/zjTMpkQVpYvLdTZn3h7slyEmGjZMpTLQKcqKpZjdfU7O2Fx+PMuxJYU8/uH6TP2E07JBg8SVuwhsReweT70kRDtX6Se0DDVWpsEb4egeWB0VPTiUO9LSidsmRUWuS+zy7kx/9jIq4jeP0wh+0NiAZJj35Tw0LCHLrLCLXSohVac1GK4Zm8YwprjqywGtJfp/upM3tyPB9VIQlGsX8LGSgPSPv3+jM7J9etTu+JtAZvGmiY/lM7PlDAWHZSk1w6+EDb+cNuQ92Fw0HPy2+AZ2KXDVFm/CANrK05pvqxmcHM/1lHgmDKVN+Wb8voZwdusjiqVTUhHkKkJUa6cXXMNGt6cw6eszLUq9h2lxt6G2D1T/aFIXUjSklesh44ZdsHFoH+GRcfKC3v5Hy+Y3IjCTzLqHFmvaRgUbHdQv0c8q9+gVCpIBaoCYoGn1MwK1HKo/243p8Sfotvv1ZyXg8pSbZOKXI3VglziAle8vdhPa3K9gkGVp1d8Dyvp37get9DZd3YW2qyCZ73/8Ycp7vd/A4X20hE=
+sidebar_class_name: "get api-method"
+info_path: api/vault/ssh-certificate-signer-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OIDC callback"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/vault/oidc/callback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The redirect URI a Vault or OpenBao OIDC role allows. Matches the sign-in by the state the signer issued, has it sign the ephemeral key and tells the terminal to reconnect.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"state","schema":{"type":"string"}},{"in":"query","name":"code","schema":{"type":"string"}},{"in":"query","name":"error","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Signed in; an HTML page that closes itself."},"400":{"description":"The sign-in failed or is no longer active."}}}
+>
+  
+</StatusCodes>
+
+
+      

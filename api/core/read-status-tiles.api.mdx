@@ -1,0 +1,69 @@
+---
+id: read-status-tiles
+title: "Read status tiles"
+description: "Answers from memory right away and refreshes stale hosts behind it, so a page should poll. Reads hosts the caller can reach."
+sidebar_label: "Read status tiles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P20YM/SsEz4qczaEH37ZFWmxaIEHjYlEsjIIr0dbUoxmVpOxVDf/3gpLX3o9kg+0pJ1scDt97HM6bPdaslYTOQk44x8ukOxaFleQWWm6zDCBh3RjQjgagVIPwSlgbVlCjyNBkNYVbbkKqIVgBmoGgozWDNrmPNXQ5xhJ+Z6r1mG0NQ0UxskBFCYSpakos0GitOL/Bjx0LOSXFZYEdCbVsLL62x+BE/+lZBiwwUcs4Ry97VSsWT/T8lNuWQNlLGNcl/Ma0Zci9wSoL8JZlGDk5ulYNt4TzPdrQeVU1CWmNh0PxZdTwbUTQsE4UIdT6FJxifBl1WaCwdjkpq6+/e/vWfx7jfUwMnEwG6Fju0XbBmvHbpYGw9tG0dCHYsjW5xjmu2dB7aw3OcZZPHZ9NNVyZsmzvu95LxDnup9Dhmew/cy+wYGnDHUw5WOCWJNBtnNgfo6OAFfXR/NjMOp3PZjZuLPmO2i5yWeUWD6N+5aqXYMNI4ZZJWC57Z3yz9EOpct4EfhihLvzKwynyoMRn7/NE5WGhU9udy/1x+PeUhMXxz89ZWnLOH64Xz9R/ZtWQE1jecALlZBDSOOUOkiX8O/YWGqaaBUjhx7HoeKE8bdxY4qF4JOnEbVKFxTSFU8p5DP/e2VcZfbhewJQPygZk44i8CamE64YTdMJOt4BgYLRh9UjFNaeKIW9ZvqpiZPuw3a/u5OWnK9jw4D4iFtJ6Gltr7/56JueU+vrWbngoYNeEqpmA9AxTwpUBVaa+7ZgLeZeOuytKKY8Jvk5pyH7XovJ0k0Ja5VF1sOgyj9N/+enKR59FJ+rvfigvLsqLZ5IW7oFZGM77SnhPVQNd7NchQZ2rvuVkCsHUaYHk3ljHxndZraXk+McpcH91hdYrWPBL9wTRr0syTvYd+Pw0KMZ3NusiheSSRofZHx3pBs+O5LN09KRlMVq9r+/3t6T8h8TDwcOTNbtN1EHddGqcrygqv9CFV70OX+S84eHR67Ol2HsWuhf9byLffjReIBOeEFmefXgyyfMT8Mv7BR4O/wFGX8fO
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read status tiles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/operations/signals"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Answers from memory right away and refreshes stale hosts behind it, so a page should poll. Reads hosts the caller can reach.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostIds","description":"Comma separated. Leave out for every host.","schema":{"type":"string"}},{"in":"query","name":"ids","description":"Comma separated signal ids. Leave out for all.","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per signal with per host results."}}}
+>
+  
+</StatusCodes>
+
+
+      

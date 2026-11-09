@@ -1,0 +1,70 @@
+---
+id: update-a-note
+title: "Update a note"
+description: "Only the fields sent are changed."
+sidebar_label: "Update a note"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v20YM/lcIPq3Axc72qLd02IB0wBa0DoIhMApaoq2LpbvrHRVHM/S/Dzwpljs3Q6sHW+Lxx0ce+fGIFacy2iDWOyzwL9f0IDXD1nJTJUjsBCgylDW5HVcLNCi0S1g84p9eOOHaYKBILQtHFR/RqqNAUqNBRy1jgZ2t0GDkL52NXGEhsWODqay5JSyOKH1QtSTRuh0Ow3pU5iTvfdWrRumdsBN9pRAaW5IiXj4lhX28dOU3T1wKGgzRB45iOeVTKw1/I6LBzRTo4mBM93RAMVKPBq1wm76F3WCwzmmWp7ON9w2TwyE/mlsK3qUR0i/X1/r39T2saoYuVCRcgfPCi+y4Zal9pdXtcmpa4wKXoel21l1RsEvVTdPvsbPVgAYTx+fXu+ligwUeR5Eefh32b99FWHFs7QuMOmjwmaKlTTOinaQZ8Ja6RrDAWiSkYrmUbLjgF2pDw4vSt5rxWhGUXbTSZwgbpsjxplPsj+vB6N36veVzCQX7B/cnyZmLT3rRI5RzR6dSKxacWiuXPiuhmV5+97ElxfzhYXWR/SdOyXoH4vfsxta3Lk+DBvHR/pObDmqmiiNQgvfZKZCrslo2XGjTnKc0t07OSntHo40q84w8HeRNRB8eVjDqQ2IBEkh2566sW8BDzQ5CZIVrwAoI7TmppOSKXcngnzm+mUVGe17uH67kzd0t7LmHJBTFuh0crNQg7cvni3ROqj9e2j33Bg61LesxUJrDLOBWgEpJajbpgj+4ybok53xW0HNyvXcM3KRpppRBPs5c89vYvGdc8TrZrxQxf78S4SRYz5Ov/DboPW/9uafMmHBzd6tTxTGNVfl5cb24vqjVQ7TC0FLcV/7gMgkk2PoITGUNtU9iYOsbrZaP0PsuJm62ZixL6duWXJVUrgWA0ode9RJrPf3YrTqujprcAsEnaSlz6dSP95l+gHLo/8I7I+Tv2xljTwm/yDI0ZJ3GzGR0nGjsEWca06HIy2X+L3SFrA1q4qp8PG4o8X1shkHFXzqOSi/rma4y2VQ26XuFxZaaxP+TxU8fp+30Dt7C+zrGrs+s2HT6hQb33E87blgPBscezuHHk1/HIFcrtZ8tL/aY8tyJ4u/uVzhvpdZXahLpoHuUDmNgn/PIZJhlR2zI7TraZT7JLvX5F/mZuMA=
+sidebar_class_name: "put api-method"
+info_path: api/notes/notes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a note"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/notes/notes/{uid}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only the fields sent are changed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"uid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"title":{"type":"string"},"body":{"type":"string"},"tags":{"type":"array","items":{"type":"string"}},"pinned":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated note."}}}
+>
+  
+</StatusCodes>
+
+
+      

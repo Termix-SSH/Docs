@@ -1,0 +1,70 @@
+---
+id: download-a-file-into-a-pool
+title: "Download a file into a pool"
+description: "The host downloads it in a job, so it survives a Termix restart."
+sidebar_label: "Download a file into a pool"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXBPLUALbp91JuTtqiTBjUiNUZhCMWIHIsrkbvM7lCXEvz3YHapC6y4aICifCG5O5cztzM9lhwKb1oxzuIU5xVD5YJA6Xa2dlQGMALGAsHaLTMITv9D57dmywEI5uwbswfPQcjLBDMUWgWcPuEn46WjGj5QURnLARcZtuSpYWGvEj0addmSVJihpYZxiur8vsQMPX/ujOcSp+I7zjAUFTeE0x7l0KqkscIr9jgM2Vctxde/sBPEG7vCYVgkYQ7yxpUHlXipWzgrbEWvqG1rU5CmLV8HzV1/bdot11wIZth617IXw0FvO19/xf8R+DUwfRRbaJ0NycSPt7f6ui7e2i0nmhJsWCpXalZciBA0OVPM27pbGXtDrcm3qUI3zVihXJMf8j7VYMhb5+qQ9wpryI8NgRkG9ttjCWMs2KejAbMXkP50nT/2SJLBDLfkDS3rFMl4GoN5pq4WbQKRNkzzXKLihPfUtDVPCtdoNhaKoOi8kUOEsGTy7O86je9pod1QOLcxfHlCrXnPh9PJhYmZFi1BuTR0qoJiwbFt9D8JYTZ+/OJ8Q4r53eP8KvoZh2CcBXEbthDYxlGSikGdOG/+jg0EFVPJHijAm2gUyJZRLCpOtDcuQzphS1Fhlto/iZwHYL2TVxG9e5xDkofAAiQQzMreGDuBx4ottJ4VbqbTLrThoCcFl2wLBrdl/2oUEe1lur85k3cP97DhA0RGMXYFOyMVSLP/6yqck+i3p3bDhwx2lSmq5Cic3UzgXoAKCao2yoLb2VG7IGtdFNB7sgdnGbgOnAZP2eDjmUd+Ts17mvvjWJ/KdJ5/Y59dzJcRVbhiULh7uNfxYR9S+D9Mbie3V0l565mEI9SGLK0Y3n/6AOOww3HYwVk46HT+Zmy3j6QfUmVns19TLmqzVK1YUWWRhiLNjbh/GgkBCJ5NzWCsOCBQ0ngJqT8z53+yYVI/Ce8lb2syVgGOpJpo7gnPNKcZe0F0mMU9o+/paeFEttOTcXGcCG+RpNVq3y8p8B++HgY9/tyxVw5anDktMlJpgn6XOH2mOvA/ZOO7j+OK+R5eC+w46/YQqbPu9A8z3PDhvC+V4/5HrzFFw2LIMM1XjDpdvU1ebuZq4Kx6tS+Vg0876uH3mbLncty7jStVx9NOFzjtkmsXI4lMHc96rMmuOlpFsos29fkC5lgLQw==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download a file into a pool"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/download"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The host downloads it in a job, so it survives a Termix restart.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string"},"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The job."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: get-alerts-when-a-web-server-on-this-host-stops
+title: "Get alerts when a web server on this host stops"
+description: "Checks every minute as the caller and sends one alert when a server stops and one when it runs again."
+sidebar_label: "Get alerts when a web server on this host stops"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDObUAY6c96pYN+pEtigZrF0ERGMVYmkiMJVJLjuKohv57MaT8sRukwF7qiyXykTPvaebNASuOZbC9WO+wwNuGy10EfuEwQmfdIAwUQRqGktqWA5CrILKrInjHQC0HgX3DDggihxcOEMX3MeEUkfasQBhcBKrJugUaFKojFo/4wFtYpWMRNwZ7CtSx6FvxeECrKfUkDRp01DEW2PgodxUaDPx5sIErLCQMbDCWDXeExQFl7BVpnXDNAadpk9Ec5YOvRoWU3gk70Ufq+9aWpPyXz1FFOLy9y2+fuRQ02AffcxDLUXczesZsvW+ZHE7ppyFj713MyB+vr/XvS7FX9MLVAhXcsTS+UrY+pjhKusBl3w61dVfU2+Wet1dZ4bg8ZBmm5Z6kVHXmjaTaEFos8JCXJjRfRf3LDwHWHDr7On8xNPhCwdK2zcnOqynfJxpaUd1F+lgsl5IOLviVur7lRek7JbzRDMohWBlTClumwOFmUBKPm8mo4n5n+XKFevsbj6eViytWKn9O5fKik9KaC85fPCmfQGjmh5996Ehz/viwfsN+xTFa70D8jp0WsoB1qb41iA/2n1QK0DBVWu0RPqRLUz0rLB1c4GS+oHTKLbNCk2s3Q87V+7yXdzP6+LCGjIfIAiQQbe2urFvAg/ZQH1jTNdpMQjuOulJyxa5k8Np477FI2V7K/c1K3tzfwY5HiEJBrKthb6UB6V7/fkPnBP12aXc8Gtg3tmxyoHgOs4A7ASolHt1IQ/i9m0+X5JxPAN0nN6rzcBs5d5f29aezA/yUi/fYweofk36wJ5+ksaJ7l9YEN/d32iQcYib5w+J6cf2G+u/kqGZwtXWvBm56KhtO6d1SVY3gHYzae9q7sYBohaOB0rsnWxtofZ1N89f1+n5lMvXsw2VDrmYQjsIVPNkQJX1S9YqOkgfN9fWLFo5acjx68p63R1/Wqm9sTPGzSX/N4MIY/79JkCtR+FWWfUvWKbNkYYfZBR/x7IJo8MIH0WBxGgjZCjcmjQg9dThsKfKfoZ0mXf48cFB32pzdLnlVZaM+V1g8URv5PyT57tM8c76H9xI/uoAbk6m2g76hwR2P5+E1bSaDuQtSBnnzNse5WusV58Nv5pM65Wlc3P+xUo/bznOt85WeCbTXCUn7HNwnLslP09oBW3L1QHWypHSn/v4FaPHJdQ==
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get alerts when a web server on this host stops"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/watch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks every minute as the caller and sends one alert when a server stops and one when it runs again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"on":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

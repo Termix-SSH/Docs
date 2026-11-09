@@ -1,0 +1,69 @@
+---
+id: user-management-status-on-a-host
+title: "User management status on a host"
+description: "The login user, whether root or passwordless sudo works, the sudo group, the allowed shells and whether useradd is installed."
+sidebar_label: "User management status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu5DYM/RWCpxZQZtIefUuBtpstCiyaWQRFMCgUm7HVkSWvSGfiGv73gpJ3ZrpBFthbT2NxHqn3aPJ5xoa4Tm4QFwNWuOsIfGxdgJEpGTh2JB0lSDEKxASDZT7G1HhiBh6bCMeYDmxAOirnNsVxKGfrfTxSA9yR9ww2NKd6Wt02DTgGF1is99Rs0KDYlrF6wI9MiXFvcLDJ9iR6qh5mdEpysNKhwWB7wgq7yHLboMFEn0aXqMFK0kgGue6ot1jNKNOgSBeEWkq4LHtF8xADEyvgx+tr/XndCxYrI29wWQz2JF1ssMKWBE1hUeF28GPrwpUd3FZVXfU22JbSdi7Elm2pgQaZ0vNnIWPyWOFcQguaL+7+M44JdpR69wIFgwafbXL20RfKazSzfrKjF22FyMDVdis5cUMvth88berY45JFM9VjcjJlCo9kE6WbUWU87BczYx3jwdFlxA7uN5pOkYsSd9rdQuWy0KnZygXXl6DnAkKzPvwSU2+V8/v73Sv1d8TsYgCJBwrAFARcyCOll8Tk/rGKhI5sQwksw0+5aB4xheXEDS7mP5JO3IoqNGWcCuQ8UH8f5U1G7+93UPDAJGAF2LXhyoUN3HcUYEikdA04AbEHYo3U1FCoCeIzpTdVZLaX7f7mTt58uIUDTTqzSVxo4eikA+lf/nol5wT99tYeaFJbcHVXLuLzNRu4FbC1sKatWIjHsGbXNoSYAfq/DVMMBOSZynq58BSzaideZWYLgJsPtzr5lLgw/2Fzvbl+pef3vHP5Tt1BsHUdxyBsih2xORlXsaG7u3dKjiEGmHTVdFc5v4IhsvQ2KJN1HpQIlK3utV9lnzXV5rwv2egeBaEg/wc/LSMk9CLbwVsXVGL2nnk1sAc8GxgavLQwNFid3HV1sb3Jhqt58/xomT4mvywa/jRSUmPZn40q20zjWJ8brJ6sZ/pKs777Y3Xw7+Et6p8XOEzZD/2oJzR4oOn8KVj2l2796887XJZ/ARHKaAA=
+sidebar_class_name: "get api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"User management status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/user-manager/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The login user, whether root or passwordless sudo works, the sudo group, the allowed shells and whether useradd is installed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."}}}
+>
+  
+</StatusCodes>
+
+
+      

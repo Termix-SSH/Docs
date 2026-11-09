@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/file-manager/reference"
 custom_edit_url: null
 plugin_id: "file-manager"
-plugin_version: "1.1.3"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -45,6 +45,17 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `file-manager.use` | admin, user | Browse, edit and transfer files over SFTP. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `file-manager.list-files`<br />List files | A host | Read only | `path` |
+| `file-manager.path-info`<br />File info | A host | Read only | `path` |
+| `file-manager.make-folder`<br />Make folder | A host | Changes | `path` |
+| `file-manager.delete-path`<br />Delete file or empty folder | A host | Destructive | `path` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
@@ -58,6 +69,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |

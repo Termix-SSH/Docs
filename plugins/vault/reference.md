@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/vault/reference"
 custom_edit_url: null
 plugin_id: "vault"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -16,7 +16,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
-| Allowed private Vault hosts | textarea |  | Private or loopback Vault hostnames/IPs that anyone's own profile may use. Shared profiles and profiles made by people who can share already may. Separate entries with commas or newlines. |
+| Allowed private signer hosts | textarea |  | Private or loopback Vault or OpenBao hostnames or IPs that anyone's own profile may use. Shared profiles and profiles made by people who can share already may. Separate entries with commas or new lines. |
 
 ## Permissions
 
@@ -24,8 +24,8 @@ Give these to roles in **Settings**, **Roles**.
 
 | Permission | Who has it at first | What it allows |
 | --- | --- | --- |
-| `vault.use` | admin, user | Create Vault signer profiles and connect to hosts that use Vault. |
-| `vault.share` | admin | Mark a Vault signer profile as shared so every user can pick it. |
+| `vault.use` | admin, user | Create signer profiles and connect to hosts that use Vault or OpenBao. |
+| `vault.share` | admin | Mark a signer profile as shared so every user can pick it. |
 
 ## Capabilities
 
@@ -42,7 +42,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 ## API
 
-The plugin's HTTP routes are in the [API reference](/api/vault/hashicorp-vault-api).
+The plugin's HTTP routes are in the [API reference](/api/vault/ssh-certificate-signer-api).
 
 ## Platforms
 

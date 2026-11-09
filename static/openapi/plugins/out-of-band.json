@@ -1,0 +1,496 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Out-of-band API",
+    "version": "1.0.0",
+    "description": "Power, sensors, event logs and consoles for server BMCs over Redfish, IPMI and Intel AMT."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/out-of-band/drivers": {
+      "get": {
+        "summary": "List the BMC types and the login each one needs",
+        "tags": [
+          "Out-of-band"
+        ],
+        "responses": {
+          "200": {
+            "description": "The BMC types"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices": {
+      "get": {
+        "summary": "List BMCs with their last reading",
+        "tags": [
+          "Out-of-band"
+        ],
+        "responses": {
+          "200": {
+            "description": "The BMCs you can see. Logins are never included."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a BMC",
+        "tags": [
+          "Out-of-band"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new BMC"
+          },
+          "400": {
+            "description": "Missing or wrong fields"
+          },
+          "409": {
+            "description": "The name is taken"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/by-host/{hostId}": {
+      "get": {
+        "summary": "Get the BMC linked to a host",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The BMC, or null when the host has none"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/test": {
+      "post": {
+        "summary": "Try a BMC's address and login without saving it",
+        "tags": [
+          "Out-of-band"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What the BMC reported"
+          },
+          "502": {
+            "description": "The BMC did not answer or refused the login"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}": {
+      "put": {
+        "summary": "Change a BMC. The login is replaced only when sent.",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The changed BMC"
+          },
+          "404": {
+            "description": "No such BMC"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a BMC",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed"
+          },
+          "404": {
+            "description": "No such BMC"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/poll": {
+      "post": {
+        "summary": "Read the BMC now",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The BMC with its new reading"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/power": {
+      "post": {
+        "summary": "Change the power of the machine behind a BMC",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "on",
+                      "off",
+                      "graceful-shutdown",
+                      "cycle",
+                      "reset"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The BMC accepted the change"
+          },
+          "400": {
+            "description": "Unknown action"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/log": {
+      "get": {
+        "summary": "Read the hardware event log",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The newest entries first"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Clear the hardware event log",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cleared"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/boot": {
+      "post": {
+        "summary": "Choose what the machine boots from next time",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "device": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "pxe",
+                      "disk",
+                      "cd",
+                      "usb",
+                      "bios"
+                    ]
+                  },
+                  "uefi": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Set for the next boot only"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/media": {
+      "get": {
+        "summary": "List virtual media slots",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The slots and what is mounted"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/media/mount": {
+      "post": {
+        "summary": "Mount an ISO from a web address",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "slot": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mounted"
+          }
+        }
+      }
+    },
+    "/plugin-api/out-of-band/devices/{id}/media/eject": {
+      "post": {
+        "summary": "Eject virtual media",
+        "tags": [
+          "Out-of-band"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "slot": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ejected"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

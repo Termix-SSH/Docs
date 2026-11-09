@@ -1,0 +1,70 @@
+---
+id: throw-away-changes
+title: "Throw away changes"
+description: "Restores tracked files and deletes untracked ones. This cannot be undone. Needs edit access."
+sidebar_label: "Throw away changes"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v40YM/SsETy2gyGmPvmWLtsgWaIPERVAERjGWGGliaWZ2SMVRBf33giPZ8iabAjlUF0kckvP49ThgSVxEG8R6h2u8JRYfiUGiKfZUwqNtiMG4EkpqSIihc8cz74hz2NSWoTDOeYEdQedK7yiH34lKBiqtgCkKYs4xQzEV4/oBf7WC2wyDiaYloajCAa0iCEZqzNCZlnCNtWe5LjHDSF86G6nEtcSOMuSiptbgekDpg2paJ1RRxHHcTtrE8smXvaq8Ni68E3KiRyaExhZGw189seZgeOvb756oEMwwRB8oiiXW0wR10WKJ1lU4Zjgn6OzMxGh6zNAKtfwNmzHDU14/YpYejZeDdzzB+vHyUl9fF9bvUxGlJqisgO8kdJKni1uS2peaes8pyBQWrkLTVdZdmGBXlZXVMNViXEUKflVaLkzUyjDF52MFu9jgGodJNGL2CsRfvouwodjaF5h0MMNnE63ZNRP2WZrgP5quEe0BkcDr1UqSYU4vpg0N5YVvNQFbRVB00UqfIOzIRIpXncbwsB2zAQvv95bOJSbY36g/Sc5c3GnpJyjnjk6JVyw4d5/+T0qYzR+/+Ngaxfz5fvMm+jtitt6B+D05YHIC1qWK6CU+2n9SG0JNpqQIhuFTcnoqXDLMtcHOQ1qaJUWl3aK3TSrLJD0d5F1En+83MOkDk4ARYFu5C+tyuK/JQYikcDOwAmL2xCopqCRXEPhniu9GkdCep/vDmby6uYY99cBiolhXwcFKDdK+/P0mnJPqx1O7pz6DQ22LerqIl2tyuFYKE1azWRf8wc3WM/OZQvTcuN47AmqYpuFSTrld2OjnqXkX9jiO8hlpPBxl269IYRGPWuJHn5JpRb0pocLVzbWOE0We0vFDfplffqPmlEHomiaDwret0rMrIXRcJ2LQ4WbwDnqdVR15zpLGniho+C10AcRDaYSmJJlOfPKYiq0k0prEo3PnberoD2AOpoeiNq4ifg1qWBj5f99AU/cJvcgqNMY6xZxo61iRB1yIDzOsrM7N+mwRBa/4Z/7bZmlHqdkw7AzTn7EZRxV/6SgqJW0XiksEVVrW7xLXj6Zh+o9UfHc7763v4T3kx9F3fWLSptM/zHBP/bI9R+2YqfUTgunwp+mei426WIzfLESlx9OKuPnjToltNy/W1pdqE81BM2MO0+U+xZJINMkGbIyrOlMlHko+9fkXinju8g==
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Throw away changes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/discard"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Restores tracked files and deletes untracked ones. This cannot be undone. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"tracked":{"type":"array","items":{"type":"string"}},"untracked":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

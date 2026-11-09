@@ -1,0 +1,69 @@
+---
+id: what-a-host-offers
+title: "What a host offers"
+description: "The login user, whether ps, pm2, supervisor and systemd are there, and whether the caller may change things."
+sidebar_label: "What a host offers"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v4zYQ/SuDObUAY7uLPemWAm2RLVoEXRdBERgFI40l1hLJ5YySqIb+ezGkYrvJboE99WRp/IZ8bz6ejtgQ18lFccFjhduOoA+t8zAyJQNPHUlHCSIbiMM7AzxGSo+OQwLrG+CJhYYGbCJQIJkcfkmTjqC2fU8JBjtB3VnfKtD5lldoUGzLWN3jbQo1McMv1tuWEu4MRpvsQEJJAUd0yi5a6dCgtwNhhV1guWnQYKJPo0vUYCVpJINcdzRYrI4oU1Sk80J67DzvFM0xeCZWwLvNRn/eFoHFysgrnA2+37x/i/k1gK0zZwlZprJZ4TwbHEi60GCFLQmaQrrCdezH1vkrG906FrlXQ5G7PhYp87rcigaZ0uOL9DH1WOGxhGY0r5j8EcYEW0qDe4aCQYOPNjn70BeRSzRr2NuxFy2eSORqvZacuKJnO8SeVnUYcM5lYqrH5GTKFB7IJkrXoyq5383miHUIB0eXERvdzzSdIhdHfNR+FCqXB53ao1xwaZu+FxCa5eHHkAarnD/cbd+o/0jMLniQcCAPTF7A+dwQvSQk97dVJHRkG0pgGb7Ph+YxVVhOzH2+lHTiVlShKQNYIOcR/OtJvsjow90WCh6YBKwAu9ZfOb+Cu448xERK14ATEHsg1khNDfmaIDwu2/M5FZntZbm/upLXtzdwoEmnPInzLTw56UCG5z/fyDlBv760B5rUQVzdlYv4fM0KbgRsLaxpCxbCk1+ya+t9yAD93/opeALqmcqGOb8PWbWTXmW+sg+4vr3RHaDERcN3q81q85lGUbkseEmhhzR6r7VYtpOK5RWbu3C9GBmCh0nXTveWDSSyWbFLap6cU1rteU9ZtbZbOppgb12fuxcDy2C9ilhG6a6zAjafCGG/1+V/RViXzgt5+R98uoyX0LOsY2+dVw3Zl46Lv93j2d/U9P7tcGiwOtn1YnI7kx1cU4/HB8v0e+rnWcOfRkrqO7uzj2UXahzrc4PV3vZM/1Geb35bPgnfwpfYv+y3n7Jd9qO+ocEDTedvy7y79POfftjiPP8D6Ep/BQ==
+sidebar_class_name: "get api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"What a host offers"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/process-manager/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The login user, whether ps, pm2, supervisor and systemd are there, and whether the caller may change things.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"404":{"description":"No access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

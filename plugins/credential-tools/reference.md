@@ -16,17 +16,26 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `credential-tools.use` | user | Generate and check SSH keys and copy a public key to a host. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `credential-tools.list-keys`<br />List SSH keys | The server | Read only |  |
+| `credential-tools.deploy-key`<br />Add SSH key to host | A host | Changes | `key` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:provide` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 

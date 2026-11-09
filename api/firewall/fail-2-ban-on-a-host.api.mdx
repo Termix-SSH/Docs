@@ -1,0 +1,69 @@
+---
+id: fail-2-ban-on-a-host
+title: "Fail2ban on a host"
+description: "Whether Fail2ban is installed and running, and each jail with its counts and banned addresses."
+sidebar_label: "Fail2ban on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P2zYQ/SuDOaUAY29z1G0LZNNNUSDoOjCKhRGMpbHFmBoq5Gi9qqD/XpCSP5LFFsilF0kcPpLvDWeeBqw4lsG2ar1ggeuateYAd2Tduy0J2AhWopJzXAFJBaETsbI3ecBU1vCVrIOj1RqsRih9Jxrz7JZE0qqqChwjxwUaVNpHLB7xzgY+knO4MdhSoIaVQ5oZ0CYiLWmNBoUaxgJrH/W+QoOBv3U2cIWFho4NxrLmhrAYUPs2Ia0o7zngOG4SOrZeIscEeHdzk17f613VfNEalZQXOI4GG9baV1jgnhXNxKbAZeu6vZW31NrlbhawHCZy43I374MGI4enk5wuOCxwmEIjmh8Y/O27ACsOjX2GCYMGnyhY2rqJ+BzN3HfUOU0JUW1jsVxqXrjgZ2pax4vSNzhm6ZHLLljtM4UtU+Bw2yURj5vRDFh6f7B8HaHW/sH9OXK1xUPK8UTleqNzyhMXnK8ijScQmvnjzoeGEueP69UL9Q8co/UC6g8sEFkUrIDWDOkQH+w/lJBQM1UcgCL8ljfN9ZVgeeECR/OdpDO3SRWaqagmyKWsvh71VUYf1yuY8BBZgRSi3ctbKwtY1yzQBk50DVgFpQPHFCm5YikZ/BOHV1Vkttfp/ulM3n66hwP3qWCDWtlP3afN85cXcs7Qn0/tgXsDx9qW9XRQvByzgHsFKlOfxxMW/FHm1SWJ+AxI8yS9FwZ2cW4uKzufVVt1SebJC+D2030qfg5xIv/r4mZx80LSnyS0Z/h8tzZw6sLKgOw0t0xmYNt5ELr09AJ96rPUqnG6nYeH380kyPny4DuFNnjlMh2Sb6j1URuSRHQul7NReAHKe/3ILTWWKIv+L1Y6FY3ysy5bR1YS6+w2w2xYj3gxLDR4ShYaLM6Oenatjck2m1YNw5Yifw5uHFP4W8chGcnmYkzZViob03eFxY5c5P/IxZu/Zt/+BV4jfmpY6bP/uS6N0OCB+8sPYNxce/OH9yscx38BeAdWaw==
+sidebar_class_name: "get api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Fail2ban on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/firewall/{hostId}/fail2ban"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether Fail2ban is installed and running, and each jail with its counts and banned addresses.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The Fail2ban state."}}}
+>
+  
+</StatusCodes>
+
+
+      

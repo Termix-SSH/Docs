@@ -6,9 +6,45 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- Check that SSH login works and see recent commands through Termix actions, with SSH login as a status tile on the host page
+- A dashboard card with your open terminal sessions, and the open sessions of a host on the host page
+- A Recording badge in the terminal while the session is recorded
+- When a host needs approved access, the terminal says so and offers a Request access button
+- Admins can let Session Recording list, watch and end everyone's live sessions with the new Watch everyone's sessions permission
+- Snippets and other plugins can send text to local terminals
+- A Verify button when a host needs a second factor before connecting
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Settings use the Termix tile look
+- The terminal toolbar uses the darker page color
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Other features could watch or type into a live session they did not own if they knew its id
+- A new SSH session no longer gets mouse codes typed into the shell after a tmux session that used the mouse
+- The Edit host button on a failed connection shows for saved hosts again
+- The mouse wheel scrolls in tmux with mouse support on, even right after tmux starts
+- The last row of a local terminal is no longer cut off
+- The terminal offers to fill a saved sudo or SSH password at a password prompt again
+- Clear All in command history asks first and says when it fails, and switching terminals no longer shows the last host's history
+- Running a second macro no longer leaves the first one running with no way to stop it
+- A macro that times out says so in your language, and stopping a macro no longer logs an error
+- Watch rules say when they could not be saved
+- A broadcast that only had one terminal ends when that terminal closes
+- Links opened straight from the terminal can no longer reach back into Termix
+- Some terminal errors and notices were always in English
+- Auto-Tmux from a desktop app linked to a sync server uses the host's Tmux Monitor settings, such as mouse support, instead of the defaults
+
 ## 1.3.0
 
 ### Added

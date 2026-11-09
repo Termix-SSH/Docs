@@ -1,0 +1,70 @@
+---
+id: unban-an-address-in-a-jail
+title: "Unban an address in a jail"
+description: "Unban an address in a jail"
+sidebar_label: "Unban an address in a jail"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVW1v4zYM/isCP22AGnf30d96w4r1hmHFpUUxFMGBsZlYjS3pJLqpZ/i/D5Scl116Ay4IEpsiqYdvD0dg3EYon+HWBNpj28JKg8eAHTEFORnBWCjBIzegwWJHUELjIt/VoCHQ194EqqHk0JOGWDXUIZQj8OBF01imLQWYplXWpsgfXT2IyrfGlbNMluUIvW9NhWycLV6isyK78O3WL1QxaPDBeQpsKMrpC5r2TCtyMHYLkwbj3xGnj0CL3tmYPXy4vpa/mmIVjBcQUMKjXaO1VC9A9N85U/Kt60AxKmMVqgREQ0fcuFpy6GJCK6ksofBtvzX2Cr0pNnP2izFndio2aNoPa7RFL65BQ6TweqhIH1ooYcyiCb5F87frg3qg0Jk3lXVAwysGg+s2BzhLU4wb7FuWmjL7WBYFJ8MFvWHnW1pUrpMkrQRB1QfDQ4KwJgwUbnoJ5Xk16REq53aGziXozR80HCVnLpZSygzl3NGxOIIF5m6S96wEen64daFDwfzp6eEi+iXFaJxV7HZkVSTLUg1uSMklLph/UluphrCmoDCqj8mpQlsntWS4kIY5D+mILUcFOs9FVjlNxsuev4vo09ODyvoqEitkFc3WXhm7UE8NWeUDCVytDCvGHUWRVFSTrUi5VwrfjSKhPU/3D2fy5v5O7WhQkTGwsVu1N9wo7t6+XIRzVP3x1O5o0GrfmKrJF8XTNQt1xworjmI26yq3t7N1hda6pCDnaAdnSVEbKY+jcMTnE7v8lpv3xAaHcc8kcM4JduNSugyL/pEH1c39nUwNhZij/mVxvbi+yMWfaHFL6vH2SavDENda2Q2nWUvQjZ9fQi+/zqpBBlQmPeayLpe/65yJ1lU717PywTFVckkqrTBHh4kF5z77X8b5D8ZjKzC9ceFbNFZcJg4ZZzJ6hhMZgYZDJKChPFL9gZFAQ+aklU57QKzHcY2RHkM7TSL+2lMQmlidaCeRRm2iPNdQbrCNdAH0uADgp8/zbvhZgX4/gMM42iGxW9vLG2jY0XDaUNNq0pDbMSHIh7/me64exMXJ+GLpCGUd2fv+r6WQzXpeXp2rxSbgXtYg7vPlLsWSiC3JRmjRbnvcJm5IPuXzL3U6k1k=
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unban an address in a jail"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/fail2ban/unban"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Unban an address in a jail
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"jail":{"type":"string"},"ip":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Unbanned."}}}
+>
+  
+</StatusCodes>
+
+
+      

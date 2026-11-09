@@ -1,0 +1,69 @@
+---
+id: list-the-folders-and-objects-under-a-prefix
+title: "List the folders and objects under a prefix"
+description: "List the folders and objects under a prefix"
+sidebar_label: "List the folders and objects under a prefix"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v20YQ/SuDOTUALbrpjTcHSAqnBRLELozCEIIVORI3IneZ3aEkluB/L2aXpKRaDmL3JGH5ZubN15seWW08Zo/4afWNcoY7tk5tCJcJNsqpmpicfO9RG8ywUVxigkbVhBmqPLet4dsCE3T0vdWOCszYtZSgz0uqFWY9ctcIWBumDTkchuSis1Wbb4l/xpNnp83mxNH3llx39NQ4WusDvsKS7ZbMaww9KZdLMgX53OmGtRXUn9oz0I5cBzbWtzUFOeCSILJMYK+5BGNhbatCav2j6Eupjm+s8eTl+9vra/k5D/rJEDRqQ2DXIVClPY/kL9ETyBgblClGon5kqmCuZk1c2gIz3IQ2he5lmDZVu9HmSjU6jaZXPs5QOo6HT/t5UIY0ttmnffwzjEYhb3K7adpaV2GGfXwanhT2b9s6uCdX6wNEDCa4U06rVRVLM76G6qxVWzFmWDI3PktTDoYLOqi6qWiR2xqHUFxPees0d4HCipQjd9NKmo9L6Xxu7VbT6Ytq9B/UzS8nLu6kiZHKqaO5p8Jl6nUY/wDCZPzzwbpaCeePD/dPsr8j77U1EMYVPBkGbUIjJYh1+h8lSChJhR56eBechv4KLBgucEjOUpq5xawwiaMeIcdZ/7bnZxl9fLiHiAdPDIrB64250mYBDyUZGSahm4BmYLUlLy85FWRyArsbV+NSFoHtablfXMmbz7ewpQ48KycLETeP68PXJ+nM0JeXdktdAvtS52UM5I9hFnDLoGS3lJ+wYPdmtM6VMTYA5LsynTUEVHlahNXVZm1D1porSfNcsOHm862sADkfU/h1cb24fpLYO2f3nkK4Whmxu/vtKrd1o1ivKppUatxgGJc14Ne6Ih+60FjPtTJCZhyJlwnJGaW5jUwHTptKaSMxwv73o8g84lFkMMFzmcFkukOiIdnpTRrpy/N8XSa5WSZYWs/ivO9XytNfrhoGeY7SLgpQaC96UmC2VpWnBLfUnd6XnapaoY4iBc+Ap5PyY+x/SpJbw2T41RfkYkkjn/lSHQktj9J5Oe1n2f3yZbzVb+C5qJOkmO405sTm2K2XleV/Bx7nYVgOJ4ft9/f3OAz/Au1+H5A=
+sidebar_class_name: "get api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the folders and objects under a prefix"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/objects"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List the folders and objects under a prefix
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}},{"in":"query","name":"prefix","schema":{"type":"string"}},{"in":"query","name":"token","schema":{"type":"string"}},{"in":"query","name":"search","description":"List every object under the prefix, with no folders","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One page of the listing"}}}
+>
+  
+</StatusCodes>
+
+
+      

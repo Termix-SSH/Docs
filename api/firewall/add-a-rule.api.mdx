@@ -1,0 +1,70 @@
+---
+id: add-a-rule
+title: "Add a rule"
+description: "Adds a rule at the end. A change that could cut off SSH answers 409 SSH_LOCKOUT unless force is set. Changes that touch SSH get a timer and must be kept."
+sidebar_label: "Add a rule"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNllFv2zgMgP8Kwac7wE16h+GAy1tXXLGud+iwtCgORTAoFhOrsSVPopt6hv/7QMmJs2XpYW+XhySmSYqkyE/qUFPIvanZOIszvNA6gALflASKgQsCsnoCF5AXyq4JuFAMuWtKDXnD4FYrmM/fgbJhSz7Am/M/5fnT37eXN7f3d9DYkkKAlfM5gQkQiCdwGV2F5ItdkxfRx5oYFLCpyIOyGqomMCwJNlTzBDNktQ44e8Qr42mryhIXGdbKq4qYvLzp0EgOteICM7SqIpxh4QJfa8zQ0+fGeNI4Y99QhiEvqFI465DbWjSNZVqTx75fJG0K/NbpVlS+N86dZbIsr1RdlyZXUsDpU5Aqdse+3fKJcsYMa+9q8mwoRNs81X2vF9gbu8YMyTaVJKvK0m0xQ022jUkMfkpTGcZFn6E2nv7TjbGYoWuSRe0du9yVrxlwXmOGjZZvZdtk5zwf2/QZBtf4nH74SlNgY9WP4+szNCt1wnKlKlO2r9YmlsTUz2/Szx8xytxV1bA1x4GSfzYn1vvi7IlA3LfJLZ0rSVns40f2JNTOhrSjv5+fy8/RVJHOYGu4iCNVk9XGrnczZVZgGCyRDnBDVE9Q3FbEhdPSzy7EzpG2nuG0Lpu1sWeqNtPVMAnTLnV5P5XBDZgS3Q1F40ucYZdEfeylw+D+dY2HO/KVeYGkgxk+K2/Uskw5DdKY1ko1JctYMddhNp1yNJzQi6rqkia5q6QuC4kgb7zhNoawJOXJXzSSweOizzrMndsYOpSo2txQu5ccuJjLNKVQDh3tN0RiwWGg4wZFJcyGP1fOV0pifv9wd5T9nEIwzgK7DVkIZBmMjZskizhvvsTehYKUFi4FeBudRkKJWjScYGy8MaV9bCkr6U9ZLamMcHra8smI3j/cQdIXagqNg1nbM2Mn8FCQhdqThJtJ77DaUBBJTppsTuCeyZ/MIkZ7WO6fruTFh2vYUAuBlWfp5NTa1cuno3T2qj9f2g21GWwLkxdpoTAuM4FrBpVzELNBF9zWDta5stZFBXmvbOssAZWB0mgJpj+OgP8rNe8hkEfujnRNEB3hOTAyUXGk0w6Go+QbBo7iAX2jYEe8AWx7kB343vFrFCVsHThJtJJjSvBqVy7ur2FJcH92wsWHaxlz8iFF9dvkfHJ+tHn/KKvWBPdXDxnsYKMzsCuOcIi1NvXwENkDzkIrRBEihdSH8/m7AX6lyzeuYZAiprLGXhTCVSoeEMNgXGg9XEO+j6kbz97/920lTRTTC0/rUhkriUYUdwPKH3FEuWzc7lqT4Wy8tESeL7J4jRGTrluqQPe+7HsRf27IC2IXI7IjcLUJ8l/jbKXKQK/U8JePw9XmVzgV9Q5lsSufVdnIE2a4oXa8YPVy9qZRjhGkl5dpnbM7cTEaH92ZBPf7A+/D7VxAvRzuXpXTYuOVzKN8x8VdzCUeClHWYansulHryNXoUz5fASbgt+4=
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a rule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/rules"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds a rule at the end. A change that could cut off SSH answers 409 SSH_LOCKOUT unless force is set. Changes that touch SSH get a timer and must be kept.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"action":{"type":"string","enum":["allow","deny","reject","limit"]},"direction":{"type":"string","enum":["in","out"]},"protocol":{"type":"string","enum":["tcp","udp","any"]},"port":{"type":"string"},"source":{"type":"string"},"destination":{"type":"string"},"iface":{"type":"string"},"family":{"type":"string","enum":["any","ipv4","ipv6"]},"comment":{"type":"string"},"service":{"type":"string"},"zone":{"type":"string"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Added, with the pending change if it needs Keep."}}}
+>
+  
+</StatusCodes>
+
+
+      

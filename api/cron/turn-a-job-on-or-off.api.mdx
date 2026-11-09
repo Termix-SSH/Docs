@@ -1,0 +1,70 @@
+---
+id: turn-a-job-on-or-off
+title: "Turn a job on or off"
+description: "An off job stays in the crontab as a comment."
+sidebar_label: "Turn a job on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv40YM/isETy0wsdIefcsutkC2hwYbF0ERGAUt0dbY0ox2hoqjCvrvBWcU291ki+ZSXSxTfHx8fRyx4lgG24n1Dpd448Bvt7D3G4hCQwTrQGqGMngntAGKQFD6tmUnCzQotIu4fMSPwTtcG+woUMvCQaUjWvXZkdRo0FHLuMTaR7mt0GDgr70NXOFSQs8GY1lzS7gcUYZONa0T3nHAaTJverL/yUuUYN0Op2mdlTnKB18NqlF6J+xEX6nrGluSVqHYRy3F+NqV3+y5FDTYBd9xEMtRv/aRwxsBDbKjTaPQTt823jdMDqf0KKDYeRezn5+vr/Xnnw1ZXRZ/KxxyO2pyO15oabBlqX2l1fExgdMiLbHomn5n3RV1tlAHxZgrPxV7v4nFaKupiELCaDByeHppWR8aXOKYRROab/D84fsAKw6tfYasgwafKFhNNaUxS1MmW+ob0aaLdHFZFJIMF/xMbdfwovStlmKtCMo+WBkShA1T4HDTax6Pa+1+6f3B8qWEOvsrDyfJhYt7bVuGcuno1APFgvOgpJ4kJTTzyy8+tKSYPz+sXmV/zzFa70D8gR1EdvKyIBrEB/tXGiGomSoOui0fklMgVyW1ZLjQ4bhM6YQtZ4Umj3tWOQ/8/ijfRfT5YQVZHyILkEC0O3dl3QIeanbQBVa4BqyA0IGjSkqu2JUM/mmeq7eySGgvy/3uSt7c3cKBB2WUINbt4GilBmmf/3yVzkn1/aU98GDgWNuyzoHiOcwCbgWolKhmsy74o5utS3LOJ4XEb27wjoGbOC+Y8sGXM3N8ysN73vyXjb9YeOWiSbu49aleVtQgsSTc3N3qynCIOeWfFteL6zf6ygaoqhLA0LtEAsrLEbyDQbdQ9zmanCWBdqHqG9a+Plk+nuoShyjcZvutbTimhipZtJR4bp6uVR8cUKJ+78AHPQTfwrrgzPefijw0ws9SdA1ZpzAS24wzZz3imbPQoDpCg8vTxdDsVZCIP3PX2qSDorbjuKHIv4dmmlT8teegdLI+01Mil8rGuUlbaiL/S4I/fJlvy4/wPfgva+uGxIJNr//Q4IGH86lTuvofo9oKp/VkMC9Kyjl/+JhjXK3U/Gz46vQpmZ6Oyt1v90qDm/lktr5Sm0BHvb10zIF9yiNRbpKN2JDb9bRLrJV86vM3AtXjjg==
+sidebar_class_name: "post api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a job on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/cron/{hostId}/jobs/{id}/state"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+An off job stays in the crontab as a comment.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"user":{"type":"string"},"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The crontab after the change."}}}
+>
+  
+</StatusCodes>
+
+
+      

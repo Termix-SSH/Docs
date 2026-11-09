@@ -6,9 +6,29 @@ slug: "/snippets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "snippets"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Run a snippet as a Termix action, so it can roll out across hosts from Operations Center with a result per host. Saved secrets stay out of run history
+- A homepage widget with your snippets and a copy button
+- Run snippets in local terminals in the desktop app, from the side panel or by picking them as targets
+
+### Fixed
+
+- Password fields with the show button are the same height as the other fields next to them
+- Fill sudo password works with sudo-rs and with German and French sudo prompts
+- A snippet sent to a terminal that has closed fails instead of going to another open terminal
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- The editor and settings use the Termix tile look
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.2.0
 
 ### Added

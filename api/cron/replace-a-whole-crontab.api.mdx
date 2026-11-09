@@ -1,0 +1,70 @@
+---
+id: replace-a-whole-crontab
+title: "Replace a whole crontab"
+description: "crontab checks the text on the host and refuses it when it has errors."
+sidebar_label: "Replace a whole crontab"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVU1v3DYQ/SvEnBqA3nV71M0JUsDpxXAcGIWxKGal2RW9EqlwRl6rgv57MaT2I96kQIDoIomcGb75eI8jVMRldJ244KGAMgYvuDZlTeWOjdRkhF7FBJ++68Bi0Fcm0qZnYuPE7Gvy+q6RDcUYIi/AguCWoXiCDzF4WFnoMGJLQlFXR3B6WIdSgwWPLUEBGvu2AguRvvYuUgWFxJ4scFlTi1CMIEOnls4LbSnCNK2yNbG8D9WgJm+dy+CFvOgWdl3jStRMl8+s6Y6XscP6mUr5BsUTaAlSEjF0FMURq0fPFM88WaLzW5hsNr/cSI8G5i54zjH+uL7W17dNeKjJHBqBG6GYal/W6Le0AI3RktSh0hL2ijUVsoBl1/Rb56+wc0v1X465ptNyjgYWmOLLoQl9bKCAMS9NYN/A+Dv00TxQbN2ryTZg4QWjw3WT0c+rKYEN9o1oG0U6LpZLSY4LesW2a2hRhlYrsFIEZR+dDAnCmjBSvOkV/9NqsiOUIewcna9g5/6i4bhyFuKzdi9DOQ90rLxigXmA9D8bgZ0//gyxRcX86fHhIvvPxOx07MOOvGHyYlwmgR4Sovs3TZKpCSuKBtm8T0ETPRJv1HGh83Ce0hFbzgpspkI2OZHheS8/RPTp8cFke8MkBsWw2/or5xfmUbnYRVK4VkkpuCPWlZIq8iWZ8DKP0/eySGjPy/3Tlby5uzU7GgwLRnF+a/ZOaiPt6z8X6RxNf760Oxqs2deurPNBfDpmYW7FYCmsbrOtCXs/e5fofUgGuo9+CJ4MNTzzSmXh/iQoH/Pwnsh+4PKB42ekd34TUsGcqEcSPnNzd6ucocg5598X14vr7zSWrMGqysra+0R+8xzWrLo7KA2VyGxzmmi0DVXfkDb2xdH+WBgeWKjN/hvXEKeOdoGlxaR383jdU9dgSQbNvg7NUW3eIhtP8vkLb4Y8Ueq87Bp0XiEmKRpnIXuCk5CBTSeDheJ4QRzQrmy6NNRhHNfI9CU206TLX3uKKjCrk2Aluakc63cFxQYbpv9J97f7Wf/fmR9hPhDZD0kXm17/wMKOhtN1Nq0mC3mQE4K8+SGfc/WgIU7OFzeUit1R6+++qEqt54uuDZW6RNzrZYX7fHZIqSRFTGsjNOi3PW6TqKSQ+vwHoknBSA==
+sidebar_class_name: "put api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Replace a whole crontab"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/cron/{hostId}/crontab"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+crontab checks the text on the host and refuses it when it has errors.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["text"],"properties":{"user":{"type":"string"},"text":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The crontab after the change."}}}
+>
+  
+</StatusCodes>
+
+
+      

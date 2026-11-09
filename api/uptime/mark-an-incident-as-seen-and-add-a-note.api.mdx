@@ -1,0 +1,70 @@
+---
+id: mark-an-incident-as-seen-and-add-a-note
+title: "Mark an incident as seen and add a note"
+description: "Mark an incident as seen and add a note"
+sidebar_label: "Mark an incident as seen and add a note"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEnzZATbLhnvzWGzagN2wrrj0UQxEMjM3aamxJJ9FNs8D/faDkJrllB+z8Ypv6SH4kpU8HFGoTVo/4KYgdGNcGA0UaWDiq/YDWYYWBpEODjgbGCm2DBiN/Hm3kBiuJIxtMdccDYXVA2YeMcsItR5ymdUFzkve+2Suk9k7YiX5SCL2tSax3y+fkndouYvnNM9eCBkP0gaNYTrrqvPAZKkm0rsUpP5ozBe9Sgf64Wumr4VRHGzQbVnhHL9zgZPDd6t3l6u9e4MmPrkGN9uXabxS3QA6sq23DToASJGYH5BqgpgGCTM7gwNL5RnvoU65AW1nhMvRja90VBbscc++Xb7HS8mCbaUn1Fg0mji9voxhjjxUeimnCf3P6048R7jkO9hUKBg2+ULS06UsTZmuu9InGXrDCTiSkarmU7LjgVxpCz4vaD9rItTKox2hlnylsmCLH61FreFxPRkfpt5bPLRTsr7w/Ws5C3OlcC5XzQMcBKhect5L+FxCa+eMXHwdSzh8e7i+qv+OUrHcgfssOks7EOpCOQZP4aP/Oeww6poajzut9DponprDsuNDdcF7SkVupCk05EAVyOhLPO/kqow8P91DwkFiABJJt3ZV1C3jo2EGIrHQNWAGhLSe11Nywqxn8C8evVpHZnrf7mzt5fXsDW95DEopiXQs7Kx3I8PrXRTlH6Le3dst7A7vO1l1JlE5pFnAjQLUkdZux4Hdu9q7JOZ8Buk5u7x0D94kX+VCqYHw8ScvPZfOepOEoCTq2J58bZEURs+DB9e2NnhKOqVT5w2K1WF3U/kBSd7DjTbLCyUDwUZKBzicl7pp83mytS62OuOdcpE5XOt5D66HxO2cyNoyb3qbcChkTBGo55UmqQgyUFXDeVv9fZr7ge9wGwq+yDD1Zp/GzfhxmBXrEkwKhwaJBeXvPKoQGq6z0KkRrg1qsuh0OG0r8KfbTpObPI0fVhvVJa7JSNDbpd4PVE/WJLxgerwD87uN8lXwPaP6b+dsZdPssaf2of2hwy/tyH03ryWDZfzl7Wfip5Li6V/eT48WVoxp11OnbP+5UXTbzVTX4Rn0i7fTSo11J7HMdWcmy7YA9uXakNotBjqnPP980imQ=
+sidebar_class_name: "post api-method"
+info_path: api/uptime/uptime-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mark an incident as seen and add a note"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/uptime/incidents/{id}/ack"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Mark an incident as seen and add a note
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"note":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved"},"404":{"description":"Not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

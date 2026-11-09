@@ -1,0 +1,70 @@
+---
+id: add-a-client
+title: "Add a client"
+description: "Makes keys on the host, picks a free address, adds the peer and returns the client config."
+sidebar_label: "Add a client"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzZAjbs9+q03bENuGFZcOxRDEQyMzdhqbMknyU09w/99oOTEaXMddg+bX2xLJPXxo/hxxJJ94XQXtDWY46+0Zw97HjxYA6FmqK0PCjpd7D0Q7BwzUFk69l7Jh49GHbMDMiU4Dr0zabFoNJsAhTU7Xa1QYaDKY/6ID9rxzz25EjcKO3LUcmAnWyNqQdFRqFGhoZYxR0GwLlGh48+9dlxiHlzPCn1Rc0uYjxiGTiy1CVyxw2lSX4ykd1Twvwnkg9OmwmnaJGP24YMtB7F461tYE9gE2aKua3RBQmX25IXP8TK03T5xEV6BeEz4hAxnO3ZBsxePhPoClEJqGnvgct35L2GWR8L7zhqfIn1/fS2v17W+rxkMH451kvLp4E/1kiAth9qWwqP1gjnSmWPWNX2lzRV1Ojtox5UUMxtToaZMyuCEap+NkfIpS2d4VOjZPR+L3bsGcxzT0oTqDcA/bO/gnl2rXyDZoMJncpq2TcprXo2p7ahvglyXEDqfZ1mIjit+obZreFXYVrjZCIKidzoMEcKWybG76SWvx43cm8LavebzFer0LzycVs5C3El1E5TzQKeaCBac75f8JyNU88dP1rUkmD8+3F9kf8fea2lCu2cDXkqkU0vKIdbpv+JNg5qplO7z8CEGjYUUs+i4kvtyntIJW8oKVWqUZLK0ytMhvIvo48M9JHvwHIACeF2ZK21W8FCzgc6xwFWgA4QoKJ3jgks2BYN9ZvduFhHtOd1fzeTN7VrkC3wgF7Sp4KBDDaF9+fMinZPp11O750HBodZFnQ7yyzErWAegInhxm23BHszsXZAxNhrIPpnBGgZuPKeGE9n4tAjOj+nyLmJw7PLXGnAmDdrsbKRNB/FbtBZubtfSPux8Sv+71fXq+oKUtfGBmgYWP2tgkEaU7vYxh5YMVQxLm6tZQ9J2EhAPO2dbkPQCbWNhRURaMmfZ3JQl0Oz8Fsq4SOt/PJbSDQv8ErKuIW0Ea5SmcRa8R1wEDxWeJA8V5qfptNAhy8dRcxS+jYpzTGKN45Y8/+6aaZLlzz070aLNom1RmUrt5bvEfEeN539g55tP8yj5Ft5L59jzZogS2vTyhwr3PCwTVrTufzw1UTRtJoWp0WLaae+HdMzVvURYfC8mrIjxaUjd/nYnMrqdJ3VrS/FxdJBpS4d0to2pRMmOayM2ZKqeqqh6MaY8fwNLZSPj
+sidebar_class_name: "post api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Makes keys on the host, picks a free address, adds the peer and returns the client config.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name"],"properties":{"name":{"type":"string"},"allowedIps":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new client and its config."}}}
+>
+  
+</StatusCodes>
+
+
+      

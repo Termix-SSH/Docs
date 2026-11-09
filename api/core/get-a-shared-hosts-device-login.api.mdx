@@ -1,0 +1,69 @@
+---
+id: get-a-shared-hosts-device-login
+title: "Get a shared host's device login"
+description: "Desktop only. The device login for a shared host's copy and the device only credentials to pick from."
+sidebar_label: "Get a shared host's device login"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu3DYQ/ZXBXJoAjNYOjB50c5A0cQIURr2FERiLgkvNrpiVSIUc2VYF/Xsworwrd+OgvvgkajRDvvdm+NRjQdEE27D1DnN8T3HHvgHvqi6DZUlQ0K01BJXfWgcbH0BDLHWgAkof+bcIxjcdaFcAH7KlHEygghxbXUVgD401O9gEX2eokPU2Yn6DV1efcKWw0UHXxBQk2KMVKI3mEhU6XRPmaAtUGOh7awMVmHNoSWE0JdUa8x65a8Ysx7SlgMOgfrpLEzx746v/s1fkYN0Wh2ElybHxLlKU729PTuTxWLh+RveiUI/IDzgoPDs5O6760/NBTxFSgQ/gPIN3k55jPzJhhDVx6QvMcUuMKlHLcSF9WBTr9OxtMSxSF97olstF/8B5QIWRwu2DyG2oBHcKycfH0L76NsCSQm3vIeWgwlsdrF5XSYcpOpLa6LZizLFkbmK+WPBYmNG9rpuKMuNrHEYlI5k2WO5GCGvSgcJ5KzxuVtIz4/3O0jyiG/uFun1ktsWVdCxBmW+0b6Bgwamx8p6SUE2LP3yotWD+fL08Yn9FMVrpgd+Rg0iOwaaOyCE+2H+1ZEJJuqAAOsK7cdP9RRgLM2n8nNIeW2KFKg1pSjmM6bc7fhLR5+slpHyIxKAZot26N9ZlcF2SgyaQwFVgGVjvKErEyDDKvbyl8CSLEe1c7mcreX55ATvqILIObN0W7iyXwPX9P0d09qnPl3ZHnYK70poyHRQPx2RwwaANRymbcsHfuanaaCd3SxuW79p13hFQFSndL+s2fmRtuRKa0/SfX17I6FOICfrb37PT0+z0iJK4pfGB4FCXwQdtSmiqVtyz8KatyXEEy1FgQfAtUxyFb3zkWjs5f5qCj8RHZjt34/8CkNvjmBy/pI+nAWG650VTaeuEyugs/eRPNyj7C9Y1qod1Ptr5zKYktjfn1ZSX32Dfr3Wkv0M1DBL+3lIQ61gdrGg0ksJGWReYb3QV6RfCvPpr8v3X8BT8hyvqutHxqlbeUOGOuvQjElt6wRP3ugyr+U/g44clDsMPAWSpqw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a shared host's device login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/host/db/host/{id}/device-auth/{protocol}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. The device login for a shared host's copy and the device only credentials to pick from.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"protocol","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"{ credentialId, credentials }"},"404":{"description":"Not a shared copy, or not on the desktop."}}}
+>
+  
+</StatusCodes>
+
+
+      

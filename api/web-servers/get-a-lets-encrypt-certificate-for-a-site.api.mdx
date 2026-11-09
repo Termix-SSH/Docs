@@ -1,0 +1,70 @@
+---
+id: get-a-lets-encrypt-certificate-for-a-site
+title: "Get a Let's Encrypt certificate for a site"
+description: "Runs certbot with its nginx or Apache plugin for the site's domains and reloads the server when the certificate renews. A site made in the site form switches to HTTPS with it."
+sidebar_label: "Get a Let's Encrypt certificate for a site"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVt9v2zYQ/lcOfOkGMFa2R72lRbel27Ag8RAMgTGcpbPEWCJV8hRHM/S/F0fKtlo3w/JSYHqRdDzej++O33GvSgqFNx0bZ1WubnsboCDPa8ewM1yD4QC2MvYZnIerDouaoGv6yljYOA9cEwTD9CZA6Vo0NgDaEjw1DsuQlsk/kYddTTb+i3mzMQUygSdLu7CAq2gEWiwJjD1aFRcthJ3hoqYA7OCX5fLm7hDZQmnFWAWVP6h7WsNd9BTUSqsOPbbE8pc/7JWR5DrkWmllsSWVq9oFvi6VVp4+9sZTqXL2PWkVippaVPle8dCJprFMFXk1jvqrllKC/8VSYG9s9aKh+HqNmVVSpsBvXTmIRuEsk2X5xK5rBGXjbPYYpLz7c1Nu/UgFK6067zopDAVZpRZN8xWPWgXGSj5Pa2vnGkKrxvhIRKFzNiRDP15eyuvzLlvWBGRLcJtDr70J4Hruel4IOKolrl0p+LgQgxOYcpWlxrvAzmQ7Wl8k4EO2T7UcM+mZkO2TfMz2AuiYzRpO6alaqS1636hcHfSV/iLOv1zvYUm+Nc9wLPITeoPrJqU3SWOGG+wblsZi7kKeZRw3LugZ266hReFagWglERS9NzzEENaEnvxVLwk+rKQxCue2huYS7MyvNBwlMxN3Us8UytzQsTYSi5o6KNYqKik9ffzkfIsS84f75Vn2dxSCcRbYbclCIMuHoylOnDf/xN6CmrAkDxjgbTQaCUDU4saFNM08pWNsKSul00lIKqez8LjjFyP6cL+EpA+BGJAhmMpeGLuAe2GZzpOEq8EwMG4piKSgkmxB4ISMXsoiRjuH+9VIXt1cw5YGCIyeja0SV3H7/PdZOkfV10O7pUHDrjZFnRyFk5sFXDNgwUG2TbrgdnbaXaC1LirIOtrBWQJqAqWTJ0Rxe6KU96l5Z5RwoIIZEwhLjVLGjYuAGZYdc0aGq5trOTrkQ0r9h8Xl4vIMkN/RYkVp3OjDsJGg32FZDuAsDHIi5bSHPA6IoKFwdmMqDY2r0uyJI0InQOiJ/ABFjbYiYApMJWyMDxwLLezSYiTGqet+lnaC30gI6b0t/NDxZ/NKRh5Gz18GP6Pe/+MUTU3O9MxZ16CxAk9kx/1Evg/qRL5Kqxn9Kq3y4zCNRRHJkS/zaarNWXil4/gVq/v9GgP96ZtxFPHHnrwQ4+pEtJEmSxPku1T5BptA/wL+d7fT+PweXkrsQEB2iHze9PKntNrScLoYCPF+Q68TXt/Ya6zNuBq1SlQTsU5L75KXi6UYOG09u1XIODrO65s/7mSQrKfbSOtK2eNxJ9ca3CXXLmYSh1aU7VWDtuqxirwfbcrzCVp+qeE=
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a Let's Encrypt certificate for a site"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/sites/{server}/{name}/certificate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs certbot with its nginx or Apache plugin for the site's domains and reloads the server when the certificate renews. A site made in the site form switches to HTTPS with it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"server","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"email":{"type":"string"},"staging":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of certbot's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

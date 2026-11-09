@@ -1,0 +1,70 @@
+---
+id: mount-an-iso-from-a-web-address
+title: "Mount an ISO from a web address"
+description: "Mount an ISO from a web address"
+sidebar_label: "Mount an ISO from a web address"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEn3aAEnd79Ft72IDcUDRoMxRDEQyKzdhqbMkn0UmzwP99oOQm3qWHw/nFNvWR/EiJn07IugqYv+BDzzO3nW20LXGtsNNet8TkZfGExmKOneYaFVrdEuZoSlTo6WtvPJWYs+9JYShqajXmJ+RjF1GWqSKPw7BOaAp858qjQL51LpxlsixLuusaU2g2zmavwVmxXcV2m1cqGBV23nXk2VCIuMbxBBXYG1vhoLD3zQf2+Ai30DkbUojfbm7kVVIovOmEBeZ473rLVKKgP1gBbWHx9ABb71rQcKAN6LL0FAIqbIlrV0oPXYiMpZU5Zl3TV8bOdGcyd9mArKS9KShkJ1MOWUul0VkrOVBhIL9/35VYEJ6SacBvaf3teg8r8q15g4RBhXvtjd40Y6uSNZa61X3DmGPN3IU8yzg6zulNt11D88K10qu1MCh6b/gYKWxIe/K3vZTzsh7UCQvndoamFt2ZP+l4tkxCPMmWJirTQOc9Ei44nir5TyBU48cfzrdaOH95Xl1V/0QhGGeB3Y4sBLIMxgLXBJLEefNvPF5Qky7Jgw5wF4OCtmWERce5HJxpSWduqSpUaTYS5DIdrwf+LqMvzytIeAjEoBmCqezM2Dk812Sh8yR0FRgG1jsKYimoJFsQuD3571YR2U7b/dOdvF0uYEdHCKw9G1vBwXAN3L79c1XOGfrzrd3RUcGhNkWdEoVLmjksGHTBQdxGLLiDHb0Lba2LAFnX9ugsATWB5nEuRSseLyrzezq8F1V4n/pRDCbiYOzWxX4ZFoepHsLtciGTQz6kyn+d38xvrvqxdAfyStoRnA8KaC+NaVwVEnNng2sowNb5cRzh7v5zSDv6SOXWhFrBYnm/iPiFZWrg9n4VN1V0o9VRB8cT9mPR+R+980lgeuOsa7SxE01MevSCFz1ChRNFitGiJqHCPEp/lCV5R2FaK6xF2vIXPJ02OtBfvhkGMX/tyYtWrC/aE5WjNEG+S8y3ugl0Rfd8G+Avj+NF8QlQfVzG+0zaY5S4ppc/VLijY7qqhvWgMJ3HmD0tfE45Zitxvzhe3T6iWWcJXz48idpsxlusdaX4eH2Q+1AfUmIX64jKFm0nbLStel1FcYgx5fkPCHmTkA==
+sidebar_class_name: "post api-method"
+info_path: api/out-of-band/out-of-band-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Mount an ISO from a web address"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/out-of-band/devices/{id}/media/mount"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Mount an ISO from a web address
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"slot":{"type":"string"},"url":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Mounted"}}}
+>
+  
+</StatusCodes>
+
+
+      

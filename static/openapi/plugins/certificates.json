@@ -1,0 +1,459 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Certificates API",
+    "version": "1.0.0",
+    "description": "See, issue and renew TLS certificates on your hosts with certbot and acme.sh, and get an alert before they expire."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/certificates/summary": {
+      "get": {
+        "summary": "Certificates on every host",
+        "description": "One entry per host with Certificates turned on, with each certificate's days left. Kept for an hour unless refresh=1.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/status": {
+      "get": {
+        "summary": "Certificate tools on a host",
+        "description": "Whether certbot, acme.sh and openssl are installed, how renewal is set up and whether the caller gets expiry alerts for this host.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/certificates": {
+      "get": {
+        "summary": "Certificates from certbot and acme.sh",
+        "description": "Sorted by days left, soonest first.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The certificates."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/inspect": {
+      "get": {
+        "summary": "Read a certificate file or a TLS server's chain",
+        "description": "Pass path for a PEM or DER file on the host, or address and port to fetch the chain a server sends, as seen from the host.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "address",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "port",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Each certificate with its names, dates, issuer and fingerprint."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/issue": {
+      "post": {
+        "summary": "Get a new certificate",
+        "description": "Runs certbot or acme.sh as root with the standalone, webroot or DNS challenge. DNS API tokens must already be set up on the host.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "client",
+                  "domains",
+                  "challenge"
+                ],
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "certbot",
+                      "acme.sh"
+                    ]
+                  },
+                  "domains": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "challenge": {
+                    "type": "string",
+                    "enum": [
+                      "standalone",
+                      "webroot",
+                      "dns"
+                    ]
+                  },
+                  "webroot": {
+                    "type": "string"
+                  },
+                  "dnsProvider": {
+                    "type": "string"
+                  },
+                  "credentials": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "staging": {
+                    "type": "boolean"
+                  },
+                  "keyType": {
+                    "type": "string",
+                    "enum": [
+                      "ecdsa",
+                      "rsa"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The end of the client's output."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/renew": {
+      "post": {
+        "summary": "Renew one certificate or all of them",
+        "description": "Leave out key to renew everything that is due. dryRun tests the renewal with certbot without saving anything.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "client": {
+                    "type": "string"
+                  },
+                  "dryRun": {
+                    "type": "boolean"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The end of the client's output."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/revoke": {
+      "post": {
+        "summary": "Revoke and remove a certificate",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The end of the client's output."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/delete": {
+      "post": {
+        "summary": "Stop managing a certificate without revoking it",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The end of the client's output."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/install": {
+      "post": {
+        "summary": "Install certbot",
+        "description": "Uses the host's package manager.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The end of the package manager's output."
+          }
+        }
+      }
+    },
+    "/plugin-api/certificates/{hostId}/watch": {
+      "post": {
+        "summary": "Get alerts before certificates on this host expire",
+        "description": "Checks every 6 hours as the caller and sends one alert when a certificate gets close to expiring and one when it expires.",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

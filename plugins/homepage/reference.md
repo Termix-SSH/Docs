@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/homepage/reference"
 custom_edit_url: null
 plugin_id: "homepage"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -25,7 +25,7 @@ Give these to roles in **Settings**, **Roles**.
 
 | Permission | Who has it at first | What it allows |
 | --- | --- | --- |
-| `homepage.use` | admin, user | View and edit the homepage canvas and dashboard service links. |
+| `homepage.use` | admin, user | View and edit the homepage and dashboard service links. |
 
 ## Capabilities
 

@@ -5,7 +5,7 @@ description: "Whether hosts can be added by hand, or a plugin manages them all."
 sidebar_label: "Host creation policy"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMFu2zAM/RWCl100p+1hB1+GdujWdpcCyRAMRTAwMhtpsSVPopt4hv99kO0l6YoeCuyUgH7ke48i2WHBUQdbi/UOc1waFsMBjI8SQZODNQMVBRewbsGQKxT4AAR12Wysg4ocbTiCGK6AyjJDhUKbiPkDzuc3uFIYONbeRY6Yd3hxdpZ+npN2qUxD5afAJKxgXXq95eKq/Qg97AwHPobADmQjsXWbSci7CI4qzrDvFVYsxheY44YFFdYkBnOcJU+z2pdWt6gwcnjikIR22IQyyRhDPap/9H33TYAFh8ruYcSgwicKltblaGuKDs4eqSkFczQidcxnMxkSM95TVZecaV9h3/erpEA3wUo7SFgzBQ6XTZL6sOpVh9r7reXTCNX2K7eHyEmJuTZcjVJOC3Uobc2TluR5gGE+gVBNfz77UFHSfLdcvHA/5xitdyB+yw4iOwHrhjdIJD7Y35SQYJgKDkARroaiQK4YYENihr16ZumgbXSFCm1iGyGoMD0n5vhzJ68qulsuYMRDZAESiHbj3luXwdKwgzpwkqvACghtOaaI5oKdZvBPHF51Mag9bfebO3l5fwtbbiEKBUlzurNiQKr9jxd2DtC3t3bLrYKdsdqMRPFIk8GtAGmJKW3Cgt+5KVuTc34ApO/kWu8YuIzTCln36AfXVspkc5r+y/vbNPoc4ij94kN2fp6dvbC0MAzaB4ZjXgbXpM3fu1F43VTsJIKVmGRB8I1wHBpf+ygVucQ/TcGNjwI6nYfUjsMOPyNNG+OEnfyvMzY+uPBeZnVJ1iVpw6XoppPygKl+ujCjoJUaA/kDdt2aIn8LZd+n8K+GQ9rz1fFujEt9vFVfrhfY938AHaXr9w==
+api: eJytVMFu40YM/RWCl16mcrKHHnQpssVuk+1lAbsIisBY0CPGM7U0ow6pOKqgfy9GUm1ns3sIsCcb1CPfexySA1YsNvlWfQxY4r1jdZzARVEBSwF2DFRVXMGuB0ehMhATELR1t/cBGgq0ZwF13ADVdYEGlfaC5QOu17e4NZhY2hiEBcsB311d5Z+XpEMu01H9W2JSNrCroz1w9b7/1YBNXHFQT/VaY6I9wwhHx4nPKPAT/6zFh/2i7SeBQA0DheobVYR6yYUmty2JHGOqZAIfuD9ZF3riqsBxNNiwulhhiXtWNNiSOixxlTu1amPtbY8GhdMTp2x/wC7V2dwcGtF85fqv2CXYcGr8M8wYNPhEydOunpu1RKd+PVJXK5boVFspVyudEgt+pqatubCxwXEct1mB7ZLXfpKwY0qcbros9WE7mgFtjAfPlxFq/R/cnyIXJdbWcTNLuSw0oPYtL1qy5wmG5QJCs/z5GFNDWfOn+80r92sW8TGAxgMHEA4KPkzPmEli8v9SRoJjqjgBCbyfik4vlGFTYoGjeWHppG12hQZ9ZpshaDBPBJb491G/q+jT/QZmPAgrkIL4ffjZhwLuHQdoE2e5BryC0oElR2yeL8sQnzh918Wk9rLdb+7kzee7PJ4gSknzqB+9OtDm+csrOyfo21t74N7A0XnrZiI50xRwp0BWJactWIjHsGRbCiFOgPydQh8DA9fC8wr58Bgn117rbHOZ/pvPd3n0Ocks/d0vxfV1cf3K0sYx2JgYznkFfCDr/r9GVbRdw0EFvEqWBSl2yjI1vo2iDYXMv0zBbRTNp2Fux2mHX5DmjQnKQX/UcZwfXPlZV21NPmRp06UYlpPygLl+vjCzoK2ZA+UDDsOOhP9M9Tjm8D8dp7zn2/PdmJf6fKt+/7DBcfwP80IMPg==
 sidebar_class_name: "get api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -50,7 +50,7 @@ Whether hosts can be added by hand, or a plugin manages them all.
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"{ manualCreate, blockedBy? } where blockedBy is the managing plugin's name."}}}
+  responses={{"200":{"description":"{ manualCreate, blockedBy?, credentialStorage } where blockedBy is the managing plugin's name and credentialStorage says whether passwords and keys can be saved."}}}
 >
   
 </StatusCodes>

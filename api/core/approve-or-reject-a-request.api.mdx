@@ -1,0 +1,70 @@
+---
+id: approve-or-reject-a-request
+title: "Approve or reject a request"
+description: "One shot. What runs is the sealed request, never anything sent here."
+sidebar_label: "Approve or reject a request"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVW1r40YQ/ivDfGkLOjm5lkL1zVeukOuHhEtKKMGUsTSxNpZ2dbuj2Krwfy+zq1hJfDk4qL/Ynp2XZ96eGbHiUHrTiXEWC7y0DKF2ksNtTQK+twFMAKkZAlPDFXj+0nOQDCw/sgeyg9TGbiCwFajZc44ZCm0CFnd42bEndR1wlWFHnloW9vo2otGAHUmNGVpqGQs0FWaoEYznCgvxPWcYyppbwmJEGTrVCuKN3eDhsErKHOSDqwbVeG1bOitsRZ+o6xpTRjSLh6DZjqeu3fqBS3kB4k4tvXvkmIJ3HXsxHCaX8WG2XzvXMFk8aOi2nUK/xq0fDRE6Z0Ny9f7sTL9eduOmZm3BDwFcL6VrOVfHv5z9/HXVkpqGPbQ0gHUCFZemYpDahMnut1O7ZeOZqmFSrjLgfad5Z+B8bHvtgkBZk91wlaPibllqV2nvXNBSxRYWuHDHZi9SYagJi9FUB8wwsH986nvvGyxwTCJ9fInob9d7uGHfmj0kHczwkbyhdZNqNUljLvfUN4IF1iJdKBYLiYY576ntGs5L12q9V4qg7L2RIUJYM3n2y16B360O2Yilc1vDzyXUmT95OEqeubjWqUlQnjs69lmx4DS3cSiiEmbTjz+cb0kxf7q9Ocn+mkMwzoK4Ldu0VMbGRmgQ582/scRQM1W6fgE+RKdAtopq0TBPAzindMSWssIsbV9SmffvYSdvIvp0ewNJHwILkEAwG/vOWOUKttB5VrgZGAGhLQeVlFyxLRmccsVbWUS0z8v93ZVcXl3AlgcIQl6UjXZGapB2/89JOkfV7y/tlocMdrUp6xQozGFyuBCgUoKaTbrgdnayLsnqRlIp+k52cJaBm8Bpo5SOPs9E9jEN7wuGeaKziVOOXKKNvHexZEbUBqfVWV5d6N6wDynv97/m5+f5+Uk9InE4zzDb5fCRyhq6pt8YC5Urew0awEjQnMC7XjhxilJAS5FLpxFaJsRKH56VTIGebsbr2ONMz//b4UlzI7yXRdeQiUwcCWeceOoOZ57CDI9MhRkWplKOV8ZTvXFcU+C/fHM4qPhLz17ZYzWzUeSSygT9XWFxT03gb+T44+fpqPwEb0F92lI7RNJrev2HGW55SOfxsDpkmCY0Rk8Pv6cY727UfDY8OXnKYkf6vrq8Vv5ZT6ezdZXaeNrp+aNdCuy6VCm9rSobsSG76WkT6SL61M9/s8TdFQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Approve or reject a request"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/operations/approvals/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+One shot. What runs is the sealed request, never anything sent here.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["approve"],"properties":{"approve":{"type":"boolean"},"comment":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The run's outcome."},"403":{"description":"The caller may not decide this."},"409":{"description":"Already decided, expired, or the host changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

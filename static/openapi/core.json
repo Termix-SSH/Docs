@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.11.0",
+    "version": "26.11.1",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -1143,6 +1143,59 @@
         }
       }
     },
+    "/users/credential-storage": {
+      "get": {
+        "summary": "Get the credential storage setting",
+        "description": "Whether passwords and private keys can be saved on hosts and credentials on this server.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Credential storage setting."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set the credential storage setting",
+        "description": "Turns saving passwords and private keys on or off for everyone. Logins already saved stay until they are removed.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Credential storage setting updated."
+          },
+          "400": {
+            "description": "Invalid value for enabled."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to set the credential storage setting."
+          }
+        }
+      }
+    },
     "/users/password-login-allowed": {
       "get": {
         "summary": "Get password login status",
@@ -2131,6 +2184,17 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Optional expiration date. Null means the key never expires."
+                  },
+                  "scopes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "operations:read",
+                        "operations:run"
+                      ]
+                    },
+                    "description": "Limits the key to actions only. Leave out for full access."
                   }
                 }
               }
@@ -2638,6 +2702,77 @@
           },
           "500": {
             "description": "Certificate installation failed."
+          }
+        }
+      }
+    },
+    "/users/auth/step-up/factors": {
+      "get": {
+        "summary": "List the second factors the signed in user can prove",
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "{ factors } with an id for each factor."
+          }
+        }
+      }
+    },
+    "/users/auth/step-up/{factorId}/challenge": {
+      "post": {
+        "summary": "Start a second factor check for the signed in user",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "factorId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Challenge data."
+          },
+          "404": {
+            "description": "Factor not enabled for this user."
+          }
+        }
+      }
+    },
+    "/users/auth/step-up/{factorId}/verify": {
+      "post": {
+        "summary": "Prove a second factor while signed in",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "factorId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proved."
+          },
+          "401": {
+            "description": "Wrong answer."
+          },
+          "404": {
+            "description": "Factor not enabled for this user."
+          },
+          "429": {
+            "description": "Too many attempts."
           }
         }
       }
@@ -4844,6 +4979,463 @@
         }
       }
     },
+    "/operations/catalog": {
+      "get": {
+        "summary": "List what this user can do",
+        "description": "Every action, event, resource and signal from running plugins that the caller has permission for, with titles in the requested language.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "surface",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "assistant",
+                "mcp",
+                "palette",
+                "automations",
+                "mobile",
+                "cli"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The catalog."
+          }
+        }
+      }
+    },
+    "/operations/catalog/{id}": {
+      "get": {
+        "summary": "Describe one action",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The action."
+          },
+          "404": {
+            "description": "No such action, or the caller may not use it."
+          }
+        }
+      }
+    },
+    "/operations/runs": {
+      "get": {
+        "summary": "List runs",
+        "description": "The caller's own runs, runs on hosts they manage, or every run with the view permission.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "actionId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "batchId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Runs, newest first."
+          }
+        }
+      }
+    },
+    "/operations/runs/{id}": {
+      "get": {
+        "summary": "Get a run",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run."
+          },
+          "404": {
+            "description": "Not found, or not visible to the caller."
+          }
+        }
+      }
+    },
+    "/operations/runs/{id}/cancel": {
+      "post": {
+        "summary": "Cancel a run",
+        "description": "Stops a running action, or withdraws one waiting for approval.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether anything was cancelled."
+          },
+          "404": {
+            "description": "Not found, or not visible to the caller."
+          }
+        }
+      }
+    },
+    "/operations/runs/{id}/undo": {
+      "post": {
+        "summary": "Undo a run",
+        "description": "Runs the action's undo with the input the run recorded. It goes through the same checks as any run.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new run."
+          },
+          "404": {
+            "description": "Not found, or nothing to undo."
+          }
+        }
+      }
+    },
+    "/operations/approvals": {
+      "get": {
+        "summary": "List waiting approvals",
+        "description": "Requests the caller could decide, with the exact input that would run.",
+        "tags": [
+          "Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Waiting approvals."
+          }
+        }
+      }
+    },
+    "/operations/approvals/{id}": {
+      "post": {
+        "summary": "Approve or reject a request",
+        "description": "One shot. What runs is the sealed request, never anything sent here.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "approve"
+                ],
+                "properties": {
+                  "approve": {
+                    "type": "boolean"
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run's outcome."
+          },
+          "403": {
+            "description": "The caller may not decide this."
+          },
+          "409": {
+            "description": "Already decided, expired, or the host changed."
+          }
+        }
+      }
+    },
+    "/operations/events": {
+      "get": {
+        "summary": "List declared events",
+        "tags": [
+          "Operations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared events from running plugins, plus core's run events."
+          }
+        }
+      }
+    },
+    "/operations/timeline": {
+      "get": {
+        "summary": "Recent events",
+        "description": "Events the caller may see, newest first. Events tied to a host need access to it.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Events."
+          }
+        }
+      }
+    },
+    "/operations/signals": {
+      "get": {
+        "summary": "Read status tiles",
+        "description": "Answers from memory right away and refreshes stale hosts behind it, so a page should poll. Reads hosts the caller can reach.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "hostIds",
+            "description": "Comma separated. Leave out for every host.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ids",
+            "description": "Comma separated signal ids. Leave out for all.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per signal with per host results."
+          }
+        }
+      }
+    },
+    "/operations/resources/{id}": {
+      "get": {
+        "summary": "Read one kind of thing across hosts",
+        "description": "Rows from cache plus each host's state (ok, loading, offline, error, no-access). Answers right away and refreshes stale hosts behind it, so a page should poll until no host is loading.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostIds",
+            "description": "Comma separated. Leave out for every host.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rows and per host state."
+          },
+          "404": {
+            "description": "No such resource, or the caller may not read it."
+          }
+        }
+      }
+    },
+    "/operations/{id}/run": {
+      "post": {
+        "summary": "Run an action",
+        "description": "Goes through permission, host access, input and approval checks. A change returns as soon as it starts unless wait is true, then poll the run. A read always answers inline.",
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "resourceKey": {
+                    "type": "string"
+                  },
+                  "input": {
+                    "type": "object"
+                  },
+                  "dryRun": {
+                    "type": "boolean"
+                  },
+                  "confirmed": {
+                    "type": "boolean"
+                  },
+                  "idempotencyKey": {
+                    "type": "string"
+                  },
+                  "wait": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The outcome, or a run waiting for approval."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "Not allowed."
+          },
+          "409": {
+            "description": "Needs a confirm, or safe mode is on."
+          }
+        }
+      }
+    },
     "/open-tabs": {
       "get": {
         "summary": "Get all open tabs for the current user",
@@ -5502,7 +6094,7 @@
         ],
         "responses": {
           "200": {
-            "description": "{ manualCreate, blockedBy? } where blockedBy is the managing plugin's name."
+            "description": "{ manualCreate, blockedBy?, credentialStorage } where blockedBy is the managing plugin's name and credentialStorage says whether passwords and keys can be saved."
           }
         }
       }
@@ -5883,6 +6475,9 @@
         "responses": {
           "200": {
             "description": "Test result"
+          },
+          "400": {
+            "description": "No proxy given"
           },
           "500": {
             "description": "Proxy connection failed"
@@ -6608,6 +7203,169 @@
           },
           "500": {
             "description": "Failed to reorder hosts."
+          }
+        }
+      }
+    },
+    "/host/db/host/{id}/device-auth/{protocol}": {
+      "get": {
+        "summary": "Get a shared host's device login",
+        "description": "Desktop only. The device login for a shared host's copy and the device only credentials to pick from.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ credentialId, credentials }"
+          },
+          "404": {
+            "description": "Not a shared copy, or not on the desktop."
+          }
+        }
+      },
+      "put": {
+        "summary": "Set a shared host's device login",
+        "description": "Desktop only. The credential must be kept on this device. Connections to the host then start from the device. A null credentialId clears it.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "credentialId": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "Not a device only credential."
+          },
+          "404": {
+            "description": "Not a shared copy, or not on the desktop."
+          }
+        }
+      }
+    },
+    "/host/device-auth/folder/{protocol}": {
+      "get": {
+        "summary": "Get a shared folder's device login",
+        "description": "Desktop only. The device login for a folder of shared hosts and its subfolders.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "folder",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ credentialId, credentials }"
+          }
+        }
+      },
+      "put": {
+        "summary": "Set a shared folder's device login",
+        "description": "Desktop only. The credential must be kept on this device. Connections to the shared hosts in the folder then start from the device. A null credentialId clears it.",
+        "tags": [
+          "SSH"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "folder": {
+                    "type": "string"
+                  },
+                  "credentialId": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "No folder, or not a device only credential."
           }
         }
       }

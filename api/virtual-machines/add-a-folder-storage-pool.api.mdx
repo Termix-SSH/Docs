@@ -1,0 +1,70 @@
+---
+id: add-a-folder-storage-pool
+title: "Add a folder storage pool"
+description: "Add a folder storage pool"
+sidebar_label: "Add a folder storage pool"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v2zgM/lcIPt0AN+n26LduuMO6H7hi6a04FMGBsdlYjS15Et3EZ/h/Hyi5TtbcDphfbFMfqY+k+GlAoW3A/B6/Gi8d1fCZispYDrjOsCVPDQt7RQxoLObYklSYoaWGMcfKBbkuMUPP3zrjucRcfMcZhqLihjAfUPpWkcYKb9njOK4TmoO8dWWvkJfOhbPCVnSJ2rY2BYlxdvkYnFXbWWy3eeRCMMPWu5a9GA66mjjOqCDe2C2OWcrhfCE+Si60zoYU483lpb5KDoU3rdLAHK/KkssFKvhsAQgeXF2yhyDO05ahda7GDBuWypVaQRci10gCl23dbY29oNYsn1IPLpqpB0stb1gOqcrjUiMFzDCwf3puSudrzHFIphFfMvrbdR5u2TfmAAmDGT6RN7SpU4aTNSb5QF0t2laRNuTLpUTHBR+oaWteFK7RKq2VQdF5I32ksGHy7K86zed+PWYDFs7tDJ9aqDUfuZ8tJyFW2s1E5TTQ3B3lgtOB0v8Ewmz6+MP5hpTzh7vbs+xXHIJxFsTt2EJgK2AsSMWgmzhv/o0nCyom7RgFeBuDAtkywqLjQs/MaUozt5QVZmk0EuQ4HI97+SmjD3e3kPAQWIAEgtnaC2MXcFexhdaz0s3ACAjtOKil4JJtweCe2P80i8j2tNy/XMmrm2vYcQ9ByIuxW9gbqUCawz9n6czQXy/tjvsM9pUpqrRROG6zgGsBKiSo24QFt7eTd0HWugjQdbK9swxcB04jqTLx5Sgwv6fDexSE53mfR/AoDMY+uFgwI+pxJopwdXOt88M+pPxfLy4Xl2dVeeeZhCPXhqxqwMevn2GabniebnAWeh3PT8Z2B4iznlq7Wr1PxajNRr1iS1U2GrInefyf2vxAaD4BwgdZtjUZqxGjdAxTFe7xKESa4gspwixqvb7zWfSTHq3TkoYYhg0F/svX46jmbx17lYj1UXKiYJQm6HeJ+QPVgc/YzvqPv32ZroZXgNl/Z/E8iraPylZ3+ocZ7rg/XlDjeswwHcXIIC2+S/tc3GqIo/PZnaNyNcv3zZ8rFZrNdHc1rlQfT3u9BWmfNncxlyhq0TZgTXbb0TbqQoypz3eNgZe9
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a folder storage pool"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/pools"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a folder storage pool
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Added."}}}
+>
+  
+</StatusCodes>
+
+
+      

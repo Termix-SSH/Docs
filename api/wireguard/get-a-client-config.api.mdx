@@ -1,0 +1,69 @@
+---
+id: get-a-client-config
+title: "Get a client config"
+description: "Returns the saved client config, which holds the client's private key. Needs edit access and is audited."
+sidebar_label: "Get a client config"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu2zgQ/ZXBXNoFWCndo24psBu4CxRF6yIoAqNgpLHEtUSq5MiOKujfiyEV22k2i+aSk6ThcPjeG87ThBWF0puejbNY4CfiwdsA3BAEvacKytaQZSid3ZpawaExZQONa6uUlJZfBei92Wsm2NGYwQeiKgBVhkGXJYUA2lZgAuihMkxVhgpZ1wGLG7w2nq4G7SvcKOy11x0xeVma0AimXnODCq3uCAtsXOBVhQo9fR+MpwoL9gMpDGVDncZiQh57yTSWqSaP86z+s5LZ6pJ+p1Bgb2z9ZJ34eE6ZjSSH3tlAQdb/vLiQx8NOrI/iLtpnAgA74sZVWGBNjCohKTDv26E29o3uTX4wnmrRM5+SVnMuSnhhG/Ipsp7zVDrkk6Cf83QEKgzk9/fqD77FAqcUmlH9gvCrGzysyXfmDlIOKtxrb/Rtm4gt0chtq4eWpX/MfSjynOPGjO5017eUla7DOUoTqBy84TFCuCXtyV8OwvJmIw0ondsZOo/o3vxD4zFyVuKztCBBOS907IhgwaVT8p2SUC0vfzvfacH8/nr9iP1nCsE4C+x2ZCFIn4yNIyGHOG9+aMmEhnRFHnSAd7FonARJixsznNUDSkdsiRWqdONSyunO/XvgJxG9v15DyodADJohmNq+MTaD64Ys9J4ErgLDwHpHMrtUUkW2JHB78k+yiGjP5X62kpcfV+IQEFh7NraGg+EGuLv79ojOMfX50u5ovHeqeFA4HZPBSjyJg2xbcsEd7LK71Na6mCDr2o7OElAbKE2fsVsXWRtuhebRu+Dy40puP/mQ0L/NLrKLR5xWNrBuWzjtcxZGmSMZ1eSSnba6JjjNrFp8IC2nSQ2w9a4DQcf6Nvald4E7bQXeckmupPsPTeRXRDJPlsnyC3t/ujVMd5z3rTZWCES7mRZLu8GTpaHCo6mhwuL4CzhpJOF7P1/UktBizQv3jYp/Dyk+Tbc60BffzrOEvw/kxXA2JwOL9lOZIO8VFlvdBvof8V5/Wuz/D3iK3/1g2zH6ZDvIFyrc0Xj6r4mhveCpSbMXPjR2Zd6c/82u/lrjPP8E7frxJQ==
+sidebar_class_name: "get api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a client config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the saved client config, which holds the client's private key. Needs edit access and is audited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The client config."}}}
+>
+  
+</StatusCodes>
+
+
+      

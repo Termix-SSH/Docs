@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "databases/database-logins-and-reachability-on-every-host",
+          label: "Database logins and reachability on every host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "databases/database-clients-on-a-host",
           label: "Database clients on a host",
           className: "api-method get",

@@ -1,0 +1,69 @@
+---
+id: stop-a-run
+title: "Stop a run"
+description: "Stops a running backup or restore. A stopped backup keeps no snapshot."
+sidebar_label: "Stop a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMFu3DYQ/ZXBnFqA0To56uagCOD0UCPewCiMRcGVxitWEslwRl6rgv69GEq73sRwgQA9iRo+ct4bzrwJa+IquSgueCzxTkJksJAG750/wN5W7RAhJEjEEhIVcA0sIUaqT5stUWTwAdjbyE2QAg2KPTCWD/gxYxh3BqNNtiehpBsTOs0XrTRo0NuesMQ0+JsaDSb6NrhENZaSBjLIVUO9xXJCGaMCnRc6UMJ53imaY/BMrIAPV1f6+V7VtqFMGo6WgclLgfNssCdpQq0sAguahUyJm9gNB+ff2eg2i0TepMHzZsr85k1lfUUdGmRKTyc5Q+qwxGkJzWh+oPBnGBJsKfXuGRYMGnyyydl9tzBfo5n8ox06wRIbkcjlZiP5YEHPto8dFVXocc7amaohORkzhT3ZROl6UBUPu9lMWIXQOrqM2Oh+p/EcubjiTou8ULm86Fxz5YLrW+j/AkKzLj6F1Fvl/Pl++0r9HTG74EFCSz6/ADgP0hBokpDcP1aR0JCtKYFl+JgvBevrDMsHC5zNd5LO3BZVaJamWiAvbfX3Ud5k9Pl+CwsemASsALuDf+d8AfcNeYiJlK4BJyC2JdZIRTX5iiA8UXpTRWZ7We6fruT17Q20NAKLTaLTeHTSgPTPf72Sc4b+fGlbGg0cG1c1SyJ+SVPAjYCthPXYioVw9OvpynofMkD3rR+DJ6COaRkv5x9DVu2kU5mrFcD17Y32PiVeuL8vroqrV4oUDUOEx9DVlNhAbcXuLRPn3L+FqqWUgxA8jDpeTeATe3UrVxkl7WGfwpHJQB2Ovgu2zhec/ExfSee/t17Jri2jPrjY4I/EdKi8kJf/1S2XxhB6lk3srPPKKjvKtLrSA764knbKaqtGPVM/5ck7V3PaGdRy6MFp0rJ9Td08a/jbQEn9YvfiP9k9ase6rrF8tB3Tf8j+5cvqz7/CW9xPc+nHbHPdoH9osKXx7PPz7tKDb/+42+I8/wsOE0Vc
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/runs/{runId}/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops a running backup or restore. A stopped backup keeps no snapshot.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"runId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stop was sent."}}}
+>
+  
+</StatusCodes>
+
+
+      

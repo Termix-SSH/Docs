@@ -7,7 +7,7 @@ description: "SSH terminal sessions with tabs, split screen, history, macros and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSH-Terminal/edit/main/docs/index.md"
 plugin_id: "ssh-terminal"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 SSH Terminal is the terminal in Termix. Click a host and you are in a shell on it, in a tab you can split, rename and keep open across devices. It handles jump hosts, host key checks, tmux and Mosh, and keeps your session alive when your connection drops.
@@ -21,6 +21,8 @@ Click a host in the sidebar, or pick Terminal from its menu. Termix connects wit
 The first time you connect, Termix shows the host's key fingerprint and asks you to trust it. If the key changes later, it warns you before connecting.
 
 Turn Enable Terminal off for a host that should never get a terminal.
+
+A host that [Privileged Access](/plugins/privileged-access) marks as privileged needs approved access. Without it the tab says so and offers Request access, which opens the request form for that host.
 
 The mobile app can open SSH from the phone itself or through this server. Connect from (mobile app) picks which for a host: Automatic uses the phone when it can reach the host and the server otherwise. Each user picks their own.
 
@@ -110,7 +112,8 @@ Theme, font, cursor, scrollback, background image, syntax highlighting, local ec
 ## With other plugins
 
 - [Session Sharing](/plugins/session-sharing) shares a live terminal by link or in a meeting room.
-- [Session Recording](/plugins/session-recording) records terminal sessions.
+- [Session Recording](/plugins/session-recording) records terminal sessions. A Recording badge shows in the tab while one is recorded. With the `ssh-terminal.monitor` permission (admins at first) its auditors can watch and end everyone's sessions, read only.
+- [Privileged Access](/plugins/privileged-access) asks for approval before a session to a privileged host opens.
 - [Tmux Monitor](/plugins/tmux-monitor) watches tmux sessions across hosts.
 - [Snippets](/plugins/snippets) runs saved commands in the terminal.
 - [AI Assistant](/plugins/ai) can sit next to the terminal and read your history.

@@ -1,0 +1,70 @@
+---
+id: fetch-all-remotes
+title: "Fetch all remotes"
+description: "Runs git fetch --all --prune. Needs edit access."
+sidebar_label: "Fetch all remotes"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v4zYQ/SuDObUALac9+pYtukW2QBskKYIiMApamkiMJZJLDuOogv57MaRjeTdNga0vlkbz8d4M53HChmIdjGfjLG7wJtkIrWF4JK47WK1038Nq5UOyVMFvRE0EagyDrmuKsUKFrNuImwf8xTBuFXod9EBMQYwTGsnqNXeo0OqBcIOdi3zVoMJAn5MJ1OCGQyKFse5o0LiZkEcvnsYytRRwnrfFmyJ/cM0oLrWzTJblUXvfm1oLhfVTFB7T21xu90Q1o0IfnKfAhqJ8zdAWr8jB2Bbn/JOa0Tsbi+uPFxfy92XD3B60bYA7ym1ziX3iCiV4IO5cI/RdzIVzKVz7PrXGrrQ369bweir9mNeBvFvnvqPCSOH5tYcp9LjBqZhmVF9B+NOlAHcUBvMCxQcVPutg9K4vyI/WDP5Rp55lCsw+btZrzoEVvejB91TVbhD2W0FQp2B4zBB2pAOFyyQMHrazkv67vaFzi/bmVxpPlrMUtzKMAuU80anrggWP85f34oTq+PDRhUEL5k/3d2/Y31KMxllgtycLkSyDsXkeUsQF83c+GNCRbiiAjvAhJz2NLQdWOKsvKJ2wFVaoykkuLstZfjrwu4g+3d9B8YdIDJohmtaujK3gviMLPpDAVWAYWO8piqWmhmxN4J4pvMsioz1v9zd38vL6CvY0QmQd2NgWDoY74OHlrzd0Tq7f3to9jQoOnam7UiguZSq4EhHhKGFHX3AHe4yutbUuO8h3bUdnCaiPVFZLtvxm0YOfy+Fd9vm0xzK2R5cbZFg8RKbg8vpKVoRCLBR/qC6qi3+ZIynwqe8V1G4YRPRsAz7FLq+6rGsEZ2GU/ZMljip77Im8UBogeWAHjWYqxHVilzPmAYosDDqr1fE0fcyiK5IbaHBM8WtMZ7L3v6S6HBKmF177XhsrMLK6vDbuARd1QoWtkeO9OVNs71BhEamtylIuQdO005H+CP08i/lzoiC6sV10KKtIY6I8N7h51H2k/yD33c3xbvge3sP9up92zHLXJ3lDhXsal0tm3s4Ky/nMCMrHn0qd1Z2kWILf3COiYScVv/79VtRnd7x/BtdITNAH6Ys+lOIuc8lKl20T9tq2SbdZLHJO+f0D2XKQxA==
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Fetch all remotes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/fetch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git fetch --all --prune. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

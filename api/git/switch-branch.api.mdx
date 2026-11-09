@@ -1,0 +1,70 @@
+---
+id: switch-branch
+title: "Switch branch"
+description: "Checks out a branch. With remote true it creates a local branch that tracks the remote one. Needs edit access."
+sidebar_label: "Switch branch"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFuIzcM/RWCpxZQ7LRH37KLtsgWaINNiqAIjIKeYWYUz0haiRPHHcy/F5Rsj5tsCuypvtimSOrxUXwcseZURRvEeocr/NhytU3gBwGCTSRXtQu4t9JC5N4Lg8SBwQpUkUk4AUHnK+oOviAtCUgkTSItH6O84wX8xlwn4NoKUFVxSgs0KNQkXD3gL1ZwbTBQpJ6FoxpHtIopkLRo0FHPuMLWJ7mu0WDkL4ONXONKMRlMVcs94WpE2Qf1tE644YjTtC7enOSDr/fq8jq48k7YiR5RCJ2tSAlZPiVlZXyb22+euBI0GKIPHMVy0tMMdfZKEq1rcDJY6PnqUaHo7GjjfcfkcMofdUjBu1Ru+PHyUr/+3TW/BXJ1Jryxot0LgyxQg3uW1tfKok8Zb0aIy9ANjXUXFOyysbIcC63TMnLwy0pfgR/UP3F8PnZjiB2ucCymCc0rFH/6IcIdx96+QPFBg88ULW26Av5gzfgfaehE+ykS0mq5lBy44BfqQ8eLyvdKwFoRVEO0ss8QNkyR49WgRTysJzNi5f3W8rmFgv2V9yfLWYpbbWOBcp7oxLxiwcNLyp3ITmgOP372sSfF/On+7k31t5yS9Q7Eb9lBYidgXW6JXuKj/Ts/KWiZao5ACT7kpKfO5cCFvojzkk7YSlVoykwUl3kqnnbyLqJP93dQ/CGxAAkk27gL6xZw37KDEFnhGh1roS0ntVRcs6sY/DPHd6vIaM/p/mYmr26uYct7SEJRrGtgp1oj/ctfb8o5uX47tVveG9i1tmrLRWm+ZgHXKkeSNOzgC37nDtEVOeezg56T23vHwF3iMl2qD59nZfmpPN5ZCY5jPgvAbDnOvQrQpG199JlAK5pBBRGubq51hDimQsEPi8vF5Vf6zAbC0HUGKt/3Kq+uhjCkNquBTnQC72Cv86lznkz22DIHLbmHIYB4qEm4EEOD+JwxN1iVo6esg4fXdruzUrUHzX+NZ5zF9H9YJ+X5Cb/IMnRknRaQdevYkgecpQ8NNlYHZ3W2VYJHgycFXJu8cTRuHDeU+I/YTZOavwwcVZTWs8hliapt0t81rh6pS/wf7Hz3+bCFvof3oB+H3+2zlnaD/kODW97Pu3BaTwbL488IyuHHcs/FnaaYg9+sNxXI05a4+f1WpW1zWJO9rzUm0k6poV253Odasoxm24gduWagJitRzqmffwAxruM5
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Switch branch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/checkout"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks out a branch. With remote true it creates a local branch that tracks the remote one. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"branch":{"type":"string"},"remote":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

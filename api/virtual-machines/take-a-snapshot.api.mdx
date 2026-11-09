@@ -1,0 +1,70 @@
+---
+id: take-a-snapshot
+title: "Take a snapshot"
+description: "A running VM keeps its memory in the snapshot too."
+sidebar_label: "Take a snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzbAjbs95q132LDerVhx7VoMRTAwNhursSWfRCf1jPz3AyUnziXrsNvD/GJbIqmPH8WPA5YcCm9aMc7iHK/Ad9Yau4KHG1gztwGMBGi4cb4HY0EqhmCpDZUTEOdmmKHQKuD8CR+Ml45quKGiMpYDLjJsyVPDwl4tBjR6SEtSYYaWGsY5Vi7IdYkZev7cGc8lzsV3nGEoKm4I5wNK36qlscIr9rjbZX8bqevMv4oTxBu7wt1ukYw5yDtX9mpx6ls4K2xFt6hta1OQEpW/BGVrOA/tli9cCGbYeteyF8NBdxPAMwDZ1+yfA9RHMYbW2ZBC/Xh5qa+vy3ZPa7YzJQYblsqVyo0LEYhSNMe8rbuVsRfUmnyT6nTRjHXKtQQhH1IldvmmCfmgZO7yfakDZhjYb/Z17HyNcxzS0g5PEsE/XOfhnn1jXiHZYIYb8oaWdUpjXI2ZPFNXi94EkTbM81yi44xfqWlrnhWuUSoWiqDovJE+QlgyefZXnab3tNArUTi3Nny8Qq35yP1h5SjEnVYuQTkOdCiBYsHx7uh/MsJs/PjZ+YYU84fH+7Ps7zgE4yyIW7OFwFb2naOHOG/+ircIKqaSPVCAdzEokC2jWXSc6f04TumALWWFWeqBZDJ1wctW3kT04fEekj0EFiCBYFb2wtgZPFZsofWscDMwAkJrDrpScMm2YHAb9m9mEdEe0/3NTF7dXsOaewhCXlSBtkYqkOb1z7N0DqbfTu2a+wy2lSmqdFCYjpnBtQAVEtRttAW3taN3Qda6aKD7ZHtnGbgOnPpOJeHTJCY/pcs7Nf++qU9zmbTA2GcXeTOijmdyCle319pG7ENy/WF2Obs8C/jeMwlHyA1ZWjF8fLiBsedh3/PgLPTapb8a271CVIBU4bu7XxIntVmqV6ysiklD9igdlRygwyw4hTFM0vkfh0q6PcKvkrc1GaswouwMo6Y94aRpysuJqmEWR4u+54cZs2ni/zgpJnVbJGMNOgxLCvy7r3c7Xf7csVfBWUwCFuWnNEG/S5w/Ux34H9L/7tM4VL6Ht/LaN7bto07Wnf5hhmvupwmpgvY/nho52i12GaZmilmnrffplIt7DTC5nk1IFdzDPLr97U6lcjlO2saV6uNpqyObtuloFzOJshzXBqzJrjpaRWWLMfX5AonpAy4=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Take a snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/snapshots"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A running VM keeps its memory in the snapshot too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Taken."}}}
+>
+  
+</StatusCodes>
+
+
+      

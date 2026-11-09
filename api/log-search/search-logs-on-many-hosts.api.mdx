@@ -1,0 +1,68 @@
+---
+id: search-logs-on-many-hosts
+title: "Search logs on many hosts"
+description: "Reads the journal, log files and Docker logs on the chosen hosts over SSH and returns the matching lines, newest first. Nothing is stored."
+sidebar_label: "Search logs on many hosts"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P4zYM/SsEz54kLXrybbbdorP9GmxmMSiCoFBsxtbElrwUnY8G+e8FJW/imckWs7fmYocipUfy8clHLCkUbDux3mGOH8mUAaQmePI9O9Nk0PgK1rahAMaV8JMvNsRqDOBd9CxqH8hB7YME8FtimM9/ic5M0rNL+7VGitq6ChrrKGTgaEdBYG05yAT+8BIXbYAgnqmcYIZMn3sK8s6XB8yP8a9lKjEX7inDwjshJ7pkuq6xhdEkpk9BMzliKGpqjb7JoSPM0a+eqBDMsGPfEYuloKufe+LDyC0IW1fhSc+vaD9aWXnfkHG6VJhAc3LBit3SdRetx10ZRouG2RwwQyvUju3WCVXEeDplGHzPBb0lasCZIbm+xXyBQ8cww9guzLCMzcKlbrxm3145M3tBgLkYFhDbElgHn5zdQxsmmo/4N4S/d+XV4Ia21PwXeNMo8J1hp0Zmr7Az9Gwr6652p7GtlatV1J92L3TehVTL72czfTwH+/szSkbGGghipA+w9gy0JT5EXsccfri2x0NNEMhwUSt3nRfYmsaWk9jMlqT2JebY+RCJZ6TGHKdd01fW3ZjOThtf3aT4aXpghoF4SxwwXxyx5wZzPCbT6VW9//I9wwNxa/eQfDDDrWFrVk3KfLBG4GvTN4I51iJdyKdTiYET2pu2a2hS+Fart1QERc9WDhHCigwT3/aKfbE8ZUcsvN9YGltMZ3+lw9ky2mKuY5igjDc6t02xaM7RTScoOmE2vPzsuTWK+cPjw2uyUghWVchvyEEgJ8o7VRs9xLP9J0oC1GRKYjAB3sVNY6vVLQbG5o5TuoxezEpnT09LLpihMxHp006+iujD4wMkfwgkYASCrdyNdRN4rMlBx6RwM7ACYjYU1FJQSa6gpKFfyyKiHZf7myt5e38HGzoo01mU/jsrNUi7//tVOmfXby/thg4Z7Gpb1OmgcDlmAncCppCgYYMv+J0bogvjdI5MIbpu3ME7AmoCpaFSff94uRneJ/KOlPwiLoOAD9fFc8lOxrNIL2bLkfhexHT5RTlnSQFnZy0bJOuLQl1OHYRpdlLerJNqWlGI+JuvYJ7U4vb+TkeVOKRSfzeZTWZX+BSd43WrON5wNeu1aKwjDmAK9iFAa9xhuJ6NgHcFRRKpKLUmiuvA6PFp3o3iXuI6Xi7f/9cnwzAKQnuZdo2x8SaOGnoc1HeBF/XVZp31NwpvfFkmXqjv8bgygT5xczqpeWDYYnkR2aSAmOYg6uWGlIQ/pgLdPCgidW/6JCkvvlRUK8/3xP2fc1W51fDF0/pSY9jslMxmhzkq42IToqJG2xEb46reVFGU4p76+xfcLGgB
+sidebar_class_name: "post api-method"
+info_path: api/log-search/log-search-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Search logs on many hosts"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/log-search/search"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads the journal, log files and Docker logs on the chosen hosts over SSH and returns the matching lines, newest first. Nothing is stored.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"query":{"type":"string"},"regex":{"type":"boolean"},"caseSensitive":{"type":"boolean"},"hostIds":{"type":"array","items":{"type":"integer"}},"sources":{"type":"array","items":{"type":"string","enum":["journal","files","docker"]}},"from":{"type":"integer","description":"Start time in Unix ms."},"to":{"type":"integer","description":"End time in Unix ms."},"level":{"type":"string","enum":["all","warn","error"]},"origin":{"type":"string"},"limit":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Matching lines and a status for every host."},"400":{"description":"The search is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

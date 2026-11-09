@@ -1,0 +1,70 @@
+---
+id: renew-one-certificate-or-all-of-them
+title: "Renew one certificate or all of them"
+description: "Leave out key to renew everything that is due. dryRun tests the renewal with certbot without saving anything."
+sidebar_label: "Renew one certificate or all of them"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsEL22BiZz26Ft20QLZLtAgcREUgVHQEm1NLM1oZygnqqH/XnBGsZXNpsBeqoMtkRzO49fjESuOZbCdWO9wiZ+ZDgy+F9jzAOIhsOMn4AOHQWrrdiA1CdgIVc8FVGG47R0IR4kgNWdzauDJSg0lB9l4SR/qMtJBPZDLrgo0KLSLuHzAjxzEbm1JwhHXBjsK1LJwUO0RrWLrSGo06KhlXGLto1xXaDDwl94GrnApoWeDsay5JVweUYZOLa0T3nHAcVxna47ywVeDmpTeCTvRV+q6RgFY7xaPUbNxfOvLbx65FDTYBd8pZo6q3fMwM4oSrNvhaLBs7OT9jSqnbqbaeN8wOdVtfSj5W6r0aBCx8y7mu3+5vNS/13Vc1QzsKvDbVJaM44eole16KVC9tCy1rzSxPqaQNL9LXHRNv7Pugjq7KGdlWRxzysdFKjIajBwOLxXqQ4NLPGbRiOYrPH/5PsCKQ2ufIdugwQMFS5smhzFJUyRb6hvRGot0cblYSDpY8DO1XcNF6VtNxVoRlH2wMiQIG6bA4arXKB7Wo9Hq+r3luYQ6+zsPJ8nMxZ2WOkOZOzrVQLHg1F2pJskIzfTymw8tKeZP96s30d9xjNY7EL9nB5GdgHWpMHqJD/af1HZQM1UcgCJ8SE6BXJXM0sEiddQspBO2HBWaPCfZ5Dwpj0/yLqJP9yvI9hBZgASi3bkL6wq4r9lBF1jhGrACQnuOKim5Ylcy+AOHd6NIaOfp/u5MXt1cJxaKQkGUOBKpSPv895twTqbfn9o9DwaealvW+aJ4vqaAawEqJeqxyRb8k5tOl+ScTwaqJzd4x8BN5DxeyiG3Z7b5NTfviS1eqOBMEmfJCzdkQpvYQD9GLfHWp2RaUW+vmBOubq51rjjEnJefi8vi8hvFZwM2xp5THJniV5/vYD7u4B0MOrU69fE1oespKlsuYm3Sx057xwE1HAQ2vPWBNWED8HNnA6deUJZpKTHe1Ji36WLN2uxi8AGoaSbmar8GP6Ps/39Z5f4VfpZF15BNXJ2I7ziR5wOeyVMrO99qBpeznaUMujZpi+mx43FDkf8MzTiq+EvPQUltfSbJRHGVjfpe4XJLTeT/yM2Pt9Na/AneQ/5CHm5IXNz0+oVmas8J67geDebhSQiy8mO+52KlLs6H36xQJdjTmrn5406pcTOt3tZXeiaQrhL9TZf7FEui4SQ7YkNu19MuMVnyqc+/IpII/w==
+sidebar_class_name: "post api-method"
+info_path: api/certificates/certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Renew one certificate or all of them"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/certificates/{hostId}/renew"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Leave out key to renew everything that is due. dryRun tests the renewal with certbot without saving anything.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"key":{"type":"string"},"client":{"type":"string"},"dryRun":{"type":"boolean"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the client's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -12,6 +12,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "tmux-monitor/tmux-session-counts-on-every-host",
+          label: "Tmux session counts on every host",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "tmux-monitor/get-a-hosts-tmux-sessions-windows-and-panes",
           label: "Get a host's tmux sessions, windows and panes",
           className: "api-method get",

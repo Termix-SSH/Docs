@@ -6,9 +6,15 @@ slug: "/opkssh/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "opkssh"
-plugin_version: "1.0.2"
+plugin_version: "1.0.3"
 plugin_latest: true
 ---
+## 1.0.3
+
+### Changed
+
+- The page you land on after signing in now matches the Termix look and follows your theme and language
+
 ## 1.0.2
 
 ### Changed

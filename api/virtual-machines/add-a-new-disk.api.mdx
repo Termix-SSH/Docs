@@ -1,0 +1,70 @@
+---
+id: add-a-new-disk
+title: "Add a new disk"
+description: "Add a new disk"
+sidebar_label: "Add a new disk"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v20YM/lcIvmwDFMvbo97SYsXSrlhQew2GwBhoibEulu7UO8qOZuh/H3in2G6cAuvL9CKJR/I+/vp4QKFNwOIePxsvPTXwkcraWA64yrAjTy0Le9U4oLFYYEdSY4aWWsYCaxfkpsIMPX/pjecKC/E9ZxjKmlvC4oAydKpprPCGPY5j9qqnvjf/yU8Qb+wGx3GVlDnIG1cNqvHStnRW2IoeUdc1piQxzuaPwVmVXbh260cuBTPsvOvYi+Ggp51zzSsAMtyY9asB6qPgQudsSD5+mc/1VXEovekUBha4rBks76EyYftDAE3ETPPzQu26qoCOiphhy1K7SjPoQoSriSww75p+Y+wVdSbfpWpetVM1cy1UyA+pXmO+a0N+0JSPuToNmGFgv3uudO8bLPCQRCO+RPSX6z0s2bfmCZIOZrgjb2jdpHgnaQz5gfpGtFdEulDkuUTDGT9R2zU8K12rOVspgrL3RoYIYc3k2V/3Gtr9SpumdG5r+FxCnfnAw1Fy5mKhtU1Qzh0di6VYcOou/U9KmE0f75xvSTG/v1teRL/gEIyzIG7LFgJbAWNBaga9xHnzT+wzqJkq9kAB3kSnQLaKatFwph10HtIRW4oKszQlSeU0J497+Sai93dLSPoQWIAEgtnYK2NncFezhc6zws3ACAhtOaik5IptyeB27L8ZRUR7nu7vzuT17Q1seYAg5MXYDeyN1CDt098X4RxVvz+1Wx4y2NemrNNF4XTNDG4EqJSgZpMuuL2drEuy1kUFPSc7OMvATZhGUknj04lufk3Ne6KHZ1qYWGE+avkeXEyUEdW8YFi4vr3RuWEfUtw/z+az+UU23nom4YixJUsbhg+fP8I04PA84OAsDDqWvxvbP0Ec91TSxeK3lITGrNUqllKZo6VIg1NfXbDMVyiO5RZ+krxryFh1E3niMBHQPZ4ISON6QUGYxW2h7+K4NnZt/J/IP1HRKimqw8NhTYH/9M04qvhLz17ZYXVim8gVlQn6XWHxQE3gC+zHRYA/fpp2xE+A2esxPU+hHSKpNb3+YYZbHk4LT9nnf7w15mdcjRmmzo9Rp6O36ZarpTo4mV4sPGXH4+K4/WOhvLaeFmfrKrXxtNcNTPt0tYuRRA6NsgM2ZDc9bSINRZ/6/AuxJtcw
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a new disk"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/disks"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a new disk
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"pool":{"type":"string"},"gib":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new disk's name."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: stash-apply-pop-or-drop
+title: "Stash, apply, pop or drop"
+description: "Works with the stash list. Dropping a stash cannot be undone. Needs edit access."
+sidebar_label: "Stash, apply, pop or drop"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lV9v2zYQwL/K4Z5WgJHTPfotXbchHbAFTYZgCIyBli4SY4lkyVNsTdB3H45ULLdOBvRhfrF9PPL+/27EimIZjGfjLK7x3oVdhL3hBrghiKxjA62JXMDH4Lw3tgY9i0ttrWPYEvS2cpYK+J2oikCVYdBlSTEWqJB1HXH9gL8axo1Cr4PuiCmIcEQjVr3mBhVa3RGusXGRrytUGOhLbwJVuObQk8JYNtRpXI/IgxdNY5lqCjhNm6xNkT+4ahCVby+XzjJZliPtfWtKLSGvnqLEPZ6/7bZPVDIq9MF5CmwoymlyddGKHIytcVLo/LlYIdm+k+B9HyVC7zyqZH9AhVVwHjeTQmMrOrwWl8KOYtQ1vWqytxx0uZMYj6db51rSFqf0kaxE72zMzv94eSlfX5fc7UDbKpW7NgyuZ99zgVMyzo2rpEAuplSk4HHl27429kJ7s6oNr8ZcsWkVyLtVag5UGCk8v1S5Dy2uccyiSUL/yoW/XB/gjkJnDpB1UOGzDkZv2+z5LE3OP+q+ZekTZh/XqxWniwUddOdbKkrXSfQb8aDsg+EhubAlHShc9RLBw2ZSI5bO7QydSrQ3v9FwlJw8cSvtkV05feiYdvEF5w5NZUhKqOYfv7jQafH50/3dWfS3FKNxFtjtyEIky2BsqocYccH8k1oVGtIVBdARPqRHj2VLFwvpiNOQjr7lqFDlWcsqy7Q97flNjz7d30HWh0gMmiGa2l4YW8B9QxZ8IHFXgWFgvaMokpIqsiWBe6bwZhTJ29N0f3cmr26uYUeDsCiwYClDqzv8fRbOUfX7U7ujQcG+MWWTDcXFTAHXgjmOcm3WBbe38+2ZjrpkOdd2cJaA2kh5tIQ7nxdi/ZybdyHMghAByws/ZlBcnnBhUTzBgSAvceXRpdQalrcFwXB1cy3DRSHm5LwvLovLVzqAFPi+bRWUrusE6LYC8SJBQgY9grMwyOTK+EeVNHZEXpLRQe+BHVSaKadM9+zSi6n0ApROJ/LOfXgr2FCQ2KjAOw8uQCLkN76NC8r/l3WV25DpwCvfamMTaYVfL6V5wIV/qLA2MkDrk63lnTRwwuBGpXUml8ZxqyP9GdppEvGXnoKQabOQLnGqMlF+V7h+1G2k/wj+h8/zinsHb/n9QgA7JKC2vfxDhTsalkU7yQrKE5A8yIc/ZTsXd/LEcvlsdwolj3vi5o9b4dt23sGdq+RO0HvJi95n4y7FkliaZCO22tZ97ub8pnz+BfDc9fk=
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stash, apply, pop or drop"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/stash"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Works with the stash list. Dropping a stash cannot be undone. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"op":{"type":"string","enum":["push","pop","apply","drop"]},"index":{"type":"integer"},"message":{"type":"string"},"untracked":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

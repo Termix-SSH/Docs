@@ -1,0 +1,69 @@
+---
+id: branches
+title: "Branches"
+description: "Local and remote branches with their upstream and ahead and behind counts."
+sidebar_label: "Branches"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNFu1EoM/RXLTyAN2cJj3ooEVYEHBIuqq2p15U3cZNhkZphx2uau8u9XnmS7W6AgJJ6SOGfsczz22WPNqYo2iPUOS/zgK+qAXA2Rey8M20iuajnBnZUWpGUbYQhJIlOfcdQy1flty611NVR+cJIKNCjUJCyv8cIKbgwGitSzcNTgHq3WCyQtGnTUM5bY+iSXNRqM/G2wkWssJQ5sMFUt94TlHmUMirROuOGI02SWTN8GjuMx1ZL4t4mSROsanKaNglPwLnHS/6/OzvTxuD3r9tiRQotjz9L6GktsWNDMZUtchW5orHtBwa4aK6v9rGxaRQ5+dciABhPH20NDhthhifs5NKH5rvY/foiw5tjbe5gxaPCWoqVtN1Neopn1DQ2daEtFQipXK8kHC76nPnRcVL7HKYtOXA3RypgpbJkix/NBRVxvtLeV9zvLpxEK9j2PD5GTFJ+1uTOV00QPvVYuuNyBfs8gNMvLWx97Us7vrtY/qP/MKVnvQPyOHSR2AtbpPIIW8dH+R4oEnUaOQAle56R5MhWWDxY4mUeSHrjNqtDMwzRDjtP09U6eZPTuag0zHhILkECyjXthXQFXLTsIkZWuASsgtOOkkYprdhWDv+X4pIrM9rTdf9zJ84+XsOMRklAU65pli/v7f3+Q8wD989bueDRw19qqnQulY5kCLgWokqTHFiz4O7ecrsg5nwH6n9zoHQN3ieflsu7GZ9VWOpV5YQXOP17q3HNMM++XxVlx9pPLYQNh6DoDle97K7lcGFILjRXQNUzgHYy6VLqcyWTEjjkozx6GAOKhJuFZDQ3ic8Z8K8En6ckpuWVEXh+X+hEVXSEn7OSvu+s8CsL3sgodWae8sofsFxu6xqMNocHG6hCXJyYbvI7MgfjGZAPWc/v9lhJ/id00aXj2VjWI2ia1mxrLG+oS/0Lrs0+L9T6Hp8jueDw69S11g0JQHeVga3+/5mHd3Xha88Bl6c20OXX2izdrnKb/AVWydwk=
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Branches"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/repo/branches"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Local and remote branches with their upstream and ahead and behind counts.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The branches."}}}
+>
+  
+</StatusCodes>
+
+
+      

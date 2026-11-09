@@ -1,0 +1,873 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "DNS API",
+    "version": "1.0.0",
+    "description": "Manage DNS records and domains across Cloudflare, Route 53, Namecheap and other providers."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/dns/providers": {
+      "get": {
+        "summary": "List the supported providers and the keys each one needs",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "The providers with their credential fields and features"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/summary": {
+      "get": {
+        "summary": "Counts for the dashboard card",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "Accounts, domains close to expiry and failing links"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts": {
+      "get": {
+        "summary": "List the DNS and registrar logins, without their keys",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "The accounts"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a DNS or registrar login",
+        "tags": [
+          "DNS"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "credentials": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Account added"
+          },
+          "400": {
+            "description": "Missing or invalid fields"
+          },
+          "409": {
+            "description": "An account with that name exists"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{id}": {
+      "put": {
+        "summary": "Change an account. Keys left empty keep their saved value.",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account saved"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove an account with its copies, links and domains",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account removed"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{id}/test": {
+      "post": {
+        "summary": "Check the saved keys by listing zones",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "How many zones and domains the login can see"
+          },
+          "502": {
+            "description": "The provider refused the keys"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/zones": {
+      "get": {
+        "summary": "List every zone of every login",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "The zones and the logins that failed"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/records": {
+      "get": {
+        "summary": "List the records of a zone",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The records"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a record",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Record added"
+          },
+          "400": {
+            "description": "The record is not valid"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/records/{recordId}": {
+      "put": {
+        "summary": "Change a record",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Record saved"
+          },
+          "404": {
+            "description": "Record not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a record",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Record deleted"
+          },
+          "404": {
+            "description": "Record not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/snapshots": {
+      "get": {
+        "summary": "List the saved copies of a zone",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The copies, newest first"
+          }
+        }
+      },
+      "post": {
+        "summary": "Save a copy of a zone now",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The copy"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/snapshots/{id}/diff": {
+      "get": {
+        "summary": "What restoring a copy would change",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The differences between the copy and the live zone"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/snapshots/{id}/restore": {
+      "post": {
+        "summary": "Put a zone back to a saved copy",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The changes that were made"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/snapshots/{id}": {
+      "delete": {
+        "summary": "Delete a saved copy",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Copy deleted"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/export": {
+      "get": {
+        "summary": "The zone as a BIND file",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file text and zone name"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/import": {
+      "post": {
+        "summary": "Preview or apply a BIND file",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "apply": {
+                    "type": "boolean"
+                  },
+                  "replace": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The changes, and whether they were made"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/health": {
+      "get": {
+        "summary": "The last health report of a zone",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The report, or null when none ran yet"
+          }
+        }
+      },
+      "post": {
+        "summary": "Check delegation, DNSSEC, mail records and broken names now",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new report"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/propagation": {
+      "post": {
+        "summary": "Ask public resolvers whether the records resolve",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zoneId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One row per record and resolver"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/domains": {
+      "get": {
+        "summary": "List registered and watched domains with their expiry",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "The domains, soonest expiry first"
+          }
+        }
+      },
+      "post": {
+        "summary": "Watch a domain through RDAP",
+        "tags": [
+          "DNS"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Domain added"
+          },
+          "409": {
+            "description": "Already listed"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/domains/refresh": {
+      "post": {
+        "summary": "Read every registrar login and watched domain again",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "How many domains there are and how many lookups failed"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/domains/{id}": {
+      "delete": {
+        "summary": "Stop watching a domain",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Domain removed"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/hosts": {
+      "get": {
+        "summary": "Hosts the user can link a record to",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "Hosts with their address"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/links": {
+      "get": {
+        "summary": "List the records Termix keeps up to date",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "200": {
+            "description": "The links"
+          }
+        }
+      },
+      "post": {
+        "summary": "Keep a record pointed at a host or this server's public address",
+        "tags": [
+          "DNS"
+        ],
+        "responses": {
+          "201": {
+            "description": "Link added"
+          },
+          "409": {
+            "description": "That record already has a link"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/links/{id}": {
+      "put": {
+        "summary": "Change a link",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link saved"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a link. The record stays where it is.",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link removed"
+          }
+        }
+      }
+    },
+    "/plugin-api/dns/links/{id}/sync": {
+      "post": {
+        "summary": "Update a linked record now",
+        "tags": [
+          "DNS"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the record changed"
+          },
+          "502": {
+            "description": "The address or the provider failed"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

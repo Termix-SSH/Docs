@@ -1,0 +1,69 @@
+---
+id: change-a-rule
+title: "Change a rule"
+description: "Replaces a rule, keeping its place where the firewall allows it. Same body as adding a rule."
+sidebar_label: "Change a rule"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3EYM/SsETw0w0To56uYWMOoUAYysDaMwFgUtcVfTlWaUGcprZaH/XnBG++G6LpJLTpI4/Hh8Qz7tseZYBduL9Q5L/MJ9SxVHIAhDywa2zL11G7ASIR3BruHAIA3D2gbeUdsCta3fRbBSwJI6hkdfj0ARqK41Nucq0KDQJmL5gFdzJK4M9hSoY+GgJ3u0CqMnadCgo46xxMZHua7RYOCvgw1cYylhYIOxargjLPcoY6+e1glvOOA0mf/MpDi+L1OUYN0Gp2mlzrH3LnLU848XF/p4SdtvDbkN14UWxo6l8bXWHgRNRlDiom+HjXXvqbeLA3GLfW5tWiiwuNhnfBMajByeDpQMocUS99mkhy+L/+mHALccOvsM2QcNPlGw9NhmzLM1wV7T0IqSKtLHcrGQFFjwM3V9y0XlO5xS15GrIVgZE4RHpsDhctBWHlbKbuX91vK5hXr7B49Hy1mKpbKboZwnOpKtWHC+BP3OTmjmlysfOlLMn+5vX3W/5BitdyB+yw4iOwHr0nhqER/sN1JPaJhqDjqVv6akQK5ObimwwMm8aOmILXeFJo9TdjkN1N87eRPRp/tbyP4QWYAEot2499YVcN+wgz6wwjVgBYS2HNVScc2uYvBPHN7sIqE9p/uHmby8uYYtjxCFguiO7qw0IN3zX6/aObr+OLVbHg3sGls1uVA8lSngWoAqiRo2+4LfuTm6Iud8ckg64kbvGLiNnFfMurVPXVtptc2DnsDlzbUOP4eYwX8oLoqLVy19Jkcbhrure3MUsdqAW0tamYTA9vNHWk3wDkbdM13YmG9nufzd5IZaX239INAHL1xpkXRDvY/SkVOg87hknZgF8d+wdKecsJOfoMN5WoSfZdG3ZJ3CTTKzn/XqAU96hQYPJdBgeZJjZUYts6yuTJJqDd7vHynyXWinSc1fBw4qJKuTMCVZqW3U9xrLNbWR/4eQX77Miv0O3sJ/WFg3Jv1rB/1Cg1seTz8RFaqfWHVmZlqd/xdu7m5xmv4BKgSS3Q==
+sidebar_class_name: "put api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a rule"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/firewall/{hostId}/rules/{ruleId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces a rule, keeping its place where the firewall allows it. Same body as adding a rule.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"ruleId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

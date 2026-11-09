@@ -1,0 +1,69 @@
+---
+id: read-a-certificate-file-or-a-tls-servers-chain
+title: "Read a certificate file or a TLS server's chain"
+description: "Pass path for a PEM or DER file on the host, or address and port to fetch the chain a server sends, as seen from the host."
+sidebar_label: "Read a certificate file or a TLS server's chain"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVV1v60QQ/SujeQGkvUnh0W8FCuoFpKoNqlAVoY09jpfYu7474yYm8n9H43UT97aRuLzwlHh3Ps6ZszNzxII4j64VFzxmeGeZobVSQRkiWLi7+Q1ChB9v7qF0NUHwIBVBFViMXtiiiMQM1hfQhiggAUqSvBrN8so6DxaY4jNFYPIFG7AMTOShjKE5RVugQbFbxuwJf6AornS5FWJcG2xttA0JRb09olOgihENetsQZqgRbgs0GOlT5yIVmEnsyCDnFTUWsyNK36ql80JbijgMZor0qaPYn0NNgd84skTnt5f9pkr8F1ct3Ht+Z6xrZcZt8EysBt9dXenPa+1ubF5Bfq4d7J1U4IRB87CBQgtqwDF3FEfJSue3FNvovCwUHzYkVSgwwy0ppLEYGS7buts6/8G2bjlLwMtjKvywdJ5bykcWo9ZJqS7WmOExHQ1oPgP8R+girCg27jA9ETT4bKOzmzrxnE5HqqXtalGtRVrOlksZHRd0sE1b0yIPDQ5jpZjyLjrpRwgbspHidac8ntaqQB7CztH8xLbuF+pPJ7MQDypJgjIPdFJIsbwop9/JCM3056cQG6uYPz6u3rB/IGan/RR25LU3BFzqLk0SovvbqiVUZAuVi+H7MegonJqNjgsczCtKJ2yJFZr05JLJ+c39tZeLiD4+riDZA5OAFWC39R+cX8BjRR7aSArXgBMQuyPWk5wK8jlB0E6/xGJEOy/3F1fy+u4WdtQDi43i/DY9cmkOf76hczL98tLuqDewr1xepUR8TrOAWwGbC6vbZAth7yfv3HofRgO9t74PnoBqptRfzpdhZO2kVprzUQfXd7faABQ5Efh2cbW4ekclmnp4TBjJ0x5Wvz7MW591UPfaXtqgE3q93yg2X4DNG1pwZcaPrYrswdYUBTZUhkjKrAc6tC7SKFobWBrrFfv0gu7JFmBfDZy0InRvKJ7UvF9xWgOf89BG9EJe/vetkx6g0EGWba1IB5Mm13Gaf094nn9ocF5nNJidls/LEFybcSGp4/G4sUy/x3oY9DgNfp1LhWOdcgVmpa2ZDO6oP2+fZ1t3Cgp1PF0wPS+cf2M97Ziz6fo8at8HdFGtr++nJfsNXCrfywjy/TznC5apYMN6vnB+vlnhMPwDt7Tv3Q==
+sidebar_class_name: "get api-method"
+info_path: api/certificates/certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a certificate file or a TLS server's chain"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/certificates/{hostId}/inspect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Pass path for a PEM or DER file on the host, or address and port to fetch the chain a server sends, as seen from the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","schema":{"type":"string"}},{"in":"query","name":"address","schema":{"type":"string"}},{"in":"query","name":"port","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Each certificate with its names, dates, issuer and fingerprint."}}}
+>
+  
+</StatusCodes>
+
+
+      

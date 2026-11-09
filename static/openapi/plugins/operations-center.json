@@ -1,0 +1,419 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Operations Center API",
+    "version": "1.0.0",
+    "description": "Run, roll out, approve and track every plugin action across your hosts, with a page per host and tables across all of them."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/operations-center/rules": {
+      "get": {
+        "summary": "List approval rules",
+        "description": "Checked in order, the first rule that matches decides whether an action runs, waits for approval or is refused.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "The rules."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add or change an approval rule",
+        "description": "Needs the operations-center.rules permission.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "The rule is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/rules/{id}": {
+      "delete": {
+        "summary": "Delete an approval rule",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/rollouts": {
+      "get": {
+        "summary": "List your rollouts",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "Rollouts with a count of hosts per state."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a rollout",
+        "description": "One action across hosts picked by id, tag or fleet, with a canary, batches, a pause between them and a failure limit. Starts right away when start is true.",
+        "tags": [
+          "Operations Center"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "actionId",
+                  "targets"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "actionId": {
+                    "type": "string"
+                  },
+                  "resourceKey": {
+                    "type": "string"
+                  },
+                  "input": {
+                    "type": "object"
+                  },
+                  "targets": {
+                    "type": "object"
+                  },
+                  "dryRun": {
+                    "type": "boolean"
+                  },
+                  "canary": {
+                    "type": "integer"
+                  },
+                  "batchSize": {
+                    "type": "integer"
+                  },
+                  "pauseSeconds": {
+                    "type": "integer"
+                  },
+                  "stopAfterFailures": {
+                    "type": "integer"
+                  },
+                  "start": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The rollout."
+          },
+          "400": {
+            "description": "No hosts match, or the request is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/rollouts/{id}": {
+      "get": {
+        "summary": "A rollout and each host's result",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The rollout."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a rollout",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/rollouts/{id}/{verb}": {
+      "post": {
+        "summary": "Start, pause, stop or retry a rollout",
+        "description": "retry runs the hosts that failed again.",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "verb",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "pause",
+                "stop",
+                "retry"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/baselines": {
+      "get": {
+        "summary": "List your drift baselines",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "Baselines with a count of hosts per state."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add or change a drift baseline",
+        "description": "A read action that proves hosts are as they should be, checked on a schedule, with an optional fix action.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/baselines/{id}/results": {
+      "get": {
+        "summary": "Each host's state for a baseline",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Results."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/baselines/{id}/run": {
+      "post": {
+        "summary": "Check a baseline now",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Started."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/baselines/{id}": {
+      "delete": {
+        "summary": "Delete a baseline",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/attention": {
+      "get": {
+        "summary": "What needs a look from this plugin",
+        "description": "Drifted hosts, rollouts that stopped and how many are running. Approvals and failed runs come from core's /operations routes.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "Counts."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/mcp": {
+      "post": {
+        "summary": "MCP server",
+        "description": "Model Context Protocol over HTTP, for AI tools. Use an API key limited to operations. Only actions marked safe for MCP are offered, and changes follow the approval rules.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON-RPC answer."
+          },
+          "202": {
+            "description": "A notification was received."
+          }
+        }
+      },
+      "get": {
+        "summary": "MCP event stream",
+        "description": "Not offered. Answers 405 as the protocol expects.",
+        "tags": [
+          "Operations Center"
+        ],
+        "responses": {
+          "405": {
+            "description": "No stream."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

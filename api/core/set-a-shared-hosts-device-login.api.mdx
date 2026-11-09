@@ -1,0 +1,70 @@
+---
+id: set-a-shared-hosts-device-login
+title: "Set a shared host's device login"
+description: "Desktop only. The credential must be kept on this device. Connections to the host then start from the device. A null credentialId clears it."
+sidebar_label: "Set a shared host's device login"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv3DYQ/iuDubQFZK0dBD3o5jyKOgUKI7uBURiLgkuNV/RKpEKOdq0K+u/BkNpHsnbQXIrqImo478c3GrCkoL1p2TiLBb6jsGHXgrN1n8OiItCeSrJsVA1NFxhWBBtqGZwFrkyAkrZGUw5vnbWkRU0AdsAVQeUCy8FCYOUZHrxr4sVe5hpsV9cnJm5K0DUpH8BwjhmyWgcs7nE+/x2XGbbKq4aYvBAHNOJxq7jCDK1qCAs0JWbo6XNnPJVYsO8ow6ArahQWA3LfRi7LtCaP45g9q6X1jp129b/RFdgbu8ZxXCZmCvzGlb1wfCurnWWyLFeqbWujlaRr9hgk9cO5ard6JM2YiT8teTYU5PY0Xc8ElaEkVa1qSnbH+IhzoXU2JB2vLi/l9XXx52pLZY5jhq+fu/7TMaipdrFBTgo3Sb1+SSpUylMJ2rV9Bs6DdVMHSTPElsulGtgQV66UEnQxcClLgTPppFm5Su/BlOMsuXGhOq5mw75eI2YYyG/3DdL5GgscEkkuv3btL9d5WJBvzBMkHsxwq7yR5MU0TdQY1IPqasYCK+Y2FLMZR8GcnlTT1pRr1+AYuyCQ7rzhPrqwIuXJX3cSx/1S+k07tzF0SlGt+YP6A+VExVxaIrlyquhQc/EFp6aU78SE2XT4zflGic8f7hZn0c8pBCM1cBuZULIMJlVEjDhv/ontCRWpkjyoAG+iUlC2jGxRMBb+NKSDbykqzNKAJZbjiD3u+EWPPtwtIPFDIAbFEMzaXhibw52gSetJ3M3AMLDaUBCKllaUxtySfzGK6O1pun84k9e3N7ChPiGasWvYGa6Am6e/z8I5sP54ajfUZ7CrjK6SoXA0k8MNg9IcRGziBbezk7RWVmZLaZZ7ZXtnCagOlOZLsObjEaXep+Y9R5XLUer24GKGDAsLTpNyfXsjY0I+pDBf/ZpfXeVXZ+HH5eE8wVEuh/dKV9DW3dpYKJ3uGrIsYB8kBPCuYwqxSK0L3KiIi1PHzOkESAQIftovH6jd2thvHRiOePu/W2up55ieeNbWyliJOILVMEHePYoVCWmF2f5cxO12gnxCO+yq5cRX3OMwrFSgT74eRyF/7sgLGi2P6BaxqTRBziUWD6oO9J38/fxxWmW/wEvu76fe9hFE606+MMMN9WkvC9L9hxYPeRmXY4Zp0mLU6fptsnSxECVH8bO9LGh8WEq3nwRGV9N6b1wpIl7t5D9B7ZJ1F4OJkB1pA9bKrju1jqgXVcrzBei7Q7A=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set a shared host's device login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/host/db/host/{id}/device-auth/{protocol}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Desktop only. The credential must be kept on this device. Connections to the host then start from the device. A null credentialId clears it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"protocol","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"credentialId":{"type":"integer","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"400":{"description":"Not a device only credential."},"404":{"description":"Not a shared copy, or not on the desktop."}}}
+>
+  
+</StatusCodes>
+
+
+      

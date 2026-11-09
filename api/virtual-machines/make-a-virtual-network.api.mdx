@@ -1,0 +1,70 @@
+---
+id: make-a-virtual-network
+title: "Make a virtual network"
+description: "Make a virtual network"
+sidebar_label: "Make a virtual network"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v20YM/lcOfNoAxcr2qLe02NC0CxbUWYMhMAZaYqSLpTv1joqtCfrfC97Jkms3D9WLJP46fiTv4wCMpYfsCb5oxx3W6g7zShvysEmgRYcNMTmxGEAbyKBFriABgw1BBpX1fFtAAo6+dtpRARm7jhLweUUNQjYA961YasNUkoNx3ERr8vzOFr2YnDvn1jAZFhW2ba1zZG1N+uKtEdlFbLt9oZwhgdbZlhxr8qKNOc5Wnp02JYzJJDhXJECma6QWBiWY9rZGJkG3dbooCTZjAr7bGuIfhp2sLlXhEdS+tcbH5H6/vpZXQT53uhV8kMEdFrQCsT2X70ihep16ZIj31u0ggYa4soW0xfpQAOlOBmlbd6U2V9jqdHK6aqbGptIznw6xdWM6BfOQgCf3emx252rIYIiiEc4z+td2Tj2Qa/RBRRtI4BWdxm0dAU7SgPEZu5plXJhbn6UpB8cVHbBpa1rltpEibSSDvHOa+5DCltCRu+kE0tNmTAbIrd1pOpVgqz9RP0tOQqxlSmIqp4Hm5kguMA2q/EcjaXb4+NO6BiXnj48PF+jX5L22RrHdkVGeDCttFFek5BDr9P9hYlVFWJBT6NW7EFShKYJZcFzJ0JxCmnOLqGQG5bRosly6lz2/mdHHxwcV7ZUnVsjK69JcabNSjxUZ1TqSdBOlWTHuyIskp4JMTsq+knsTRcj2tNw/Xcmb+1u1o155RsfalGqvuVLcHP67gDOb/nxpd9Qnal/pvIoH+eWYlbplhTl7cZtsld2byTtHY2wwED2a3hpSVPvpSgr9fF6I6484vAvRLDwy1SXSyJEwFvWRJ06oQ5tnGyqqWUJesLG6ub+VC0bOxwL9trpeXV+U7b0jZApgGjRYkvr05W6mjSMDKGtUL/f3L226gwp8EHu/Xn+I1ar1VrxCz4VaGjQnQN+ko++ymeeD6cBpW6M2Ei4QyzAx1RMsTCX4zrgKkrBh5J3Nq2YmrE3USpRh2KKnf1w9jiL+2pETDtksnBQYpdBevgvInrH2dJHwvHjgl8/TTvpVLQ39Hsjxrpo+UF/dyR8ksKN+2Yyj7Iw4qyGDqHwfz7l6kBCL88WyEz6bKf7+77Uw0XZamo0txMfhXtYv7uPhNmAJrBdkA9Royg7DvMWY8nwDy+rBDg==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make a virtual network"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/networks"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Make a virtual network
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"type":{"type":"string","enum":["nat","isolated","bridge"]},"subnet":{"type":"string"},"bridge":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Made."}}}
+>
+  
+</StatusCodes>
+
+
+      

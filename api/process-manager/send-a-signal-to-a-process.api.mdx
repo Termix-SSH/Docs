@@ -1,0 +1,70 @@
+---
+id: send-a-signal-to-a-process
+title: "Send a signal to a process"
+description: "Needs edit access. The command guards against a reused pid."
+sidebar_label: "Send a signal to a process"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu40YM/RWCTy2g2Ok++i1btEC2aBtsUgRFYBS0xEgTSzOzw1EcVfC/F5yRLW8uBYIF1i+2ObwekocjVixlMD4aZ3GFfzBXAlyZCFSWLLKAm4ahdF1HtoK6p1AJUE3GSgSCwL1wBd5UCywwUi24usOr4NQWfidLNQdcF+gpUMeRgyqMaDSYp9hggZY6xhU2TuJlhQUG/tKbwBWuYui5QCkb7ghXI8bBq6axkdXtfl+86smbd7pZZ22W+NFVg6o8Ny6djWyjPpH3rSlJAVs+iKI2vvTtNg9cxq+yuEMxtaU2oRGc5xANS7LO8tlaYjC2xr3GTcC/8pY+6l+8s5IdfTg/16+vW6r9yxFgRwLCNi4UOuw4Nq5SvJxoqgnEFS5929fGnpE3S58bedblRi7H3KT94YFlOXpT7ZdTCQUKh8dDk/vQ4grHLNpj8Syxv10f4IZDZ54g62CBjxQMbdoJmCxNJd1T30Ydkxi9rJbLmAwX/ESdb3lRuk4xWWsGZR9MHFIKG6bA4aLXyu7WOi+lc1vDpxLy5jcejpITF9fa1pzKqaNjLzQXnCZL/2clLKYfv7rQkeb86fbmRfXXLGKchei2bFNXwFiIDYMGccH8m0YMGqaKA5DAx+QUdA9VLRku8pDMJR1zy1VhkRckq8wr8rCLb2b06fYGsj4IR6CYxufM2AXcNmzBB9Z0CzARIm1ZVFJyxbZkcI8c3qwiZXsK97uRvLi6hC0PIJFCNLaGnYkNxO7pnxflHFXfD+2WhwJ2jSmbHEjmMAu4VGqMomaTLridnaxLstYlBX0nOzjLwK1wXjnli88z0/ySh/eUAw77fbL6J3Rg7L1LqJmoZs+JFi6uLnWHOEjG4KfF+eL8lUZzTtbZGFwLobdWsTwudQG++5BUpPccHo24AOS9gLMw6NoqD0gBgSkhZgK0rpZkUuvMtJxQ03GJDQ9wT6ZN3Veu6SiR5jSK12wroANFRQd0SOR54uNMw996qPLURX6KS9+SsZpaoqtxosE7nGkQE2GfEiEWuDreqyNsKs23Z2Z61VJv47gh4b9Cu9+r+EvPQRlqPTNe4qvKiP6ucHVPrfD/APDD5+my/AhvFXRgAjskYm17/YcFbnmY760y4HeMqvjs1/sC8/KlovPLzznI2Y3az5Yvzq0S9PF0Xf15rdS6mc525yq1CbTT00u7HNmlQhKNJ9mILdm6pzoxYfKpn/8AtTsgGQ==
+sidebar_class_name: "post api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a signal to a process"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/process-manager/{hostId}/processes/{pid}/signal"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs edit access. The command guards against a reused pid.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"pid","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["signal"],"properties":{"signal":{"type":"string"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The signal was sent."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: make-a-new-vm
+title: "Make a new VM"
+description: "Starts a job on the host that downloads the image when needed, makes the disks and defines the VM."
+sidebar_label: "Make a new VM"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu4zYQ/ZXBnFpAsdMedcsuWjS7NRqs3QRFYBRjaWIxlkgtObKtCvr3YkjFzsZIgb3UF1nD4fC9x5mnAUsOhTetGGcxx6WQlwAEz24DzoJUDJULAlKRQOkOtnZUhhg3DW0ZDhVbsMwllxk0tOO0WJqwC0C2hJKfjJ2i94sZZii0DZg/4r3x0lENCyoqTcF1hi15aljYa8aARkG1JBVmaKlhzFHh3JaYoeevnfFcYi6+4wxDUXFDmA8ofauZxgpv2eM4rlM2B/ngyl5T3m4unBW2okvUtrUpSBWZPweVZbis7TbPXAiO4zhq7dA6Gzhows/X1/r4VtdVxSrpDDW9YalcqcRcEMwSvxznbd1tjb2i1sz3SZqrZpJmrqzDfEjkx/m+CZhhYL9/UarzNeY4pNCI2RsAf7nOw4p9Y46QcjDDPXlDmzrhnqIR+hN1tajWIm3I53OJG2d8pKateVa4RpmvFUHReSN9hLBh8uxvOmXzuB6zAQvndoZfR6g1n7k/RV6VWKrECcrrQifFFQtOt6zvKQmz6c+vzjekmD89rC7YLzkEo+3sdmwhsBUwqbn1EOfNP/G6oWIq2QMF+BCLxgbWtLhxhmP2DaUTtsQKs9SvKeXcsc8HeRfRp4cVpHwILEACwWztlbEzeNDJaj0r3AyMgMTpaj0XXLItGNye/bssItrXcn+3kjd3t7DjHoKagrFbOBipQJrj3xd0TqnfL+2O+wwOlSmqdFA4HzODWwEq1JDCSy64g512F2Stiwm6TrZ3loHrwGnMdHa/nKf+l9S8mA+j3tOTi4oY0dCFFcHN3a0OCPuQCP40u55dX9D+6JmEI5iGrNrh5/sFTMMLL8OrRtrr/P1ubHeMfhrS3S2XvyW2tdnornhn6goNRduZGmhBOwYCywe4X7wFMZy963+y79RFwkeZtzUZq6Cj/QyTlT3i2cpUxTdmhlk0cX3mJzdXR1unBS0wDBsK/Kevx1HDXzv2ajLrs2lFyylN0P8l5k9UB/4PaX74Mjn+j/Aeh5dhtn30xrrTN8xwx/35uzOuxwxTM0cEafFjOudqpSXOmy8+JWp4J/u/+2OpVrWZPkmNK3WPp4N+3OiQDneRS7TFGBuwJrvtaBudJdbU378a57GL
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make a new VM"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts a job on the host that downloads the image when needed, makes the disks and defines the VM.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The job."}}}
+>
+  
+</StatusCodes>
+
+
+      

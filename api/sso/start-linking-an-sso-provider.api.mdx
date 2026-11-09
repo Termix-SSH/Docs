@@ -1,0 +1,68 @@
+---
+id: start-linking-an-sso-provider
+title: "Start linking an SSO provider"
+description: "Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result."
+sidebar_label: "Start linking an SSO provider"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v20YQ/SuDOdOSk+bEm5O2rlOgNioHRmEYwWo5Itcidze7Q8ksof9ezC5LyRZyyDU8SOTyzcybr8cRK4o6GM/GWSzx2uwoAjcEPridqSiAqqpAMcLGhfQimtpSBcZCHyks4KEh+9oikq2Skw7WSm8LMBzBVGTZ8AAmAhuqgJ1ATACltestF6BslRwp7wXlPEmgveEmB47ua2vsFr71FAbwKqiOOMXjyRsEin3LCyyQVR2xfMTV6hafCgz0rafIH101YDmmRxOowpJDTwVqZ5ksyyvlfWu0koIsn6NUZcSoG+qU3PHgCUt062fSjAX64DwFNhTl7f8lOEFGDsbWeEiX8Ije2Zjh7y8v5e91C0YIVJlAmr+EFg54KPDD5S/nuCsLquqMBe6D1ElKY2wNbrNZZKMP50Z/OYi9buZeLVBIdcSNq7BE72JKSnGDJS5929fGXihvljG6pUSIy8gqCChS2FGQGo/Yh1aY56MDFm+i/uP6APcUOvMCGYMF7lQwat3mSkynie9G9S1jiQ2zj+VyyclwQS+q8y0ttOukmk/CQPfB8JAorEkFCle9MH98OhQjaue2hk5PlDd/0jCfnLhYSYMzlVNHcxeFi+ScYFhOICymm99d6JRw/vxwf5b9imI0zgK7LVlZDpblkWmVIC6Yf9OwQUMq7VuEj8npvA/JMPX0NKWZW84KCzQSLUOwQKsS0+c9f5fR54d7yPi0Q4rTcl8YO221DyR0ZYGB1ZainGiqyGoCt6Pw3SwS29Ny/3Alr+5uYEsDpHGTuc460L18PUtnhv54abc0FLBvjG5yoHgMs4AbBqU5itmEBbe3k7VW1roEkPfKDs4SUBspr5Qox99HzfktD+9rjZi1QVq3calIhgWFK2PrNmvthbNwdXcjG0Mh5ozfLd4tLs/bamor+acUlB3g1pO9+RU+OWtJ87z0BVwb/qNfgwtw7VzdUmqXLH+nkt5Ns7OSkszCoiysVrezl7fhx6OI/kyfkTy1TC+89K0yViqV5G6cZPIRjzIpgx0dFpikUp6SWD4V2Iiylo84jmsV6UtoDwc5ThxEjI56mMUK88gmadvSgCV+ytW9uBdGAm/7vP1vPlcia7Og392uRJDW02evc5XYBLXHIv2WiAW61MEkfulsxFbZuld10o/kU67/AK8A2ak=
+sidebar_class_name: "post api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start linking an SSO provider"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sso/links/start"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"provider":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"{ redirectUrl }"},"403":{"description":"An admin turned linking off."},"404":{"description":"No such provider."}}}
+>
+  
+</StatusCodes>
+
+
+      

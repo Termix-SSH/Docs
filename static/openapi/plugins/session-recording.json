@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Session Recording API",
-    "version": "1.1.1",
-    "description": "Record terminal and remote desktop sessions and play them back or download them later."
+    "version": "1.2.0",
+    "description": "Record terminal and remote desktop sessions, watch them live, and keep an audited, encrypted record of who did what."
   },
   "servers": [
     {
@@ -66,13 +66,29 @@
     "/plugin-api/session-recording/": {
       "get": {
         "summary": "List session recordings",
-        "description": "Returns every terminal session recording for the authenticated user.",
+        "description": "The caller's own recordings. With scope=all, everyone's, for users with session-recording.audit, filtered by userId, hostId, protocol and a from/to date range.",
         "tags": [
           "Session Recording"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "mine",
+                "all"
+              ]
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "List of session recordings."
+          },
+          "403": {
+            "description": "scope=all without session-recording.audit."
           },
           "500": {
             "description": "Failed to fetch session recordings."
@@ -80,10 +96,124 @@
         }
       }
     },
+    "/plugin-api/session-recording/live": {
+      "get": {
+        "summary": "List live sessions of every user",
+        "description": "Needs session-recording.audit, plus ssh-terminal.monitor and remote-desktop.monitor for those session types.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "Live sessions, newest first."
+          },
+          "403": {
+            "description": "Needs the audit permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/live/{protocol}/{id}/end": {
+      "post": {
+        "summary": "End someone's live session",
+        "description": "Needs session-recording.audit and the provider's monitor permission. Audited, and the reason is kept on the recording.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ended."
+          },
+          "403": {
+            "description": "Not allowed."
+          },
+          "404": {
+            "description": "No such live session."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/live/{protocol}/{id}/viewer": {
+      "post": {
+        "summary": "A read only viewer token for a live remote desktop session",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "The token for the remote display."
+          },
+          "403": {
+            "description": "Not allowed."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/rules": {
+      "get": {
+        "summary": "List command alert rules",
+        "description": "Needs session-recording.rules.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "The rules."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a command alert rule",
+        "description": "name, pattern, regex, target (input or output), hosts (all or privileged), severity, action (alert or end) and enabled. Needs session-recording.rules.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new rule."
+          },
+          "400": {
+            "description": "The rule is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/rules/{id}": {
+      "put": {
+        "summary": "Change a command alert rule",
+        "description": "Needs session-recording.rules.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "The rule is not valid."
+          },
+          "404": {
+            "description": "No such rule."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a command alert rule",
+        "description": "Needs session-recording.rules.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
     "/plugin-api/session-recording/{id}": {
       "get": {
         "summary": "Get session recording metadata",
-        "description": "Returns metadata for a single session recording.",
+        "description": "The caller's own recording, or anyone's for session-recording.audit.",
         "tags": [
           "Session Recording"
         ],
@@ -111,7 +241,7 @@
       },
       "delete": {
         "summary": "Delete session recording",
-        "description": "Deletes one of the caller's session recordings and its file. Admins only, since a recording is a record of what happened on the host.",
+        "description": "Deletes a recording and its file. Admins only, since a recording is a record of what happened on the host, and never one on hold.",
         "tags": [
           "Session Recording"
         ],
@@ -135,6 +265,9 @@
           "404": {
             "description": "Session recording not found."
           },
+          "409": {
+            "description": "The recording is on hold."
+          },
           "500": {
             "description": "Failed to delete session recording."
           }
@@ -144,7 +277,7 @@
     "/plugin-api/session-recording/{id}/content": {
       "get": {
         "summary": "Get session recording content",
-        "description": "Returns the raw content of a session recording file.",
+        "description": "The plain recording, decrypted on the way. purpose=download marks it as a download in the access history. Every read is audited.",
         "tags": [
           "Session Recording"
         ],
@@ -155,6 +288,17 @@
             "required": true,
             "schema": {
               "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "purpose",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "view",
+                "download"
+              ]
             }
           }
         ],
@@ -167,6 +311,57 @@
           },
           "500": {
             "description": "Failed to read session recording."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/{id}/access": {
+      "get": {
+        "summary": "Who watched, downloaded or checked a recording",
+        "description": "Needs session-recording.audit.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "Access entries, newest first."
+          },
+          "403": {
+            "description": "Needs the audit permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/{id}/verify": {
+      "post": {
+        "summary": "Check a recording was not changed",
+        "description": "Recomputes the SHA-256 of the plain recording and compares it with the one saved when it ended. A changed recording alerts auditors.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "status is ok, changed, unknown (no saved hash) or missing (no file)."
+          }
+        }
+      }
+    },
+    "/plugin-api/session-recording/{id}/hold": {
+      "put": {
+        "summary": "Put a recording on hold or take it off",
+        "description": "A held recording is never removed by retention or deleted by hand. Needs session-recording.audit.",
+        "tags": [
+          "Session Recording"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new hold state."
+          },
+          "400": {
+            "description": "hold must be true or false."
+          },
+          "403": {
+            "description": "Needs the audit permission."
           }
         }
       }

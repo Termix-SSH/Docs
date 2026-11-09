@@ -1,0 +1,70 @@
+---
+id: make-a-temporary-link-to-an-object
+title: "Make a temporary link to an object"
+description: "Make a temporary link to an object"
+sidebar_label: "Make a temporary link to an object"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v4zYM/lcEPm2AEmfbm9/aYQN6w3DFpUMxFMHA2Gys2pZ8Et3UM/y/D5RcJ9f0gLuX+SUKRVL8+OPjCIyHAPkDfNw/UcFqy87jgWCnoUOPLTF5uR/BWMihQ65Ag8WWIAcsCtdbvilBg6fPvfFUQs6+Jw2hqKhFyEfgoRNlY5kO5GGa9LvO9n1RE3+Lp8De2ANM0y4pU+BrVw6i8da2cJbJslxh1zWmQDbOZk/BWZFduHYxC6Ch864jz4aC3NY0vPO+hkCFs2V4F6V8El/onA3Jzc+bjfyUFApvOokEcrirSDXG1gptqY4VWWVYBXZdUEfn64RUvzH6E2tSqJjaznn0Q/LATqFVC4aWuHKlJNqFiEnynUPWNf3B2BV2Jku6q5Cqns0FDdm4lHbKUmFCNqbDlIUKPYGg98+v3dH7BnIYk2iCt/H+7Xqv7si35kUlHdDwjN7gvkm5maUxPY/YNww5VMxdyLOMo+GaXrDtGloXrpX87mL+e294iCHsCT35q15APuykywrnakPnEuzMHzQskjMXW2mFFMq5o6WwEgvMzRjbNSqBng+/O9+ixPzh/u4C/ZZCMM4qdjVZFciyMlZxRUoecd78G9tSVYQleYVBXUensSVELRqupePOIS2xJVSg01glldNgPR35qxF9uL9TSV8FYoWsgjnYlbFrdS+t2HmScLX0JGNNQSQFlWQLUu6Z/FdRxGjP0/3dmby6vVE1DSowejb2oI6GK8Xtyz8XcBbV709tTYNWx8oUVXoonJ5ZqxtWWHAQs1lXuaOdrQu01kUFuUc7OEuKmkDrOLDCMZ9O7PRbat6FTV5Z5IxENpNU8NHFXBkW5Te0rK5ub2RwyIcE/Kf1Zr25SMe1d8dAMcgWrdhtf1kVru2Qzb6hmSHUPPVqHvCo/2gaCrF2QhotRpqcG+mbSOeLSJaaM71w1jVorLiOZDHOfPQAJz4CDV8yEujXJRNAQ36+cOaoRbysjsRMOw2VMF7+AOO4x0B/+WaaRPy5Jy9ksTuRT6SO0gQ5l5A/YhPoAsWyRuCHT/OG+VGBfh/d61DaIXJc08s/0HPZTxCEj/7Hh+ckTbtJQ5qGCD1d/preWd2Ji5Pxxc4UxlzWyu3HrXDdft69rSvFxuNRljge0+MuYom8GmUjNGgPvdQ2h+RTvv8AXv7y2g==
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make a temporary link to an object"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/share"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Make a temporary link to an object
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"key":{"type":"string"},"seconds":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The link and when it stops working"}}}
+>
+  
+</StatusCodes>
+
+
+      

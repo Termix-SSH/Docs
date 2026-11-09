@@ -66,8 +66,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reverse-proxy/sign-in-page-for-a-protected-route-hands-off-to-the-termix-login",
-          label: "Sign in page for a protected route, hands off to the Termix login",
+          id: "reverse-proxy/sign-in-page-for-a-protected-route-signs-in-to-termix-on-the-page",
+          label: "Sign in page for a protected route, signs in to Termix on the page",
           className: "api-method get",
         },
         {

@@ -1,0 +1,1056 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Uptime API",
+    "version": "1.0.0",
+    "description": "Watch websites, ports, hosts and services, get alerts when they go down, and publish status pages."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/uptime/push/{token}": {
+      "get": {
+        "summary": "Report that a job ran, for a push monitor",
+        "tags": [
+          "Uptime"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "up",
+                "down"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "msg",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ping",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recorded"
+          },
+          "404": {
+            "description": "Unknown token"
+          }
+        }
+      },
+      "post": {
+        "summary": "Report that a job ran, for a push monitor",
+        "tags": [
+          "Uptime"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recorded"
+          },
+          "404": {
+            "description": "Unknown token"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/status/{slug}": {
+      "get": {
+        "summary": "A published status page as HTML",
+        "tags": [
+          "Uptime"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The page"
+          },
+          "404": {
+            "description": "No such published page"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/status/{slug}/data": {
+      "get": {
+        "summary": "A published status page as JSON",
+        "tags": [
+          "Uptime"
+        ],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Names, states and uptime numbers"
+          },
+          "404": {
+            "description": "No such published page"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/summary": {
+      "get": {
+        "summary": "Totals for the monitors the user can see",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Counts by status and the 30 day uptime"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/permissions": {
+      "get": {
+        "summary": "What the user may do here, and the server limits",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Permission flags and limits"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors": {
+      "get": {
+        "summary": "List the monitors the user owns or was shared",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Monitors with live state"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a monitor",
+        "tags": [
+          "Uptime"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The new monitor. A push monitor's URL is only in this answer"
+          },
+          "400": {
+            "description": "Bad input"
+          },
+          "403": {
+            "description": "A private address or a host the user can't use"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/hosts": {
+      "post": {
+        "summary": "Add a host monitor for each host in a list",
+        "tags": [
+          "Uptime"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many were added"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/test": {
+      "post": {
+        "summary": "Run a check once without saving it",
+        "tags": [
+          "Uptime"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result"
+          },
+          "400": {
+            "description": "Bad input"
+          },
+          "403": {
+            "description": "A private address or a host the user can't use"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}": {
+      "get": {
+        "summary": "One monitor with its recent checks",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The monitor"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Change a monitor",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The changed monitor"
+          },
+          "400": {
+            "description": "Bad input"
+          },
+          "403": {
+            "description": "No edit access, a private address or a host the user can't use"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a monitor and its history",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "403": {
+            "description": "Only the owner can delete it"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/run": {
+      "post": {
+        "summary": "Check a monitor now",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The monitor after the check"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/pause": {
+      "post": {
+        "summary": "Pause or resume a monitor",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paused": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The monitor"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/watch": {
+      "post": {
+        "summary": "Turn alerts for a monitor on or off for the user",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/push-url": {
+      "post": {
+        "summary": "Make a new push URL, which stops the old one working",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new URL. It is only shown here"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/history": {
+      "get": {
+        "summary": "Uptime and response time over a range",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "month",
+                "quarter"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Points, oldest first"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/monitors/{id}/shares": {
+      "get": {
+        "summary": "Who a monitor is shared with",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The shares"
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace who a monitor is shared with",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "403": {
+            "description": "Only the owner can share it"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/share-targets": {
+      "get": {
+        "summary": "Users and roles a monitor can be shared with",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Users and roles"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/hosts/{hostId}/monitors": {
+      "get": {
+        "summary": "Monitors tied to a host",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monitors"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/incidents": {
+      "get": {
+        "summary": "Outages of the monitors the user can see, newest first",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "monitorId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Incidents"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/incidents/{id}/ack": {
+      "post": {
+        "summary": "Mark an incident as seen and add a note",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/maintenance": {
+      "get": {
+        "summary": "The user's maintenance windows",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Windows"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a maintenance window",
+        "tags": [
+          "Uptime"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Added"
+          },
+          "400": {
+            "description": "Bad input"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/maintenance/{id}": {
+      "put": {
+        "summary": "Change a maintenance window",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a maintenance window",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/pages": {
+      "get": {
+        "summary": "The user's status pages",
+        "tags": [
+          "Uptime"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pages"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a status page",
+        "tags": [
+          "Uptime"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Added"
+          },
+          "400": {
+            "description": "Bad input"
+          },
+          "409": {
+            "description": "That address is taken"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/pages/{id}": {
+      "put": {
+        "summary": "Change a status page",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "409": {
+            "description": "That address is taken"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a status page and its notes",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/pages/{id}/notes": {
+      "get": {
+        "summary": "Notes on a status page, newest first",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notes"
+          }
+        }
+      },
+      "post": {
+        "summary": "Post a note on a status page",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Posted"
+          },
+          "400": {
+            "description": "Bad input"
+          }
+        }
+      }
+    },
+    "/plugin-api/uptime/pages/{id}/notes/{noteId}": {
+      "post": {
+        "summary": "Mark a note as resolved",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "noteId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a note",
+        "tags": [
+          "Uptime"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "noteId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

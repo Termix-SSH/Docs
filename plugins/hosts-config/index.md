@@ -7,7 +7,7 @@ description: "Keep hosts, folders and sharing in a YAML or JSON file. Termix loa
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Hosts-Config/edit/main/docs/index.md"
 plugin_id: "hosts-config"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Hosts Config loads hosts from a file you keep next to your deployment, for example in git. The file is the source of truth for those hosts: they show a lock in Termix, open read only, and can't be edited, deleted or reshared there. Each user can still pin them and change their order.

@@ -1,0 +1,70 @@
+---
+id: change-cp-us-or-memory-for-the-next-start
+title: "Change CPUs or memory for the next start"
+description: "Change CPUs or memory for the next start"
+sidebar_label: "Change CPUs or memory for the next start"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv20YQ/iuDOTUALSo98uYIKeKkBoxIiVEYQjEix+Ra5C6zu5TEEvzvxezSkmI5QH0pLyR35/HN65sBPZUOswf8rqzvqIZbyiul2eE6wZYsNezZisSASmOGLfkKE9TUMGZYGedvCkzQ8o9OWS4w87bjBF1ecUOYDej7ViSV9lyyxXFMXrXUdeo/2XHeKl3iOK6jMDv/wRS9SLzUzY32rL1cUdvWKievjE6fnNFydmHabJ4495hga03L1it2crvL2869FkmCDTfG9rdq82qg8ghI1xrtoq3f53N5Fexyq1qBgxkuacfFTDLz4mJRkS4ZFnffHBgL0Rs8Ggu+YtB88OA8WYHcsK9MEbOaS1pDdjNM27orlb6iVqW7WOKrZipxKtVz6RCLOKa7xqWD1GFMK7LFnixjgo7t7rkDOltjhkM8GvEl3r9MZ2HFtlEHiDKY4I6sok0d459OQwoeqau99JD3rcvS1AfFGR+oaWue5aaRHK4FQd5Z5fsAYcNk2V53Et3DWpopN2ar+PyEWvWF++PJmYml1DxCOTd0LJ5gwanr5D8KYTJ9/GFsQ4L58/3qIvolO6eMBm+2rMGx9qB0qJQ4MVb9E/oPKqaCLZCDD8EokC6CWFCcSV+dh3TEFqPCJE5PFDnNz9Pe/xLR5/sVRHlw7IE8OFXqK6VncF+xhtaywE1AefC0ZScnORescwazY/vLKALa83S/OZPXdzew5T42stIl7JWvwDeHvy/COYq+PbVb7hPYVyqvoiN3cjODGw+UeydqkyyYvZ60c9LaBAG5J90bzcC14ziwQiZfTzT0MTbvGW3Mf2KJ+SjlezQhUcqL5AXzwvXdjcwNWxfjfj+bz+YX2VhYJs8BY0OaSoYv329hmnF4nnEwGnoZyz+V7g4QJj6WdLn8FJNQq41ohVK2xvmGAj1OffUGDvoJ37ERPB982taktDgIDDJM7PSAJ3aSiF/wEyZhv8g7Oy6aXRP+p3Vx5Kl1lBWbw7Ahx99sPY5y/KNjK9SxPlFRIJJCOfkuMHuk2vEF/OP2wN++TovlHWDyeljPI6r7wHh1J3+Y4Jb705YUavofvYYUjesxwTgWIep4tYherlZi4KR6sSWFOo+b5e56tfgkAzyt28YUomRpL3ub9tG3CaEEhg1nA9aky47KQFLBqDz/AsFd7EA=
+sidebar_class_name: "patch api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change CPUs or memory for the next start"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/hardware"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Change CPUs or memory for the next start
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"vcpus":{"type":"integer"},"memoryMib":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

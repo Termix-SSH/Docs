@@ -7,7 +7,7 @@ description: "Browse, edit and move files over SFTP, including straight from one
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-File-Manager/edit/main/docs/index.md"
 plugin_id: "file-manager"
-plugin_version: "1.1.3"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 File Manager lets you browse and change files on your hosts over SFTP. Upload, download, rename, move, delete, edit files in a code editor, preview images and video, and copy files straight from one server to another.
@@ -17,6 +17,12 @@ File Manager lets you browse and change files on your hosts over SFTP. Upload, d
 File Manager uses the host's SSH login, so a host you can open a terminal on is ready. Open the host in Manage and check Enable File Manager is on in its File Manager section. Set Default Path to the folder it should open in.
 
 Then pick Files from the host's menu, or the file button in the tab bar.
+
+## FTP hosts
+
+Some devices only speak FTP, like an Xbox 360 or a Wii. Open the host in Manage, add the FTP protocol and fill in the port, security and login. Choose None for plain FTP, or Explicit or Implicit TLS for FTPS. Anonymous sign in is a login choice too.
+
+The Termix server makes the FTP connection, so it must be able to reach the device. A host with SSH and File Manager on still uses SFTP. On an FTP host there is no sudo, permissions, archives, copy or trash, and delete is permanent. Copying between hosts needs SFTP on both.
 
 ## Browse and edit
 

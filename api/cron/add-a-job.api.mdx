@@ -1,0 +1,70 @@
+---
+id: add-a-job
+title: "Add a job"
+description: "Add a job"
+sidebar_label: "Add a job"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcGO20YM/RWCpxbQ2puiJ982QQtscugi62JRLIyClmhrbGlGmaHsVQ39e8EZWfLGziG+2OaQnEfO4+MJhbYBF6/4yTuLqwwb8lSzsFfrCY3FBTYkJWZoqWZcYOmCPBaYoedvrfFc4EJ8yxmGvOSacHFC6Rr1NFZ4yx77fpW8OchHV3Tq8n1w7qywFT2ipqlMTmKcne+Cs2q7yu3WO87lHYrX6FW0FaPmq2uyRSzJu4a9GA4a3wb2F3mCeGO32GdT8K3Dc7pbZxWtubp5wpbWFV9GrZ2rmCz28aPoQ+NsSNB+u7/Xr4JD7k2j9eMClyVD7p0VWgNthD2IWkqyW57pJb//KOpcEDgPA34wAawTOFBlihkqgvdxD0UBBDu3xgxrltIV+v4uaKcjDRY4b6p2a+wdNWauwOanxIh+vnPrgBkG9oczf1pf4QJPydTj99f941oPS/a1eYPkgxkeyBvtW+zJYI0FbqitRBko0oTFfC4xcMZvVDcVz3JXa19XiiBvvZEuQlgzefYPrYJ/XfXZCXPn9oYvLdSYL9yNlosUz0q8BOUy0figigUH7scHjk6YDT/+dL4mxfz5ZXlV/TOHYJwFcXu2ENgKGBufVy9x3vwXhwBKpoI9UICPMSnoS6pbDJwlfk4ljdhSVZilKU4u0xzvjvJDRJ9flpD8IbAACQSztXfGzuClZAuNZ4WbgREQ2nNQS84F25zBHQaS3qoior1s90938uHpEfbcQRDyYuwWjkZKkPrt36tyRtefb+2euwyOpcnLdFGYrpnBowDlEjRs8AV3tEN0TlZHjHLRc7KdswxcBU7zpor2ddLCPxJ5J2U6y8elIE22UYcm0yA/k2FUHVXWXl9/42KfjcRkKvXw8PSoo8Y+pFZ9mN3P7m/wgTMg1QRbgG9tVCKVhwDOQqfTq8MfstQdmjSn8XwwfBz7GbogXKf4jak4RCKostQUFX5g5aUAvcMy8kT4TeZNRcZqhigwp0GbXnHSJm2W7rQMF+PGigK1yuIKU+/TaU2B//ZV36v5W8teNWM1aVBUkMKEoaMbqgJfARt3F/7yddhGvwJmtwGfZ9N2UeqqVv9hhnvupuXar/oMEzcjgnT4Kd1zt9QUU/DVvlT9GsX76a9nVZ71sHdrV2iMp6PuTjqmy12sJapctJ2wIrttaRuFIubUz//D1tAO
+sidebar_class_name: "post api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a job"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/cron/{hostId}/jobs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a job
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["schedule","command"],"properties":{"user":{"type":"string"},"schedule":{"type":"string"},"command":{"type":"string"},"label":{"type":"string"},"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The crontab after the change."},"400":{"description":"The schedule or command is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

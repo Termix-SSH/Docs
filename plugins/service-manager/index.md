@@ -7,7 +7,7 @@ description: "Manage services, timers and logs on your hosts over SSH."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Service-Manager/edit/main/docs/index.md"
 plugin_id: "service-manager"
-plugin_version: "1.1.1"
+plugin_version: "1.1.2"
 plugin_latest: true
 ---
 Services lets you manage the services on your hosts from Termix. Start, stop and restart them, see why one failed, edit its unit file, check timers and read the logs, all from one tab.
@@ -36,6 +36,10 @@ It talks to your hosts over SSH, the same way the terminal does. Nothing is inst
 ## On the dashboard
 
 Add the Watched services card in the dashboard's edit mode. It lists every service you watch with the bell, on every host, down ones first. Click one to open that host's Services tab.
+
+## In Host Metrics
+
+With [Host Metrics](/plugins/host-metrics) on, this plugin fills its Services, Timers and Log Viewer cards. Turn on Services for the host first.
 
 ## Host settings
 

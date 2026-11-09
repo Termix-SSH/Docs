@@ -1,0 +1,69 @@
+---
+id: delete-a-snapshot
+title: "Delete a snapshot"
+description: "Removes one snapshot from the repository and frees its space. Audited."
+sidebar_label: "Delete a snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu3DYQ/ZXBnFqAkZwcdXNgF3DaQ5A4MApjUXCl2RWzEslwRl4rC/17MZR2va7rogGKniQNn4bvPQ2fDtgQ18lFccFjhZ+oDw/EEDwBexu5DQKbFHqQliBRDOwkpBGsb2CTiBicMHC0NRVwOTROqCnQoNgtY3WP7229GyLjymC0yfYklHThgE73i1ZaNOhtT1jh17C+adBgom+DS9RgJWkgg1y31FusDihjVKDzQltKOE3mbxsdqf+7bizJ+S1O00rBHINnYl1/d3Ghl+cWXVFHWeQ0GexJ2tBghU2uopmJVFjGbtg6/8ZGV65nD8qvYc3lIYucyiNFLg9PbCc0yJQejh4NqcMKD3NJF59T+T0MCW4p9e4RZgwafLDJ2XU3K1iqWcTGDp1gha1I5KosJb9Y0KPtY0dFHXqcsgdM9ZCcjJnCmmyidDmoqvuV+l2HsHN0XrHR/UrjqXLW4rN6PVM5b3SyXrng8kn0eQahWW5+Cam3yvnD3e0L9Z+J2QUPEnbkgckLOJ/nVDcJyX23ioSWbEMJLMP73DTPrsLyiwVO5pmkE7dZFZp5wGbI2azu5VVGH+5uYcYDk4AVYLf1b5wv4K4lDzGR0jXgBMTuiLVSU0O+JggPlF5Vkdme2/3DTl5+vIEdjcBikzi/hb2TFqR//OOFnBP0x63d0Whg37q6nTfip20KuBGwtbC+tmAh7P3ydm29Dxmg69aPGkXUMc0HzvlNyKqddCpzyRe4/Hijs0+JZ+5vi4vi4oUiRcMQYRO6hhIbaKzYtWXivPdVqHeUchGCh1GPVxv4yD4Ri6uNkvawTmHPZKAJe98F2+QGigiJ8leKgaW3XskuIzMnB9hTsv6Vn54tL+TlP03ieT6EHqWMnXVeyeVgOSxhdY9PYaUDs0S20TzWS3XM5VNmafEsY1cG1SbtdDionV9SN01a/jZQ0hxZPeVSTpXGsd43WG1sx/QPPvz0aYnvn+E1Mcfz6sccf92gT2hwR+Ppp6Ix9T9uembOtDr/T1xd/3Z9e43T9Cf4PpVA
+sidebar_class_name: "delete api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes one snapshot from the repository and frees its space. Audited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"jobId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"snapshotId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."}}}
+>
+  
+</StatusCodes>
+
+
+      

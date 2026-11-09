@@ -4,40 +4,40 @@ const sidebar: SidebarsConfig = {
   apisidebar: [
     {
       type: "doc",
-      id: "vault/hashicorp-vault-api",
+      id: "vault/ssh-certificate-signer-api",
     },
     {
       type: "category",
-      label: "Vault",
+      label: "SSH Certificate Signer",
       items: [
         {
           type: "doc",
-          id: "vault/vault-oidc-callback",
-          label: "Vault OIDC callback",
+          id: "vault/oidc-callback",
+          label: "OIDC callback",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "vault/list-vault-profiles",
-          label: "List Vault profiles",
+          id: "vault/list-signer-profiles",
+          label: "List signer profiles",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "vault/create-a-vault-profile",
-          label: "Create a Vault profile",
+          id: "vault/create-a-signer-profile",
+          label: "Create a signer profile",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "vault/update-a-vault-profile",
-          label: "Update a Vault profile",
+          id: "vault/update-a-signer-profile",
+          label: "Update a signer profile",
           className: "api-method put",
         },
         {
           type: "doc",
-          id: "vault/delete-a-vault-profile",
-          label: "Delete a Vault profile",
+          id: "vault/delete-a-signer-profile",
+          label: "Delete a signer profile",
           className: "api-method delete",
         },
       ],

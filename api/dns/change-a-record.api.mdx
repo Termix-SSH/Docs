@@ -1,0 +1,69 @@
+---
+id: change-a-record
+title: "Change a record"
+description: "Change a record"
+sidebar_label: "Change a record"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsETy0wa7nt9qJbuosC2aJBkGQRFIFRMBJtTS3NaIeUE6+g/15QUhyn3gDNZU8aUfx4j+Q89ai0Eczv8OPFNa4ctpSoYeVkxh59wBxb0godBmoYc6SiiF3Q8xIdJv7S+cQl5po6dihFxQ1h3qPuW3P2QXnDCYfBfTPZ1xj4/2USTT5sXk2UuIipfGOqlTlLG4Ow2Pefl0t7lCxF8q36aHWuxswgtOMSB4fvl+9fdQpRYR27UBrO/7h8qChsGAgmqOiwYa1iaVQ6RTcRyjFr627jwztqfVYGyeZ+S9YfOj9k1jfJ+ql9QzallKx/asOADoXT7mmOXaoxx34y2ceX2P6KXYIbTo1/hMkHHe4oebqvp9bM1pH4mrpaMcdKtZU8y3QMXPAjNW3NiyI2OIzNFS665HU/QrhnSpzOOiN5t7IxFjFuPR9bqPV/8P5gOUpxbUOcoBwnOszUsOA8a3ufnNDNh99jasgwf7q9OWF/zSI+BtC45QDCQcEH0IrBisTkv5J5QsVUcgIS+G1MChTK0W0MXNhyHFM6YJtYoZv2dnJ53tx/HvRVRJ9ub2DyB2EFUhC/Ce98WMBtxQHaxAbXgVdQ2rKYpeCSQ8EQd5xeZTGiPW73mzt5dnkOW96DKCX1YQMPXivQ5vHvEzoH17e3dst7Bw+VL6qpkDyXWcC5AhUqFjb7QnwIc3RBwa4jFWrfKexjYOBaeDFeTh/WcWTttTaaHy+u4ezy3Paek0y4f1osF8sTNn9SoA2DBcz3bqxXxoZ8EKAiRRH4UMeuXNeU2MFV7JTh118cXFDDRcXUjiFRK07QprjzJScZZ9JG0YaCQZsX5FQ4XuA5DE75UbO2Jh8sz3jj+1lU7vBZVCw+CLonIbdjfizqo7aY8UicR5pmO+jsymEVRS1339+T8OdUD4OZv3Sc7MqvniVkFIDSi51LzNdUC5/QKGJQDrZaP1zNEv4joPs2vaerFfajUtWdvaHDLe9f/KNMVb5j4bll37nqYSjDajj6rVx+vsFh+BdunLIf
+sidebar_class_name: "put api-method"
+info_path: api/dns/dns-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a record"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/records/{recordId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Change a record
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"zoneId","required":true,"schema":{"type":"string"}},{"in":"path","name":"recordId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Record saved"},"404":{"description":"Record not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

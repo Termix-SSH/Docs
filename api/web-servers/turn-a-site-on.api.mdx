@@ -1,0 +1,69 @@
+---
+id: turn-a-site-on
+title: "Turn a site on"
+description: "Links it into sites-enabled, or drops the .disabled ending. Tested before the reload."
+sidebar_label: "Turn a site on"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu4zYQ/ZXBnFqAkdIedUsLFM22RYPaRVAExoKWxhJraaglR3FUQ/9eDKXY3k1TbA67J0mj4cx7b8jHI1YUy+B6cZ6xwF8d7yM4AcfiITqheEVsty1VBnyAKvg+gjQEWeViigNx5bjOYE1RqIIt7XyglBOo9bbK0KDYOmLxgPe0hRWFRwoRNwZ7G2xHol/FwxGdQuitNGiQbUdYYOOj3FZoMNCHwQWqsJAwkMFYNtRZLI4oY6+ZjoVqCjhN5j8rxdT2cypFCY7rVwulx1vKbDQ59p4jRf3//fW1Pj5Wft2QKgl+l6QTigJ+kH6QTJFgR9L4SsH4KGhmTAXmfTvUjq9s7/IDba9mljE/zsJNeZphfpzjU35U9FM+zxTNosos/xBaLPA5Fc0nCP/yQ4A1hc49wUnMRxuclkrElmjitrNDKzpAkT4WeS5pYUZPtutbykrf4ZSkiVQOwcmYIGzJBgo3g3J72OgASu/3ji4jtne/0HiKXJRY6QhmKJeFThNRLLhMSr/nJDTLy08+dFYxv7tfv2C/ohidZxC/J4ZIrGckjUqb+OD+sZoJDdmKAtgIP6SiYLmaJ6oLM5zMR5RO2GZWaOYdN6ec99zfB3kV0bv7Ncz5EEnACkRX85XjDO4bYugDKVyjx1rsnqJGSqqISwL/SOFVFgntpdxvVvLm7hb2NEIUG8RxDQcnDUj39P4FnVPq26Xd02jg0LiymRvFc5sMbgVsKVGXLbngD7ysLi2zTwn63/LomYDaSPOhc7zzibWTVmle2Bfc3N3q/qcQZ/zfZdfZ9QtWv1m2NQHXjp8M3PS2bCh1/tFW1QieYdRjpac1FrPhGig971xtoPV1TMk/r9d3KzOzokcKI5SN5Xq2Capg50KUNC11h86ygl62znoIDDaVBs+fAtQDxkIsX9L85z0j9CR531rHCjSZzXGxsQc82xgavDAyNFic7oAESSMn+ykWM178bGPShaEFj8etjfRnaKdJwx8GCmoxm7NlJcN5JoLFzraR/kedb/5YDP9beI3T81HmMTljO+gXGtzTeL7K1MK+YtdFqq/cNY1l2lzeW3e/r9Y4Tf8CdVblfQ==
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a site on"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/sites/{server}/{name}/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Links it into sites-enabled, or drops the .disabled ending. Tested before the reload.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"server","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the test output."}}}
+>
+  
+</StatusCodes>
+
+
+      

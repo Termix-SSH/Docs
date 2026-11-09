@@ -1,0 +1,70 @@
+---
+id: insert-or-eject-an-iso
+title: "Insert or eject an ISO"
+description: "An empty volume ejects."
+sidebar_label: "Insert or eject an ISO"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv20YM/isEnzZAsbI9+i3tNsztigZ11mAIjIGWGOti6U69o+xogv57wTvF9uKkWF/mF1knkvfxI/lxwJJD4U0rxlmc45UFblrpYefqrmHgBy4kzDBDoU3A+R1+Nl46quEDFZWxHHCVYUueGhb2ajGg0UgtSYUZWmoY51i5IIsSM/T8pTOeS5yL7zjDUFTcEM4HlL5VS2OFN+xxHLMXI3Wd+U9xgnhjNziOq2TMQd64sleL576Fs8JW9BO1bW0KUjbyh6CUDOeh3VpZwQxb71r2Yjjo19a5+gUAGSYuX8KmP4UXWmdDivLz5aU+/l2WX5zlmVKCDUvlSmXFhQhByZlj3tbdxtgLak2+SxW6aKYK5Up+yIdUgzHfNSEflMYxb7g0hBkG9run6nW+xjkO6WjE7BmUv1zn4YZ9Yx4h2WCGO/KG1nXKYDqNSdxTV4vWX6QN8zyX6DjjR2rammeFa5SFlSIoOm+kjxDWTJ79Vaep3a20EQrntoZPT6g177k/nJyEWGq9EpTTQAf2FQtOHaPvyQiz6c9vzjekmN/d3pxlv+QQjLMgbssWAlsBY0EqBr3EefNP7B2omEr2QAHexKBAtoxm0XGmXXGa0gFbygqz1PnJ5Nj7D3t5FdG72xtI9hBYgASC2dgLY2dwW7GF1rPCzcAICG056EnBJduCwe3Yv5pFRHtK93czeXW9gC33EIS8GLuBvZEKpHn8+yydg+n3U7vlPoN9ZYoqXRSO18xgIUCFBHWbbMHt7eRdkLUuGuh3sr2zDFyHaeZUCD4dJeTX1LzHkX+a5+Oknwy/sfcuUmZEfc70E66uF+rJPiQGfppdzi7PeHnrmYQj2oYsbRjef/4A06jD06iDs9DrgP5hbPcIcfBTcZfL3xMdtVmrVyyqakhDUeSmDlvYwF7A+aT8QBYWy4/P0QxHyfzWxkhNIvwoeVuTsXplVJdhkq07PMqWcvBMuDCLe0Of88MC2TXxfVoDScBWyVADDsOaAv/p63HU4y8de9WU1VGjosKUJuj/Euf3VAf+Rn4/fJq2xY/wWk5Ps2v7KIV1p2+Y4Zb74+pTzfofb438jKsxwzQvMev06W265eJGAxxdz1afauph3Vx/XKoarqcV2rhSfTztdRfTPl3tYiZReePZgDXZTUebKF4xpv6+AruK6fM=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Insert or eject an ISO"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/media"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+An empty volume ejects.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"pool":{"type":"string"},"volume":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done."}}}
+>
+  
+</StatusCodes>
+
+
+      

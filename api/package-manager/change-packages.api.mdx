@@ -1,0 +1,70 @@
+---
+id: change-packages
+title: "Change packages"
+description: "refresh, update, upgrade-all, install, remove, hold or unhold. Runs as root and can take several minutes."
+sidebar_label: "Change packages"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUFv6zYM/isEL9sANemGnXLre9iAvh1WtB2KoQgGxmZsNbbkJ9FNPSP/faDkxGm7DniX+WKZJqlPn8iPI5Yci2A7sd7hCgNvA8faQN+VJKzvKlDJF9Q0BqyLkhaBW//MBmrflOAD9E5XC7jtXQSKELwXIFdCQQ6EdgyRnzlQA611vXBcoEGhKuLqEW+o2FHFEdcGOwrUsnDQPyNaxdSR1GjQUcu4wtpHuS7RYOCvvQ1c4kpCzwZjUXNLuBpRhk49rROuOODhsM7eHOWTLwd1eRtceCfsRH9R1zW2ICVk+RSVlfF9br954kJeoXhEKhKLeozgOw5iOaaM2T5HRwnWVWiQXd9q5EQ7Gsy8p8WJeDQ4MZ82VOrRoDKufol6XB+UvInIeScKgQaNF27jewSH/GjW2HkXc+xPl5f6el0Z9zUDuxL8FqRmmPaClhxVHL6L4HvpelngweDPHyXITMCWbMPlAtSUw8BGsC5lJhf3HBaosFqW2pdaAz4q26kUVrjsmr6y7oI6u5yAXExAlmMukMNyYt1g5PB8LKg+NLjCMZsOaN5g/NP3Ae45tPYFsg8afKZgadNkbiZrOt2W+ka0JEW6uFouJQUu+IXaruFF4VsleK0Iij5YGRKEDVPgcNXrSR7XBzNi4f3O8rmFOvsbDyfLWYo7rcQM5TzR6WIVC07NoN/ZCc20+NWHlhTzl4f7d6e/4xj1esTv2EFkJ8c70U18sH+nroCaqeSgff4pJU2drm4pMFXA+ZHmYkynStWMq8llbuynvXyI6MvDPWR/iCxAAtFW7sK6BTzU7KALrHANWElyE9VScMmuYPDPHD48RUJ7Tvc3M3l1cw07HiAKBbGugr2VGqR9+evdcU6u307tjgcD+9oWdd4oztss4Fq0s5LyTr7g926KLsg5nxz0P7nBOwZuIucWU4m7ncXxl1y857J1pk6zwjweJUSFx7qtT8xZ0dCTosPVzbU2EIeYM/24uFxc/sstc0I6idw0eyJ4B4M2pHZ0NBCZQlGfplAKyWp4VKNoJiOVr0SqtlF8GNJdq5K0lNR4KrzPNblqzvEW3jgPh/93POYyFH6RZdeQdYo+6dc46eAjzjo4X85RCdHg6jQs59GkJg0dxw1F/iM0h4Oav/YcVJ/Ws94ltSpt1HWJqy01kf+Dm+9vp1H4A3yE/qgDbkiy2vT6hQZ3PMyT/aAVlfsgIcg/P+d9Lu41xRz8blirVp6mxs3vd6pym2not77UmEB7naO0z5v7dJakqMk2YkOu6qlKopRy6vMPv1IriQ==
+sidebar_class_name: "post api-method"
+info_path: api/package-manager/packages-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change packages"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/package-manager/{hostId}/action"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+refresh, update, upgrade-all, install, remove, hold or unhold. Runs as root and can take several minutes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["action"],"properties":{"action":{"type":"string","enum":["refresh","update","upgrade-all","install","remove","hold","unhold"]},"packages":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the package manager's output."},"400":{"description":"The action failed. The output is in the answer."}}}
+>
+  
+</StatusCodes>
+
+
+      

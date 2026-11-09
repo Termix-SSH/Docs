@@ -1,0 +1,70 @@
+---
+id: set-the-firewalld-default-zone
+title: "Set the firewalld default zone"
+description: "Set the firewalld default zone"
+sidebar_label: "Set the firewalld default zone"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v2zgM/lcEPt0ANent0W/d4YrrhsOKpUNxKIKBsRlbjS15Et3UM/y/Hyg5drbccJgfEpsiqY+/Pg7AWAbInuDWeDpiXcNWQ4seG2LycjKAsZBBi1yBBosNQQaVC3xXgAZPXzvjqYCMfUcaQl5Rg5ANwH0rmsYyleRhHLdJmwK/c0UvKj8a584yWZYjbNva5MjG2fVzcFZkF77d7plyBg2tdy15NhTk9JuzdKYV2Btbwqhh73x+frJzria0MMZH4IXW2ZC8vL2+lr+CQu5NK0Aggw3xCkT1Qqy4IrWfkliogvbY1awiFg0NceUKSaMLEbBkM4N1W3elsVfYmvXJdj2k5I7rycfV5COQfzmVpPM1ZDAk0Qg/4vnHdV49kG/Mq0o6oOEFvcFdnaKbpDHAeIsUlbkN2XrN0XBFr9i0Na1y10iGtoIg77zhPkLYEXryN50E8rQd9QC5cwdD5xJszQfqZ8mZi43UMkE5dzSXRrDA1E6xVFEJ9PRy63yDgvn948NF9BsKwTir2B3IqkCWlbGxPnKJ8+Zb7CtVERbkFQb1LjpVaIuoFg1X0jHnIc3YUlSg02AklWU0no/8U0TvHx9U0leBWCGrYEp7ZexKPVZkVetJ4GplWDEeKIgkp4JsTsq9kP9pFBHtebp/OZM393fqQL0KjJ6NLdXRcKW4ef1yEc6s+uupPVCv1bEyeZUuCss1K3XHCnMOYjbpKne0k3WO1rqoIOdoe2dJUR0oDaSQxKeFXv5MzbvQwYkGZhYQyhmlhnsXs2VY1GceVDf3dzI05EMK+vfV9er6IhV/o8WS1OfbR71Mv1Z2z3HUInLTTh++k19nVS/zKWMeUlU3m790SkTt8oPrWLXeMeVySays0EaDkQWnNvtfyvkO59wNTK+8bms0VtxGGhkmNnqChY0kTaeFoCGb6f47StrquAfEchh2GOizr8dRxF878sIS24V1ImcUJsh7Adke60AXIOcFAL99mnbDGwX6v8GfptH2kdzqTr5Aw4H6ZUON21FD6saIIB3+ke65ehAXi/HF0hHGmqn7/uNGuGY3La/GFWLj8ShrEI/pchdjibwWZQPUaMsOy0gN0ac8/wLhiJZR
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the firewalld default zone"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/default-zone"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Set the firewalld default zone
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"zone":{"type":"string"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Set."}}}
+>
+  
+</StatusCodes>
+
+
+      

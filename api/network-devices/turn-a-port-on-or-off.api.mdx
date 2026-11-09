@@ -1,0 +1,70 @@
+---
+id: turn-a-port-on-or-off
+title: "Turn a port on or off"
+description: "Turn a port on or off"
+sidebar_label: "Turn a port on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv3EYM/isETy0gr9yiJ92cNAWcoqkRuzAKY1FwJa40XmlGmaG83gr67wVntI94bSC5VBdJfH4kZz6OKFQHLB7wE8vW+Q38yk+m5IDLDHvy1LGwV4MRjcUCe5IGM7TUMRZoKszQ85fBeK6wED9whqFsuCMsRpRdH62scM0epyl7NUrvvHxLnCDe2BqnaZmMOcg7V+3U4qVv6aywFVVR37emJDHO5o/BWZWdhXarRy4VRO9dz14MB9UO/YnNyrmWyeIUH4UQemdDsvz58lJfFYfSm16TYYHvG7I1Vzhl+Mtr+rvGBKhiw0GTQEnWOoHKgTQk2rCXHoO3QKAdA2fBeXDrNWbYsTSuir0MsQxtcIF53w61sRfUm9ymAV+kfCHfv0dTTbkGDPmorykPQsKYYWD/tB/+4FsscEyiCV/i+tsNHu7Yd+YZkg1m+ETe0KpNDZqlsQdrGlrBAhuRPhR5LtFxwc/U9S0vStdpk5eKoBy8kV2EsGLy7K8GrexhqWepdG5j+FRCvfmddwfJSYhbHXmCchroMF3FgvOhi9OORpjNH78535Fi/nh/d1b9LYdgnAVxG7YQ2AoYC9IwaBLnzb/x+EHDVLEHCvAuBgWyVTSLjgs9J6clHbClqjBLlyeZHK/P41beRPTx/g6SPQQWIIFganth7ALuG7bQe1a4GRgBoQ0HlZRcsS0Z3BP7N6uIaE/b/d2dvLq5hg3vIAh5MbaGrZEGpHv+56ycg+n3t3bDuwy2jSmblCgc0yzgWoBKCeo224Lb2tl7voxUiurJ7pxl4DbwIl5M5ZLPRxb6kA7vnjWUhiYd2NrF1hhR3UuWhauba70o7EMq9KfF5eLylWlyRNSRpZrBu0FJOYOwNVI2HKKSypJDgN4ZKyHN7vbTHzdRlzw0W4hzU5boKFLhfIjeIpavgBxGLPwsed+SsRotcsM4c84DHjlHz+jXrBMj7r+KuD4i9ejfvAYS+ywzbJTKigccxxUF/su306TiLwN7JYTlkWAiPVQm6HeFxZrawGfQDysBf/g8b4sfAbPXS9pfPLuLPNYO+ocZbniX1p6Szf+YMfZmWk4ZpoMeK06q9ynLxZ0GOLqerT0lw8OauPnzVmlsNa/PzlXq42mre5i2KbWLlUTKjLIRW7L1QHVknRhTn/8Ai8XYFg==
+sidebar_class_name: "post api-method"
+info_path: api/network-devices/network-devices-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a port on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/network-devices/devices/{id}/ports/{port}/state"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turn a port on or off
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"port","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"up":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Changed"},"400":{"description":"This device type cannot do that"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: delete-an-interface
+title: "Delete an interface"
+description: "Stops the interface and removes its config, keys and saved client files from the host."
+sidebar_label: "Delete an interface"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu4zYQ/ZXBnFqAa6c96pZi08LbHhaNi6AIjIKRxhJridRyRnZUQf9eDKm1naYpuof2JGk4HL73OPM0YUVcRteLCx4LvJfQM0hD4LxQ3NuSwPoKInXhSAxOGMrg9642cKCR0yLbI1VQto68wN61xLCPoUtlmsCyQoNia8biER9cpB8GGyvcGexttB0JRV2a0CmC3kqDBr3tCAvU7ZsKDUb6NLhIFRYSBzLIZUOdxWJCGXvNVLw1RZxn87eVnHL5N4VYovM1zvNOk7kPnol1/dubG328FGz7QqqTZaioJaFqpUiwI2lChQXmKJqMqsB13w618+9s79YnF6lWTdZT5juvzyV5PSXkMxpkisfPWg2xxQKnHNLFl7B+DUOELcXOPUPOQYNHG519ajObJZoI7e3Qiqot0nOxXkvauKJn2/UtrcrQ4Zz0YCqH6GRMEJ7IRoq3g/J53KnsZQgHR9cR27sfaTxHrkrcq+4ZynWh8zUoFlyuR79zEprl5fsQO6uYPzxsX7G/J2YXPEg4kAfWtnQ+taMeEqL7w2omNGQrimAZvktFUzdrWtq4wtm8oHTGllmhyX2WUy6d9vtJ3kT04WELOR+YBKwAu9q/c34FDw156CMpXANOQOyBWCMlVeRLgnCk+CaLhPZa7i9W8vbjRmcaWGwU52s4OWlAuuffXtE5p365tAcaDZwaVzb5IL4cs4KNgC2FdduSC+Hkl92l9T6kBF23fgyegFqmPGrO70Ni7aRVmmengduPG+1+ipzRf7O6Wd284rTxLLZt4bIveBh1jnQos9N11tv6auDZLLaXl7MzLu6n6MQ+pXvpA0tnvcJbmuR98gOw/lLsr4h0nryQl//Ul3OPCD3Lum+t8wo3mcu0WNUjXqwKDZ7NCg0WZ3u+KKLh7LU7k+xbK0zTk2X6JbbzrOFPA0X1kN3Fk5KjVI71vcJib1umf9Djq58XG/8a3iLxeVb9mKyvHfQLDR5ovPxY1KP+x1OzMPPu+s/w/u6nu+0dzvOfnjGbRw==
+sidebar_class_name: "delete api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an interface"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops the interface and removes its config, keys and saved client files from the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The interface was deleted."}}}
+>
+  
+</StatusCodes>
+
+
+      

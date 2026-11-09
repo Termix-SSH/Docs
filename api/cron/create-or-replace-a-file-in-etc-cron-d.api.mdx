@@ -1,0 +1,70 @@
+---
+id: create-or-replace-a-file-in-etc-cron-d
+title: "Create or replace a file in /etc/cron.d"
+description: "Every line is checked first. The old file is kept in /var/lib/termix-cron/backup."
+sidebar_label: "Create or replace a file in /etc/cron.d"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu5DYM/RWCpxZQ7LTHuWWDLZDtJdhkERTBoODYzFgZW/JK9Excw/9eUPLOJJuk6B5aX2xTpPj4KD5NWHOsgu3Feocr/LjnMEJrHYONUDVc7biGBxuiFHDbMPhWf9u0vONewDoo9xTK1m5K4dDZp7MqeFduqNoNfYEGhbYRV/d4GbzDtcGeAnUsHNQ6odW8PUmDBh11jCtsfJSrGg0G/jrYwDWuJAxsMFYNd4SrCWXs1dM64S0HnGfz5k7p9S/2iRKs2+I8r7MzR/ng61E9vo+tvBN2okvU962tSLkrH6MSOL3e2m8euZIXIO5R+EkSF8H3HMRyTBFqfQOUPhofe+9idv31/FxfL7t3Q3uuCyUDO5bG18rHoLkTKyss+3bYWndGvS1Tl6ZM9VzGMQp35aSEzWgwcth/69AQWlzhlE26+DLrH34IcJtaD9kHDe4pWNq0GexiTXgfaGhFeyzSx1W5nJmCn6jrWy4q32nBa0VQDcHKmCBsmAKHi0GruF9rsyvvd5afW6i3v/N4tDzb4kZ7kqE83+hItGLB5VTof3ZCs3z85kNHivnT3e2r6m84RusdiN+xg8gujYQ0DJrEB/tXOh/QMNUcgCJ8SJsCuTq5pcACZ/OipCO2XBWafLqzy+l8Px7kXUSf7m4h+0NkARKIduvOrCvgrmEHfWCFa8AKCO04qqXiml3F4Pcc3q0ioX1O9w8zeXF9BTseIQoFsW4LBysNSPf056tyjq4/Tu2ORwOHxlZNThRPaQq4EqBKooYtvuAPbomuyDmfHHSd3OgdA7eR83TpsH8+ycTHfHhPI3wcXW3bg08LVtQjqSBcXF/pjHCIucZfivPi/I1GsgGq64QoDA50ZOHRbyJ4B6OOnY5vNLksAqW9HlrWRu4tH45E5OnO8areMXWw91E6Sqq1HKfLwCQMPkDgvqWKgRa1d1CyVEk0ivp7pNNJFP+bGyQfLuW27FuyTtEnVZoWZbvHk7KhQY1Hg6vjRZIJUFOqdG3SHaNx07ShyF9CO89q/jpwUMlZnyQsCVBto37XuHqgNvI/EPDT50Xnf4b3oH8bbTcmpWwH/UODOx5Pt59K2v+YNfEyr2eDeZxS1XnpMmc5u9UNTqGvbj+V3OO9c/1FtXKzXKKdrzUk0EEvQjrkzD4VknQ52SZsyW0H2iZpS1vq8zeRaPkd
+sidebar_class_name: "put api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or replace a file in /etc/cron.d"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/cron/{hostId}/system/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every line is checked first. The old file is kept in /var/lib/termix-cron/backup.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["text"],"properties":{"text":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

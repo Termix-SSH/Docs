@@ -7,7 +7,7 @@ description: "Shows if each host is online with a dot in the host list, checked 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Host-Status/edit/main/docs/index.md"
 plugin_id: "host-status"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Host Status shows if each host is online. It adds the green or red dot next to every host in the host list.

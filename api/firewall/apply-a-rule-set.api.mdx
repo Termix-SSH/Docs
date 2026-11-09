@@ -1,0 +1,70 @@
+---
+id: apply-a-rule-set
+title: "Apply a rule set"
+description: "Adds the rules a host is missing, on the picked hosts, a fleet, or the set's own hosts. Never removes rules. Each host needs edit access and gets the lockout check, and the change is kept by itself once Termix can open a new SSH connection, else the host undoes it."
+sidebar_label: "Apply a rule set"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVd1v20YM/1cIvmwDLna2R7+lQ4Omw9agThEMgTHQJ9q6WLpT76g4muH/veCd/NGmGdD36UXSkTz++PXjDitONrpOXPA4w6uqSiA1Q+wbTkBQhyTgErQuJefXBoLP8s7ZDVdZnAwQrBpmMRBiliaWnxKErS8KE/iLnzhC5DY8cSqXT+At2bo48MxVAq6cAFnLKQH5CtYsBUwT7Cb0ArZmuzFZpse2Jr9mRbfhTmA5gJPEzQqCtwx3HFv3DJY8hI49EHjewnz+Dmzwnq1GbICbxPmyjKP3VeAETiZoUGidcPaA1y7ylpoGFwY7itSycFTJDp3mrCOp0aCnlnGGrkKDkT/3LnKFM4k9G0y25pZwtkMZuqzlhdcccb9fFG1O8iZUg6rY4IW96Cd1XeMsKdTpY9IK7V7eFZaPbAUNdjF0HMVxUqkGdFOlM0WKkQY06ITb9F0wBnMdb6rvSQ2uQrR8JlqG0DB53OdHA0ld8Kn4/+3yUl9f99cHzxA59Y1AxzEnfZL9tix1qDSbIeVYNKkznHZNv3b+gjo3XY11mOb2YUnTnav2U82RRpU4Ph3q0scGZ7grR3s036D4O/Tx0B9FBw0+UXS0bAr48TTjX1HfCM6wFunSbDqVbDjhZ2q7hic2tJqAhSKwfXQyZAhLpsjxqtcwHhZ7o3UNG8fnJ9S5P3g4npxdMdciFyjnFx0zr1hw7KtciayEZvy4DrElxfz+/u5F9HNOyekYhw17SOwFXBlqdRKi+zc3HNRMFUegBG/ypce5y4YTbYjzkE5tlqPSPlNvReU0H49beRXR+/s7KPrKIEACya39hfMTuK/ZQxdZ4RpwAkIbTnpiuWKd96AM81oUGe15un84k1e3N7DhAZJQFOfXsHVSg7TP/7wI56j646nd8GBgWztbF0fp5GYCN8qOktRs1FWKHa0teR+ygsrJD8FzZrcyX8oeH08887Y071c88XC5OJv/y+O4K4XttZqrkPPmRA2PtAhXtzc6PhxTCf/XyeXk8kVS/iRPa4ZP1/cGDpNcGfAryUOXY3Dd+FO2T/Aw6KTmHVLqO5+/MyUlh53QxSCFzHONlT5aykQ5NtyV8gNQvlPb6ltkZ4T7//o7X39lPoSfZdo15LymNxPrbmTnBzyxMxo8VFX338jQaHCWF2Ih6YXJ3aaWu92SEn+KzX6vx597jsqbixMPZxatXNLvCmcrahL/R+l+/jju3F/gNfAHfvJDpvum1z80uOGhLO79Ym+wzGb2XgS/Fx8Xd2p+Mnyxm5W/j2vs9sNcmXc57vQ2VGoTaavZoW1xHHIcmeXz2Q4b8uue1pko8536fAFIBFcT
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Apply a rule set"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/rulesets/{id}/apply"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds the rules a host is missing, on the picked hosts, a fleet, or the set's own hosts. Never removes rules. Each host needs edit access and gets the lockout check, and the change is kept by itself once Termix can open a new SSH connection, else the host undoes it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"hostIds":{"type":"array","items":{"type":"integer"}},"fleetId":{"type":"integer"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One result per host."}}}
+>
+  
+</StatusCodes>
+
+
+      

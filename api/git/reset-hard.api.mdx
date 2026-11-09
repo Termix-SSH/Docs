@@ -1,0 +1,70 @@
+---
+id: reset-hard
+title: "Reset hard"
+description: "Runs git reset --hard to a ref, HEAD by default. All uncommitted changes to tracked files are lost. Needs edit access."
+sidebar_label: "Reset hard"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVd9v4zYM/lcIPm2A4nR7zFtvu916A7ai7VAMRTAwNmOrsSWdRDf1gvzvA6U0ya7XA+5pfrFNkdTHXx932HCqow1ivcMF3owuQWsFIicWmM06ig2IB4LIawO/vr/8GVYTNLymsZcKLvseRlf7YbAi3EDdkWs5qYlEqjfcwNr2nIAiQ++TVPA7c5OAGytAdc0pVWhQqE24eMAPVnBpMFCkgYWjCndoFVsg6dCgo4FxgZ1PctWgwcifRhu5wYXEkQ2muuOBcLFDmYJqWifccsT9flm0Ock730yqUnsn7EQ/KYTe1qSJmD8mzcbutS+/euRa0GCIPnAUy0lPM7STVpJoXYt7vW79BXl+9DAF71Jx8ePFhb7+Ww6/AXINSMe5KH6UMEqFajywdL7RtPiUAWUIOA/92Fo3o2DnrZX5ruRpP48c/DxXFQ0mjk8vuR1jjwvcFdEezWcQ/vJjhDuOg32GooMGnyhaWvUF+UGaweeu0OqIhLSYzyUbVvxMQ+i5qv2g0S8VQT1GK1OGsGKKHC9HjeBhuTdaF7+xfC6hYH/j6Sg5c3GrRSpQzh0ds65Y8NAX+l+U0Bw+fvFxIMX88f7uVfS3nJL1DsRv2EFiJ2Bdrode4qP9JzcMdEwNR6AE77LTY9myYaWtcB7SEVuJCk3p8KJy6vHHrbyJ6OP9HRR90EklgWRbN7OugvuOHQSttRMDVkBow0klNTfsagb/xPHNKDLa83R/cyYvr69gwxMkoSjWtbC10oEMz3+/Cueo+u2p3fBkYNvZuisXpdM1FVwpuUhSs4Mu+K07WNfknM8Kek5u8o6B+8RltHT6b0488b4072nOX+b4MN5n427d2ud8WVEDZTO4vL7SieGYSsQ/VBfVxRfKygbC2PcGCplmoGFM3YGOg0/gHUw6jjrTyWSNDXPQCAcYg5JuQ8IlDzSKzx5zPZUlBsqkdmium8zwyu+fgzmjxf9xIZSWE36WeejJOo0ic9VLGR7wxHVosLU6LIuzvRB8finlLU1eGGq0260o8Z+x3+9V/GnkqCy0PLFa5qTGJv1ucLGmPvFXUvTdzWEDfQ9v4X6Zdjdl8uxH/UODG55Oq2y/3Bss3Z4RlMOfyj2zO3VxMn61rZQRjzvh+o9b5bLVYcsNvlGbSFtNCG3L5T7Hknkzy3bYk2tHajP1ZJ/6/Avrxsx0
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Reset hard"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/reset"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git reset --hard to a ref, HEAD by default. All uncommitted changes to tracked files are lost. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"ref":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: set-up-auto-pull
+title: "Set up auto pull"
+description: "Pulls the repo on a schedule with git merge --ff-only. It skips repos with uncommitted changes or diverged branches. A post command needs the git.run-commands permission. Needs edit access."
+sidebar_label: "Set up auto pull"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1vIzcM/SsETy0gj9Mefcsu2iJbtAg2WQRFYBTyDDOjeEbSSlSc6cD/vaA0/th8FNhjfbFNPVKPFPk4YUOxDsazcRZXeJ36PgJ3BIG8A2dBQ6w7alJPsDPcQWsYBgotwWLx8LBwth8ruGKIW+Nj9ooFmGzthsEwUwN1p21LEVyAxjyJdwOboG3dUazgEryLDALXtgFL1BQOreEqJLuYTyJ4CoOJ0ThbwZ8ZRo1h0HVNMVaokHUbcXWPvxnGtUKvgx6IKYhxQiMpes0dKrR6IFxh5yJfNagw0NdkAjW44pBIoWQ9aFxNyKMXpLFMLQXc79cFTZE/uGYUyEvn2lkmy3Kkve9NraW+y8coRZ5ex3abR6oZFfrgPAU2FOU0Uz2hIgdjW9wrJKs3vVx3PNs415O2cihEw5Pu/zD2LfoKpdofS0nfiJ4/kmH0zsZC5OeLC/n6tlduOwKd2IFPfQ+ROPkKxXUg7lwjpU45p5wFLn2fWmMX2ptla3g5ldLvl9IzSwmECiOFp8NrpdDjCqdi2qN6cf1fLgW4lYZ4hoJBhU86GClNZj1bM/EHnXqW92b2cbVccnas6FkPvqeqdoNkvhYGdQqGx0xhQzpQuEySwP16ryasndsaOrdob36n8Wg5C3Ejz1yonAc6Vly44Nxp+Q0zCNX841cXBi2cP93dvsr+hvIYALstWYhkGYzNQyOXuGD+yS0HHemGAugIH3JQkAkTWHaspB3OUzpyK1mhKjNTIKepedzxu4w+3d1CwUtPgGaIprULYyu468iCDyR0FRgG1luKYqmpIVsTuCcK72aR2Z6X+7sreXl9BVsaIbIObGxblIqH579fpXOEfn9ptzQq2HWm7spF8XRNlkpdcxS3GQtuZ2fvWlvrMkDOtR2dJaA+Uhks0Y/PJ+X5pTTvSSkOM3wmEEWPvpGEixcKcKYrxj64XFbDEldkFC6vr2SwKMRSmJ+qi+rijdcnlYVAQZH9nI9PsWyMshechVGmViY/qozYEnkpxADJAztoNM+L5igt1UGzBp0Fbe7BG2LxOcJeUppOKvz/X2ulzZmeeel7bbLOZ308PP09nuQVFbZGBnR1tt28yGtW2bXKW098pmmjI30J/X4v5q+Jggjf+iSkWQYbE+d2etB9pP8o9A+f5034I7xH+yAwdsx63Sf5hwq3NJ728X69V1gGLDMohx/LPYtbCXFyfrViRYSPS+j6i6jnZt7Ug2vEJeidVEXvyt0up5KVOtsm7LVtk26z2OWQ8vkXc8kv0g==
+sidebar_class_name: "put api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set up auto pull"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/git/{hostId}/repo/auto"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Pulls the repo on a schedule with git merge --ff-only. It skips repos with uncommitted changes or diverged branches. A post command needs the git.run-commands permission. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"enabled":{"type":"boolean"},"intervalMin":{"type":"integer"},"postCommand":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The auto pull setup."}}}
+>
+  
+</StatusCodes>
+
+
+      

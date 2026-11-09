@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/webauthn/reference"
 custom_edit_url: null
 plugin_id: "webauthn"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -17,6 +17,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Passkey sign in | boolean | `true` | Show the Passkeys button on the sign in page so users can sign in with a passkey alone. Turn it off when your identity provider already handles passkeys. Security keys as a second factor keep working. |
+| Show passkeys on the single sign-on page | boolean | `true` | Turn this off to hide the Passkeys button on the single sign-on page and keep it on the password page. Useful when your identity provider already handles passkeys. Needs Termix 26.11.1. |
 
 ## Capabilities
 

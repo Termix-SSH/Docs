@@ -1,0 +1,70 @@
+---
+id: create-an-interface
+title: "Create an interface"
+description: "Makes a server interface with new keys, and can set up NAT, IP forwarding and the firewall port."
+sidebar_label: "Create an interface"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9ll9v2zYQwL8KcU8boNjeHv2WFu3gDtuCxkMwBMZwls4SY4lkyVMUT9B3H45ULSVxCvSlfrF9/3h3PP7IHgoKudeOtTWwhj/wSEGhCuQfySttmPwBc1Kd5koZ6tSRTiFTaAqVo1GBWLVO/Xm9zdTmRh2s79AX2pTRgitSB+2pw7pWznpeQAaMZYD1PdxpT7+16AvYZeDQY0NMXlQ9aMnFIVeQgcGGYA2VDbwpIANPX1rtqYA1+5YyCHlFDcK6Bz45sZSkS/IwDLtkTYHf2eIkJi+dc2uYDIsKnat1jtKI5UOQbvSvY9v9A+X8LIv7lGEGWBSeQoAMah2YzI31HGvz1pFnTUECpXLOAQN7bUoYJvdLulnAC3VmQKZwVhu+6FyYy0Gxrm1HxcZdVh+JHNb6kS4vaXC+2t7amtCIYpqBy3rryHwch+KyRWD0F4PHj/Q+OGtC6uevq5V8PR/jbUXz2cWgck/IVCxAAjTElS1kxGyQzYyTtoalq9tSmyt0etlpT6VM57JPkzcszwFli9MBSdPa+hrW0CfRANmLZP6xrVdb8o1+Gs8VZPCIXuO+TjWM0ljGAduaZd6ZXVgvlxwdF/SEjatpkdtG+rCTDPLWaz7FFPaEnvx1K3Xc74ash9zao6a5BJ3+nU5nySzErYx5SmUe6LwBkguMJy1uSDSCbPzx0fpGpgE+3W1fVX9LIWhrFNsjCS8MK20iGWQR6/V/8cipirAgrzCodzHoGSDRcSFzMS/pnFuqCrLEjGQyUeOh4zcz+nS3Vck+YgxZBV2aK20W6q4io5wnSTdTmhVHLjpPORVkclJW8PhWFTHbebu/u5PXNxshrYpHQXAa+cvN07+vyjmbfn9rj3TKVFfpvEoLhWmZhdqwwpyDuI22ynZm9M7RGBsNRI/mZA0pqgOlAyb8/DyR90Ma3gl/XzEzo94kmsNuNWfbZBKRNgsyI9kknQFsNfIqQX9OqCR5zqTxXkkUkj+DTNfBxn3ULIVMt5e6vtnIeSYf0n78slgtVq92aWMCyy04+VmjTkIGwUuITW3QYDkDV8hUXmsyozq35qDLoA7eNkr6zbiPkyYUa9DM2vs+0k6hmYK9zKif7r4fcuun+Wd64qWrUUfQR3D2I37vYcIvZHAGMGSwPl/+MwbvsvgmEMe+32Ogv309DCL+0pIXLO4mzEZIFjrI7wLWB6wDfaMhP30er/ef1Vu5f8WPOUWa1638i1N3ml4rw27IIB2/mEFSvk/rXG0lxOT86gEiiD5fVTd/3Qpc9+NDprGF+Hjs5DGCXVrcxloiyKOshxpN2WIZWRhjyud/DpFyzA==
+sidebar_class_name: "post api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an interface"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Makes a server interface with new keys, and can set up NAT, IP forwarding and the firewall port.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","address","listenPort"],"properties":{"name":{"type":"string"},"address":{"type":"string"},"listenPort":{"type":"integer"},"endpoint":{"type":"string"},"dns":{"type":"string"},"allowedIps":{"type":"string"},"keepalive":{"type":"integer"},"nat":{"type":"boolean"},"forwarding":{"type":"boolean"},"openFirewall":{"type":"boolean"},"start":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The interface was created."}}}
+>
+  
+</StatusCodes>
+
+
+      

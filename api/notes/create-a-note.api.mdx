@@ -1,0 +1,68 @@
+---
+id: create-a-note
+title: "Create a note"
+description: "Needs edit access to the host for a host note, or edit access to a host in the folder for a folder note."
+sidebar_label: "Create a note"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isCn9Wku0e/9Q4b0BtwV6wZiiEIBsZmYjW2pJPopp7h/z5QcmOvuXu4l/khsSlS/PiJ+jhARbEMxrNxFgr4QlRFRZVhhWVJMSp2imtStYusDi4ozK/WMWnlwnvfadnYFHVwTUVhips+JHIFGhiPEYotfHFMEXYaAn3rKPJHV/VQDOnTBKqg4NCRhtJZJsuyhN43pkTBvH6OAnyAWNbUorxx7wkKcPtnKhn0YqMtxNJ5kmQ+OE+BDcUcLOY5NnIw9ggayHatxElRoCGXABqOjdtjA7tRp6X7ahFsLNORAowX/6uNRw1suPlOylHDfiLgOiQxdlnAELAHDYapjd8JGDV4Yy0tse2dawgtjOkRbqJ3NmYWPtzeyt9/O2JTk7J0no5NYlri2lVQgM+keOQaClj7pjsae4PerMU55l/QECm8UJDDHqALDRQwZNMI+l22v1wX1IZCa15V9gENLxgM7pvpqLI14Txg1zAUUDP7WKzXnAJX9Iqtb2hVulYK3QmCsguG+wRhTxgo3HWCersb9QClcydDSwt68zv1F8tii0fpswxludGFYcEiNSc3YTw5gZ5efnOhRcH8+WlzVf0jxWicVexOZFUke7lIksQF80/qeVUTyk3CqD6mTRXaKrmlwJX0yrKkuWNSVdIyki27gAaLCenzmX+I6PPTRmV/FYkVsormaG+MXamnmqzygQSuVoYV44miWEqqyJak3AuFH1aR0C7p/mkm7x7u1Yl6FRkDG3tUZ8O14vb176tyLq4/T+2Jeq3OtSnrnCjOaVbqXiSQo4RNvsqd7RRdorUuOcg62t5ZUtTE6TqJgP0xS9+vuXkXqvQmPm9CczvryixUk5zMhqwiC4dJbifDbhYHkddReuLgEvvTTkmX1d3DvdxACjEz+MvqdnV7xetTMEyqxXCq3NkmrYhJ9QnLOk0E/Sb/LqjedSFSc9CZwtK1Ldoqil3IUqXzvfhFEu7z/ElX22KT2kWEp8Uk+1PvfgqETApT6vfwhnl2/K8DLrcx0yuvfYPGCvSkf8OkmVuYNVPu4aSX9m0ipoMvtjAMe4z0Z2jGUczfOgoiZbtZGrNuQe7epHInkuP/lAu/2QgWcW+6LATvBqgo3EXXH74+bmCeQ62rJCbgWYYpnqEA0OASuUkHk22ABu2xw2OSkrSnPP8CEirj7g==
+sidebar_class_name: "post api-method"
+info_path: api/notes/notes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a note"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/notes/notes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs edit access to the host for a host note, or edit access to a host in the folder for a folder note.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["scope"],"properties":{"scope":{"type":"string","enum":["host","folder","global"]},"hostId":{"type":"integer"},"folder":{"type":"string"},"title":{"type":"string"},"body":{"type":"string"},"tags":{"type":"array","items":{"type":"string"}},"pinned":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new note."}}}
+>
+  
+</StatusCodes>
+
+
+      

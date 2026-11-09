@@ -1,0 +1,70 @@
+---
+id: run-auto-pull-now
+title: "Run auto pull now"
+description: "Does one auto pull straight away and records it in the run list. Needs edit access."
+sidebar_label: "Run auto pull now"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VV1v6zYM/SsEnzZAtbs95q13X+gdsBVthmIogkGxWVuNLelKVFMv8H8fKKVx7u064D7MD4lNHYqHFHl0wJZiE4xn4yyu8EdHEZwl0Ikd+DQMEDlo0/UMeq8n0LaFQI0LbQTDYCxwTxCShcFEruA3ojYCtYZBNw3FWKFC1l3E1QP+Yhg3Cr0OeiSmIMYDGgnsNfeo0OqRcIW9i3zdosJAn5IJ1OKKQyKFselp1Lg6IE9ekMYydRRwnjcFTZE/uHYSSOMsk2V51d4PptGSZf0UJdXD273c9okaRoU+OE+BDUVZzdQWVORgbIdzfiRm9M7GAv3+8lL+Pq/pWgqUS0atVKpC8RuJe9dK5i7mmDkK1n5InbEX2pu6M1wfSinmOpB3tZxKHZJFhZHC82sFUxhwhYdimlF9QeBPlwKsKYzmBQoGFT7rYPR2KLyP1kz9UaeB5QyYfVzVNWfHil706AeqGjdK7hth0KRgeMoUtqQDhaskSTxsZiXVdztD5xbtza80nSxnW9zJURQq5xudai5c8Hj68l1AqI4vP7swauH88X79Jvs7itE4C+x2ZCGSPXWtBHHB/J3bAnrSLQXQET7kTXOrCyw7Vjirz1I6cStZoSp9XCBLJz/t+V1GH+/XUPAQiUEzRNPZC2MruO/Jgg8kdJUMGusdRbE01JJtCNwzhXezyGzPy/3Vlby6uYYdTRBZBza2g73hHnh8+etNOifo15d2R5OCfW+avgSKS5gKrkVCOIrbEQtub4/ejbbWZYCsazuJaNEQqUyXzPjtogY/leZdpvk0xXJsjy4XyLAgRKTg6uZaRoRCLCl+V11Wl/9yjqSyRipo3DiK5NkWfIo9dIZBJlbEFCaZP5njqDJiR+QlpRGSB3bQaqaS+El18wGKMow6a9Wxm26TPVNm6/ZfcjoTvf9Ly0sfMb1w7QdtrDDNAvRa2wdcNAwVdkYmYHUm6d6hQiElX8nKlSCr4nk4bHWkP8Iwz2L+lCiIvmwWvcpq05oo7y2uHvUQ6T+K8M3t8Qb5Ft4j/zrHdsqyOCT5QoU7mparaN7MCksfZwZl8YcS52ItWyzOb24b0bqT4N/8ficqtT3eUqNrxSdoOUz5zcFdziUrYrYdcNC2S7rLopL3lOcfaG+slQ==
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run auto pull now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/auto/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Does one auto pull straight away and records it in the run list. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The recorded run."}}}
+>
+  
+</StatusCodes>
+
+
+      

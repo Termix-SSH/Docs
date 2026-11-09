@@ -1,0 +1,526 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP-KVM API",
+    "version": "1.0.0",
+    "description": "See and control machines through PiKVM, NanoKVM and JetKVM devices."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/ip-kvm/drivers": {
+      "get": {
+        "summary": "List the KVM types and the login each one needs",
+        "tags": [
+          "IP-KVM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The KVM types"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices": {
+      "get": {
+        "summary": "List KVMs with their last reading",
+        "tags": [
+          "IP-KVM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The KVMs you can see. Logins are never included."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a KVM",
+        "tags": [
+          "IP-KVM"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new KVM"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/by-host/{hostId}": {
+      "get": {
+        "summary": "Get the KVM linked to a host",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The KVM, or null when the host has none"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/test": {
+      "post": {
+        "summary": "Try a KVM address and login without saving it",
+        "tags": [
+          "IP-KVM"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What the KVM reported"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/certificate": {
+      "post": {
+        "summary": "Read the certificate a KVM shows, so it can be pinned",
+        "tags": [
+          "IP-KVM"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fingerprint, names and dates of the certificate"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}": {
+      "put": {
+        "summary": "Change a KVM. The login is replaced only when sent.",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The changed KVM"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a KVM",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/poll": {
+      "post": {
+        "summary": "Read the KVM now",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The KVM with its new reading"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/power": {
+      "post": {
+        "summary": "Change the power of the machine behind a KVM",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sent"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/wake": {
+      "post": {
+        "summary": "Send a Wake-on-LAN packet for the machine behind a KVM",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sent"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/snapshot": {
+      "get": {
+        "summary": "A JPEG of the current screen",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The JPEG"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/paste": {
+      "post": {
+        "summary": "Type text on the machine behind a KVM",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Typed"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/session": {
+      "post": {
+        "summary": "Pass a browser WebRTC offer to a JetKVM and return its answer",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The answer"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/media": {
+      "get": {
+        "summary": "List the images on a KVM and what is mounted",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The images"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/media/mount": {
+      "post": {
+        "summary": "Mount an image as a USB drive or CD",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mounted"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/media/eject": {
+      "post": {
+        "summary": "Eject the mounted image",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ejected"
+          }
+        }
+      }
+    },
+    "/plugin-api/ip-kvm/devices/{id}/media/fetch": {
+      "post": {
+        "summary": "Make the KVM download an image from a web address",
+        "tags": [
+          "IP-KVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Downloaded"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

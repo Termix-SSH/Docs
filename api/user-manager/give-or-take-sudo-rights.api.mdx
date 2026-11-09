@@ -1,0 +1,70 @@
+---
+id: give-or-take-sudo-rights
+title: "Give or take sudo rights"
+description: "Adds the user to the sudo or wheel group, or removes them."
+sidebar_label: "Give or take sudo rights"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isCnzZATbo9+q033LbeMKy49FAMRTAwNmursSWfSCfNDP/3gZIvyV3WYYcB84tl+hPJjxQ/jVARl9H14oKHAm6qio00ZAamaCSkNQ9VMCGafUPUmjqGobf6HakLO0r4bgEWBGuG4hE+MEWGtYUeI3Yk+lU8juA0Qo/SgAWPHUEBTWC5rcBCpI+Di1RBIXEgC1w21CEUI8ihV6TzQjVFmCb7t57S61/4YYnO1zBN6wwmljehOiiiDF7Iiy6x71tXolZl+cxamvHSVdg8UylgoY+hpyiOOOGGKpyhNiG0hB6m9GhQ7oPnjP3++lpfnzdhhTuqFsoUOpImVEo2cIqknAtY9u1QO3+FvVtqp6469FhTXI65oFOy8nLUqkzLlJEFprj71IshtlDAmE0T2C9S+D0M0dxT7NyLyRiwsMPocNPOLLM1Jf+EQyvaTZGei+VS0sYFvWDXt7QoQ6fs15pBOUQnh5TChjBSvBmU0eNa21qGsHV0bsHe/UKHo+XMxUq7kVM5d3Qsu+YCc/9TGxII7Lz4McQONed3D/cX7FfE7II3ErbkDZMX43waBQ0SovsznQzTEFYUDbJ5k5wa9FWCpY0LmOxnlI65ZVZg8znOkNNJft7Lqxm9e7g3GW+YxKAYdrW/cn5hHhrypo+k6VrjxAhuidVSUkW+JBN2OtOvsEjZnpf7qyt5c3drtnQwLBjF+drsnTRGupc/LugcoV9f2i0drNk3rmxyID6FWZhbMVgK67YZa8Lez7tL9D4kgP5HfwieDLVMedR0zN+fBOFtPryngVY9mbRlT3m6nejfLHbm5u5WB4QiZ4LfLa4X1xe0f01TetJXLMsweGGbRZWt6ZF5H2LFKePV6mflwCZ4c9CJ1Onm1CnVgw6TLs3H5ie3I1VlbXuW7OjqRvjLLM507j/KfT4eQi+y7Ft0XvNKujLOOvUIJ50CC+dKBRaKo/gnsVLLLOKp4Gubbgf1Mo4bZPoQ22lS88eBokrI+iRJSVAqx7quoHjClukfeH/zfr4mvjWvEfk0qv6QlK8d9AssbOlwurdUov7HqKk803qykMcjsc6/fshRru7VwWnrxT2mEnq8VO5+W6n4beb7rwuV7om414sU9zl0SEyS0CbbCC36esA6aVXyqc9fPuPa1w==
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Give or take sudo rights"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/users/{name}/sudo"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds the user to the sudo or wheel group, or removes them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"sudo":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

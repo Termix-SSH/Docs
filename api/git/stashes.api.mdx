@@ -1,0 +1,69 @@
+---
+id: stashes
+title: "Stashes"
+description: "The stash list of a repo."
+sidebar_label: "Stashes"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v40YM/SsETy0wK6d71C0FukG2l8XGRVAERjGRGGlqaWZ2SCVRDf33gjOK7f1IFwv0ZJt+JN/jkO+ALXGTXBQXPNa47QlYLPcwOBYID2AhUQwVGhTbMdZ3eOUEdwajTXYkoaTBAzpNj1Z6NOjtSFhjH1iuWzSY6NPkErVYS5rIIDc9jRbrA8ocFem8UEcJl8WslT5NlOZTqbXwdwuxJOc7XJadgjkGz8T6/9uLC/14RS1xpb1xJOlDizV2JGhK1xo3cZg659/Y6Dadk82hCFs2OpnNWgANMqXHl3FMacAaDyW0oPmi859hSrClNLpnKBg0+GiTs/dDIbxGM+cHOw2iAxWJXG82khMrerZjHKhqwohLlszUTMnJnCnck02ULifVcLfTyTYh7B2dR2x0v9N8jJyVuNHRFirnhY6TVi64voD+LiA065d3IY1WOb+/3X6l/oaYXfAgYU8emLyA8yA9gTYJyf1jFQk92ZYSWIZfc1Gwvs2wnFjhYj6TdORWVKEpq1Qgp136+0leZfT+dgsFD0wCVoBd5984X8FtTx5iIqVrwAmI3RNrpKGWfEMQHim9qiKzPR/3D0/y8sM17GnWjU3ifAdPTnqQ8fmvr+QcoT8+2j3NBp561/SlEZ/aVHAtYBthTVuxEJ78mt1Y70MG6P/Wz8ET0MBUbsv5h5BVOxlU5pUTuPxwrXtPiQvvX6qL6uIbj0MG4jQMBpowjk5yuzhxD52T7E8MwcOsR6W3ySYj9kRReY4wRZAArRUqauwkIVfMrxIDy2i9kltX5OZ4058x0QvyQl6+55TlYYWeZRMH67x2yY5wWD3lDk+eggY7pytZnxlmDLoSK42dyV6qaYfDvWX6Iw3LouFik3rtrWP1jhbrBzsw/Qfznz6uLvozvMZ1T/PJdB/tMCkE1R5ePOr/7/lyu34+7/nCZR3Nsjt36avftrgs/wLRhFEF
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stashes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/repo/stashes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The stash list of a repo.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stashes."}}}
+>
+  
+</StatusCodes>
+
+
+      

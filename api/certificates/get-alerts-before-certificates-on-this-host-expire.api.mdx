@@ -1,0 +1,70 @@
+---
+id: get-alerts-before-certificates-on-this-host-expire
+title: "Get alerts before certificates on this host expire"
+description: "Checks every 6 hours as the caller and sends one alert when a certificate gets close to expiring and one when it expires."
+sidebar_label: "Get alerts before certificates on this host expire"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVVFv4zYM/isEnzZATbo97CFvvWI39DZgxSVDMRTBQbGZWI0t+UQ6iRf4vw+U3CRt1wPuaX6xLZHi91HkxyOWxEV0rbjgcYa3FRVbBtpR7OEXqEIXGSyDVASFrWuKYH0JTL5kCJ7A1hQF9hV5sFBQFLd2hRWCDQlDUQcmkAB0aF10fpO81S95OMkbxBM0KHbDOHvE2/MpjEuDrY22IaGou0d0irO1UqFBbxvCGVaB5a5Eg5G+di5SiTOJHRnkoqLG4uyI0rdq6bzQhiIOwzJbE8uHUPZqUgQv5EU/bdvWCsAFP31izczx7Vlh9USFoME2hlYxE+tuth5tViHUZD0O6dGQ3AbP2fLn62t9vbyBud1ROUE1bkiqUCrbwCmOkp7htK27jfNXtnXTi4zz9JjzMEz3VgpND1PcPaetizXO8JiXBjSvwv4duggLio07QLZBgzsbnV3VGe24mgCvbVeLJl6k5dl0KslxQgfbtDVNitAo46UiKLropE8QVmQjxZtOWTwuB6MpD1tHlyu2db9Tf1q5OGKu+c9QLg86pVqx4HjlKfXJCM348THExirmTw+LN+znxOyCBwlb8lrdAs6notcgIbp/Ui1ARbbUFmD4kA5N5axmyXGCg3lB6YQts0KTizebnMv3aS/vIvr0sIBsD0wCVoDdxl85P4EHbaE2ksI12ktit8S6UlBJviAIO4rvskhoL9P93Zm8ub+DLfXAYqNoc++dVCDN4csbOifT70/tlnoD+8oVVQ7E5zATuBOwhZwkSkOEvR+9C+t9SAa6b32vwkM1U24vbezPZwn4NRfvcwurgAx6YeuQUuNE916IE9zc32mXUOTM8qfJ9eT6P66SDDjmjhKqSJ72sPhjfimXKqbQaw9qD48UdX+lBHwJtmhowpVJPxutBD9q74rWIZLS70c1TTermtHYpEVjmf2mXurCzz6vAUjlOAEYD3pN5UIj/99JketU6CDTtrbOK+EkcMdRJB/xLJJo8JIoGpydBkZWyqVJI0TdjseVZfor1sOgy187iipey7MYJikrHet3ibO1rZm+kacfPo8z6Ud4D/mzSPg+aW7d6R8a3FJ/Hm7DcjCYmyQhyJu3Oc7VQo84O7+ZXyqkp3Fy/+dcJXA1zr0mlOoT7V4nqN3n4CFxSXKb1o5YW7/p7CYpVjpTn38BTIDetA==
+sidebar_class_name: "post api-method"
+info_path: api/certificates/certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get alerts before certificates on this host expire"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/certificates/{hostId}/watch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks every 6 hours as the caller and sends one alert when a certificate gets close to expiring and one when it expires.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"on":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

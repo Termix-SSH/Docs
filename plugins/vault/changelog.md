@@ -6,9 +6,25 @@ slug: "/vault/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "vault"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- OpenBao support: pick HashiCorp Vault or OpenBao on each signer profile
+
+### Changed
+
+- Renamed to SSH Certificate Signer
+- The page you land on after signing in now matches the Termix look and follows your theme and language
+- Needs Termix 26.11.1 or newer
+
+### Fixed
+
+- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable
+
 ## 1.0.2
 
 ### Changed

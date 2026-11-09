@@ -55,6 +55,8 @@ This page is made from `manifest.schema.json` in the plugin SDK. Point your edit
 | `guestViews` |  |
 | `auth` |  |
 | `panels` |  |
+| `hostSections` |  |
+| `operations` | What this plugin can do. Every surface finds these on its own. See the operations section of PLUGIN-GUIDE.md. |
 | `dashboardCards` |  |
 | `actions` |  |
 | `actionSlots` |  |

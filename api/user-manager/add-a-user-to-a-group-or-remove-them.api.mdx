@@ -1,0 +1,70 @@
+---
+id: add-a-user-to-a-group-or-remove-them
+title: "Add a user to a group or remove them"
+description: "Add a user to a group or remove them"
+sidebar_label: "Add a user to a group or remove them"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv20YM/isEn1ZAsbI96i0dNiwdhgV1imAwjIGWGOli6U49nuxohv77wDvFduIWaF+qF0k8Hu/7SN7HAwaqBYsVfhL2gusMe/LUcdC/YnVAY7HAnkKDGVrqGAtsnITbCjP0/Hkwnissgh84Qykb7giLA4axV09jA9fscZqyL0aKr2+II8EbW+M0rZMzS3jvqlE93u4tnQ1sgy5R37empGCczZ/EWbVdhHabJy7DKxArHIR9zIV3PftgWHRHtF6CyrDjbvNqaeNcy2Rxio/Glt5ZSWF+ub7WV8VSetMrOixwSTuuFpqoNws3VQUEejQEBwS1d0MPzoPnzu0YQsMdKoTQuEoT7ETZxDwXmPftUBt7Rb3JNcZVR5Zq9vkhFXHKYzzJD1qKKU9MBDMU9ruXHhh8iwUekmnCtxD/cYOHe/adeYbkgxnuyBvatInybI2sH2log3ZRCL0UeR7ixgU/U9e3vChdp2lbK4Jy8CaMEcKGybO/GZTVaq3tVDq3NXxuod78yePRchZiqVVPUM4DHeulWHDuu1i/6ITZ/PG78x0p5g8P9xfslyxinIXgtmxB2AYwVssCeojz5r/YgdAwVeyBBN7HoEC2im5x40L76JzSEVtihVm6P8nldIOe9uGriD483EPyB+EAFEBMba+MXcBDwxZ6zwo3AxMg0JZFLSVXbEsGt9OO+wqLiPY83d+dyZu7W9jyCBLIB2Nr2JvQQOie/72gc3T9/tRuecxg35iySQfJ6ZgF3AagMohum33B7e28uyRrXXTQdbKjswzcCqc7qnLy8SREv6XmPYnEizictEHVadIiPrqYLhPUP8ku3Nzd6pVhL4nyz4vrxfVFIv6KdzeCjXpAZekGGyRLoiAZ9CSyd76SyGG5/ENZCTgLo95RvfMSa6cq0VFUxLmRvlFnXiE6Vj3wc8j7lozV4FEuDrMErfAkQZjhuQhhhsVxliQKapqHwosUrbM4cDTS4bAh4U++nSY1fx7YqzqsT2oTtaIyot8VFo/UCl+APo4I/OnjLPrvALMvk3m5hXaMotYO+ocZbnk8jUJVnx94aszQtJ4yTJ0fWaelX9MpV/ca4LT1YhSqOh5nxt3fS9W1zTxSO1fpHk97HYu0T0e7yCRqaLQdsCVbD1RHGYox9fkf1mzc9g==
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a user to a group or remove them"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/groups/{name}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a user to a group or remove them
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["user"],"properties":{"user":{"type":"string"},"member":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

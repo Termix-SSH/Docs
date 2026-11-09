@@ -1,0 +1,69 @@
+---
+id: export-layouts-health-checks-templates-and-history
+title: "Export layouts, health checks, templates and history"
+description: "Downloads the acting user's Host Metrics data as JSON. Hosts are matched on import by address, port and user, so the file moves between servers. Only hosts the caller can connect to are included."
+sidebar_label: "Export layouts, health checks, templates and history"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVttu4zYQ/ZUBX9oCipy2++S3dDfdOr0kQBIERRAUY2lssaZIlTOyozX078VQ2tjZXFCnfeqTjeGI58z1cGtK4iLaRmzwZmo+hI13AUsGqQiwEOuX0DLFrxh+CizwK0m0BUOJgoAMZ5fnv+XpiAEjQY1SVFRC8GDrJkSBeQdYlpGYM0gG9GW6MgMOCWZhHUEd1sQwJ9kQeWCKa4qcw7l3HVTpenUt0DmKUKCHInhPhYCEBGx94dqSytxkRnDJZnpr9hmbu8w0GLEmoainW2M14r9aip3JjMeazNRUliUkAxcV1WimWyNdo0fzEByhN332RdJmAzTUCQkY68YRpzgrQicVROLWCeemz56HXcRQP4fJEq1fPoW8FIwCYZGSMnKGiH5J8PXs8lzLQ9/k8IEWqMCapO+PocROU7wIkdKH5MuXKUk4hNCpLw+j48PmZWwt+KzkQwi8D3WNwKQ1FipTz4At+TEqrSkO/QQbK1Vq49z0d5mJxE3wTKxY3x0f689jhJPU7Klblbl595zTzK/R2TJFPGQgN32fmZqkCqWZmiWJ0U6UykzNpHHt0vojbOxESR0NLcQTutdR0fiHQUj92kZnpmY7mHrzZQZ+D22EK4q1vR/nx2RmjdHi3A1hjdZEOuVEUy3S8HQykfRhTvepe/Mi1KbvNTFMRRutdInCnDBSPGmV/e2dlq8IYWVp34KN/Zm6B8veFZdazIHK/kUPtVUun2ueJi45mWz882OINSrns5urJ9FfErMNHiSs0v7wAtanflSQEO0nVE+dyJKirq4f0qVpTNUtfZgKux/SA7chKpMN/Tq47Br2z428yOjs5goGf2ASQAG2S39kfQ43FXloIindDKyA4IpYLQWV5AuCsKb4YhSJ7X66D87kycUMVtQB6z7RXZ+mQur7P56E8+B6eGpX1GWwqWxRDUC8g8lhJqozrJ+NvhA2fvy6QO9DctBz9F3wBOR4nCrrFyFFbcVpmI8k6uRipgNAkYcAvs3f5cdPwvrFrgneX1xnUFMdYpdBaXmVgSfZhLhKLD5eXCtxUQVzrS6S4NI6qdHjkqDTyUsilSrSBJYavRIb2+M0jTM47EKrt4yyUFRUrDgDobpxKJ8140GCHjHVUfNCXv4/Mj30qtC9TBqHNklrWnLbcUHemt2CNJnZX5EmM+OSvBsO1Hu7nSPTdXR9r+ZBVXRvlZZ1C5ZmukDH9EpqDxDzFyJYUffoIbFG16pXUrt/TuQ/lPhXiY5PjzeyfJvuv0ooPTzeSOffvAJeL+fDi2TH7G4nr4P27VT+4+mV6fu/AUST7I4=
+sidebar_class_name: "get api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export layouts, health checks, templates and history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/host-metrics/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Downloads the acting user's Host Metrics data as JSON. Hosts are matched on import by address, port and user, so the file moves between servers. Only hosts the caller can connect to are included.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"history","schema":{"type":"boolean"},"description":"Include metric samples and health results."},{"in":"query","name":"from","schema":{"type":"string"},"description":"Start of the history range (ISO date). Defaults to 30 days before the end."},{"in":"query","name":"to","schema":{"type":"string"},"description":"End of the history range (ISO date). Defaults to now."},{"in":"query","name":"hostIds","schema":{"type":"string"},"description":"Comma separated host ids. Defaults to every host with data."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A JSON file."},"400":{"description":"Invalid date range."}}}
+>
+  
+</StatusCodes>
+
+
+      

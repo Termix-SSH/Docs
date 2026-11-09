@@ -1,0 +1,69 @@
+---
+id: read-a-pairing-job
+title: "Read a pairing job"
+description: "Read a pairing job"
+sidebar_label: "Read a pairing job"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU1v4zYQ/SuDOXUBxs4WOemW7naLbIFt4HUbFIGxoKWxxFgiueQotivovxdDyokTZw/tyeJw+ObN1/OArOuIxT0uqHNM8JHilp3HlcJIZR8MH7C4H3BNOlC47rnB4n41rhR6HXRHTCEmB2OxQK+5QYVWd4QFPrg1Kgz0vTeBKiw49KQwlg11GosB+eDFLXIwtsZRQANF72ykKPc/X17KT0WxDMazcRLiD0vgNrDTho2tFXgt4Ao22rRUgQtAey+mGY4Kry7fn0NIFmTZlFoMcCQ4Pbg6f/DFQezLBh7cGjYuADcmQh8pzHAc1SvnBekKdOJlbA25CB1x4yossCZGletU4Ny3fW3shfZmHlL9L6pc/3nnnG1N3fBcgObDg1uPKD0Jj8eK96HFAodsksuXPP52fYAlhc7sIfugwkcdjF63ub6TNaW70X3LWGDD7GMxn3N6OKO97nxLs9J1OKYOHafiq7Qx45zOxlNXBQinbss5O6GaPj650GkJ+PlueUb9K8UonWG3JQuRLIOxwA2BBHHB/JM715CuKICO8EsCBW2r5JYepn6Wzm0NveKmvfmdDqjy0GaXk7Hd8Q8Zfb5bQvaHSAyaIZraXhg7g7uGLPhAQleBYWC9pSiWkiqyJYF7pPDDLBLbTOx/VvL69ga2dIDIOshuwM5wA9ztv52l8+T630u7pYOCXWPKJgeKz2FmcMOgS47ybPIFt7PT61Jb65KD3Gt7cJaA2kh5i4zduJS14ZbSHp0KElzf3sj8Uog5hfezq9nlWWKLj7cK/vryQcG19y3BSxAFiz6yHBKhJbWWGGLubZRCHGRp1sHtIgWVMytb49dOB9EY0xJw0DZu5Do2Oq24YAUqXaiMrVMfvYvcaSvpTEP1piq84P7Ub6Y9z32rjRWotOXDpBj3+KwYSVpPNUNk5qgaSWOMDEkhoVYKGxdZAIZhrSP9GdpxFPP3noIo/OpZG5K4VCbKd4XFRreRzriWzjJZGbufFpN+vgNUb+dwXDt7SBLU9nJChVs6TH8T42o8EcnffhVN0C/X4NXYJ5ZvAg9D9liKCIzjU5wkChJpHP8Fp4VljQ==
+sidebar_class_name: "get api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a pairing job"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/remote-desktop/moonlight/pair/{job}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Read a pairing job
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"job","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One of waiting, paired, failed or expired."},"401":{"description":"Authentication required."},"404":{"description":"No such job for this user."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: turn-a-client-on-or-off
+title: "Turn a client on or off"
+description: "Comments the peer out of the config, or brings it back, and applies it."
+sidebar_label: "Turn a client on or off"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv40YM/isETy0wa6U9+pZdtEW2hwabFEERGAUt0dLE0ox2horjCvrvBWcUK4+maIBifbHN4fMj+XHEimMZbC/WO1zjJ9917CSCNAw9cwA/CPhd+l96t7O1AR9gG6yrI1iBLZV7A+QqoL5vLatwhQaF6ojrW7yxgX8ZKFS4MdhToI6Fgz6NaDVkT9KgQUcd4xobH+WiQoOBvw42cIVrCQMbjGXDHeF6RDn2qmmdcM0Bp8n8oye7o5L/i6MoWsybftLXe9xssjJH+eiro2q8tC29E3aiTwm0khT+4i5qD8bXrv32jkt5lsQtsqNtyxnW4HsOYjmq0ePDYr/1vmVyOKWPuom9dzGr/3h2pl/P5+C6YYhCwnCgCGVDruZqpRhhx9L4SmHyUXNKaK2x6Nuhtu4D9bY42MC19rwYcz+nQrsVtCOxGFNnpqJsrY5aMSrCU5HCocHI4f5xQIbQ4hrHLJrQvMjyDz8EuObQ2QfIOmjwnoJVAFJxszTVt6OhFR0xkT6ui0KS4YofqOtbXpW+U4A2mkE5BCvHlMKWKXA4H7TI243OSOn93vJTCfX2Vz6eJE9cXGkrcypPHZ06o7ngPEypU0kJzfzjZx860pw/31y/qv6KY7Tegfg9O4jsBKxLi6pBfLB/pbGChqniABThY3KallXVkuEKJ/OspFNuuSo0eSmyyrIWdwd5M6PPN9eQ9SGyAAlEW7sP1q3gpmEHfWBN1yh/CO05qqTkil3J4O85vFlFyvYp3O9G8vzyAvZ81OkOYl0NBysNSPfw56tyTqrvh3bPRwOHxpZNDhSXMCu4EKBSoprNuuAPbrYuyTmfFPSd3NE7Bm4j5+1TjviysMtPeXifrb1yzKRd2/mEjxVVWIgYzi8vdE84xFznD6uz1dmr6i9cFGpbWOy8g6NunO50TMl25KhmWJbbwLzVuZZ0MCLsgu9A6xDapg4qdXSUyG4ep+shOKDZWiP5AH63e5nVuHDn/3mr8ggJP0jRt2Sd5pi4Z5zp7RYXekODJ4JDg+vTyVpgUPHj/ZkBUdF8SjLTbUw6dup7HLcU+ffQTpOKvw4clHw2C5klKqpsnFu8ozbyv0Dz3Zf5UHwPb5X3uOTumDizHfQfGtzzcTnDSm7fMGqG7BsHTU2ZNpPBvM0J6vz0KUf5cK0OFtNXN1sZ/3QWL3+7Uq7ezre/85XaBDro/aZDDu1TJekuJNmILbl6oDpRa/Kpn78B+MRO9g==
+sidebar_class_name: "post api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn a client on or off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}/state"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Comments the peer out of the config, or brings it back, and applies it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["enabled"],"properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The state was changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

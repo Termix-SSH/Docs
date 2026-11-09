@@ -1,0 +1,69 @@
+---
+id: delete-a-user
+title: "Delete a user"
+description: "Refused for root and the login user. removeHome=1 also deletes the home folder."
+sidebar_label: "Delete a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3DYQ/SuDObUArXV6FNCDi7iI0xYIYgdGYSwKWppdsSuRCme0a1XQfy+G3C/HcdEc2pNWw/l474nzdsKauIquFxc8lviRVgNTDasQIYYgYH0N0hC0Ye08DEyxgEhd2NK70NGPb8C2HKCmloQ4ZTahI1iFtqZYoEGxa8byAT8xRcalwd5G25HoW/kwodOxvZUGDXrbEZbYBJabGg1G+jy4SDWWEgcyyFVDncVyQhl7zXReaE0R59l8tVN6/Is+LNH59VmbzwPF8dTnxBj/qXqpo7gPnon1/IfLS308l/ht0qoudBp2JE2oscSsIJpMoMRF3w5r5y9s7xaq+kVnvV1TXExZnTlFeTEpwllRUdweNB1iiyVOOaSHzxH8HoYIdxQ79wQ5Bw1ubXT2sc3A99GEfWWHVvSriPRcLhaSCgt6sl3fUlGFDudEnakaopMxQXgkGyleDUrmYam6ViFsHJ1HbO9+ofEYOWtxqxJnKOeNjoorlsOX0PechGb/4+cQO6uY39/fvWB/S8wueJCwIQ9MXsD5dHN1SIjuL6uZ0JCtKYJl+Ck1Pa5CKixwNs8oHbFlVmjyRcopp5v0505eRfT+/g5yPjAJWAF2a3/hfAH3DXnoIylcA05A7IZYIxXV5CuCsKX4KouE9lzub1by6sMNbGgEFhvF+TXsnDQg3dMfL+gcU79d2g2NBnaNq5o8iE9jCrgRsJWwlu1zIez8vrqy3oeUoOfWj8ETUMuU98z5VUisnbRKM7kRXH240ZtPkTPyN8VlcfmCz29p89JM3TmwVRUGL2xgHcPQs4HeMu9CrDlBub19p+AYgodRV003ltMn6ANLZ70i2d+H7AZgU+svR+vSeCEv/40z5xsg9CSLvrXOK8JkHdPehR7w5EJo8NyH0GB59OlkRRpJpJYmObiWT9OjZfoU23nWcHZVtYfasZpNjeXKtkwGNzR+6bNb2w4KENUZDvb09epXVfvu4976v4fXGB/W1o/nMw+I9hzVrv7HqUnHeXn+B/H2+tfru2uc578BA0Gkvw==
+sidebar_class_name: "delete api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/user-manager/{hostId}/users/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refused for root and the login user. removeHome=1 also deletes the home folder.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"removeHome","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."}}}
+>
+  
+</StatusCodes>
+
+
+      

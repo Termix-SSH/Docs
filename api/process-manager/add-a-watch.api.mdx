@@ -1,0 +1,70 @@
+---
+id: add-a-watch
+title: "Add a watch"
+description: "Alerts when a process, pm2 app or supervisor app goes down, restarts too often or uses too much CPU or memory. An app that goes down can be restarted automatically, at most three times an hour."
+sidebar_label: "Add a watch"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v40YM/SsET11AsdM9+uZdtEC2KBokWQRFYBS0xEgTSzPaGSqOKui/F5yRLa+TFNjr6mKZQ3Ievx41YMEh96YV4yyucF2zlwD7ii0QtN7lHEIGbfMRqG3BeQhdy/7ZBOejpHQcoHB7m4HnIKTW4hy4R2Gr+l3gJGm6vILP119V2HDjfL+AtY1OpCKZPUFOFrZ88McFUCeuITE51XWfAQk0LghI5ZlBTMMByELlOr/ADIXKgKsHvE7o4U+yVLLHTYYteWpY2KvCgEZDbkkqzNBSw7jCygW5KjBDz98647nAlfiOMwx5xQ3hakDpW9U0VljdjuMmaXOQT67oVeXcOHdW2IoeUdvWJifN9/IpaNKH177d9olz+Q7FA+6MLWJ4vmSJ0XjXshfDQU3j8ewiiDe2xPFo8NaR72p+26byHCpXF28FnKEW5CaV50Rh61zNZHGMj4IPrbMhwft4eak/37fbXcXQtQVpkWsTZIFq17BUrtDSuKBJiBVa4bKtu9LYC2rNcurMiybVdjmkuo3LPUleccAMA/vnQ6E7X+MKhyQaMTuD8bfrPNyxb8wLJB3M8Jm8oW2d0E/SGMAjdbVoq4i0YbVcSjRc8As1bc2L3DWagY0iyDtvpI8Qtkye/brTUB42YzZg7tzO8KmEWvMH90fJiYtb7ZAE5dTRMfWKBacmjaWISphNL78735Bi/nJ/9yr6Ww7BOAvidmwhsBUwFqRi0EucN//GboWKqWAPFOBTdApki6gWDRfaF6chHbGlqDBL45ZU5oF72su7iL7c30HSh8Cicx9MaS+MXcC9MlTrWeFmYASEdhxUknPBNmdwz+zfjSKiPU33D2dyfX0FO+4hDoGxJeyNVCDNyz+vwjmq/nhqd9xnsK9MXsFErsdrFnAlQLkENZt0we3tZJ2TtS4q6DnZ3lkGrgOnGVPquZlJ67fUvDOPHLhgpo9ZkljjRGMmi8szblD6G7Xyjy7m2Eg0PaNmWF9f6cSxDyljvy4uF5dvtAWn0JwV72rwnbWa+YkM+LCobHG2pQI4C70OudJE0FVFMb/GQ+3KEE1K7bCT9ScV9/BIpo69olTUUGTrqXHXRQEEkW/OkQ4z4f8cGzWNhvCLLNuajNWMRE4dJnJ+wJmcMW6mU3rGDFfHxXpg6E0Wl63aDsOWAn/19Tiq+FvHXklzM5NwpNDCBH0vcPVIdeD/SfovN9Pe/ADvwT+Qk+0j19ed/sMMd9zPnwHjZswwDWdEkA4/p3su7tTFbPxqsyuBH3fZ9V+3Sr3b6QuhcYXaeNrrQNE+Xe5iLJHmo2zAmmzZURmZMvrU5z8iQ2EM
+sidebar_class_name: "post api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a watch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/process-manager/{hostId}/watches"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Alerts when a process, pm2 app or supervisor app goes down, restarts too often or uses too much CPU or memory. An app that goes down can be restarted automatically, at most three times an hour.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["kind","target"],"properties":{"kind":{"type":"string"},"target":{"type":"string"},"rule":{"type":"string"},"threshold":{"type":"integer"},"autoRestart":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The updated list."}}}
+>
+  
+</StatusCodes>
+
+
+      

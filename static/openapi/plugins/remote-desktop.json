@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Remote Desktop API",
-    "version": "1.3.1",
-    "description": "RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
+    "version": "1.4.0",
+    "description": "RDP, VNC, Apple Remote Desktop, RustDesk and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording."
   },
   "servers": [
     {
@@ -63,6 +63,23 @@
     }
   ],
   "paths": {
+    "/plugin-api/remote-desktop/live-sessions": {
+      "get": {
+        "summary": "List my open remote desktop sessions",
+        "description": "The caller's RDP, VNC and Telnet sessions that are open on the server now.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "responses": {
+          "200": {
+            "description": "The open sessions, newest first."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      }
+    },
     "/plugin-api/remote-desktop/connection/{connectId}": {
       "get": {
         "summary": "Look up guacd's id for a session",
@@ -114,7 +131,7 @@
         ],
         "responses": {
           "200": {
-            "description": "available and recording."
+            "description": "available, recording, and forced when an admin made recording required."
           },
           "401": {
             "description": "Not signed in."
@@ -167,6 +184,9 @@
           },
           "404": {
             "description": "No such session in the built-in engine, or Session Recording is off."
+          },
+          "409": {
+            "description": "Recording is required on this host, so it can't be stopped."
           }
         }
       }
@@ -200,7 +220,8 @@
                       "rdp",
                       "vnc",
                       "ard",
-                      "telnet"
+                      "telnet",
+                      "rustdesk"
                     ]
                   },
                   "hostname": {
@@ -273,7 +294,8 @@
                       "rdp",
                       "vnc",
                       "ard",
-                      "telnet"
+                      "telnet",
+                      "rustdesk"
                     ]
                   },
                   "promptedUsername": {
@@ -284,6 +306,14 @@
                   },
                   "promptedDomain": {
                     "type": "string"
+                  },
+                  "promptedCode": {
+                    "type": "string",
+                    "description": "A RustDesk 2FA code."
+                  },
+                  "rustdeskCodecs": {
+                    "type": "string",
+                    "description": "Video codecs the browser can decode, like vp9,av1,vp8."
                   },
                   "tabInstanceId": {
                     "type": "string"
@@ -439,7 +469,8 @@
                 "rdp",
                 "vnc",
                 "ard",
-                "telnet"
+                "telnet",
+                "rustdesk"
               ]
             }
           }
@@ -519,6 +550,268 @@
           },
           "404": {
             "description": "Not running in the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/status": {
+      "get": {
+        "summary": "Check the Moonlight Web server",
+        "description": "Says whether a Moonlight Web server is set up and the saved login works. Never returns the login.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether it is configured and reachable, and why not."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/hosts": {
+      "get": {
+        "summary": "List Moonlight Web PCs",
+        "description": "Lists the Sunshine PCs the saved Moonlight Web login can see.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The PCs with their pairing state."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off."
+          },
+          "409": {
+            "description": "Moonlight Web is not set up."
+          },
+          "502": {
+            "description": "Moonlight Web could not be reached or refused the login."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a Sunshine PC to Moonlight Web",
+        "description": "Adds the PC as a global host so every Moonlight Web user can stream it. A PC already there is reused.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "address"
+                ],
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "port": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The PC."
+          },
+          "400": {
+            "description": "Missing or invalid address or port."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off or the caller may not set up Moonlight."
+          },
+          "409": {
+            "description": "Moonlight Web is not set up."
+          },
+          "502": {
+            "description": "Moonlight Web could not be reached or refused the request."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/hosts/{id}/apps": {
+      "get": {
+        "summary": "List the apps of a Moonlight Web PC",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The apps Sunshine offers."
+          },
+          "400": {
+            "description": "Invalid PC id."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off."
+          },
+          "409": {
+            "description": "Moonlight Web is not set up."
+          },
+          "502": {
+            "description": "Moonlight Web could not be reached or the PC is not paired."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/hosts/{id}/pair": {
+      "post": {
+        "summary": "Start pairing a Moonlight Web PC",
+        "description": "Returns a PIN to enter in Sunshine. Poll the pairing job for the result.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The job id and PIN."
+          },
+          "400": {
+            "description": "Invalid PC id."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "403": {
+            "description": "Remote Desktop is turned off or the caller may not set up Moonlight."
+          },
+          "409": {
+            "description": "Moonlight Web is not set up."
+          },
+          "502": {
+            "description": "Moonlight Web could not be reached or refused the request."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/pair/{job}": {
+      "get": {
+        "summary": "Read a pairing job",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One of waiting, paired, failed or expired."
+          },
+          "401": {
+            "description": "Authentication required."
+          },
+          "404": {
+            "description": "No such job for this user."
+          }
+        }
+      }
+    },
+    "/plugin-api/remote-desktop/moonlight/launch/{hostId}": {
+      "post": {
+        "summary": "Get the stream address for a host",
+        "description": "Checks access and connect policy, then returns the Moonlight Web page to open. The browser signs in to Moonlight Web itself.",
+        "tags": [
+          "Remote Desktop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The stream address."
+          },
+          "400": {
+            "description": "Invalid host id."
+          },
+          "403": {
+            "description": "No access, Moonlight is off for this host, or recording is required."
+          },
+          "404": {
+            "description": "Host not found."
+          },
+          "409": {
+            "description": "Not set up, not linked, not paired, or the PC is offline."
+          },
+          "502": {
+            "description": "Moonlight Web could not be reached or refused the request."
           }
         }
       }

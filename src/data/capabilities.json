@@ -78,6 +78,18 @@
     "consequence": "Stores and delivers the alerts all plugins send, including their contents."
   },
   {
+    "id": "operations:invoke",
+    "risk": "high",
+    "title": "Run other plugins' actions",
+    "consequence": "Acts for the signed-in user on the actions its manifest lists. Approval rules still apply."
+  },
+  {
+    "id": "operations:approve",
+    "risk": "high",
+    "title": "Decide what needs approval",
+    "consequence": "Can let actions run with no approval, or block them, for every user."
+  },
+  {
     "id": "ui:layout",
     "risk": "high",
     "title": "Replace the whole app layout",
@@ -150,6 +162,12 @@
     "consequence": "Hosts it manages can't be edited, deleted or reshared by anyone else."
   },
   {
+    "id": "hosts:connect-policy",
+    "risk": "high",
+    "title": "Decide who can connect",
+    "consequence": "Can block or allow every SSH and remote desktop connection to any host."
+  },
+  {
     "id": "users:read",
     "risk": "medium",
     "title": "See usernames and roles",
@@ -166,6 +184,12 @@
     "risk": "medium",
     "title": "Send alerts",
     "consequence": "To you or other users, and through the channels they set up."
+  },
+  {
+    "id": "operations:provide",
+    "risk": "medium",
+    "title": "Offer actions",
+    "consequence": "Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them."
   },
   {
     "id": "audit:read",

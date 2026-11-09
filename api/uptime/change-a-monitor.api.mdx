@@ -1,0 +1,70 @@
+---
+id: change-a-monitor
+title: "Change a monitor"
+description: "Change a monitor"
+sidebar_label: "Change a monitor"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v4zYM/lcIvmwD1KT78eS39rABvQFDcdeiGIpgYGzWVmNLPolu6hn+3wdKviRdeg+Xl8jUR+ojKX6aUKiOWDzifS+2Y9wY7ClQx8JB7RNahwX2JA0adNQxFmgrNBj4y2ADV1hIGNhgLBvuCIsJZewTygnXHHCeNxnNUa59NSrk/86ld8JOdIv6vrUlifVu/Ry9U9tZbL995lJwnudZY8feu8hRAb9cXupfxbEMttcoWOBdw1A25GquoPPOig84G/ztPew1VWBdP0hG/HqO+MsDV1aAypJjNEDQB/tCwkBVFThG8AEIGh8FpGEYIgcoyf0gukSl/Dbgh0QN6MDNYMfS+EorPwiaXP8C13071NZdUG/XQ2rYenGJ68lWMxqMHF6+tm4ILRY4ZZNuvj32bz8EuOPQ2VfIGDT4QsHSts3FXKypAk80tIIFNiJ9LNZrSY4rfqWub3lV+k7bsVEG5RCsjInClilwuBqU/uNmNhOW3u8sn1qot3/yeLCchPisfc9UTgMdroFyweXq6XcGoVkWf/jQkXL++HB3lv1njtF6B+J37CCyE7Au9UsP8cH+m+4gNEwVB6AI1ykokKsSLDmu9JacpnTglrNCkwcoQ44j9LyXbzL6+HAHGQ+RBUgg2tpdWLeCh4Yd9IGVrgErILTjqJaSK3Ylg3/h8M0sEtvTcn93Ja9ub2DHI0ShINbVsLfSgHSv/5ylc4B+f2l3PBrYN7Zs8kHxeMwKbnTyJKrbggW/d4t3Sc75BNB9cqN3DNxGXqW5U0H5dJSi3/PlxWKatU9PPlXEipoWRYSr2xsdCw4xp/Xz6nJ1eZbsA0nZwJ630QpHA70PEk3SgJiI6SjZUrdq7WnLKSttpzQ8Qu2h8ntnErYftq2NKXcZIvRUc0yt632UjpIkLvfoHel4Q+zQYOFXWfctWaeBkjJMi6w84lFW0GAWFtWgRVrQYGErfRo0HcVP05Yi34d2ntX8ZeCg4745ykca/spGXVdYPFEb+YzaQfXxx0/Lg/AToHmf8texcmNSqXbQLzS44zE/SfNmNpivVDo9b3zIZ1zcqfvR8eyVUdk5iO7tverFdnmsOl+pS6C9Pnu0z+f6lEbSpmSbsCVXD1Sn8U4h9fcf07GL8w==
+sidebar_class_name: "put api-method"
+info_path: api/uptime/uptime-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a monitor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/uptime/monitors/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Change a monitor
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The changed monitor"},"400":{"description":"Bad input"},"403":{"description":"No edit access, a private address or a host the user can't use"}}}
+>
+  
+</StatusCodes>
+
+
+      

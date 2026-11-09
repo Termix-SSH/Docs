@@ -1,0 +1,70 @@
+---
+id: set-the-default-policies
+title: "Set the default policies"
+description: "What happens to traffic no rule matches. Routed is UFW only, outgoing is not on firewalld."
+sidebar_label: "Set the default policies"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VW1r40YQ/ivDfOrBxk770d9ypaG5UhriHKEEU8bS2NpY2tXtjuK4Qv+9zK4sOxdSuIPzF9uz8/LM2zM9lhyLYFux3uECHyoSqKht2UUQDxJos7EFOA+hqxkakqLiOIM73wmXYCN8vn4A7+qDAd/J1lu3VanzAt7BxgbeU12XMzQotI24eMTrUYgrgy0Falg46EuPVkG0JBUadNQwLrDyUW5KNBj4S2cDl7iQ0LHBWFTcEC56lEOrmtYJbzngMKyyNkf56MuDqnxtXHgn7ESfqG1rW5BWYP4UtQz9W99+/cSFoME2+JaDWI76al3hG+u2Z5pRggoMsusaTZfq2u/RYMnukNJInlaDwWPBvs86pBZ8n+3Gh4LPTNfe10wOh/RR1dh6F3OSv1xe6tfrSVmyzFBVG5bKl9o2H1OBtHsLnLd1t7Xuglo7P07BvM/NHOYlb6irJaLByOH52P4u1LjAPouGhPw85t++C3DPobEvkHXQ4DMFS+s6Qx2lCW2KoAMk0sbFfC7JcMYv1LQ1zwrfaLorRVB0wcohQVgzBQ5XnSbxuBpMj4X3O8vnEmrtH3yYJGculjo3Gcq5o6nOigXH0U11T0poxh/XPjSkmD893L/JfskxWu9A/I4dRHYC1oFUDBrEB/tvmmGomEoOQBE+JqdArkxqyXCGg3mV0oQtZ4UmL2FWOa3h017eRfTp4R6yPkQWIIFot+7Cuhk8VOygDaxwDVgBoR1HlRRcsisY/DOHd7NIaM/L/c2VvLq9gR0fIAoFUXLaW6lAmpd/3qQzqX57aXd8MLCvbFHlQPEUZgY3AlRIVLNRF/zejdYFOeVKKkTfyR28Y+A6ct4uJaS7E5X9lof3NfVMe37ik0l0JIlJMG6+suCgrd74VFQr6nWiZri6vdHd4hBzbX6eXc4u31TsT3K0ZT0B5kT1BtxG0kamBG07/tEDEvUoHHSNlQlibv5y+bvJ9ap9sfOdQBu8cKFB0gAoszSUiHmcxiVLquW45dD62hbKyV8h7E9E/4NvW55K4ReZtzVZp7gTnfUjIz7iiRG1D8cjaHAxnbiJFlcm3T216vs1Rf4c6mFQ8ZeOgzLV6sR8ibdKG/V3iYsN1ZH/pw4/3Y238AO8B/zICOlsPFPd6T80uOPD6SIPekjyRiQE+fHXHOfiXl2cjN8cWWXN6XTc/rVUvluPx7rxpdoEShNM+xzcp1wStyZZjzW5bUfbRE/Jp37+A8PwDGo=
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the default policies"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/defaults"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+What happens to traffic no rule matches. Routed is UFW only, outgoing is not on firewalld.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"incoming":{"type":"string","enum":["allow","deny","reject"]},"outgoing":{"type":"string","enum":["allow","deny","reject"]},"routed":{"type":"string","enum":["allow","deny","reject"]},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Set."}}}
+>
+  
+</StatusCodes>
+
+
+      

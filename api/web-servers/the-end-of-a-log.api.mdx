@@ -1,0 +1,69 @@
+---
+id: the-end-of-a-log
+title: "The end of a log"
+description: "A file under /var/log, or a server's journal. Access logs also get counts by status, path and client."
+sidebar_label: "The end of a log"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsEL22BWTvtUTe36Ee2KBA0LoIiMIqxREuzljjaIeVENfTfC0qK7TRrtNtDT7bHj5z3SM7jEQuSPIVWQ2TMcAW7UBN0XFCC5cGnZR1LBzGBB6F0oPSFwIfYJfb1AlZ5TiJQx1LA1xKhJIU8dqwC2x5EvXbioPVagecC8joQ6wIdqi8Fs0d8oC3cj3kFNw5bn3xDar+yxyMGo2TR6JB9Q5hhFUVvC3SY6GMXEhWYaerIoeQVNR6zI2rfGjKwUkkJh8HNmT52lPpzqn1gS/QmUDQFLtEhcdcYSSsJOpxl4+ZqxpnqtYxX46bK/pfIOjDJpwLP6jdWK2kjC4kBvrm5sY/XfV9XBGOuqU9jCxd2LTakVSwww5IU3SQxw2Vbd2Xgd74NyyfavpsUyPI49WewsTFac2utmV2qMcPjdDSg+xuD32OXYE2pCc9wqsfBp+C39UR8Ph2573xXq42DaivZcqlj4IKefdPWtMhjg8MoXSjvUtB+pLAlnyitOpPwuLGa5jHuA12e+Db8TP3p5CLFvdV4onKZ6FRy4/LSCvs9gdDNX36IqfHG+f3D+o36exIJkUHjnhiEWCEwaEVgl8QU/vSGhIq8vUwv8O2YdGyXwcbABQ7ulaQTt0kVummIJsh5ij486VVG7x/WMOFBSMErSCj5XeAFPFTE0CYyug6Cgvo9iZ3kVBDnBPFA6aqKke1luT+7kqu7W9jTaDRJA5fwFLQCbZ7/eCPnBP380u6pd/BUhbyaLpLzNQu4VfC5ioXNWIhPPEfnnjmOAPvfcx+ZgGqh6WkF3sVRddDaZF6YIazubm3+KcnE/+vFzeLmjapfPPuSgMvAzw5Wrc8rGm/+zhdFD5Ght2dlj1IykKAkDvLIu1C62ba5gJ/W67t7N6miA6Ue8spzSaAkSgXsQhIdu9VG0cazkZ5Hx4yDuIC4Aw/To39F0Z4YK7H+n8tlmiKlZ122tQ9s1Ef7Oc7+9Yhn/0KHFw6GDrPTjjE9GzfuHIs5Hrde6LdUD4MdT1ZsvlIEMZcqMNv5Wsjhnvrzgjn4ujM+aPZyBTpvjn8DvTDHfwa/7IczdnN21U9zv9q+L3+dV+5XcK3IL27D/eWdL2Tmug6by7Xy4/drHIa/APYz6FM=
+sidebar_class_name: "get api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"The end of a log"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/web-servers/{hostId}/log"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A file under /var/log, or a server's journal. Access logs also get counts by status, path and client.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"kind","schema":{"type":"string","enum":["file","journal"]}},{"in":"query","name":"path","schema":{"type":"string"}},{"in":"query","name":"server","schema":{"type":"string"}},{"in":"query","name":"lines","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The lines and counts."}}}
+>
+  
+</StatusCodes>
+
+
+      

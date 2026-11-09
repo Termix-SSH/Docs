@@ -7,7 +7,7 @@ description: "Sign in with any OpenID Connect provider, GitHub or Google."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSO/edit/main/docs/index.md"
 plugin_id: "sso"
-plugin_version: "1.0.5"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, plus GitHub and Google.
@@ -53,6 +53,12 @@ The button sends people to the provider. After they sign in, the provider sends 
 - An admin can link an SSO account to an existing local one in Settings, Users. Then either way of signing in works.
 - To ask for a second factor after SSO too, turn on Ask for a second factor after external logins.
 - Use `$external.username` as a host's username to fill in the name someone signed in with.
+
+## Link an existing account
+
+Already have a Termix account? Open Settings, Security and press Link next to a provider. Sign in at the provider and you land back in Termix with that sign in tied to your account, so your hosts and settings stay. You can unlink it in the same place, unless it is your only way to sign in. A provider account can only be linked to one Termix account.
+
+Admins can turn this off with Let users link their account, or link an SSO account to a password account in the user list.
 
 ## Groups to roles
 

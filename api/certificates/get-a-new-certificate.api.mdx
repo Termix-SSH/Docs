@@ -1,0 +1,70 @@
+---
+id: get-a-new-certificate
+title: "Get a new certificate"
+description: "Runs certbot or acme.sh as root with the standalone, webroot or DNS challenge. DNS API tokens must already be set up on the host."
+sidebar_label: "Get a new certificate"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv20YQ/iuDubQFaMntUbckfcBp0Rq2C6MwhGJEjsS1yF1md2iZJfjfg9mlRSqyA+RWXkjOzvvxzfZYcMi9acQ4iyu8aW2AnL1snIDzQHnNi1ACBfDOCRyMlCAlQxCyBVXOcgYH3sRD5+HnP28hL6mq2O54EX/fXV+BuD3bAHUbBKjyTEUHG4bAAm0DzkaVpQuywAyFdgFXD/iBvZityUk44DrDhjzVLOz1tEej/jYkJWZoqWZcoWq4KjBDz59a47nAlfiWMwx5yTXhqkfpGuU0VnjHHodhnbg5yHtXdMrypXDurLAVPaKmqdQh4+zyMWjG+nPdbvPIuZx48YB5ZVRHhoWrydiAGR7zFIPzrtF4OaimkXvSGcQbu8MM2bZ11JdqhBmOJcL1MCmfBMl76jBDI1yHc4XDMPfjK/amemOGY8E1Ghui4RfKuYHIc+3dkynYv3qeey7YiqHqNQcz5JpM9epJENrp53S2ca5isnq45+4uEt8OivMikBYqEK6H+GjVQuNsSIX46fJSX6dDclcysC3AbWPfpmJ9F8C10rSyiEmtWUpXaIe6oImKjbrCZVO1O2MvqDHLfNbfyz717rA0IbSa48D+6aXVW1/hCvtEGjTtJ/7841oPd+xr8wyJBzN8Im9oU6UwRmqMZEttJTosIk1YLZcSBRf8THVT8SJ3NQ5xLALnrTfSRRc2TJ79u1ajeFgPWY+5c3vDcwo15nfujpSZiludkeTKXNGxMuoLjmMayxiZMBs/fnW+JvX54/3dWfS3HIJRCFGMgcBWwCRAUSPOm//ivELJVLBXJHsflQLZIrJFwUXsxFlI0wTFqHSE1FpimSDn8SBvevTx/g4Sf0Q6EghmZy+MXcB9yRYaz+puBkZAaM9BKbkOQ87gnti/GUX0dp7ub86kovKeO8VxL8buRmSvn/89C+fI+u2p3XOXwaE0eZkMhcnMAq4EKJegYiMvuIMdpXOy1kUGPSfbOcvAVeA0Xgq+NxNs/5Kadw6dM4Q8ouLDCwSsT1DvdXCb4cUJgk3kE+CaoUvCq4lwhKm0T47ANOLPoK21dbGIRjSKk9WnC1TnmX1I9fhxcbm4fKXpOIMIHjF/ni0f4O6PW5jDjK7aTtFC0WYsxsu2V6lxl2TxZ6c9a4Eq9gIb3jrPWqgO+LkxnmMPKrrVFPfgOBC/qRSo8ZnhL73tp6X6/7hypHoIP8uyqcjEBRJRtx+R+wEn5NbSz+8mGa6ON48E3+ss3kVUrO83FPhvXw2Dkj+17BVR1xNCR3wtTNDvAldbqgJ/JV/f34zXih/gLc9fkMt2cRFUrf5h7LzpljTo3k6TGz1Ihx+SnYvYoZPw2cVH0f24467/ulVc3owXqNoVKuPpoLuVDsm4i7HEHRBpPVZkdy3FCUw69fkME12nAg==
+sidebar_class_name: "post api-method"
+info_path: api/certificates/certificates-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a new certificate"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/certificates/{hostId}/issue"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs certbot or acme.sh as root with the standalone, webroot or DNS challenge. DNS API tokens must already be set up on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["client","domains","challenge"],"properties":{"client":{"type":"string","enum":["certbot","acme.sh"]},"domains":{"type":"array","items":{"type":"string"}},"challenge":{"type":"string","enum":["standalone","webroot","dns"]},"webroot":{"type":"string"},"dnsProvider":{"type":"string"},"credentials":{"type":"string"},"email":{"type":"string"},"staging":{"type":"boolean"},"keyType":{"type":"string","enum":["ecdsa","rsa"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the client's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

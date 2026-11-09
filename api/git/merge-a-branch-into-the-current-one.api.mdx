@@ -1,0 +1,70 @@
+---
+id: merge-a-branch-into-the-current-one
+title: "Merge a branch into the current one"
+description: "Runs git merge. A merge with conflicts is undone right away. Needs edit access."
+sidebar_label: "Merge a branch into the current one"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v5DYM/SsETy2geNIe55Yt2kW2aBskKYIiGBQam7GVsSWtRGXiGv7vBaXJeJpsFthDfbFNkdTj1+OEDcU6GM/GWVzjdbIRWsMwUGipgovyAXvDHdTOPvSm5ggmQrKNswTBtB2D3uuxgt+JmgjUGAZd1xRjhQpZtxHX9/jRMG4Ueh30QExBhBMaudRr7lCh1QPhGjsX+bJBhYE+JxOowTWHRApj3dGgcT0hj140jWVqKeA8b4o2Rf7gmlFUXhvXzjJZliPtfW9qLRGvHqOEPb317baPVDMq9MF5CmwoymmGumhFDsa2OCvcBm3rLx3lR+BF72wsXn48P5fXf1PvdqBtA9xRLoBL7BNXKMYDcecayZSLGVNGgSvfp9bYM+3NqjW8mkrq5lUg71a5cKgwUnh6SXcKPa5xKqIZ1SsIf7kU4JbCYJ6h6KDCJx2M3vYF+UGawT/o1LMUjNnH9WrF2bCiZz34nqraDRL9RhDUKRgeM4Qt6UDhIkkE95tZTVg7tzN0KtHe/ErjUXLi4kbqVKCcOjpmXbDgoVXkvyihOnz84sKgBfOnu9s30d9QjMZZYLcjC5Esg7G5HnKJC+af3DPQkW4ogI7wITs9li0bVtINpyEdsZWoUJWmLypL2z/u+V1En+5uoehDJAbNEE1rz4yt4K4jCz6QwFVgGFjvKIqkpoZsTeCeKLwbRUZ7mu5vzuTF1SXsaITIOrCxbaEKHp7/fhPOUfXbU7ujUcG+M3VXLorLNRVcCt9wFLODLri9PVjX2lqXFeRc21FYi/pIZbSEAK4X6vi5NO8y6i9zvEz4ydAb++ByygyLjXAcXFxdytBQiCXoH6rz6vwLlSUFPvW9gtoNgzCmbcCn2OXhlwGO4CyMMpEy1lFljR2RlyAHSB7YQaP5QM46scsec0mFKAadqe3QX79lHtdQwgBj2eVs1SkEqYez9BrltLDm/7EYSp8xPfPK99pYwZ0J6iX397gQHCpsjUzI+mQ/eIdCjsJzG5UXhxhN01ZH+jP08yziz4mCUM9mobJMRI2J8t3g+kH3kb4S+3fXh2XyPbyH+2XE7ZgZs0/yhwp3NC4rbd7MCkuLZwTl8Kdyz9mtuFiM32wpocHjIrj640YIbHvYdoNrxCboveRF78vlLseSyTLLJuy1bZNuM99kn/L8C2Kew94=
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Merge a branch into the current one"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/merge"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git merge. A merge with conflicts is undone right away. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"branch":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

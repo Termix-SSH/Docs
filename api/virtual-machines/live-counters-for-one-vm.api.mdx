@@ -1,0 +1,69 @@
+---
+id: live-counters-for-one-vm
+title: "Live counters for one VM"
+description: "Raw CPU, disk and network counters. The client works out rates."
+sidebar_label: "Live counters for one VM"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv2zYQ/iuHe9oARcr2qLes2Lq0DRA0boIhMIaLdLE4S6RKnmxrhv57caRiu0kzrMCwJ0nH4933feR92mPNofKmF+MslviRtvDm+lMGtQlrIFuDZdk6v4bKDVbYhxwWDUPVGrYCuhLADQKehEOOGQqtApb3eGu8DNTCFVWNsRxwmWFPnjrWKlje79Fox56kwQwtdYwlNi7IZY0Zev48GM81luIHzjBUDXeE5R5l7DXTWOEVe5ym7JuVhsH8qzpBvLErnKalJofe2cBB138+P9fH1/pE7k9KaG/sWBpXY4krFswSiBKLvh1Wxp5Rb4pNUuKsm5UolGQo9onrVGy6UOwV7lQEIQmYYWC/eVJp8C2WuE+hCbNniP5wg4cF+87sIOVghhvyhh7aRGSORi6PNLSiOov0oSwKiRtz3lHXt5xXrsMpShG4GryRMUJ4YPLsLwaldr9UwSvn1oZPI9Sb9zweIiclblTyBOW00OEEFAvOJ6PfKQmz+eU35ztSzO/uFi/Y33AIxlkQt2YLQe+ksSANgzZx3vxNmgkNU80eKMAvsWi82poWN+Y4ZV9ROmBLrDBLNyylHO/YX1t5FdG7uwWkfAgsQALBrOyZsTncNWyh96xwMzACQmsOGqm4ZlsxuA37V1lEtKdyf7eSF9eXsOYRgpAXY1ewNdKAdLs/X9A5pH6/tGseM9g2pmpSo3Bsk8OlAFUSdNucC25r590VWetigq6THZ1l4DZwGjljH11kbaRVms+tBi6uL3UI2IdE4qf8PD9/Qe2NZxKODTuytGJ4f3sF87TC07SCszDqjH0wdthBnN10Pjc3vydGrXnQXfFcehekI6vw5kvywWyOngGPzoOyub16jkeHygpb+W9sON0I4Z0UfUvGKrhoJfvZo+7x6FGq1jOXwiyasT7Lgytvuvg9e2tyq2VK1IL7/QMF/uTbadLw54G9GsjyaEjRTmoT9L3G8pHawP+gww8fZ/v+EV7j9DSodoy+1w76hRmueTz+T9Sg/seuUZ9pefp3ePvrAqfpC2Etj5g=
+sidebar_class_name: "get api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Live counters for one VM"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/stats"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Raw CPU, disk and network counters. The client works out rates.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The counters."}}}
+>
+  
+</StatusCodes>
+
+
+      

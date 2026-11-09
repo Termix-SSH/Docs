@@ -1,0 +1,302 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Notes API",
+    "version": "1.0.0",
+    "description": "Write markdown notes for each host, folder or yourself, with commands you can copy or send to the terminal."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/notes/notes": {
+      "get": {
+        "summary": "List notes",
+        "description": "Lists the notes of one host, folder or the caller's global notes, pinned first. Bodies are cut to an excerpt.",
+        "tags": [
+          "Notes"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "host",
+                "folder",
+                "global"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "folder",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The notes."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a note",
+        "description": "Needs edit access to the host for a host note, or edit access to a host in the folder for a folder note.",
+        "tags": [
+          "Notes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "scope"
+                ],
+                "properties": {
+                  "scope": {
+                    "type": "string",
+                    "enum": [
+                      "host",
+                      "folder",
+                      "global"
+                    ]
+                  },
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "folder": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "pinned": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new note."
+          }
+        }
+      }
+    },
+    "/plugin-api/notes/search": {
+      "get": {
+        "summary": "Search all notes",
+        "description": "Searches titles, bodies and tags of every note the caller can open.",
+        "tags": [
+          "Notes"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching notes."
+          }
+        }
+      }
+    },
+    "/plugin-api/notes/folders": {
+      "get": {
+        "summary": "Folders with hosts the caller can open",
+        "tags": [
+          "Notes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Folder names."
+          }
+        }
+      }
+    },
+    "/plugin-api/notes/notes/{uid}": {
+      "get": {
+        "summary": "Read a note",
+        "tags": [
+          "Notes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The note with its body."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a note",
+        "description": "Only the fields sent are changed.",
+        "tags": [
+          "Notes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "pinned": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated note."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a note",
+        "tags": [
+          "Notes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

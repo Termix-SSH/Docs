@@ -6,9 +6,26 @@ slug: "/proxmox/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "proxmox"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Start, shut down, reboot and stop VMs and containers through Termix actions, list guests across clusters and see running guests as a status tile
+- Permission Manage Proxmox guests
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- The overview uses the Termix tile look, with tiles edge to edge and lines between them instead of separate cards
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- The Discover button is as tall as the node picker next to it
+
 ## 1.2.1
 
 ### Fixed

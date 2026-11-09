@@ -1,0 +1,70 @@
+---
+id: install-a-web-server
+title: "Install a web server"
+description: "Uses the host's package manager and starts it at boot."
+sidebar_label: "Install a web server"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v40YM/SsEL9sCEzvtUbfsokWzRdFg40VQBEZBS7Q0sTSjnaHiqIL+e8EZx3YSpMCiutga8eM9cvg4YcWxDLYX6x0W+DVyBGkYGh/lQ4Seyh3VDB05qjkAuQqiUJAIVoAENt7LAg0K1RGLe7zjDdxyeOQQcW2wp0Adi74V9xNazdGTNGjQUcdYoCa6rtBg4G+DDVxhIWFgg7FsuCMsJpSxV0vrhGsOOM/rbM1RPvpqVJPXzqV3wk70E/V9a0tSgsuHqCynt7H95oFLeYHiHmPikWgE33MQyzF55/OTd5RgXY0G2Q2derrauic0SD2VDaPBkqpqxPWcHs0Se+9iDvfz5aX+vGzEqmFgV4Hfpna86sOHCH6QfpAFariOpfGVltZHJZEqXOCyb4faugvq7XLPm4uMOy6nXPN5aV0Uals0B0q5SUNoscApH81oXiH7yw8BVhw6+wSHShh8pGBp076uT8VbGlrRNov0sVguJTku+Im6vuVF6TucU0Mjl0OwMiYIG6bA4WpQGvfr2UxYer+zfH5Cvf2dx+PJWYhb7W6Gch7o2C7FgocLpu/ZCM3hz68+dKSYP9+t3rC/5RitdyB+xw4iOwHrUos0iQ/2n3TToGGqdF4ifExB0+SoWXJc4GxeUDpiy6zQ5FHJJqdhedjLu4g+360g20PkNJvR1u7CugXcNeygD6xwjQ6u0I6jnpRcsSsZ/COHd1kktOfl/u5KXt1cw47HLB3W1bC30oB0T3+/oXM0/f7S7ng0sG9s2Txr1DHNAq4FqJSobgdb8Ht38C7JOZ8M9Du50TsGbiPn+VLZ+HISnF/y5T2/6oeJn7VvW58qZEVNzgURrm6udVY4xMz1p8Xl4vJNBf5IMw4pooGrJCEJ5ScVEfAORh1BHeJYQLTC0UDp3dbWBlpfx2T822p1c2tyBfiRwwhlQ65mEI7CFWxtiJI6q6LRUdLFwzW7zroABHvenIb8BczppLH/Y2vkayT8JMu+JesUT9Kf6SBi93gSMTR4JmNosDguj2clW5u0UNRvmjYU+Wto51mPvw0cVFzWJ7FKUlPZqP8rLLbURv4Plj98OeyGH+E96M9D7Makie2gb2hwx+Np1c3r2WC+xAlB/vgp57lYaYiT85vtpUJ31PubP29VojaHLdj5Sn0C7XWT0T4n94lLksN0NmFLrh6oToqSYurzL81cx2g=
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install a web server"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/install"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Uses the host's package manager and starts it at boot.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server"],"properties":{"server":{"type":"string","enum":["nginx","apache","caddy"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the package manager's output."}}}
+>
+  
+</StatusCodes>
+
+
+      

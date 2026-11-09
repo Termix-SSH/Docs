@@ -1,0 +1,522 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Process Manager API",
+    "version": "1.0.0",
+    "description": "See and control running processes, pm2 and supervisor apps on your hosts, read their logs and get alerts when they fail."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/process-manager/watches": {
+      "get": {
+        "summary": "Every watch of the signed in user",
+        "description": "Across all hosts, with the last state seen. Used by the dashboard card.",
+        "tags": [
+          "Process Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "The watches."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/status": {
+      "get": {
+        "summary": "What a host offers",
+        "description": "The login user, whether ps, pm2, supervisor and systemd are there, and whether the caller may change things.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "404": {
+            "description": "No access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/processes": {
+      "get": {
+        "summary": "List running processes",
+        "description": "Up to 600 processes sorted by CPU, with the CPU count, load average and zombie count.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The processes."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/processes/{pid}": {
+      "get": {
+        "summary": "One process in detail",
+        "description": "Command line, working directory, service, limits, listening ports and the files it writes.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "pid",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The process."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/processes/{pid}/signal": {
+      "post": {
+        "summary": "Send a signal to a process",
+        "description": "Needs edit access. The command guards against a reused pid.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "pid",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "signal"
+                ],
+                "properties": {
+                  "signal": {
+                    "type": "string"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The signal was sent."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/processes/{pid}/renice": {
+      "post": {
+        "summary": "Change the priority of a process",
+        "description": "Needs edit access. Lower than 0 needs root.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "pid",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "nice"
+                ],
+                "properties": {
+                  "nice": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The priority was changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/apps": {
+      "get": {
+        "summary": "List pm2 and supervisor apps",
+        "description": "Which of the two exist on the host and every app they run.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The apps."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/apps/{manager}/{key}/{action}": {
+      "post": {
+        "summary": "Start, stop, restart, reload, delete or flush logs of an app",
+        "description": "manager is pm2 or supervisor. Delete is pm2 only. Needs edit access.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "manager",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The action ran."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/supervisor-refresh": {
+      "post": {
+        "summary": "Read the supervisor config again",
+        "description": "Runs supervisorctl reread and update. Needs edit access.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The config was read again."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/logs": {
+      "post": {
+        "summary": "Read the end of a log",
+        "description": "Sources are a service journal, a pid journal, a pm2 app, a supervisor process stream, or a file a process has open for writing. Open files need edit access.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "target"
+                ],
+                "properties": {
+                  "target": {
+                    "type": "object"
+                  },
+                  "lines": {
+                    "type": "integer"
+                  },
+                  "grep": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The log text."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/watches": {
+      "get": {
+        "summary": "The signed in user's watches on a host",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The watches."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a watch",
+        "description": "Alerts when a process, pm2 app or supervisor app goes down, restarts too often or uses too much CPU or memory. An app that goes down can be restarted automatically, at most three times an hour.",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "target"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "rule": {
+                    "type": "string"
+                  },
+                  "threshold": {
+                    "type": "integer"
+                  },
+                  "autoRestart": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated list."
+          }
+        }
+      }
+    },
+    "/plugin-api/process-manager/{hostId}/watches/{id}": {
+      "delete": {
+        "summary": "Remove a watch",
+        "tags": [
+          "Process Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The updated list."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

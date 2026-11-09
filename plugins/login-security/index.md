@@ -7,7 +7,7 @@ description: "Sign people out when idle, limit session length, turn off remember
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Login-Security/edit/main/docs/index.md"
 plugin_id: "login-security"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Login Security adds login rules for admins: sign people out when idle, limit how long a session lasts, turn off remember me and require a second factor.
@@ -46,6 +46,12 @@ Any installed second factor counts, like an authenticator app from the TOTP plug
 Someone who has no second factor yet can still sign in, but sees a page that asks them to set one up first. Until they do, they can't use anything else. The settings page warns you when no second factor plugin is installed.
 
 SSO and LDAP logins skip the rule unless you turn on Also for single sign-on. Leave it off when your identity provider already asks for a second factor.
+
+## Ask before connecting
+
+Ask for a second factor before connecting asks people for it when they open a terminal, remote desktop or file manager on a host. Pick Every host, or Hosts marked for it and turn on the switch in each host's editor.
+
+The connection stops with a Verify button that opens a tab for the code. Once it is entered, go back and connect again. Minutes before asking again sets how long that lasts, for every host that person connects to. Signing out ends it early. Each person verifies on their own. Metrics, tunnels and other background work are never asked. Someone with no second factor is told to set one up first.
 
 ## HTTPS
 

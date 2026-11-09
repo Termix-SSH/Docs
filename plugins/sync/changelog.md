@@ -6,9 +6,22 @@ slug: "/sync/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sync"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Refresh a remote site through Termix actions and see unreachable sites as a status tile
+- A dashboard card with reachable sites and their hosts
+- An alert when a remote site stops answering and when it is back, with an admin setting to turn it off
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.1.0
 
 ### Added

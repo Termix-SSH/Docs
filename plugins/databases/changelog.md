@@ -6,9 +6,26 @@ slug: "/databases/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "databases"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- See saved database logins across hosts and check that one still works through Termix actions
+- Other plugins, like Backups, can use the saved logins of a host
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Pages use the Termix tile look, with lines between sections instead of separate boxes
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- The table structure view now shows a loading message instead of a blank space while it loads
+
 ## 1.1.1
 
 ### Added

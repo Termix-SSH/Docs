@@ -1,0 +1,69 @@
+---
+id: system-cron-jobs
+title: "System cron jobs"
+description: "/etc/crontab, the files in /etc/cron.d, the scripts in /etc/cron.hourly, daily, weekly and monthly, and the number of systemd timers."
+sidebar_label: "System cron jobs"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu2zAM/RWCpw1QnW5H37phG9pdijVDMRTBoNhMrMaWXIlO4hn+94GSm6TtOmC3nSxRj+IjRT4PWFIovGnZOIs5zoiLWeGdZb1UwBXBytQUwFg4HGVlOkl+z84q1/m6V1BqI58d0abuQdsSGme5EptsxN92zZI8uBWEPjA1JbBpyIcMFbJeB8zv8KN3FhcKW+11Q0xerAMa4dpqrlCh1Q1hjpULfFmiQk8PnfFUYs6+I4WhqKjRmA/IfStIY5nW5HEcF4IOrbOBggDen5/L52lJ5pJqJAj3bhkyHEeFDXHlSsxxTYwqUclx1tbd2tgz3ZpYjdmQWI2zdAEqDOS3j1l0vsYch2QaUT0L/MN1HubkG7OHhEGFW+2NXtaJ72SNlFe6q1nqwNyGfDbj6JjRXjdtTVnhGhxjxoGKzhvuI4UlaU/+ohP6d4tRDVg4tzF0atGt+Ur9wXJyxY2UNlE5vehQaeGC0wvIPoFQTYvPzjdaOF/dzl9kf0MhGGeB3YYsBLIsjSZ9I0GcN7+0IKEiXZIHHeBDvPTQXtExw1E9SenALWWFKvVSghy76X7HrzK6up1DwkMgBs0QzNqeGZvBbUUWWk9CV4FhYL2hIJaCSrIFgduSfzWLyPa03P9cyYvrS9hQD4G1Z2PXsDNcATf7ny/SOUD/vbQbktGuTFGlQOEYJoNLBl1wELcJC25nJ+9CW+siQM617Z0loDpQGitjVy5mbbiWNGX84eL6UhqffEjE32Xn2fkfXocU6LKMYXxnQQYwTiw4C73MkgxjUImrBqll2dUkr7M1tDtkNw179I/qF5+ldYEbbYXd1CM3JziJ85ySzJJlsvw/6WpqJ6Y9z9paGyupRR0aJhG7w6OIoUIJjgrzg7xOSrZQUXEFPwxLHei7r8dRzA8deRGXxVGsotSUJsi6xHyl60B/Kdabb5OEv4XXKD8Ose2jJtad7FDhhvrjv2BcnCr1l09zHMffA8xmKg==
+sidebar_class_name: "get api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"System cron jobs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/cron/{hostId}/system"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+/etc/crontab, the files in /etc/cron.d, the scripts in /etc/cron.hourly, daily, weekly and monthly, and the number of systemd timers.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The system jobs."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: report-that-a-job-ran-for-a-push-monitor
+title: "Report that a job ran, for a push monitor"
+description: "Report that a job ran, for a push monitor"
+sidebar_label: "Report that a job ran, for a push monitor"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVU2P2zYQ/SuDObUAY7tFTrptgTbY9BIku1gEC6OgpVmJsUQynOF6HUP/vRhKXm/iuEh6kkS+mXnz9XRAsS1jdY+3UdxAuDbIVOfkZI/V/dpgtMkOJJQUdUDnscJopUOD3g6EFUrYkkeDiT5nl6jBSlImg1x3NFisDij7qECW5HyL42hmP58zpf3JEYuVzHjZ0iD5PCjbHNFgE3Ye1xfdDdz+h6+LZnGKdGbn87ChhOO41lQ5Bs/Eev/7aqWPhrhOLooL6vQ91SE11OBo8PXq9Tng1m992HmYqjeO5sxBDElAOitg4VPYQLLewENIYCFm7mAI3klIaHAg6UKDFbYkaKb2VLiMfW6df2WjW+bS3aXaLQ8l5Kg5Uno8NjanHis8TEd6+TWdjyEnuKE0uCeYMGjw0SZnN/1Uhvm0JPpgcy9YYScSuVoupRgu6MkOsadFHQYcSyGPs/ZBqz352ZBNlK6y5vBcfHV0bIp+TyA088tfIQ1WA769uzmj/oGYXZgrDUxewHmQjkCDhOS+WEVCR7ahBJbhj+IUrG8KrBgutJN1CFtH33Cz0f1NOkBlmibIaZw+7eQio7d3NzDhgUnACrBr/SvnF3DXkYeYSOkacAJit8R6UlNDviYIj5QuZlHYTsT+ZyWv3l3DlvbAYpM438LOSQcyPP1zls4z9OdLu6W9gV3n6m4KxKcwC7gWsLWwms1YCDs/W9fW+1AAem/9PngC6pkWZZmcfwglaye9pjnJG1y9u9a5pcQT9d8Wq8XqLKE7K3UHO9qwE2IDuolsoAusbHxTNsDVetVq33oqzLVl0tEe2gCqTaZgY970jkt+khmibYlLe2JgGaxXlvOs/MzOf8X4ubtCT7KMvXVeI5SdPsx6cI8nPUCDkyKoWmRWMa8mIVob1DQVfjhsLNNt6sdRjyeZVKloHOvWN1g92J7J4Jb2L+X70fZZyaBK7AXwJM4/gpz1+ARdn4Tn+3S+KU0dvJDXmf7l/fyL+hXQfL9kx532+5cxj1xmsV6PLzT3zZ83OI7/ArqHfLg=
+sidebar_class_name: "get api-method"
+info_path: api/uptime/uptime-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Report that a job ran, for a push monitor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/uptime/push/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Report that a job ran, for a push monitor
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}},{"in":"query","name":"status","schema":{"type":"string","enum":["up","down"]}},{"in":"query","name":"msg","schema":{"type":"string"}},{"in":"query","name":"ping","schema":{"type":"number"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Recorded"},"404":{"description":"Unknown token"}}}
+>
+  
+</StatusCodes>
+
+
+      

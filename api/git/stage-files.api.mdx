@@ -1,0 +1,70 @@
+---
+id: stage-files
+title: "Stage files"
+description: "Runs git add for the files, or for everything with all true. Needs edit access."
+sidebar_label: "Stage files"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUtv4zYQ/iuDObUAI6U96pYt2iJboA2SFEERGAtaGkuMJZJLjuKogv57MZRsuclmgT2sL7aH8/jm9c2IFcUyGM/GWSzwtrcRasOgqwp2LgA3BDvTUlTgQpLQM4WBG2NrOBhuQLctcOgpgz+JqghUiXlZUowZKmRdRywe8XfDuFHoddAdMQURjmgkqNfcoEKrO8ICGxf5ukKFgT73JlCFhbhXGMuGOo3FiDx40TSWqaaA07SZtSnyB1cNovLauHSWybI8ae9bU2rJOH+Kkvb41rfbPlHJqNAH5ymwoSivCeqqFTkYW+OkMNXo7EWHoAdUaJi6+AWLSaFu27OHrXMtaYtT+kg+0TsbZ6c/X17K1/975fagbZU6JB1zPfues+S6I25cJaV1MSWRYGPu27429kJ7k9eG83Gu9ZQH8i6PrGtChZHC87E/fWixwHEWTaheQfjH9QHuKXTmBWYdVPisg9HbpRyLNIHf6b5l6TCzj0WeczLM6EV3vqWsdJ1kvxEEZR8MDwnClnSgcNVLBo+bSY1YOrc3dC7R3vxBw0ly5uJOGjtDOXd0KrtgwWW2UhuSEqrlx28udFowf3y4f5P9HcVonAV2e7IQyTIYm/ohQVww/6Yhg4Z0RQF0hA/J6altyTCT8TlPaZ2hlJUMkUSbVdY9eTrwu4g+PtzDrA+RGDRDNLW9MDaDh4Ys+EACV4FhYL2nKJKSKrIlgXum8G4WCe15ub+5klc317CnASLrwCcW4e7l05t0TqrfXto9DQoOjSmbOVBcw2RwLQTFUcwWXXAHu1iX2lqXFORd28FZAmojzasljHG7cs2v8/Cu3HDc8BMlPB4lm2XlhZAmaerOpfIZFnshSLi6uZYFohDnAvyUXWaXX+gyKfB92yooXdcJ3doKfB+bRASyzBGchUG2U1Y8qqSxJ/KScAe9B3ZQaaaFw3t2yWNqr5BGpxMvLrN2J9Qw34HXaMaVWr/H9Zhni+mFc99qYwVfIqVjvR9xJTVUWBvZiuLsiHgnU5m4baPSdRGjcdzqSH+HdppE/LmnIHSzWekrkU9lovyusNjpNtJXcv/hdrk4P8J7uI9rbYfEkm0v/1Dhnob17k2bSeE81gnB/PjLHOfiXlysxm9OmVDfifxv/roT0touJ7FzldgEfZC66MMc3KVcEkEm2YittnUv5Spw9imf/wD0R89z
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stage files"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/stage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git add for the files, or for everything with all true. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"files":{"type":"array","items":{"type":"string"}},"all":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

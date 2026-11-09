@@ -1,0 +1,70 @@
+---
+id: copy-an-object-or-a-folder-or-move-it-the-same-body-at-move
+title: "Copy an object or a folder, or move it (the same body at /move)"
+description: "Copy an object or a folder, or move it (the same body at /move)"
+sidebar_label: "Copy an object or a folder, or move it (the same body at /move)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vt1v20YM/1cIPrXA2cq2N70lxYale2hQZwiGwChoibYulu7Uu1McTdD/PvBO/kjsAi0KzC+WeCSPP378qAEDbTzmj/hp9cRFgEWwjjaMS4UtOWo4sJPzAbXBHFsKFSo01DDmSEVhOxNuS1To+GunHZeYB9exQl9U3BDmA4a+FWVtAm/Y4Tiqi85WXbHl8D2efHDabHAcl0mZfbixZS8ab20LawKbIEfUtrUuKGhrsidvjcjOXNuYBVTYOtuyC5q9nK6dbS4EoDDYi+K1rUt2J0cra2smk0xuEtILgOQnmHxrjU9X/3p1JX8l+8LpVqLHHP+0O2jI9JDi9bBjx1DYVnMJ1kFjn7mUTL+x+2DbHshMZqJJkGJVezPQAd6FisFTw7CyZQ8UIJOj96iw4VDZUopnfcyT1DDHrK27jTYzanWWnM986qRsahKfDYd2GbNUbJ8N6WHMCtv2qNCze943XOdqzHFIohHfYvnHdg7u2TX6BZIOKnwmp2lVp9RN0pi9NXV1wByrEFqfZ1mIhnN+oaateV7YRtK/lAiKzunQxxBWTI7ddScYH5fSuIW1W82nEmr1X9wfJCcuFtJdKZRTR4eySyw49XdskqiEanr4w7qGJOaPD/dn6BfsvbYGgt2yAc8mgDYgdZNLrNP/xk6HiqlkB+ThJjoFMmVUi4ZzachTSIfYEipUaVKTynFWn3bhmxF9fLiHpA+egzSP1xsz02YODxUbaB1LuEoaLdCWvUgKLtkUDPaZ3TdRxGhP0/3Dmby+u4Ut9+ADuaDNBnY6VBCaly9ncA6qP57aLfcKdpUuqnSRP14zh9sAJBNLfq8Ldmcm64KMsVFBzsn01jBw7Xkeh1lo6/OR8H5PzXskqD2RJF46vu3pKHHikYBOGEubdaIyHcTjm3UA13e3Ml3sfMrOL/Or+dVZzm6c3XmOSBoyYrf4bVbYpqWgVzXvaWdiBphIIOqvdc0+FliIpaFIz1O3/TxrvQrz0DWBX0LW1qQjL0e6GSZCe8QjoaHC15SGar/5PCrMT7fgBEnEh30WqW2psBLGzB9xGFbk+W9Xj6OIv3bshG2WR/aK3FNqL88l5muqPZ+BOKw2fPd52nrvQUp/Cdx+qk0fSbLu5A0Vbrl/tceF0P7Hi6ccjctRYRqnCD0dfkj3zO7FxdH4bI8L5R7W0t2nhZDlavoeaGwpNo528mFBu3S5jVgiMUfZgDWZTSelzTH5lN9/myUj7A==
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Copy an object or a folder, or move it (the same body at /move)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/copy"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Copy an object or a folder, or move it (the same body at /move)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"from":{"type":"string"},"to":{"type":"string"},"folder":{"type":"boolean"},"toBucket":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"How many objects were copied or moved"}}}
+>
+  
+</StatusCodes>
+
+
+      

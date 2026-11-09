@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/databases/reference"
 custom_edit_url: null
 plugin_id: "databases"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -38,6 +38,16 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `databases.use` | admin, user | Open the Databases tab and work with databases on hosts you can access. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `databases.list-connections`<br />List database logins | A host | Read only |  |
+| `databases.status`<br />Database logins | A host | Read only |  |
+| `databases.check-connection`<br />Check database login | One item on a host | Read only |  |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
@@ -47,10 +57,19 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
+
+## Services
+
+Services are how plugins call each other. Plugin authors can use these.
+
+| Provides | Version | Permission |
+| --- | --- | --- |
+| `databases.logins` | 1.0.0 | `databases.use` |
 
 ## API
 

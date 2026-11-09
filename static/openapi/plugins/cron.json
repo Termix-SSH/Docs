@@ -1,0 +1,535 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Cron API",
+    "version": "1.0.0",
+    "description": "See, add and run cron jobs on your hosts, with a schedule preview and the system cron files."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/cron/summary": {
+      "get": {
+        "summary": "Cron state on every host",
+        "description": "One entry per host with Cron turned on, checked as the caller and cached for a minute unless refresh=1.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/status": {
+      "get": {
+        "summary": "Cron status on a host",
+        "description": "The login user, whether cron is installed and running, the host time zone and the users whose crontab can be picked.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "404": {
+            "description": "No access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/jobs": {
+      "get": {
+        "summary": "List the jobs in a crontab",
+        "description": "The login user's crontab, or another user's with ?user= (needs edit access and root or sudo).",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "user",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The jobs and the raw crontab."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a job",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "schedule",
+                  "command"
+                ],
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  },
+                  "schedule": {
+                    "type": "string"
+                  },
+                  "command": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The crontab after the change."
+          },
+          "400": {
+            "description": "The schedule or command is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/jobs/{id}": {
+      "put": {
+        "summary": "Change a job",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The crontab after the change."
+          },
+          "409": {
+            "description": "The job changed on the host since it was read."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a job",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "user",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The crontab after the change."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/jobs/{id}/state": {
+      "post": {
+        "summary": "Turn a job on or off",
+        "description": "An off job stays in the crontab as a comment.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The crontab after the change."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/jobs/{id}/run": {
+      "post": {
+        "summary": "Run a job now",
+        "description": "Runs the job's command once as the crontab's user and returns its output. Stops after 2 minutes.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The output and exit code."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/crontab": {
+      "put": {
+        "summary": "Replace a whole crontab",
+        "description": "crontab checks the text on the host and refuses it when it has errors.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The crontab after the change."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/system": {
+      "get": {
+        "summary": "System cron jobs",
+        "description": "/etc/crontab, the files in /etc/cron.d, the scripts in /etc/cron.hourly, daily, weekly and monthly, and the number of systemd timers.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The system jobs."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/system/{name}": {
+      "put": {
+        "summary": "Create or replace a file in /etc/cron.d",
+        "description": "Every line is checked first. The old file is kept in /var/lib/termix-cron/backup.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a file in /etc/cron.d",
+        "description": "A copy is kept in /var/lib/termix-cron/backup.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/cron/{hostId}/logs": {
+      "get": {
+        "summary": "Recent cron log lines",
+        "description": "From the journal, /var/log/cron or syslog, whichever the host has.",
+        "tags": [
+          "Cron"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The log text and where it came from."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

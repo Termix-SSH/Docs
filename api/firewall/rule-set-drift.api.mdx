@@ -1,0 +1,69 @@
+---
+id: rule-set-drift
+title: "Rule set drift"
+description: "For each host of the set, the rules it does not have. Reading a host needs connect access."
+sidebar_label: "Rule set drift"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMFu3DgM/RWCpy6gerJ79C0LNG1aLLZIUgRFMCgYmzNWx5Zcic7Ea/jfC0qeZNIgBXLYkyWalN6j+N6ENccq2F6sd1jimQ/AVDXQ+CjgNyANQ2QxaRGGliNYgdpzBOcFGrrjAi6Yauu2QLnMMdcRKu8cVwJUVRxjgQaFthHLGzyzgffUtrg22FOgjoWD/pnQKoiepEGDjjrGEm2NBgP/GGzgGksJAxuMVcMdYTmhjH3KcsJbDjjPa82OvXeRoyb8dXKin6c8/3UM7CSM0HNIqAucZ4MdS+NrLHHLgiYjKXHVt8PWurfU29VmAb9KzWCJq8nW86oOdqMVkcPdgcwQWixxyqEZzS8YvvohwBWHzt5DzkGDdxQs3bYZ+hJN6Dc0tIIlNiJ9LFcrSYUF31PXt1xUvsM5kY9cDcHKmCDcMgUOp4PSuFnPZsLK+53l4wj19hOPD5GjIy61yxnK8UEPTVcsuDyG7nMSmmVx5kNHivnj9dUz9pcco/UOxO/YQWQnYF2aMr3EB/sfaSY0TDUHoAh/p0OBXJ3SUmGBs3lC6QFbZoUmj1ROeRyq73t5EdHH6yvI+Tr5QALRbt1b6wq4bthBH1jhGhWC0I6jRiqu2VUM/o7DiywS2uN2v7qTp5/PYccjRKEgKrm9lQaku//2jM5D6utbu+PRwL6xVZMvio/XFHCukpaoZUsu+L1bqityagukuo9AbvQqtDZylpd1G59YW2mV5sEJ4PTzuQ4/h5jB/1mcFCfPKP1DjrYMX86uDRx0WBtwG0mSSQhsv2yyWXkHo+pMJR7z61xefjCZUOurnR8E+uCFK70kvVDvo3TkFOgyLhdDm4fhIPMnuFRUTtjJ/26geViE72XVt2Sdok0uMy1WdYOPVoUGD01SB13sCg2WyVIzlbVBvVIrp+mWIn8J7Txr+MfAQU1k/WhKyVJqG3VdY7mhNvJvevHmYnHtP+Al8AexujF5XzvoDg3ueMzWP6+PXfn9uyuc55/gp1Be
+sidebar_class_name: "get api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rule set drift"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/firewall/rulesets/{id}/drift"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+For each host of the set, the rules it does not have. Reading a host needs connect access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per host."}}}
+>
+  
+</StatusCodes>
+
+
+      

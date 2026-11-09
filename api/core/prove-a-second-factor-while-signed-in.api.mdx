@@ -1,0 +1,69 @@
+---
+id: prove-a-second-factor-while-signed-in
+title: "Prove a second factor while signed in"
+description: "Prove a second factor while signed in"
+sidebar_label: "Prove a second factor while signed in"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFr5EYM/itCTy3MeZNwFOq3FO4g14eGZksoYSmTsXY9XXvGN5J34xr/96Kxs9l27+Duybbmk/RJI30eUeyOsXzC215q3BjsbLItCSW1jugDlthZqdFgsC1hiVvrJKa7Cg0m+tz7RBWWknoyyK6m1mI5ogydYlmSDzucpo2CuYuBifX85upKHxWxS74THzXPfYoHqgqcDL6/ur48f0wx7MAGPlJaUO8vUR8zPwhRgIJ9bqiCbUwgtWfo+dXz5udLz3WM0NowgBWhthMucJrMl0iCBSYXQwVzN+BY+4aA/S5QBT6gwZakjpV2L7KgmZtY4kop8Mr2Uq9YqHvXd6vxtaXT6kDJbwc0yJQOr5fQpwZLHGfThP9n9GfsE6wptf4FZgwaPNjktfjc7cWaC97avhEssRbpuFytJDsW9GLbrqHCxRanfF9Mrk9ehkzhmWyilIekfNpMZkQX497TucV2/lcaTpazEA86FzOV80CnMVEuuIyPfs8gNMvLx5haq5w/Pa4vqn8gZh8DSNxTAKYg4ANITaBJYvL/WEVCTbaiBJbhlxwUbKgyLDvmoTgv6cRtrgrNvAoz5G0Z/j7KVxl9elzDjAcmASt5Pt75UMBjTQG6RErXgBcQuydWi6OKgiOIB0pfrSKzPW/3d3fy9v4O9jQAi03iww6OXmqQ9uWvi3JO0O9v7Z4Go6vh6jkRv6Up4E7AOmF1W7AQj2HxdjboAlsnem7DEAMBNUzzSvqwjblqL42WuUz/7f2djj4lnqnf/FRcXxfXFyWtawIXE8GbXwEfrKuha/qdD1BF17cUhMELKy1IsRfi3Hhd6NYGzb9Mwbdqwn9YnO5M6EVWXWN90Oh52cdFLp4wywUaVMHQi50lAw2WZzq8qMbGYK1iUz7hOD5bpj9SM01q/txT0kXevAlDXuvKc1ZIjdYwXTB0MQgFHZgffl+0/kdA82XmrwsThqw/Ta9faHBPw/lvY9pMZ+p4/9vDGqfpX0syPwQ=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Prove a second factor while signed in"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/step-up/{factorId}/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Prove a second factor while signed in
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"factorId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Proved."},"401":{"description":"Wrong answer."},"404":{"description":"Factor not enabled for this user."},"429":{"description":"Too many attempts."}}}
+>
+  
+</StatusCodes>
+
+
+      

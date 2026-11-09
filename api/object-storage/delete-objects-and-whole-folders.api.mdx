@@ -1,0 +1,70 @@
+---
+id: delete-objects-and-whole-folders
+title: "Delete objects and whole folders"
+description: "Delete objects and whole folders"
+sidebar_label: "Delete objects and whole folders"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vktv40YM/isET11AsdL2pluy7aLZHjbYpAgKwyhoibYmlma0M1Qc1dB/LzgjPxJngc2luljmkJyPr4/aodA6YDHHL8tHLgXuxHlaMy4y7MhTy8Jez3doLBbYkdSYoaWWsUAqS9dbuakwQ8/feuO5wkJ8zxmGsuaWsNihDJ0qGyu8Zo/jmL3pbNmXG5Yf8RTEG7vGcVwkZQ5y7apBNV7bls4KW9Ej6rrGlCTG2fwxOKuyM9cuZgEz7Lzr2IvhoKcbHsKJFnlPA2ZohNvwFjC155V55ndZxUdDCp2zIdn+cnmpPxWH0ptOwWOBf7gttGQH2LJnqLhh4QrIVrCtTVnDikzDVcTx0vC3qAopyjBZuIZh5ZpKC51hy1K7SqvjQkyEFqnAvGv6tbEX1Jk8mV+E1Cr51AUh3x36YcxTNUO+Sy9jnlBihoH9076net9ggbskGvE13L9d7+GefWueIelghk/kDS2blJ5JGjO0or4RLLAW6UKR5xINZ/xMbdfwrHSt5nihCMreGxkihCWTZ3/Va5TzhfZm6dzG8KmEOvMnDwfJiYs7baAE5dTRobaKBacWjk0elTCbXj4535Ji/vxwfxb9HYdgnAVxG7YQ2AoYC1Iz6CXOm39jM0PNVLEHCnAdncayqlo0nOGYvQjp2I8xKm1IvS2pHMfxcSvfRfT54R6SPgQWIIFg1vbC2Bk81Gyh86xwMzACQhsOKim5YlsyuCf2340ioj1N97szeXV7AxseIAh5MXYNWyM1SPv8z1k4B9X3p3bDQzYNW7woHK+ZwY0AxfEKe11wWztZl2Stiwp6TnZwloGbwLM4r8pMX4+c9ntq3iMHzfd0sTjlmKN01HKuXEycEbV8xexwdXujU8Q+pCz8PLucXZ7l5tq7beCIuCWrdne/XpSu7UjMstlTCEwcANO4R/2VaTjEQiqFtBSZduqqHyCgFzgO5Rd+lrxryFh1HHljN3HTHI/chBm+ZCfM9ltKfRenG2vCrOLD7plYapFhrfRXzHG3W1Lgv3wzjir+1rNX4lgciSjSSGWCvldYrKgJfBbGYRHhT1+nHfUBMHs7vP2A2iHyXdPrP8y0BV5sXeWm//HiKUujNlmajBh6OvyY7rm4VxdH47Otq+x52DG3X+6U95bT9m5dpTaetvoZQNt0uYuxRI6Nsh02ZNe9FrfA5FOf/wDUMwqm
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete objects and whole folders"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete objects and whole folders
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"keys":{"type":"array","items":{"type":"string"}},"prefixes":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"How many were deleted and which failed"}}}
+>
+  
+</StatusCodes>
+
+
+      

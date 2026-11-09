@@ -1,0 +1,69 @@
+---
+id: files-in-a-snapshot
+title: "Files in a snapshot"
+description: "Lists one folder of a snapshot."
+sidebar_label: "Files in a snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P20YM/SsEL02BibTtUbcN2hSb9BA0LhbFwgjGEm1NLM0oQ2q9qqD/XlAftjYbA8mlJ9kUh3zvDfnUY0GcR9eICx4z/NOxMARPsA9VQRHCHiywtw2XQRI0KPbAmD3gG5sf24Zxa7Cx0dYkFPVFj04LNVZKNOhtTZjh57C7K9BgpC+ti1RgJrElg5yXVFvMepSu0UTnhQ4UcRjMNwstSL6vGkt0/rAq9qWl2F2qzbWvn9tqE26CZ2J9/+vNjT6ea7YpF7V+YiAv0REn2hRrkjIUmOGBBM3ULsO0qdqD869t49LdpGL6Oew47UeZhnQhyWl/4Tuke1cRK1yKj4vWbawww34KDWi+gvZPaCNsKNbuCaYcNPhoo7O7amI0R0dSe9tWghmWIg1naSrjwYSebN1UlOShxmHUhClvo5NuhLAjGynetsrtYatS5yEcHa0jtnHvqTtHViU+qvYTlHWh81UoluWK9P+UhGb+8TbE2irmd/ebF+w/ErMLHiQcyQOTF3AepCTQJiG6f61mQklWR90yvBmLgvXFmDYeTHAwzyidsU2s0EyzNaWsZv4kVxG9u9/AlA9MAlaA3cG/dj6B+5I8NJEUrgEnIPZIrJGcCvI5QXikeJXFiHYt9w8refvhDo7UAYuN4vwBTk5KkPrp0ws659Qfl/ZInYFT6fJyasSXNgncCdhcWI/NuRBOfj6dW+/DmKDvre/UrahimnbO+X0YWTuplObsU3D74U5nnyJP2H9JbpKbF4w0G9pm3mc2UFixO8vEY+/fQn6kOAYheOh0vcrAC/pILC43CtrDLoYTk4EinHwVbDEW0IwQabylJrDU1ivYeWTe6oarkBfL/RqhbpcX8vJ9Zj1dvdCTpE1lnde+o2f0sxs94MWNdBZmVzdq2frIFus+m5IGn9nw5Etbg6qEVux7VezvWA2DhifTVasoHKvxFJjtbcVk8EjdxYYfbdUqWlR/WEzq2+euSvLqr/mb8DNco78sr+/WPRcsE131rP+x6UrOYbv+bvzx+waH4T+OYKAH
+sidebar_class_name: "get api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Files in a snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}/files"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists one folder of a snapshot.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"jobId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"snapshotId","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The folder's entries."}}}
+>
+  
+</StatusCodes>
+
+
+      

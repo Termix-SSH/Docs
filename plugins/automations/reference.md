@@ -43,22 +43,32 @@ Give these to roles in **Settings**, **Roles**.
 | `automations.delete` | user | Remove automations. |
 | `automations.run` | user | Trigger an automation by hand. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `automations.list`<br />List automations | The server | Read only |  |
+| `automations.run`<br />Run an automation | The server | Changes | `automation` |
+| `automations.failed-runs`<br />Failed automation runs | The server | Read only |  |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:invoke` |  |  |
-| `operations:provide` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
+| `operations:invoke` | High | Run other plugins' actions. Acts for the signed-in user on the actions its manifest lists. Approval rules still apply. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `settings:read-core` | Low | Read Termix settings. Server settings, not your hosts or credentials. |

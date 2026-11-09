@@ -1,0 +1,69 @@
+---
+id: start-or-stop-a-network-or-set-its-autostart
+title: "Start or stop a network, or set its autostart"
+description: "Start or stop a network, or set its autostart"
+sidebar_label: "Start or stop a network, or set its autostart"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu3EYM/RWCTy0wXrl91JvboIhzQY2uGyMwFgUt0avJSjPKDOVdVdC/BxxpL7ZjIH7JkySKQ57Dy5kBhdYR81v8ZIN0VMNHKirrOOLKYEuBGhYO6jGgdZhjS1KhQUcNY46Vj3JZosHAXzsbuMRcQscGY1FxQ5gPKH2rntYJrzngOJrvRkqPH4gTJVi3fjEMFWK9e0Ugg+y6RisQhYKgwSi+RYPUid+bnD9+rcZxpeFj613kqBF/Pz/XR8mxCLZNAHJ84x0vFOcT+1KjgA+geYDAsWx92JhkYgErEU5zNyyVL5Woj/qd+OaYtXW3tu6MWps9TL07a+beZdqWmA1Td8ZsThGzQas0ZsNUpVHJcnjY97cLNeY4TCb9+Rj4Z98FuObQ2B1MPmjwgYKlu3qqw2xNpbinrhadEJE25lkm6eCCd9S0NS8K3+CYKhm56IKVPkG4YwocLjqleLvSHhfebyyfWqi177k/WE5CLLXHE5TTQIeWKxacR0G/Jyc088tfPjSkmN/dXD9jv+QYrXcgfsMOIjsB60AqBk3ig/2f1BMqppIDUIQ/UlAgVya3dHCBo3lE6YBtYoVmGurJ5TjWX7byIqJ3N9cw+af5IYFo1+7MugXcVOygDaxwDVgBoQ1HtRRcsisY/AOHF1kktKflfnUlL64uYcM9pGG2bg1bKxVIs/vvGZ2D6+tLu+HewLayRTUlisc0C7gUoEJ3Ku59wW/dfLog53xy0P/keu8YuI7z5lp37xNrK7XSfCqScHF1qUvAIU4kflucL86fUfszMAmnhA05WjO8//QR5q2F/daCd9Drjn2wrttB2uGpP8vl24lRbe/0VOqLykFDTuHNQ/JaZXkE8tBa4Z1kbU3WaZakCcMsOrd4FB2l/UR20KT7QJ/54WLYa48aZ43PZ5FeTf4adxjuKPK/oR5HNX/tOKggrI4Ck+ShtFHfS8zvqY78jELhnbDTwfvln1n/fwU036e2XzzXJx2rO/1CgxvujzebCs5PzJoq9JNzzt0YV+PJZXP19/Iax/Eb3CLLpA==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start or stop a network, or set its autostart"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/networks/{name}/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start or stop a network, or set its autostart
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","stop","autostart","noautostart"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done."}}}
+>
+  
+</StatusCodes>
+
+
+      

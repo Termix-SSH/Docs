@@ -1,0 +1,70 @@
+---
+id: choose-what-the-machine-boots-from-next-time
+title: "Choose what the machine boots from next time"
+description: "Choose what the machine boots from next time"
+sidebar_label: "Choose what the machine boots from next time"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1vIzcM/SsETy2g2GmPc0uCFvAWwRqJi6AIjIU8Q3sUz4izEscfNea/F5Qc21l3D/HBsKlH8pGUHg8odhWxeMWvvdzw8mZhfYVzg50NtiWhoIcHdB4L7KzUaNDblrBAV6HBQN97F6jCQkJPBmNZU2uxOKDsu4TyQisKOAzzjKYo91ztFfKjc8leyIse2a5rXGnFsR+/RfZqu4rNizcqBQ12gTsK4ijqaUUbV9IFLkpwfoUGyfet1urZk7rt9LtycY0GSy2njws0uHAccT4Y7GnpLuIsmBuyHof00XJixz7mrL/f3ubksQyuU+JY4DMJLDmA1ASedgILZgH2zR41wEfwQ80cCba1leTQ2rJ2npJPhGXgNscQ1yrvlqTmSsfCMTVBp1PguGv6lfM3tnNjPs90nLsSxwdXDWMNiQYjhc37hPvQYIGHbBrwR3L/cB9gRqF1O8gYNLixwdlFkxtwtKYeLG3fCBZYi3SxGI8lOY5oZ9uuoVHJrTZxrgzKPjjZJwoLsoHCXa91vM4Hc8CSee3o0mI79xftT5aLEM96PTKVy0Cn6SkXPN7QNM0E0nGnH39yaK1y/vIyu6r+mWJ07EF4TR4ieQHn05A0CQf3b7qqUJOtKICNcJ+CgvVVgiXHEQ7mQ0knbrkqNPmdZcj5pb1t5aeMvrzMIOMhkoAViG7lb5wfwUtNHrpASteAExC7pqiWkiryJQFvKPy0isT2st2f7uTddAJr2kMUG8T5FWyd1CDt7ttVOSfo51u7pr2Bbe3KOieK5zQjmAjYUqK6HbHAW3/0Lq33nAB6bv2ePQE1kUbpdaruPJ0V6498eS8V5l1Isk6oiA06wiWnZjlR9KWwwt10os+GQsxl/za6Hd1eNWPKWwpGexE5RAO00a40vIqZNvvIDcWkLPnVwf3jQ8zjfKJq6WJtYDJ9nCT8xAs1cPc4SxNVtWhtEtTj9fqk7nzgeroTQjsZd411XpMkMTkcJekVz5KEBi9EKUVLsoQGi7RQkjLNDdYqasUrHg4LG+nv0AyDmr/3FFQs5mfxSdJRuai/KyyWtol0xfK0WvCXp+PW+RXQ/D/790fp90njml7/ocE17fPeG3Q55AuZsueDh5zjZqbuZ8erVaaidRLv6dfnWSo7r8SWK/UJdqvL1W5zYk51JGlLtgM21q96u0rqkGLq5z9seq38
+sidebar_class_name: "post api-method"
+info_path: api/out-of-band/out-of-band-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Choose what the machine boots from next time"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/out-of-band/devices/{id}/boot"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Choose what the machine boots from next time
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"device":{"type":"string","enum":["none","pxe","disk","cd","usb","bios"]},"uefi":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Set for the next boot only"}}}
+>
+  
+</StatusCodes>
+
+
+      

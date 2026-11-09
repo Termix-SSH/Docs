@@ -1,0 +1,70 @@
+---
+id: start-or-stop-a-scrub-or-an-array-check
+title: "Start or stop a scrub, or an array check"
+description: "Start or stop a scrub, or an array check"
+sidebar_label: "Start or stop a scrub, or an array check"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVd9v4zYM/lcIPu0ANen26LfesMP1tm5Fk12wFcHA2EysxpZ8Et3UC/y/D5TSJLfcPdQvUSiS+vjr4x47CtSycIhYPO7ROiywI6nRoKOWscDaR7mt0GDgL70NXGEhoWeDsay5JSz2KEOnmtYJbzjgOC6zNkd576tBVUrvhJ3okbqusSWJ9W76FL1T2YUvv3riUtBgF3zHQSzHdEthw3KmFyVYt8HRYBTfnV2svG+YHI7pUzyx8y5mNz9dX+tPxbEMtlMkWOCiJoEdRai84wmq0dcKM6Eg4APoU0AQy9CvjArIAYVAA5Q1l1s02LLUvtJc+pii0JQWOO2afmPdFXV2GsUH2vBVzdRIPd3nPI/T5BUNRg7Pr2XpQ4MF7rNoxP8D+8v3AeYcWvsCWQcNPlOwtGpywAdpinlNfSNaWJEuFtOpJMMJv1DbNTwpfatJWyqCsg9WhgRhxRQ43PQax+NyNFpSv7V8LqHO/srDUXLmYqb1zVDOHR2rpVjw0FKpekkJzeHwwYeWFPOnxfwi+hnHaL0D8Vt2ENkJWAdSM+gjPth/U69BzVRxAIrwPjkFclVSS4YT7aHzkI7YclRo8nBkldN4PO3ku4g+LeaQ9SGyAAlEu3FX1k1gUbODLrDCNWAFhLYcVVJyxa5k8M8cvhtFQnue7jdn8ub+FrY8QNSmtm4DOys1SPvyz0U4R9W3p3bLg4Fdbcs6PxRPz0zgVoBKiWp20AW/cwfrkpzzSUHvyQ3eMXATD5OpxPFwophfcvOeU8QrNbwyg5LWqEVc+6RmRfVxlscQPqYxhJv7W50dDjHH/uPkenJ9kZEFSVlDFewzJ7B5+PMk58LNZh8LmN3dPMwN/P75jg38/WFmoK2oag2sJKxjsvzt853JOamtMsJggBrWROlt5GYNwlFiKriSSUuJMA/d9wZK+iqCY7sIv8i0a8g6fSDxzP7AVo94YqucxTO+QoPFcTNkylqatCvUcL9fUeQ/QzOOKv7Sc1AWWZ5YKXFKZaOeKyzW1ES+wHhcGvjDw2H5vAM038b+Oq1uSOTX9PoPDW55OG2xcTkazN2aEOTLn/M7V3N1cTK+WFTKaEdmv/9jply0Oiy41ldqE2inq5J2+XGfYkm8l2R7bMhtetok6kg+9fsP+C2Yfg==
+sidebar_class_name: "post api-method"
+info_path: api/storage-health/storage-health-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start or stop a scrub, or an array check"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/storage-health/{hostId}/scrub"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start or stop a scrub, or an array check
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"target":{"type":"string"},"stop":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was done."}}}
+>
+  
+</StatusCodes>
+
+
+      

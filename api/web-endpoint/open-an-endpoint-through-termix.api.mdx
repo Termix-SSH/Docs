@@ -1,0 +1,68 @@
+---
+id: open-an-endpoint-through-termix
+title: "Open an endpoint through Termix"
+description: "Gives a one time address on the Reverse Proxy web endpoint domain that serves this endpoint through the server. Hosts with SSH go through a tunnel. Others need the admin setting that lets Termix reach hosts directly."
+sidebar_label: "Open an endpoint through Termix"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v20YQ/SuDufRCU07aXnhziqRRCtRGrMAoDKMYkSNxLXKX2R1aZgn992J2aX1E8SHX6CJpOR9v3sy+4YgVh9KbToyzWOCf5okDEDjLIKZloKryHAI4C1IzfOYn9oHhxrvnAba8BLZV54wVqFxLRq1IILDXOFKbcDCQ2rt+Xcc40cDn8NEFCbA1UsPt7UdYu70VgfTWcpPDtdTsA1jmKvpS1RoLgUWMXad8DUuABfvWPINnKmuoY+DKeC6lGXLMUGgdsLjHO17C+wkTPmTo+WvPQd65asBijH+N5woL8T1nWDorbEUfUdc1piSlavYYlK8RQ1lzS/pLho6xQLd85FIwOwp0j4pmXmGGL2TMK03dedexF8NBA0xGh1DGCq/Z4+7E7/A8iDd2jbv40YShczakYG8vL/XrtLsj9L6BnQb87XvP5/aJGlPBRAlm6HykfN9DE8A67a+AOHAd233DEv05FrZvmpjhzXmGv9XZrC1XYGyegPx6braoOXYQSrLgbDPAklNjudo3FchWqf0mgPReg7rVKkb9/bWopwPcNf3aWPV3qxU4DzVpgd8b7ByV45aldhUW2LnIT0dSY4GzFOiCOjPb8vLixXemDF1IZAYzTFOvUzhi7xvtSDraYfYN1n9c718mOtlghk/kDS2b1OHpNFa5or4RLLAW6UIxm6WMOT9T2zWcl67VKXlQBGXvjQwRwpLJs7/qtYT7h102YuncxvDxCXXmLx72J0chbnXyE5TjQPvpVCxaczTDYjLCbPrxwfmWFPOnu8VZ9bccglHJcRvWq66TlwRIkzhv/ou3EGqmij1QgHcx6DQSnBzjJByXtMeWqsIMjWZLJpihpYj0cSuvIvp0t4BkHy8BpXG+MDaHu5otdJ4VbgZGQGjDQU9KrtiWDO6J/atVRLTHdP8wk1c3c9jwAEHIR22Muirt879n5exNf5zaDQ8ZbGtT1ilROKTJYS5ApQR1m2zBbe3kXZJV8aBS9DnZQbcMN4HT3VJJ/XwQ4/dpeI+V8fJUCPcCqH1cuciYEXU5EXm4upnr5WEfUvFv8rf55Rkl1ypmFGXnlxAV4MscjA2m4ukiZgfpcT41k2zcW9OqUiQqDC3F3TCNUwpszxfh4kUXToCMh5XzU6/jNNvCzzLrGjJWyYuiOE6qeo8HVcUMj3VVN9ORsj5kcUTUZRyXFPiLb3Y7Pf7as1exeziIZ1I2TPMddXDDAxb4R2L9YqHA1Lzpk1R8s/RVA/dr4Ob6VtVrOb08tK5SH09bfQGgLRYYoap3VMp4NmJDdt3TOopNjKmf/wFJAFVu
+sidebar_class_name: "post api-method"
+info_path: api/web-endpoint/web-endpoint-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open an endpoint through Termix"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-endpoint/open-termix"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gives a one time address on the Reverse Proxy web endpoint domain that serves this endpoint through the server. Hosts with SSH go through a tunnel. Others need the admin setting that lets Termix reach hosts directly.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","endpointId"],"properties":{"hostId":{"type":"integer"},"endpointId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"{ url }"},"400":{"description":"Invalid request","or the endpoint is not set to open through Termix.":null},"401":{"description":"Not signed in."},"403":{"description":"The host can only be reached directly and that is turned off."},"503":{"description":"The Reverse Proxy plugin is off or has no web endpoint domain."}}}
+>
+  
+</StatusCodes>
+
+
+      

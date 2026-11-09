@@ -24,6 +24,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "web-endpoint/open-an-endpoint-through-termix",
+          label: "Open an endpoint through Termix",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "web-endpoint/open-a-tunnel-endpoint-for-a-browser",
           label: "Open a tunnel endpoint for a browser",
           className: "api-method post",

@@ -1,0 +1,70 @@
+---
+id: change-the-priority-of-a-process
+title: "Change the priority of a process"
+description: "Needs edit access. Lower than 0 needs root."
+sidebar_label: "Change the priority of a process"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zgM/SsETzuAm2TnmFtnMAt0Zj+KaRfFoggWjM3YamxJI9FNvUb++4JS4mTazgK9bC5JKJJ6fCSfRqw4lsF4Mc7iEn9nriJwZQSoLDnGGfzqdhxAGrKwAJvOg3MywwKF6ojLe7wOTn3hN7JUc8BVgZ4CdSwc1GFEo8k9SYMFWuoYl9i4KFcVFhj4W28CV7iU0HOBsWy4I1yOKINXT2OFNe1+X7yayZs3plllb47ywVWDujwPLp0VtqJH5H1rSlKC5g9RWRpf5nbrBy7lOxT3aE3JiYvgPAcxHDUiWV9BpZd2Hdnq7DBKMLbGffpo8uidjTnP+8VCv77v323D4INxwcgAO4pQNmRrrmZKHnYsjauUMRcVbKJxiXPf9rWxF+TN3OdWXnS5lfMxt2l/POA4H72p9vPAqZACI4fHY5v70OISx2zaY/EM3V+uD3DLoTNPkH2wwEcKhtZtLupgTXVtqG9FB0XEx+V8Lilwxk/U+ZZnpeuUmJUiKHstOEFYMwUOl71Wdr/SiSmd2xo+t5A3X3iYLGcpbrSxGcp5oqkhigUPs6X/sxMWhx+/uNCRYv58d/ui+huO0TgL4rZsIbIVMBakYdBLXDD/pCGDhqniABThQ0oKZKvklgJneVJOJU3YclVY5BXJLqcledjJDxF9vruF7A+RBUggmtpeGDuDu4Yt+MAKtwAjILTlqJaSK7Ylg3tM8vB6FQntOd1vZvLy+gq2PEAUCmJsDTsjDUj39PeLcibXt1O75aGAXWPKJl8UT9fM4ErFUKKGHXzB7ewhuiRrXXLQc7KDswzcRs4rp4rx9aQ1n/LwnnRgcbb207prCzcukWVEvZ8rLFxeX+nqcIi59J9ni9nilf5yxuisBNdC6K1VCqddLsB375NL7D2HRxNdAPI+grMw6Lbq+scCAlMiygRoXR1TSK2j0nIiS6dEGh5gQ6ZNTVeJ6Sip5WECPyYpShROEuU2QEc4z+GPJxV+67uUR0z4Sea+JWMVUNKm8aB593jSPEwKfa56WOByep4mstR6fGqO0q5emm0c1xT5z9Du92r+1nNQOVqd5C2JU2Wi/q5wuaE28n8U/NPXw0PyDn5U0HHt7ZBUtO31Hxa45eH0vKrc/Y+3Kj/71b7AvGmp6HzyMV9ycavxp8gXr6uq8fROXf9xozq6PrzSnas0JtBOm0C7fLNLhSTNTrYRW7J1T3WSvZRTP/8CnCsThg==
+sidebar_class_name: "post api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change the priority of a process"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/process-manager/{hostId}/processes/{pid}/renice"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs edit access. Lower than 0 needs root.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"pid","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["nice"],"properties":{"nice":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The priority was changed."}}}
+>
+  
+</StatusCodes>
+
+
+      

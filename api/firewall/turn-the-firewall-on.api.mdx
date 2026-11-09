@@ -1,0 +1,70 @@
+---
+id: turn-the-firewall-on
+title: "Turn the firewall on"
+description: "Turns the host's firewall on, after allowing the SSH ports when allowSsh is true (the default). Always gets the undo timer."
+sidebar_label: "Turn the firewall on"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVUtv4zYQ/iuDuXQXYOS0R92yRYPNFkWDtRdBERgFLY0lxhKpJUdRVEH/vRhSsd11U2BP1cGWyHl88/pmwpJC4U3HxlnMcdN7G4BrgtoF/iHA3ngadNOAswr0nsmDbho3GFtFsfX6I3TOc4ChJpvu1qEGE4B9T/BOhEra677h9xncNIMeA1TEyUtvSwdsWvIZKmRdBcwf8XZxiluFnfa6JSYvNxMaQdlprlGh1S1hjoL0rkSFnr72xlOJubhWGIqaWo35hDx2ImksU0Ue53mbpCnwB1eOIlI4y2RZXnXXNabQkpLVU5C8TJe23O6JCkaFnXcdeTYUou6SgDPJnXMNaYuzwr3zBf3bVXwEU+icDcnUT9fX8ndZICpjNQbDdUxiR7aUehS1thVlKJZa4tqVkisXIkpJWY6rrukrY690Z1avpV1NKYPziqzeNYQKA/nn14z3vsEcp3Q0o/oG0B+u97Ah35oXSDKo8Fl7I6ZiHMtpDCX2gdSMuQv5asVRMaMX3XYNZYVrJRdbQVD03vAYIexIe/I3vYTwuJ2VVMsdDJ2f6M78SuPx5MzEWkqXoJwbOhZBsODSLbEoUQjV8nLrfKsF86eHzUX0awrBOAvsDmQhkGUwNhZFnDhv/optBDXpUkYnwIdoFLQto1hUzKQ3zkM6YktRoUp9n0ROnf808JuIPj1sIMlDIAbNEExlr4zN4EEmtfMkcBUYBtYHCnJSUEm2IHDP5N+MIqI9T/d3Z/Lm/g4ONEJg7Vk6N7Vy+/LnRThH0e9P7YFGBUNtijo5Cic3Gdwx6IKDqC2y4Aa7aBfaWhcF5F7b0VkCasIyW8IJn0/s8Utq3n9Of2KgZd7lY5Ya7l3MlmERP9Ic3NzfydCQDynoH7Pr7PoiFb9pqyuCL7cP6kjLpQK75zhqEbnplg/fy6+zMMp8yoCHVNX1+uNCHY0rDq5n6LxjKsRJrKwQRqsj6S1tJpwTs3S2DL5Fd0ag//cSSb3I9MKrrtEmEm8ksWlhwUc8sSAqfEWHCvPjLlmocKviehGdadrpQF98M89y/LUnL+y0PbFd5KrSBHkvMd/rJtB/pOnd52VfvYe3YL+ygB0jqTa9fKHCA42nxTdvZ4VpCiKCdPlz8nO1ERMn5YvdJkx5XBb3v6+F43bLTmxdKTpeD7Jd9ZCcuxhL5NN4NmGjbdXrKlJStCnP32ji5j0=
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn the firewall on"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turns the host's firewall on, after allowing the SSH ports when allowSsh is true (the default). Always gets the undo timer.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"allowSsh":{"type":"boolean"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Turned on, with the pending change."}}}
+>
+  
+</StatusCodes>
+
+
+      

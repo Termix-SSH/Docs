@@ -1,0 +1,69 @@
+---
+id: the-firewalls-own-output
+title: "The firewall's own output"
+description: "Rules as the firewall prints them (ufw status, firewall-cmd --list-all-zones, nft list ruleset or iptables-save), read only."
+sidebar_label: "The firewall's own output"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVV1v1DoQ/SujebkgebOFx7z1ShQKQkJ0UXVVrdA0md2YTexgT7oNUf771TjZD6iKxBtPiSfHnnPGMycDlhyLYFux3mGOn7uaI1AEqRg2NvCe6hraYJ2kWAMvus0eopB00RwRi6IpYbGobZSFLn94x9GA2whoDIIeywI+gG2F7muOi0gP/NJAYCrBu7rP0KDQNmJ+h1fzubg22FKghoWDfhnQKs2WpEKDjhrGHCsf5bpEg4G/dzZwibmEjg3GouKGMB9Q+laR1glvOeA4rhUdW+8iRwW8vrjQx8/VWFUMvpO2k1QSfpQMx9Fgw1L5EnPcsqCZ2OS4bOtua92CWrs8FGY5TOTGZaA9GowcHg5KulBjjsMUGtH8kvw/3wVYcWjsI0wYNPhAwabyKdk5mmhvqKtFayHSxny5lLQx40dq2pqzwjc4JtWRiy5Y6ROFe6bA4bJT/nfr0QxYeL+zfB6h1n7g/hg5O+JGyztROT/oWG3lgvMt6HoCoZlfrnxoSDm/v109UX/DMVrvQPyOHUR2AtalrtQkPtgfpEiomEoOej3/pkOBXJlgaWOGo/lJ0pHbpArN1E8T5NRR3/byLKP3tyuY8KAtTQLRbt3CugxuK3bQBla6BqyA0I6jRgou2RUM/oHDsyoS2/Ny/3ElLz9dw457nc8g1m1hb6UCaR6/PpFzhP55aXfcG9hXtqimRPGUJoNrASrk6CGawu/dvLsg53wC6HdyvXcMXEee5sq6jU+qrdQq82ADcPnpWpufQ5zIv8ousosnkj6Soy3Dl6vbkzOVyYXSyCQGB/uZLAm8g17nTKc0Trdzc/POTIJqX+x8J9AGL1xoknRDrY/SkFOic7uszszyn6h6Z9v4laLOlxN28hdY7dRZamrLtibrVFqypGE2tDs8GRoaPBBAg/nJcWmvHq1r3TAM9xT5S6jHUcPfOw5qNOuTcSXbKW3U9xLzDdWRf1OkF59nS38Jz3E+DLTrkz/Wna7Q4I77079hXJ/b9ts3KxzH/wGDAmwi
+sidebar_class_name: "get api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"The firewall's own output"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/firewall/{hostId}/raw"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Rules as the firewall prints them (ufw status, firewall-cmd --list-all-zones, nft list ruleset or iptables-save), read only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The output as text."}}}
+>
+  
+</StatusCodes>
+
+
+      

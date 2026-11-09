@@ -1,0 +1,300 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Packages API",
+    "version": "1.0.0",
+    "description": "See and install updates on your hosts, search, install and remove packages, and read the package history."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/package-manager/summary": {
+      "get": {
+        "summary": "Pending updates on every host",
+        "description": "One entry per host with Packages turned on. Each host is checked as the caller and kept for an hour unless refresh=1.",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/status": {
+      "get": {
+        "summary": "Package manager status on a host",
+        "description": "The package manager, whether root or passwordless sudo works, whether a reboot is needed and when the package index was last refreshed.",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/updates": {
+      "get": {
+        "summary": "Packages with an update",
+        "description": "Read from the package index the host already has. Refresh the index first for the newest list.",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Name, current and new version, repo and whether it is a security update."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/installed": {
+      "get": {
+        "summary": "Installed packages",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Name, version, size, summary and whether it is held."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/search": {
+      "get": {
+        "summary": "Search available packages",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Up to about 100 matches."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/history": {
+      "get": {
+        "summary": "Recent package changes",
+        "description": "From the package manager's own log or history.",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/repos": {
+      "get": {
+        "summary": "Package repositories",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configured repositories and whether each is on."
+          }
+        }
+      }
+    },
+    "/plugin-api/package-manager/{hostId}/action": {
+      "post": {
+        "summary": "Change packages",
+        "description": "refresh, update, upgrade-all, install, remove, hold or unhold. Runs as root and can take several minutes.",
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "action"
+                ],
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "refresh",
+                      "update",
+                      "upgrade-all",
+                      "install",
+                      "remove",
+                      "hold",
+                      "unhold"
+                    ]
+                  },
+                  "packages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The end of the package manager's output."
+          },
+          "400": {
+            "description": "The action failed. The output is in the answer."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

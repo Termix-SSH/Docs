@@ -1,0 +1,69 @@
+---
+id: open-the-v-ms-graphical-console
+title: "Open the VM's graphical console"
+description: "Tunnels the VNC port through the host with SSH and returns a Remote Desktop display token."
+sidebar_label: "Open the VM's graphical console"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v4zYM/lcIvmwD3Dgb9jK/dTcM6926Ky5Zi6EIBtZhYi225JPoNF7g/32g5Py4dB12D9uTLYqi+H0kP+1xyaH0phXjLBY476zlOoBUDPe/vIHWeQGpvOvWVTRWLgg8G6lgNvsJyC7Bs3TeBiD4wI0Thh84bMS1sDShrakHcRu2E8xQaB2weMR746WjGm6prIzlgIsMW/LUsLBXjz0aTaYlqTBDSw1jgXrzzRIz9PyxM56XWIjvOMNQVtwQFnuUvlVPY4XX7HEYsr+N1HXmX8UJ4o1d4zAs1Dm0zgYOuv/NdKqfC+oqPkAdMvx2+t1LlwuCTAC3WmWJ7FtdWifgO2uNXYPzYAQqUmusxcjnRHFhw1K5pUJzQTBLCAvM27pbG3tFrcm3iearZqQ5VwZDvk9EDvm2CfleuRjy0tngasYMA/vtoQidr7HAfTINmF2g+c11HubsG7OD5IMZbskbeqoTT6M18rCirhYto0gbijyXeHDCO2ramiela3CITAcuO2+kjyk8MXn2152Ce1xoPUvnNobPLdSad9wfLWchZlrRlMp5oGOBNRccC6/r5ITZ+POj8w1pzm8f5i/QzzgE42wqOQS2AsbGUuolzps/ST2hYlqyBwrwfQwaZ0Y+6ZVzSMfcEirMUgMnl1ML//Esr2b09mEOyR8CC5BAMGt7ZewEHiq20HrWdDNtL6ENB7WUvGRbMrgt+1dRxGzP6f5sJq/vbmDDPQQhL9rlUUqk2f3+As7R9fOp3XCfwXNlyipdFE7XTOBGgEoJemz0Bfdsx9MlWZ1BKkX3yfbOMnAdOE2dsSsXURupFealksH13Y0OAfuQQHw9mU6mL6C98UzC8cKGLK0Z3t3fwjivcJhXcBZ6nbGfje12UXlDqo9Kb0RUmyc9FeuiQtCQ1fTGJnnfsh3F5YsAa09tZUqq4TTtn6Sls2WFrfzn70DqGeGd5G1Nxmr6UWz2o4494knHlM8LJcMsvgb6LY7PwraJ61HcDxgXyVVD7vdPFPhXXw+Dmj927FVkFifRipKzNEH/l1isqA78DyR9+WF8Qb6C11Adhtn2URvrTleY4Yb705OmIvY/3hoZGhbnj8jd+9kch+Ev15XHOw==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open the VM's graphical console"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/console"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Tunnels the VNC port through the host with SSH and returns a Remote Desktop display token.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The token."},"409":{"description":"Remote Desktop is off, the VM is not running or it has no VNC display."}}}
+>
+  
+</StatusCodes>
+
+
+      

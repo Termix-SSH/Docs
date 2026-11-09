@@ -1,0 +1,69 @@
+---
+id: install-restic
+title: "Install restic"
+description: "Installs restic 0.17 or newer with the package manager, or the pinned release from GitHub when the package is too old."
+sidebar_label: "Install restic"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu40YM/RWCpxaYlb29FNAti6Jdbw8NGhdBERgLWqKtqaQZ7QwVxzX07wVnFNvZIAX2tCdJ1CPnPYp8OmHNsQp2EOsdlrhyUajrIgSOYitYFu9/Bh/A8YEDHKw0IA3DQFVLe4aeHO05GIWkuHWOawjcMUWGXfA9/Gbl47iFQ8PuRa6NIN6D7+oCDQrtI5YP+IGqdhwibgwOFKhn4aAvTmiV30DSoEFHPWOJjY+yqtFg4C+jDVxjKWFkg7FquCcsTyjHQZHWCe854DRtFB0H7yJHBfy0XOrlZRvWDYPNreAaHjlE612B02SwZ2l8rVR8FDSZUYmLoRv31r2jwS62WcNC6cXFKbOcFnNBNBg5PD7LGkOHJZ5yaELzFZO//RhgzaG3T5AxaPCRgqVtlwXM0aRhR2Mn2hiRIZaLhaTEgp+oHzouKt/jlFoQuRqDlWOisGUKHG5GFfKwmcwJK+9by9cRGuzvfDxHrkrcaa8zletC59YrF5w/iT5nEJr55lcfelLOn+7Xr9TfcdTOg/iWHUR2AjZPkR7ig/2XFAkNU80BKMKHVBTI1QmWEguczAtJZ25ZFZo8XBlyGa9/DvImo0/3a8h4iCxAAtHu3TvrCrjXSR8CK10DVkCo5aiRimt2FYN/5PCmisT2ut3f3Mmb2xW0fIQoFMS6/by3/dPnV3LO0G9vbctHA4fGVk0+KF6OKWAlQJVETZux4A9uzq7IOZ8A+p7c0TsG7iLnDbNu55NqK53KnC0Bbm5XOvt5GbHE98WyWL5SpGgYB9j5ruYQDdQktKXIMZ39i69aDikI3sFR1yvtaWafbc8oaQfb4A+RDdT+4DpPdSqgCB84fSW1gJ6ckp1HZvbPuc7X5HSxnLCT7+q0eZiEn2QxdGSdKkkudJrN7AEvZqbTNVuySX6r1/JsvM+etskvNfd00m7/Fbpp0vCXkYPazOZiW8l0ahv1vsZyR13k/+nUD3/O7v4jvEX/eZ3dMbljN+oTGmz5ePlNTJtr+779426N0/Qf2AVs1g==
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install restic"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/hosts/{hostId}/install"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Installs restic 0.17 or newer with the package manager, or the pinned release from GitHub when the package is too old.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The installed version."}}}
+>
+  
+</StatusCodes>
+
+
+      

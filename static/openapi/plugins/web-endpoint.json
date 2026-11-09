@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Web Endpoint API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Open a host's web UI inside Termix, directly or over an SSH tunnel."
   },
   "servers": [
@@ -149,6 +149,55 @@
           },
           "404": {
             "description": "Host not found or access denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/web-endpoint/open-termix": {
+      "post": {
+        "summary": "Open an endpoint through Termix",
+        "description": "Gives a one time address on the Reverse Proxy web endpoint domain that serves this endpoint through the server. Hosts with SSH go through a tunnel. Others need the admin setting that lets Termix reach hosts directly.",
+        "tags": [
+          "Web Endpoint"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "endpointId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "endpointId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "{ url }"
+          },
+          "400": {
+            "description": "Invalid request",
+            "or the endpoint is not set to open through Termix.": null
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "The host can only be reached directly and that is turned off."
+          },
+          "503": {
+            "description": "The Reverse Proxy plugin is off or has no web endpoint domain."
           }
         }
       }

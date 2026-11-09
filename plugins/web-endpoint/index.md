@@ -7,7 +7,7 @@ description: "Open a host's web UI inside Termix, directly or over an SSH tunnel
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Web-Endpoint/edit/main/docs/index.md"
 plugin_id: "web-endpoint"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Web Endpoint opens a host's web UI inside Termix: Proxmox, a router page, Portainer, Home Assistant, anything with a web interface. Open it in a Termix tab, or in its own window in the desktop app. Reach it directly, or over an SSH tunnel through the host when it isn't reachable otherwise.
@@ -23,6 +23,12 @@ It needs the [Tunnels](/plugins/tunnels) plugin.
    - Access: Direct, or SSH tunnel.
    - Open in: a Termix tab, or an Isolated desktop window in the desktop app.
 3. Save, then pick the endpoint from the host's menu.
+
+## Through Termix
+
+Use Through Termix when your browser can't reach the host, for example when you open Termix from outside through a tunnel. The page opens in a new browser tab on its own temporary address, and every request goes through this server. Apps that expect to sit at the root of a site work, and so do WebSockets and logins. Nothing is rewritten, and pages stay apart from Termix and from each other.
+
+It needs the Reverse Proxy plugin with a Web endpoint domain set: one wildcard DNS record, like `*.apps.example.com`, pointing at the proxy. See [Reverse Proxy](/plugins/reverse-proxy). Hosts with SSH are reached over a tunnel. For a device with no SSH, like a firewall or iLO, an admin must turn on Let Termix reach hosts directly. It always opens in a browser tab, since a frame could not keep the app's login. The desktop app uses an SSH tunnel instead.
 
 ## Beside the terminal and on the dashboard
 

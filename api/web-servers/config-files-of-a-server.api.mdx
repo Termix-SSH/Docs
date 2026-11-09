@@ -1,0 +1,69 @@
+---
+id: config-files-of-a-server
+title: "Config files of a server"
+description: "Every file under the server's folder in /etc."
+sidebar_label: "Config files of a server"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNFu20YQ/JXFvrQFzpLbR765QdI6RQGjVmEUhhCcyBV5FXnH3C4lMwL/vdg7WpLrJmiKPklczu3NDHfniBVxGV0vLngs8O2e4ghb1xIMvqII0hAwxT3Fbxi2odWa87AkKRdoUGzNWDziA23gPsEY1wZ7G21Hok/F4xGdtu6tNGjQ246wwCaw3FZoMNLHwUWqsJA4kEEuG+osFkeUsVek80I1RZwmM3f6OFAcz60yvX/TiiU6X+M0rRXMffBMrO9/uL7Wn5de3FlpGA5OGnXBRWD3iRbKAzuSJlRYYE2CJksrcNm3Q+38le3d8kCbq0yMl8csdlqqr4xmZpy9GWKLBR5zaULzNxJ/hCHCimLnnuAkdG+js5s2c5+rif7WDq2ouyI9F8ulpIMLerJd39KiDB1OST1TOUQnY6KwIRsp3gwq4nGtNpch7BxdVmzvfqHxVLloca8uZyqXjU6mKxecP4Y+ZxCa+c+7EDurnN8/rF6pvydmFzxI2JEHJi86fDqTekmI7pNVJDRkdTAtw4+pKVhfJVg6uMDJvJB04pZVoclzlSHnwfrzIJ9l9P5hBRkPTAJWgF3tr5xfwENDHvpISteAExC7I9ZKSRX5kiDs5836JxWJ7aXdX+3kzd0t7GgEFhvF+Xqe4e7pwys5J+jXW7uj0cChcWWTL+LzNQu4FbClsB6bsRAOfj5dWu9DAuh768fgCajlebmc34ak2kmrMi+yBW7ubnX+KXLm//3ienH9StWv1tuawNfOPxm46W3ZULr5ja2qEYKHUddK15ILYCfEBsrgt6420IaaE/jn1eru3mRVlHKxbKyvCYRYqIKtiyzpa/WBpbNeSc+j8yY1S0HKELZgz8v7gqqumhfy8l+yN0+F0JMs+9Y6r1RSnBznRHrEcyKhwYtMQoPFKYJzLK1NCmU9dTxuLNPvsZ0mLee81aSoHGvuVFhsbcv0BTHf/jaH8XfwOao7Gi/Te2/bQUGo4fKccP//rc+b78fLO5/ZzJ5M68uQ/+ntCqfpL9GJdtc=
+sidebar_class_name: "get api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Config files of a server"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/web-servers/{hostId}/files"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every file under the server's folder in /etc.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"server","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Paths with their size."}}}
+>
+  
+</StatusCodes>
+
+
+      

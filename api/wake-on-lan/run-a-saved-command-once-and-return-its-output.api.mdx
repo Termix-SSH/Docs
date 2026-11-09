@@ -1,0 +1,70 @@
+---
+id: run-a-saved-command-once-and-return-its-output
+title: "Run a saved command once and return its output"
+description: "Run a saved command once and return its output"
+sidebar_label: "Run a saved command once and return its output"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isEnzZASbrbnvzWG25Ab8OtaDsUQxEMjM3Gqm3JJ9FxssD/faCUJrml91C/2JY+kh9F6uMehdYRiyd8pIZn3s3+uP6CS4M9BepYOOjmHq3DAnuSGg066hgLrH2UmwoNBv462MAVFhIGNhjLmjvCYo+y6xVpnfCaA07TMqM5ykdf7RRSeifsRD+p71tbkljvFi/RO1278OVXL1wKGuyD7zmI5ai7jXXVGSpKsG6NBtkNnWY3UsNoMNaDVH50aq+A5ZQeZRV772J29uHqSl8VxzLYXvlggZ+2VqD0FQO5Cvwg/SA4GfzlLfAXD6XvOkXaCJE2XGXsz29gmasIXFkBKkuOEcSD1Ax6wKjkvsXfDQ4o+zwG8a7MvALLEBxYia8UDXYsta+0furQ5DIWuOjbYW3djHq7GA/Fb8ktKt7YkuNinws8LYSTWeSweW2HIbRY4D4vTfh/in/7IcADh85uIWPQ4IaCpVWbj/iwmg7jmYZWtKFE+lgsFpIM57ylrm95XvoOp9Q6kcshWNklCiumwOF60FyelpPRVvKN5fMV6u3vvDuunLm4177KVM4dHRtIueChlfU/g9AcPn7zoSPl/Pnx4SL7e47RegfiG3YQ2QlYlyqqQXyw/6Yeh5qp4gAU4WNymgqosGQ414Y5T+nILWeFJl/KDDldy5dRvsvo8+MDZDxEFiCBaNduZt0cHmt20AdWugasgFDDUVdKrljby284fDeLxPb8uN99kte3N9DwDqJQEOvWMFqpQbrtPxfpHKHvP9qGdwbG2pZ1DhRPYeZwozdQopodsOBHd7AuyTmfALpPbucdA7eR5+mOqmDdnaTtU27ekzRlBZq0aM8+HY8V3T/XXbi+vdGLwiHmRH+af5hfXaSvFgZUykC1LOcWqGxgp/euo7K2jiM8B9+Bsuz9yAEqivXKU6hSrVQLOkoae2icd+vKN6yO9RbeyqJvyToNk4Rif5CcJzxJDho8E53kLckOGiyOkyUpz9KkUaPm+/2KIv8V2mnS5a8DBxWD5UlckjRUNup3hcUztZEvmB5nDv5wd5hdP4KGeyuD10vndknD2kH/0GDDu9MQnJaTwdx0iUHe/DXHmT2oi5PxxZxTYTqK9O2f9yopq8N87HylNoFGnbQ05uA+5ZLkK63tsSW3HmidFCD51Oc/e621mg==
+sidebar_class_name: "post api-method"
+info_path: api/wake-on-lan/wake-on-lan-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a saved command once and return its output"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wake-on-lan/devices/{hostId}/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Run a saved command once and return its output
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"kind":{"type":"string","enum":["wake","shutdown","ping"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Exit code and output"},"400":{"description":"No command is saved"},"403":{"description":"Needs edit access to the host"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -6,9 +6,34 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.2.3"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Tunnels host page tile
+- An alert and a Termix event when a tunnel fails for good, and an event when it is back
+- Tunnels are listed as a resource for Termix actions
+- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions
+- Tunnels that are down show as a status tile
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps
+- SSH tunnels and gateways are tabs above the search bar
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Add tunnel and the other add buttons no longer have a filled box around them
+- Desktop SOCKS5 tunnels no longer drop the first data a program sends
+- A client tunnel closes its local connection when the target closes, so the next request no longer hangs
+- Tunnels starts again on MySQL, where an index change stopped it from loading
+- The tunnel settings and edit buttons have names for screen readers
+
 ## 1.2.3
 
 ### Fixed

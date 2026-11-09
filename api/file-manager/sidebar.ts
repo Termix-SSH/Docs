@@ -186,6 +186,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "file-manager/open-an-ftp-or-ftps-session-for-a-host",
+          label: "Open an FTP or FTPS session for a host",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "file-manager/download-a-file",
           label: "Download a file",
           className: "api-method post",

@@ -1,0 +1,69 @@
+---
+id: start-shut-down-reboot-stop-suspend-or-resume-a-vm
+title: "Start, shut down, reboot, stop, suspend or resume a VM"
+description: "Start, shut down, reboot, stop, suspend or resume a VM"
+sidebar_label: "Start, shut down, reboot, stop, suspend or resume a VM"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v5DYM/SsET11AGad79C3tomh2G2zQSRMUwWChsZmxOrbklaj5qOH/XlByZibJBtj0sCdZNMXHR4pPA7JeBSzv8dZ4jrqFK101xlLAhcJee90RkxePAY3FEnvNDSq0uiMssXGBL2tU6OlrNJ5qLNlHUhiqhjqN5YC878XTWKYVeRxH9c1IMZrvihPYG7t6NYyu2Dj7hkAKycZOKhBYe0aFoYlcu20OsnQu2dj1ssTQk815htgRLsZxkTa9s4GChH9/fi5LTaHypk/ZlPjBWZpJ0s/sc8FUIJAgmAoypAJBVDABgvOQEUHD7RUq7IgbVwt9FyTBVIUSi76NK2PPdG+KTe7oWTd1tJBmhWLIPRuLTReKQco+Fr3bki+GXLxRiJLfPLY9+hZLHLJJfj6l8LeLHm7Id2YH2QcVbrQ3etnmikzWVJQHHVuWi8Pch7IoOB2c0U53fUuzynU4ppoGqqI3vE8pLEl78hdRON4vpPWVc2tDpxbdm0+0P1hOQsyl9TmV00CHmyC54HRDZJ+dUE0fvznfacn5493NC/ZzCsE4C+zWZCGQZTAWuCEQEOfNv1o8oSFdkwcd4JcUFLStk1s6OMNRPaF0yC2zQpXvenY53vZ/tvxqRh/vbiD7QyAGzRDMyp4ZO4O7hiz0niRdBYaB9ZqCWCqqyVYEbkP+VRYp29Nyv7mSF9eXsKY9pJEzdgVbww1wt/vygs7B9e2lXdNewbYxVZOBwhFmBpcMuuIgxyZfcFs7na60tS45yH9t984SUBumGTb2wSXWhluh+Vw74eL6UoaAfMgkfp6dz85fUPvVk2ZKgJ22ekXw6fYKprGFx7EFZ2EvM/aHsXEHaYhzf+bz3zOj1izlVOqL6EGnraQ3XZL/rTFPsj30mGnHRd9qYwUuicMwyc89HuVH+D8TIFTpvZC1PDwcmy7tJ/lPQiT7SccX+YiEHoalDvSXb8dRzF8jeRGHxVFsklTUJsh3jeWDbgO9YFE5y2TlEv705/REvANU32b3OIR2nzStjbJDhWvaHx8/EZ8fiJoq9YMxp26Mi/Hk5bn+PL/BcfwP10rVXA==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start, shut down, reboot, stop, suspend or resume a VM"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/power/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start, shut down, reboot, stop, suspend or resume a VM
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","shutdown","reboot","stop","suspend","resume"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done."}}}
+>
+  
+</StatusCodes>
+
+
+      

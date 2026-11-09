@@ -1,0 +1,69 @@
+---
+id: restore-a-snapshot
+title: "Restore a snapshot"
+description: "Restores all of a snapshot, or picked files, to a folder on this host or another host you can edit. Audited."
+sidebar_label: "Restore a snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu4zYQ/ZXBnFqAK6U96pZFUSDbQ4ONi6AIjGIsjS2uJVLLGcVRDf17MZLseJOm6F52TxKHj8P3hsPHI1YsZfKd+hiwwI8sGhMLUNNA3AKBBOqkjuogJuh8uecKtr5hcaARCLaxqThBDKC1F6ijqCEpRK05zeMh9lBSAK68ZnDdV165ytCh0k6weMD3VO77TnDtsKNELSsnmziiN1YdaY0OA7WMBX6Km5sKHSb+3PvEFRaaenYoZc0tYXFEHToD+qC844Tj6P410Una/8smmnzY4TiuDSxdDMJi8z9fXdnny0KuagZRSsoVpLmokPqQGRlsWetYGZ8oim6mVWDeNf3Oh3fU+XwzVyT/FDeSHyfJY34iLPnxmfuYL/nRoXB6PFWuTw0WeJxDI7oXBP+MfYIVp9Y/wYxBh4+UPG2aWdcSnaRtqW8UC6xVOynyXKeFGT9R2zWclbHFcaqMcNknr8NEYcOUOF33pu5hbadQxrj3fBmhzv/GwzlykeLOTmCmcpnofCDGBZeDsvEMQrf8/BpTS8b5w/3qlfo7FvHWs3HPAYSDgrcOZrBNYvJ/kyGhZrLuJoH3U1KgUE2waWGGo/tC0pnbrArd3HYz5KKDD/omow/3K5jxIKxACuJ34Z0PGdzXHKBLbHQdeAWlPYtFSq44lAzxkdObKia2l+X+6kpe397Anoe5sX3YwcFrDdo+/fVKzhn69aXd8+DgUPuynjeS520yuFGgUsWWLViIh7CsLimEOAFsnsIQAwM3wvO182EbJ9VeG5O5uA5c395Y73OSmftP2VV29UqRoaHvFsMTBxUpbUjMLEMFv8Ryz2kKmhkOdr3M/Bb2dkd96Yx0gE2KB2EHVTyEJlI1JVhu8XRK5gstBSO7tMxizBeG/JKgXa6gHPQ72PjcRspPmncN+WAaJv85Lt72gM/eZn21+L0zM7dPcTL1s8VZ8IVBzy63dmhsLOfxaPX/IzXjaOHPPScznvWzkU02VHmx/wqLLTXC/1G3Hz4ur8CP8Jas0wUPw+SXTW8jdLjn4fw2ma99w00vyjSuL5+X29/vVjiO/wAjd7p0
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore a snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}/restore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Restores all of a snapshot, or picked files, to a folder on this host or another host you can edit. Audited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"jobId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"snapshotId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The started restore run."}}}
+>
+  
+</StatusCodes>
+
+
+      

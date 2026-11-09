@@ -1,11 +1,11 @@
 ---
 id: list-session-recordings
 title: "List session recordings"
-description: "Returns every terminal session recording for the authenticated user."
+description: "The caller's own recordings. With scope=all, everyone's, for users with session-recording.audit, filtered by userId, hostId, protocol and a from/to date range."
 sidebar_label: "List session recordings"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v2zAM/SsEz6rTDtjFtw5Yh3Y7FG2GYiiCgbGZWLMteRKdxDP83wfJzsea9lBgpwT0e+J7lPh6zNlnTjeircEUH1haZzzwhl0Hwq7Whirw7L22Bhxn1uXarGFlHUjBQK0UbERnJJxD69klqFBo7TF9xseJ97Dn4UKhY99Y49lj2uOHy8vw86+Kb9oL2NV5W5/goPDja5wb0hXnIBZWLFnxOndQWLMUNscU1yyosCEpMMVZU7VrbS6o0bOJeXFgzlChZ7dhF0z12LoKU+zH0oDqhZIftnUwD6PbwYhBhRtympbVaHqqRg8raivBFAuRxqezWZz5LuEd1U3FSWZrHIZhERRkrdPSRQlLJsfuug3inxeD6jGzttR8WqFGf+XuUDk54jEruB6lnB7Uo3QNT1qC5wjDdAKhmv7cWFdT0Hz3ND9zv79ysSUb8GwEtIlPJTSxTv+hgISCKWcH5OFTPBTI5BEWifGeTy0dtI2uUKEO3UYIKjQUlf7aypuK7p7mMOLBswAJeL02F9ok8FSwgcZxkKtACwiV7EMl45xNxmA37N50EdWejvvdk7y+v4WSO/BCTsJ+bbUUIPXu55mdA/T9oy25U7AtdFiP0Mgf2yRwK0CZ+ECbsGC3ZmJnZIyNgPCdTGcNA1eex6XSZmWjay0Vn4z8sPdwfX8btoCdH11cJVfJ1Zm3EX/MndDacW2FIWdfim32e+3jt6aiLqitYUlZCdZBbremspSP1Ypkup3GeqnJBJHTU4khc54SLzWFzTLCRv5jOo5vQ3gns6YibYLAGCr9lEfPeMyjGD4vEgkVhiQtrJcA7vslef7uqmEI5d8tuxATi2PsjJlwDL8vn+c4DH8BlswaGA==
+api: eJzVVcFu20YQ/ZXBXHJZU27aXgj04AJJ4TSHoFFhFIZRjMmRuNVyl9kdSmYF/nsxu5KsWPEhx54oDd/svHmcebvHllMT7SA2eKxx2TE05BzHNwnCzkPkJsTW+nWq4M5KB6kJA/9CzhngLccpeH6TDKxChDFxTLDLKE7JBn91Sq9obK0YWFknHLmFxynjb1sDXUiizyEGCU1wQL4FglUM/UICtCQMkfyaKzQotE5Y3+PnUgH+OFbAB4MDRepZOCpkj1Zb+jJynNCgp56xxswfDaam456w3qNMQ34hUU8xyH7stUJvvQLJOXyY5weDkdMQfOKkWW+vr/XxtXwfbRIIq2P75+rhbPCn6x8vc06CZuXCKK+Jl4/4+Vtl35N13IIEWLE03bfLzwZ7li60WOOaBVUt6bDGxeDGtfVXNNjFRemFSsVxe5R0jA5r3JfQjOYFk7/CGGHJsbdPUDBocEvR0qMruh2iuYcVjU6wxk5kSPViITmx4ifqB8dVE3qcs/KJmzFamTKFR6bI8WZU8vcPs9ljE8LG8nmEBvs7T6fI2RGf9bsXKucHncZAuRzHQ/8XEJrDj/ch9qScP9wtL7o/zqSEDXtI7AWsB+kYtEiI9l9SJHRMLUegBL/mQ/PAKywn5u983tKJW+kKTRnsAnme7H928iqjD3dLKHhILEACya79lfUV3HXsYYisdA1YAaENJ4003LJvGMKW46tdZLbncn+3kjefbmHDEyShKNavi4NI//T3RTsn6PdLu+HJwK6zuh5aKD2XqeBWgBpJmnbAqvkdshvyPmSAvievlgfsEpelsn4VctdWHJ9JfjImuPl0q1vAMZUufqjeVtcXvRU85B3wVEwwch+EoeW0kTAc9zoZ2JHuuXTcg7NbNhm9YR6APGS34NYA+yZOg3B7cAK1pl0XoLUt7DoqjjKEJD15beEwSNnFLj3kJWPdOy/s5f9xb5ShFH6SxeDIeu09u9n+YIT3+GyE2fVeUEGDesdoVQXv94+U+M/o5lnD5ZpRf2ptUrdrsV6RS2xww9PZxbMlNyoTVFc6WmPxrWeD/u3dEuf5P8ymqBQ=
 sidebar_class_name: "get api-method"
 info_path: api/session-recording/session-recording-api
 custom_edit_url: null
@@ -37,9 +37,19 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Returns every terminal session recording for the authenticated user.
+The caller's own recordings. With scope=all, everyone's, for users with session-recording.audit, filtered by userId, hostId, protocol and a from/to date range.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"scope","schema":{"type":"string","enum":["mine","all"]}}]}
+>
   
 </ParamsDetails>
 
@@ -50,7 +60,7 @@ Returns every terminal session recording for the authenticated user.
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"List of session recordings."},"500":{"description":"Failed to fetch session recordings."}}}
+  responses={{"200":{"description":"List of session recordings."},"403":{"description":"scope=all without session-recording.audit."},"500":{"description":"Failed to fetch session recordings."}}}
 >
   
 </StatusCodes>

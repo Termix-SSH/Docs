@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Passkeys API",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Sign in with a passkey or security key instead of a password."
   },
   "servers": [
@@ -112,7 +112,7 @@
     "/plugin-api/webauthn/login-options": {
       "get": {
         "summary": "Whether the sign in page shows the Passkeys button",
-        "description": "Public. passwordless is false when an admin turned passkey sign in off.",
+        "description": "Public. passwordless is false when an admin turned passkey sign in off. onSsoPage is false when the button is hidden on the single sign-on page only.",
         "tags": [
           "Passkeys"
         ],
@@ -200,12 +200,32 @@
     "/plugin-api/webauthn/second-factor/disable": {
       "post": {
         "summary": "Stop asking for a security key after the password",
+        "description": "Needs a security key assertion from proof-options in the body.",
         "tags": [
           "Passkeys"
         ],
         "responses": {
           "200": {
             "description": "Turned off."
+          },
+          "400": {
+            "description": "No security key assertion was sent."
+          },
+          "401": {
+            "description": "The security key check failed."
+          }
+        }
+      }
+    },
+    "/plugin-api/webauthn/second-factor/proof-options": {
+      "post": {
+        "summary": "Options for tapping a security key before turning the step off or removing a key",
+        "tags": [
+          "Passkeys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Options for the browser, or null when no proof is needed."
           }
         }
       }

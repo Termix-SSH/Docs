@@ -1,0 +1,69 @@
+---
+id: backup-tools-on-a-host
+title: "Backup tools on a host"
+description: "Reports root access, the restic and rclone versions, Docker and the database dump tools."
+sidebar_label: "Backup tools on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1lcGO2zYQhl9lMKcWYORtj7pt0LTY9BIkLhbFwihoadZiLZEMZ7ReVdC7F0MqtpPFFsihJ8nDn8N/RsPPM7bETXJRXPBY40eKIQlDCkHANg0xG5COIBGLa8D6FlLTB0/wRIld8Gzgl9AcKeU1lbZW7N4yQTsOESSEnis0KPbAWD/gW9scx8i4MxhtsgMJJV2Y0amDaKVDg94OhDV2geWuRYOJPo8uUYu1pJEMctPRYLGeUaaoSueFDpRwWXaq5hg8E6vg55sbfXxd6LYj0OTAYmXkCpfF4EDShRZrPJCgKVZq3MR+PDj/xka32RfzG93Km7nYWzYlCRpkSk9fyhlTjzXOJbSg+cbBn2FMsKU0uGcoGjT4ZJOz+74YX6PZ+6Mde9GGiESuNxvJGyt6tkPsqWrCgEsunakZk5MpW9iTTZRuR63jYbeYGZsQjo6uIza632k6R65SfNIeFyvXic4tVy+4fgr9XURo1pdfQxqsen5/v31R/SdinR6QcCQPTF7A+Tw+ekhI7h+rSujItjpbDG9z0vOU5Y0VLuarks7eSlVoylAVyWWs/j7Jq47e32+h6IFJwAqwO/g3zldw35GHmEjtGnACYo/EGmmoJd8QhCdKr1aR3V63+7s7efvhDo406dAmcf4AJycdyPD814tyztLvb+2RJgOnzjVdOYgvx1Rwp1wQ1m2rFsLJr7sb630Gh+i69ZOCgnqmcr+cfwy5aie9lrmiAG4/3OnsF6BgjT9VN9XNi4pUDWOEx9C3lNicQcP57JVCGoTgYdLrla9pcV8AlmHmYZ/CiclAG06+D7YtXCOWkCh/pRhYBuvV7DoyxWvBmea3Ofm3JvWCeSEv/zNLy9gIPcsm9tZ59Zx5M6/UesALtXSOVuiaTFR91me0rvDalTXdOs965h+pXxYNfx4pKU92Fz5lurSO9b3F+tH2TP/Rih8+rvj+EV5z/+Xe+iljsB/1Fxo80nT5H1h215T+7d0Wl+VfAWRYQA==
+sidebar_class_name: "get api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Backup tools on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/backups/hosts/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports root access, the restic and rclone versions, Docker and the database dump tools.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The host status."}}}
+>
+  
+</StatusCodes>
+
+
+      

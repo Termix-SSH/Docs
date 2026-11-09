@@ -1,0 +1,68 @@
+---
+id: add-a-sunshine-pc-to-moonlight-web
+title: "Add a Sunshine PC to Moonlight Web"
+description: "Adds the PC as a global host so every Moonlight Web user can stream it. A PC already there is reused."
+sidebar_label: "Add a Sunshine PC to Moonlight Web"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v40YM/SsEz4qdbreH6ubNtkC22DZI3A2KwCjGEm3NWprRcqg4qqD/XnBGiT+yi6I9NJfIMyTnkXx8HLCkULBtxXqHOS7KMoBUBDdXYAIY2NZ+bWqofBAIHuiRuIeP3rvabiuBe1pDF4ihMA6CMJkGrMxgEQPUTKbsNR4T2ABMXaByhhmK2QbMH/CWGi8E7ynsxLe4yjBQ0bGVHvOHAddkmHjRSYX5w2pcZcj0paMg73zZYz7En5apxFy4owwL74Sc6JVp29oWRhObfw6a3YChqKgx+iV9S5ijX3+mQjA7CvSApiyZQlA0LfuWWCyFGHK6OPgHYeu2OGbYepajC+uEtsQ4xj+NH1rvQorz5vJS/52WfhmrPtNYb792/9GGYN0WPIN1j6a2JUx49Eifn3y/f+17WmZthXTsqAS/2ai3drwwdU0MjenBeYFAAl17aPUU/MevADthgw1H7tHph8s3/+RU+K4uo9+agMkUlWJjYNooYyK+qfMz1HI2JJUvMcfWB21fa5QiOG/rbmvdhWntnGPOF2XKed48PzhXLgdUpvEjcYhE67jGHId0NGJ2hvYP3zEsiRv7BMkGM3w0bM26Ti2dTmOeG9PVgjlWIm3I53OJjjN6Mk1b06zwjdLiiOt3SssU55jxL2TSQAo4mmE+GWE2ffzsuTH64If75SvodxSC9Q7E78hBICdgXSyoPuLZ/hVHBCoyJbEO/bsYFIxLdY+OsZGF9ztLZ9hMa3+hHjO0+loywQydiUg/7+WbiD7cLyHZR7YYgWC37sK6GdxX5KBlUrgZWAExOwp6UlBJriDwj8TfzCKiTcD+YyUXN9ewox6CGBadur2VCqR5+vNVOi+m/760O+oz2Fe2qNJD4fDMDK4FTCFB3SZb8Hs3eRfG6bSYQqJMu947AqoDpfFQvbs9KOVPiXknEvYsXc/KdTlqCzc+FsuKWp/LxuLmWmlPHFLm383ezi5f1eP2/U0Gn369ymDRtjXBaZAMbrsg+iPmsaTakapFpETQ+vU6a2v2+0CcpYIUtW3X3nCZwcbWBMLGhY1eh8poFjEWU+G5tG47S3ocpDFR9ScuLsoSDNx1LlTWxQ0n/nSVnecyHPbJ/7cZE1GFnmTe1sY6TSbK0zCp3AMeVC5urmOdwwxflA4zTFq3Sh/qOgxrE+h3rsdRj790xLpqVwc5i5s2w0TaKI476jHHq1SKi6UCVPO6S/N/tmZV2F7k+ea3O5Wk9bSuG1+qD5u9Ajd7zBEz9LHcUf7i2YC1cdvObKOCxJhKanM6ymejG5E+a5LrjxAOQ7JYqpCNKu4poShsOK7GcfwbEJMe2g==
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a Sunshine PC to Moonlight Web"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/moonlight/hosts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Adds the PC as a global host so every Moonlight Web user can stream it. A PC already there is reused.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["address"],"properties":{"address":{"type":"string"},"port":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The PC."},"400":{"description":"Missing or invalid address or port."},"403":{"description":"Remote Desktop is turned off or the caller may not set up Moonlight."},"409":{"description":"Moonlight Web is not set up."},"502":{"description":"Moonlight Web could not be reached or refused the request."}}}
+>
+  
+</StatusCodes>
+
+
+      

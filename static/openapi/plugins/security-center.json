@@ -1,0 +1,345 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Security Center API",
+    "version": "1.0.0",
+    "description": "Audit SSH keys, rotate them and scan hosts for known vulnerabilities over SSH."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/security-center/summary": {
+      "get": {
+        "summary": "Security score of every host the user can see",
+        "description": "Uses the data the background timer already collected, so it never opens an SSH connection.",
+        "responses": {
+          "200": {
+            "description": "One row per watched host."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}": {
+      "get": {
+        "summary": "Keys, findings and scan summary for a host",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The latest reading, read again when it is older than a minute."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/refresh": {
+      "post": {
+        "summary": "Read the keys on the host now",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new reading."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/config": {
+      "put": {
+        "summary": "Change alerts, intervals and key limits for a host",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved settings."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/vulns": {
+      "get": {
+        "summary": "Known vulnerabilities in the installed packages",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The last scan, worst first."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/scan": {
+      "post": {
+        "summary": "Scan the installed packages now",
+        "description": "Sends package names and versions to OSV, or to the OSV address an admin set.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The finished scan."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/ignore": {
+      "post": {
+        "summary": "Hide an advisory on a host",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "advisory": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/ignore/{advisory}": {
+      "delete": {
+        "summary": "Show a hidden advisory again",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "advisory",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/events": {
+      "get": {
+        "summary": "Problems found and cleared, scans and rotations",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/rotate-login-key": {
+      "post": {
+        "summary": "Replace the key Termix logs in to the host with",
+        "description": "Adds a new key, checks it logs in, saves it as a credential, points the host at it and only then removes the old key. Any failure leaves the old key in place.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "What was done."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/revoke": {
+      "post": {
+        "summary": "Remove a key from an authorized keys file",
+        "description": "Removes every line with this fingerprint from the file. The key Termix logs in with is refused. A backup is kept next to the file.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "fingerprint": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What was done."
+          }
+        }
+      }
+    },
+    "/plugin-api/security-center/{hostId}/rotate-host-keys": {
+      "post": {
+        "summary": "Make new SSH host keys on the host",
+        "description": "Copies the old host keys, makes new ones and reloads sshd. Every client sees a changed host key afterwards, Termix included.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "What was done."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

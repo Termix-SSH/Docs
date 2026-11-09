@@ -6,9 +6,23 @@ slug: "/sso/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sso"
-plugin_version: "1.0.5"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Link a single sign-on account to your existing Termix account in Settings, Security, and unlink it again. An admin setting turns this off (#4)
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+
+### Fixed
+
+- Password fields with the show button are the same height as the other fields next to them
+
 ## 1.0.5
 
 ### Changed

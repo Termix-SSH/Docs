@@ -1,0 +1,70 @@
+---
+id: hide-an-advisory-on-a-host
+title: "Hide an advisory on a host"
+description: "Hide an advisory on a host"
+sidebar_label: "Hide an advisory on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVUtv2zgQ/iuDOe0CjJ3do25p0UXSPWxQZxEUgVHQ0sRiLA1VcmRHNfTfF0PKj9TtAtVF5HBm+M3r4x47G2xLQiFi8bRHx1hgZ6VGg2xbwgJrH+WuQoOBvvYuUIWFhJ4MxrKm1mKxRxk61XQstKaA47jM2hTlna8GVSk9C7Ho0nZd40orzvP8JXpW2YUvv3qhUtBgF3xHQRzFZFttXfRhONOMEhyvcTTIXugHB+lTQLHzHLOfP6+v9VdRLIPrFAoWuLBbqmaoym8Pbl1FYBkOt4NnsKCJQYMtSe0rTVvep+wVOO+afu34ynZuHqnsg5PhqiQWCvN9zuk4d2v2gdBgpLA91KAPDRa4z6IRvwfz2fcBHii07hWyDhrc2uDsqsnBTdIU37PtG9EqinSxmM8lGc7o1bZdQ7PSt5qgpSLIGBOEFdlA4abXSJ6Wo9H6+Y2jc4nt3N80HCVnLhZazAzl3NGxMIoFp/7RfVZCMy3+8qG1ivnj48NF9AuK0XkG8RtiiMQCjkFqAr3EB/ctNRbUZCsKYCO8S07BcpXUkuFM2+U8pCO2HBWaPAlZ5TQLLzv5KaKPjw+Q9SGSgBWIbs1XjmfwWBNDF0jhGnACYjcUVVJSRVwS+C2Fn0aR0J6n+5czeXN/BxsaIIoN4ngNOyc1SPv65SKco+qvp3ZDg4Fd7co6XxRP18zgTsCWEtVs0gW/48m6tMw+Kei55cEzATWR8jQqS3w68cmH3Lxv+eAw7gcaOOMFx88+Jc2JWuFi6lN4n8YRbu7vdIQoxJyCP2bXs+vLxPSVE1gsbhV7NBC8WCENpk0xxNJy4oQIzz7Ahv2OYds3TMGuXOOUwnKdF4vbVFIljNYm/pv663+J5g2cYwsIvcq8a6xjdZm4Yz9x0BOeOAhP4zmxEBosjtw+EdHSJLpX0/1+ZSP9G5pxVPHXnjTLT8sT1ySmqFzUdYXFs20iXaA88j7+9ml6P34HND9Gf5hBHhKlNb3u0OCGhtNDNC5Hg7kHE4J8+D7fc/WgLk7GF2+N8tSRse//WSjDrKY3qvWV2gS709fO7vLlPsWS2CzJ9thYXvd2nQgh+dTvP4g+hlU=
+sidebar_class_name: "post api-method"
+info_path: api/security-center/security-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Hide an advisory on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/security-center/{hostId}/ignore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Hide an advisory on a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"advisory":{"type":"string"},"note":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

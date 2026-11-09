@@ -1,0 +1,69 @@
+---
+id: put-a-vm-back-to-a-snapshot
+title: "Put a VM back to a snapshot"
+description: "Put a VM back to a snapshot"
+sidebar_label: "Put a VM back to a snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv3DYM/isEnzbAOad79Fs2YFjaBg16WYIhOAw8mzmrZ0uuRF/OM/zfB0rO3TVphuWlT7Ioivw+Uvw8otAmYHGPt8ZLTw1cUVkbywFXGXbkqWVhrx4jGosFdiQ1ZmipZSywdkEuK8zQ89feeK6wEN9zhqGsuSUsRpShU09jhTfscZqy70bqe/O/4gTxxm5eDROXt4RZqXPonA0c9PyX83NdKg6lN50Ypzk+8469cLXQvM/OrnsBgtsrWFO5BXFAECx1oXaCGbYstasUpgu6j2gLzLum3xh7Rp3Jd6nyZ+1c+VyLGvIx1XbKd23IRy3PlD8FDvmoRKfcR2CYYWC/e+pT7xsscEymCZ8D/sv1Hm7Yt2YPyQcz3JE3tG5SDWZrLMMD9Y1op0W6UOS5xIsL3lPbNbwoXYtTrGLgsvdGhghhzeTZX/RK9n6lvSqd2xo+tVBnPvBwsJyEWGq3EpTTQIfmKRacm6r75ITZ/PG78y0p5vd3Ny/YLzkE4yyI27KFwFbAWJCaQZM4b/4h9YSaqWIPFODXGBTIVtEtXlzglH1D6YAtscIsPc7kcnyeXx7lVUTv724g+UNgARIIZmPPjF3AXc0WOs8KNwMjILTloJaSK7Ylg9uxf5VFRHta7jdX8uL6ErY8QBDyYuwGHo3UIO3+7xd0Dq5vL+2Whwwea1PWKVE4plnApQCVEvTa7Avu0c63S7LWRQc9Jzs4y8BN4DSxxj64yNpIozSfix1cXF/qELAPicS7xfni/AW13zyTcEzYkqUNw4fbK5jnF57mF5yFQWfso7H9HuI0p/4sl38kRo1Z663YFxWGlqzCmx/JfyvKN5AOjRTeS941ZKzGjAowzmJzj0exUZLP5AazqOK6Fgc537VxP4vyQXbUdlDYqDyrdFuzjOOaAv/pm2lS89eevYrB6iguURoqE/S7wuKBmsAvCJXOClt9dD99nlX8Z8Ds+0Sfhs4OUcOaXneY4ZaH499JxeYHZo1F+8E5Y1Om1XTyw7n+tLzBafoXHPK0Aw==
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Put a VM back to a snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/snapshots/{name}/revert"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Put a VM back to a snapshot
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Reverted."}}}
+>
+  
+</StatusCodes>
+
+
+      

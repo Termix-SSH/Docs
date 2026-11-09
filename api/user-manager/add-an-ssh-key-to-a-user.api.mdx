@@ -1,0 +1,70 @@
+---
+id: add-an-ssh-key-to-a-user
+title: "Add an SSH key to a user"
+description: "Appends one public key to ~/.ssh/authorized_keys, owned by the user with mode 600."
+sidebar_label: "Add an SSH key to a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv4zYQ/ivEnFqAsdweetDNW7RotigarL0ICsNYjKWJxFgitRwqjiqov70YUrGTOFt0D60vskbz+Ob1zQglceFNF4yzkMOq68iWrJwl1fX7xhTqQIMKTv2VLZjrDPtQO2/+pPLTgQbWyh0tlWo/qFCT6pm8OppQq9aVpH5YLhegIWDFkG/hI5Nn2Gno0GNLQd7y7QhGIncYatBgsSXIoXYcrkvQ4OlzbzyVkAffkwYuamoR8hHC0ImmsYEq8jBN+k1P8fEv/HDwxlYwTbukTBzeuXIQjde2hbOBbJBP2HWNKVCql92zlHC8dO3291SEFyC2cKAhlsK7jnwwxGIgwjcgyU+suXOWk+b3y6U8XnZvU5O0ixXeBfKxI0WNtqKFlAdaCrUrpUKOBU4sVA5Z1/SVsVfYmUwaeNWixYp8NqYuTFHK2SilnDIJABqY/MNTA3vfQA5jEk2gX8H6w/Vebci35lElHdDwgN7gvknZzNKY0B32TZARCKHjPMtCNFzQI7ZdQ4vCtVKRnSAoem/CECHsCT35VS8ZbXcyC4VzB0PPJdiZX2k4SZ65WEvLEpTnjk6dECwwD428JyXQ85+fnW9RML+/3VxkvyZm46wK7kBWMdmgjI29Wc27FMdH1YQleYWs3kWnCm0Z1aLhAib9IqUTtpQV6DT8SeU8/vfH8EVE7283KukrpqAwKDaVvTJ2oW5rsqrzJHC1MkEFPBCLpKCSbEHKPcwT9lYWEe3zcn91JVc315F5OKAPxlaJVUL7+OkinZPq15f2QINWx9oUdQrE5zALdR0UFoHFbNaNZJesC7TWRQX5jnYQxqSG51UTLvhwZpGf0vCeVvy02tK1OxfrY4IoJJJUq5tr2RHynHL8brFcLC8y/y0u6pl5sShcbwNrVXnXd6xVh8xH50uOoNfrXxI/OKsGWUpZcI7NEkpoMfLXPDmrslRon2zkBGCM8hrFeObD/+h8pMkJ9BiyrkFjBW+knHGmsC2cKQw0PCcx0JCfjknkMZHMRyFS2U7HayNexnGPTB99M00i/tyTF3bZndkqck1pWP6XkN9hw/QP9fjmw8z436ovJfK0xXaIpNj08pawne+gsNf/GDWWZ9pNGtLmxKzTpx9TlKuNODibXtxBYdfTvbn5fS28uJ/vqTQXcvB4lJuIxxTaxUwiB0fZCA3aqscq0lj0Kb+/ATUb/dA=
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add an SSH key to a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/users/{name}/keys"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Appends one public key to ~/.ssh/authorized_keys, owned by the user with mode 600.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["key"],"properties":{"key":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The keys after the change."}}}
+>
+  
+</StatusCodes>
+
+
+      

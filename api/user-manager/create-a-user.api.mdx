@@ -1,0 +1,70 @@
+---
+id: create-a-user
+title: "Create a user"
+description: "Runs useradd as root. The password is sent to chpasswd on stdin, never on the command line."
+sidebar_label: "Create a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vk1v40YM/SsDnrqAYqc96pZdtNjsomgQZxEUhrGgJcaaWJrRDqk4quD/XnDGtpQ4KbCH+mKLn48U+egBSuIi2Fasd5DDbefYdEwBy9Igm+C9zMxdRaZF5p0PpbFsmJwY8aaoorQ03hmW0rrMOHqioM9SkSl806ArTW0dzSADwQ1DvoRvTIFhlUGLARsSfcqXA1iF0KJUkIHDhiCHyrNcl5BBoB+dDVRCLqGjDLioqEHIB5C+VUvrhDYUYL9fJWti+ejLXk1eOxfeCTlRFbZtbQvU+uePrE0YzmP79SMV8gLFMiHUIoJvKYglVo+E++TJEqzbwF5zNs0h55mOK6rrNzWVfy9cIBT6/FK99r4mdKrfBN+1PNFhCNhDBlao4TdCKoyu9G9HO779t/z0o53h1jtOTfjt8lK/Xs7Wp4i4nMVUDUnlS33dnrWx8a3nMG/rbmPdBbZ2rmN40aDDDYX5kAZhH6UMGTCFp+PcdKGGHIYk2kP2KvHfvgvmjkJjn02ygQyeMFhc1wnvQRohP2BXi06eSMv5fC7RcUbP2LQ1zQrfaM0rRVB0wUofIawJA4WrTqtYrvbZAIX3W0tTCbb2K/UnySTEQgcuQZkGOvVascBh5uObiUaQHX784UODivnL/d1Z9QtitrqQfksura5N66lJfLD/xOE3FWFJQZf+YwxqdHPVLDrO0giPJY1zFavSwdJsyWTc38edvIvoy/2dSfaGSQyKYbtxF9bNzH1FzrSBFG5mrBjBLbFKCirJFWS88sx7VUS003b/dCevbq7NlnrDgkGs25idlcpI8/z9rJyT6c+3dkt9ZnaVLaqUiMc0M3MtBgthdTvYGr9zB+8CnfPRQPXoeu/IUM2U1kuZ7HbkwN/T8I78dNzeCS2NogMbjYJEQhOfCfckQj2yzfJotDqySdKP/DGhMOseEt1YUWzpLJirm2tdTwqc2vvr7HJ2edb0PyMvxMYoIxgsCt854cwkKNnpYHHs12LxWTvIepp65QPlE45zogzUoJs0JzGVwRj6dephvB7/97lMIyv0LPO2RhuZOHLdcODLJYx8CRlMGRMyyE/HszseXJWo2zCskelbqPd7Ff/oKCiPrUZejKxWWtbfJeQPWDP9Ryd+uT1cxg/mPeRHvnB9pN+60yfIYEv9eOj3Kz16cV8igqT8lPJc3GmI0fnsdiunni7LzV8LZcP14T9A40v1CbjTO467lNzHWiLzRtkANbpNh5tIXjGmfv4FZpUqHg==
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/users"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs useradd as root. The password is sent to chpasswd on stdin, never on the command line.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name"],"properties":{"name":{"type":"string"},"comment":{"type":"string"},"shell":{"type":"string"},"home":{"type":"string"},"createHome":{"type":"boolean"},"groups":{"type":"array","items":{"type":"string"}},"sudo":{"type":"boolean"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Created."}}}
+>
+  
+</StatusCodes>
+
+
+      

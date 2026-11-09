@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/session-sharing/reference"
 custom_edit_url: null
 plugin_id: "session-sharing"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -44,6 +44,16 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `session-sharing.use` | admin, user | Share live sessions by link or with other users, and create and join collaboration rooms. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `session-sharing.list-shares`<br />List active shares | The server | Read only |  |
+| `session-sharing.host-shares`<br />Shares of this host | A host | Read only |  |
+| `session-sharing.revoke-share`<br />Revoke share | The server | Changes | `share` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
@@ -53,6 +63,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |

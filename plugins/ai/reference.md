@@ -76,10 +76,10 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:invoke` |  |  |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
+| `operations:invoke` | High | Run other plugins' actions. Acts for the signed-in user on the actions its manifest lists. Approval rules still apply. |
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |

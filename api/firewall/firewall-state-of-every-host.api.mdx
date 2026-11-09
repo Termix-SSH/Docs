@@ -1,0 +1,69 @@
+---
+id: firewall-state-of-every-host
+title: "Firewall state of every host"
+description: "The firewall, whether it is on, the rule count and Fail2ban bans for each host the caller can reach with Firewall turned on. Kept for a minute; refresh=1 reads again."
+sidebar_label: "Firewall state of every host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVE1v20YQ/SuDOW8oJ0cWPbhA3TpB0QBWYBSGEYzIkbgVOcvuDiWzAv97MUtKtmPkkGNPEufzvdmZd8KaUxV9rz4IlrhuGLY+8pHa1sGxYW04glfwCYI40IYhDi1DFQZRIKnhhnz7YUMCG5IE2xCBqWqgCUlzeEVtyxEqEojZc/TawM3SBHSIwjUEKeAT95oLEHReBuWfIPI2cmp+fm+5dQLakZcCHSrtEpYPeK6Djw57itSxcjTPCb0R+mfgOKJDoY6xxKUeOkxVwx1heUIde3MljV52OE2PDiOnPkjiZP4PV1f283pQfwoDi8YReo6ZbIHT5LBjbUKNJe5Y0SBpgyWu+nbYeXlHvV+dx7tKQ9dRBpc4Hs6oh9hiiafZNKH7pu9fYYiw5tj5J5hj0OGBoqdNO8NdrBnxloZWscRGtU/laqU5seAn6vqWiyp0OGXCiasheh0zhA1T5Hg9GPSHx8mdsAph7/mlhXr/iceL5UWJOxvsDOVlocucDct5/vY9B6Fb/tyE2JFh/ni/fsP+jlPyQUDDngUSi4KXvGXWJET/L1kkNEw1R6AEv+SieVEtLCcWOLlXlC7YZlbo5t2ZQ56X5++jfhfRx/s1zPGQWIEUkt/JOy8F3Dcs0Ec2uM5uSWnPySwV1ywVQzhw/C6LjPbluH94ktefb2HPIySlqF528wVq9/T1DZ1L6I+Pds+jKYavmrlRem5TwK0CVZosbYmFcJQluyKRkAPMTzIGO6428XxSXrYhs/baGs2LdFx/vrXl55hm8O+Lq+LqDaU/SGjH8OXm3l2krXYgW80nkxH4fvkwbTOlg9HuzM46za9zd/e7mwm1odqHQaGPQbmyJvmF+pC0IzGgy7pccCYlZQhb4APHMVf9FqWdmCiL/q80eF5D5Sdd9S15sTlk/TotwveAz8KHDs+sbGkX8Xt0mOdRPuDptKHEX2I7TWaeldv0qPbJXqfGckttYod7Hl9p+YHawZCg6dBZDGelehbk335d4zT9B1MCaJ4=
+sidebar_class_name: "get api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Firewall state of every host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/firewall/summary"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The firewall, whether it is on, the rule count and Fail2ban bans for each host the caller can reach with Firewall turned on. Kept for a minute; refresh=1 reads again.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"refresh","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"One entry per host."}}}
+>
+  
+</StatusCodes>
+
+
+      

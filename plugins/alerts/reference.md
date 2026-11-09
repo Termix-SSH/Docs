@@ -42,18 +42,27 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `alerts.use` | admin, user | Get alerts in the inbox and send them to your own channels. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `alerts.unread`<br />Unread alerts | The server | Read only |  |
+| `alerts.send`<br />Send me an alert | The server | Changes | `title`, `body`, `severity` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:provide` |  |  |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `notify:hub` | High | Receive every alert. Stores and delivers the alerts all plugins send, including their contents. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |

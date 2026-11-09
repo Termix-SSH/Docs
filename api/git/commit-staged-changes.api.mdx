@@ -1,0 +1,70 @@
+---
+id: commit-staged-changes
+title: "Commit staged changes"
+description: "Commits with the login user's git identity. With all true it also commits every tracked change. Needs edit access."
+sidebar_label: "Commit staged changes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVVFv4zYM/isEX7YBqtPtMW+9w27oDdiKa4diKIKDYrO2GlnSSXRTL/B/Hyi5cdZeD7in5SUJRVIfP4ofD9hQqqMJbLzDNb73fW84wd5wB9wRWN8aB0Oi+EOC1jCYhhwbHiu4FR9tLXAcCAyDtslDPWegR4ojcNT1jhqoO+1aquAPoiYBNeJd15RShQpZtwnXd/ibYdwoDDrqnpiiGA9oBFfQ3KFCp3vCNXY+8WWDCiN9GUykBteCQWGqO+o1rg/IYxBP45haijhNm+JNid/5ZhSXl8G1d0yO5UiHYE2thZTVQxJmDq9z++0D1YwKQ/SBIhtKcpqhLl6Jo3EtTgp7Skm39NUzbe2Jfeu9Je1wyh8BnoJ3qeT/5fxcvv7bN78D7ZrcMWmSHzgMXOGUr+XON8KhTxltxoerYIfWuDMdzKo1vDoUUqdVpOBXpYuoMFF8fO7EEC2u8VBME6oXGP72Q4Qbir15guKDCh91NHprC/TZmtHf68Gy9JI5pPVqxTmwoifdB0tV7XspfyMI6iEaHjOELelI8WKQEu42kzpg7f3O0KlFB/M7jUfLSYpraWGBcproyLtgwfkV5T5kJ1Tzjw8+9lowf7y9eVX9NaVkvAP2O3KQyDEYlxsil/ho/snPCTrSDUXQCd7lpMe+5cBKHsNpSUdspSpUZR6KyzIRD3t+E9HH2xso/pCIQTMk07oz4yq47chBiCRwlYww6x0lsdTUkKsJ/CPFN6vIaE/p/m4mL64uYUcjJNaRjWtn4emfPr8q5+j6/dTuaFSw70zdlYvSck0FlyJFnCRs9gW/d3N0rZ3z2UHOtRu9IyCbqMyWaMOnRVV+LY93UYHnCT8Z/sWUZ16kZ5Km3vtMn2GJFymEi6tLGSCKqRDwc3VenX+ly6QgDNaqWXoz7jCkLiuBTHMC72CU6ZQZTyp77IiCFNzDEIA9NJqp0KIH9jljbq+oRq+zAs5vrewIYbI9Knt6ieuwyOn/tFTKQ2R64lWw2jgpJivYc3PucJFAVNhmvVuf7JbgUYYxK+FG5a0jUYfDVif6K9ppEvOXgaKI02YRuyxVjUnyu8H1vbaJvsHPj5/mTfQTvAX8WQTcmDXVDvIPFe5oXPbhtJkUliHICMrh+3LP2Y2kWIJfrTgRyuOuuPrzWiRuO6/K3jcSE/VeiNH7crnPtWQ5zbYDWu3aoTzzklM+/wLtI+cf
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Commit staged changes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/commit"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Commits with the login user's git identity. With all true it also commits every tracked change. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"message":{"type":"string"},"all":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: read-an-interface-config
+title: "Read an interface config"
+description: "Returns the raw config. Private and preshared keys are hidden."
+sidebar_label: "Read an interface config"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu5DYM/RWCpxbQ2tk9+pYC7WK2lyA7i2ARDArG5tjq2JJXojNxB/73grIznjRN0QWKnmxTFPXeE/l8wopjGWwv1jss8JZlCC6CNAyBjlB6t7d1BjfBPpIwkKugDxwbClzBgccIFBgaW1XsMjQoVEcs7vHOBv44UKhwZ7CnQB0LB106odWTepIGDTrqGAtsfJRNhQYDfxts4AoLCQMbjGXDHWFxQhl7zbROuOaA02T+tpLdU8n/plCUYF2N07TT5Nh7Fznq+oerK328FGbb8CIGCD9Jpudjx9L4CgusWdDMQArM+3aorXtHvc2PNnCtMuSnmeKUK4GgIGN+SmCnfC6MBiOHx2eVhtBigac5NKH5C6Cvfgiw5dDZJ5hz0OAjBUsP7cxjiSYqexpaUZ1F+ljkuaSNGT9R17eclb7DKSkRuRyClTFBeGAKHK4HpXW/U8FL7w+WLyPU2195PEcuSnxWxWcol4XOF6BYcLkY/Z6T0Cwvv/jQkWL+dLd9xf4zx2i9A/EHdhDZCViXulYP8cH+QZoJDVPFASjCT6loamBNSxsznMwLSmdsMys0c4fNKWuP/X6UNxF9utvCnA+RBUgg2tq9sy6Du4Zdmh52YsAKCB04aqTkil3J4B85vMkiob2U+7uVvL7Z6MxCFApiXQ1HKw1I9/TbKzrn1O+X9sCjgWNjy2Y+KK7HZLARoFKibltywR/dsrsk53xK0HVyo3cM3Eaex826vU+srbRK8+wxcH2z0e7nEGf077Or7OoVp42LQm0L6z7vYNQ50tmMCUJHjmqGdUgNlK1ltyzPkxphH3wHik7oId1L76N05BTe0iS3TBWQW0vBecxfwNKhcsJO/hP7nRtCLSrvW7JOsSUnOS32dI+rPaHBs0GhweLswit9DT9b6oJ/Z5Jda6nT6YEifwntNGn428BBnWO3OlHykcpGfa+w2FMb+R8E+OF2se0f4S02zxPqxmR47aBfaPDA4/ojUWf6H0+dFZp2l/+Ejz9vcZr+BHDiiz8=
+sidebar_class_name: "get api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read an interface config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the raw config. Private and preshared keys are hidden.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The config text."}}}
+>
+  
+</StatusCodes>
+
+
+      

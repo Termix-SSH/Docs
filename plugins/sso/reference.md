@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/sso/reference"
 custom_edit_url: null
 plugin_id: "sso"
-plugin_version: "1.0.5"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings
@@ -17,6 +17,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Setting | Type | Default | What it does |
 | --- | --- | --- | --- |
 | Sign in with SSO automatically | boolean | `false` | Send visitors straight to the first SSO provider instead of showing the login form. The OIDC_SILENT_LOGIN_DEFAULT environment variable overrides this. |
+| Let users link their account | boolean | `true` | Users can link a single sign-on account to their Termix account in Settings, Security. Off, only admins can link accounts. |
 
 ## Environment variables
 

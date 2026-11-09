@@ -1,0 +1,70 @@
+---
+id: pull-the-current-branch
+title: "Pull the current branch"
+description: "Runs git pull --ff-only, so it never creates a merge commit. Needs edit access."
+sidebar_label: "Pull the current branch"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v4zYQ/SuDObUALac9+pYt2iJboA2SFEERGIuxNJEYSySXHMVRDf33YkjH9m6aAnuoL5ZG8/HeDOdxjw2nOtog1jtc4c3oErRWIIx9D4vF4+PCu34ykDxYAcfPHKGOTMIJCAaOLUPth8FKBb8zNwm4sQJU15xShQaF2oSrB/zVCq4NBoo0sHBU4x6tFg0kHRp0NDCusPNJrho0GPnzaCM3uJI4ssFUdzwQrvYoU1BP64RbjjjP6+LNST74ZlKX2jthJ/pIIfS2JmW4fEpKc/82l988cS1oMEQfOIrlpF8ztJNXkmhdi3P+ac0UvEvF9ceLC/37sp9+C+QakI5zV/0oYZQKNXhg6Xyj9H3KhXMpXIZ+bK1bULDL1spyX/oxLyMHv9SxoMHE8fm1hWPscYX7YprRfIXgLz9GuOM42BcoPmjwmaKlTV+AH6wZ+yONvegQREJaLZeSAyt+oSH0XNV+UPJrRVCP0cqUIWyYIsfLUQk8rGej7fdby+cWCvY3no6WsxS3OosC5TzRsemKBQ/j1/fihObw8IuPAynmj/d3b9jfckrWOxC/ZQeJnYB1eRxaxEf7dz4X0DE1HIESfMhJj1PLgRXO5gtKR2yFFZpykIvL6Sg/7eRdRB/v76D4Q2IBEki2dQvrKrjv2EGIrHCNrp3QlpNaam7Y1Qxe1/A9Fhntebu/uZOX11ew5QmSUBTrWthZ6UCGl09v6Bxdv721W54M7Dpbd6VQOpWp4Eo1RJKGHXzB79whuibnfHbQ7+Qm7xi4T1w2S5f85iQHP5fDe1rn4xrr2B59bpAV9VCVgsvrK10RjqlQ/KG6qC7+ZY5sskqag/5lZGFMXd503dYE3sGk+6c7nEz22DIHpTTAGEA8NCRciNMoPmfMA1RVGCiL1eE0XaskazPqMUZt9yaSq7uvkZ1p3/8h5+UkCb/IMvRknWLNEvTa3Qc8KRgabK3uwOpM1YNXtVMhW5us9hqz328o8Z+xn2c1fx45qrasT1qVlaaxSZ8bXD1Sn/g/qH93c7g+vof3YL/usJuyJPajvqHBLU+ne2hezwbLGc4IysefSp3FnaY4Bb+5alTnjkJ//cetKtTmcEUNvtGYSDttC+1KcZ+5ZDXMtj325NqR2iwoOaf+/gEzM6kx
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pull the current branch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/pull"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs git pull --ff-only, so it never creates a merge commit. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

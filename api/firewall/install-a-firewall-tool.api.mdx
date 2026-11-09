@@ -1,0 +1,70 @@
+---
+id: install-a-firewall-tool
+title: "Install a firewall tool"
+description: "Installs ufw, firewalld, nftables or fail2ban with the host's package manager. Nothing is turned on; firewalld is stopped right after it installs."
+sidebar_label: "Install a firewall tool"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsEL22BiZ3u0T1liwb1Fm2DTRZBERgFLdHSxNKMdoaK4wr67wvOKLYbbwrsrTrYEocfj+TwccCSYxFsJ9Y7XODSRaGmidBvdgY2NvCOmqY04DZC64Yj+AAbss27NTnYWalBaobaR/kuQkfFliqGlhxVHGbwh5faugpsBOmD4xK8++noVuVRfNdxCcFWtQBthANYATsBmaFBoSri4gGvJztcGewoUMvCQU8GtAq+I6nRoKOWcYGKaVmiwcCfexu4xIWEng3GouaWcDGg7DvVtE644oDjuMraHOW9L/eq8tq48E7YiR5R1zW2IK3c/DFq+YZz3379yIWgwS74joNYjnq6q0lOtKIE6yo0yK5vNdV+s0ODh0JpVlMDVDzVH1djehR07LyL2fe7y0v9+2pjuZyhGrQstS+1Zj4mdFq6Bc67pq+su6DOzl+Cz4dcyXE+9QQNRg5PL6XvQ4MLHLJoRPMq8F++D3DHobXPkHXQ4BMFm7PRmmVpgryhvhFtnkgXF/O5JMMZP1PbNTwrfItjalPkog9W9gnCmilwuOo1h4fVaAYsvN9aPpVQZ3/j/UFy4uJWe5ahnDo6NEex4HRt9DsroZlern1otZn44f7uLPtbjtF6B+K37CCy05udRkaD+GD/SfcHaqaSA1CE98kpkCuTWjKc4Wj+ldIBW84KTR6ArHIcgcedvInow/0dZH2ILEAC0VbuwroZ3NfsoAuscI0Oo9CWo0oKLtkVDP6Jw5tZJLSn5f7mSl7dLGHLe4hCQZQ/MtG0z3+fpXNQ/fbSbnlvYFfbos6B4jHMDJYCVEhUs0kX/M5N1gU555OCnpPbe8fATeQ8XEoGH4808ku+vMexT9M9as82PlXHih4f+A2ubpY6JBxiTvLH2eXs8iz13xPLwqfr+68ztSK13fQR+kTeDvY6jzrRMXfx9vZXkxNvfLH1vUAXvHChQVInlSFaSuw2XauJS4AOYUG8b14DHI5k+T/dK/lWCj/LvGvIOk030dkwEeIDHgnxhI/R4OKwXl5YcWXSylGjYVhT5E+hGUcVf+45KFGtjsSXaKu0Ud9LXGyoifwf5fv+47SGfoC3cL8Qgtsnfm16/UKDW94fl+G4Gg3mgUgI8uHPOc7Fnbo4Gp/tNyXNw+K4+fNW6W497cnWl2oTSPeW/qbgPuWSqDXJBmzIVT1ViZ2ST32+AHyq9ro=
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Install a firewall tool"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/install"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Installs ufw, firewalld, nftables or fail2ban with the host's package manager. Nothing is turned on; firewalld is stopped right after it installs.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"what":{"type":"string","enum":["ufw","firewalld","nftables","fail2ban"]}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Installed."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: create-an-empty-folder
+title: "Create an empty folder"
+description: "Create an empty folder"
+sidebar_label: "Create an empty folder"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v4zYM/lcEPm2AEnfbm9/aww7o7eGKS4diKIKBsZlYjS35JLqJZ/h/Hyi5Ttq0wO5lfolC8cdHUvw4AOMuQP4IXzdPVLBasfO4I1hraNFjQ0xe7gcwFnJokSvQYLEhyAGLwnWWb0vQ4Ol7ZzyVkLPvSEMoKmoQ8gG4b0XZWKYdeRhH/a6zTVfsif+Lp8De2B2M4zopU+AbV/ai8da2cJbJslxh29amQDbOZk/BWZFduHaxCqCh9a4lz4aC3Laetub4HgT5BEVonQ1J+derK/kpKRTetBIPcvjs6pK8KjwhUylFeKPwKd4otIqalnu1jQagoSGuXCnlciEik6rlkLV1tzN2ga3JEupFSL3LpraEbJgbNGapvCEb0mHM5gCB/PNLkztfQw5DEo3wFuRfrvPqnnxjjirpgIZn9AY3dUp+ksb8t9jVDDlUzG3Is4yj4ZKO2LQ1LQvXSAHXgqDovOE+QtgQevLXnWT5uJbHUji3N3Quwdb8Qf0sOXOxko4mKOeO5sYJFpjeVHx1UQn0dPjsfIOC+cvD/UX2KwrBOKvY7cmqQJaVsYorUhLEefNPfF2qIpReY1A30alCW0a1aLiEUb9KacaWsgKdpiOpnObj6cAfIvrycK+SvgrEClkFs7MLY5fqoSKrWk8CVyvDinFPQSQFlWQLUu6Z/IdZRLTn5f7hSl7f3ao99SowejZ2pw6GK8XN8e+LdGbVHy/tnnqtDpUpqhQonMIs1S0rLDiI2aSr3MFO1gVa66KC3KPtnSVFdaBlnFKhim8nkvk9Pd5zUpjJQBq3dbFEhkXnDamq67tbmRfyIeX7y/JqeXVRhRvvDoEitgat2K1+WxSuaZHNpiaVpl1N066mwY76W1NTiC0Tsmgwktz0fj4kmFfR5/YyHTlrazRW3EVeGCbueYQT94CG1+wD+mUtBNCQn6+ICamIZ7KfUKw1VEJv+SMMwwYD/enrcRTx9468EMP6RDSRJkoT5FxCvsU60EUaM/PDT9+mpfCzAv1+ei8DaPvIZ3Un/0DDnvpXa064538MPFVpXI8a0suPqafLTynO4l5cnIwv1pyw47xD7r6uhNc207psXCk2Hg+yd/GQgruYS+TQKBugRrvrpLk5JJ/y/Qtratjd
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an empty folder"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/folder"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create an empty folder
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"prefix":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder created"}}}
+>
+  
+</StatusCodes>
+
+
+      

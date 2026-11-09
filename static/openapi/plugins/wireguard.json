@@ -1,0 +1,746 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "WireGuard API",
+    "version": "1.0.0",
+    "description": "Install WireGuard on your hosts and manage interfaces, clients and configs from one tab."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/wireguard/summary": {
+      "get": {
+        "summary": "WireGuard state on every host",
+        "description": "One entry per host with WireGuard turned on, checked as the caller and cached for a minute unless refresh=1.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/status": {
+      "get": {
+        "summary": "WireGuard status on a host",
+        "description": "Reports whether WireGuard is installed, the package manager, firewall, IP forwarding and whether root or passwordless sudo is available.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The WireGuard status."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/install": {
+      "post": {
+        "summary": "Install WireGuard",
+        "description": "Installs the WireGuard tools with the host's package manager.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "WireGuard is installed."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/logs": {
+      "get": {
+        "summary": "WireGuard logs",
+        "description": "Returns the latest journal lines of the wg-quick units.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "lines",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The log text."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces": {
+      "get": {
+        "summary": "List interfaces",
+        "description": "Lists the WireGuard interfaces on the host, except the ones the Tunnels plugin owns.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of interfaces."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create an interface",
+        "description": "Makes a server interface with new keys, and can set up NAT, IP forwarding and the firewall port.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "address",
+                  "listenPort"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "listenPort": {
+                    "type": "integer"
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "dns": {
+                    "type": "string"
+                  },
+                  "allowedIps": {
+                    "type": "string"
+                  },
+                  "keepalive": {
+                    "type": "integer"
+                  },
+                  "nat": {
+                    "type": "boolean"
+                  },
+                  "forwarding": {
+                    "type": "boolean"
+                  },
+                  "openFirewall": {
+                    "type": "boolean"
+                  },
+                  "start": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The interface was created."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}": {
+      "put": {
+        "summary": "Update an interface",
+        "description": "Changes the listen port and the defaults used for new clients.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "listenPort"
+                ],
+                "properties": {
+                  "listenPort": {
+                    "type": "integer"
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "dns": {
+                    "type": "string"
+                  },
+                  "allowedIps": {
+                    "type": "string"
+                  },
+                  "keepalive": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The interface was updated."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an interface",
+        "description": "Stops the interface and removes its config, keys and saved client files from the host.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The interface was deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/service/{action}": {
+      "post": {
+        "summary": "Control an interface",
+        "description": "Starts, stops, restarts, enables or disables the wg-quick unit of an interface.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "start",
+                "stop",
+                "restart",
+                "enable",
+                "disable"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The action ran."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/config": {
+      "get": {
+        "summary": "Read an interface config",
+        "description": "Returns the raw config. Private and preshared keys are hidden.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The config text."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save an interface config",
+        "description": "Checks the config with wg-quick on a copy, keeps a backup, saves it and applies peer changes to a running interface.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The config was saved."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients": {
+      "get": {
+        "summary": "List clients",
+        "description": "Lists the peers of an interface with their live handshake and traffic.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of clients."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a client",
+        "description": "Makes keys on the host, picks a free address, adds the peer and returns the client config.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "allowedIps": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new client and its config."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}": {
+      "delete": {
+        "summary": "Remove a client",
+        "description": "Removes the peer and its saved config file.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The client was removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}/state": {
+      "post": {
+        "summary": "Turn a client on or off",
+        "description": "Comments the peer out of the config, or brings it back, and applies it.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The state was changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}/rotate": {
+      "post": {
+        "summary": "Give a client new keys",
+        "description": "Makes new keys for a client made here, keeps its address and returns the new config.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The client and its new config."
+          }
+        }
+      }
+    },
+    "/plugin-api/wireguard/{hostId}/interfaces/{iface}/clients/{name}/config": {
+      "get": {
+        "summary": "Get a client config",
+        "description": "Returns the saved client config, which holds the client's private key. Needs edit access and is audited.",
+        "tags": [
+          "WireGuard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "iface",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The client config."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

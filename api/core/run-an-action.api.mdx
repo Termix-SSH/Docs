@@ -1,0 +1,70 @@
+---
+id: run-an-action
+title: "Run an action"
+description: "Goes through permission, host access, input and approval checks. A change returns as soon as it starts unless wait is true, then poll the run. A read always answers inline."
+sidebar_label: "Run an action"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlt9v4zYMx/8Vgk8b4HPa2zBgfusNt6F3wK5oOxRDEQyMzMRqbMmnH009w//7QMlNsqYdcI/Lix2JEr+kqA89Ys1eOd0HbQ1W+JtlD6FxNm4a6Nl12nttTQGN9QFIKfa+AG36GIBMDdT3zj5SC6phtfUlXIBqyGwYHIfojAfy4K018tQBfCAXPETTsvewIx1AewgucgGhYQO9bVt5AxeN7OaYaqB2R4MHMn7HzoM2rTZcYoGBNh6re/zSsyMJweOywJ4cdRzYydyIWgLrKTRYoKGOsUJdY4GOv0btuMYq+UevGu4IqxHD0IuVD06bDU7TMhuzDx9sPYjFy7XKmsAmyBT1fatVUrN48JLV8XRru3pgFbDA3tmeXdDsZVayfFkf2WkTeMMOJ1HgbXSKP/PwisYC06GcupgKrN1wHc3R1MralsnInLJmrV3H9evTuuaut4GNGt7yK4f42uL0S7J7a3yO7/3ZmTz+XXO3DYONQdmOC7AOSM4+1YY2G1jLyFxlpfj78bU9Ls0jtbrOlTmb/XBq9rsNQG1rd1zPRj+/YsRceyCYU5M0eVozdLZmKVdrSpTQOg6NraW4rE9nKTVW4cLuq3Ex6npauGiwQM/u8bkko2uxwjEPTVi8UPCnjQ5u5fY9QbbBAh/JaVq1OZHzaNK+ptgGrLAJoffVYhHSwpKfqOtbLpXt5DCWokBFp8OQJKyYHLuLKJLvl1MxorJ2q/l4hHr9mYf9yNEWN1LQWcrxRvsqEC04X6lUFckIi/nlV+s6Es2f7m5Por/hxBwIdssGPJsA2iQmiBPr9N8pudAw1ewELB/SpglIYpYWlrm6DyHtteWosMhgyCYHNDzswpuKPt3dQrYHzwEogNcb806bEu4SvByL3EJIF2jLXkYU12wUg31k92YUSe1xur85kxdXl7DlIRNWLs5OhwZC9/TXSTh7029P7ZaHAnaNVs0zyvduSriUDhES8mdbsDszr1ZkjE0GMk9msIaBW8/5Lgkprw+M/ZiL95iJZy8Q+IygA/mOULen8jPc8sBLnB32yBQTq4TStU1HoINowPkqXlxdyj1k53Me3/9Unp+X5yf5FaAp6xgO60r4SKqBvo0bbaC2KnZsgrRELzkCZ2Ngn6pAYNJRwvVcktfRABlJnez/wtt46D3/u+6dKzzwU1j0LenUcRIax5ml93hgKRZY5b4djXR5iUksxnFFnv9w7TTJ8NfITgi3PBAz8a7WXt5rrNbUev6PLH53PTf37+Etkc8kMUMCcxvlHxa4TUWla5yWU4H5FiXveeKX7OPdrSw/LDz5YhDS7pvL1ZcbYeRq/vKQJoQVOtpJKmiXHds+50g+TWRsxJbMJtImIS3tKb9/AIFJcMg=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run an action"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/operations/{id}/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Goes through permission, host access, input and approval checks. A change returns as soon as it starts unless wait is true, then poll the run. A read always answers inline.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"resourceKey":{"type":"string"},"input":{"type":"object"},"dryRun":{"type":"boolean"},"confirmed":{"type":"boolean"},"idempotencyKey":{"type":"string"},"wait":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The outcome, or a run waiting for approval."},"400":{"description":"Invalid input."},"403":{"description":"Not allowed."},"409":{"description":"Needs a confirm, or safe mode is on."}}}
+>
+  
+</StatusCodes>
+
+
+      

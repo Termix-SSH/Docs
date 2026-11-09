@@ -1,0 +1,68 @@
+---
+id: add-a-dns-or-registrar-login
+title: "Add a DNS or registrar login"
+description: "Add a DNS or registrar login"
+sidebar_label: "Add a DNS or registrar login"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu20gM/RWCz4qd7uVh9Za2u0C6aDaoswgWgbGgNYw1sTSjDilf1vC/FxwpjnMpFtWDLXEOyUPO8MwelZaC5R1+vJrhvMDEX3sWfR/dDst9/vSJHZaaei6wikE5qC1R1zW+IvUxTB8kBrNJVXNL9qa7jrHEuHjgSrHALsWOk3oWW+1SXHvH6QQpmnxY4qHAQC2/uVAldhzUUyNvpSDnvLGh5vpZshdxhscqlS4GGTA/nb+zP8dSJd9ZFCzxoqpiHxTIOXZG4Jfz89eoz17EhyXEBD6sqfEO7j03TgaP396IG4DG0BuvNWhNClY18NaLChq9Fy7OAcHHq5mlSbz0ookSNHHpAxbYstbRYYldlNxt0hpLnHZNv/ThjDo/dUGmY1bBAoXTmpPt/B771GCJ+8F0wJe5/4l9ghtOrd/CgMEC15Q8LZqhe6M1F3pPfaNYYq3aSTmdanac8JbaruFJFVvbgrkxqPrkdZcpLJgSp4veaN/ND8UeqxhXnk8t1Pk/eXe0nISY2bEbqJwGOm69cbGaMwzLEYTF+PJHTC0Z50+3N6+qn7GIjwE0rjiAcFDwAbRmsCQx+f/yCEDN5DgBCbzPQYGCy7DsOMnn96SkI7ehKizQW7YBgo9DgA8b/S6jT7c3MOBBWIEUxC/DmQ8TuK05QJfY6BbgFZRWLGapbIQqhrjm9N0qMtvTdv9wJy+uL2HFOxClpDYdw0Fvt/++KucI/fHWrnhXwKb2VT0kkqc0E7hUoErF3EYsxE0YvSsKIWaArVPYxcDAjfAkD5/p2ZcnJfx9OLzPletRUI57dfx+rlMWz4f7mLvo1cKY2MLF9aXNEScZ+vBucj45f9WdzxRoyXnyE1cxOcn8XWzJBwGqUhSBD03s3X1DiQv4Entl+PXnAq6o5apm6rJL1JoTPPKXvMcmFy1l6R6L+B+heUbueCqUtzrtGvLBgmY52Y8adIdPGmT+wcTnqEPzAmtTrPIO9/sFCf+dmsPBzF97TiYN8yepGXQAh9OQVWPFOyzxw3Annd0YGYM3/TBYL+4nU4yjUF7/NbNZX4z3XBud+STaYJF/S8QCYy4060q27bGhsOxpmUczx7TnG3Pgg+4=
+sidebar_class_name: "post api-method"
+info_path: api/dns/dns-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a DNS or registrar login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/dns/accounts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a DNS or registrar login
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"provider":{"type":"string"},"name":{"type":"string"},"credentials":{"type":"object","additionalProperties":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Account added"},"400":{"description":"Missing or invalid fields"},"409":{"description":"An account with that name exists"}}}
+>
+  
+</StatusCodes>
+
+
+      

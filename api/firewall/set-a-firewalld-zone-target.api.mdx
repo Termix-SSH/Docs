@@ -1,0 +1,70 @@
+---
+id: set-a-firewalld-zone-target
+title: "Set a firewalld zone target"
+description: "What a zone does with traffic its rules don't match. Saved to the permanent config, then firewalld reloads."
+sidebar_label: "Set a firewalld zone target"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vt9v4zYM/lcEAsU2QE26Pfqt17VYOwxXNDkEQxEMjM3YamzJJ9FNc4b/9wMlN0kv67B7Ob84pvjzo/gxPRQUcm9aNs5CBosKWaH64iypwlFQW8OVYo/rtcmV4aB8V1NQhbM/sWqQ82qiZvhMhWKnuCLVkm/QkmWVO7s2pRapVWvjaYt1XShPtcMiTEADYxkge4Sb8RCWGlr02BCTl5MejGTVIlegwWJDkEHlAt8WoMHT5854KiBj35GGkFfUIGQ98K4VTWOZSvIwDPpfPUmZ/8dPYG9sCcOwTMoU+IMrdqLxrW3uLJNlOcK2rU2Oguz0KQi8/alrt3qinEFD611Lng2FeIq+JD5NQQPZrhHMClpjV4vl5dXV9f0cNPz+8PEeNJydPVzfXV/Nz85gOWhYO5/TkaeVczWhhSE+UlBonQ0p7m8XF/J6eylmxBPBEBriyhUCowsxZ0Ezg2lbd6Wx59ia6Wufp31q0zAVkMO0l9cwHevSEMg/v/a48zVk0CfRAPqb8H+7zqs5+ca8qKQDGp7RG1zVKetRGhNPqGRQMbchm045Gk7oBZu2pknuGql8KRnknTe8iymsCD35y07qeVzKdcmd2xg6lmBr/qTdXnLkYiZdTakcO9pDLrnAeK9iC6IS6PHHjfMNSs53i/lJ9TMKwTir2G3IqiCDZWycNAnivPkSb5iqCAvyCoP6EJ0qtEVUi4YTGPSbkva5papAp/lIKocJedryuxndLeYq6atArJBVMKU9N3aiFjLyrSdJVyvDinFDQSQ5FWRzUu6Z/LtVxGyP4f5uJC/vb9WGdioweja2HHmsefnnpJy96vdDu6GdVtvK5FUKFA5hJuqWFeYcxGzUVW5rR+scrXVRQc7R7oRwqQ6UBk3o4uFANNfp8h4Tw9H8jwMu/DNIG9cuKhoWiz23qsv7W5kb8iHV/evkYnJxgsZfaLEk9elmoQ+crZVdc5y2mLxpx4+0C5xVOxlRGfiQGjub/aETFrXLN65j1XrHlEuQ2FwhkAYjJY43bSZX6GhNxBW0p4s3SfYHlv3RCyvdQqYXnrY1Giu1RPrqRzJ8hAMZSm9eN5uGbL+3IiOKZNw/Y5VLHVeb+Oj7FQb65OthEPHnjrzw1PLAe5G1ChPkdwHZGutA/wHTzw/jnvpFvVfGKx/YXaTXupMv0LCh3WHpCg/+wKgRoEG2WJrBWHU6ukpRzufi4GB6snSFp/d76/7jTBh2NS7vxhVi43Er/wJwm0K7WElk8yjroUZbdlhGQow+5fkKP8gtdQ==
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set a firewalld zone target"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/zones/{zone}/target"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+What a zone does with traffic its rules don't match. Saved to the permanent config, then firewalld reloads.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"zone","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"target":{"type":"string","enum":["default","ACCEPT","DROP","%%REJECT%%"]},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Set."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "SSH Terminal API",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
   },
   "servers": [
@@ -189,6 +189,23 @@
         "responses": {
           "200": {
             "description": "Appearance values keyed by setting name."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/sessions": {
+      "get": {
+        "summary": "List my open terminal sessions",
+        "description": "The caller's live SSH sessions on the server, connected or detached.",
+        "tags": [
+          "Terminal"
+        ],
+        "responses": {
+          "200": {
+            "description": "The open sessions, newest first."
           },
           "401": {
             "description": "Not signed in."

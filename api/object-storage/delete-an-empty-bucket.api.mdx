@@ -1,0 +1,69 @@
+---
+id: delete-an-empty-bucket
+title: "Delete an empty bucket"
+description: "Delete an empty bucket"
+sidebar_label: "Delete an empty bucket"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v2zYQ/lcO97QCjOV2e5neEjQD0hZYsXgIhsAYaOpisZZIlXeKown63weSimPPDdC+7Mn08ePdd78+jSh6y1je4++bL2QEbsUHvSVcK+x00C0JhXg/onVYYqelRoVOt4QlamN87+SmQoWBvvY2UIWlhJ4Usqmp1ViOKEMXwdYJbSngNKlvOtv0ZkfyPZ5YgnVbnKZ1BHPnHRPH+3fLZfypiE2wnVgfo1wlv1BRQ0IVTgp/Wf56DlvVBJkCWAbnBajtZIh0/4N8nzyBdhkBB+ItSe0rLDHHQpUzLLHomn5r3YXubOFTnS8417mYS8jFeCjmVGSPXIz5MKFCpvD43Ik+NFjimE3x8pTfX74PsKLQ2ifIGFT4qIPVmybXabamGjzovhEssRbpuCwKSQ8X9KTbrqGF8S1OqdJMpg9WhkRhQzpQuOxjevfr2FHj/c7SsUV39iMNB8uRi9vY0Uzl2NGhwZELzo1Po5FAqObDbz60OnL+cLc6y/6WmK13IH5HDpicgHUgNUEM4oP9R0ck1KQrCqAZrpJT0K5KsPRwEefkOKUDt5wVqjzCGfIyxF/28iqjD3cryHhgEtACbLfuwroF3NXkoAsU6SqwAqJ3xNFiqCJnCPwjhVezSGyPy/3Dlbz8fAM7GoBFB7FuC3srNUj79PdZOgfoj5d2R4OCfW1NnQPxS5gF3AhoIxyfzVjweze/NtrFldRG4r12g3cE1DAt0oJa9+BT1laamOapmMHl55u4AhQ4p/B2sVwszxK7Cn7PlMK12sV3tz9fGN92WuymIcibC/PmzmvPCf9gG+LUhc6ztNpFMvNIvCoXJ9EPHRN6kqJrtHXRXVr1cdaRe3zREVR4qiSonuWYUWF5LM0z02ieg68V1p4luhzHjWb6MzTTFM1fewpxxdcvkpEWvrIczxWWD7phOmNvvBNycZR++mPW7zeA6ttZPa+SG5IyNX38hwp3NJx8VaKK/I+B5+JM6+lIy99ff7peXeM0/QtYcHg+
+sidebar_class_name: "delete api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete an empty bucket"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete an empty bucket
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Bucket deleted"},"409":{"description":"The bucket is not empty"}}}
+>
+  
+</StatusCodes>
+
+
+      

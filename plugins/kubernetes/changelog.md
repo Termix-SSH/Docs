@@ -6,9 +6,25 @@ slug: "/kubernetes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "kubernetes"
-plugin_version: "1.0.1"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- Cluster health tile on the host page and a Kubernetes entry in the host command palette
+- Optional alerts for nodes that are not ready and failing pods, set per host
+- Pods and workloads can be listed, restarted, scaled and deleted from Automations, the CLI, the phone app and the command palette through Termix actions
+- Failing pods show as a status tile on the dashboard and host page
+
+### Changed
+
+- Changing a cluster now needs edit access to the host, not just connect
+- Needs Termix 26.11.1 or newer
+- Resources, Helm, details and pod metrics use the Termix tile look, with lines between sections instead of separate boxes
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.0.1
 
 ### Added

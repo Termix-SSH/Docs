@@ -1,0 +1,69 @@
+---
+id: get-the-stream-address-for-a-host
+title: "Get the stream address for a host"
+description: "Checks access and connect policy, then returns the Moonlight Web page to open. The browser signs in to Moonlight Web itself."
+sidebar_label: "Get the stream address for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu4zYQ/ZXBnFqAsdNteqhu2SzaZotug8RtsAiMgqZGFmuK1JKjJK6gfy+GkuM4Tgq0p54kko8z88g3jz2WlEy0LdvgscCLmswmgTaGUgLtSzDBezIMbXDWbBVwTR4icRd9kgH8EoJ3dl0z3NIKWr0m4AChJT+DRU2wiuEhUYRk1z6B9bJ6uMdyIlfNUCHrdcLiDq+pCUzwgdKGQ4tLhYlMFy1vsbjrcUU6UjzvuMbibjksFbY66oaYYsoAK1xazTUq9LohLLAOiS9LVBjpS2cjlVhw7EhhMjU1GoseedsK0nqmNUUcJHCk1AafKAng3empfA6PTDgmjqQb0GUZKaUZDgrPXsNe+nvtbAlSDNhyAn57DPwUpjtQz87KJghVBVWIwLVNOYqCECGSCbG0fi2QHb8p+Nlx8J8kuw8MVej8Dvf9a0UwJGLoWpXhzvoNleN/qyVHzi4iuLqYqnPWU4743em744iH925C58ocbUUQSZuaypFO1SUqc2BhQ4lnOAwKG+I6lHK1ITGq8YYLnLeuW1t/ols7j1k5J+WonHmzSzh3uvOmnvejDgYUScX7nWC66LDAfpySxcO6P4cuwoJiYx9hxKDCex2tXrlRGtNsZlzpzrFIjrlNxXzOeeOMHnXTOpqZ0OCQxbUT9Y1IcIzzXNpPipRAOClVxiMI1fTzQ4iNloQfbxdHpd9QSjZI123IQyLPuQdrAkkSov1LCxJq0iVF0Ane56C5+QWWN+YrNSFsLL2oTbf2Z9qiGntuhOy77s8HfrOij7cLGPFZZZqzRZxYP4NbMZk2kpSrwDKw3lCSGUMleUMQ7im+ySJXOxb2H0/y/OoSNrSFxDqyNNaD5Rq4efzjiM4T9N8f7Ya2Ch5qa+oxUdqnmcElgzacZNuEhfDgp91Ge+kbbVjWtd8GT0Au0dgo1lchs7bshOahn8L51aXol2IaKXwzO5udHhG7/nCl4PdPFwrO29YRHAZRcN0llkEuaEHOk9hFvtvs81tpmsn91cjMONuugo6lgso6Ao7ap0qWU62jnLPEerKzfI/S6432QmcS1Y/E+UgOXTf7os6m+JJKjyZ4Js//gxdu1CHTI89bp60Xitl9+snO7nBvZ/m5em5oqPDJ0lDhaGqosJiet6XKD51E6fuVTvRbdMMg0186ivJ6LvfGlZ2vtEn+Sywq7RL9w8l9dT29LF/DW0R2nuC32R9dJyNUuKHt/gkels+t/OrXGzEtfdinL/oyV/pq8L4fEQtxqWF4ypVdS1INw9/mPhK7
+sidebar_class_name: "post api-method"
+info_path: api/remote-desktop/remote-desktop-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the stream address for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/remote-desktop/moonlight/launch/{hostId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Checks access and connect policy, then returns the Moonlight Web page to open. The browser signs in to Moonlight Web itself.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stream address."},"400":{"description":"Invalid host id."},"403":{"description":"No access, Moonlight is off for this host, or recording is required."},"404":{"description":"Host not found."},"409":{"description":"Not set up, not linked, not paired, or the PC is offline."},"502":{"description":"Moonlight Web could not be reached or refused the request."}}}
+>
+  
+</StatusCodes>
+
+
+      

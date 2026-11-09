@@ -1,0 +1,69 @@
+---
+id: keep-the-last-change
+title: "Keep the last change"
+description: "Stops the undo timer on the host. Answers 410 when time already ran out."
+sidebar_label: "Keep the last change"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVE1v3DYQ/SuDObUAo90UOenmHow6RlGj68AIjEUxlmZX7EokQ468Vhb678FQ2o/EcIEAvUji6JHz3nDmHbDmVEUbxHqHJa7EhwTSMPSu9iC24wje5UjjkxRw5dKeY4IP75ewb9hlDFAbmeoBIjnwvRRoUGibsHzEaxt5T22La4OBInUsHPXPAa2mDCQNGnTUMZaoSW5qNBj5S28j11hK7NlgqhruCMsDyhAUaZ3wliOO41rRKXiXOCngt+VSX98ru+UgBY6jwY6l8bVm9knQTARKXIS231r3joJdbGbOi8PEZ1wEdrV128WOOaDBxPH5qKKPLZZ4mEIjmh8Sf/Z9hHuOnX2BCYMGnylaemonvnM0U95Q34rWQSSkcrGQvLHgF+pCy0XlOxyz4sRVH60MmcITU+R41auQx/VoDlh5v7N8GaFgb3k4RS6OWGlpJyqXB50qrVxwvgFdTyA088e1jx0p548P96/Urzglqw3kd+wgsROwUztpEh/tV1IkNEw1R6AEv+dDgVydYXljgaP5TtKJ26QKzdRLE+TcTf/u5U1GHx/uYcJDYgESSHbr3llXwIP2dYisdA1YAaEdJ41UXLOrGPwzxzdVZLaX5f7pSl7d3cCOB0hCUazbwt5KA9K9/PNKzgn686Xd8WBg39iqmRKlc5oCbgSokqTbZiz4vZt3V+SczwD9T27wjoHbxNOEWbfxWbWVVmUeLQCu7m60+Tmmifz7YlksX0n6kxxtGT5dPxg4TmJtwG0kj0xmYMO8iL0+vYNB50zHNU23s1r9YSZBra92vhcI0QtXmiTfkI5/R06Jzu1yyxyy2paSQNWQ2/KP7HS0nLCT/9ktpwYRfpFFaMk6ZZid5TAb1COeDQoNHguDBsuTac4uhQazT61N9lPdezg8UeJPsR1HDX/pOap1rM9WlI2ktkm/ayw31Cb+D+2//D0b9K/wFv3jiLohO17b6ypzG85OP64vLfnur9U9juM3RAVF9A==
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Keep the last change"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/pending/keep"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops the undo timer on the host. Answers 410 when time already ran out.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Kept."}}}
+>
+  
+</StatusCodes>
+
+
+      

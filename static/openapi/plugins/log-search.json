@@ -1,0 +1,153 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Log Search API",
+    "version": "1.0.0",
+    "description": "Search logs from the journal, log files and Docker containers across many hosts at once."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/log-search/hosts": {
+      "get": {
+        "summary": "Hosts the signed in user can search",
+        "description": "Hosts with Log Search turned on that the user can connect to.",
+        "responses": {
+          "200": {
+            "description": "The searchable hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/log-search/search": {
+      "post": {
+        "summary": "Search logs on many hosts",
+        "description": "Reads the journal, log files and Docker logs on the chosen hosts over SSH and returns the matching lines, newest first. Nothing is stored.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  },
+                  "regex": {
+                    "type": "boolean"
+                  },
+                  "caseSensitive": {
+                    "type": "boolean"
+                  },
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "journal",
+                        "files",
+                        "docker"
+                      ]
+                    }
+                  },
+                  "from": {
+                    "type": "integer",
+                    "description": "Start time in Unix ms."
+                  },
+                  "to": {
+                    "type": "integer",
+                    "description": "End time in Unix ms."
+                  },
+                  "level": {
+                    "type": "string",
+                    "enum": [
+                      "all",
+                      "warn",
+                      "error"
+                    ]
+                  },
+                  "origin": {
+                    "type": "string"
+                  },
+                  "limit": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Matching lines and a status for every host."
+          },
+          "400": {
+            "description": "The search is not valid."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

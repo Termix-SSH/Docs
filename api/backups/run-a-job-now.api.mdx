@@ -1,0 +1,69 @@
+---
+id: run-a-job-now
+title: "Run a job now"
+description: "Starts a backup. It runs on the host on its own, so this answers right away with the run."
+sidebar_label: "Run a job now"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMFu3EYM/RWCpxaY7Lo56uagCOD0UCPewCiMRcGV6NV4pRllSFlWF/r3giN5vYnhADnkpBH1hnyPIt8RK5Yy+U59DFjgjVJSAYIdlYe+W8GVQuqDQAygNUMdRe3sVSAOwYFE0NoLUJCBk0Dy+1qBBhph8FrnS6kPK3SotBcs7vBDTi24ddhRopaVk304ojcKHWmNDgO1jAU+xN1VhQ4Tf+194goLTT07lLLmlrA4oo6dAX1Q3nPCadoaWroYhMUA7y8u7PGt0E3NICaWq5nfNDlsWetYGYcoim6mUuC6a/q9D++o8+u5L7J+iDtZHzO7aZ36gA6F0+Ozkj41WOBxDk3ovqv+T+wTbDi1/glmDDp8pORp18ykl2jmfU99o1hgrdpJsV5rvrjiJ2q7hldlbHHKsoXLPnkdM4UdU+J02ZuEu+3kjljGePB8HqHO/8XjKXKW4sb6O1M5T3Rqt3HB5TfY+wxCtxw+xtSScf50u3ml/oZFvA1UPHAA4aDg5/GyIjH5/8iQUDNVnIAEPuSkQKHKsHxxhZP7RtKJ26wK3TxPM+RsogZ9k9Gn2w3MeBBWIAXx+/DOhxXc1hygS2x0HXgFpQOLRUquOJQM8ZHTmyoy2/N2/3QnL6+v4MDjPLU+7Jf9ap/+fSXnBP351h54dDDUvqznQvJSJpsBlWYP8ow1E1hulxRCzAD7TmGMgYEb4Xm3fLiPWbXXxmQuLgCX11c2+5xk5v7H6mJ18UqRoaHv4D42FSdxUJHSjoQl1/4zlgdOOWjuNNp6mVUt7BOL+tIZ6QC7FAdhB1UcQhOpygkMERPnv2TL31IwssvIfO4DEDzEHYQ4fM/N9iooB/3V9jmPi/KTrruGfDCu2WeOi1Hd4YtR2fwsPuvMRO1RnMy0D+a+xsZuHY/WyS+pmSYLf+05mYVsXywpG0rlxc4VFvfUCP+gDb99Xtz6d3iL+POqhjE7X9PbGzo88Hhy/Wl77snXf99scJr+B1uuTxA=
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a job now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/jobs/{jobId}/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts a backup. It runs on the host on its own, so this answers right away with the run.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"jobId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The started run."}}}
+>
+  
+</StatusCodes>
+
+
+      

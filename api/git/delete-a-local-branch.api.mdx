@@ -1,0 +1,69 @@
+---
+id: delete-a-local-branch
+title: "Delete a local branch"
+description: "Uses git branch -d, which refuses an unmerged branch. With force it uses -D. Needs edit access."
+sidebar_label: "Delete a local branch"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v3DYM/lcIPq2A4sv26LcMyYp0w1CsKYIhOAyKzbO1syVVopJ4B//vAyXfj6xLigLdnnxHfSI/kuLHHbYUm2A8G2exxo+RInSG4T5o2/Rw1ip47E3TQ6BNkkNtIdmRQkftAqrg1nAPGxcaAsOQYWeXFfxK1Eag1jDopqEYK1TIuotY3+Fbw7hW6HXQIzEFMe7QCAmvuUeFVo+ENfYu8nWLCgN9SiZQizWHRApj09Oosd4hT16QxjJ1FHCe1eLpU6IwHV0tjr/oKHIwtnvZT/58Az+5ZPjaxbVEid7ZSFHOfzg/l8/zprktaNsC95Rb5xL7xJWExZG4dy3W2NJALLFyDWpc+SF1xp5pb1ad4dWulHleBfJuVRorzCg87HuTwoA17oppRvUPFr+7FOCGwmieoGBQ4YMORt8Phfxizfw3Og0s3WX2sV6tOF+s6EmPfqCqcSPOOf1ITQqGp0zhnnSgcJEkhbu1lLVxbmvo1KK9+Zmmg+XExQcpc6Fy6uhQdeGy74b8LyBUy4+fXBi1cH53e/NZ9h8oRuMssNuShUiWwdjcEgnigvlLCxJ60i0F0BF+zE4PncsXK5zVs5QO3EpWqMo7KpDjQ/rzkV9k9O72BgoeIjFohmg6e2ZsBbc9WfCBhK6S0WW9pSiWhlqyDYF7oPBiFpntabm/upIX769hSxNE1oGN7eBRlITHpz8+S+cA/frSbmnaq1gOFI9hKrgWceIo1xYsuEe73G60tS4D5FzbyVkCGiKV6TJ243LWhgdJ861huHh/Le+eQiy8v6/Oq/N/aQ4p8GkYFDRuHEUhbQs+xT6PsAxhBGdhkqGS0YwqI7ZEXniOkDywg1YzlWx0Ypc95q54F3nUVsgtT+QyCwBoGFyjBzhM+DNeMk+WyfL/swrKY2F64pUftLHCPKvMbpGpOzzKFCrsjDzz+mQjeCePquSyVnlXyK3d7l5H+hiGeRZzkV0RkNZEkaMW640eIr2S/ne/Ler+Bl6iuqXpuFQe9JAEgqJB/0GYZee8HqZA92vliF0flfjbl2GvUHY6jbknszRrXp9uo8urX65urnCe/wZxZeX2
+sidebar_class_name: "delete api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a local branch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/git/{hostId}/repo/branch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Uses git branch -d, which refuses an unmerged branch. With force it uses -D. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"name","required":true,"schema":{"type":"string"}},{"in":"query","name":"force","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

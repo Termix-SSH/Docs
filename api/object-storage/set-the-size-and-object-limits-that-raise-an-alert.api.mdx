@@ -1,0 +1,70 @@
+---
+id: set-the-size-and-object-limits-that-raise-an-alert
+title: "Set the size and object limits that raise an alert"
+description: "Set the size and object limits that raise an alert"
+sidebar_label: "Set the size and object limits that raise an alert"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUuP2zgM/isCT1tAibPtzbeZxS4w3UMHzRSDYhAUjM2JNbElV6IncQ3/9wUlTx6TFmj3UF+iUBTJj4+PAzBuAuQP8GH9RAWrJTuPG4KVhhY9NsTk5X4AYyGHFrkCDRYbghywKFxn+aYEDZ6+dsZTCTn7jjSEoqIGIR+A+1aUjWXakIdx1N81tu6KLfHPWArsjd3AOK6SMgW+dmUvGoWzTJbliG1bmwLZOJs9BWdFdmHKRdSgofWuJc+Ggtw2uL/uOZ1fha/BdnWN65pSfKMW7ZS9n9KPnwQeWmdD8vF2sZCfkkLhTSshQw5LfKZS0vVaTqy4IhXMN1JoS5VAqNo0hoPiCll5NEEuFdbkBV9DXLlSkt5FuJL6HLK27jbGzrA1WbIyC6kBsqm2IRsOVR6zVKOQDekwZtEnaAjkn18apfM15DAk0Qivw//sOq/uyDdmr5IOaHhGbyRHMRuTNCbkEbuaIYeKuQ15lnF8OKc9Nm1N88I1MMZGCFR03nAfQ1gTevJXnYB8WEnDFc5tDZ1KsDX/Un+QnJhYSpekUE4NHUorscDUl7FzoxLo6fCP8w1KzO/v7y7QLykE46xityWrAllWxsZyihPnzbfYsaoiLMkrDOo6Go2FFrX4cA6jPoN0iC2hAp0mLKkcZ+xpxz+M6P39nUr6KhArZBXMxs6Mnav7iqxqPUm4WhlWjFsKIimoJFuQcs/kf4giRnua7l/O5NXtjdpSrwKjZ2M3ame4Utzsv1zAOaj+emq31Gu1q0xRJUfh6GaublhhwUGeTbrK7ez0ukBrXVSQe7S9s6SoDjSP8yv08/FIVH+n5j0nmsU5jyxGKeGji8kyLNqvKFpd3d7I5JAPCfmf88V8cZGPa+92IfFEg1beLd/NCte0yGZd0wt5TGOvpgmP+o+mphCL17rADUYKnTrpf5HQWWSHJmDac9bWaKy4iuwxTAT1AEeCAg3nFAX6ZQEF0JCfLqMJhYgPayVR1UpD5QKL6WFYY6BPvh5HEX/tyAt7rI5sFLmkNEHOJeSPWAe6QHFYOfDHx2lzvVGgv4/uZUptH0mv7uQfaNhSf7ZPhaB+o+MpSeNq1JDGI0JPl38lP7M7MXF8fLFfhUIPa+b2k3DfelrLjSvliced7HfcJd8uQok8G2UD1Gg3nZQ2h2RSvv8AmXn86w==
+sidebar_class_name: "put api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the size and object limits that raise an alert"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/limit"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Set the size and object limits that raise an alert
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"maxBytes":{"type":"integer","nullable":true},"maxObjects":{"type":"integer","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved"}}}
+>
+  
+</StatusCodes>
+
+
+      

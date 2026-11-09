@@ -1,0 +1,68 @@
+---
+id: attach-a-scan-result-to-an-existing-host
+title: "Attach a scan result to an existing host"
+description: "Attach a scan result to an existing host"
+sidebar_label: "Attach a scan result to an existing host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P20YM/SsEz/JH0550c4IWcNKmi+4Wi2JhFPSIa81amlFmqJVdw/+94IxiK9nNYXWRRD2Sjxzy6YRCu4jlA97TnmfezX5ffcZNgYG/9Bzlva+OWJ7QeCfsRB+p6xprSKx3i6fondqiqbklfZJjx1ii3z6xESywC77jIJajfq19lHU1wVknvOOA5wJtN7FHCdbt1NySedUeuKHj67HSpYjYeRdz5nfLpd4qjibYTsljiSsRMjVXBTgPjgdQfjBQhJYq1iy/vOa2ds/U2AqoqgLHCD7AH6sPGf7zS/hn5ioCV1aAjFEH8SA152zkKjDeOTby1Z5KQy3hNbpAEA05CBz7JvmQAz7YKNbtUkwssGWpfYUldvm9I6mxxEXX9DvrZtTZxTAeeENuoQEXlMJjgZHDMwedihP2ocEST9l0xu8p/eP7AHccWnuAjMECnylY2ja58aM1deWR+kawxFqki+ViIclxzgdqu4bnxrd6eBtlYPpg5ZgobJkCh1WvFTxszoVOo99bnlqos5/4eLFMQtzqaGYq00CXqVEuWnOCYTmCsBgffvOhJeX88f7uRfW3HKP1DsTv2UFkJ2BdOkJN4oP9L60J1EwVB6AI71PQdOgKS45znZxpSRduuSos0Gq2DMECHSWmT4P8kNHH+zvIeIgsQALR7tzMujnc1+ygC6x0C7ACQnuOajFcsTMM/pnDD6tIbKftfnMnVzdr2PMRolBIMztYqUHaw78vyrlA397aPR8LGGpr6pwoXtPMYa2rKFHdRiz4wY3ehpzzCaDfyR29Y+Am8jztpGreX1d1/DUP71TdllnMvorVqGHX14t0LVX23KNPTbSiUaY6DKubta4Th5jb8dP83Xz5oknqUUCse4HKDy53IJDZw1G3syVTW8cRHoNvQWvp/MABKor11lOo0omqTrSUxHwcrzeozTd8LvMgfJBF15B1miAJyWkUoge8ChEWOJGiNEDpNsrRpkh9VZ/TaUuR/w7N+azmLz0HVYjNVXGyHGAeiiQeez5iiR/y72t2p8wU3vR5v777lalwXKTz5s9bXfnt+AtsfaU+gQY9QhqwRCzQp6qTvCTbCRtyu552aUNTTL3+B6h2jJw=
+sidebar_class_name: "post api-method"
+info_path: api/wake-on-lan/wake-on-lan-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Attach a scan result to an existing host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wake-on-lan/scan/attach"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Attach a scan result to an existing host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"hostId":{"type":"integer"},"ip":{"type":"string"},"mac":{"type":"string"},"relayId":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Attached, no new host was made"},"400":{"description":"Invalid address or MAC"},"403":{"description":"Needs edit access to the host and connect to the relay"}}}
+>
+  
+</StatusCodes>
+
+
+      

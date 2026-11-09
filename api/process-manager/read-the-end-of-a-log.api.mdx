@@ -1,0 +1,70 @@
+---
+id: read-the-end-of-a-log
+title: "Read the end of a log"
+description: "Sources are a service journal, a pid journal, a pm2 app, a supervisor process stream, or a file a process has open for writing. Open files need edit access."
+sidebar_label: "Read the end of a log"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9v4zYM/lcIPm2AmnT3mLfesAG9Ybii7VAMRTCwNmOrsSUdJTf1jPzvAyU3Sdt1wL3NL7Ypkvr46+OENcdKbEjWO1zhjR+k4ggkDASR5clWDI9+EEedAYJg61e//SegEPQzDkHVoxcI4iuOEWISpt6AFyDY2E59vpy1FMEHdrDxAjuxybpmAV+zxHYcwTHXwLVNQJVaLNBgoibi6h6vZie/k6OGBdcGAwn1nFhUYUKr0QRKLRp01DOusPUxXdZoUPjbYIVrXCUZ2GCsWu4JVxOmMaimdYnV7X6/Ltoc02dfj6ry1rjyLrFLekQhdLYiTeXyMWo+p/e+/cMjV+kVintMJA2nHIb4wJIsx2xT5O+s9wY762adN5gNNsLh5CQmsa7BfX703hi8i8X40/m5vl43wW3L0PkGEj+nBapNz6n1tWbUR8WeE7vCZeiGxrozCnY51/WsLyVZTiXd+2Xnm4gGtZdeijNIhyucimiP5s39f/pB4Jalt89QdNDgE4mlh67AnqUZ+YaGLml5UwpxtVymbLjgZ+pDx4vK9xr6WhFUg9g0ZggPTMJyMWgc9+u9mbDyfmv5VELB/sbjQXLi4karWqCcOjqkXLHg3Fj6X5TQzB+/eulJMX+5u30X/Q3HaL2D5LfsILJLYB2klkEv8WL/zh0GLVPNAhThc3YK5Oqslg0X2ginIR2wlajQlBEpKschedylDxF9ubuFog+RE1CCaBt3Zt0C7lp2EIQVrgGbINGWo0oqrtlVDP6J5cMoMtrTdH93Ji+uLmHLI8REolQCO5taSP3zX+/COah+f2q3PBrYtbZqy0XxeM0CLpWpUlSzWRf8zs3WFTnns4Kekxu9Y+AuchkwpYvrI9H8Upr3FQUcZ/78ZcQPo63F3PisbpPavWVIuLi61CFiiSUJPy3OF+f/UmkuaL1L4juQwTlN5jzcHE1hfFef0j2FEME7GHVudeyjAWHKKbOiVBKzSaNN03FOm/ZLanmEDdkul1+ppadMmnMvXs8+gF0NfgOkrt5ino4M/L/fXqWllVaXoSPrNOzMhdPMqPd4ZFTMy+CUU9Hg6rDEMq2uTd5qajhNDxT5D+n2exV/G1iU6dZH5sy8V9uo3zWuNtRF/o9k/nA9L6gf4SPsL4zixkzQ3aB/aHDL43Hf7td7g2WiMoJy+HO55+xWXRyN361QZd3D9rn6eqN8+TCv4t7XaiO003VKu3K5z7Fkbs6yCTtyzUBNprfsU59/ACk6HDQ=
+sidebar_class_name: "post api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read the end of a log"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/process-manager/{hostId}/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sources are a service journal, a pid journal, a pm2 app, a supervisor process stream, or a file a process has open for writing. Open files need edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["target"],"properties":{"target":{"type":"object"},"lines":{"type":"integer"},"grep":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The log text."}}}
+>
+  
+</StatusCodes>
+
+
+      

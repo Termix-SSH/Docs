@@ -1,0 +1,721 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Backups API",
+    "version": "1.0.0",
+    "description": "Back up folders, databases and Docker data on your hosts with restic, then browse, download and restore."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/backups/hosts/{hostId}/status": {
+      "get": {
+        "summary": "Backup tools on a host",
+        "description": "Reports root access, the restic and rclone versions, Docker and the database dump tools.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The host status."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/hosts/{hostId}/install": {
+      "post": {
+        "summary": "Install restic",
+        "description": "Installs restic 0.17 or newer with the package manager, or the pinned release from GitHub when the package is too old.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The installed version."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/hosts/{hostId}/install-rclone": {
+      "post": {
+        "summary": "Install rclone",
+        "description": "Installs rclone with the host's package manager, for rclone repositories.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The installed version."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/hosts/{hostId}/docker": {
+      "get": {
+        "summary": "Docker volumes and stacks",
+        "description": "Lists the Docker volumes and compose stacks on the host, for picking job sources.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Volumes and stacks."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/hosts/{hostId}/database-logins": {
+      "get": {
+        "summary": "Saved database logins",
+        "description": "Lists the host's logins saved in the Databases plugin, without passwords. Empty when that plugin is off.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The logins."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/hosts/{hostId}/jobs": {
+      "get": {
+        "summary": "Jobs on a host",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The host's backup jobs."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a job",
+        "description": "Adds a backup job to the host. The repository must be one of yours.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new job."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs": {
+      "get": {
+        "summary": "All jobs",
+        "description": "Every backup job on the hosts you can see.",
+        "tags": [
+          "Backups"
+        ],
+        "responses": {
+          "200": {
+            "description": "The jobs."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}": {
+      "get": {
+        "summary": "One job",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The job."
+          }
+        }
+      },
+      "put": {
+        "summary": "Change a job",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved job."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a job",
+        "description": "Removes the job. Its snapshots stay in the repository.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/run": {
+      "post": {
+        "summary": "Run a job now",
+        "description": "Starts a backup. It runs on the host on its own, so this answers right away with the run.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The started run."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/snapshots": {
+      "get": {
+        "summary": "Snapshots of a job",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The snapshots, newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}/files": {
+      "get": {
+        "summary": "Files in a snapshot",
+        "description": "Lists one folder of a snapshot.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The folder's entries."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}/download": {
+      "get": {
+        "summary": "Download from a snapshot",
+        "description": "Streams one file, or a folder as a zip file. Audited.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "folder",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}/restore": {
+      "post": {
+        "summary": "Restore a snapshot",
+        "description": "Restores all of a snapshot, or picked files, to a folder on this host or another host you can edit. Audited.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The started restore run."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/jobs/{jobId}/snapshots/{snapshotId}": {
+      "delete": {
+        "summary": "Delete a snapshot",
+        "description": "Removes one snapshot from the repository and frees its space. Audited.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/runs": {
+      "get": {
+        "summary": "Run history",
+        "description": "Backups and restores, newest first, on hosts you can see.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "jobId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of runs."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/runs/{runId}": {
+      "get": {
+        "summary": "One run with its log",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The run."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/runs/{runId}/cancel": {
+      "post": {
+        "summary": "Stop a run",
+        "description": "Stops a running backup or restore. A stopped backup keeps no snapshot.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The stop was sent."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories": {
+      "get": {
+        "summary": "Your repositories",
+        "description": "Storage places for backups. Keys and passwords are never sent back.",
+        "tags": [
+          "Backups"
+        ],
+        "responses": {
+          "200": {
+            "description": "The repositories."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a repository",
+        "description": "Saves an S3, REST server, rclone or local folder repository. A restic password is made when none is given.",
+        "tags": [
+          "Backups"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new repository."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}": {
+      "put": {
+        "summary": "Change a repository",
+        "description": "Empty secret and password fields keep the saved ones.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved repository."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a repository",
+        "description": "Removes it from Termix only. The data in the storage stays. Refused while jobs use it.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/password": {
+      "post": {
+        "summary": "Show the restic password",
+        "description": "Returns the repository password so it can be opened without Termix. Owner only and audited.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The password."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/test": {
+      "post": {
+        "summary": "Check a repository",
+        "description": "Opens the repository from a host. With init on, sets it up when it does not exist yet.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether it opened or was made."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,70 @@
+---
+id: create-a-bucket
+title: "Create a bucket"
+description: "Create a bucket"
+sidebar_label: "Create a bucket"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv4zYM/isCnzZAiXPbXua39rABuT1ccclQDEVwYGw2VmNLPolumhn+7wMl10nr3cPlJQn1kfxISh97YDwEyB/g8/6JClYbdh4PBDsNLXpsiMnLeQ/GQg4tcgUaLDYEOWBRuM7yugQNnr51xlMJOfuONISiogYh74HPrYCNZTqQh2HYJTQFvnXlWSDvnQtnmSzLEbZtbQpk42z2FJwV2yy2i+RBQ+tdS54NBTlNNCdUYG/sAYb4EQ6hdTYk6C+rD/JVUii8aSUb5HDbFUdiVXhCphIGDb+tVnPY2j5jbUq1T/CYNWJ/n2O3FUWAMkExHsmCUHmL+RjzKRwDgoaGuHKl9N+FWKaMIYesrbuDsQtsTZZasAhpftk4mpD105CGLMULoCGQf34dbOdryKFPpgHes/nHdV5tyTfmRSUMaHhGb3Bfp96N1ljrI3Y1Qw4VcxvyLOPouKQXbNqaloVrpP87YVB03vA5UtgTevI3nVT1sBt0D4VzR0PXFmzNX3SeLFchNnIdEpXrQNPchQuMN1L+JxDo8cefzjconD/db2fVbygE46xidySrAllWxiquSEkS582/8WqqirAkrzCo2xhUoS0jLDou5T5clzRxS1WBTs8rQS4P7OnE32X06X6rEl4FYoWsgjnYhbFLdV+RVa0noauV4XjTglgKKskWpNwz+e9WEdlet/uHO3lzt1ZHOqvA6NnYgzoZrhQ3L19n5UzQH2/tkc5anSpTVClRuKRZqjUrLDiI24hV7mRH7wKtdREg52jPzpKiOtAyPkfRmS8XhfojXd6LokxKImN7dLFBhgXxTkbVzd1aXgv5kKr9sFwtV7Me3Hp3ChSZNWjFb/PronBNi2z2Nan0ttX4tkdZCBH/aGoKcWAiDQ3aK5ZzHXmTdpoq0wtnbY3GSpwoB/0oMQ9wkRjQ8FZkQL9uAJGU/HobvCrNTkMlkpU/QN/vMdDfvh4GMX/ryMvj313EJEpBaYL8LiF/xDrQjPO0GuCnL+PW+FmB/v9aXh+ZPUfNqjv5BxqOdH6zvobdoCHds0ginX9MqRZbiXLxn20k0aJJoe8+b0RF9uNma1wpPh5PsiPxlPK7WE5UrGjroUZ76KSnOaSY8vkP9XaiKg==
+sidebar_class_name: "post api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a bucket"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a bucket
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"Bucket created"},"400":{"description":"Invalid bucket name"},"409":{"description":"The name is taken"}}}
+>
+  
+</StatusCodes>
+
+
+      

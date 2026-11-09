@@ -5,7 +5,7 @@ description: "Ready nodes and running and failing pods for each host the caller 
 sidebar_label: "Health of every cluster"
 hide_title: true
 hide_table_of_contents: true
-api: eJzVlE1vHDcMhv8KwbMya+e4RQ8u0DZOGjSIXRiBYRT0DHdHWY00FTlrTxfz3wtq9ssxcsixp9VSHOp5JfLdYcNSZ9+rTxGX+JmpGSGmhgUoNpCHGH1cl/WKfLB1nxqBVcrAVLfQJlHQlqGmEDhDTRFy2Xny2sKH4ZFzZGUBHXLkBlKs4DPLEFSAMsOGey3lCDofB+WfIPMqs7Q/X0Ldcr0RoDX5WKFDpbXg8h5PZfHBYU+ZOlbOtrdDb0r+GTiP6DBSx7jEfUl0KHXLHeFyhzr2tiWafVzjND04zCx9isJi+28vLuzn5Q39GRk4ah6h51zUVzhNDjvWNjW4xDUrGpK2uMRFH4a1j2+o94vNkXkhQ9dRwRPO2wP3kAMucTeHJnTfnPwlDRluOXf+GeYcdLil7OkxzMD7aGFe0RAUl9iq9rJcLLR8WPEzdX3gqk4dTkWycD1kr2NBeGTKnK8Gg79/mNwO65Q2ns8j1PsPPB4jZyVu7GpnlPNCx5s2lsML2P85Cd1+8VvKHRnz+7vbV+pvWMSnCJo2HEE4KvhYGs8OSdn/S5YJLVPDGUjgl1K0tK6llQ8rnNwLSUe2WRW6uXvmlFP7fH3S7xK9v7uFOR+EFUhB/Dq+8bGCu5Yj9JkN14FXUNqwWKTmhmPNkLacv6ui0J5f9w/f5NWna9jwCKKU1Ya3DKV2z3+/knNM/fGr3fDo4Kn1dTsfJKdjKrhWoNpmXQ65kJ7i/uuaYkwlwfYpjsnGKwjPQ+XjKhXVXoPJPHOTq0/X1v6cZca/rC6qy1eiPlKkNZ+7UB0GMaeAVU4djDZTNsQyv8TNzTs3w4e0Fgcda/a1OPhy9fGPQkwgLYdQnqZPoh1FI9z3yTumoC2kFfCW83g47VsuG6uoHPX/YLlzxyk/66IP5KMpL1a127vcPZ5cDh2efM46dO90Dw4N25J3u0cS/iuHabLwbNRmPo0Xs7IGlysKwg43PL6w7i2FwVjQTOfgfLMtnfz3919vcZr+A4cWYkI=
+api: eJzVVMFu3EYM/RWCZ0Vr96iiBxdoGycNGsQujMBYFLTElaY7mlGH1NrqQv9ecLTe3cTxIceeNOK8Gb7HId8eG5Y6uUFdDFjhJ6ZmghAbFqDQQBpDcKHN6w05b+shNgKbmICp7qCLoqAdQ03ec4KaAqS88+i0g/fjA6fAygI6psANxFDCJ5bRqwAlhi0Pmq8j6F0YlX+ExJvE0v10CXXH9VaAWnKhxAKVWsHqHk/X4rrAgRL1rJxsb4/OlPwzcpqwwEA9Y4VG87rBAqXuuCes9qjTYDsuKLeccJ6Lbx89sPnWWdHkQovzvC4wsQwxCIvt/3BxYZ8vi/tHYOCgaYKBUy5caVmxZ+1igxW2rGhqtMMKV4MfWxfe0OBW26PclYx9T5mecNo9Sx6Txwr3S2jG4qvMn+OY4JZT755gwWCBO0qOHvxC+BDNnDc0erWaqQ5SrVaaD5b8RP3guaxjj3OWLFyPyemUKTwwJU5Xo5G/X1sx6xi3js8jNLj3PB0jZ1fcWGkXKucXHSttXJ5fwP4XEBaHxa8x9WSc393dvlB/wyIuBtC45QDCQcGF3LOWJCb3LxkSOqaGE5DAz/nS3PUGywdLnIsvJB25LaqwWLpngZza5+9HfZXRu7tbWPAgrEAK4trwxoUS7joOMCQ2ugU4BaUti0VqbjjUDHHH6VUVme15ub+7klcfr2HLE4hSUpv7PM/aP/31Qs4R+v2l3fJUwGPn6m5JJKc0JVwrUG02Ic9YiI/hcLqmEGIG2D6FKdp4eeFlqFzYxKzaqTeZZ0Z09fHa2p+TLPQvy8vy4oWoDxSo5XMDq/0oZjKwSbGHyWbKhliWl7i5eVss5H1spYCeNblaCvh89eH3zJhAOvY+P80QRXsKxvDQJ2+ZvHYQN8A7TtNztq952VgF5aD/B7deOk75SVeDJxdMebaq/cHl7vHkcljgyeesQw9Oty6yext4v38g4T+Tn2cLL0Zt5tM4MStrsNqQFy5wy9O56+/Ij0YFzYVeAZ98/oRen2xy8bCTWf/2yy3O8380WoRG
 sidebar_class_name: "get api-method"
 info_path: api/kubernetes/kubernetes-api
 custom_edit_url: null
@@ -48,7 +48,7 @@ Ready nodes and running and failing pods for each host the caller can reach with
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"query","name":"refresh","schema":{"type":"string"}}]}
+  parameters={[{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"refresh","schema":{"type":"string"}}]}
 >
   
 </ParamsDetails>

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Docker API",
-    "version": "1.2.3",
+    "version": "1.3.0",
     "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
   },
   "servers": [
@@ -149,6 +149,13 @@
           "Docker"
         ],
         "parameters": [
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
           {
             "in": "query",
             "name": "refresh",

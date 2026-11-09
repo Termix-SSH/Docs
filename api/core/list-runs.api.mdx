@@ -1,0 +1,69 @@
+---
+id: list-runs
+title: "List runs"
+description: "The caller's own runs, runs on hosts they manage, or every run with the view permission."
+sidebar_label: "List runs"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu20YQ/ZXBXHphqTiHHnhzgbRwGiBBosIoDKEYkSNxK3KX2RlKZgX+ezFLWpLruHAM9CIKu2/2vZmdfXPEiqWMrlMXPBa4rBlKahqOPwiEg4fYe8nSLwQPdRAV0JoHaMnTljMIEXjPcTAMHJzWtg17xwfoOLZOxAWfY4ZKW8HiDj92HMnoBFcZdhSpZeVoe0d0JuJrz3HADD21jAUa6U2FGUpZc0tYHFGHznacV95yxHHMvh1KpRF9O1g0Or99PlaUtJfXRK5Jy/p1pGvehMiviWxc6/S/i7TKMLJ0wQuLAd6+eWOfxx3wOV245wOLwsZF0dxIsWWtQ4UFbtloOtIaC1yE020urElMAMf9w3X2scECj9PSiNm/uP4IfYSldck9TBjMcE/R0bqZJM6rSeWG+katH1Q7KRYLTYE531PbNZyXocUxJSlc9tHpkCSsmSLH697k3q2semUIO8eXK9S533g4rVwc8cWqOUm5POhUXNPyUPTp/gyE2fznlxBbMs3vb5dPsv/C6W2Ahh17EPYKzqfXYyQhur9TYaFmqjgCCfycDgXyVYKlwBzH7FFKJ21TVphN7TJBzv3y10GfVfT+dgkTHoQVSEHc1v/ofA63NXvoIpvcDJyC0o7FVkqu2JcMYc/x2SyS2styf3clrz/dwI4HEKWozm9nz2nv/3ySzgn6/aXd8ZDBoXZlPRHJmSaHGwUqVSxsxppVztEleR8SwPbJD8EzcCM8PSPnNyFl7bSxNOfuv/50Y63PUSbpb3/Kr67yqycpJX8OkeEcl8M7Kmvomn7rPFSh7Fv2KuB0dvDQK0sqfBdEW/LGP3fBBycK88N9xGTPxCt7/Z+HwnT5yve66Bpy3mQm1zjOFnOHZ4vBDJPWVZaGgm0ej2sS/j0242jLkynau6+cmItUWGyoEc5wx8PlMNlT0xs1mgE8A74YHy+BnybGS8DnIfEi9MNceAn4YRScsauzrU6ed7bzX98tcRz/AUNpvsk=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List runs"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/operations/runs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The caller's own runs, runs on hosts they manage, or every run with the view permission.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"actionId","schema":{"type":"string"}},{"in":"query","name":"status","schema":{"type":"string"}},{"in":"query","name":"batchId","schema":{"type":"string"}},{"in":"query","name":"before","schema":{"type":"string"}},{"in":"query","name":"limit","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Runs, newest first."}}}
+>
+  
+</StatusCodes>
+
+
+      

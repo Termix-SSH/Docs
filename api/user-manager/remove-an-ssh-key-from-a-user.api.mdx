@@ -1,0 +1,69 @@
+---
+id: remove-an-ssh-key-from-a-user
+title: "Remove an SSH key from a user"
+description: "fingerprint must match the key on that line, so a key that moved is never removed by mistake."
+sidebar_label: "Remove an SSH key from a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVtv21YM/isEnzZAsb1hL9NbhqVYug0oGhfBEBgDI9HWmaVz1EPKjmbovw88kh13aYpmGPIkieLl4+3jAUuWIrpWXfCY49r5Dcc2Oq/QdKLQkBYVaMWw5R6CB61IoXaeM5AAlMRJ1oQdl+AEPO84QuRRcN9D40RpyzPMUGkjmN/hB+EouMqwpUgNq33ldwd0BqIlrTBDTw1jjlUQvS4xw8gfOxe5xFxjxxlKUXFDmB9Q+9Y0nVfecMRhyD7rKT2+wo9odH7zrBtL/r/B+dhx7B8dnRX7RbBWpixt8MJi/79fLOzxaSeXY8sEaK0cUweLivyGZzhk+MPixy+YjIoliPMFm2kPe44MkamcWT7YsFahxBxLrlmtHKlGOc7buts4f0Gtm3fC8aIhTxuO88PYxyFJZX6wGgxzCzc/WEUHzFA47o6T0MUaczyMIvv5KdY/QhdhybFxDzDqYIY7io7u67EqkzRluaauVpsl1Vby+VyT4YwfqGlrnhWhwSHVVbjootM+QbhnihwvO0vsbmVdLELYOj6XUOt+5f4kOXNxY/0boZw7OrXTsODUZvselTCbXt6E2JBhfnu7fJL9DYs4W8awZQ/CXsH51GMLEqL7m0wTKqaSI5DAT8kpkC+TWjJMk3Ce0gnbmBVm49iOKo9z+9den0X09nYJoz4IK5CCuI2/cH4GtxV7aCMb3AycgpGCmKTgkm3Swm6a1M9lkdCel/vFlbx8d53oSpSiOr+BvdMKtHn480k6J9WXl3bLfQb7yhXVGEgew8zgWoEKFTM7cereT9YFeR+Sgv0n3wfPwLXwuHPOr0PK2mltaSYOhct31zb5HGVE/t1sMVs8yef3tIUppu0fUFGEzqtksImhayWDlkT2IZaSoNzc/DJSQfDQ26rZ9kpqQRtEG/KGZJqH94nqgfzRDNYxNEAp1L+h2BJ5Za+vcW3G+VB+0Hlbk/OGPxHLYeKrO3zkK8zwnLEww/x0exJpmWS6IVYb+0y3YJWlI2XeDod7Ev4Q62Ew8Uj4xiWlE2OmEvM11cJfKMo376dD8C08l8KW+yfnY0d1Z5poHHQkwv8/9JEgfH8e8whpqpcR4ytGTT155Zip8cPq/BT+fPXb1fIKh+EfvLQzGg==
+sidebar_class_name: "delete api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove an SSH key from a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/user-manager/{hostId}/users/{name}/keys/{line}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+fingerprint must match the key on that line, so a key that moved is never removed by mistake.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"path","name":"line","required":true,"schema":{"type":"integer"}},{"in":"query","name":"fingerprint","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The keys after the change."},"409":{"description":"The keys changed since they were read."}}}
+>
+  
+</StatusCodes>
+
+
+      

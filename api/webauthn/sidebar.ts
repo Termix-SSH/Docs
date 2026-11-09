@@ -64,6 +64,12 @@ const sidebar: SidebarsConfig = {
           label: "Stop asking for a security key after the password",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "webauthn/options-for-tapping-a-security-key-before-turning-the-step-off-or-removing-a-key",
+          label: "Options for tapping a security key before turning the step off or removing a key",
+          className: "api-method post",
+        },
       ],
     },
   ],

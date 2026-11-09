@@ -1,0 +1,70 @@
+---
+id: add-a-network-card
+title: "Add a network card"
+description: "Add a network card"
+sidebar_label: "Add a network card"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vd9v20YM/lcIPq2AYmV71FtabFjaFQvqrMEQGAMtMdLF0p16R9nxBP3vA+8U241ToH2ZXiTx+OMjefw4olAdsLjHz8bLQC18pLIxlgOuMuzJU8fCXjVGNBYL7EkazNBSx1hg44JcV5ih5y+D8VxhIX7gDEPZcEdYjCj7XjWNFa7Z4zRlr3oaBvNdfoJ4Y2ucplVS5iBvXbVXjZe2pbPCVvSI+r41JYlxNn8MzqrszLVbP3IpmGHvXc9eDIfj6UsAGbIdOq2cZdk5v8EM195UNeNqyjC4wZevmE3xUeihdzakCL9cXuqr4lB60ytILPCqqrhaaL3OD4Bgjgolea1bx9K4SqvqQkxBi1tg3rdDbewF9Sbfpg5fdHOHc21eyMfUwynfdiEftQ1Tbk0ZMMPAfvvc/MG3WOCYRBO+BPW3Gzzcsu/MEyQdzHBL3tC6TUnO0pjnAw2t6PUR6UOR5xINF/xEXd/yonSdFmqlCMrBG9lHCGsmz/5q0MzuV3qPSuc2hk8l1JsPvD9ITlwstd0JyqmjQ4MUC84XTv+TknY1fvzmfEeK+f3d7Vn2Sw7BOAviNmwhsBUwFqRh0CDOm3/j1YOGqWIPFOBtdApkq6gWDRc4ZV+ldMCWssIsDU5SOY7O406+iej93S0kfQgsQALB1PbC2AXcNWyh96xwMzACQhsOKim5YlsyuC37b2YR0Z6W+4creXVzDRveQxDyYmwNOyMNSPf0z1k6B9UfL+2G9xnsGlM2KVA4hlnAtQCVEtRs1gW3s7N1Sda6qKDnZPfOMnAbOE2l8sinIwP9mi7vSR2OxPDMBgcW0E4+uKhrRI3O+Beubq51hNiHVIKfF5eLy7PCvPNMwhFuR5Zqhg+fP8I86vA86uAs7HVC/zB2eII4+Km7y+XvqR6tWatV7KpySEeRJOcr9irnfIXkkLXwk+R9S8aqq0gb40xH93ikI83tBSFhFveJvovDYtl28X9eD5GYVklP/Y3jmgL/5dtpUvGXgb1yxerIPZE5KhP0u8LigdrAZ9APmwJ/+jQvkTeA2espPc+k3UeKawf9www3vD9uROWi/zFqLM+kiyfNQcw6Hb1LUS5u1cHR9GwjKlcetsjNn0tlufW8WTtXqY2nna5o2qXQLmYSGTXKRmzJ1gPVkZSiT33+A1iY46Q=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a network card"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/nics"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add a network card
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"type":{"type":"string","enum":["network","bridge"]},"source":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Added."}}}
+>
+  
+</StatusCodes>
+
+
+      

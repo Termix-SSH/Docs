@@ -1,0 +1,69 @@
+---
+id: read-a-config-file
+title: "Read a config file"
+description: "Only files under the server's folder. Lists the backups Termix kept of it too."
+sidebar_label: "Read a config file"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vd9v40QQ/ldG8wJIW6fw6LeCOOgBoroGVaiK0Mae2EvsXd/OOImJ/L+fZu0m6ZWiO4l7Sjw7O/N98+PbI5bERXSduOAxx999M8DGNcTQ+5IiSE3AFHcUv2LYhKakmMGvjoXT0doW275jWFJs3QG21AmEDTgBCSFDg2IrxvwRH2gN9ykO48pgZ6NtSfQrfzyi09ydlRoNetsS5lgHltsSDUZ637tIJeYSezLIRU2txfyIMnTq6bxQRRHH0cyR3vcUh3OoCf+nhGKJzlevR5ohfnqclTpzFzwT6/l319f687zoy5pA6CBgfflU0UxBYEtShxJzrEjQTOlzXHRNXzl/ZTu32NP6auLHi+NUs3GhDUQz854q3McGczxOphHNRxD+DH18auKpXDsbnV03E/LZmsBvbN+I9kik43yxkHQxo4Ntu4ayIrQ4Ju5MRR+dDAnCmmykeNMrh8eVlrgIYevo0mI79wsNJ8tFiHut8QTlMtCp5IoF51bo9+SEZv7zJsTWKua3D8sX7O+J2QUPErbkgckLOJ/mW5OE6P6x6gk1Wd0Jy/B9Cpoapm7pYoajeUbphG1ihWaaqcnlPFR/7+VVRG8fljD5A5OAFWBX+SvnM3ioyUMXSeGatHF2S6yWgkryBUHYzQv8bywS2styf3Ylb+5uYUsDsNgozlewd1KDtIe/XtA5uX5+abc0GNjXrqinRHxOk8GtgC2E9drsC2Hv59uF9T4kBz23fgiegBqmabec34TE2kmjNC8UCm7ubnX+KfKE/9vsOrt+weo3621F4CvnDwZuOlvUlDL/YMtygOBh0LXSreQc2AmxgSL4jasMNKHi5Pzzcnl3byZWtKM4QFFbX6kksFAJGxdZUre6wNJar6Dn0XlHtgQ7x4R57Z+B1CXzQl6+iLhPA6Patega67yiTEpznLXqEc9ahQYv1AoN5ieNT8hXJom+Xjoe15bpj9iMo5onFVYNKR2rIpWYb2zD9B9kv343i/Q38BrSLQ2Xr8PONr06oQrRF0g0Px7nNKuzxP7/5J6kxw+XOZ+wzJUfV5ePzE8/LnEcPwC5/cWm
+sidebar_class_name: "get api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a config file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/web-servers/{hostId}/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only files under the server's folder. Lists the backups Termix kept of it too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"server","required":true,"schema":{"type":"string"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The text and backups."}}}
+>
+  
+</StatusCodes>
+
+
+      

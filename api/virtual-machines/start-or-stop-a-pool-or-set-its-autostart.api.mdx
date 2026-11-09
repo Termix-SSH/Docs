@@ -1,0 +1,69 @@
+---
+id: start-or-stop-a-pool-or-set-its-autostart
+title: "Start or stop a pool, or set its autostart"
+description: "Start or stop a pool, or set its autostart"
+sidebar_label: "Start or stop a pool, or set its autostart"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v3DgM/SsETy2gjNM9+pbtomjaLTbopA0WwaBgbGasHVtyJToZr+H/XlD2fCRpgObSky2aJt/jx9OAQuuI+TV+tUE6quETFZV1HHFlsKVADQsH9RjQOsyxJanQoKOGMcfKRzkv0WDg750NXGIuoWODsai4IcwHlL5VT+uE1xxwHM1PI6XHL8SJEqxbPxuGCrHevSCQQXZdoxWIQkHQYBTfokHqxO9Mzh9Oq3FcafjYehc5asQ/Tk/1UXIsgm0TgBz/8o4XivORfalRwAfQPEDQel+bdGYBKxGOEzcslS+VpY96TmRzzNq6W1t3Qq3N7qbGnTRz4zLtScyGqTVjpvFjNmh9xmyY6jMqTQ53u852ocYch8mkHx9C/td3AS45NHYLkw8avKNg6aaeKjBbUxFuqatFZ0OkjXmWSfpxwVtq2poXhW9wTDWMXHTBSp8g3DAFDmed8rteaXcL7zeWjy3U2o/c7y1HIZba3QnKcaB9sxULzkOg58kJzfzyzoeGFPOHq8sn7Jcco/UOxG/YQWQnYB1IxaBJfLD/k3pCxVRyAIrwZwoK5Mrkln5c4GgeUNpjm1ihmcZ5cjkM9H/38iyiD1eXMPmn4SGBaNfuxLoFXFXsoA2scA1YAaENR7UUXLIrGPwdh2dZJLTH5X5xJc8uzmHDPaRJtm4N91YqkGb77QmdvevLS7vh3sB9ZYtqShQPaRZwLkCFLlTc+YK/d/PfBTnnk4N+J9d7x8B1nHfWulufWFupleZjeYSzi3NdAg5xIvFmcbo4fULtbWASTgkbcrRm+Pj1E8wrC7uVBe+g1x3727puC2mBp/4sl+8nRrW90b9SX1QLGnIKbx6SF2nKA4T7vgpvJWtrsk5TJEEYZrm5xoPcKOdHgoMmXQP6zPf3QVIdtcy6ns/CvJqcNegw3FDkL6EeRzV/7zioFKwO0pKEobRR30vMb6mO/AR/4Z2w05F79XnW/NeA5ue8divn+qRgdacnNLjh/nCbqdT8xqypQr8559yNcTUe3TEX/ywvcRx/AJwZxmQ=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start or stop a pool, or set its autostart"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start or stop a pool, or set its autostart
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","stop","autostart","noautostart"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,70 @@
+---
+id: test-a-servers-config
+title: "Test a server's config"
+description: "Runs nginx -t, apachectl -t or caddy validate. Changes nothing."
+sidebar_label: "Test a server's config"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdFu6zYM/RWCL9sAJen26LfeYsN6h2FFm6EYimBgbNZW40i+Et3UM/zvAyXfJG3RAReYXxLTJHUORR6OWHEsg+3EeocF3vYugqute4GFGKCOyoZLaWEh4AOUVFUDPFNrKxJewlVDruYIzktjXb1Eg0J1xOIB73kLdxyeOUTcGOwo0J5F34qHEa0e1pE0aNDRnrHAxke5rtBg4C+9DVxhIaFng7FseE9YjChDp57WCdcccJo22ZujfPLVoC5vg0vvhJ3oJ+q61pakTFdPUemO73P77ROX8grFA8bEI9EIvuMglmOKzvZTdJRgXY1TejRH7LyL2fmniwv9eV3v+4al4QBWoKMYuTJwsNKANAy+l66XJWqmPUvjK62Zj4oula7AVdf2tXUL6uzqwNtFBhRXYy7mtBJO7rM9lb4PLRY4ZtOE5g2iv3wfYM1hb19g5mfwmYKlbfuWdcWP1LeilyfSxWK1khS45Bfady0vS7/XYmwUQdkHK0OCsGUKHC575fCwmcyIpfc7y+cW6uxvPBwtZynu9M4ylPNEx0tQLDi3jb5nJzTzn1982JNi/ny/fsf+jmO03oH4HTuI7ASsS7ehh/hg/0n9Aw1TxQEowqeUFMhVyS0FLnEyrygdsWVWaPIAZJfTCDwd5ENEn+/XkP0hsgAJRFu7hXVLuG/YQRdY4RptJaEdR7WUXLErGfwzhw9ZJLTn5f7mSl7eXMOOB4hCQayr5x7ev/z9js7R9dtLu+PBwKGxZZMPiqdjlnAtQKVEDZt9wR/cHF2Scz456Hdyg3cM3EbOw6VicHuSkZ9z8563+nGw9eIefSqRFfU51zm4vLnWYeEQM9kflxfLi3cl+J0c1ZxV1sBlktgE8yqpq3cw6AzqCMcCohWOBkrvHm1toPV1TM6/rtc3d7Na8DOHAcokxqAjzxU82hAlXa1Kxp6S3M19tuYoQPN4fxfn5G+Bjifx/D/2Qm4p4RdZdS1Zp9CSFo2zmj3gSc3Q4JmeocHiuB6SpG1M2hcaNI5bivxnaKdJzV96Dqoym5NqJc2pbNT/FRaP1Eb+D67f387S/wN8hPvrNLshiWPb6xsa3PFw2mTTZjKYuzkhyB+v8jmLtaY4Bb9bTqp4R9W/+eNOtWo7L7m9rzQm0EEXFR3y4T5xSbqYbCO25Oqe6iQtKac+/wLlNr92
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Test a server's config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/test"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs nginx -t, apachectl -t or caddy validate. Changes nothing.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server"],"properties":{"server":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether it passed, with the output."}}}
+>
+  
+</StatusCodes>
+
+
+      

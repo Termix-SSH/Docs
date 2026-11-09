@@ -6,9 +6,53 @@ slug: "/classic-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-layout"
-plugin_version: "1.1.1"
+plugin_version: "1.1.2"
 plugin_latest: true
 ---
+## 1.1.2
+
+### Added
+
+- Pick what a click on a host opens, such as the terminal, Docker or the host page. Set a default in Customize sidebar and change it for one host from its menu
+- Host tools can open inside the host page instead of their own tab, set in Customize sidebar. Their own tab stays the default
+- Only the host page, in the same setting, takes the connect buttons off host rows so a click on a host opens its page
+- Pick which buttons show on one host's row from its menu. Customize sidebar keeps the default for every host
+- The host menu lists the host's actions, when Operations Center is on
+- API keys can be limited to reading or running actions
+- The dashboard is a grid of tiles you can move and resize freely, with as many columns as you like. Your old layout moves over on its own
+- Until you arrange it, the dashboard fills the screen down to the bottom
+- The dashboard's add list has a search, filters and groups, and can add a plugin's status or action as its own tile, like Operations Center's
+- A setup step to pick how host rows work, connect buttons, buttons plus a host page button, or only the host page, when a plugin offers a host page
+- The dashboard layout is saved with your account, so it follows you to every browser. A layout saved in this browser moves over on its own
+- A dashboard you never arranged puts Needs attention first, when Operations Center is on
+- Admin setting to stop anyone saving passwords and keys, with a note in the host and credential editors (Termix #1753)
+- Desktop app: keep a credential on this device only and use it as your login for a shared host or folder (Termix #1749)
+
+### Changed
+
+- Settings, the host and login editors and the dashboard use the shared tile look, with lines between sections instead of separate boxes
+- Keybindings settings use one list with a line between rows instead of separate boxes
+- The SSL certificate status is a plain row instead of a box
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Closing the command palette puts focus back on the terminal, so you can keep typing
+- Folder host counts now include sub-hosts, so a folder no longer shows more online hosts than it has
+- A host's status tooltip no longer covers its right click menu
+- The session timeout box in admin settings is as tall as its Save button
+- Recent activity in quick search opens the host you used, not another host with the same or its old name
+- A compact host row with the address and tags turned off fits on one line, with its buttons next to the name
+- The Manage tab shows the list or the editor, not both squeezed together, when the tab is narrow, like beside the sidebar on a tablet
+- The clear buttons in the folder and parent host pickers have a name and work from the keyboard
+- Protocol switches in the host editor have names for screen readers
+- Folders in the Manage tab start open even when the list loads after the tab opens
+- Picking another credential or defaults level while one is loading in the Manage tab no longer opens the first one
+- Dashboard host status and recent activity rows open with Enter or Space
+- Leaving the keybinding field without pressing a key stops recording
+- Clearing recent activity on the dashboard says so when it fails
+- Tab bar, keybinding and accent color buttons have names for screen readers
+
 ## 1.1.1
 
 ### Added

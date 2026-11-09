@@ -1,0 +1,69 @@
+---
+id: git-status-of-a-host
+title: "Git status of a host"
+description: "Whether git is installed, its version, the login user and the folders scanned for repos."
+sidebar_label: "Git status of a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcGO20YM/RWCpxaYyE6Rk25boNlucgkaF4tiYRSzEi1NLc0oQ2p3VUH/XnBGsZ1sNkAOPVmi35DvccinGWviKrpBXPBY4m1L0lKExgk4BudZbNdRbcAJwwNFdsEbkJagC43zMDJFsL5OoUPoaooMXFnvqYZDiBBpCFygQbENY3mH105wb3Cw0fYkFDU4o9Pqg5UWDXrbE5bYBpabGg1G+jS6SDWWEkcyyFVLvcVyRpkGRTov1FDEZdkrmofgmVgBv2y3+vOlyF1LwGJl5AIXg2+2b55jfg8s4IPAIYy+LnBZDPYkbaixxIYETWZb4mboxsb5V3Zwm8bJZs68l00ugQaZ4sNnnWPssMQ5hxY0X5X9K4wRdhR79wQZgwYfbHT2vsuK1mgifLBjJ9opkYHLzUbSwYKebD90VFShxyX1hKkao5MpUbgnGylejcr+br+YGasQjo4uI3Zw72k6RS5SfNTmZyqXiU53oVxwvSN9zyA068PbEHurnN/d7p6p/0is8wUSjuSByQs4nyZLi4To/rWKhJZsrWPH8GtKehrAdDBd6qWkE7esCk2etgw5z9s/j/Iio3e3O8h4YBKwAuwa/8r5Am5b8jBEUrq6JiD2SKyRimryFUF4oPiiisT2st0/3MmrDzdwpElHOorzDTw6aUH6p7+fyTlBf7y1R5oMPLauanMhPpcp4EbAVsJ6bMVCePTraTWDkAD6v/VT8ATUMeWtcv4Qkmonncq8dgJXH2507rPdYImvi22x/cblkIFh7DoDVeh7J6ncMHKb/Cs5DwQPky6VbiWbhDgSDcqzh3EACVBboazGjhJSxnQrQ2DprVdy64got7zWEA5gU9Kvaek6eSEv/7Od5iERepLN0FnnlXFyl3l1pjs8OxMabJxSLU+uutrT3iSjVfg831umP2O3LBr+NFJUx9ifHSj5R+1Yn2ssD7Zj+o78n/5YnftneInx5830UzK6btQ3NHik6fwJWPaX7nv92w6X5T//glH0
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Git status of a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Whether git is installed, its version, the login user and the folders scanned for repos.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"404":{"description":"Host not found."}}}
+>
+  
+</StatusCodes>
+
+
+      

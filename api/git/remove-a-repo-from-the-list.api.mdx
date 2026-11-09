@@ -1,0 +1,69 @@
+---
+id: remove-a-repo-from-the-list
+title: "Remove a repo from the list"
+description: "Only forgets the repo in Termix. Nothing is deleted on the host."
+sidebar_label: "Remove a repo from the list"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVNFu3DYQ/JXFPrUAc+fkUW8u6gZOgjRIXBiFcQhoaU/anEQy5Ops9aB/L5aUfZe6bhEgT6dbDXdnRss5YEOpjhyEvcMKf3f9BFsfW5IE0hFECh7YwRXFge9X8N5Lx64FTtBQT0INeJeRnU+yQoNi24TVDb5mwY3BYKMdSChq8YCsU4KVDg06OxBWqAcvGzQY6evIkRqsJI5kMNUdDRarA8oUFMlOqKWI82yWTl9HitOx1dL4fxsliexanOeNglPwLlHS96/OzvTnW1M+0uD31Kx0Lg4knW+wwiIfTRla4Tr0Y8vuhQ28blnWh6JrXquFCQ0mivsHG8bYY4WHUprR/GPin36Mi+VQMGhwbyPb274QXaqZ69aOvaiRIiFV67WUb0X3dgg9rWo/4JylJqrHyDJlCrdkI8XzUcnfbNTR2vsd02nFBn5L02PlpMUntbRQOW306LBywcV5/V9AaJaH33wcrHJ+c331RP0nSol1q/yOHCRyohuoO6ZDfOS/rCKhI9tQBJvgl9wUrGsyLB9c4Wy+kfTIrahCU1aoQI479OVOnmX05voKCh4SCViBxK17wW4F1x05CJGUrgEWELujpJWaGnI1gd9TfFZFZntq93c7ef7hEnY0QRIbRa/oHUsHMtx/fiLnEfr91u5oMnDXcd2VQek4ZgWXAraWpMcWLPg7t5yurXM+A/S9dZN3BNQnKveK3dZn1Sy9ynzNAucfLnXvKabC++XqbHX2Lx+HDISx7w3UfhhY8rgwpg5alpxgSUNq0kullzKZjNgRBeU5wBhAPDRWqKixo/jcMX+V4JMM1im5ZUVKIIAt6biNfsh6e05PVkdvlRNy8oPCteyE0L2sQ2/ZKcEcJoclh27wmENosGWlVJ1krIbRxuTUVfThcGsT/RH7edZyCVTNh4aTpk2D1db2if5D108fl7z9GZ6juKPpGM97248KQQ2Uh1T78TMfbrubTmc+cFkcmTenmf7rxbuLqwuc578BYw9vgw==
+sidebar_class_name: "delete api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a repo from the list"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/git/{hostId}/repos"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Only forgets the repo in Termix. Nothing is deleted on the host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Removed."}}}
+>
+  
+</StatusCodes>
+
+
+      

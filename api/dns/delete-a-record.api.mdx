@@ -1,0 +1,69 @@
+---
+id: delete-a-record
+title: "Delete a record"
+description: "Delete a record"
+sidebar_label: "Delete a record"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCpxaYtdx2e9EtbVIg2zZYJFkERWAUjIa2ppZmtDNUEq+gfy84Uhyn3gDNZU+WKfLxPXLmaUChTcLyFk8vrnBlsKNILQtHDQ7oPJbYkdRo0FPLWCJVVei9nFs0GPlz7yJbLCX2bDBVNbeE5YCy6zTZeeENRxxH81WwL8Hz/0NKEp3fvAoUuQrRvhFqpcmpCz5x0vc/Lpf6YzlV0XXigva5zMhguWFhi6PB98v3r6b5ILAOvbfK9D8ppxkCCCayaLBlqYPFEid0NJOqEouu6TfOv6POFdanYh56Kob9+MdCh5eKYZrhWEyoqRieZjGiwcTx/mmZfWywxGEK6cuX9P4KfYRrjq17hCkHDd5TdHTXTPOZo1n7mvpGsMRapEtlUUguXPAjtV3Diyq0OOYJJ6766GSXKdwxRY4nvYq8XekuqxC2jg8j1LnfebePHEBc6SYnKodA+8UqF5wXrv+nJDTzw28htqScP9xcH6m/4pRc8CBhyx4SewHnQWoGbRKi+0KaCTWT5QiU4JcMCuRtTsuFCz0fh5L23CZVaKbDO6U8H99/HuRVRh9urmHKh8QCJJDcxr9zfgE3NXvoIitdA05AaMtJIxVb9hVDuOf4qorM9nDcb57kycdz2PIOklAU5zfw4KQGaR//PpKzT337aLe8M/BQu6qeGqXnNgs4F6BKkpbNuRAe/FxdkdcbSZXoe/K74Bm4SbzI99P5dciqnTQq8/TiCk4+nuu555gm3j8slovlkZo/ydOGQQvme5f72dCS8wmoiiEl+LUJvV03FNnAZeiF4eefDFxQy1XN1OWSIDVH6GK4d5ZjyjvpQpKWvFKbD8ixd7zgs1+c8KMUXUPOK06+8cNsKrf4bCpa7xOaJzfXx/LQ2bO3aPDAobNMje3NdmWwDkkUexjuKPGn2Iyjhj/3HPXKr54tJBuAdUmfLZZrahIfyaiCF/Z6tL67nH38e0DzdXlPV8vvslM1vf5Dg1vevfhQqat8w8bzyL5x1/1SxtV48GU5Pfvj7PoMx/FfeoG00Q==
+sidebar_class_name: "delete api-method"
+info_path: api/dns/dns-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a record"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/dns/accounts/{accountId}/zones/{zoneId}/records/{recordId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a record
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"zoneId","required":true,"schema":{"type":"string"}},{"in":"path","name":"recordId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Record deleted"},"404":{"description":"Record not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

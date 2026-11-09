@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "HashiCorp Vault API",
-    "version": "1.0.2",
-    "description": "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault."
+    "title": "SSH Certificate Signer API",
+    "version": "1.1.0",
+    "description": "Connect to hosts with short-lived SSH certificates signed by HashiCorp Vault or OpenBao."
   },
   "servers": [
     {
@@ -65,10 +65,10 @@
   "paths": {
     "/plugin-api/vault/oidc/callback": {
       "get": {
-        "summary": "Vault OIDC callback",
-        "description": "Public. The redirect URI a Vault OIDC role allows. Matches the sign-in by the state Vault issued, has Vault sign the ephemeral key and tells the terminal to reconnect.",
+        "summary": "OIDC callback",
+        "description": "Public. The redirect URI a Vault or OpenBao OIDC role allows. Matches the sign-in by the state the signer issued, has it sign the ephemeral key and tells the terminal to reconnect.",
         "tags": [
-          "Vault"
+          "SSH Certificate Signer"
         ],
         "parameters": [
           {
@@ -105,14 +105,14 @@
     },
     "/plugin-api/vault/profiles": {
       "get": {
-        "summary": "List Vault profiles",
-        "description": "The caller's own Vault signer profiles and every shared one. Needs vault.use.",
+        "summary": "List signer profiles",
+        "description": "The caller's own signer profiles and every shared one. Needs vault.use.",
         "tags": [
-          "Vault"
+          "SSH Certificate Signer"
         ],
         "responses": {
           "200": {
-            "description": "Array of Vault profile objects."
+            "description": "Array of signer profile objects."
           },
           "403": {
             "description": "Missing vault.use."
@@ -120,10 +120,10 @@
         }
       },
       "post": {
-        "summary": "Create a Vault profile",
-        "description": "Creates a Vault signer profile owned by the caller. Needs vault.use, and vault.share to mark it shared.",
+        "summary": "Create a signer profile",
+        "description": "Creates a signer profile owned by the caller. Needs vault.use, and vault.share to mark it shared.",
         "tags": [
-          "Vault"
+          "SSH Certificate Signer"
         ],
         "requestBody": {
           "required": true,
@@ -139,6 +139,14 @@
                 "properties": {
                   "name": {
                     "type": "string"
+                  },
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "vault",
+                      "openbao"
+                    ],
+                    "default": "vault"
                   },
                   "vaultAddr": {
                     "type": "string"
@@ -177,7 +185,7 @@
             "description": "The created profile."
           },
           "400": {
-            "description": "Missing required fields."
+            "description": "Missing required fields or an unknown provider."
           },
           "403": {
             "description": "Missing vault.use, or vault.share for a shared profile."
@@ -187,10 +195,10 @@
     },
     "/plugin-api/vault/profiles/{id}": {
       "put": {
-        "summary": "Update a Vault profile",
+        "summary": "Update a signer profile",
         "description": "Only the owner may edit a profile. Needs vault.use, and vault.share to mark it shared.",
         "tags": [
-          "Vault"
+          "SSH Certificate Signer"
         ],
         "parameters": [
           {
@@ -216,7 +224,7 @@
             "description": "The updated profile."
           },
           "400": {
-            "description": "Invalid profile id."
+            "description": "Invalid profile id or unknown provider."
           },
           "403": {
             "description": "Not the owner, or sharing without vault.share."
@@ -227,10 +235,10 @@
         }
       },
       "delete": {
-        "summary": "Delete a Vault profile",
+        "summary": "Delete a signer profile",
         "description": "Deletes a profile and every certificate cached for it. Only the owner may delete it. Needs vault.use.",
         "tags": [
-          "Vault"
+          "SSH Certificate Signer"
         ],
         "parameters": [
           {

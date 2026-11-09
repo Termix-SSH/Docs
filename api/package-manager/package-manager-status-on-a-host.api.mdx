@@ -1,0 +1,69 @@
+---
+id: package-manager-status-on-a-host
+title: "Package manager status on a host"
+description: "The package manager, whether root or passwordless sudo works, whether a reboot is needed and when the package index was last refreshed."
+sidebar_label: "Package manager status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu40YM/RWCpy4wsdMedUuBbpHtJei6CIrAKBiJsWYtzWiHVGxV0L8XHCm2s2kK7K0nS5zH4XsU+TxixVIm36mPAQvc1AwdlXvaMbQUaMfJwaFmrTlBilEhJuhI5BBT1bAISF9FOMS0lzOQIPGjgb1AYK64AgqVHQfQiwo+VHyEAwk0JAqJnxJLzdUKHSrtBIsHvJuxgluHHSVqWTnZyYjeGHekNToM1DIWWEfR2wodJv7a+8QVFpp6dihlzS1hMaIOnSF9UN5xwmnaGlq6GITFAD9dX9vP28aIkvaywmly2LLWscICd6zoZhYFrrum3/lwRZ1fLyKvljaux5nbtJ6vQYfC6flFS58aLHCcQxO6b8r/GfsEG06tP8KMQYfPlDw9NjPrJZqJP1HfqHVDtZNivdacuOIjtV3DqzK2OGXdwmWfvA6ZwiNT4nTTm5KH7eRGLGPce76MUOd/4+EUubjiszV4pnJ50anfxgWX72DvMwjd8vAxppaM86f7zRv1n1nExwAa9xxAOCj4eZKsSEz+bzIk1EyVjZ/Az/nSPHUGy4krnNwrSSdusyp080TNkPNMfTnou4w+3W9gxoOwAimI34UrH1Zwb9PeJTa6DryC0p7FIiVXHEqG+MzpXRWZ7WW7v7uTN3e3sOfBxjapDzs4eK1B2+Nfb+ScoN/f2j0Ptvi+rOdCci6zglsFKlUsbcFCPIQlu6QQYgbYOYUhBgZuhOcN8+EpZtVeG5P5YgRwc3drw89JZvI/rq5X1//yhThX8UGUmgb6riJlgRhgsGWybRQHwpTK2p1glpK4jc8nlxK3BKl6ZV61F41pyN+pi6ItBaO7DM3daxNdvMOqUy79LV9btqAc9P9lwvPEKR913TXkg4nNVjUulveAZ8vLPvjK9NBhcbLkxfe2Lru0pY7jIwn/kZppsvDXnpNZ0fZsbdmYKi/2XGHxRI3wf3Tuh98X2/8A77F/WfkwZAdtentDh3sezv8f0/bS4n/9ZYPT9A8mXn7R
+sidebar_class_name: "get api-method"
+info_path: api/package-manager/packages-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Package manager status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/package-manager/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The package manager, whether root or passwordless sudo works, whether a reboot is needed and when the package index was last refreshed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."}}}
+>
+  
+</StatusCodes>
+
+
+      

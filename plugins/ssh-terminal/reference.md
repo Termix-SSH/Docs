@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ssh-terminal/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 ## Settings
@@ -71,6 +71,17 @@ Give these to roles in **Settings**, **Roles**.
 | --- | --- | --- |
 | `ssh-terminal.sessions` | admin, user | Lets other features, such as session sharing and recording, reach your live terminal sessions. |
 | `ssh-terminal.history` | admin, user | Lets other features, such as the AI assistant, read your command history. |
+| `ssh-terminal.monitor` | admin | Lets other features, such as Session Recording, list, watch and end the live terminal sessions of every user. |
+
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `ssh-terminal.check-login`<br />Check SSH login | A host | Read only |  |
+| `ssh-terminal.recent-commands`<br />Recent commands | A host | Read only |  |
+| `ssh-terminal.sessions`<br />Open terminal sessions | A host | Read only |  |
 
 ## Capabilities
 
@@ -86,6 +97,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
@@ -96,7 +108,7 @@ Services are how plugins call each other. Plugin authors can use these.
 
 | Provides | Version | Permission |
 | --- | --- | --- |
-| `sessions.live` (ssh) | 1.0.0 | `ssh-terminal.sessions` |
+| `sessions.live` (ssh) | 1.1.0 | `ssh-terminal.sessions` |
 | `terminal.history` | 1.0.0 | `ssh-terminal.history` |
 
 | Uses | Version | Optional |

@@ -1,0 +1,70 @@
+---
+id: show-the-config-a-site-form-makes
+title: "Show the config a site form makes"
+description: "Nothing is saved."
+sidebar_label: "Show the config a site form makes"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU2P2zYQ/SuDObUA1970qNsmaJFNkXYRu1gUhlHQ0ljiWiIVcmRbFfTfiyG1tmN3A8QH26Lm473hzJsBCwq5Ny0bZzHDPxxXxpZgAgS9p2KGClmXAbMVPtMGFuT35AOuFbba64ZYnrLVgEbcW80VKrS6IcywcoEfC1To6WtnPBWYse9IYcgrajRmA3LfiqWxTCV5HMd1sqbA713Ri8m1c+4sk2V5pdu2NrkW7POXIASG29hu80I5f4NihSHyeIWqMLSUR1LeteTZUIixktU5VmBvbIkKyXaNxLGlsUdUqFudVxIo10XR43p8LcK16zjlusE3xo+gDK2zIQH45f5efr69o2VFkDu7NSUwHXmG4tYQV66QK3BByMabyHDe1l1p7J1uzfxAm7vEKMyHdDfjPBimMG897Q0dpBDTBcuVdr7GDId0NKK6wvG36zwsyTfmCKd67rU3elNf16+gre5qlqZgbkM2n3N0nNFRN21Ns9w1UoK1IMg7b7iPEDakPfmHTsis1qMaMHduZ+jyRLfmd+pPJxchFtILCcploFPpBQtO7SjPyQjV9Oc35xstmD89L2/YLygE4yyw25GFQJbBWOCKQJI4b/6NfQkV6YI86ADvY1DQtohm0XEmDXFJ6YQtsUKVBiuZnEfr5cBvIvr0vIRkD4EYNEMwpb0zdgbPFVloPQlcBYaB9Y6CnORUkM0J3J78mywi2sty/3AlH54eYUc9BNaeRWgOhivg5vjPDZ2T6Y+Xdke9gkNl8iolCuc0M3hk0DkHcZtswR3s5J1ra100kPfa9s4SUB0oTZmIzJezPP2amvey1U+KMF3USTGmqZcoxm5drJ1hcb4UVnh4epQpIh9SFd7N7mf3N7X5rK0uCWIuBQ9RfCL+DyI/4Cz0Mpwy5CGDOONq0gwFtStDNP64XD4tVKoN7cn3kFfalgRMgamArfGB452LqDQ66uvEa1G5Q6zfpEQ6ZoGt8w000lTXmIezcP//lkmNJIo2b2ttrOSNCjRMYrbCs5ihwgs5Q4XZadlEtqKAk6atVVxE4j8MGx3oL1+Poxx/7ciLzKzPshVFpzBB/heYbXUd6DtEfvoy7ZSf4S0Kr+Ns+6iOdSdPqHBH/XlFjrIwUjtHBOnlh5Tnbikhzs43W08k76T/T38uRKw20/ZsXCE+Xou4y3dM7iKXKIzxbMBa27LTZdSWGFM+/wH7actM
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Show the config a site form makes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/sites/preview"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Nothing is saved.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server","name","spec"],"properties":{"server":{"type":"string","enum":["nginx","apache","caddy"]},"name":{"type":"string"},"spec":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The config text."}}}
+>
+  
+</StatusCodes>
+
+
+      

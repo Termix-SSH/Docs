@@ -1,0 +1,1017 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Firewall API",
+    "version": "1.0.0",
+    "description": "Manage UFW, firewalld, nftables and iptables rules on your hosts over SSH, with lockout protection."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/firewall/rulesets": {
+      "get": {
+        "summary": "Your rule sets",
+        "description": "Named lists of rules the signed in user can apply to many hosts, with the hosts each one is for.",
+        "tags": [
+          "Firewall"
+        ],
+        "responses": {
+          "200": {
+            "description": "The rule sets."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a rule set",
+        "tags": [
+          "Firewall"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "rules": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "hosts": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new rule set."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/rulesets/{id}": {
+      "put": {
+        "summary": "Change a rule set",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The changed rule set."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a rule set",
+        "description": "Deletes the set only. Rules it already added to hosts stay.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/rulesets/{id}/drift": {
+      "get": {
+        "summary": "Rule set drift",
+        "description": "For each host of the set, the rules it does not have. Reading a host needs connect access.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/rulesets/{id}/apply": {
+      "post": {
+        "summary": "Apply a rule set",
+        "description": "Adds the rules a host is missing, on the picked hosts, a fleet, or the set's own hosts. Never removes rules. Each host needs edit access and gets the lockout check, and the change is kept by itself once Termix can open a new SSH connection, else the host undoes it.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "hostIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "fleetId": {
+                    "type": "integer"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "One result per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/fleets": {
+      "get": {
+        "summary": "Fleets to apply a rule set to",
+        "description": "The signed in user's fleets, when the Fleets plugin runs. Empty otherwise.",
+        "tags": [
+          "Firewall"
+        ],
+        "responses": {
+          "200": {
+            "description": "The fleets."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/summary": {
+      "get": {
+        "summary": "Firewall state of every host",
+        "description": "The firewall, whether it is on, the rule count and Fail2ban bans for each host the caller can reach with Firewall turned on. Kept for a minute; refresh=1 reads again.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/status": {
+      "get": {
+        "summary": "Firewall on a host",
+        "description": "Which firewall the host uses, whether it is on, the default policies, every rule, firewalld zones, the SSH ports and client address the lockout check uses, Fail2ban and any change waiting for Keep.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The firewall state."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/raw": {
+      "get": {
+        "summary": "The firewall's own output",
+        "description": "Rules as the firewall prints them (ufw status, firewall-cmd --list-all-zones, nft list ruleset or iptables-save), read only.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The output as text."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/rules": {
+      "post": {
+        "summary": "Add a rule",
+        "description": "Adds a rule at the end. A change that could cut off SSH answers 409 SSH_LOCKOUT unless force is set. Changes that touch SSH get a timer and must be kept.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "allow",
+                      "deny",
+                      "reject",
+                      "limit"
+                    ]
+                  },
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "in",
+                      "out"
+                    ]
+                  },
+                  "protocol": {
+                    "type": "string",
+                    "enum": [
+                      "tcp",
+                      "udp",
+                      "any"
+                    ]
+                  },
+                  "port": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "destination": {
+                    "type": "string"
+                  },
+                  "iface": {
+                    "type": "string"
+                  },
+                  "family": {
+                    "type": "string",
+                    "enum": [
+                      "any",
+                      "ipv4",
+                      "ipv6"
+                    ]
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "zone": {
+                    "type": "string"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Added, with the pending change if it needs Keep."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/rules/{ruleId}": {
+      "put": {
+        "summary": "Change a rule",
+        "description": "Replaces a rule, keeping its place where the firewall allows it. Same body as adding a rule.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ruleId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Changed."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a rule",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ruleId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/defaults": {
+      "post": {
+        "summary": "Set the default policies",
+        "description": "What happens to traffic no rule matches. Routed is UFW only, outgoing is not on firewalld.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "incoming": {
+                    "type": "string",
+                    "enum": [
+                      "allow",
+                      "deny",
+                      "reject"
+                    ]
+                  },
+                  "outgoing": {
+                    "type": "string",
+                    "enum": [
+                      "allow",
+                      "deny",
+                      "reject"
+                    ]
+                  },
+                  "routed": {
+                    "type": "string",
+                    "enum": [
+                      "allow",
+                      "deny",
+                      "reject"
+                    ]
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Set."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/enable": {
+      "post": {
+        "summary": "Turn the firewall on",
+        "description": "Turns the host's firewall on, after allowing the SSH ports when allowSsh is true (the default). Always gets the undo timer.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allowSsh": {
+                    "type": "boolean"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Turned on, with the pending change."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/disable": {
+      "post": {
+        "summary": "Turn the firewall off",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Turned off."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/install": {
+      "post": {
+        "summary": "Install a firewall tool",
+        "description": "Installs ufw, firewalld, nftables or fail2ban with the host's package manager. Nothing is turned on; firewalld is stopped right after it installs.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "what": {
+                    "type": "string",
+                    "enum": [
+                      "ufw",
+                      "firewalld",
+                      "nftables",
+                      "fail2ban"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Installed."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/zones/{zone}/target": {
+      "post": {
+        "summary": "Set a firewalld zone target",
+        "description": "What a zone does with traffic its rules don't match. Saved to the permanent config, then firewalld reloads.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "string",
+                    "enum": [
+                      "default",
+                      "ACCEPT",
+                      "DROP",
+                      "%%REJECT%%"
+                    ]
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Set."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/default-zone": {
+      "post": {
+        "summary": "Set the firewalld default zone",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "zone": {
+                    "type": "string"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Set."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/pending": {
+      "get": {
+        "summary": "The change waiting for Keep",
+        "description": "Null when there is none. When time runs out the host undoes the change by itself.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The pending change or null."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/pending/keep": {
+      "post": {
+        "summary": "Keep the last change",
+        "description": "Stops the undo timer on the host. Answers 410 when time already ran out.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kept."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/pending/undo": {
+      "post": {
+        "summary": "Undo the last change now",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Undone."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/fail2ban": {
+      "get": {
+        "summary": "Fail2ban on a host",
+        "description": "Whether Fail2ban is installed and running, and each jail with its counts and banned addresses.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Fail2ban state."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/fail2ban/ban": {
+      "post": {
+        "summary": "Ban an address in a jail",
+        "description": "Refuses the address Termix connects from unless force is set.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jail": {
+                    "type": "string"
+                  },
+                  "ip": {
+                    "type": "string"
+                  },
+                  "force": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Banned."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/fail2ban/unban": {
+      "post": {
+        "summary": "Unban an address in a jail",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jail": {
+                    "type": "string"
+                  },
+                  "ip": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Unbanned."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/fail2ban/start": {
+      "post": {
+        "summary": "Start Fail2ban",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Started."
+          }
+        }
+      }
+    },
+    "/plugin-api/firewall/{hostId}/watch": {
+      "get": {
+        "summary": "Whether you watch this host",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The watch state."
+          }
+        }
+      },
+      "put": {
+        "summary": "Watch a host",
+        "description": "Sends the signed in user an alert when the firewall turns off or its rules change outside Termix. Checked every 5 minutes.",
+        "tags": [
+          "Firewall"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "on": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

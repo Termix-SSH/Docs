@@ -1,0 +1,69 @@
+---
+id: list-running-processes
+title: "List running processes"
+description: "Up to 600 processes sorted by CPU, with the CPU count, load average and zombie count."
+sidebar_label: "List running processes"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu3DYQ/ZXBnFqA1m5z6EE3t0gCpy1gNGsYhbEouNJYYlciGXK0tiLo34shld21HQfIIaeVRm+G7w1n3k5YU6yC8WycxRJvPLCDX9dr8MFVFCNFiC4w1bAb4ffrGwUPhlvgluQNKjdYVtA5XYM+UNANgbY1fHb9zlD+XKBC1k3E8g6vc1X4S1vdUMCtQq+D7okpCGBCIzS85hYVWt0Tlti6yFc1Kgz0aTCBaiw5DKQwVi31GssJefSCNJZJys7zVtDROxspCuDNei0/T9VuWjrpLHCeFfbErauxxIYYVSZS4sp3Q2PshfZmtSRc9FnCasr05tWxEiqMFA5fFA2hwxKnHJpRPSPxjxsCbCj05hEyBhUedDB612XuSzTRv9dDx9ITZh/L1YpTYkGPuvcdFZXrcU7qI1VDMDwmCjvSgcLlIGLutrOasHJub+g8or35g8Zj5KzER2lzpnJe6Nh14YLLbch7BqFaHt650Gvh/OF280L9R4rROAvs9mQhkmUwNo2XHOKC+awFCS3pmgLoCL+lomnKBJYSC5zVE0lHblkVqjxXGXKarP8e+FVGH243kPEQiUEzRNPYC2MLuG3Jgg8kdBUYBtZ7ihKpqCZbEbgDhVdVJLbn7f7uTl5eX8GeRoisAxvbLEvZP/77Qs4R+v2t3dOo4KE1VZsPiqdjCrhi0BVHSVuw4B7skl1pa10CyHdtR2cJqIuUl8zYe5dUG+5E5jNXgMvrK9kBCjFr+KVYF+uvXFT2mspZDq6DMFgrvTjuoQLfv0mQOHgKBxNdAO19BGdhlLWT1Y0KAumk2AToXBNTSiN33lFSLdfNLY1wr02Xbs+7yL22ImIZpT9N5JcUnpOWxbNMln+k1+ZZYnrkle+0sUI4mdC0+NkdnvxMTO6po6HC8mi5JyVblYxYsqdppyPdhG6eJfxpoCA+sz35VnKd2kR5rrG8112kb7Tip78XZ/8ZXhPwZZ/tmOyxG+QNFe5pPP1FzNtzC3//doPz/D9GB2ID
+sidebar_class_name: "get api-method"
+info_path: api/process-manager/process-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List running processes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/process-manager/{hostId}/processes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Up to 600 processes sorted by CPU, with the CPU count, load average and zombie count.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The processes."}}}
+>
+  
+</StatusCodes>
+
+
+      

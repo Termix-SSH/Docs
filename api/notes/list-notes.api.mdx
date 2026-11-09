@@ -1,0 +1,69 @@
+---
+id: list-notes
+title: "List notes"
+description: "Lists the notes of one host, folder or the caller's global notes, pinned first. Bodies are cut to an excerpt."
+sidebar_label: "List notes"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU2P2zYQ/SuDubQFGHnTo24boAk2LYKgcbEoFkYxK40t1hKpJUdrq4b/ezGk/LFxHCSnXGR59Ibz3pDzuMOaYxVsL9Y7LPEPGyWCNAzOC0fwS/COofFRDCx9W3MAHxKgorbl8FOEVesfqc0JBnrrHNewtCFKAW98bTkCBYZqEBAP5IC3FYdeCjQotIpYPuAHTcaFwZ4CdSwcNLxDq6SeBg4jGnTUMZYYK98zGgz8NNjANZYSBjYYq4Y7wnKHMvYJKMG6FRpkN3RaRWWgwawDDWbmuNjvzZdLacJdjV9Y2zrhFQe8mnosco3W1cynryYtVHjsvYsc9fuvNzf683Ib54cNLLQMdiyNr7HEFav+nqTBEmd9O6yse0W9nSVwfmp1Ds+HHRhCiyXucmiP5rNKf/shwJxDZ7eQMWjwmYKlxzYTnKKJ45KGVrSvIn0sZzNJiQVvqetbLirf4T5JjFwNwcqYKDwyBQ63g7J+WGjbKu/Xls8j1NvfeTxGzpb4pK3MVM4XOnZWuRw6rv8zCM308taHjpTz+/v5hfpPHKP1DsSv2UFkJ2Bdmg4t4oP9jxQJDZNODkV4kxYFcnWCpcQC9+aFpCO3rApNPicZcjoo/27kKqP393PIeIgsQALRrtwr6wq4b9hBH1jpGrACQmuOGqm4Zlcx+GcOV1Uktuft/u5O3n68gzWPEIWCWLeCjZUGpNv+cyHnCP3+1q55NLBpbNXkQvFUpoA7AaokatqEBb9xU3ZFzvkE0O/kRrVAbiPnabJu6ZNqK63KTN4Ftx/v9ORziJn56+KmuLnQcx+sMHQU1rXfuMlklz4AU9Vc2OzohxC5XZpMvfJdR66OGleSUPl+VFxk1ezzidKRctSmbep9lI6csp3OjBo8HOb8BTedKifs5EdcA/kACW9l1rdknZJPzrOb3OoBT26lEzApcId7I1l7+YC73SNF/iu0+72Gs7WqidQ2qiXVWC6pjfwV8T//OV0sv8A1amsezy6iZ2oHxaAa0UWdjD3eJN8CPt4d3wJ+eoFbnNw3W+PJ/N/9Nsf9/n/9Cbj4
+sidebar_class_name: "get api-method"
+info_path: api/notes/notes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List notes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/notes/notes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists the notes of one host, folder or the caller's global notes, pinned first. Bodies are cut to an excerpt.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"scope","required":true,"schema":{"type":"string","enum":["host","folder","global"]}},{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"folder","schema":{"type":"string"}},{"in":"query","name":"q","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The notes."}}}
+>
+  
+</StatusCodes>
+
+
+      

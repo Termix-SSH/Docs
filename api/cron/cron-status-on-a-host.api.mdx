@@ -1,0 +1,69 @@
+---
+id: cron-status-on-a-host
+title: "Cron status on a host"
+description: "The login user, whether cron is installed and running, the host time zone and the users whose crontab can be picked."
+sidebar_label: "Cron status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcGO20YM/RWCpxaYyG6Rk27boik2BYqgcbEoFkYwlrjWxNKMMqTWqwj694IzimxkuwVyyskS9YZ8j+Q8T1gTV9H14oLHEncNQRuOzsPAFA2cG5KGIlQxeHAMzrPYtqUarK8hDt47fzQgDUETWEBcR/A5eErfNax5GM5NYEpZxB6gsh4OBL2rTlQXaFDskbG8x19j8Lg32NtoOxKKGp3QKbXeSoMGve0IS9RqtzUajPRpcJFqLCUOZJCrhjqL5YQy9op0XuhIEed5r2jug2diBfy83erP8w6wWBm4wNng6+3r55g/A9iqImaQsGovcJ4NdiRNqLHEIwmaTLrETd8OR+df2d5ttAmbKfOfN7kUGmSKj1/0DrHFEqccmtF8Vf6fMETYUezcE2QMGny00dlDm5Ut0UT8wQ6taMdEei43G0kHC3qyXd9SUYUO59QbpmqITsZE4UA2UrwZlP79fjYTViGcHF1HbO/+oHGNXKV4r0PIVK4TrTNRLrjMSt8zCM3y8CbEzirnt3e7Z+rfE7MLHiScyAOTF3A+TUGLhOg+W0VCQ7amCJbhl5R03ch0MA33WtLKLatCk7cuQy579/EsLzJ6e7eDjAcmASvA7uhfOV/AXUMe+khK14ATEHsi1khFNfmKIDxSfFFFYnvd7m/u5M27WzjRqKsdxfkjnJ00IN3Th2dyVui3t/ZEo3qGq5pciC9lCrgVsJWwHluwEM5+OV1Z70MC6HfrR/UQapnytXL+ISTVTlqVqUYBN+9udfEpcib+U7Ettv8xHTJg69Wxspd9DAeG4GHUu6SXkU3makF7WQ8t6XQeHZ1XdTyyUJfPP7iWskP0gaWzXtktO5LI5YutJWzK/zUvvVBeyMt3dN28QkJPsulb67zKSd4zLcZ1jxfjQoOaCQ2Wq/ku7rU3yY8VP00Hy/R3bOdZw58Gimoo+4tBJXupHetzjeWDbZn+pzc//LUY/I/wEuUvF9ePyQfbQd/Q4InGyz/FvL92599/2+E8/wt542p9
+sidebar_class_name: "get api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Cron status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/cron/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The login user, whether cron is installed and running, the host time zone and the users whose crontab can be picked.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The status."},"404":{"description":"No access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

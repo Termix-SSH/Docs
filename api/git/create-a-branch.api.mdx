@@ -1,0 +1,70 @@
+---
+id: create-a-branch
+title: "Create a branch"
+description: "Creates a branch from the current commit or from start, and switches to it. Needs edit access."
+sidebar_label: "Create a branch"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VUtv3DYQ/iuDObUArXVz3JsTNIFToDViB0ZhLAquNJbolUiGHHmtCvrvxZC70saPALlUF0nz4jcznG9GrCiWwXg2zuIaPwTSTBE0bIO2ZQP3wXXADUHZh0CWoXRdZxhcyKrIOrACbSuIe8NlQxHYgeEC/iSqIlBlGHRZUowFKmRdR1zf4SfDuFHoddAdMQURjmgEg9fcoEKrO8I1Ni7yZYUKA33rTaAK1xx6UhjLhjqN6xF58GJpLFNNAadpk60p8ntXDWLy3Ll0lsmyqLT3rSm1FGD1EKUK48vYbvtAJaNCH5ynwIaiaBPUxSpyMLbG6Qj+FUWq1yua9Ajs6J2NOfq783N5fd8ht0vFlpbU0oeefc8FinNH3LhKKuhiwprQ4cq3fW3smfZmVRtejbmk0yqQd6vcZ1QYKTwe+9CHFtc4ZtGE6hmGv10f4IZCZ54g26DCRx2M3rYZ+kGa0N/rvmXpJLOP69WKk2NBT7rzLRWl6yT9jSAo+2B4SBC2pAOFi15SuNtMasTSuZ2hU4n25g8aZslJiGtpYIZyGmguu2DBwx2S/2yE6vDx0YVOC+bPtzcvsr+mGI2zwG5HFqIMhbGpIXKIC+bfdJmgIV1RAB3hfQo69y05FnIbTlOaseWsUOVpyCbLPDzs+U1En29vINtDJAbNEE1tz4wt4LYhCz6QwFVgGFjvKIqkpIpsSeAeKbyZRUJ7Wu6fruTF1SXsaMiEYWwNe8MNcPf0z4t0ZtOfL+2OBgX7xpRNPiguxxRwKUTEUdwOtuD29uBdamtdMhC9toOzBNRGyrMlzPBl4ZTf8+VdOOA4yHOf5v/DxJ9wgLH3LlXQsIQQLoSLq0uZIQox1+C34rw4f6XRpMD3bauOPCzQfR+bRAYy0BGchUEGVMY8ZmreEXnJuYPeCz1XmilXRvfsUsTUYSGOTicKPKSRF8K8D54jGhcm/R92R75xTE+88q02ViAnqjp24Q4XrkOFtZFZWZ+sEO/kZuZUNiotF/Eax62O9DW00yTibz0FYaHNwmqJkyoT5bvC9b1uI/2gFr98OSycX+Et4Mdpt0Miz7aXP1S4o2FZe9NmUphve0KQlR/yOWc3EmJxfrHJhBHnpXD117Vw2fawETtXiU/QeymM3ufDXcol8WaSjdhqW/e6TtSTYsrzH/Mo1WY=
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a branch"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/branch"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a branch from the current commit or from start, and switches to it. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"name":{"type":"string"},"start":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

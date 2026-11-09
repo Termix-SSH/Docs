@@ -1,0 +1,70 @@
+---
+id: unstage-files
+title: "Unstage files"
+description: "Takes files out of the next commit and keeps their changes. Needs edit access."
+sidebar_label: "Unstage files"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUtv4zYQ/iuDObUAI6c96pYt2iJboA02XgRFYBS0NJEYSySXHMVWBf33YkjbcpNNgT1UF0nDeXzz+jhhTbEKxrNxFktc6x1FeDIdRXADg3sCbgksHRgq1/eGQdsadkQ+yokJULXaNhQL+J2ojkC16FQVxVigQtZNxPIRfzWMG4VeB90TUxDhhEZies0tKrS6JyyxdZFva1QY6MtgAtVYchhIYaxa6jWWE/LoRdNYpoYCzvMma1PkD64eReW1ceUsk2U50t53ptKS8Oo5StbTW99u+0wVo0IfnKfAhqKcJqiLVuRgbIOzwlSxixMdgh5RoWHq41cs8iOwo3c2Ztsfr6/l9e+OuF2quHShMSxN8QMXKMY9cetqqaCLCWtChyvfDY2xV9qbVWN4NeWSzqtA3q0GG1k3hAojhZdTI4bQYYlTFs2oXoH40w0B1hR6c4CsgwpfdDB6e8z7KE3wn/TQsbSS2cdyteJkWNBB976jonK9FGAjCKohGB4ThC3pQOFmkBweN7OasHJuZ+hSor35jcaz5MLFvXQwQ7l0dC68YMHjEMl/VkJ1/PjFhV4L5o8P6zfZ31OMxllgtyMLkSyDsakjEsQF83eaJmhJ1xRAR/iQnJ4blwwLmZPLlJZhSVnJtEi0rLIsxPOe30X08WENWR8iMWiGaBp7ZWwBDy1Z8IEErgLDwGm1faCKarIVgXuh8G4WCe1lub+5kjd3t7CjESLrwMY2sDfcAveHv96kc1b99tLuaFSwb03V5kBxCVPArTARRzE76oLb26N1pa11SUHOtR2dJaAuUl4uoYZPC6n8nId3IYHTKp93//Ek2czSySeXamZYjIT+4ObuVraGQsxZ/1BcF9dfaS0p8EPXqUvC9UNs0/7LDkdwFkZZSdnsqM6ULFn2MHhgB7VmyrXQA7vkMfVUuKLXifWOA/Y5M0Jm/dd4poU6/4fLIU8U04FXvtPGCsBERacqP+JCZqiwMbIL5cUd4R0qPHHaRqXrQ8ymaasjfQ7dPIv4y0BBaGaz0FYindpE+a6xfNJdpP9I/rtPxyvle3gP+Wmd7ZjYsRvkDxXuaFwutlnGI49zQpAPf8pxrtbiYjF+c1cJ5Z1p/+6PeyGr7fHO610tNkHvpTJ6n4O7lEsixiSbsNO2GaRcJWaf8vwDWjDGAA==
+sidebar_class_name: "post api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unstage files"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/git/{hostId}/repo/unstage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Takes files out of the next commit and keeps their changes. Needs edit access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"files":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"ok and the git output."}}}
+>
+  
+</StatusCodes>
+
+
+      

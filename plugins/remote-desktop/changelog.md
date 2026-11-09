@@ -6,9 +6,47 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- Kerberos sign in for RDP with a KDC address per host, for accounts in the Protected Users group
+- RDP server redirection, so GNOME Remote Login on Ubuntu connects to the user session
+- Check from the server that a host's RDP, VNC and Telnet ports answer, through Termix actions and as a status tile on the host page
+- A dashboard card with your open remote sessions, and a host's open sessions on the host page
+- Other plugins can show a VNC display that only an SSH host can reach, such as a VM console
+- Intel AMT machines, through AMT's built-in VNC (see the docs for setup)
+- Moonlight streaming from Sunshine PCs through your own Moonlight Web server, with pairing and app choice in the host editor
+- RustDesk hosts, by ID through the public or your own RustDesk server or by direct IP, with password and 2FA logins, clipboard, audio and monitor switching
+- When an admin makes recording required, every session is recorded with the whole screen and keys, the Record button can't stop it, and VNC uses the built-in engine so it can be recorded
+- When a host needs approved access, the connect screen says so and offers a Request access button
+- Admins can let Session Recording list, watch and end everyone's remote sessions with the new Watch everyone's remote desktop sessions permission
+- A host switch to turn off reconnecting an RDP session on its own, so an idle tab does not kick out a session opened elsewhere
+- A host switch to keep the RDP screen size from when you connected instead of following the window
+- A Verify button when a host needs a second factor before connecting
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- The remote desktop toolbar uses the darker page color
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Other features could end a remote session or get a viewer link to it without owning it
+- Pasting with Ctrl or Command still held no longer lets go of that key on the remote side
+- Ctrl+V right after copying pastes the new text in an RDP session instead of the one copied before it
+- The desktop app connects to RDP servers whose certificate is only made for encryption, like many Windows ones, when Ignore certificate errors is on
+- The Korean Han/Eng and Hanja keys work on every tap with keyboards that never send a key release
+- RDP servers that need the graphics pipeline, like GNOME Remote Desktop, connect with the built-in engine
+- RDP sound plays after the first click in the session, and people who join a shared session hear it too
+- An idle RDP session is no longer reconnected after you switch browser tabs and come back
+- The RDP drive file panel shows an error instead of loading forever when a folder can't be listed
+- The session toolbar moves buttons into More before they run off the edge, so the last one is no longer cut off
+
 ## 1.3.1
 
 ### Fixed

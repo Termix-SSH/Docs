@@ -1,0 +1,1233 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Git API",
+    "version": "1.0.0",
+    "description": "See, pull, commit and push git repos on your hosts, and keep them up to date with auto pull."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/git/summary": {
+      "get": {
+        "summary": "Repos on every host",
+        "description": "One entry per host with Git turned on, with each repo's branch, ahead and behind counts and changed files. Kept for a minute unless refresh=1.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/status": {
+      "get": {
+        "summary": "Git status of a host",
+        "description": "Whether git is installed, its version, the login user and the folders scanned for repos.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repos": {
+      "get": {
+        "summary": "Repos added to a host",
+        "description": "Each repo with its branch, ahead and behind counts, changed files, last commit and auto pull setup.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The repos."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add repos to a host",
+        "description": "Adds git folders that already exist on the host. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The folders that were added."
+          },
+          "400": {
+            "description": "A folder is not a git repo."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a repo from the list",
+        "description": "Only forgets the repo in Termix. Nothing is deleted on the host.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/discover": {
+      "get": {
+        "summary": "Find repos on the host",
+        "description": "Looks four levels deep in the scan folders for git repos that are not added yet.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Folder paths."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/clone": {
+      "post": {
+        "summary": "Clone a repo onto the host",
+        "description": "Runs git clone with the login user's own keys and adds the repo. The folder must not exist. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/status": {
+      "get": {
+        "summary": "Changed files in a repo",
+        "description": "The branch, its upstream, ahead and behind counts and every changed or untracked file.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/log": {
+      "get": {
+        "summary": "Commit history",
+        "description": "Commits, newest first. Pick a ref, a file, or all branches, and page with skip.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ref",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "file",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "all",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The commits."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/commit": {
+      "get": {
+        "summary": "One commit",
+        "description": "The message, the changed files and the patch. Long patches are cut.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The commit."
+          }
+        }
+      },
+      "post": {
+        "summary": "Commit staged changes",
+        "description": "Commits with the login user's git identity. With all true it also commits every tracked change. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "all": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/diff": {
+      "get": {
+        "summary": "Diff of one file",
+        "description": "The working tree change, the staged change, or a whole untracked file.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "file",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "mode",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "tree",
+                "staged",
+                "untracked"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The diff text."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/branches": {
+      "get": {
+        "summary": "Branches",
+        "description": "Local and remote branches with their upstream and ahead and behind counts.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The branches."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/remotes": {
+      "get": {
+        "summary": "Remotes",
+        "description": "Remote names and addresses. A password in an https address is hidden.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The remotes."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/stashes": {
+      "get": {
+        "summary": "Stashes",
+        "description": "The stash list of a repo.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The stashes."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/fetch": {
+      "post": {
+        "summary": "Fetch all remotes",
+        "description": "Runs git fetch --all --prune. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/pull": {
+      "post": {
+        "summary": "Pull the current branch",
+        "description": "Runs git pull --ff-only, so it never creates a merge commit. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/push": {
+      "post": {
+        "summary": "Push the current branch",
+        "description": "Runs git push, or git push -u when the branch has no upstream. Never forces. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "remote": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/checkout": {
+      "post": {
+        "summary": "Switch branch",
+        "description": "Checks out a branch. With remote true it creates a local branch that tracks the remote one. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  },
+                  "remote": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/branch": {
+      "post": {
+        "summary": "Create a branch",
+        "description": "Creates a branch from the current commit or from start, and switches to it. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a local branch",
+        "description": "Uses git branch -d, which refuses an unmerged branch. With force it uses -D. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/merge": {
+      "post": {
+        "summary": "Merge a branch into the current one",
+        "description": "Runs git merge. A merge with conflicts is undone right away. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/stage": {
+      "post": {
+        "summary": "Stage files",
+        "description": "Runs git add for the files, or for everything with all true. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "all": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/unstage": {
+      "post": {
+        "summary": "Unstage files",
+        "description": "Takes files out of the next commit and keeps their changes. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/discard": {
+      "post": {
+        "summary": "Throw away changes",
+        "description": "Restores tracked files and deletes untracked ones. This cannot be undone. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "tracked": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "untracked": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/stash": {
+      "post": {
+        "summary": "Stash, apply, pop or drop",
+        "description": "Works with the stash list. Dropping a stash cannot be undone. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string",
+                    "enum": [
+                      "push",
+                      "pop",
+                      "apply",
+                      "drop"
+                    ]
+                  },
+                  "index": {
+                    "type": "integer"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "untracked": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/reset": {
+      "post": {
+        "summary": "Reset hard",
+        "description": "Runs git reset --hard to a ref, HEAD by default. All uncommitted changes to tracked files are lost. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "ref": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok and the git output."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/auto": {
+      "put": {
+        "summary": "Set up auto pull",
+        "description": "Pulls the repo on a schedule with git merge --ff-only. It skips repos with uncommitted changes or diverged branches. A post command needs the git.run-commands permission. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "intervalMin": {
+                    "type": "integer"
+                  },
+                  "postCommand": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The auto pull setup."
+          }
+        }
+      }
+    },
+    "/plugin-api/git/{hostId}/repo/auto/run": {
+      "post": {
+        "summary": "Run auto pull now",
+        "description": "Does one auto pull straight away and records it in the run list. Needs edit access.",
+        "tags": [
+          "Git"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The recorded run."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

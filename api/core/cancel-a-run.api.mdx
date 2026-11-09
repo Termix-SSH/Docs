@@ -1,0 +1,69 @@
+---
+id: cancel-a-run
+title: "Cancel a run"
+description: "Stops a running action, or withdraws one waiting for approval."
+sidebar_label: "Cancel a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVFGL3EYM/itCTy1MvXch9MFv19LAJZAcvS1HOZais7Xr6dozzoy8e67xfy+acXa3Oa4QyJNtjWR9nzTfN2HNsQq2F+sdlngvvo9AEAbnrNsBVXpgwAc4WmnqQMcI3jEcyYombH0A6vvgD9QWaFBoF7F8xE89B9LaiBuDPQXqWDjo2YRWW/UkDRp01DGWaGs0GPjzYAPXWEoY2GCsGu4Iywll7DUrSrBuh/O80eTYexc56vmbqyt9/JfMQ8PScAByozQK9kgRKnIVty3XBc4G3169fVn30Qts/eDqxNt5gYON9qllEA/SMFTUthwKnGeDHUvja+Xjo6DJtEpc+dMAVmFwcTXZel7l5mgwcjh8mcYQWixxyqEZzVdo/vRDgDWHzj5DzkGDBwqWntpMfokmHlsaWsESG5E+lquVpMKCn6nrWy4q3+Gcxhe5GoKVMUF4YgocbgaF/riZzYSV93vLlxHq7QceT5GLX9zrmjKUyx+dtqZYcNmmfuckNMvLOx86UszvH9Yv2N9zjNY7EL9nB5GdgHVpCdrEB/tPGjI0TLWuOsIv6adArk5pqTDt+pLSCVtmhSbfyZxyvpV/H+VVRO8f1pDzIbIACUS7cz9ZV8BDww76wArXgBUQ2nPUSMU1u4rBHzi8yiKhvRz3N0/y5u4W9jxCFApJpipekO75rxd0TqnfPto9jwaOja2a3Cie2xRwK2oeUcuWXPBHt1RX5FRWVImekxvVUriNnDVl3dYn1lZapbnc/pu7W736HGKG/ubn4vq6uH5Baa0S9YHhXFfAb1Q10LfDzjqofTV07CSClaiwIPhBOKbBq447ctp/uQW/JtVmV/y6mSrFCTv5LuaZtyz8LKu+JesUT7KHafGVRzz7ihrmkB5lcs/FXDYGG7Wi8hGn6Yki/xHaedbw54GD6n1z9o+k/tpGfa+x3FIb+X8Y/vD74tA/wmtwv+jKjcmm2kG/0OCex2zz8+bSNe8+3a9xnv8Fmi9BRg==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Cancel a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/operations/runs/{id}/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops a running action, or withdraws one waiting for approval.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether anything was cancelled."},"404":{"description":"Not found, or not visible to the caller."}}}
+>
+  
+</StatusCodes>
+
+
+      

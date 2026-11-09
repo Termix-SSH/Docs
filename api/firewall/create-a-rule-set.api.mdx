@@ -1,0 +1,68 @@
+---
+id: create-a-rule-set
+title: "Create a rule set"
+description: "Create a rule set"
+sidebar_label: "Create a rule set"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SuDOa8ltUfenKBGnaCoUSkwCkEoRuSYXIvcZXaHlhmC/72YJS0ptgMkvEicfTvz5utxQKEyYrbFGxv4SHWNO4OBv3Yc5YMvesyG9GoDF5hJ6Nhg7p2wEz2itq1tTmK9Wz5G79QW84ob0n/St4wZ+v0j54IG2+BbDmI56qmjhi9QUYJ1JY4GC455sK06ffc8dPXkYT6hEKhHg1a4iW/jjqPBykf5mSvWCZcccJweLUVsvYtTvN9XK/35jh9uKgbHR1BWEFkWKeD3mI+BSRjoBEKDDUvlC8yw9TEVh6TCDJdt3ZXWXVFrlw9zT5YpY5aIBiOHJw7asgG7UGOGw2Qa8XXUf30XYMOhsc8wYdDgEwVL+7mAszXl9EBdLZhhJdLGbLmUdHHBz9S0NS9y32hVdsog74KVPlHYMwUO151y3+5GM2Du/cHypYVa+5n7k+XCxVpHZaJy6ejUDuWiOScYZjMIzfznxoeGlPOn+82b7Ncco/UOxB/YQWQnYB1IxaBBfLDf0thCxVRwAIrwITkFckWCpYsLHbjLlM4jlLLSGdJoEwTNPNX4eJQfMvp0v4EJr6MAJBBt6a6sW8B9xQ7awErXgBUQOnBUS84Fu5zBP3H4YRaJ7WW5f7mS13e3cOAeolAQ60o4WqlAmuf/3qRzgv56aQ/cGzhWNq+mQPEcZgG3ApRL1GszFvzRzbdzcs4ngJ6T671j4DrytHaqQf+c1euPaXjPavOiIq9zOZlnbdkOOqazamxXu1Hb/OBTQa2ox5NgwvXdre4Vhzj5+m2xWqzeRPiLHJUMX27uDbzsdWHAPUjaxpScbeeXxAK8g15XONGYGr9e/2mmWtU+P/hOoA1eONcgqfkqJg25i4zf0573FVb4WZZtTdappyQuwyxLWzzLEhp8SeClYCpNc70UOwx7ivwl1OOo5q8dB1WL3Vl9JmnAaUCSkBy4V7LTp+Vqo4wUXnfTrr36zGh3TgJ69/da138/f64aX+idQEelR0fMEA36lG2SmmQbsCZXdlSmbU0+9fkf6gRzQQ==
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a rule set"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/rulesets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a rule set
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"},"rules":{"type":"array","items":{"type":"object"}},"hosts":{"type":"array","items":{"type":"integer"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new rule set."}}}
+>
+  
+</StatusCodes>
+
+
+      

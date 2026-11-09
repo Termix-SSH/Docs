@@ -1,0 +1,937 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Object Storage API",
+    "version": "1.0.0",
+    "description": "Browse and manage S3-compatible object storage buckets and files."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/object-storage/providers": {
+      "get": {
+        "summary": "List the provider presets with their endpoint templates",
+        "tags": [
+          "Object Storage"
+        ],
+        "responses": {
+          "200": {
+            "description": "The presets"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/summary": {
+      "get": {
+        "summary": "Totals for the dashboard card",
+        "tags": [
+          "Object Storage"
+        ],
+        "responses": {
+          "200": {
+            "description": "Logins, buckets, stored bytes and buckets close to their limit"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts": {
+      "get": {
+        "summary": "List the storage logins, without their keys",
+        "tags": [
+          "Object Storage"
+        ],
+        "responses": {
+          "200": {
+            "description": "The accounts"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a storage login",
+        "tags": [
+          "Object Storage"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "endpoint": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  },
+                  "pathStyle": {
+                    "type": "boolean"
+                  },
+                  "accessKeyId": {
+                    "type": "string"
+                  },
+                  "secretAccessKey": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Account added"
+          },
+          "400": {
+            "description": "Missing or invalid fields"
+          },
+          "409": {
+            "description": "An account with that name exists"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}": {
+      "put": {
+        "summary": "Change a storage login. Empty keys keep the saved ones.",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a storage login and its saved readings",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed"
+          },
+          "404": {
+            "description": "Account not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/test": {
+      "post": {
+        "summary": "Check that the keys work",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The number of buckets found"
+          },
+          "403": {
+            "description": "The keys were refused"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets": {
+      "get": {
+        "summary": "List the buckets of a login with their last size reading",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The buckets"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a bucket",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Bucket created"
+          },
+          "400": {
+            "description": "Invalid bucket name"
+          },
+          "409": {
+            "description": "The name is taken"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}": {
+      "delete": {
+        "summary": "Delete an empty bucket",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bucket deleted"
+          },
+          "409": {
+            "description": "The bucket is not empty"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/limit": {
+      "put": {
+        "summary": "Set the size and object limits that raise an alert",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "maxBytes": {
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "maxObjects": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/usage": {
+      "get": {
+        "summary": "The saved size readings of a bucket, one per day",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The readings"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/scan": {
+      "post": {
+        "summary": "Count the objects and bytes of a bucket now",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The new reading"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/objects": {
+      "get": {
+        "summary": "List the folders and objects under a prefix",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "prefix",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "List every object under the prefix, with no folders",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One page of the listing"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/head": {
+      "get": {
+        "summary": "Size, type and metadata of one object",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The object details"
+          },
+          "404": {
+            "description": "Object not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/download": {
+      "get": {
+        "summary": "Stream an object, with range support",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "inline",
+            "description": "Show images and text in the browser instead of downloading",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The object bytes"
+          },
+          "206": {
+            "description": "The requested range"
+          },
+          "404": {
+            "description": "Object not found"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/upload": {
+      "post": {
+        "summary": "Upload files as a multipart form, large files go in parts",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "prefix",
+            "description": "Folder the files are saved in",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved object names"
+          },
+          "400": {
+            "description": "No file was sent"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/folder": {
+      "post": {
+        "summary": "Create an empty folder",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prefix": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Folder created"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/delete": {
+      "post": {
+        "summary": "Delete objects and whole folders",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "prefixes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many were deleted and which failed"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/copy": {
+      "post": {
+        "summary": "Copy an object or a folder, or move it (the same body at /move)",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "folder": {
+                    "type": "boolean"
+                  },
+                  "toBucket": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many objects were copied or moved"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/share": {
+      "post": {
+        "summary": "Make a temporary link to an object",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "seconds": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The link and when it stops working"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/settings": {
+      "get": {
+        "summary": "Read versioning, lifecycle, CORS, policy, tags, encryption and public access",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The settings, each marked supported or not"
+          }
+        }
+      }
+    },
+    "/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/settings/{kind}": {
+      "put": {
+        "summary": "Save one bucket setting. An empty list removes it.",
+        "tags": [
+          "Object Storage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bucket",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "versioning",
+                "lifecycle",
+                "cors",
+                "policy",
+                "tags",
+                "encryption",
+                "publicAccess"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Saved"
+          },
+          "400": {
+            "description": "Unknown setting or invalid value"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

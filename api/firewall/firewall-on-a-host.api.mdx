@@ -1,0 +1,69 @@
+---
+id: firewall-on-a-host
+title: "Firewall on a host"
+description: "Which firewall the host uses, whether it is on, the default policies, every rule, firewalld zones, the SSH ports and client address the lockout check uses, Fail2ban and any change waiting for Keep."
+sidebar_label: "Firewall on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU2P3DYM/SsETw2gzGxz9G0LdJtNUCDoTDAoFoOCa3PGysiSI9E76xj+7wVlz0ey2AK59mRbehTfo8jnAStOZbSt2OCxwE1tyxp2NvKRnAOpGeqQBLrEycCxZqk5ghWwCYI3GVDxjjon0AZnS6s4fuLYQ+wcm/NZFXwLXjc1ZLV6D22IkoB8BaWz7AWoqiKnlAEulIfQCZQ1l4c5+x1Z9+6RfI4h30NZk98zHMmK9XvYhQgfmdsFGhTaJywe8G7OjluDLUVqWDjqzoBW9bYkNRr01DAWqFLvKzQY+WtnI1dYSOzYYCprbgiLAaVvFWm98J4jjuNW0akNPnFSwLubG318X9Z1zZeiJiHhBY6jwYalDhUWuGdBM7EpcNm6bm/9W2rt8hS1HCZy41LDu4QGE8enk5guOixwmJZGND/k/zt0EdYcG/sMEwYNPlG09Ogm2vNqZp6vU8sh0qZiuZQcuOBnalrHizI0OGbhicsuWukzhUemyPG2UwkP29EMWIZwsHy9Qq39yP155eqIlVZ4onJ90LngygXni9DvCYRmfrkLsSHl/GGzfqF+xSnZ4EHCgT0k7TXrc5tpkhDtN1Ik1EwVR6AEv+VDc6MpLAcucDTfSTpzm1ShmVpqglya6stRXmX0YbOGCQ+JBUgg2b1/a/0CNjV7aCMrXaMTJ3TgpCslV+xLhvDE8VUVme11uX+6kref7uHAvbZrzPN1tFKDNM//vJBzhv58aQ/cq6+o6+RE6ZJmAfcCVKpJpBMWwtHP0SV5HzJA98n3wTOwS/NoWb8LWbUVpzJPTgC3n+61+Tmmifyvi5vFzQtJf5KnPcPnu82VhRnwO8kjkxnYdv5Qp1M/hF7nTAc1TbezWr03k6CTobUxCJeaJN9QG5I05JXo3C5nnsED5bN+5KaD5YW9/J/8eupN4WdZto6s1+JkUxtmV3zAiyuiwRNNNFicbXu2xq3JTq4xw/BIiT9HN466/LXjqG61vbhf9q7KJn2vsNiRS/wfBf/lr/nX8AZeo31yBd9nk3WdfqHBA/eXf8y4vbb/P35f4zj+CzHen58=
+sidebar_class_name: "get api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Firewall on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/firewall/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Which firewall the host uses, whether it is on, the default policies, every rule, firewalld zones, the SSH ports and client address the lockout check uses, Fail2ban and any change waiting for Keep.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The firewall state."}}}
+>
+  
+</StatusCodes>
+
+
+      

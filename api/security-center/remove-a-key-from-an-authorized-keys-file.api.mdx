@@ -1,0 +1,70 @@
+---
+id: remove-a-key-from-an-authorized-keys-file
+title: "Remove a key from an authorized keys file"
+description: "Removes every line with this fingerprint from the file. The key Termix logs in with is refused. A backup is kept next to the file."
+sidebar_label: "Remove a key from an authorized keys file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v40YM/SsETy2gyGmPvmUXLTbbQ4PYRVAExoKWaGsiaUY7Q/mjhv57wRnFcuNmgb2tL5ZGJOfxkXw8Ycmh8KYT4yzO8ZFbt+MAvGN/hMZYhr2RCqQyATbGbtl33liBjXctSMWwMQ3nsKwYaj7Ckn1rDtC4bQBjk68J4HnTBy5zuIM1FXXf6WHNnYDlg4C4KRRm2JGnloV9wPnzCY0C60gqzNBSyzjHygW5LzFDz19747nEufieMwxFxS3h/IRy7NTSWOEtexyGVbLmIB9ceVSTwllhK/pIXdeYgpSF2UtQKk7Xsdz6hQtRgN517MVw0K8R2mQVxBu7xSHDC77+53v8KabQORtSqF9vb/XvvzV5qkhgTwFKZzlHdWpZKlcqLS5EQBECzrqm3xp7Q52ZBS56b+R4U7AV9rNT4myYed65mjHDwH73ynHvG5zjKR0NmL2B8Lfr/Wttkw1muCNvaN0k5ONpBL+hvhGtkkgX5rOZRMecD9R2DeeFazX7lSJIGCOENZNnf9drJs+rIdP6uNrw5Ql15g8+nk8uQiy0WAnKZaAz64oFx/7Q92SE2fjwu/MtKebPT8ur7BccgnEWxNVsIbAV7W3tWL3EefNPbByomEr2QAE+xKBAtoxm0THXlrhM6YwtZYVZ6vRkMvX6y17eRfT5aQnJHgILkEAwW3tjbA5PFVvoPCvcDIyAUM1BTwou2RYMbsf+3Swi2ku6v5vJu4f7KAlByIux21FI2sOXq3TOpt9Pbc3HDPaVKap0UZiuyeFegAoJ6jbagtvb0bsga1000O9kj84ycBPGEVMVeJz04rfUvNO8v87xmzG/GH9jNy7yZkQdcTG2KnyMEwl3D/c6RexDYuGX/Da/veamL43AYvFJ4YcMvBMS1nzamEYoyILOdoCN81Bbt7ew6xvLntamMapSqdSLxadYVdWMlqLEjS2WVB8oMhSVnSzQWAAu481Rnd+iu9DQH2N1jD0qfJBZ15CxmnAUt9e6PeMkkjjpxyiTmOH8YrlEpVxlcd+o6+m0psB/+WYY9Phrz17FazWJYZSy0gR9LnG+oSbwN0j76XFcYD/De+hfRcIeo+Y2vb5hhjUfp004rIYM05BEBOnjx3TPzVJDTM5Xy06F9LxSHv5cqASuxyXZulJ9PO2VEdqny13MJcptPDthQ3bb0zYqVoypv38BlIzpQg==
+sidebar_class_name: "post api-method"
+info_path: api/security-center/security-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove a key from an authorized keys file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/security-center/{hostId}/revoke"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes every line with this fingerprint from the file. The key Termix logs in with is refused. A backup is kept next to the file.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"path":{"type":"string"},"fingerprint":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was done."}}}
+>
+  
+</StatusCodes>
+
+
+      

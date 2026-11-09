@@ -6,9 +6,22 @@ slug: "/tmux-monitor/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tmux-monitor"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- tmux sessions across hosts in the All hosts table, and ending a session through Termix actions
+- Opens inside the host page, set to that host
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Empty views use the same look as the rest of Termix
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
 ## 1.1.0
 
 ### Added

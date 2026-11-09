@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Tmux Monitor API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Browse and control tmux sessions, windows and panes across your hosts."
   },
   "servers": [
@@ -63,6 +63,29 @@
     }
   ],
   "paths": {
+    "/plugin-api/tmux-monitor/summary": {
+      "get": {
+        "summary": "Tmux session counts on every host",
+        "description": "One entry per host with Tmux Monitor turned on, checked as the caller and cached for a minute unless refresh=1.",
+        "tags": [
+          "Tmux Monitor"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
     "/plugin-api/tmux-monitor/{hostId}/overview": {
       "get": {
         "summary": "Get a host's tmux sessions, windows and panes",

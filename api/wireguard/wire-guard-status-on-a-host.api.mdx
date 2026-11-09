@@ -1,0 +1,69 @@
+---
+id: wire-guard-status-on-a-host
+title: "WireGuard status on a host"
+description: "Reports whether WireGuard is installed, the package manager, firewall, IP forwarding and whether root or passwordless sudo is available."
+sidebar_label: "WireGuard status on a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO20YM/RWCpwaY2NseddsCbeD0skhcLIqFUXAlWppamlGG1HpdQf9ecKTYzi62QG45WeI8Dt+jyOcRK5Yy+V59DFjgJ+5jUoFjw9pwgnuf+MNAqQIv4IMotS1XDrRh6Kk8UM3QUaCak4O9T3yktnWwuYN9TEdKlQ81UKjOF6YYFWKCnkSOMVUti4AMVbQC9ES+pceWV+hQqRYsHvBMAXcOe0rUsXKyoxG9ce5JG3QYqGMssImimwodJv4y+MQVFpoGdihlwx1hMaKeekP6oFxzwmnaGVr6GITFAL/c3NjPt63ZNnzVDlHSQVY4TQ471iZWWGDNim7mU+C6b4fah/fU+/XRJ64tbz3O/Kb1fAE6FE5PX/UMqcUCxzk0oXtB4a84JNhy6vwzzBh0+ETJW88y8yWaye9paNU6otpLsV5rTlzxM3V9y6sydjhl7cLlkLyeMoVHpsTpdjAND7vJjVjGePB8HaHe/8Gnc+Tqis/W5JnK9UXnnhsXXL6Fvc8gdMvD7zF1ZJw/3m9fqf/MIj4G0HjgAMJBwYc8iVYkJv8vGRIapooTkMCv+dI8fwbLiSuc3DeSztxmVejmqZohl7n656hvMvp4v4UZD8IKpCC+Du99WMF9wwH6xEbXgVdQOrBYpOSKQ8kQnzi9qSKzvW73d3fy9m4DBz7ZwCa1bTx6bUC7579fyTlDv7+1Bz45ODa+bOZCcimzgo0ClSqWtmAhHsOSXVIIMQPsnMIpBgZuhefd8mEfs2qvrcm8bODt3camn5PM7H9e3axuXmnazJ51tbkxwMn2yBZRMoXZwMD8IO2pZHFQtp7DclzGsPe1wD7FDoyd0mP+Ln0U7SgYvWVIXvqDFaNc6SUxW6ugHPQHM915uJSfdd235IPpzK40Lr72gBdfQ4dnZ0OHxdl7F3PbuWzHljSOjyT8Z2qnycJfBk7mN7uLf2X3qbzYc4XFnlrh/2naT58Wf38Hb/H+utfhlG2yHewNHR74dPmjmHbXDv7hty1O03+A43iK
+sidebar_class_name: "get api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"WireGuard status on a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/wireguard/{hostId}/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports whether WireGuard is installed, the package manager, firewall, IP forwarding and whether root or passwordless sudo is available.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The WireGuard status."}}}
+>
+  
+</StatusCodes>
+
+
+      

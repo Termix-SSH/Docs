@@ -1,0 +1,69 @@
+---
+id: find-repos-on-the-host
+title: "Find repos on the host"
+description: "Looks four levels deep in the scan folders for git repos that are not added yet."
+sidebar_label: "Find repos on the host"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMFu1EAM/RXLJ5CGbOGYW5FoVeCAoKhC1QpNE28ybDIzjJ22Icq/I0+2u1ugSBw4JXHe2O957DdhTVwlF8UFjyW+D2HLsAlDgo5uqWOoiSI4D9IScGU9bEJXU1JQgsYJJIqBQVorYBOBDwK2rqmGkaRAg2IbxvIaz53g2mC0yfYklDQ4odOq0UqLBr3tCUtsA8tFjQYTfR9cohpLSQMZ5Kql3mI5oYxRkc4LNZRwnteK5hg8Eyvg1cmJPh6LO8vMQatxgfNssCdpQ40lNiRoFh4lrmI3NM6/sNGtGieraWE0r2rHVbilhAaZ0u2DhiF1WOK0hGY0v5T9ot28pNS7e1gwaPDWJmdvuoXtLpoJb+zQiXZBJHK5Wkk+WNC97WNHRRV6nLNepmpITsZM4YZsonQ6KP/r9WwmrELYOjqO2Oje0biPHKX4pI1dqBwn2vdZueCu//q9gNDsXs5C6q1yfnt1+Zv6T8TsggcJW/LA5OVhmrRISO6HVSS0ZPVyLMPrnBSsrzMsHyxwNo8k7bktqtAsk7RADrP07U6eZPT26hIWPDAJWAF2jX/hfAFXLXmIiZSuAScgdkuskYpq8hWBjsGTKjLb43b/cydPP1zAlkZgsUmcb+DOSQvS33/9Tc4e+u+t3dJo4K51VbsU4kOZAi4EbCWsx3ZYCHd+d7qyPi96Jfrf+jF4AuqYlr1yfhOyaiedyjx3AqcfLnTuKfHC+2VxUpz84XLIQBy6zkAV+t5JLhcHbo/MJngYdal0L9lkxFZtSlrqYYggAWortKixg4ScMd9KDCy99UpuNyJnzteHvCpV0/5KTBfKC3n5Tya5jIfQvaxiZ51XrtlXpp0rXePBldBg45RiuffKvTWtTTZQPTBNN5bpc+rmWcPfB0rqFuuD+2TvqB3re43lxnZMfxH+7OPOkZ/DU5wfttKP2eS6Qb/Q4JbGg7XP62PvPX9zifP8E+MfQU4=
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Find repos on the host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/discover"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Looks four levels deep in the scan folders for git repos that are not added yet.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Folder paths."}}}
+>
+  
+</StatusCodes>
+
+
+      

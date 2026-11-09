@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Databases API",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Browse and edit MySQL, MariaDB, PostgreSQL and SQLite databases on your hosts from one tab."
   },
   "servers": [
@@ -63,6 +63,29 @@
     }
   ],
   "paths": {
+    "/plugin-api/databases/summary": {
+      "get": {
+        "summary": "Database logins and reachability on every host",
+        "description": "One entry per host with Databases turned on and a saved login, checked as the caller and cached for 5 minutes unless refresh=1.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refresh",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "One entry per host."
+          }
+        }
+      }
+    },
     "/plugin-api/databases/{hostId}/tools": {
       "get": {
         "summary": "Database clients on a host",

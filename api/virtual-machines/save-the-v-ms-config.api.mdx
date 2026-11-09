@@ -1,0 +1,70 @@
+---
+id: save-the-v-ms-config
+title: "Save the VM's config"
+description: "The host checks the XML first and keeps a backup of the old config."
+sidebar_label: "Save the VM's config"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXBvLQFaNHto96coEWdxIARKXYLQyhG5Ehci9xldoe6lOC/B7NLS44VFw1QlC8kd8/O5czOmR5LDoU3rRhncYrziqFyQaCouNgEkIrhj5sPsDI+CJAtYcPcBiBYUrHpWnCriHF1CYWzK7OeYIZC64DTB7wzXjqq4YaKylgOuMiwJU8NC3tF9GjUa0tSYYaWGsYpqv/rEjP0/Lkznkuciu84w1BU3BBOe5RDq0hjhdfscRiyb1rqOvOv7ATxxq5xGBYJzEHeuPKgiJdnC2eFregWtW1tClLm8seg9PXnpt3ykQvBDFvvWvZiOOjuvqm/5V8fDSG0zoaE/OXyUl9fl2lGWy4nmjc2LJUrNfUuulECppi3dbc29oJak29TFS6asQq5EhzyPvE85Nsm5L1SNeQaVoaB/fapPp2vcYp9WhowexHIn67zMGffmD0kDGa4JW9oWaf4x9WYwoq6WrTCIm2Y5rnEgxPeU9PWPClcoxwsNIKi80YOMYQlk2d/1WliDwstdeHcxvDzFWrNez4cV56ZmGlFUijPDR2511hwvBP6n0CYjR+/Od+Qxvzufn6W/YxDMM6CuA1bCGwFjI39oE6cN3/H2wEVU8keKMCbaDQ2ksLiwQkO2VcpHWNLWWGW7naCnG73405ejejd/RwSHgILkEAwa3th7ATuK7bQetZwMzACQhsOulJwybZgcFv2r2YRo31O93czeXV7DRs+QBDyYuwadkYqkGb/11k6R+j3U7vhQwa7yhRVchRObiZwLUCFBD02YsHt7Hi6IGtdBOg+2YOzDFwHTg2nrf7xJBK/pst7bOpjM2vVVi7yY0QBZ3IIV7fX2i7sQ0r358nl5PKMhLeeSTiG1pClNcP7uxsYuxqeuhqchYN24wdju30U8ZAqOZv9nnKvzVJPxQq2LkhDUbPG66SaEtm4u/khjGL+Mpb+pH//1ahId0d4L3lbk7EaXBSdftSyBzxpmbL1Qs0wiwND39Pj5Ng28X/Uf63LIsHUXN8vKfAnXw+DLn/u2KvQLE7CFWWnNEG/S5yuqA78D0z8+HEcEj/Baxk9NbQ9RH2sO/3DDDd8OE08FbL/0WtkZ1gMGaYmilmnrbfJy8VcDZyOnk08FdrjALr9pAq5HAdn40o94mmnE5h2ybOLiUQ1jms91mTXHa2joEWT+nwBnx/1Eg==
+sidebar_class_name: "put api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the VM's config"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/vms/{uuid}/xml"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The host checks the XML first and keeps a backup of the old config.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"uuid","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"xml":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,212 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Privileged Access API",
+    "version": "1.0.0",
+    "description": "Ask for approval before anyone connects to a privileged host, with access that ends on its own and a full audit trail."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/privileged-access/hosts": {
+      "get": {
+        "summary": "Privileged hosts the caller can reach",
+        "description": "Each with its limits and the caller's current access, for the request form.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "The hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/requests": {
+      "get": {
+        "summary": "List access requests",
+        "description": "scope=mine (default) is the caller's own. pending, active and all need privileged-access.approve; pending only lists requests the caller may decide.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "mine",
+                "pending",
+                "active",
+                "all"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requests, newest first."
+          },
+          "403": {
+            "description": "Needs privileged-access.approve."
+          }
+        }
+      },
+      "post": {
+        "summary": "Ask for access to a privileged host",
+        "description": "hostId, hours, and a reason and ticket when the host asks for them. An open request for the same host is returned instead of a new one.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "The request."
+          },
+          "400": {
+            "description": "The request is not valid for this host."
+          },
+          "404": {
+            "description": "Host not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/requests/{id}/approve": {
+      "post": {
+        "summary": "Approve an access request",
+        "description": "Needs privileged-access.approve and, when the host names approver roles, one of them. Nobody approves their own request.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "The approved request."
+          },
+          "403": {
+            "description": "Not allowed to decide this request."
+          },
+          "409": {
+            "description": "Already decided."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/requests/{id}/deny": {
+      "post": {
+        "summary": "Deny an access request",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "The denied request."
+          },
+          "403": {
+            "description": "Not allowed to decide this request."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/requests/{id}/end": {
+      "post": {
+        "summary": "Withdraw a request or end access early",
+        "description": "The requester, or someone who may approve it. Ending approved access closes the user's open sessions on the host.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "The closed request."
+          },
+          "403": {
+            "description": "Not allowed."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/report.csv": {
+      "get": {
+        "summary": "Every request as CSV",
+        "description": "Needs privileged-access.approve. Audited.",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "CSV file."
+          }
+        }
+      }
+    },
+    "/plugin-api/privileged-access/summary": {
+      "get": {
+        "summary": "Counts for the dashboard card",
+        "tags": [
+          "Privileged Access"
+        ],
+        "responses": {
+          "200": {
+            "description": "pending (to decide), active (the caller's grants) and the newest pending requests."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

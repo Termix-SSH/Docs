@@ -1,0 +1,69 @@
+---
+id: list-the-jobs-in-a-crontab
+title: "List the jobs in a crontab"
+description: "The login user's crontab, or another user's with ?user= (needs edit access and root or sudo)."
+sidebar_label: "List the jobs in a crontab"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU2P20YM/SsEL02AibztUUBRbIu22LSHoHGxKBZGMZa41sQSRxlS9qqG/ntBjb+a3T3k0pMtih/vvRk+HbAmqVLoNUTGEpcNQRs3gWEQSt8IVCmy+rWDmMBz1IbS6dU+aAM/2MP38IaJagGqg4KvKhIBzzWkGNUqZajj2wIdqt8Ilg/4U4qMK4e9T74jpWTRAwbD0Htt0CH7jrDEJore1egw0echJKqx1DSQQ6ka6jyWB9Sxt8zAShtKOE3u2OnzQGm8tDKo+EKhaAq8wWla2RTpIwuJvf/u5sZ+nkv0Ka4zQW0Ikt+fZCpsOHakTayxxA0pusynxEXfDpvA73wfFpa+OGRq08K6GS5Ku5MQQ2qxxEMOTei+wPBXHBIsKXXhCXIOOtz5FPy6zdCP0Rn9ox9aNSlVeykXC50LC3ryXd9SUcUOp5m8UDWkoOMMYU0+UbodDPzDyjStYtwGuo74PvxG4zly1eKjiZyhXDc6a25YTmdhzzkJ3fHPLzF13jC/v18+Y/+RREJk0LglBiFWCDwfhQ2JKfzjLRMa8jUl8AI/zk3PJzYXFji5/1A6Y8us0OVLlFMut+jTXl9F9P5+CTkfhBS8goQNvwtcwH1DDH0ig+sgKKjfklikopq4Iog7Sq+ymNFey/3VSt5+uIMtjSDqkwbe5P3V7unvZ3TOqV8v7ZZGB/smVE0eJJcxBdyZOahY2TEX4p6P1ZVnjnOCvfc8RiagVigvVeDHOLMO2hpNcxC4/XBnF5+SZODfFjfFzQunQw58XWdLGnje1rzDkWG0XbJVFJexejAt66ElO51doP2ZnYyi1OX6x9CSzMfSR9HOs6E73pHfg+hcMA8JDP7kEF+Cs61iJdb/w3zzhVF60kXf+sAGfnaaw9GkHvBiUujQ5qPD8uzBs1Ot3GzKln04rL3Qn6mdJgtnvzXzqIOYFdVYPvpWyOGWxosD73w7GBI0xzjZ1st1r4r15o/j9+AtvEbttM48Xs88YTmSmlbXjv3rz0ucpn8BUvNu7A==
+sidebar_class_name: "get api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the jobs in a crontab"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/cron/{hostId}/jobs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The login user's crontab, or another user's with ?user= (needs edit access and root or sudo).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"user","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The jobs and the raw crontab."}}}
+>
+  
+</StatusCodes>
+
+
+      

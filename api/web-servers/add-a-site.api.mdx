@@ -1,0 +1,70 @@
+---
+id: add-a-site
+title: "Add a site"
+description: "Send spec to build the config from the site form, or content for your own text. The whole config is tested first and the server is reloaded only when the test passes."
+sidebar_label: "Add a site"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVVFv4zYM/isEn3aAmnR79FvusGG9YVhxyVAMRXBQbMZWY0s+iW7qGf7vAyXXSRN0wD2eXxJJJPXxE/lxwIJC7k3LxlnMcE22gNBSDuxg15m6AK4Icmf3poS9d01cB8MEe+cbBc7LKZNl2YDedR7c0QLTCy9gUxEcK1fPIUwApsBUwN74wKBtuiGQfyYvx55qpwsqwNm6h2NFNhqIF7Q6BAoLVMi6DJg94gPtYB19A24VttrrhlhW2eOARnJqNVeo0OqGMMPKBb4rUKGnb53xVGDGviOFIa+o0ZgNyH0rlsYyleRxHLfJmgJ/dEUvJpfOEwVypNu2NrkWQpdPQVgdrmO73RPl/AbFIyYOXqFKNt615NlQiEHS8SlIYG9siQrJdo0EsKWxL6hQtzqvCBXmuih63I6v2V+6jgrlsa+BjW9SunCKn0APrbMhgfvl9lZ+3laTvL4UlNufntB13Ha8QInQEFeukCdyQciIL5Xhsq270tgb3ZrlkXY3KfGwHNLbjUspv4BqYiQ9dedrzHBIWyOqCyj/SF1uyDfmBWaen7U3eldf0lvQXnc1S7EwtyFbLjk6LuhFN21Ni9w1wsJWEOSdN9xHCDvSnvyqkyQet6MaMHfuYOh8R7fmD+rnnbMQa6mRBOU80My+YMGpTGWdjFBNf35zvtGC+fPD5ir7NYVgnAV2B7IQpFlNaiu5xHnzb6xXqEgX5EEH+BiDzu0ZHRepLE4pzdhSVqhSwyWTU8s9HfldRJ8fNpDsIRCDZgimtDfGLuBBWr/1JHAVGAbWBwqyk1NBNidwIhnvZRHRntP93Uyu7u/gQD0E1p6NLeFouAJuXr5epTObfj+1B+oVHCuTV+micLpmAXcMOucgbpOtiOvknWtrXTSQc217ZwmoDpS6S8Tny0m2fk3Fe17qs2BMDzULyiQK5ypwJhnG7l2k07DEO9dgWN3fSWORD4mYnxe3i9sruv7UVpcE8XoFqyhXMaVPIljgbJoj0u8hi9MmqGmCKKhdGaLx75vN/VoluuiZfA95pW1JbyZMLAPRl0ZHKZ5SXRUF6Bj5EtxwlvOPMw5TZcsty7bWxkrWURKHSVUf8aSqqPBMV1FhNk/FJK1bFeekeA3DTgf629fjKNvfOvKidtuTekbtK0yQ/wVme10H+h9Of/oyjbwP8B7wV1WxfRTpupMVKjxQf5rgo4y11FURQTr8lO652UiIk/PVUBblncfP/V9r0czdNNwbV4iP10cZ0PqYLncxl6jPcW/AWtuy02WUuBhTvv8AWIw5+A==
+sidebar_class_name: "post api-method"
+info_path: api/web-servers/web-servers-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a site"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-servers/{hostId}/sites"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send spec to build the config from the site form, or content for your own text. The whole config is tested first and the server is reloaded only when the test passes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["server","name"],"properties":{"server":{"type":"string","enum":["nginx","apache","caddy"]},"name":{"type":"string"},"spec":{"type":"object"},"content":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The end of the test output."}}}
+>
+  
+</StatusCodes>
+
+
+      

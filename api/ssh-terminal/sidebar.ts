@@ -36,6 +36,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "ssh-terminal/list-my-open-terminal-sessions",
+          label: "List my open terminal sessions",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "ssh-terminal/save-some-of-the-callers-terminal-settings",
           label: "Save some of the caller's terminal settings",
           className: "api-method put",

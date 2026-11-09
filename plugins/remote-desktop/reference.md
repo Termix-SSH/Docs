@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 ## Settings
@@ -19,6 +19,14 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Enable Remote Desktop | boolean | `true` | Allow RDP, VNC and Telnet connections. |
 | Use an external guacd | boolean | `false` | Termix runs RDP, VNC and Telnet itself. Turn this on to send them to your own guacd instead. REMOTE_DESKTOP_ENGINE overrides this. |
 | guacd URL | string |  | Where guacd listens, as host:port. The GUACD_URL, GUACD_HOST and GUACD_PORT environment variables override this. |
+| RustDesk ID server | string |  | Your own RustDesk ID server (hbbs), as host or host:port. Leave empty to use the public RustDesk server. Hosts can set their own. |
+| RustDesk relay server | string |  | Your RustDesk relay server (hbbr). Leave empty to use what the ID server says. |
+| RustDesk server key | string |  | The public key of your RustDesk server, from id_ed25519.pub. Needed with your own server. |
+| Moonlight Web address | string |  | The Moonlight Web server Termix talks to, for Sunshine streaming. See the docs to run one. |
+| Moonlight Web public address | string |  | The address browsers open, if it differs from the one above. HTTPS is needed for gamepads and keyboard lock. |
+| Moonlight Web username | string |  | An admin login on Moonlight Web. Termix uses it to list, add and pair PCs. |
+| Moonlight Web password | secret |  | The password for that login. |
+| Ignore Moonlight Web certificate | boolean | `false` | Turn on for a self-signed certificate on Moonlight Web. |
 
 ### Host
 
@@ -62,6 +70,17 @@ Give these to roles in **Settings**, **Roles**.
 | Permission | Who has it at first | What it allows |
 | --- | --- | --- |
 | `remote-desktop.sessions` | admin, user | Let session sharing and collab rooms show this user's RDP, VNC and Telnet sessions to others. |
+| `remote-desktop.monitor` | admin | Lets other features, such as Session Recording, list, watch and end the RDP, VNC and Telnet sessions of every user. |
+| `remote-desktop.moonlight` | admin | Add Sunshine PCs to Moonlight Web and pair them, using the saved Moonlight Web login. |
+
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `remote-desktop.check-ports`<br />Check remote desktop ports | A host | Read only |  |
+| `remote-desktop.sessions`<br />Open remote sessions | A host | Read only |  |
 
 ## Capabilities
 
@@ -75,6 +94,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 
@@ -88,7 +108,8 @@ Services are how plugins call each other. Plugin authors can use these.
 
 | Provides | Version | Permission |
 | --- | --- | --- |
-| `sessions.live` (rdp, vnc, ard, telnet) | 1.0.0 | `remote-desktop.sessions` |
+| `sessions.live` (rdp, vnc, ard, telnet, rustdesk) | 1.1.0 | `remote-desktop.sessions` |
+| `remote-desktop.console` | 1.0.0 | `remote-desktop.sessions` |
 
 | Uses | Version | Optional |
 | --- | --- | --- |

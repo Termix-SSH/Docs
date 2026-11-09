@@ -1,0 +1,69 @@
+---
+id: delete-a-file-in-etc-cron-d
+title: "Delete a file in /etc/cron.d"
+description: "A copy is kept in /var/lib/termix-cron/backup."
+sidebar_label: "Delete a file in /etc/cron.d"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu5DYM/RWCpxZQ7LRH39JuCmTbw6KbIiiCQcGxmbF2bMkr0TNxDf97Qck7M+luim4PPdmmKPK9J/F5xoZjHewg1jus8AZqP0xgI+x5ELAOygOFsrPbUjj09vmqDt6VW6r341CgQaFdxOoRfwze4cbgQIF6Fg4andFq0YGkRYOOesYKWx/lrkGDgT+ONnCDlYSRDca65Z6wmlGmQTOtE95xwGUxX6yUHv+iTpRg3Q6XZaPJcfAuctT176+v9fFSgjfcsXBTaFvsWVrfYIVNiqLJECosh27cWXdFgy2TJHPmtZRxisJ9OSu6BQ1GDodPcoyhwwrnHNLFl61/92OA+6Qz5Bw0eKBgadtlxGs0gX6isRMVVGSIVbkeUMHP1A8dF7XvcUmcI9djsDIlCFumwOFmVBaPG1W29n5v+TJCg/2Zp1PkosR71TZDuSx0klqx4HoE+p2T0KwvP/nQk2J++3D/Gfv3HKP1DsTv2UFkl+6ftAzaxAf7J2kmtEwNB6AIP6SiQK5JaWljgYt5QemELbNCk69STjlfpg9HeRXR24d7yPkQWYAEot25K+sKeGjZwRBY4RqwAkJ7jhqpuWFXM/gDh1dZJLSXcn+1kjfv7mDPE0ShINbt4GilBemf//iMzin166Xd82Tg2Nq6zY3iuU0BdwJUS9Rtay74o1t31+ScTwm6Tm7yjoG7yHnArHvyibWVTmmqj8DNuzu9+BxiBv5dcV1cf+F02AA1TWoTRgc6h/DBbyN4B5POks5kNBkrgWrZjB3r6RwsH0/s8sjm/U+245iOZfBRenKKbr0j2RqAUlIyR5Y6jX/R/B2ezpUTdvKfXDXfAeFnKYeOrFM8yTzm1YAe8WxAaFD3o8HqZK6ZkoYS9o1Jvqv75nlLkX8L3bJo+OPIQZ1hc3aa5BONjfreYPVEXeR/YPfNr6sBfwuvQf80gW5KhtaN+oUG9zyd/wjqPP9j16TLsrk0+Te3v9ze3+Ky/AV0Pm1Y
+sidebar_class_name: "delete api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a file in /etc/cron.d"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/cron/{hostId}/system/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A copy is kept in /var/lib/termix-cron/backup.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Deleted."}}}
+>
+  
+</StatusCodes>
+
+
+      

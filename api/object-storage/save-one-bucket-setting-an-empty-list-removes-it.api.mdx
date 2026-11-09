@@ -1,0 +1,69 @@
+---
+id: save-one-bucket-setting-an-empty-list-removes-it
+title: "Save one bucket setting. An empty list removes it."
+description: "Save one bucket setting. An empty list removes it."
+sidebar_label: "Save one bucket setting. An empty list removes it."
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v2zgQ/SuDOe0CjJS2e9LNPRRIe2hQJwgWgbGgqbHFWiJVcmRHK+i/L4aSHRtJgHYPPUkYzve8eTMg623E4hG/rr+TYViyD3pLuFLY6qAbYgryPqB1WGCruUKFTjeEBWpjfOf4pkSFgX50NlCJBYeOFEZTUaOxGJD7VpStY9pSwHFUrzpbd2ZH/DOeIgfrtm862ln3UwnNbhSS6xppwZ5CtN5NwtpuyPSmJlRofIiosPW1NT2qqWdiZ0LfsvVOHrt1bc3CGIoRV+O4kgxi612kKEHfX1/Lp6Rogp2MClzqPZU4Kvzrtdd7t3P+4CASs3Vb8AGs2+valrDXdUfSgVccgncEUzePphksHFDTcg+1jQyBGr+nCJYzVNgQV76UPnbS/9TNAvO27rbWXenW5j6B4ypO4Mjnucd8OCFgzKeIMR+mnzGfY8d8kImMqDBS2B/h1IUaCxwmkTxeFvK37wLcUWjsE0w6qHCvg9XremroLE1d2+iuZiywYm5jkeecDDN60k1bU2Z8g2MaSSTTBct9SmFNOlBYdFLu40rQZLzfWTqX6NZ+of4kOXOxFDxNqZw7OsFLcsEZdgnfSQnV/PPJh0ZLzp8f7l5Uv6QoSAT2O5L5OwbrgCsCCeKD/VeLJlSkSwqgI3xMTkG7Mqklw0yQdV7SKbepKlTT+kwqzwv0/cBvZvT54Q4mfcEWaIZot+7KugweKnLQBpJ0FVgG1juKIjFUkjMEfk/hzSpStuft/uVOLm5vYEc9RNYhLczBcgXcPP3zopyT6q+3dke9gkNlTTUFis9hMrhh0IajmM264A9utjbaOZ8U5F27XhaV6khZ2mTrNj5VbbmWMi8ZGRa3N7ICE0dhge+y6+z6RWEfgz9ESuEa7cRu+eHK+KbVbNc1wbTJMG/yTBMx6W9sTTFNofWRG+0kmRkS/4tXLjI7TZPpifO21tZJqEQDw8w5j/jMOajwknVQHe+NcG9xfnvmKkR8uiJH9hFhuggrhZWPLFGGYa0j3Yd6HEX8o6MgjLB6ZpjED6WN8l9isdF1pBcFGe+YnCDvj2/zsfkT5Dy8Vuhx81yfiEzou0BUuKP+4pIK6fzGwHO/fnPUNJBxNZ7dntv7OxzH/wBGlfIk
+sidebar_class_name: "put api-method"
+info_path: api/object-storage/object-storage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save one bucket setting. An empty list removes it."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/object-storage/accounts/{accountId}/buckets/{bucket}/settings/{kind}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Save one bucket setting. An empty list removes it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"accountId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"bucket","required":true,"schema":{"type":"string"}},{"in":"path","name":"kind","required":true,"schema":{"type":"string","enum":["versioning","lifecycle","cors","policy","tags","encryption","publicAccess"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved"},"400":{"description":"Unknown setting or invalid value"}}}
+>
+  
+</StatusCodes>
+
+
+      

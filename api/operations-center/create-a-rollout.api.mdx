@@ -1,0 +1,68 @@
+---
+id: create-a-rollout
+title: "Create a rollout"
+description: "One action across hosts picked by id, tag or fleet, with a canary, batches, a pause between them and a failure limit. Starts right away when start is true."
+sidebar_label: "Create a rollout"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlsFu4zgMhl+F4NlNsos9+dYpdoDOANui6aJYFMWCsZlYjS1pJDqpJ+i7Lyi5Sdqkh7mtL4kpUvopUp+8w5pjFYwX4yyWeGMZqNIXoCq4GKFxUSJ4U625hsUApi5AaAUuwLJllgK2RhogqMhSGApYkFQNxwIIPPWRYcGyZbYgDXdAtgaCJZm2Dwyt6YxMYC4UJEIwq0aAtjTAtmELUc1gIkjoeYIFCq0ilo944zmQioxwxVY44FOBgX/0HOWLqwcsd+nVBK6x1OgCK2eFregQed+aKk0wfY6a9w5j1XBH+k8Gz1iiWzxzJVgcTfSIeWuu66QlrFiiruyD8xzEcNR4Sx0fzRMlGLvC1+IQfG4wcHR9qPg7D2fHjfW9nMp7PQg5N1aH4a63R0ML51omq2O5XkdjxgqvOOhYquHc/OTzw6muc66creN5jyjOXy6Fw9dc6U/dKMg5eelJu+KdjTn899lMf9437H3DEFzbul4mOuMf55z+cmMbd5pXob0rGpc7RjvMOoENtaaeoK7bsTSuxhK9i9oDnqTBEqe+7VfGXpA3U7fvwYsq9eB0lBGxwMhhw0F7dYd9aLHEXTa9YvFB2z+uD3DPoTMvkH2wwA0FQ4s25z1aU1ZL6lvBEhsRH8vpVFLghF+o8y1PKtfp3j2pgqoPRoYkYcEUOFz2msTj02uxw8q5teFjC3nznYe95WiKuR6NLOV4on3RVIvmnNy0iMkJi/HPVxc6Us3fHu5Psp9zjAobcWs98GwFTCIF6CIumJ9pj6FhqjkARfiSJk0cUbcUmCp/nNJeW84K9fxgObpgMZ5RfN7Kp4q+PdxD9ofIAiQQzcpeGDuBB4WTD6xyCzACQmuOaqm4ZlsxuA2HT7NIao+3+5d38vL2GtY8ZEAau8oIlu7l35N09q6/vrVrHgrYNqZq8kLxsMwErkXviahhoy+4rR2jK7J6oKgSHSc7OMvAbeR8upS5dwda/5mb98DON+wdI/Nge0fKg/kNkO+IeITA8RYYoTd7x7jZR6TNzhJstgeWTpagvHSpfEZU/+m9BJe313qcOcRcjt8ms8nspEh3vS0SxcD1UgB5H9yGcyECVWvgDYcBMn0+3M+D8iPRbX8Te1oxeM7mPEuCyVsI6ULLdB+nXlTIdWSPCnAVmISB3tD6UfHucJ3+3z8Z8skSfpGpb8mkqy8heTdS/REPVMcCT7iuLfdG9qcCNTkN2u0WFPnv0L6+qvlHz9pXj08HeGeyYj5ficPr1LJXeesu7lWaurd9RtWHrxJl8P4iur2ZKz0X49dN52qNCbRVebTFEpP2JDx9/qhthy3ZVU+rBLs0pz7/ASVBd4s=
+sidebar_class_name: "post api-method"
+info_path: api/operations-center/operations-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a rollout"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/operations-center/rollouts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+One action across hosts picked by id, tag or fleet, with a canary, batches, a pause between them and a failure limit. Starts right away when start is true.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["actionId","targets"],"properties":{"name":{"type":"string"},"actionId":{"type":"string"},"resourceKey":{"type":"string"},"input":{"type":"object"},"targets":{"type":"object"},"dryRun":{"type":"boolean"},"canary":{"type":"integer"},"batchSize":{"type":"integer"},"pauseSeconds":{"type":"integer"},"stopAfterFailures":{"type":"integer"},"start":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The rollout."},"400":{"description":"No hosts match, or the request is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

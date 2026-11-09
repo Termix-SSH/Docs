@@ -6,9 +6,23 @@ slug: "/termix-identity/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "termix-identity"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Added
+
+- A certificate issued for a key that came from a saved login is stored on that login, so the next connection uses it
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+
+### Fixed
+
+- Generated SSH keys always work. About 1 in 256 ed25519 keys used to come out unreadable
+
 ## 1.0.2
 
 ### Changed

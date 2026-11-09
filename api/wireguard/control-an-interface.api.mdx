@@ -1,0 +1,69 @@
+---
+id: control-an-interface
+title: "Control an interface"
+description: "Starts, stops, restarts, enables or disables the wg-quick unit of an interface."
+sidebar_label: "Control an interface"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu40YM/RWCpy4wsdI96pYW2IW3hwYbF0ERGMVEoqWpJY4yQ8VRBf17wZFiO5um2D3snixzOOTj4/BxxJJiEVwnzjPmeCM2SDQQxXfRQKC4GIjtfUMRfIDSxflbaoJDdfHQu2IPPTsBvwPL4Fgo7GxBKzQotoqY3+GtC/Sxt6HErcHOBtuSUNCjEZ2m7qzUaJBtS5hj7aOsSzQY6KF3gUrMJfRkMBY1tRbzEWXo1FOzVRRwmsx/RnKK5GsCRQmOqzfj2CJx9PWBDBL3rdaeSESDymoK8GyYWUWDC6e4naZtcug8R4oa9P3lpf687NOmJpgBQbC8UtDYktS+VNw+avAEP8esa/rK8YXtXHZwgSptQjbOBE/ZsVkxGxNVUxYpPLqCsnHOMClyCo/P3epDgzmOs0kPX0L70/cBNhRa9wSzDxp8tMGlR6OlLNZU1M72jWi/RbqYZ5mkiyt6sm3X0KrwLU6Jk0hFH5wMCcI92UDhqtcC77basML7vaNzi+3cbzQcLWchbrRhM5TzQMf+KRZc+qr/Zyc0y8cHH1qrmD/dbl5Vf0MxalfE74khEgs4TpOiSXxw/9jUtZpsSQFshF9SULBcJrd0cYWTeVHSEdtcFZr5hc4upzf690HeRPTpdgOzP0QSsALRVXzheAW3NTF0gRSuAScgdk9RLQWVxAWBf6TwZhUJ7Tnd38zk1fUa9jRAmgvHFRyc1CDt01+vyjm6fju1exoMHGpX1HOieEqzgrXoQEW9tviCP/Byu7DMPjnoueXBMwE1kebJc7zzqWonjZZ51Dq4ul7r66cQZ/Q/ry5Xl69qWnMU2zRwuucZBp0jndKYILSWbUUnbY0GisYRL8eF552rIuyCb0HRib1PfVExaC0rvOWR/OpZgm9eKPWXkHSgWIjl++yE+XUIPUnWNdaxAk2yMi6qdYcn1UKDR91Cg/lxNZy4UPOzzi/qpaZFsrcmrRONOo73NtIfoZkmNT/0FFRRtieFSvqylFNivrNNpP8h56fPyzZ4B28V9jy5PCQhbHr9hwb3NJwWnSrWD8w6k/WDky7tmLbny+r695sNTtO/eZ3vWg==
+sidebar_class_name: "post api-method"
+info_path: api/wireguard/wireguard-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Control an interface"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/wireguard/{hostId}/interfaces/{iface}/service/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts, stops, restarts, enables or disables the wg-quick unit of an interface.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"iface","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["start","stop","restart","enable","disable"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran."}}}
+>
+  
+</StatusCodes>
+
+
+      

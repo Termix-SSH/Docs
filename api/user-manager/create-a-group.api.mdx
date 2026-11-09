@@ -1,0 +1,70 @@
+---
+id: create-a-group
+title: "Create a group"
+description: "Create a group"
+sidebar_label: "Create a group"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v3DYQ/SvEnFqA3nV71M0JWtQpihpZB0ZhLIpZaSzRK5EKZ+S1Kui/F0NutOtscogukobz8WbI9ziBYM1QPMInpsiwtdBjxI5E/4rHCZyHAnqUBix47AgKaALLbQUWIn0eXKQKCokDWeCyoQ6hmEDGXj2dF6opwjxvszexvAvVqC5fB5fBC3nRJez71pUoLvj1MwevtovcYfdMpbxB8ZgRahMx9BTFEWtExr1EskTna5jTo/HcB8/Z9dfra31VxGV0vSKAAt5HQqFqBer+rSWDpo5h6MFCR9KESmcWWNGl0RWw7tuhdv4Ke7cemOJVhx5riuspT3NepwQMFpjiy5fpD7GFAqZsmuHr6v+EIZp7ip17NdkHLLxgdLhrcz9Ha2rpCYdWdP9Eei7Wa0mBK3rFrm9pVYZOZ7JVBOUQnYwJwo4wUrwZtI3H7WwnKEPYOzq3YO/+pHGxnKXY6LZlKOeJlr1QLHA8OfqfncAeP34PsUPF/OHh/qL7DTG74I2EPXnD5MU4b6Qho0VCdP+lI2QawoqiQTbvUlKDvkpuKXAFs33T0oItdwU2cyC7nFjwfJDvIvrwcG+yv2ESg2LY1f7K+ZV5aMibPpLCtcaJEdwTq6WkinxJJrxQ/G4XCe35uH94kjd3t2ZPo2HBKM7X5uCkMdK9/nvRzuL646Pd02jNoXFlkwvxqczK3IrBUljDjr4mHPwxukTvQ3LQdfRj8GSoZcr0Uz34eFKS3/LhPbF8Ybdu21NIA3KiHlnizM3drZKEIucmf1ldr64vWv8r0TPBU7oaLMsweGGbic7W9Mh8CLHihHqz+UP7YBO8GZWVSmtOu6VC0KE/g3ghGm9qLzsq9CrrvkXnNU2SgumoJ49w0hOwcK4oYKFYFPooKlubRFvjpmmHTJ9iO89q/jxQVJ5vT7qRWF851u8KiidsmS4gLmoNP3086u/PBuy3oX/hkx+TPLWD/oGFPY2n62TezhbyeUoI8uL7XOfqXlOcgi9uCNWcRXrv/t6oWuyON00XKo2JeNDbAg+5eEi9JGVKtgla9PWAdSJ3yqnP/+Gtdo8=
+sidebar_class_name: "post api-method"
+info_path: api/user-manager/users-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a group"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/user-manager/{hostId}/groups"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a group
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Created."}}}
+>
+  
+</StatusCodes>
+
+
+      

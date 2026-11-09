@@ -1,0 +1,69 @@
+---
+id: recent-cron-log-lines
+title: "Recent cron log lines"
+description: "From the journal, /var/log/cron or syslog, whichever the host has."
+sidebar_label: "Recent cron log lines"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVMFu20YQ/ZXBnFpgQ7k98uYUSeH0EiQqjMAQijE5Itda7jK7Q8mswH8vZknJcmIHCNCTpNGbnffezr4j1pyqaHuxwWOJ72PoQFqGhzBET87Aak9x5UKzqmLwECKkMbnQGDi0tmp5zzHj25AEWkoFGhRqEpZ3+EcMHjcGe4rUsXDU6hGtDupJWjToqWMsUbtvajQY+etgI9dYShzYYKpa7gjLI8rYK9J64YYjTpNZTvo6cByfjnLWc8Ifdm50TuqDT5wU8PvVlX48d2LdMrjQgPCjAPkaDi1HBitQUcewjaErlAV2LG2oscSGBc0srMRV74bG+jfU2+zc6jhrnNTLzI/j/uTIEB2WeJxLE5pvqHwJQ4Q1x84+woxBg3uKlu7drGCpZhFbGpyopyJ9KlcryY0FP1LXOy6q0OGUPUhcDdHKmCncM0WO14OSv9uouVUIO8uXFertXzyeKxdHfFazZyqXB529Vy6nO9HfMwjN8uV9iB0p5w+36+/Uf+aUbPAgYcceEnsB6/PO6ZAQ7b+kSGiZao5ACd7mQ/OlKSw3FjiZZ5LO3GZVaOZtmiFP6/RwkFcZfbhdw4yHxAIkkGzj31hfwG3LHvrIStfo0gjtOGml4pp9xRBOL+clFZntpd0/7eT1xxvY8QhJKIr1DRystCDd4z/fyTlDf97aHY9LEMyD0tOYAm4EqJKkbQsWwsEv3RV5HzJA/yc/Bs/ALvH8qKzfhqzailOZGiVw/fFGF59jmon/VlwVVy/cDhugus5j4uAhB9dDuE8QPIz6lvQpJjNzJVAv68Gx3s7e8uGsLo1JuJv7t9ZxytfShyQdeWW37MgnrtS6jNPIOEXQM176oLywl/8tZeeF0Hxa9Y6sV3I5SY5LCN3hUwihQT0aDZbnsM1JtDE5fRV9PN5T4r+jmyYtz8Gq4VDbpFFTY7kll9jgjseLqN2TG5QKaiSccunlxlct+eXTkvy/wmvaTu/Vj5czT2QWVdPmMpL/fLfGafoPw0xesg==
+sidebar_class_name: "get api-method"
+info_path: api/cron/cron-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Recent cron log lines"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/cron/{hostId}/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+From the journal, /var/log/cron or syslog, whichever the host has.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"lines","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The log text and where it came from."}}}
+>
+  
+</StatusCodes>
+
+
+      

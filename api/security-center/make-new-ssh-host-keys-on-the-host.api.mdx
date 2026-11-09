@@ -1,0 +1,69 @@
+---
+id: make-new-ssh-host-keys-on-the-host
+title: "Make new SSH host keys on the host"
+description: "Copies the old host keys, makes new ones and reloads sshd. Every client sees a changed host key afterwards, Termix included."
+sidebar_label: "Make new SSH host keys on the host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu4zYQ/ZXBnFqAltMedUsXLTZbFA3qFEERGIuJNLZYS0MtZxTHNfTvBSnFdjZIgT31ZIl+HL73OPN0xJq1ir43HwRL/BB6zwrWMIS2hiaowY4P6qCjHSsI7yEIK5DUELkNVCuoNnUBPz9xPEDVehYD5YSBqiHZ8rkO0MY47inW6uCOY+efwUvVDjXXBTrsKVLHxlGxfDiiT5R6sgYdCnWMJaZKNzU6jPxl8JFrLC0O7FCrhjvC8oh26BPSi/GWI47jOqG1D6KsCfDj1VX6ea38viGDPSnUQbjAcXTYsTWhThSCWmZnDZa47Nth62VBvV8qV0P0dlhULMZxeZz4jcsYjIwX6XWRDESHyvHpRdkQWyzxOC2N6L4i81cY4os/EwYdPlH09NhOGubVLGNDQ2vJG7Ney+XS8saCn6nrWy6q0OGYXXhhmyk8MkWO10PS9LAe3RGrEHaeL1eo97/y4bRyUWKV7J6oXBY6uZ+44Hwr6X0CoZsffgmxo8T50/3dG/UrVvVBwMKOBTT1k5fck+mQEP0/lJDQMNUcgRR+ykVzUyZY3ljg6F5JOnGbVKGb+muCnDvs7729y+jT/R1MeFA2IAP1W1l4KeC+YYE+cqLrwBtYHpg+csU1S8UQnji+qyKzvbT7m528vr3JI6ZG0bxsYe+tAeueP7+Rc4J+u7U7PjjYN75qpoP0fEwBNwZUmaZtMxbCXubdFYmEDEj/kxyCMHCr87B52YSs2lvL2fKp0eBDniy4vr1JM8BRJw0/FFfF1VtlQ+0NVquPc2pNY5jYdJmEViQ5jRQ2IcJOwl7gaWiFIz361ltKv3xRq9XHfCdp9juSRG1ukN9oxzkI0zGnhIQw+dhMWfGKVhotMRb7/xN2birjZ1v2LXlJGnMaHed8e8BzvuF54OeEQ4flOYO/Drm1ywGdihyPj6T8Z2zHMS1/GTim3FmfcyynUO01PddYbqhV/g/jvvtjTvzv4T0dL/MthxyX7ZDe0OGOD+dPx7i+jPbb31d3OI7/ApBuccA=
+sidebar_class_name: "post api-method"
+info_path: api/security-center/security-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make new SSH host keys on the host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/security-center/{hostId}/rotate-host-keys"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Copies the old host keys, makes new ones and reloads sshd. Every client sees a changed host key afterwards, Termix included.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was done."}}}
+>
+  
+</StatusCodes>
+
+
+      

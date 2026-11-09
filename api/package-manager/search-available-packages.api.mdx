@@ -1,0 +1,69 @@
+---
+id: search-available-packages
+title: "Search available packages"
+description: "Search available packages"
+sidebar_label: "Search available packages"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVF1v1EoM/SuWn0Ca7i485q1IgMp9qW6LKlStkJu4ybDJTDp2tg2r/HfkJPtRCugi3afNeo7t46+zQ6VSMLvFS8o3VLLg2mFLiRpWTvayQx8ww5a0QoeBGsYMqyh6UaDDxA+dT1xgpqljh5JX3BBmO9S+NaQPyiUnHAY3R3roOPXHUA//JYpo8qHEYVgbWNoYhMXe365W9lOw5Mm36qNl+NyCRqC72Cm8Wa2gIc0rloWR+Al6xZTyCmhLvqa7mqHd98Fhw1rFAjMsWdFNHchw2dZd6cMZtX45g88aClRyWu6mvgxLGcOiQ+G03fexSzVmuJtMA/5M5UvsElxzavwTTBh0uKXkjddY7Gwd672nrlabhGor2XKpo+OCn6hpa17kscFhbJdw3iWv/UjhjilxOu+sktu1jSSPceP51EKt/4f7g+UkxJWNZaJyGugwJeOC8/Ts/wRCN398iKkh4/zp5vpF9Vcs4mMAjRsOIBwUfACtGCxJTP47GRIqpoITkMC7MShQKEbY6LjAwT0r6cBtqgrdtIMT5LiE3x71t4w+3VzDhAdhBVIQX4YzHxZwU3GANrHRdeAVlDYsZsm54JAzxC2n31Yxsj1t91938vzyAjbcgygl9aGER68VaPP09UU5B+jft3bDvYPHyufVlEiOaRZwoUC5irnNWIiPYfbOKYQ4AuydQh8DA9fC0y36cB/Hqr3WVuZehOD88sKWn5NM5N8sVovVLybEYxYfRKmuoWsLUhaIAXo7JrtGcTAdozvAzCVxE7fHa3ezkaaCZzNUXjSmfpxTG0UbCkZ3Xpo/acczooexKj/psq3JB4s46sFu1pVbPOrKKDbPlAUdZgfNncVl7UYZNtfd7o6EP6d6GMw8Kazde+HFmBWY3VMt/IJXHoNysE169e+swa8B3a/5brif9XpLdWfvaOqwl6j/P+H+dEN/mnNPZO7HsB5OpPrj+2schh+jGVo2
+sidebar_class_name: "get api-method"
+info_path: api/package-manager/packages-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Search available packages"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/package-manager/{hostId}/search"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Search available packages
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"q","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Up to about 100 matches."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: undo-a-run
+title: "Undo a run"
+description: "Runs the action's undo with the input the run recorded. It goes through the same checks as any run."
+sidebar_label: "Undo a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VMFu3EYM/RWCl7bAVGsHQQ+6uUALOAUaI97AKIxFMZbo1XQljjLD8Xor6N8Lzii72xgOkEtOkqjH4Xsc8k3YUmyCG8V5xho/JI4gHYFtNPJDhMSth72TLocdj0nyW0gMgRofWmoruBbYetLU4NO2YKMdCJqOml0EG8HyQZMqNCh2G7G+x/cjBat1Im4MjjbYgYSC/pvQKZ/RSocG2Q6ENboWDQb6lFygFmsJiQzGpqPBYj2hHEZFRQmOtzjPGwXH0XOkqP/fXFzo4/+K1x0B075Qmw2+vXj7EvSnF3j0iVsDPgB76RxvQXzuToXzbHAg6XyrlH0UNIV5jSt/1LgKieNqcu280jQ0GCk8fZabQo81TiU0o/mCwV8+BVhTGNwzFAwafLLB2Ye+qFuimfujTb1gjZ3IGOvVSnJiRc92GHuqGj/gnPsTqUnBySFTeCAbKFwlJX6/mc2Ejfc7R+cRO7o/6HCMnB1xq/dQqJwfdLwW5YLLdel3AaFZXn73YbDK+d3d+oX6W4rReQbxO2KIxAKO85BpER/cv7nF0JFtKei0/ZoPBctthuXEfL/nko7ciio0ZegK5DR2/+zlVUbv7tZQ8BBJwApEt+WfHVdw1xHDGEjpGnACYncUNdJQS9wQ+CcKr6rIbM/b/c2dvLq5hh0dIIoNogNb1nh4/vuFnCP021u7o4OBfeearhSKpzLZF2wjef8XLPg9L9mNZfYZsPiDZwLqI5WNcvzos2onvcpcpv/q5lpHn0Is1N/8Ul1eVpcvJOliNz4QnPIq+M02HYx92jqG1jdpIJYITqLSguCTUMyN1y0eLGv9ZQo+qhFa9YkvS+mesBDL9zPQMghCz7Iae+tYKWcHmRbjuceT8ahppvyos4Nm99kY7NSp6nucpgcb6WPo51nDnxIFNYTNyWCyPbQu6nuL9aPtI32lCT9+WDz6J3iN7OfF40P2sT7pFxrc0aEY/bw5N9Wb97drnOf/AHzsTTM=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Undo a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/operations/runs/{id}/undo"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs the action's undo with the input the run recorded. It goes through the same checks as any run.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new run."},"404":{"description":"Not found, or nothing to undo."}}}
+>
+  
+</StatusCodes>
+
+
+      

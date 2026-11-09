@@ -1,0 +1,70 @@
+---
+id: ban-an-address-in-a-jail
+title: "Ban an address in a jail"
+description: "Refuses the address Termix connects from unless force is set."
+sidebar_label: "Ban an address in a jail"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVW1v4zYM/isEP22AmnT30d/aYcV6w7Ci7aEYiuDA2EyixqZ8ktzUM/zfB0rOy5p1wGFBkNh8ER9S5MMBKw6lt220TrDAe151gQPEDQNVlecQ4JF9Y9+gdCJcxgAr7xropFbdyvmSwQYIHGdoMNI6YPGMN9bzjuoaFwZb8tRwZK+aAa3GaSlu0KBQw1jgxoV4W6FBz98667nCIvqODYZyww1hMWDsW7W0EnnNHsdxka05xGtX9Wry3rl0Elmiqqhta1uSJjl/CZrpcH62W75wGdFg613LPloOqn0hW59YheitrHE0aNt/FaeSnGiWztVMgmP6KOrQOgn58E+Xl/r3z0u4JhGuZqjWDceNq7RiLiRsWrgC523dra1cUGvnq6nW8yHXcZyvyNafliTzJQkaDOxf99XvfI0FDlk0onkX+k/X+f2FZxs0+Ere0rLOiCdpAr2iro56fzG2oZjPY3Kc8Rs1bc2z0jWa9UIRlJ23sU8Qlkye/VWniTwvRjNg6dzW8qmEWvsb9wfJyREPem0ZyulBh3IrFpw6J5U/GaGZHm6cb0gxf356PMv+gUOwTiC6LQsElghW0ixoEOftX6mFYMNUsQcKcJ0OBZIqmSXHmXbBaUoHbDkrNHkGsslxCl528UNEn58eIdvrpAFFCHYtF1Zm8LRhgdazwjVgI0TaclBJyRVLyeBe2X+YRUJ7Wu7vruTV3S1suYcQyUcra9jZuIHYvH09S+dg+v2l3XJvYLex5SYHCscwM7iNQEpNFPa24HYyeZck4pKB6kl6JwxcB84Tpnxwf2SSX3LzHid/P9p54I9v05wr1ygZyMql2tmozgcChKu7Wx0h9iGX4KfZ5ezyrDC/k9Ca4cvNk4H9PFcGZBXT4KU8bDu9+E5/nUCv06pDH/IdPzz8anJZalduXReh9S5yqUHSPSuJNJTob2q6axLQ78T1VoAg5f0O4XCk0/+/JHJ/RX6L87YmKwotEdMw8dszHvlNS73fJgaLw67Yk5w2JIkuGlWp7zAsKfAXX4+jir917JV5FkcmSzxU2aDPFRYrqgP/R8I/3E+r5Uf4CP5+wqVPhFl3+oYGt9wfF9y4GA3mDk8IsvLnHOfiUY84Op/tLGXBwzq4++NB+Ws57b7GVerjaadblHY5uEu5JK5MsgFrknVH60Q36Uz9/A1ZNcV9
+sidebar_class_name: "post api-method"
+info_path: api/firewall/firewall-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Ban an address in a jail"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/firewall/{hostId}/fail2ban/ban"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Refuses the address Termix connects from unless force is set.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"jail":{"type":"string"},"ip":{"type":"string"},"force":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Banned."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: commit-history
+title: "Commit history"
+description: "Commits, newest first. Pick a ref, a file, or all branches, and page with skip."
+sidebar_label: "Commit history"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VVFv20YM/isEnzbgKmd91Fs2dEG6l6B1EQyBMVwkWrrpdHe9o+Kohv77QJ0cO0vTpsH2ZJv+SH7kkR/3WFOqoglsvMMSf/N9bzgpcLSjxLA1MXEBV6bqQEOkrQINW2NJgY+grYXbqF3VUlKgXQ1BNwQ7wy2kzoQCFbJuEpY3eGEYNwqDjronpijGPRpJGjS3qNDpnrDE1ie+rFFhpM+DiVRjyXEghalqqddY7pHHIEjjmBqKOE1qifR5oDgeQy2BvxsocTSueT5OpC2+wk369Bo/be1r3KTjX/P7bpus6Q1/23MjXUzBu0RJAG/PzuTj8fCsW4IqD1Ah2bAnbn2NJTYk8efnKHEV7NAY90YHs2oMr/b5xadVpOBX1jdCheLdYUaGaLHEfTZNqP6V9U8/RFhT7M09ZAwqvNPR6FubyS7Wme9WD5ZlyphDKlcrnh0Lutd9sFRUvsdpLjdRNUTD40zhlnSkeD4I/5uN9LHyvjN0atHB/EHjg+UkxEfpa6ZyGuihzcLl0H75nUGoli+/+9hr4fz+ev2k+o+UkvEO2HfkIJFjMA64JZAkPpovWpDQkq4pgk7w6xx03laBzY4FTupRSQ/cclWo8uBkyHFy/t7xs4zeX68h4yERg2ZIpnFvjCvguiUHIZLQVWAYWHeUxFJRTa4i8HcUn61iZnva7h/u5PnVJXQ0QmId2bgmSxb39389KecB+uOt7WhUsGtN1eZE6ZimgEsGXXEStwULfucW70o752eA/K/d6B0B2UR5r4zb+rlqw1bKvDAM51eXMvcUU+b9S3FWnH3lcUhBGKxVy6Zm1R5SC41hkA1M4B2MslSyl4uud0RBePYwBGAPteZF5/XAfo44v0rwiXvthNwyIvmiQGsS+1l0HhGSRXJMjv+f25OngumeV8Fq44TiLCf7RYxu8ChGqLCZdbA8OUHBo0LRpI2aL5O47Pe3OtGnaKdJzFlNRSZqk0R0aiy32ib6Rq0/fVhu0s/wHM+OxuMJu9N2EAiK0jxJk6H5Sr0EuRyml0DzLXoJcjk/L4EeDs4RuzlK9n/fyYOUufE054HM8tjT5vRgXbxb4zT9A57YFgY=
+sidebar_class_name: "get api-method"
+info_path: api/git/git-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Commit history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/git/{hostId}/repo/log"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Commits, newest first. Pick a ref, a file, or all branches, and page with skip.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"ref","schema":{"type":"string"}},{"in":"query","name":"file","schema":{"type":"string"}},{"in":"query","name":"all","schema":{"type":"string"}},{"in":"query","name":"skip","schema":{"type":"integer"}},{"in":"query","name":"limit","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The commits."}}}
+>
+  
+</StatusCodes>
+
+
+      

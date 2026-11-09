@@ -1,0 +1,70 @@
+---
+id: make-an-empty-qcow-2-volume
+title: "Make an empty qcow2 volume"
+description: "Make an empty qcow2 volume"
+sidebar_label: "Make an empty qcow2 volume"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v5DYM/SsETy3gjKd79C27aNHsNmiwk25QBIOCYzNjZWzJkehM3IH/+4KS56OZbNG91BfbFEW9R4qPOxRaByzu8Yvx0lMD11TWxnLAZYYdeWpZ2KvHDo3FAjuSGjO01DIWWLsgVxVm6PmpN54rLMT3nGEoa24Jix3K0KmnscJr9jiO2ZuR4us/xAnijV3jOC6TMwd576pBPV7vLZ0VtqJL1HWNKUmMs/ljcFZtZ6Hd6pFLwQw77zr2YjjoagJ4BiDDtVm9SVAfBRc6Z0OK8W4+11fFofSmUxhY4DVVPNOEnNk3DGSB204GeCrd9h08u6aPCWpZaldp+lyIWDWLBeZd06+NvaDO5M+plBftVMpcqxTyXSrWmHfONSHfKa8xT4EDZhjYP+9L3fsGC9wl04ivEf7peg+37FvzAskHM3wmb2jVJMKTNXJ+oL4RvSwiXSjyXOLGGb9Q2zU8K12rSVsqgrL3RoYIYcXk2V/2Su9+qbemdG5j+NRCnfnEw8FyEmKhxU1QTgMdqqVYcLpe+p+cMJs+fnG+JcX88e72jP2CQzDOgrgNWwhsBYwFqRn0EOfN3/GiQc1UsQcK8D4GBbJVdIsbZ3qFTikdsCVWmKU2SS7HRnncyjcRfby7heQPgQVIIJi1vTB2Bnc1W+g8K9wMjIDQhoNaSq7Ylgzumf03WUS0p+n+7kxe3lzBhgcIQl6MXcPWSA3Svvx1Rufg+v2p3fCQwbY2ZZ0OCsdjZnAlQKUE3Tb5gtvaaXdJ1rrooOtkB2cZuAlTi6pqfD7qzc/p8h71Ya8LkyzMRy3fg4uJMqKeZxILlzdX2jfsQ+L902w+m59l44NnEo4YW7K0Zvj05RqmJod9k4OzMGhb/mZs/wKx5VNJF4tfUxIas9JdsZSqHi3ZE/z/qjr/QHQovfCL5F1DxmrIqBm7SZDu8ShIyvGVJGEWR4e+i8MMibqklmkW7KVpmZw16G63osB/+GYc1fzUs1e1WB7VJ2pHZYJ+V1g8UBP4DP9hMuAPn6eh8SNg9javfVfaIYpc0+sfZrjh4TgBVY3+x1NjhsblmGHqhMg6LX1Ip1zcaoDj1rMJqGp5GCY3vy9U51bTJG1dpXs8bXUk0zYd7SKTqKnRtsOG7LqndZSlGFOfr2w53nY=
+sidebar_class_name: "post api-method"
+info_path: api/virtual-machines/virtual-machines-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make an empty qcow2 volume"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/virtual-machines/hosts/{hostId}/pools/{name}/volumes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Make an empty qcow2 volume
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"gib":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Made."}}}
+>
+  
+</StatusCodes>
+
+
+      

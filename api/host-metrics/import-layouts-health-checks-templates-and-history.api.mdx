@@ -1,0 +1,68 @@
+---
+id: import-layouts-health-checks-templates-and-history
+title: "Import layouts, health checks, templates and history"
+description: "Reads a file made by the export route. Each host is matched by address, port and user among the hosts the caller can connect to; others are skipped. Existing layouts, checks and templates are kept unless overwrite is true. History rows already stored are never duplicated."
+sidebar_label: "Import layouts, health checks, templates and history"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktz4zYM/isYnBV529mTe8pu0262r8wmmUwnk+nAImIxpkgtCcVRPf7vOyAVR3n0sPfqRIMACHwAPniHhlMTbS82eFziFyaTgODWOoaODMNqBGkZ+KEPUSCGQbiGE2paaEMSsAk6kqZlo5pkTOSUKsjK5A0MiSNQF/w6u1GblE8NOccRGvLQBO+5EZDwEwRpOSagyJA2tu/Z1HDyYJNYvwZHYxgkVdC03GxSfkC46x0JF5sN9wKDd5wShHuO22iFNUiJA9fwySYJcYQYtgnIRSYzgorYZHPP9xzBDL2zDQmbGisUWidcXuMnTfcPlmibhDcVRv46cJIPwYy43OWfNrLBpT5VYRO8sBe9or74s8Ev7pLivMPUtNyRnmTsGZcYVnfcCFYzR9doSEjf6mPoOYrlpBZZ+obl81JeHKrGJtezxn2FB1BmDlYhOCav120B6I3Ll+6PXQpgu1zodgZrDT/zLQ1OyxwK7LjPn6aW+uBTyeLHd+9yMs+8fgyDlwThdnLNpoKhN5QPU0Pkst+SdWzACncpJ/b+LXd/BgGCeeUmSCoIESQEcBTXOcIKO5Y2GFxiH5LC2ZO0uMRF74a19UfU24W271FXPC1KhFhh4njPUZtkh0N0uMRdEe1fofZ3GCJccOzsAxQdrPCeoqWVK7BM0pxKxhGX2Ir0ablYSDas+YG63nHdhE6hvdEImiFaGXMIK6bI8XjQ6K9v9tUOmxA2lucS6u1vPB4kMxfn2pgllLmjQz9oLJpzVtP+yEpYTYdfQuxIY/58dfEq+3NOyQYPEjbsIbEXsD6zgT4Sov03Dwm0TEZpI8GH7LQMesvFMJd7ntIhtpIVVmj1taKCFXrKkd5tXw/JY0Sfry6g6ENiARJIdu2PrK/hqmUPfWQNtwIrILThpJKGDfuGM9H8ZxY52jnc343k8dkpbFh5imKmwa2VFqR7+Of1UD6qfj+0Gx4r2La2actD6emZGk4FqJGkZpMuhK2frBvyPmQFvSc/Bs/ALk1jpYz35YkrT0rzznjsOSsV9jzwkP7ca0FvQ4bOito+I2M4PjvVKeKYCgo/1O/rd6+w+d3eM3w8u6yg4y7EsQJj06YCz7INcZNT+fXsUrPXFdO7QRksuMxjHXlaM4w6vnmH5bIqUXSU+XzqsdNCiIdF1TI5aad9Vc2XlTePtPky0t3T7vh/H7+xj8v0CD/Iondk897KtLubKPsanygbK5yTtnJDoe2bcqHau92KEl9Gt9+r+OvA2nnXN0/MXGgTy/Bkkt3wmNdVLtTRhcak6m4oPPRi4SvBHtbL2V/nSo2r6Y9DF4zaRNrq8qctLhErDLkZMg1n2Q4d+fVA68xk2ad+3wDTB2zb
+sidebar_class_name: "post api-method"
+info_path: api/host-metrics/host-metrics-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import layouts, health checks, templates and history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/host-metrics/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads a file made by the export route. Each host is matched by address, port and user among the hosts the caller can connect to; others are skipped. Existing layouts, checks and templates are kept unless overwrite is true. History rows already stored are never duplicated.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"type":"object","description":"The exported file."},"overwrite":{"type":"boolean"},"history":{"type":"boolean","description":"Also import history rows. Defaults to true."}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Counts of imported, updated, skipped and failed items."},"400":{"description":"Not a Host Metrics export, or too large."}}}
+>
+  
+</StatusCodes>
+
+
+      

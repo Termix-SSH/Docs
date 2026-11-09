@@ -6,9 +6,33 @@ slug: "/reverse-proxy/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "reverse-proxy"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Web endpoint domain: one wildcard domain that lets Web Endpoint open internal web pages through Termix, with no route or DNS record per app (Plugin-Web-Endpoint #7)
+- Proxy routes across hosts in the All hosts table with their addresses, turning routes on and off through Termix actions, and failing routes as a status tile
+- Sign in to Termix right on the login page of a protected route, with password, LDAP, passkeys, two-factor codes and security keys. SSO opens in a new tab and the page continues by itself
+
+### Changed
+
+- The login page in front of a route now looks like the Termix sign in screen and follows your theme, language and branding
+- Pages use the Termix tile look, with lines between sections instead of separate boxes
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- The Open Termix button on the login page opened an error page instead of Termix
+- The Reverse Proxy tab shows a loading message instead of a blank screen while it loads
+- The sign in page no longer fails on PostgreSQL when the link has no valid route
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+
 ## 1.1.1
 
 ### Fixed

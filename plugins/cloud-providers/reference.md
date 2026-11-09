@@ -17,19 +17,28 @@ Give these to roles in **Settings**, **Roles**.
 | `cloud-providers.view` | admin, user | Open the Cloud tab and see your cloud accounts. |
 | `cloud-providers.manage` | admin, user | Add cloud accounts, import instances as hosts and run syncs. |
 
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `cloud-providers.list-accounts`<br />List cloud accounts | The server | Read only |  |
+| `cloud-providers.sync-account`<br />Sync cloud account | The server | Changes | `account` |
+
 ## Capabilities
 
 What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `operations:provide` |  |  |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
