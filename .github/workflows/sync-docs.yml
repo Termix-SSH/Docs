@@ -45,6 +45,8 @@ jobs:
       - run: npm run gen-api
 
       - name: Build
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: npm run build
 
       - name: Check app links
