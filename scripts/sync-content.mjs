@@ -595,6 +595,51 @@ function referencePage(manifest, locale, capabilities, routeBase, apiLink) {
     );
   }
 
+  const operations = manifest.contributes?.operations ?? {};
+  const actions = operations.actions ?? [];
+  if (actions.length) {
+    const scope = {
+      host: "A host",
+      resource: "One item on a host",
+      server: "The server",
+    };
+    const risk = {
+      read: "Read only",
+      change: "Changes",
+      destructive: "Destructive",
+    };
+    parts.push(
+      "## Actions",
+      "",
+      "Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).",
+      "",
+      table(
+        ["Action", "Runs on", "Risk", "Inputs"],
+        actions.map((a) => [
+          `\`${a.id}\`<br />${lookup(locale, a.titleKey) || ""}`,
+          scope[a.scope] ?? a.scope,
+          risk[a.risk] ?? a.risk,
+          (a.inputs ?? []).map((i) => `\`${i.key}\``).join(", "),
+        ]),
+      ),
+      "",
+    );
+  }
+  const events = operations.events ?? [];
+  if (events.length) {
+    parts.push(
+      "## Events",
+      "",
+      "Automations can start when one of these happens.",
+      "",
+      table(
+        ["Event", "What it means"],
+        events.map((e) => [`\`${e.id}\``, lookup(locale, e.titleKey) || ""]),
+      ),
+      "",
+    );
+  }
+
   const caps = manifest.capabilities ?? [];
   if (caps.length) {
     const byId = new Map(capabilities.map((c) => [c.id, c]));

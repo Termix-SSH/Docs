@@ -12,12 +12,13 @@ The desktop app works two ways. It can sign in to your Termix server, or it can 
 ## Flatpak
 
 ```bash
-wget https://github.com/Termix-SSH/Termix/releases/latest/download/termix_linux_flatpak.flatpak
-flatpak install --user termix_linux_flatpak.flatpak
+flatpak install --user --from https://flatpak.termix.site/com.karmaa.termix.flatpakref
 flatpak run com.karmaa.termix
 ```
 
-To update, download the new bundle from the latest release and install it the same way. Termix tells you when a new version is out.
+This adds the Termix Flatpak repo, so `flatpak update` keeps the app up to date. It works on x86_64 and arm64. The runtime comes from Flathub, and Termix itself is not on Flathub.
+
+If you installed an older bundle from a release, run `flatpak uninstall --user com.karmaa.termix` first, then the install command above. Your data stays. Beta builds are only on the releases page as bundles.
 
 ## AUR
 

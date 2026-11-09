@@ -25,6 +25,7 @@ The list of exports is fixed and checked in Termix's CI. Anything listed here is
 - Small type: Most text is 11 to 13px. Section headers are 10 to 11px uppercase with wide letter spacing.
 - One accent: Orange (`text-accent-brand`) for the thing that matters. Don't add colors.
 - No new modal dialogs: Open things inside the panel or tab with `InlineView`, ask with `useConfirm()`, and use `PanePrompt` for small prompts.
+- Tiles: Page content sits edge to edge on the page background, with one line between sections and no gaps, padding or card fill around them.
 
 ## Panels and tabs
 
@@ -35,7 +36,26 @@ The list of exports is fixed and checked in Termix's CI. Anything listed here is
 | `BackButton`                                         | Going back inside a tab.                                                                                                     |
 | `InlineView`                                         | A view that opens inside the current panel or tab, in place of a dialog.                                                     |
 | `EmptyState`                                         | Nothing to show yet.                                                                                                         |
+| `NoticePanel`                                        | Why a view is not ready and what to do, like Not installed with an Install button.                                           |
+| `LoadingState`                                       | Waiting on the first load.                                                                                                   |
+| `SideNav`                                            | The left list of sections on a page with many of them.                                                                       |
+| `RefreshButton`, `PanelFrame`                        | The header refresh button and the outer box of a tab.                                                                        |
 | `Facts`, `GroupHeading`                              | Small fact rows and section headings.                                                                                        |
+
+Build a tab like this: `PanelFrame` around `PanelShell`, page views in the `tabs` band as a `TabStrip`, and `Segmented` only for filters and view modes. The body has no padding. Forms keep `PANEL.body` padding inside their section.
+
+## Tile look
+
+| Component                   | Use it for                                                                                   |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| `TileStack`                 | Sections in a column with a line under each.                                                 |
+| `TileColumn`                | The same when the cards sit deeper than direct children, like a settings page.               |
+| `TileWall`                  | A fixed grid of tiles with shared lines, for stat strips and card lists. `DataView` uses it. |
+| `TileFrame`                 | A titled tile.                                                                               |
+| `StatTile`                  | One number with an optional usage bar and hint.                                              |
+| `InlineView` with `stacked` | A form made of `SectionCard`s, laid out like a settings page.                                |
+
+`Card`, `SectionCard` and `MetricCard` drop their own box inside these. The last line shows only when the tiles stop short of the bottom of the screen, the same rule `TileGrid` uses.
 
 ## Lists
 
@@ -54,6 +74,12 @@ The list of exports is fixed and checked in Termix's CI. Anything listed here is
 ## Data
 
 `DataView`, `MetricCard`, `Meter`, `MiniStat`, `StatRow`, `Sparkline`, `LineChart`, `BarSeries`, `RadialGauge`, and the dashboard grid pieces `GridLayout` and `CardMasonry`.
+
+`StatusBadge` and `StatusDot` take a state like "running" and pick the color. `InfoGrid` lays out label and value pairs, `DataTable` is a plain table, and `Pager` with `usePaged` goes under long lists.
+
+## Tile pages
+
+`TileGrid` is the grid the dashboard, the host page and Host Metrics use: 12 columns, tiles you drag and resize while `editMode` is on, and one column on narrow screens. Slots are `{ id, x, y, w, h }`, with `x` and `w` in columns and `h` a fixed height in px or null for the tile's own height. Wrap each tile in `TileFrame` for the shared look, show `TileEditBar` over the grid and `TilePicker` beside it while editing so people can search, filter and add tiles. Save the slots where your plugin keeps preferences, run saved ones through `sanitizeTiles` and add new ones with `appendTile`. Needs Termix 26.11.1, so raise `engine.termix` when you use them.
 
 ## Connections
 
