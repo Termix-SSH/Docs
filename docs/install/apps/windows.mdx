@@ -26,6 +26,20 @@ Update with `choco upgrade termix-ssh`. Chocolatey reviews every release by hand
 
 Most PCs are x64. Pick ARM64 for Windows on ARM, like Snapdragon laptops. The x86 build is only for old 32-bit Windows. The ARM64 and x86 builds tell you when an update is out instead of installing it.
 
+## Code signing
+
+Since 26.11.2, every Windows build is signed, including the installer, the portable app and the full build. Windows
+shows Ember Swan as the publisher instead of Unknown publisher. [Ember Swan](https://emberswan.com/) sponsors the
+signing through Azure Artifact Signing.
+
+To check a file, right click it, open Properties and look at the Digital Signatures tab. Or run this in PowerShell:
+
+```powershell
+Get-AuthenticodeSignature .\termix_windows_x64_nsis.exe
+```
+
+The status should be `Valid` and the signer should be Ember Swan. Builds before 26.11.2 are not signed.
+
 ## With every plugin
 
 The normal download ships with the most used plugins and downloads the rest when you turn them on. For a computer
