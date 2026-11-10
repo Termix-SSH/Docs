@@ -28,17 +28,7 @@ Most PCs are x64. Pick ARM64 for Windows on ARM, like Snapdragon laptops. The x8
 
 ## Code signing
 
-Since 26.11.2, every Windows build is signed, including the installer, the portable app and the full build. Windows
-shows Ember Swan as the publisher instead of Unknown publisher. [Ember Swan](https://emberswan.com/) sponsors the
-signing through Azure Artifact Signing.
-
-To check a file, right click it, open Properties and look at the Digital Signatures tab. Or run this in PowerShell:
-
-```powershell
-Get-AuthenticodeSignature .\termix_windows_x64_nsis.exe
-```
-
-The status should be `Valid` and the signer should be Ember Swan. Builds before 26.11.2 are not signed.
+Windows builds are signed since 26.11.2, thanks to [Ember Swan](https://emberswan.com/).
 
 ## With every plugin
 
