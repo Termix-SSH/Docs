@@ -52,7 +52,7 @@ Never change a key on an install that has data. Termix can't open data made with
 
 ## Sessions
 
-A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General. The database keeps only a hash of each session token, so a copy of it holds no working sign ins.
+A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General. The database keeps only a hash of each session token, so a copy of it holds no working sign ins. Ending a session also closes its open terminals and other live connections within a few seconds.
 
 API keys act as the user who owns them. See [API keys](/guide/api-keys).
 

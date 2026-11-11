@@ -27,7 +27,7 @@ Data Export downloads the user's hosts, credentials and file manager data as JSO
 
 ## Sessions {#sessions}
 
-Every sign in is a session. Sign out one of them, or all at once with Revoke All Sessions, to force the user to sign in again. Settings, Sessions lists everyone's sessions in one place.
+Every sign in is a session. Sign out one of them, or all at once with Revoke All Sessions, to force the user to sign in again. Their open terminals and other live connections close too. Settings, Sessions lists everyone's sessions in one place.
 
 ## Admins
 
