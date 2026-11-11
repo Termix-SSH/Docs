@@ -112,3 +112,9 @@ See [desktop sync](/configure/desktop-sync).
 ## Connect
 
 Click a host in the sidebar. What opens depends on its plugins, usually a terminal. The host's buttons and menu have every action, like the file manager or Docker. Change which actions show as buttons in the Hosts panel settings, under Connect bar.
+
+## Host keys {#host-keys}
+
+The first time you open a terminal to a host, Termix shows its key and asks if you trust it. The key is saved on the host, and a later change is asked about again. Jump hosts are asked about the same way.
+
+Plugins, schedules and the API connect with nobody there to ask. They refuse a host whose key was never trusted, and say to open a terminal to it once. An admin can turn on Trust new host keys without a prompt in [admin settings](/guide/admin-settings) to save the first key in that case instead. Each key saved that way is written to the audit log.

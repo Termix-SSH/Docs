@@ -23,17 +23,18 @@ Admins see a This server group in Settings.
 
 ## General
 
-| Setting                                       | What it does                                                                                                      |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Allow User Registration                       | Let people make their own account on the sign in page.                                                            |
-| Allow Password Login                          | Sign in with a username and password. Termix keeps it on if no other way in is set up, so nobody gets locked out. |
-| Auto-create external accounts                 | Make an account the first time someone signs in with SSO or LDAP, even with registration off.                     |
-| Ask for a second factor after external logins | Also ask for TOTP or a passkey after SSO and LDAP sign ins.                                                       |
-| Allow Password Reset                          | Allow the reset code flow on the sign in page.                                                                    |
-| Session Timeout                               | How long a sign in lasts, from 1 to 720 hours.                                                                    |
-| Status Check                                  | How often hosts are checked, unless a host sets its own interval.                                                 |
-| Log Level                                     | How much the server logs.                                                                                         |
-| Plugin developer mode                         | Lets admins install plugins from a `.tmxplug` file. See [managing plugins](/guide/plugins#install-from-a-file).   |
+| Setting                                       | What it does                                                                                                                                                           |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Allow User Registration                       | Let people make their own account on the sign in page.                                                                                                                 |
+| Allow Password Login                          | Sign in with a username and password. Termix keeps it on if no other way in is set up, so nobody gets locked out.                                                      |
+| Auto-create external accounts                 | Make an account the first time someone signs in with SSO or LDAP, even with registration off.                                                                          |
+| Ask for a second factor after external logins | Also ask for TOTP or a passkey after SSO and LDAP sign ins.                                                                                                            |
+| Allow Password Reset                          | Allow the reset code flow on the sign in page.                                                                                                                         |
+| Session Timeout                               | How long a sign in lasts, from 1 to 720 hours.                                                                                                                         |
+| Status Check                                  | How often hosts are checked, unless a host sets its own interval.                                                                                                      |
+| Log Level                                     | How much the server logs.                                                                                                                                              |
+| Plugin developer mode                         | Lets admins install plugins from a `.tmxplug` file. See [managing plugins](/guide/plugins#install-from-a-file).                                                        |
+| Trust new host keys without a prompt          | When a plugin, schedule or the API connects to a host whose key was never checked, save that key and connect. Off by default. See [host keys](/guide/hosts#host-keys). |
 
 Some of these can be set with [environment variables](/configure/environment-variables) instead. When one is set, it wins.
 

@@ -31,6 +31,8 @@ Only the owner can delete the host or change how it signs in.
 
 By default the people you share with use your login for the host. Each gets an encrypted copy, which updates when you change it and is removed when you revoke.
 
+On a linked desktop app, hosts shared at Connect or View come without your login. They connect through the server, or with a device login the person adds on that desktop. Edit and Manage get the login like before.
+
 Turn off Share SSH Authentication on the host to keep your login private. Then each person picks their own with Set personal SSH authentication from the host's menu. A personal login always wins over yours.
 
 When many hosts are shared with you in one folder, set your login once with the key button on the folder (Set personal login for shared hosts). It is used for every host shared with you in that folder and its subfolders. A login set on a single host still wins over the folder's, and a subfolder's wins over its parent's.
