@@ -8,12 +8,23 @@ on:
 jobs:
   snapshot:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: ci
     permissions:
       contents: write
     steps:
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: Docs
+          permission-contents: write
+
       - uses: actions/checkout@v7
         with:
-          token: ${{ secrets.TERMIX_PAT }}
+          token: ${{ steps.app.outputs.token }}
 
       - name: Fetch donation totals
         run: |

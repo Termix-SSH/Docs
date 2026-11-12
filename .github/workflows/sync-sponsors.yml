@@ -22,7 +22,20 @@ concurrency:
 jobs:
   sync:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: ci
     steps:
+      # Every Termix-SSH repo gets the sponsor block, so this token covers the
+      # org. The Termix CI App can't reach LukeGus/LukeGus, which uses
+      # PROFILE_README_TOKEN (contents on that one repo only).
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          permission-contents: write
+
       - name: Checkout docs
         uses: actions/checkout@v7
         with:
@@ -34,15 +47,24 @@ jobs:
 
       - name: Clone every target repo
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+          ORG_TOKEN: ${{ steps.app.outputs.token }}
+          PROFILE_TOKEN: ${{ secrets.PROFILE_README_TOKEN }}
         run: |
           set -euo pipefail
           mkdir -p repos
           for r in $(jq -r '.repos[].repo' docs/scripts/sponsor-targets.json); do
             dir="repos/${r/\//__}"
+            if [ "${r%%/*}" = "Termix-SSH" ]; then
+              token="$ORG_TOKEN"
+            elif [ -n "$PROFILE_TOKEN" ]; then
+              token="$PROFILE_TOKEN"
+            else
+              echo "::warning::No PROFILE_README_TOKEN, skipping $r"
+              continue
+            fi
             echo "cloning $r"
             git clone --depth 1 --quiet \
-              "https://x-access-token:${GH_TOKEN}@github.com/${r}.git" "$dir"
+              "https://x-access-token:${token}@github.com/${r}.git" "$dir"
           done
 
       - name: Rewrite sponsor blocks
@@ -53,7 +75,6 @@ jobs:
       - name: Commit and push each changed repo
         if: ${{ !inputs.dry_run }}
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
           CHANGED: ${{ steps.sync.outputs.changed_repos }}
         run: |
           set -euo pipefail
