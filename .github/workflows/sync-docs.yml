@@ -47,11 +47,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: npm
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
 
       # The sync builds API specs with the SDK's generator.
       # Our own package, always the newest release on purpose.
-      - run: npm install --no-save @termix-ssh/plugin-sdk@latest # zizmor: ignore[adhoc-packages]
+      - run: npm install --no-save --ignore-scripts @termix-ssh/plugin-sdk@latest # zizmor: ignore[adhoc-packages]
 
       - name: Sync
         env:

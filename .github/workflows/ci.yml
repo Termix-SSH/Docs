@@ -22,7 +22,18 @@ jobs:
           node-version-file: ".nvmrc"
           cache: npm
 
-      - run: npm ci
+      - name: Lockfile lint
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          osv: "false"
+          aliases: >-
+            ajv:@redocly/ajv
+            react-helmet-async:@slorber/react-helmet-async
+            react-loadable:@docusaurus/react-loadable
+
+      # No install scripts. postman-code-generators would run npm install for
+      # each code generator, and none of them need it for the docs.
+      - run: npm ci --ignore-scripts
       - run: npm run typecheck
       - run: npm run format:check
       - name: Build
