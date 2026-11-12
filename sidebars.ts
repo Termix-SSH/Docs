@@ -39,6 +39,7 @@ const sidebars: SidebarsConfig = {
         },
         "install/first-run",
         "install/updating",
+        "install/verify",
         "install/backup",
         "install/benchmarks",
       ],
