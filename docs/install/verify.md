@@ -15,6 +15,8 @@ Releases from 26.11.2 on carry:
 
 Older releases have none of these.
 
+The desktop app checks updates for you. From 26.11.2 on it installs an update on Windows, macOS, AppImage and deb only after the release's `SHA256SUMS` signature checks out and the downloaded file matches it. A release without a signed `SHA256SUMS` is offered as a download link instead.
+
 ## Tools
 
 - [GitHub CLI](https://cli.github.com/) 2.49 or newer, for `gh attestation verify`. Sign in once with `gh auth login`.
