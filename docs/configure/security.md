@@ -64,6 +64,10 @@ A capability check stops a plugin from using SDK features it didn't ask for. It 
 
 Official plugins are signed. Set `TERMIX_REQUIRE_SIGNED_PLUGINS=true` to only allow signed plugins.
 
+## What's in a release
+
+Each Termix release lists the server's dependencies in a CycloneDX SBOM. The Docker image has it at `/app/sbom.cdx.json`, and the GitHub release has it as `termix_sbom.cdx.json`. Feed it to a scanner like Grype or Trivy to check an install for known issues.
+
 ## Audit log
 
 Sign ins, changes to hosts and users, plugin installs and more are written to the [audit log](/guide/audit-log). It can also be sent to a SIEM.
