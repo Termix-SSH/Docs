@@ -73,7 +73,7 @@ try {
 }
 ```
 
-`withConnection(hostId, { pool, purpose }, fn)` borrows a pooled connection, which is better for frequent short commands. `@termix-ssh/plugin-sdk/host-commands` has helpers to detect the OS and run package manager and sudo commands over a client.
+`withConnection(hostId, { pool, purpose }, fn)` borrows a pooled connection, which is better for frequent short commands. `@termix-ssh/plugin-sdk/host-commands` has helpers to detect the OS and run package manager and sudo commands over a client. Its sudo helper sends the password on stdin. Never put a password or token in a command line, where other users on the host can read it.
 
 Hosts you get from `ctx.hosts` never carry passwords or keys. Only a plugin with `credentials:read` sees them, and most don't need to: pass the host or its id back to `ctx.ssh` and Termix connects with the real secrets.
 
@@ -105,6 +105,21 @@ const res = await ctx.fetch("https://api.example.com/v1/thing", {
 ```
 
 `ctx.fetch` refuses private and loopback addresses unless you list the exact host in `allowPrivateHosts`. It doesn't follow redirects.
+
+Fill `allowPrivateHosts` from an admin setting or a device an admin saved, never from the request itself.
+
+### Your own sockets
+
+If you open a socket yourself (`net`, `tls`, `dgram` or `http.request`) to an address a user typed, check it first with `@termix-ssh/plugin-sdk/net-guard` (Termix 26.11.2 or newer). `resolveTarget` looks the name up once, refuses private addresses unless the host is in `allowPrivateHosts`, and returns the address to connect to:
+
+```ts
+import { resolveTarget } from "@termix-ssh/plugin-sdk/net-guard";
+
+const { address } = await resolveTarget(host, { allowPrivateHosts });
+const socket = net.connect({ host: address, port });
+```
+
+Connect to the returned address, not the name, so a second lookup can't send you somewhere else. For TLS pass the name as `servername`.
 
 ## Dependencies
 
