@@ -60,12 +60,13 @@ The template has a Release workflow that does all of this on GitHub. It calls a 
 
 Work happens on a `dev-X.Y.Z` branch named after the version it will ship as. Run Release by hand from that branch:
 
-| Choice    | What it does                                                                                           |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| stable    | Tests, builds and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
-| beta      | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                      |
-| overwrite | Releases the manifest version again from this commit, replacing its files.                             |
-| dry-run   | Builds and packs without publishing.                                                                   |
+| Choice  | What it does                                                                                           |
+| ------- | ------------------------------------------------------------------------------------------------------ |
+| stable  | Tests, builds and publishes `X.Y.Z` as a GitHub release, merges the branch into `main` and deletes it. |
+| beta    | Publishes `X.Y.Z-beta.N`. N counts up on its own.                                                      |
+| dry-run | Builds and packs without publishing.                                                                   |
+
+Releases are immutable. A release is made as a draft, gets its files, then is published, and after that its tag and files can never change. A version that already has a release is refused, so a fix always ships as a new version. Turn on immutable releases in your repo settings (Settings, General, Releases).
 
 The release notes come from your changelog. No secrets are needed: the workflow records GitHub build provenance for the file instead of signing it. To also sign it with your own key, set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 
