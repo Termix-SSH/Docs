@@ -36,6 +36,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         "testing",
+        "authorization-table",
         "docs",
         "releasing",
         "registries",
