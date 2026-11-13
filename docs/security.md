@@ -90,7 +90,13 @@ Most past advisories fell into a few groups. Each one now has a fix that covers 
 - Leaking errors: server errors never send error text to the client, and logs mask secrets.
 - Dependencies: lockfiles are checked, known vulnerable packages fail CI, install scripts are off, new versions wait a few days before they are used, and every build ships an SBOM.
 
-Outside checks run all the time too: CodeQL on every push, zizmor on every workflow, Dependabot, and [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/Termix-SSH/Termix).
+## Checks and badges
+
+- [OpenSSF Best Practices](https://www.bestpractices.dev/projects/16663): Termix holds the silver badge. Every answer and its evidence is public on that page.
+- [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/Termix-SSH/Termix): an automatic check of how the repos are run (branch rules, pinned dependencies, token permissions, code review), refreshed every week.
+- CodeQL scans every push, zizmor checks every workflow, and Dependabot and osv-scanner watch the dependencies.
+- Test coverage is measured every week across the unit tests and the authorization matrix, and stays above 80%.
+- Docker images and plugin builds are reproducible, so anyone can rebuild them and get the same bytes.
 
 ## Signed releases
 
