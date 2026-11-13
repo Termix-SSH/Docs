@@ -58,9 +58,26 @@ API keys act as the user who owns them. See [API keys](/guide/api-keys).
 
 ## Plugins
 
-Plugins run inside the Termix server with the [capabilities](/develop/reference/capabilities) they ask for. Termix shows those before you install a plugin, and asks again if an update wants more.
+Plugins ask for [capabilities](/develop/reference/capabilities). Termix shows those before you install a plugin, and asks again if an update wants more.
 
-A capability check stops a plugin from using SDK features it didn't ask for. It is not a sandbox. A plugin's code runs in the same process as Termix, so a plugin you install is code you trust.
+From Termix 26.11.2 each plugin's server code runs in its own process, not inside the Termix server:
+
+- It can read its own files and nothing else. It can't open the database, the keys or another plugin's data.
+- It opens no network connections and starts no programs unless it was given the capability for that.
+- It reaches Termix only through calls Termix checks against its capabilities and the user it acts for. Saved passwords and keys stay in the server unless the plugin may read credentials.
+- In the Docker image each plugin also runs as its own Linux user. With the `NET_ADMIN` capability added to the container, a plugin that may not open connections is also blocked by a firewall rule.
+- A plugin process that crashes, hangs or uses too much memory or CPU is restarted. If it keeps crashing it is turned off.
+
+On Windows and macOS the desktop app keeps plugins in their own process with Node's file and process limits, but has no per plugin user or firewall rule.
+
+A plugin made for an older Termix can't run in its own process. Official ones keep working only when an admin turns on Run without isolation on the plugin's page, which lets it run inside the server with the same reach as Termix. Plugins that were on before the upgrade start with it on, and the plugins page lists them. Community plugins made for an older Termix don't run.
+
+| Variable                     | Default | What it does                                                                                      |
+| ---------------------------- | ------- | ------------------------------------------------------------------------------------------------- |
+| `TERMIX_PLUGIN_IDLE_MINUTES` | `10`    | A plugin that only serves pages stops after this long unused and starts again on the next request |
+| `TERMIX_PLUGIN_ALWAYS_ON`    |         | Plugin ids that never stop when idle                                                              |
+| `TERMIX_PLUGIN_MEMORY_MB`    | `256`   | Memory limit for each plugin process                                                              |
+| `TERMIX_PLUGIN_CPU_LIMIT`    | `80`    | Percent of one CPU core a plugin may use for a minute straight                                    |
 
 Official plugins are signed. Set `TERMIX_REQUIRE_SIGNED_PLUGINS=true` to only allow signed plugins.
 

@@ -77,6 +77,27 @@ try {
 
 Hosts you get from `ctx.hosts` never carry passwords or keys. Only a plugin with `credentials:read` sees them, and most don't need to: pass the host or its id back to `ctx.ssh` and Termix connects with the real secrets.
 
+## The plugin process
+
+Your backend runs in its own Node process (plugin API 2). `ctx` works the same, but every call goes to Termix and back, so:
+
+- List every timer id, event topic and registry key in the manifest's `sandbox` block. Termix refuses one that isn't listed.
+- Await `services.get`, `registry.consume` and the other reads the guide lists. Every method on another plugin's service returns a Promise.
+- Pass plain data to `ctx`: objects, arrays, strings, numbers, Buffers, Dates, Maps and Sets. Class instances don't cross.
+- Use `ctx.db.batch()` for writes that must land together. `db.transaction()` is not available.
+- Node modules like `node:net`, `node:child_process` and native addons need the capability that allows them. `termix-plugin validate` warns about each one.
+- Your process gets the variables you list in the manifest's `env`, nothing else from the server.
+
+```json
+"sandbox": {
+  "schedules": [{ "id": "refresh", "every": 60000 }],
+  "events": ["host.deleted"],
+  "registry": ["hello.variables"]
+}
+```
+
+A plugin with nothing in that block, no services and no listeners starts on its first request and stops after 10 idle minutes. Test with `createMockCtx({ sandbox: true })`, which applies the same rules.
+
 ## Events
 
 ```ts
@@ -89,7 +110,7 @@ Your own events are `plugin.<id>.<name>`. Listening to other plugins' events nee
 ## Timers
 
 ```ts
-ctx.schedule.every(60_000, () => refresh(), { jitterMs: 5_000 });
+ctx.schedule.every(60_000, () => refresh(), { id: "refresh", jitterMs: 5_000 });
 ```
 
 They stop when the plugin is disabled, and a run that is still going skips the next tick.

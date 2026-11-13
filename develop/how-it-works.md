@@ -9,10 +9,10 @@ description: Capabilities, permissions, the lifecycle and the trust model.
 
 A plugin runs in two places:
 
-- Its backend runs inside the Termix server process.
+- Its backend runs in its own Node process, started and watched by Termix.
 - Its frontend runs in the browser, in the same page as the rest of Termix.
 
-There is no sandbox. Every plugin, official or not, runs the same way.
+Every plugin, official or not, runs the same way. The backend process can read only its own folder, opens no sockets or child processes unless a capability allows it, and talks to Termix only through `ctx`. See [the plugin process](/develop/backend#the-plugin-process).
 
 ## Capabilities: what your code may do
 
@@ -72,6 +72,6 @@ The capability system means:
 - Calls it didn't ask for are refused.
 - Every privileged call leaves an audit line.
 
-It does not mean a plugin is contained. Your code runs in the server process. It could import `node:fs` and read anything the server can, or do anything else Node allows. Capabilities stop mistakes and make honest plugins easy to audit. What stops harmful plugins is signing, review and admins only installing code they trust.
+Since plugin API 2 a plugin is also contained: its backend runs in its own process under Node's permission model, so it can't read the database, the keys or other plugins' files, and in Docker it runs as its own Linux user. It still has everything its capabilities give it, so signing, review and admins only installing code they trust still matter. A plugin made for plugin API 1 runs inside the server only when an admin turns on Run without isolation, and only if it is official.
 
 Write your plugin as if the admin will read every capability and every line of the audit log. Many will.
