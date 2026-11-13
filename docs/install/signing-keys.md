@@ -58,24 +58,6 @@ It prints `Good "termix-root" signature`. Change `.[0]` to check another certifi
 
 ## If a key leaks
 
-This part is for the people who hold the root keys.
+Termix adds the key to the revocation list. Your server picks the list up at its next daily check (or at its next start) and stops trusting that key. If a plugin release itself is bad, the list names that version instead, and your server turns it off and tells every admin.
 
-**An online key leaked.** Revoke it, make a new one and sign its certificate:
-
-```bash
-npm run trust:revoke -- --tier official --key <key id> --reason "key leaked"
-npm run trust:new-key -- --tier official --role plugins --repo Termix-SSH/Termix-Registry --env release --secret TERMIX_PLUGIN_ONLINE_KEY
-npm run trust:sign -- --key <root key file>
-```
-
-Commit `trust/`, push, then run the Resign plugin releases workflow so every listed release gets a signature from the new key. Servers stop trusting the old key at their next daily check. Use `--role releases --repo Termix-SSH/Termix --env release --secret TERMIX_RELEASE_SIGNING_KEY` for the core release key, and `--tier community --env sync --secret TERMIX_COMMUNITY_ONLINE_KEY` for the community key.
-
-**A plugin release is bad.** Revoke that version (`--plugin docker@1.2.0`) or the whole plugin (`--plugin docker`), sign and push. Servers turn it off at their next check.
-
-**One root key is lost or stolen.** Sign a revocation of it with the other root key of the pair (`--key SHA256:...`). A revoked root key can never sign again, not even a new list. Then make a new root key and ship it in the next core release.
-
-**Both root keys of a pair are lost.** Nothing stops working right away. Online keys keep signing until their certificates expire, at most a year. Make two new root keys and ship them in a core release before then. Servers that update pick up the new roots. If both keys could be in someone else's hands, do this at once.
-
-## Yearly renewal
-
-About a month before the online certificates expire (the registry's validate job warns 60 days ahead), make new online keys with `trust:new-key`, sign them with `trust:sign`, push, and run Resign plugin releases. Old keys can stay until their certificates expire.
+You don't need to do anything, unless you get an alert that a plugin was turned off. Then update the plugin in Plugins, or remove it. If a root key is ever replaced, the new one comes with a Termix update, and this page lists its fingerprint.
