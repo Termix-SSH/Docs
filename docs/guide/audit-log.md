@@ -13,6 +13,10 @@ Filter by User, Action, Resource Type, Status and a date range. Each entry shows
 
 Behind a reverse proxy, set `TRUSTED_PROXIES` so the IPs are real. See [reverse proxy](/configure/reverse-proxy#real-client-ips).
 
+## Checked for changes
+
+Each entry stores a hash of the one before it, so a changed, added or removed entry breaks the chain. Termix checks it every hour and alerts every admin when it breaks. The [Audit Tools](/plugins/audit-tools) plugin shows the check, runs one on demand and lets you download the newest hash to keep somewhere else and compare later. Removing the oldest entries to stay within the limits below keeps the chain valid.
+
 ## How long it is kept
 
 By default Termix keeps the newest 10,000 entries. Change it with:

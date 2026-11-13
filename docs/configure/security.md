@@ -96,7 +96,23 @@ These need Termix 26.11.2 or later.
 
 A sign in makes a session. Admins see every session in Settings, Sessions and can sign any of them out. They set how long sessions last in Settings, General. The database keeps only a hash of each session token, so a copy of it holds no working sign ins.
 
-API keys act as the user who owns them. See [API keys](/guide/api-keys).
+Every user can see their own sessions and API keys, with when each was last used, and end them in Sessions and keys from the [Login Security](/plugins/login-security) plugin. Admins can sign everyone out there at once, and revoke every API key with it. Login Security can also alert people when their account signs in from a device it has not seen before.
+
+API keys act as the user who owns them. A new key is read only and lasts 90 days unless whoever makes it picks more. See [API keys](/guide/api-keys).
+
+## Admin alerts
+
+Every admin gets an alert for changes that matter if an admin account is taken over: a new admin, role changes, plugin installs and updates, turning a plugin on or giving it access, a plugin running without isolation, new plugin registries, sign in setting changes, new API keys and a plugin revocation list that could not be checked. Alerts go through the [Alerts](/plugins/alerts) plugin, so set up a channel like email or ntfy to get them outside Termix.
+
+## Admin wait {#admin-wait}
+
+On a server with two or more admins, dangerous changes can wait before they apply: making someone an admin, turning off password login, turning off a sign in plugin, and turning on or giving access to a plugin that can read saved logins, run programs, act as other users or change sign in. The other admins get an alert and can cancel the change. A plugin installed or updated in that time starts without that access until the wait is over.
+
+It is off by default and does nothing with one admin. Turn it on in Admin wait from the [Login Security](/plugins/login-security) plugin, or set `TERMIX_ADMIN_HOLD_MINUTES` on the server. With the variable set, nobody can change it from Termix. Turning it off or making it shorter from Termix waits too.
+
+## Recovery
+
+When an admin is locked out or an admin account was taken over, see [Recovery](/configure/recovery).
 
 ## Plugins
 
@@ -108,4 +124,4 @@ Official plugins are signed. Set `TERMIX_REQUIRE_SIGNED_PLUGINS=true` to only al
 
 ## Audit log
 
-Sign ins, changes to hosts and users, plugin installs and more are written to the [audit log](/guide/audit-log). It can also be sent to a SIEM.
+Sign ins, changes to hosts, users and roles, plugin installs and more are written to the [audit log](/guide/audit-log). Each entry carries a hash of the one before, so a changed or removed entry shows, and Termix alerts every admin when the chain breaks. It can also be sent to a SIEM.

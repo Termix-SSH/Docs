@@ -59,6 +59,7 @@ const sidebars: SidebarsConfig = {
         "configure/trusted-proxy-login",
         "configure/hosts-config-file",
         "configure/security",
+        "configure/recovery",
         "configure/betas",
       ],
     },
