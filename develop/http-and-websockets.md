@@ -50,6 +50,10 @@ A public route has no actor. Check its own token yourself and rate limit it.
 
 `ctx.http.baseUrl(req)` gives the public address Termix is reached at, for callback URLs.
 
+### Cookies
+
+In a plugin process (plugin API 2) a request reaches your routes without Termix's own cookies and headers that carry a login. You can set and read your own cookies when their names start with `tmxp_<your id>_` (dashes become `_`, so `my-plugin` uses `tmxp_my_plugin_`). Termix drops any other `Set-Cookie`, and any with a `Domain`.
+
 ## Call them from the frontend
 
 ```ts

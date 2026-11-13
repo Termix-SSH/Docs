@@ -70,9 +70,10 @@ ctx.auth.registerSshAuthProvider({
   type: "hello-cert",
   labelKey: "auth.label",
   fields: [{ key: "role", type: "string", labelKey: "auth.role" }],
-  async prepare(host, config) {
+  async prepare(config, host, env) {
     const cert = await signFor(host);
-    // fill config with the key and certificate, never connect here
+    await applyCertificateAuth(config, env.client, cert, host.username);
+    return { status: "ready" };
   },
 });
 ```
@@ -80,6 +81,8 @@ ctx.auth.registerSshAuthProvider({
 The type shows up in the host editor's Authentication Method list. `fields` are drawn for you. Set `quickConnect`, `supportsBackground` and `needsUserInteraction` to say where it can be used. `@termix-ssh/plugin-sdk/ssh-certs` has `applyCertificateAuth()` for certificate based types.
 
 Every plugin that connects through `ctx.ssh` gets your type for free.
+
+In a plugin process (plugin API 2) the SSH client stays in Termix. `prepare` gets a copy of the config without passwords or keys and may set only `username`, `password`, `privateKey`, `passphrase`, `tryKeyboard`, `readyTimeout`, `keepaliveInterval` and `keepaliveCountMax`. `env.client` is a stand-in that `applyCertificateAuth()` knows, and Termix applies the certificate for you. `onAuthFailed` and `connectOptions` answer with a Promise. `onBanner`, `onKeyboardInteractive`, keyboard-interactive handlers and login methods still need plugin API 1.
 
 ## Connection protocols
 

@@ -63,6 +63,7 @@ How it works:
 
 - Its own process: each plugin's server code runs in a separate Node process with an empty environment. It never sees the server's keys, the database file or other plugins.
 - Only checked calls: the plugin reaches Termix through a fixed set of calls that core checks one by one. Its database queries can only touch its own tables. SSH sessions are opened by core, and saved logins only reach a plugin that was granted `credentials:read`.
+- Never your login: core removes your login cookies and tokens from every request before it reaches a plugin. A plugin only gets back the cookies it set itself.
 - Only what it was granted: a plugin lists what it needs (for example `network:sockets` or `credentials:read`), and an admin sees that list before turning it on. Without a grant, the process can't open network connections or run programs.
 - In Docker, its own Linux user: each plugin runs as its own user, so it can't read the database, keys or other plugins' files. With `NET_ADMIN`, a firewall rule also blocks network access for plugins without the grant.
 - Sandboxed screens: a plugin's screens run in sandboxed frames with no access to your login, the rest of the page or other plugins. Each frame can only call its own plugin, with a short key that ends with your session.
