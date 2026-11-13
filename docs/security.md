@@ -76,6 +76,22 @@ Limits you should know:
 - Official layouts, themes and login plugins stay in the page, because they draw the app itself.
 - A granted plugin can use its grants: a plugin you allow to open network connections can send what it sees to the network. Only turn on plugins you trust.
 
+## How common weaknesses are handled
+
+Most past advisories fell into a few groups. Each one now has a fix that covers the whole group, not only the one bug.
+
+- Broken access control: every route and socket has a written expected answer for 17 kinds of caller (anonymous, expired, revoked, share guest, each share level, owner, admin, scoped API keys and more). CI calls every route as each caller and fails on any difference. A new route with no entry fails the build.
+- Command injection: values sent to a host go through shared helpers that quote them as single shell words or send them as base64 on stdin. Passwords never go on a command line. The quoting has property tests that try thousands of random inputs.
+- Requests to private networks: outbound requests from users' input go through one guard that looks the name up once, refuses private and reserved addresses unless an admin allowed that exact address, and connects to the address it checked.
+- Cross site scripting: the server sends a strict Content-Security-Policy, and plugin screens run in sandboxed frames.
+- Cross site requests: login cookies are `SameSite=Lax` and `__Host-` over HTTPS. A write that carries only a cookie is refused when it comes from another site.
+- Sessions: tokens are stored as hashes. Ending a session closes its open sockets at once, and sockets get the same login and second factor checks as normal requests.
+- Guessing passwords and codes: logins, second factor checks, resets and API keys have rate limits per address and per account.
+- Leaking errors: server errors never send error text to the client, and logs mask secrets.
+- Dependencies: lockfiles are checked, known vulnerable packages fail CI, install scripts are off, new versions wait a few days before they are used, and every build ships an SBOM.
+
+Outside checks run all the time too: CodeQL on every push, zizmor on every workflow, Dependabot, and [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/Termix-SSH/Termix).
+
 ## Signed releases
 
 - Every official plugin is signed with a key that an offline Termix root key vouches for. Termix checks the signature, the key's certificate and a signed revocation list before it installs or updates a plugin. See [Signing keys](/install/signing-keys).
