@@ -4,6 +4,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     "intro",
     "security",
+    "roadmap",
     {
       type: "category",
       label: "Install",
