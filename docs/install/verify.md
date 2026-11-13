@@ -9,13 +9,13 @@ Every file and image Termix ships can be checked. You do not need to trust the d
 
 Releases from 26.11.2 on carry:
 
-- A signed `SHA256SUMS` file on each core release, with a `SHA256SUMS.sigstore.json` bundle next to it.
+- A signed `SHA256SUMS` file on each core release, with a `SHA256SUMS.sigstore.json` bundle and a `SHA256SUMS.sig` release key signature next to it.
 - Build provenance for each desktop file, portable archive, Flatpak bundle, plugin, CLI binary and mobile file. It says which workflow built the file from which commit.
 - A keyless signature, build provenance and an SBOM on each Docker image.
 
 Older releases have none of these.
 
-The desktop app checks updates for you. From 26.11.2 on it installs an update on Windows, macOS, AppImage and deb only after the release's `SHA256SUMS` signature checks out and the downloaded file matches it. A release without a signed `SHA256SUMS` is offered as a download link instead.
+The desktop app checks updates for you. From 26.11.2 on it installs an update on Windows, macOS, AppImage and deb only after both signatures on the release's `SHA256SUMS` check out (Sigstore, and the release key the Termix root key vouches for, see [Signing keys](signing-keys.md)) and the downloaded file matches it. A release without a signed `SHA256SUMS` is offered as a download link instead.
 
 ## Tools
 
@@ -92,7 +92,7 @@ The server's dependency list is also in the image at `/app/sbom.cdx.json` and on
 
 ## Plugins
 
-A plugin file (`.tmxplug`) is signed by Termix, and Termix checks that signature itself before it installs or updates a plugin. To check one by hand, download it from the plugin's releases page, then:
+A plugin file (`.tmxplug`) is signed by Termix, and Termix checks that signature itself before it installs or updates a plugin. [Signing keys](signing-keys.md) explains which keys it trusts. To check one by hand, download it from the plugin's releases page, then:
 
 ```bash
 gh attestation verify my-plugin-1.0.0.tmxplug --owner Termix-SSH

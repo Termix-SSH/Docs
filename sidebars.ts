@@ -40,6 +40,7 @@ const sidebars: SidebarsConfig = {
         "install/first-run",
         "install/updating",
         "install/verify",
+        "install/signing-keys",
         "install/backup",
         "install/benchmarks",
       ],
