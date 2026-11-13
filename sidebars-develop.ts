@@ -14,6 +14,7 @@ const sidebars: SidebarsConfig = {
         "manifest",
         "backend",
         "frontend",
+        "frames",
         "ui",
         "database",
         "settings",
