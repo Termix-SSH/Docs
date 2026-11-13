@@ -68,7 +68,7 @@ From Termix 26.11.2 each plugin's server code runs in its own process, not insid
 - In the Docker image each plugin also runs as its own Linux user. With the `NET_ADMIN` capability added to the container, a plugin that may not open connections is also blocked by a firewall rule.
 - A plugin process that crashes, hangs or uses too much memory or CPU is restarted. If it keeps crashing it is turned off.
 
-On Windows and macOS the desktop app keeps plugins in their own process with Node's file and process limits, but has no per plugin user or firewall rule.
+The desktop app runs each plugin in its own process too, with none of the app's settings or keys in its environment, and every call to the app is checked the same way. It can't limit what files a plugin reads or which programs it starts, because Electron doesn't apply Node's permission limits to these processes. On the desktop, only install plugins you trust.
 
 A plugin made for an older Termix can't run in its own process. Official ones keep working only when an admin turns on Run without isolation on the plugin's page, which lets it run inside the server with the same reach as Termix. Plugins that were on before the upgrade start with it on, and the plugins page lists them. Community plugins made for an older Termix don't run.
 

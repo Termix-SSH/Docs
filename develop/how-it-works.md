@@ -72,6 +72,6 @@ The capability system means:
 - Calls it didn't ask for are refused.
 - Every privileged call leaves an audit line.
 
-Since plugin API 2 a plugin is also contained: its backend runs in its own process under Node's permission model, so it can't read the database, the keys or other plugins' files, and in Docker it runs as its own Linux user. It still has everything its capabilities give it, so signing, review and admins only installing code they trust still matter. A plugin made for plugin API 1 runs inside the server only when an admin turns on Run without isolation, and only if it is official.
+Since plugin API 2 a plugin is also contained: its backend runs in its own process under Node's permission model, so it can't read the database, the keys or other plugins' files, and in Docker it runs as its own Linux user. The desktop app keeps the separate process and the checked calls, but Electron can't apply the file limits there. It still has everything its capabilities give it, so signing, review and admins only installing code they trust still matter. A plugin made for plugin API 1 runs inside the server only when an admin turns on Run without isolation, and only if it is official.
 
 Write your plugin as if the admin will read every capability and every line of the audit log. Many will.
