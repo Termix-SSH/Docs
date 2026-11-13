@@ -96,6 +96,7 @@ Outside checks run all the time too: CodeQL on every push, zizmor on every workf
 
 - Every official plugin is signed with a key that an offline Termix root key vouches for. Termix checks the signature, the key's certificate and a signed revocation list before it installs or updates a plugin. See [Signing keys](/install/signing-keys).
 - New plugin releases are rebuilt from their tag on a clean machine, and only a byte for byte match is listed in the registry.
+- Docker images are reproducible: anyone can rebuild a release and get the same files. See [Rebuild the image yourself](/install/verify#rebuild-the-image-yourself).
 - Each core release has a signed `SHA256SUMS` file and build provenance for every file. Docker images are signed with cosign and carry provenance and an SBOM.
 - The desktop app installs an update only after both the Sigstore signature and the release key signature check out.
 - Releases can't be changed once published. A late fix is always a new version.

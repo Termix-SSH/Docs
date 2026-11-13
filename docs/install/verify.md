@@ -90,6 +90,36 @@ To pin an install, use the digest that `cosign verify` checked, like `ghcr.io/te
 
 The server's dependency list is also in the image at `/app/sbom.cdx.json` and on each release as `termix_sbom.cdx.json`.
 
+### Rebuild the image yourself
+
+From 26.11.2 on, the Docker image is reproducible: building the same commit again gives the same files, byte for byte. Every change to the Dockerfile is checked by building it twice on separate machines and comparing the results.
+
+To rebuild a release, you need Docker with buildx and `jq`:
+
+```bash
+git clone --branch v26.11.2 https://github.com/Termix-SSH/Termix
+cd Termix
+export SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)"
+docker buildx build --platform linux/amd64 --no-cache \
+  --provenance=false --sbom=false \
+  --build-arg SOURCE_DATE_EPOCH --build-arg PLUGIN_PROFILE=standard \
+  --output "type=oci,dest=termix.tar,rewrite-timestamp=true" \
+  -f docker/Dockerfile .
+```
+
+Then print the digest of every layer, before compression, for your build and for the published image:
+
+```bash
+manifest=$(tar -xOf termix.tar index.json | jq -r '.manifests[0].digest' | cut -d: -f2)
+config=$(tar -xOf termix.tar "blobs/sha256/$manifest" | jq -r '.config.digest' | cut -d: -f2)
+tar -xOf termix.tar "blobs/sha256/$config" | jq -c '.rootfs.diff_ids'
+
+docker buildx imagetools inspect ghcr.io/termix-ssh/termix:26.11.2 \
+  --format '{{ json (index .Image "linux/amd64") }}' | jq -c '.rootfs.diff_ids'
+```
+
+The two lines match when the image holds exactly what the source builds. Packages from Debian come from the Debian snapshot at the commit's time, so a rebuild months later still gets the same versions, and the bundled plugins are fetched by their pinned checksum. For `-minimal` and `-full` images, set `PLUGIN_PROFILE` to `minimal` or `full`.
+
 ## Plugins
 
 A plugin file (`.tmxplug`) is signed by Termix, and Termix checks that signature itself before it installs or updates a plugin. [Signing keys](signing-keys.md) explains which keys it trusts. To check one by hand, download it from the plugin's releases page, then:

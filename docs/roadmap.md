@@ -20,7 +20,7 @@ This is the plan for the next year, through the end of 2027. Day to day work and
 
 - Move every official plugin to the plugin sandbox, and fence the last few hooks that still run inside the server.
 - Limit which files a plugin can read on the desktop app.
-- Make core builds reproducible, like plugin builds already are.
+- Make desktop builds reproducible, like plugins and Docker images already are.
 - Publish plugin signatures to a public transparency log.
 - Get an outside security audit and fix what it finds.
 
