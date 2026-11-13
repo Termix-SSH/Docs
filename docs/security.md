@@ -97,6 +97,8 @@ Most past advisories fell into a few groups. Each one now has a fix that covers 
 - CodeQL scans every push, zizmor checks every workflow, and Dependabot and osv-scanner watch the dependencies.
 - Test coverage is measured every week across the unit tests and the authorization matrix, and stays above 80%.
 - Docker images and plugin builds are reproducible, so anyone can rebuild them and get the same bytes.
+- Every core and official plugin release must first pass a release gate on the exact commit it ships: workflow and dependency scans, the authorization matrix, a regression test for every fixed advisory, and no new high or critical CodeQL alert.
+- Once a month, every change since the last release is read again for the kinds of holes Termix has had before. Anything found is handled privately as a draft advisory.
 
 ## Signed releases
 
