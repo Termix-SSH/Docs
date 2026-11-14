@@ -65,12 +65,16 @@ How it works:
 - Never your login: core removes your login cookies and tokens from every request before it reaches a plugin. A plugin only gets back the cookies it set itself.
 - Only what it was granted: a plugin lists what it needs (for example `network:sockets` or `credentials:read`), and an admin sees that list before turning it on. Without a grant, the process can't open network connections or run programs.
 - In Docker, its own Linux user: each plugin runs as its own user, so it can't read the database, keys or other plugins' files. With `NET_ADMIN`, a firewall rule also blocks network access for plugins without the grant.
+- In the desktop app, the system's sandbox: each plugin runs on the app's own copy of Node (the same version as the server image, checked before it starts) with the same rules as on a server, inside the operating system's sandbox. On Windows that is an AppContainer and a job object, on macOS a Seatbelt profile, on Linux Landlock and seccomp. It can't read your files or the app's database, write outside its own folder, start programs or connect out without the grant, and it is stopped above its memory limit.
 - Sandboxed screens: a plugin's screens run in sandboxed frames with no access to your login, the rest of the page or other plugins. Each frame can only call its own plugin, with a short key that ends with your session.
 - Limits: a plugin process that crashes, hangs or uses too much memory or CPU is restarted, and marked failed if it keeps crashing.
 
 Limits you should know:
 
-- Desktop app: plugins run in their own process with none of the app's settings or keys, but the desktop app can't limit which files they read.
+- Desktop app on Windows: a plugin granted `network:sockets` or `process:spawn` runs at low integrity in a job object instead of an AppContainer, because an AppContainer blocks the local connections and program pipes those plugins need. It still can't write outside its folder or go over its memory limit, but only Node's rules stop it from reading your files. Serial (`device:serial`) runs in the job object only, so it can open serial ports.
+- Desktop app on Linux: files are fenced with Landlock, which needs Linux 5.13 or later. On an older kernel only Node's rules guard files; seccomp still blocks sockets and new programs.
+- Mac App Store version: Apple's app sandbox already holds the whole app and can't be nested, so plugins there get Node's rules, the app sandbox and the memory limit, but no profile of their own.
+- The 32-bit Windows and 32-bit ARM Linux desktop builds have no Node 26 to run plugins on, so they don't run plugin backends.
 - Older plugins: a plugin made for plugin API 1 does not run at all. It stays off until it is updated.
 - The sync plugin can issue sessions and sees the session cookie on its own requests, because it links desktops and switches accounts. Only grant `sync:provide` to the official one.
 - A plugin with `config:secrets` can read the server's environment variables and files, except Termix's own keys and data folder. Hosts Config uses it for the secrets a hosts file points at.
