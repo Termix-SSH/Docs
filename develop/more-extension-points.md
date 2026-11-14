@@ -111,6 +111,18 @@ app.registerExtension("homepage.widgets", {
 });
 ```
 
+## Other plugins' parts in a frame
+
+A plugin that runs in a frame can show other plugins' parts: slots it declared, extension points or component ids under its own plugin id, and any id it lists in manifest `contributes.uses`. Read them as usual (`useSlotContributions`, `ComponentSlot`, `useExtensions`, `PluginComponent`). Each part you get is a placeholder, and Termix draws the other plugin's view in its own frame over that spot. Needs plugin API 2.7.
+
+- The part is clipped to your frame and hides under your open menus and popovers. The UI kit's menus, popovers, sheets and dialogs do this for you. For one you draw yourself, use `useForeignOccluder` or `ForeignOccluder`.
+- `fill` parts take the box you give them, `content` parts take your width and their own height, `inline` parts size to themselves. Use `ForeignSlot` to add a class or style.
+- Wrap an edit mode in `ForeignInteractive interactive={false}` so parts let drags through. `TileGrid` does this while editing.
+- A slot owner can declare `fit: "overlay"` for parts drawn over something, like prompts over a terminal. They are see-through and only take clicks while they show something.
+- Props cross as data, functions by reference. A `host` you pass reaches the other plugin as its own copy of that host. You never get a handle on the other plugin's view.
+
+In tests, pass the parts you expect to `renderWithApp` as `others`.
+
 ## Onboarding steps
 
 `app.registerOnboardingStep` adds a step to first-run setup. New users see it in their setup. People who already finished see only your step the next time they open Termix. Give it a `version` and bump it when the step changes enough to show again.
