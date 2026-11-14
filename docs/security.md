@@ -50,7 +50,6 @@ What it does not guard against:
 - The server admin: admins can see and change everything on their server. That is the job.
 - Anyone who can read the server's data folder: the database is encrypted, but by default the keys sit next to it in `DATA_DIR/.env`. Keep the keys outside the data folder (`TERMIX_REQUIRE_EXTERNAL_SECRETS`) and guard your backups. See [Keys](/configure/security#keys).
 - Root on the server or the desktop machine: anything running as root, or as your own user on a desktop, can read Termix's memory and files.
-- Plugins you choose to run without isolation: an older official plugin runs inside the server only if an admin turns on Run without isolation for it.
 - Your own servers: Termix runs the commands you and your users ask it to run.
 
 Every secret is encrypted with AES-256-GCM under a key per user, and the SQLite file is encrypted as a whole. [How data is stored](/configure/security#how-data-is-stored) has the details.
@@ -72,9 +71,10 @@ How it works:
 Limits you should know:
 
 - Desktop app: plugins run in their own process with none of the app's settings or keys, but the desktop app can't limit which files they read.
-- Older plugins: a plugin made for plugin API 1 can only run inside the server, and only official ones, only when an admin turns on Run without isolation. Community plugins made for API 1 do not run.
-- Not every hook is fenced yet: a few things still run inside the server for the plugins that provide them: host lock and host status providers, the sync provider, desktop local files and terminals, and some SSH and login hooks.
-- Official layouts, themes and login plugins stay in the page, because they draw the app itself.
+- Older plugins: a plugin made for plugin API 1 does not run at all. It stays off until it is updated.
+- The sync plugin can issue sessions and sees the session cookie on its own requests, because it links desktops and switches accounts. Only grant `sync:provide` to the official one.
+- A plugin with `config:secrets` can read the server's environment variables and files, except Termix's own keys and data folder. Hosts Config uses it for the secrets a hosts file points at.
+- Official layouts, themes, login plugins, Serial and Sync stay in the page: layouts, themes and login screens draw the app itself, Web Serial needs the page's own origin, and Sync uses the desktop app's window calls.
 - A granted plugin can use its grants: a plugin you allow to open network connections can send what it sees to the network. Only turn on plugins you trust.
 
 ## How common weaknesses are handled

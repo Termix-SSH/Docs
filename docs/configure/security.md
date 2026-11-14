@@ -102,11 +102,11 @@ API keys act as the user who owns them. A new key is read only and lasts 90 days
 
 ## Admin alerts
 
-Every admin gets an alert for changes that matter if an admin account is taken over: a new admin, role changes, plugin installs and updates, turning a plugin on or giving it access, a plugin running without isolation, new plugin registries, sign in setting changes, new API keys and a plugin revocation list that could not be checked. Alerts go through the [Alerts](/plugins/alerts) plugin, so set up a channel like email or ntfy to get them outside Termix.
+Every admin gets an alert for changes that matter if an admin account is taken over: a new admin, role changes, plugin installs and updates, turning a plugin on or giving it access, new plugin registries, sign in setting changes, new API keys and a plugin revocation list that could not be checked. Alerts go through the [Alerts](/plugins/alerts) plugin, so set up a channel like email or ntfy to get them outside Termix.
 
 ## Admin wait {#admin-wait}
 
-On a server with two or more admins, dangerous changes can wait before they apply: making someone an admin, turning off password login, turning off a sign in plugin, and turning on or giving access to a plugin that can read saved logins, run programs, act as other users or change sign in. The other admins get an alert and can cancel the change. A plugin installed or updated in that time starts without that access until the wait is over.
+On a server with two or more admins, dangerous changes can wait before they apply: making someone an admin, turning off password login, turning off a sign in plugin, and turning on or giving access to a plugin that can read saved logins or the server's secrets, run programs, act as other users or change sign in. The other admins get an alert and can cancel the change. A plugin installed or updated in that time starts without that access until the wait is over.
 
 It is off by default and does nothing with one admin. Turn it on in Admin wait from the [Login Security](/plugins/login-security) plugin, or set `TERMIX_ADMIN_HOLD_MINUTES` on the server. With the variable set, nobody can change it from Termix. Turning it off or making it shorter from Termix waits too.
 
