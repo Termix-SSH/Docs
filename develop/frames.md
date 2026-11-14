@@ -24,13 +24,15 @@ What you register reaches Termix as data:
 - Functions become calls into your frame. A callback Termix reads while it draws (`when`, `label`, `items`, `visible`, `validate`) answers its default first and your answer a moment later. Keep these cheap.
 - A companion's `getHandle()` gives a handle whose methods return promises. `sendInput` and `paste` need `terminal.sendToActive` or `terminal.sendToSession` in your manifest `uses`.
 - A popover or menu can't leave its frame. Keep menus in tabs and panels, not in small slots.
+- A component in another plugin's slot sizes itself the way that slot's owner says: `declareActionSlot({ id, accepts, fit })` with `fit` `"inline"` (as wide and tall as the content, for row items and badges), `"content"` (full width) or `"fill"` (the whole box). Without a `fit`, Termix guesses from the slot id. A `fallback` element the owner passes in stays outside the frame and shows while your component draws nothing.
 
 Not available in a frame: host badges with a `component` (use `useDot`), host status indicators, host editor toolbar items, `useShell`, and other plugins' components through `usePluginComponent`, `useExtensions` or `useSlotContributions`.
 
 ## Network and data
 
 - `app.api`, `app.fetch` and `app.wsUrl` reach only your own routes and sockets. Termix gives the frame a short token for that and renews it.
-- The hooks and the UI kit read Termix through the shell, which allows a fixed list: the signed-in user, their permissions, hosts (with only your own host settings), credentials without secrets, your own settings, operations and recent activity. Saved passwords are not available.
+- The hooks and the UI kit read Termix through the shell, which allows a fixed list: the signed-in user, their permissions, hosts (with only your own host settings), credentials without secrets, your own settings, operations, waiting approvals and recent activity. Saved passwords are not available.
+- A frame can read waiting approvals but never decide one. Decide from a route of your own with `ctx.operations.approvals.decide` (SDK 2.5.0, needs `operations:approve`): it works only inside one of your requests, the person on that request decides with their own rights, and API keys are refused.
 - `invokeAction` runs your own actions and the action ids listed in your manifest `uses`.
 - Opening links, downloads, the clipboard, toasts and confirms go through the shell. `localStorage` works and is kept per plugin.
 - The frame can only load code from your plugin's own asset folder and can only talk to your own routes.
@@ -49,3 +51,19 @@ it("runs in a frame", async () => {
   expect(problems).toEqual([]);
 });
 ```
+
+`checkFrameViews` (SDK 2.5.0) goes further. It renders every view you register (tabs, panels, cards, companions, settings, host editor sections, slot components, extensions) with a test shell and sends every request they make through the same list Termix uses for frames. `refused` lists the requests a frame would be refused:
+
+```ts
+import { checkFrameViews } from "@termix-ssh/plugin-sdk/testing";
+
+it("asks Termix only for what a frame may read", async () => {
+  const { refused } = await checkFrameViews(plugin, {
+    manifest,
+    hosts: [host],
+  });
+  expect(refused).toEqual([]);
+});
+```
+
+Your own routes answer `{}` unless you pass `respond(method, path)`. `errors` lists views that threw with that test data, which is not a frame problem by itself.
