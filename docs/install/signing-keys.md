@@ -20,9 +20,9 @@ A plugin from a custom registry is checked against the key you pinned when you a
 | Key              | Fingerprint                                          |
 | ---------------- | ---------------------------------------------------- |
 | Official root A  | `SHA256:a549NEiGOOvwpBvYPZno6/bgGsdTarnF+ExL9UmPQRk` |
-| Official root B  | `SHA256:CtQKKIHB6UaIt2pSOAXwAPpkczI1Bqbual66doeqeoc` |
+| Official root B  | `SHA256:S+HvYPCSflLUwrHvR7fnQpoJxZo/wruJkRlc2wvjvkg` |
 | Community root A | `SHA256:SF4INojl+/wyBBec06AfBx6Y5QC+Rl8H0r+WfCrVeuI` |
-| Community root B | `SHA256:XVcMEf9p+KYrPeK96DWNM1MBibXS+1IMc9eSlzcq8bw` |
+| Community root B | `SHA256:2RxCdFuBj1JFUgRRRSokfbTjzqFbihUr9JRQOB1SJK0` |
 
 The public keys are in [Termix-Registry](https://github.com/Termix-SSH/Termix-Registry/tree/main/trust) under `trust/official/root.pub` and `trust/community/root.pub`.
 
