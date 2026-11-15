@@ -128,6 +128,12 @@ A plugin file (`.tmxplug`) is signed by Termix, and Termix checks that signature
 gh attestation verify my-plugin-1.0.0.tmxplug --owner Termix-SSH
 ```
 
+Plugin releases also carry that provenance as `my-plugin-1.0.0.tmxplug.sigstore.json`. From 26.11.2 Termix checks it when it downloads a plugin: it must be signed by the Termix registry release workflow and name that exact file, or the install stops. If Termix can't reach Sigstore, the plugin still installs on its signature and its page says Build not checked. To check the bundle yourself without asking GitHub:
+
+```bash
+gh attestation verify my-plugin-1.0.0.tmxplug --bundle my-plugin-1.0.0.tmxplug.sigstore.json --owner Termix-SSH
+```
+
 ## Mobile
 
 The Android and iOS files on the [mobile releases page](https://github.com/Termix-SSH/Mobile/releases):
