@@ -56,6 +56,8 @@ A sign in makes a session. Admins see every session in Settings, Sessions and ca
 
 API keys act as the user who owns them. See [API keys](/guide/api-keys).
 
+Sign ins, second factor checks, sign ups and bad API keys are rate limited per IP address and per account. The counts live in memory, so they start over when Termix restarts, and each Termix instance counts on its own. Behind a proxy, set the trusted proxies so the limits see real client addresses, see [reverse proxy](/configure/reverse-proxy).
+
 ## Plugins
 
 Plugins ask for [capabilities](/develop/reference/capabilities). Termix shows those before you install a plugin, and asks again if an update wants more.
@@ -68,9 +70,9 @@ From Termix 26.11.2 each plugin's server code runs in its own process, not insid
 - In the Docker image each plugin also runs as its own Linux user. With the `NET_ADMIN` capability added to the container, a plugin that may not open connections is also blocked by a firewall rule.
 - A plugin process that crashes, hangs or uses too much memory or CPU is restarted. If it keeps crashing it is turned off.
 
-The desktop app runs each plugin in its own process too, with none of the app's settings or keys in its environment, and every call to the app is checked the same way. It can't limit what files a plugin reads or which programs it starts, because Electron doesn't apply Node's permission limits to these processes. On the desktop, only install plugins you trust.
+The desktop app runs each plugin in its own process too, on its own copy of Node with the same limits, inside the operating system's sandbox, with none of the app's settings or keys in its environment. Every call to the app is checked the same way. See [security](/security) for what each system's sandbox covers.
 
-A plugin made for an older Termix can't run in its own process. Official ones keep working only when an admin turns on Run without isolation on the plugin's page, which lets it run inside the server with the same reach as Termix. Plugins that were on before the upgrade start with it on, and the plugins page lists them. Community plugins made for an older Termix don't run.
+A plugin made for an older Termix (plugin API 1) can't run in its own process, so it stays off until it is updated. The plugins page names each one. Update official ones from the plugins page, and ask the author of a community plugin for a new version.
 
 | Variable                     | Default | What it does                                                                                      |
 | ---------------------------- | ------- | ------------------------------------------------------------------------------------------------- |

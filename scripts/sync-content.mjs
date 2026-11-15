@@ -429,7 +429,7 @@ function writeSdkChangelog(text) {
     path.join(OUT.develop, "sdk-changelog.md"),
     frontMatter({ title: "SDK changelog", sidebar_position: 9 }) +
       "Changes to `@termix-ssh/plugin-sdk`. A release that bumps the plugin API says so at the top.\n\n" +
-      body.replace(/^## /gm, "## ") +
+      body +
       "\n",
   );
 }

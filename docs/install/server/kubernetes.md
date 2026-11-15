@@ -7,7 +7,7 @@ description: Run Termix on Kubernetes with plain manifests.
 
 Termix runs as one pod.
 
-Run one replica with SQLite. To run more than one, use [PostgreSQL or MySQL](/configure/database) and set `REDIS_URL` so plugins that keep live state, like Session Sharing, share it across pods.
+Run one replica. Each pod keeps its own sign in rate limits, step up checks and plugin processes, so with more than one pod the limits count per pod and plugin jobs, like alert checks, run on every pod. If you still run more than one, use [PostgreSQL or MySQL](/configure/database), send each user to the same pod, and set `REDIS_URL` so Session Sharing keeps its live state across pods.
 
 ## Manifests
 

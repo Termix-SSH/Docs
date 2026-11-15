@@ -67,7 +67,7 @@ Work happens on a `dev-X.Y.Z` branch named after the version it will ship as. Ru
 | overwrite | Releases the manifest version again from this commit, replacing its files.                             |
 | dry-run   | Builds and packs without publishing.                                                                   |
 
-The release notes come from your changelog. No secrets are needed: the workflow records GitHub build provenance for the file instead of signing it. To also sign it with your own key, set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
+The release notes come from your changelog. No secrets are needed: the workflow records GitHub build provenance for the file instead of signing it, and uploads it as `.tmxplug.sigstore.json` for Termix to check at download. To also sign it with your own key, set `TERMIX_PLUGIN_SIGNING_KEY` as a repo secret. If a dev branch changes files in `.github/workflows`, add a `TERMIX_PAT` secret (a token with `repo` and `workflow` scopes) so the release can push it to `main`.
 
 ## After you release
 

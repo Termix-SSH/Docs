@@ -11,6 +11,10 @@ Termix and its plugins update on their own schedules. Core updates come with a n
 
 Back up your data first. See [backup and restore](/install/backup).
 
+Then open the Plugins tab. When a newer Termix is out, it names every installed plugin that won't run on it, so you can update those first.
+
+From 26.11.2 every plugin runs in its own process. Plugins made for plugin API 1 stay off until they are updated.
+
 ### Docker
 
 ```bash

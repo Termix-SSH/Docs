@@ -98,6 +98,18 @@ Your backend runs in its own Node process (plugin API 2). `ctx` works the same, 
 
 A plugin with nothing in that block, no services and no listeners starts on its first request and stops after 10 idle minutes. Test with `createMockCtx({ sandbox: true })`, which applies the same rules.
 
+## Moving from API 1
+
+Plugin API 1 ran inside the server. From Termix 26.11.2 nothing runs that way, so a plugin made for API 1 stays off until it has a version made for API 2. The plugins page names each one, and before an update it also names the plugins the new version won't run.
+
+1. Raise `engine.api` to `^2.0.0`, `engine.termix` to `>=26.11.2-0` and the SDK in `package.json` to `^2.0.0` or newer.
+2. List your schedules (with an `id` on each `every`), event topics and registry keys in `sandbox`.
+3. Await the reads listed in [The plugin process](#the-plugin-process), and every call on another plugin's service or registry value.
+4. Replace `db.transaction()` with `ctx.db.batch()`.
+5. Move direct `node:fs`, `net`, `http` and `child_process` use to `ctx`, or declare the capability that allows it. `termix-plugin validate` warns about each import that would be refused.
+6. Run your tests with `createMockCtx({ sandbox: true })` and check the frontend with `checkFrameApp`, see [Frames](./frames.md).
+7. Drop capabilities you no longer use, bump the version and add a CHANGELOG entry.
+
 ## Events
 
 ```ts

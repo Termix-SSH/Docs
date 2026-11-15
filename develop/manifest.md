@@ -60,7 +60,7 @@ Unknown fields are refused, at every level. A typo fails validation instead of b
 | `docs`                 | An https link to your docs. Termix shows it on the plugin's page and in its settings.                                                                        |
 | `env`                  | Environment variables your plugin reads. See below.                                                                                                          |
 | `engine.termix`        | The Termix versions you work with.                                                                                                                           |
-| `engine.api`           | The plugin API versions you work with, a semver range. This build of Termix has API 1.2.                                                                     |
+| `engine.api`           | The plugin API versions you work with, a semver range. Termix 26.11.2 has API 2.8. A range below 2 never runs.                                               |
 | `capabilities`         | What your code may do. See [how it works](/develop/how-it-works#capabilities-what-your-code-may-do).                                                         |
 | `dependencies`         | Plugins you can't work without: `{ "snippets": "^1.0.0" }`.                                                                                                  |
 | `optionalDependencies` | Plugins you use when they are there. You must keep working without them.                                                                                     |
