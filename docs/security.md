@@ -66,7 +66,8 @@ How it works:
 - Only what it was granted: a plugin lists what it needs (for example `network:sockets` or `credentials:read`), and an admin sees that list before turning it on. Without a grant, the process can't open network connections or run programs.
 - In Docker, its own Linux user: each plugin runs as its own user, so it can't read the database, keys or other plugins' files. With `NET_ADMIN`, a firewall rule also blocks network access for plugins without the grant.
 - In the desktop app, the system's sandbox: each plugin runs on the app's own copy of Node (the same version as the server image, checked before it starts) with the same rules as on a server, inside the operating system's sandbox. On Windows that is an AppContainer and a job object, on macOS a Seatbelt profile, on Linux Landlock and seccomp. It can't read your files or the app's database, write outside its own folder, start programs or connect out without the grant, and it is stopped above its memory limit.
-- Sandboxed screens: a plugin's screens run in sandboxed frames with no access to your login, the rest of the page or other plugins. Each frame can only call its own plugin, with a short key that ends with your session.
+- Sandboxed screens: a plugin's screens run in sandboxed frames with no access to your login, the rest of the page or other plugins. Each frame can only call its own plugin, with a short key that ends with your session. A frame loads nothing from other sites (pictures come through the server), and it can only cover the screen, open a link, start a download or revoke your API keys right after you used it.
+- Sealed per plugin: what a plugin seals with `ctx.secrets.seal` uses a key of its own, so another plugin can't open it.
 - Limits: a plugin process that crashes, hangs or uses too much memory or CPU is restarted, and marked failed if it keeps crashing.
 
 Limits you should know:
@@ -80,6 +81,8 @@ Limits you should know:
 - A plugin with `config:secrets` can read the server's environment variables and files, except Termix's own keys and data folder. Hosts Config uses it for the secrets a hosts file points at.
 - Official layouts, themes, login plugins, Serial and Sync stay in the page: layouts, themes and login screens draw the app itself, Web Serial needs the page's own origin, and Sync uses the desktop app's window calls.
 - A granted plugin can use its grants: a plugin you allow to open network connections can send what it sees to the network. Only turn on plugins you trust.
+- A plugin screen can still send what it shows to another site in two ways no browser rule stops: by moving its own frame to that site, and through WebRTC. It only carries what that plugin could already see.
+- A plugin with `network:outbound` may name private addresses it wants to reach. Cloud metadata addresses are refused for every plugin and for Termix itself.
 
 ## How common weaknesses are handled
 
@@ -101,6 +104,7 @@ Most past advisories fell into a few groups. Each one now has a fix that covers 
 - [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/Termix-SSH/Termix): an automatic check of how the repos are run (branch rules, pinned dependencies, token permissions, code review), refreshed every week.
 - CodeQL scans every push, zizmor checks every workflow, and Dependabot and osv-scanner watch the dependencies.
 - Test coverage is measured every week across the unit tests and the authorization matrix, and stays above 80%.
+- Hostile plugin tests: plugins built to attack the sandbox run on the Docker image (in both container setups) and in the packaged desktop app for every change to the sandbox and before every release. They try to read the database, keys and other plugins' files, start programs, open sockets, reach private and cloud metadata addresses, query other tables, act as another user, open other plugins' secrets, flood and crash the bridge, reach past their frame, call other plugins and core routes, take over the screen, send data to other sites and install tampered or unsigned files. Every attempt has an expected refusal, and one that gets through fails the build.
 - Docker images and plugin builds are reproducible, so anyone can rebuild them and get the same bytes.
 - Every core and official plugin release must first pass a release gate on the exact commit it ships: workflow and dependency scans, the authorization matrix, a regression test for every fixed advisory, and no new high or critical CodeQL alert.
 - Once a month, every change since the last release is read again for the kinds of holes Termix has had before. Anything found is handled privately as a draft advisory.
