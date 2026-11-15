@@ -82,6 +82,20 @@ The host list is sent in one response, about 4 KB per host before compression.
 | 10,000 |  42 MB |  1.3 s |
 | 20,000 |  85 MB |  2.7 s |
 
+## Plugins
+
+Measured on 26.11.2 with every plugin turned on, Docker on a 4 core GitHub runner, a fresh install with nothing set up, Chromium logging in. Before is the same build without the 26.11.2 changes that start plugins and their screens only when needed.
+
+|                                     |  Before |   After |
+| ----------------------------------- | ------: | ------: |
+| Server memory at rest               | 5787 MB | 2295 MB |
+| Server memory right after a login   | 5956 MB | 3476 MB |
+| Plugin frames in the page           |      65 |      22 |
+| Browser JavaScript memory           |  702 MB |  220 MB |
+| Time to the dashboard (second load) |   6.4 s |   2.0 s |
+
+Each plugin runs in its own process. One that only serves pages starts on its first use; one with jobs, listeners or actions starts once, then stops after 10 idle minutes (`TERMIX_PLUGIN_IDLE_MINUTES`) and starts again when a job, an event or a request needs it. Plugins on the sign in and connect paths and plugins with work to watch stay up. The plugins page lists each running plugin's memory and warns admins when the server gets close to its memory limit.
+
 ## Check your own numbers
 
 ```bash

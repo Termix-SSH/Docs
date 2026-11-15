@@ -34,6 +34,8 @@ Termix is light. Idle it uses about 190 MB of RAM and almost no CPU, so for most
 | Up to 5,000 | 2 cores | 2 GB | 10 GB |
 | More | 4 cores | 4 GB | 20 GB |
 
+Each plugin runs in its own process, about 50 to 80 MB while it runs. Most stop after 10 idle minutes and start again when something needs them, so only plugins with work to do stay up: sign in and connect plugins, and plugins watching or polling something you set up. The plugins page shows what each one uses. With every plugin on and nothing set up, the server sits at about 2.3 GB; with the default plugins it needs far less.
+
 Add a core and 1 GB if you use remote desktop a lot, since Termix draws those sessions itself. Plugins that keep history, like Host Metrics and Session Recording, use more disk the longer you keep data. See [benchmarks](/install/benchmarks) for the measured numbers.
 
 The image runs on `linux/amd64` and `linux/arm64`.
