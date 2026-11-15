@@ -68,6 +68,7 @@ How it works:
 - In the desktop app, the system's sandbox: each plugin runs on the app's own copy of Node (the same version as the server image, checked before it starts) with the same rules as on a server, inside the operating system's sandbox. On Windows that is an AppContainer and a job object, on macOS a Seatbelt profile, on Linux Landlock and seccomp. It can't read your files or the app's database, write outside its own folder, start programs or connect out without the grant, and it is stopped above its memory limit.
 - Sandboxed screens: a plugin's screens run in sandboxed frames with no access to your login, the rest of the page or other plugins. Each frame can only call its own plugin, with a short key that ends with your session. A frame loads nothing from other sites (pictures come through the server), and it can only cover the screen, open a link, start a download or revoke your API keys right after you used it.
 - Sealed per plugin: what a plugin seals with `ctx.secrets.seal` uses a key of its own, so another plugin can't open it.
+- In the phone app, sandboxed web views: plugins without a phone version run their screens in a sandboxed web view, and every request they make goes through the same list of checks as a frame on the web.
 - Limits: a plugin process that crashes, hangs or uses too much memory or CPU is restarted, and marked failed if it keeps crashing.
 
 Limits you should know:
@@ -113,6 +114,7 @@ Most past advisories fell into a few groups. Each one now has a fix that covers 
 
 - Every official plugin is signed with a key that an offline Termix root key vouches for. Termix checks the signature, the key's certificate and a signed revocation list before it installs or updates a plugin. See [Signing keys](/install/signing-keys).
 - New plugin releases are rebuilt from their tag on a clean machine, and only a byte for byte match is listed in the registry.
+- Termix also checks each registry plugin against the build provenance its release workflow signed, and stops the install when they don't match.
 - Docker images are reproducible: anyone can rebuild a release and get the same files. See [Rebuild the image yourself](/install/verify#rebuild-the-image-yourself).
 - Each core release has a signed `SHA256SUMS` file and build provenance for every file. Docker images are signed with cosign and carry provenance and an SBOM.
 - The desktop app installs an update only after both the Sigstore signature and the release key signature check out.

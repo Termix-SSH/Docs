@@ -98,6 +98,8 @@ Your backend runs in its own Node process (plugin API 2). `ctx` works the same, 
 
 A plugin with nothing in that block, no services and no listeners starts on its first request and stops after 10 idle minutes. Test with `createMockCtx({ sandbox: true })`, which applies the same rules.
 
+A job shorter than the idle time keeps the process running. If your short jobs often have nothing to do (watches nobody set up), call `ctx.schedule.keepAwake?.(reason, awake)` (plugin API 2.8) with `true` while there is work and `false` when there is none. Once you call it, your short jobs run only while the process runs, and Termix starts it at boot again if it had work when Termix last stopped.
+
 ## Moving from API 1
 
 Plugin API 1 ran inside the server. From Termix 26.11.2 nothing runs that way, so a plugin made for API 1 stays off until it has a version made for API 2. The plugins page names each one, and before an update it also names the plugins the new version won't run.

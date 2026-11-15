@@ -26,7 +26,21 @@ What you register reaches Termix as data:
 - A popover or menu can't leave its frame. Keep menus in tabs and panels, not in small slots.
 - A component in another plugin's slot sizes itself the way that slot's owner says: `declareActionSlot({ id, accepts, fit })` with `fit` `"inline"` (as wide and tall as the content, for row items and badges), `"content"` (full width) or `"fill"` (the whole box). Without a `fit`, Termix guesses from the slot id. A `fallback` element the owner passes in stays outside the frame and shows while your component draws nothing.
 
-Not available in a frame: host badges with a `component` (use `useDot`), host status indicators, host editor toolbar items, `useShell`, and other plugins' components through `usePluginComponent`, `useExtensions` or `useSlotContributions`.
+Not available in a frame: host badges, host status indicators and host editor toolbar items with a `component`. Give them `useDot` or `useValue` instead: `useValue` returns a plain value (bars, a stat, a badge, a dot or text) that Termix draws, and it runs in your background frame once per row on screen.
+
+- `useShell()` in a frame is read only: the open tabs, the active tab, split summaries, the user and whether it is a phone. `tabs.setActive` works right after the person used your frame.
+- A background frame keeps running only while something needs it: a value in use, an action, a view of your plugin or live work it started in `activate` (timers, sockets, subscriptions). Otherwise it stops after 3 idle minutes and Termix answers from what it remembered.
+- To make someone prove a second factor, call `app.stepUp()`. Termix shows its own prompt and your frame only gets `true` or `false`.
+
+## Other plugins' parts
+
+A frame can show other plugins' parts: a slot you declared, an id under your own plugin id, or any id listed in manifest `contributes.uses`. Read them as always, with `useSlotContributions`, `ComponentSlot`, `useExtensions`, `getExtension`, `usePluginComponent` or `PluginComponent`. Each one is a placeholder: Termix draws the other plugin's own frame over that spot, clipped to yours. You never get a handle on it and it never learns about you. Draw it with `ForeignSlot` from the UI kit to set a class, a style or `interactive={false}`.
+
+## What needs a click
+
+A frame can't act on its own for things that reach outside it. A background frame shows a dialog over the whole app only right after the person ran one of your actions, palette entries, keybindings or slot buttons. Opening a link, the clipboard and revoking API keys need a click in your frame just before, and a download one in the last two minutes.
+
+Nothing in a frame loads from another site. Pictures, video and fonts come from your own assets, `data:` or `blob:` URLs. For a picture from elsewhere, fetch `/plugins/<your id>/image?url=<address>` (needs `network:outbound` or `network:sockets`) and show the blob.
 
 ## Network and data
 
