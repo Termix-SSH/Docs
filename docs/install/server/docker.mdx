@@ -94,6 +94,53 @@ See [backup and restore](/install/backup) for how to back it up.
 
 If you run your own guacd for remote desktop instead, see [External guacd](/plugins/remote-desktop#external-guacd-optional). Don't publish its port.
 
+## Harden the container
+
+From Termix 26.11.2 the container works with every Linux capability dropped and on a read-only root filesystem. Add this to the `termix` service:
+
+```yaml
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - DAC_OVERRIDE
+      - FOWNER
+      - SETUID
+      - SETGID
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+```
+
+The container starts as root only to give `/app/data` to `PUID` and `PGID` and then runs as that user. The five capabilities above are what that step needs: changing file owners and switching user.
+
+For the strictest setup, run it as a fixed user on a read-only root filesystem and drop `cap_add`:
+
+```yaml
+    user: "1000:1000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+```
+
+The data volume must already belong to that user. For a named volume, run this once:
+
+```bash
+docker run --rm -v termix-data:/data alpine chown -R 1000:1000 /data
+```
+
+Notes:
+
+- `/tmp` must be writable. nginx keeps its config and temp files there, and on a read-only root filesystem Termix copies the web UI there at start (so `BASE_PATH` still works).
+- Everything Termix keeps stays in `/app/data`.
+- Ping (used by the Uptime plugin) needs no capability. It uses unprivileged ICMP sockets, which Docker and Podman allow by default through `net.ipv4.ping_group_range`.
+- The health check runs `node` inside the container. The image has no curl or wget.
+
 ## Update
 
 ```bash

@@ -15,6 +15,8 @@ on:
         type: boolean
         default: false
 
+permissions: {}
+
 concurrency:
   group: sync-sponsors
   cancel-in-progress: false
@@ -22,27 +24,60 @@ concurrency:
 jobs:
   sync:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    environment: ci
+    permissions:
+      contents: read
     steps:
       - name: Checkout docs
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: docs
+          persist-credentials: false
 
-      - uses: actions/setup-node@v7
+      # The App token only covers the Termix-SSH repos in sponsor-targets.json.
+      # The App can't reach LukeGus/LukeGus, which uses PROFILE_README_TOKEN
+      # (contents on that one repo only).
+      - name: Target repos
+        id: targets
+        run: |
+          repos=$(jq -r '.repos[].repo | select(startswith("Termix-SSH/")) | ltrimstr("Termix-SSH/")' \
+            docs/scripts/sponsor-targets.json | paste -sd, -)
+          echo "repos=$repos" >> "$GITHUB_OUTPUT"
+
+      - name: App token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.CI_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CI_APP_PRIVATE_KEY }}
+          owner: Termix-SSH
+          repositories: ${{ steps.targets.outputs.repos }}
+          permission-contents: write
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: "docs/.nvmrc"
 
       - name: Clone every target repo
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
+          ORG_TOKEN: ${{ steps.app.outputs.token }}
+          PROFILE_TOKEN: ${{ secrets.PROFILE_README_TOKEN }}
         run: |
           set -euo pipefail
           mkdir -p repos
           for r in $(jq -r '.repos[].repo' docs/scripts/sponsor-targets.json); do
             dir="repos/${r/\//__}"
+            if [ "${r%%/*}" = "Termix-SSH" ]; then
+              token="$ORG_TOKEN"
+            elif [ -n "$PROFILE_TOKEN" ]; then
+              token="$PROFILE_TOKEN"
+            else
+              echo "::warning::No PROFILE_README_TOKEN, skipping $r"
+              continue
+            fi
             echo "cloning $r"
             git clone --depth 1 --quiet \
-              "https://x-access-token:${GH_TOKEN}@github.com/${r}.git" "$dir"
+              "https://x-access-token:${token}@github.com/${r}.git" "$dir"
           done
 
       - name: Rewrite sponsor blocks
@@ -53,7 +88,6 @@ jobs:
       - name: Commit and push each changed repo
         if: ${{ !inputs.dry_run }}
         env:
-          GH_TOKEN: ${{ secrets.TERMIX_PAT }}
           CHANGED: ${{ steps.sync.outputs.changed_repos }}
         run: |
           set -euo pipefail
@@ -77,13 +111,18 @@ jobs:
           done
 
       - name: Report
+        env:
+          CHANGED: ${{ steps.sync.outputs.changed_repos }}
+          CHANGED_COUNT: ${{ steps.sync.outputs.changed_count }}
         run: |
-          echo "### Sponsor sync" >> "$GITHUB_STEP_SUMMARY"
-          if [ -z "${{ steps.sync.outputs.changed_repos }}" ]; then
-            echo "All readmes already up to date." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Updated ${{ steps.sync.outputs.changed_count }} file(s) in:" >> "$GITHUB_STEP_SUMMARY"
-            for r in ${{ steps.sync.outputs.changed_repos }}; do
-              echo "- $r" >> "$GITHUB_STEP_SUMMARY"
-            done
-          fi
+          {
+            echo "### Sponsor sync"
+            if [ -z "$CHANGED" ]; then
+              echo "All readmes already up to date."
+            else
+              echo "Updated $CHANGED_COUNT file(s) in:"
+              for r in $CHANGED; do
+                echo "- $r"
+              done
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

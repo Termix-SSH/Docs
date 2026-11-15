@@ -73,7 +73,7 @@ Every official plugin has a `tests/frontend/activate.test.tsx` built on it.
 
 ## What to test
 
-- Every route, including what happens without permission.
+- Every route, including what happens without permission. Give it an entry in [`authz.json`](./authorization-table.md) too.
 - That your plugin works when an optional dependency is missing.
 - That disable and enable again works.
 - Migrations: `createTestDb` applies them, so a broken one fails your tests.

@@ -59,7 +59,7 @@ It writes a summary with links to your source at the tag, what changed since you
 
 Every version is reviewed. Release the new version, then open a PR that adds it to the top of `versions`. Only a maintainer listed in the file can do that. Betas (`X.Y.Z-beta.N`) can be submitted the same way.
 
-A listed version can't be swapped for another file. If you overwrite a release after it was reviewed, it drops out of the registry until you submit a new version.
+A listed version can't be swapped for another file. Releases are immutable, so a fix always ships as a new version that you submit again.
 
 ## What reviewers check
 

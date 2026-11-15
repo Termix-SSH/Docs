@@ -3,6 +3,8 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebars: SidebarsConfig = {
   docs: [
     "intro",
+    "security",
+    "roadmap",
     {
       type: "category",
       label: "Install",
@@ -39,6 +41,8 @@ const sidebars: SidebarsConfig = {
         },
         "install/first-run",
         "install/updating",
+        "install/verify",
+        "install/signing-keys",
         "install/backup",
         "install/benchmarks",
       ],
@@ -55,6 +59,7 @@ const sidebars: SidebarsConfig = {
         "configure/trusted-proxy-login",
         "configure/hosts-config-file",
         "configure/security",
+        "configure/recovery",
         "configure/betas",
       ],
     },

@@ -67,7 +67,7 @@ The address, username, password and one time code fields work with Apple Passwor
 
 After you sign in with a password, the app asks once whether to keep it behind Face ID, Touch ID or your fingerprint. If the server signs you out later, tap Sign in with Face ID instead of typing the password. The password stays on the phone, locked to your biometrics. Adding a new fingerprint removes it. Turn it off under Settings, Sync.
 
-App Lock (Settings, Security) is separate: it locks the whole app.
+App Lock (Settings, Security) is separate: it locks the whole app. While it is on, the key to the data kept on this phone is locked by your PIN and biometrics, so the data opens only after you unlock. After five wrong PINs the app waits 30 seconds, also if you close it. If you add a new fingerprint or face, unlock with the PIN once and biometrics work again. A linked server's copy can still sync in the background while the app is locked, since it only holds what is on that server.
 
 ## SSO
 

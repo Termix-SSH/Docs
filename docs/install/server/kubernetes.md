@@ -124,3 +124,32 @@ Set `TRUSTED_PROXIES` to your ingress controller's pod range so logs and the aud
 ## Secrets
 
 By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/configure/security#keys).
+
+## Harden the pod
+
+From Termix 26.11.2 the pod can run as a fixed user with every capability dropped and a read-only root filesystem. Add this to the `termix` container and give it a writable `/tmp`:
+
+```yaml
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+      securityContext:
+        fsGroup: 1000
+        sysctls:
+          - name: net.ipv4.ping_group_range
+            value: "0 2147483647"
+      volumes:
+        - name: tmp
+          emptyDir: {}
+```
+
+`fsGroup` makes the data volume writable for that user. The `ping_group_range` sysctl lets the Uptime plugin ping without a capability; it is a safe sysctl, so no cluster setting is needed. See [harden the container](/install/server/docker#harden-the-container) for what each part does.

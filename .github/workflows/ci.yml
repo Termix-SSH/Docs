@@ -5,18 +5,35 @@ on:
   push:
     branches: [main, "dev-*"]
 
+permissions: {}
+
 jobs:
   build:
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: ".nvmrc"
           cache: npm
 
-      - run: npm ci
+      - name: Lockfile lint
+        uses: Termix-SSH/Termix-Registry/.github/actions/supply-chain@main
+        with:
+          osv: "false"
+          aliases: >-
+            ajv:@redocly/ajv
+            react-helmet-async:@slorber/react-helmet-async
+            react-loadable:@docusaurus/react-loadable
+
+      # No install scripts. postman-code-generators would run npm install for
+      # each code generator, and none of them need it for the docs.
+      - run: npm ci --ignore-scripts
       - run: npm run typecheck
       - run: npm run format:check
       - name: Build

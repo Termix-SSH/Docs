@@ -91,11 +91,13 @@ termix api-keys create --name "CI deploy" --user <userId> --expires-at 2027-01-0
 termix api-keys revoke <keyId>
 ```
 
-| Option                | What it does                         |
-| --------------------- | ------------------------------------ |
-| `--name <name>`       | Name for the key. Required           |
-| `--user <userId>`     | The user the key acts as. Required   |
-| `--expires-at <date>` | Expiry date. Leave off for no expiry |
+| Option                | What it does                                                             |
+| --------------------- | ------------------------------------------------------------------------ |
+| `--name <name>`       | Name for the key. Required                                               |
+| `--user <userId>`     | The user the key acts as. Required                                       |
+| `--expires-at <date>` | Expiry date. Leave off for the server's default, 90 days                 |
+| `--never-expires`     | Make a key that never expires                                            |
+| `--scope <scope>`     | `read`, `actions-read`, `actions-run` or `full`. Leave off for read only |
 
 :::warning
 The key is printed once when you create it and cannot be shown again. Copy it straight away. If you lose it, revoke it and make another.
