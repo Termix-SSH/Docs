@@ -6,9 +6,16 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.4.0"
+plugin_version: "1.4.1"
 plugin_latest: true
 ---
+## 1.4.1
+
+### Fixed
+
+- RDP sessions to Windows no longer drop with "rfx progressive decode failed" when the screen shows a wallpaper, the Start menu or images
+- Updated Rust crates in the built in engine to releases with security fixes
+
 ## 1.4.0
 
 ### Added
