@@ -18,7 +18,7 @@ Click a plugin to see its page: what it does, what it can do on your server, its
 
 ## Install
 
-Press Install. Termix shows what the plugin can do, worst first, before it installs. Read it. A plugin runs in its own process, and it can only do what those [capabilities](/develop/reference/capabilities) allow. See [how plugins are fenced in](/security#plugin-sandbox).
+Press Install. Termix shows what the plugin can do, worst first, before it installs. Read it. A plugin runs in its own process, and it can only do what those [capabilities](/develop/reference/capabilities) allow. See [how plugins are fenced in](/security/plugin-sandbox).
 
 If the plugin needs another plugin, Termix installs that too.
 

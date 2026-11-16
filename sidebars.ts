@@ -3,7 +3,6 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebars: SidebarsConfig = {
   docs: [
     "intro",
-    "security",
     "roadmap",
     {
       type: "category",
@@ -41,8 +40,6 @@ const sidebars: SidebarsConfig = {
         },
         "install/first-run",
         "install/updating",
-        "install/verify",
-        "install/signing-keys",
         "install/backup",
         "install/benchmarks",
       ],
@@ -58,8 +55,6 @@ const sidebars: SidebarsConfig = {
         "configure/desktop-sync",
         "configure/trusted-proxy-login",
         "configure/hosts-config-file",
-        "configure/security",
-        "configure/recovery",
         "configure/betas",
       ],
     },
@@ -97,6 +92,20 @@ const sidebars: SidebarsConfig = {
         "guide/users",
         "guide/roles",
         "guide/audit-log",
+      ],
+    },
+    {
+      type: "category",
+      label: "Security",
+      link: { type: "doc", id: "security/index" },
+      items: [
+        "security/your-server",
+        "security/data-and-keys",
+        "security/plugin-sandbox",
+        "security/verify",
+        "security/signing-keys",
+        "security/recovery",
+        "security/advisories",
       ],
     },
     "privacy",

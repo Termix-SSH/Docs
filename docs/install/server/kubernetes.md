@@ -123,7 +123,7 @@ Set `TRUSTED_PROXIES` to your ingress controller's pod range so logs and the aud
 
 ## Secrets
 
-By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/configure/security#keys).
+By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/security/data-and-keys#keys).
 
 ## Harden the pod
 
