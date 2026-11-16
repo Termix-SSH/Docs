@@ -3,10 +3,9 @@ import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import Sponsors from "../components/sponsors";
 import { PLUGINS } from "../components/plugins/data";
+import overviewVideo from "@site/src/data/overview-video.json";
 
 import styles from "./index.module.css";
-
-const OVERVIEW_VIDEO = "vhtkP-UqV5U";
 
 const PARTS = [
   {
@@ -81,7 +80,7 @@ export default function Home(): ReactNode {
           </div>
           <div className={styles.video}>
             <iframe
-              src={`https://www.youtube-nocookie.com/embed/${OVERVIEW_VIDEO}?rel=0`}
+              src={`https://www.youtube-nocookie.com/embed/${overviewVideo.id}?rel=0`}
               title="Termix overview video"
               loading="lazy"
               allow="encrypted-media; picture-in-picture; fullscreen"
