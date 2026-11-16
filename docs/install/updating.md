@@ -13,7 +13,18 @@ Back up your data first. See [backup and restore](/install/backup).
 
 Then open the Plugins tab. When a newer Termix is out, it names every installed plugin that won't run on it, so you can update those first.
 
-From 26.11.2 every plugin runs in its own process. Plugins made for plugin API 1 stay off until they are updated.
+### Moving to 26.11.2
+
+From 26.11.2 every plugin runs in its own process. Plugins made for plugin API 1 stay off until they are updated, and the new plugin versions only install on 26.11.2 or newer. So for this update, the order is the other way round:
+
+1. Update Termix first.
+2. Plugins that ship with your image come up on their new versions by themselves.
+3. Open the Plugins tab. It names every plugin that is still off. Press Update all under Updates to bring back the official ones you installed yourself. Plugins with auto update on do this on their own within a few minutes.
+4. A community plugin stays off until its author ships a version for plugin API 2.
+
+Each running plugin now uses its own memory, about 40 to 60 MB. Plugins that only serve pages stop when idle. The Plugins tab shows the total, and [benchmarks](/install/benchmarks) has numbers for each image.
+
+The example compose file also changed: it drops capabilities the server doesn't need and can run read only. Your old compose file keeps working. See [Docker](/install/server/docker) if you want the tighter setup.
 
 ### Docker
 
