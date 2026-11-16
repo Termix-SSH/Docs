@@ -8,7 +8,9 @@ description: What to turn on in your own Termix, and how sessions, alerts and th
 ## Do these first
 
 - Serve Termix over HTTPS. See [reverse proxy](/configure/reverse-proxy) or [HTTPS](/configure/https).
-- Turn off Allow User Registration unless you want strangers to make accounts.
+- Turn off Allow User Registration unless you want strangers to make accounts. Use [invite links](/guide/users#invites) instead.
+- Give people the least they need. Use a [role](/guide/roles) like Helpdesk or Auditor instead of making them an admin, and [turn off accounts](/guide/users#disable) of people who leave.
+- Check [access review](/guide/access-review) now and then for shares nobody needs any more.
 - Turn on a second factor with the [TOTP](/plugins/totp) or [Passkeys](/plugins/webauthn) plugin.
 - Back up the data folder and keep the backup private. It holds the keys.
 - Only install plugins you trust. Read what a plugin can do before you install it.

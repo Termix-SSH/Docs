@@ -5,7 +5,7 @@ description: See who did what, and send it to a SIEM.
 
 # Audit log
 
-The audit log records sign ins, changes to hosts, credentials, users and roles, plugin installs, and what plugins do with sensitive access. Admins read it in Settings, Audit log.
+The audit log records sign ins, changes to hosts, credentials, users and roles, plugin installs, and what plugins do with sensitive access. Admins read it in Settings, Audit log, and so does any [role](/guide/roles) with `admin.audit.view`, like the ready made Auditor role.
 
 ## Search it
 

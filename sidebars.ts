@@ -91,6 +91,7 @@ const sidebars: SidebarsConfig = {
         "guide/admin-settings",
         "guide/users",
         "guide/roles",
+        "guide/access-review",
         "guide/audit-log",
       ],
     },

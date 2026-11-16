@@ -14,6 +14,7 @@ Admins see a This server group in Settings.
 | Users         | See [users](/guide/users).                                                                                                                 |
 | Sessions      | Every signed in session. Sign any of them out.                                                                                             |
 | Roles         | See [roles](/guide/roles).                                                                                                                 |
+| Access review | Every host, folder and credential share. See [access review](/guide/access-review).                                                        |
 | Host defaults | The server level of [host defaults](/guide/host-defaults), and Predefined host tags, the tags users see as suggestions in the host editor. |
 | Branding      | Your own name, tagline and logo.                                                                                                           |
 | Database      | Export and import the whole database.                                                                                                      |
@@ -37,6 +38,13 @@ Admins see a This server group in Settings.
 | Trust new host keys without a prompt          | When a plugin, schedule or the API connects to a host whose key was never checked, save that key and connect. Off by default. See [host keys](/guide/hosts#host-keys). |
 
 Some of these can be set with [environment variables](/configure/environment-variables) instead. When one is set, it wins.
+
+## Accounts and access {#accounts-and-access}
+
+| Setting                            | What it does                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Admins can open every user's hosts | On by default. Admins see every user's hosts, can connect to them and can open other users' hosts and credentials from their user page. Each use is in the audit log. Turn it off so admins only see what is shared with them, like on a family server. Turning it back on waits out the [admin wait](/security/your-server#admin-wait) when one is set. |
+| Approve new SSO accounts           | Someone who signs in through SSO or LDAP for the first time waits until an admin approves the account. See [users](/guide/users#approval).                                                                                                                                                                                                               |
 
 ## Branding {#branding}
 
