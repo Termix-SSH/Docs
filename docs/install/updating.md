@@ -22,7 +22,7 @@ From 26.11.2 every plugin runs in its own process. Plugins made for plugin API 1
 3. Open the Plugins tab. It names every plugin that is still off. Press Update all under Updates to bring back the official ones you installed yourself. Plugins with auto update on do this on their own within a few minutes.
 4. A community plugin stays off until its author ships a version for plugin API 2.
 
-Each running plugin now uses its own memory, about 40 to 60 MB. Plugins that only serve pages stop when idle. The Plugins tab shows the total, and [benchmarks](/install/benchmarks) has numbers for each image.
+Each running plugin now uses its own memory, about 70 to 110 MB. Plugins that only serve pages stop when idle. In our test a default install used about 450 MB idle before and after the update, and about 950 MB for the first few minutes after a start, so give a 1 GB server more memory or swap first. The Plugins tab shows the total, and [benchmarks](/install/benchmarks) has numbers for each image.
 
 The example compose file also changed: it drops capabilities the server doesn't need and can run read only. Your old compose file keeps working. See [Docker](/install/server/docker) if you want the tighter setup.
 
