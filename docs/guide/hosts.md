@@ -111,7 +111,7 @@ See [desktop sync](/configure/desktop-sync).
 
 ## Connect
 
-Click a host in the sidebar. What opens depends on its plugins, usually a terminal. The host's buttons and menu have every action, like the file manager or Docker. Change which actions show as buttons in the Hosts panel settings, under Connect bar.
+Click a host in the sidebar. What opens depends on its plugins, usually a terminal. The host's buttons and menu have every action, like the file manager or Docker. Change which actions show as buttons in Settings, Host list, under Connect bar.
 
 ## Host keys {#host-keys}
 
