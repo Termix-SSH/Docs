@@ -997,6 +997,28 @@ function youtubeId(url) {
   );
 }
 
+/** The core README's overview video, which the Videos workflow keeps current on main. */
+async function syncOverviewVideo() {
+  const text = await (
+    await get(
+      `https://raw.githubusercontent.com/${CORE_REPO}/main/README.md`,
+      "text/plain",
+    )
+  ).text();
+  const link = text.match(
+    /<a href="([^"]+)"><img src="\.\/\.github\/readme\/overview\.jpg"/,
+  )?.[1];
+  const id = youtubeId(link);
+  if (!id) {
+    console.warn("core README has no overview video, keeping the old one");
+    return;
+  }
+  write(
+    path.join(OUT.data, "overview-video.json"),
+    JSON.stringify({ id }, null, 2),
+  );
+}
+
 /** One sidebar per plugin version, made from the pages written for it. */
 function writeSidebars(plugins) {
   const sidebars = {};
@@ -1090,6 +1112,7 @@ async function main() {
   console.log("core");
   const core = await syncCore();
   await syncReleases();
+  await syncOverviewVideo();
 
   console.log("plugins");
   const index = await readJson(args.registry);

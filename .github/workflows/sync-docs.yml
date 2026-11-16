@@ -1,12 +1,12 @@
 name: Sync Docs
 
 # Pulls every official plugin's docs (latest from main), the API specs, the env
-# var list and the app downloads, then commits what changed. The push
-# redeploys the site.
+# var list, the app downloads and the overview video, then commits what
+# changed. The push redeploys the site.
 
 on:
   repository_dispatch:
-    types: [registry-updated, core-released]
+    types: [registry-updated, core-released, overview-video]
   schedule:
     - cron: "23 4 * * *"
   workflow_dispatch:
