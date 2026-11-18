@@ -62,7 +62,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |

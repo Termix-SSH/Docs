@@ -88,11 +88,11 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `desktop:local` | High | Use this computer. Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |

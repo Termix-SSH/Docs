@@ -64,11 +64,11 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `desktop:local` | High | Use this computer. Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |

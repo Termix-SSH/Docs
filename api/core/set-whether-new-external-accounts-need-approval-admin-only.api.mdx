@@ -1,0 +1,68 @@
+---
+id: set-whether-new-external-accounts-need-approval-admin-only
+title: "Set whether new external accounts need approval (admin only)"
+description: "When on, someone signing in through SSO or LDAP for the first time gets an account that stays off until an admin approves it."
+sidebar_label: "Set whether new external accounts need approval (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU2P2zYQ/SuDObUAV062HwfdnC900wJd1A4WxcIoaGpscS2RCjmyVxH834sh/ZXd7CGn+GDL5BvyzZuZpxEriibYjq13WOJdTQ68UxB9S94RRLt21q3BOuA6+H5dw2z2N/gAf72b3sLKB+CaYGVDZGDbEqyJI2gH2hjfOwauNUNkPUTwqxX0jm2T9qvWOtBdF/yWIlguUCHrdcTyHj9FChEXCgN97inyG18NWI7prw1UYcmhJ4XGOybHsqW7rrFGSyKThyjZjBhNTa2WJx46whL98oEMo8Iu+I4CW4qyS04vGzn1BFx635B2uE8f4RE772KGX796JT9fSzcjZlEq6i1VBe4V/vot2OEqaPvIsCSQPETOlW4iHcJ+eR42zWoZQzHCUYUE/+1bt3zQVi5hn+ikEsXMr0BJpyWufYUldppNLXporrHESS/CT+iRKTjdXEn5++4qV0k3qDBS2EptyvsR+9BgiWNe2qN6QuJf3weYU2jtI2QMKtzqYEWBJORhNdFf6b5hLLFm7mI5mXAKLOhRt11DhfGtFGMhDEwfLA+JwpJ0oDDthf39Yq9GNN5vLF2u6M7+ScNp5eKImfRHpnJ50KkLhIvknGDSFQmE6vDwwYdWC+ePd/Nn2c8oRusdsN+Qg0iO8xARyCU+2C+pV6EmXVEAHeFNOhS0qxIsBaYSX6Z04pazQoVWbssQVOh0Yvqw4xcZfbybQ8ZLU4CMp127K+sKSPPfBRK6CiwD6w1FWTFUkTMEfkvhxSwS20u5v1vJ6e0NbGgQwwhpnHaWa+D28b9n6Zyg3y/thgYFu9qaOl8Uz9cUcMOgjXhYPGLB79wh2mjnfALIvnaDmCTl0d0rFOP552xZ73PzfmUxMvB7qdrKJ30sCwAPczK9vZEhoRBzkte/F69fF9fPkp/XBMYHgnNcAe+1qaFr+rV1UHnTt+RYnDVKAhB8zxRTiTofudXJIg/9MiOGXU1cUwBHOzg6wNHGIziiCo5GAD9l+/auGX5+Sm482/KPf6Hk9mN65EnXaOsk/eRb48Hz7jF5Hip80fUWCmsfWbDjuNSRPoVmv5flzz0FMaLF2diy62DuveRRGxqwxLdZk6u5MBJ40+cxfvLaEn862fPtdP72D5mSw/uv9ZUEBb1Dlb5LRIU+CZ9sLK2N2Gi37vU6OUE6VD7/A0pSwZo=
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set whether new external accounts need approval (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/external-signup-approval"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+When on, someone signing in through SSO or LDAP for the first time gets an account that stays off until an admin approves it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Setting saved."},"400":{"description":"enabled must be true or false."},"403":{"description":"Admin access required."},"500":{"description":"Failed to save the setting."}}}
+>
+  
+</StatusCodes>
+
+
+      

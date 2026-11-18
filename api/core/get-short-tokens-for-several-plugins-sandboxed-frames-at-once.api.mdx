@@ -1,0 +1,69 @@
+---
+id: get-short-tokens-for-several-plugins-sandboxed-frames-at-once
+title: "Get short tokens for several plugins' sandboxed frames at once"
+description: "The same as /plugins/{id}/frame-token for a list of plugins, so a page load asks once instead of once per plugin. Plugins that are not running with framed views are left out of the answer."
+sidebar_label: "Get short tokens for several plugins' sandboxed frames at once"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v40YM/SsEL70o9iYoetAtW2wX2QJt0KQICtcoaIm2JpZmtEMqjiv4vxecUWxv0j3sdXWxRfGbj48j1ixVdL264LHE+4ZBqGMggXnfDhvnZT66+jBfR+r4QsOWPaxDBILWiUJYw6RWgAQg6GnD0AaqgWQrEHzF4LwoU23K6b3nOFnN4DZbgzakQJHBB4U4eO/8BnZOG0iRa3hyvJOk0fJaIQwpuDYM5GXHcfa3xwKVNoLlAie3uCww8ueBRd+Heo/lmF5d5BpLjQMXWAWv7NU+Ud+3riLrxfxRrCEjStVwR/ZP9z1jiWH1yJViceZoga5OofoYeo7qWMzAhCc7ipH2WKBT7s7lotH5DR7yY26lD16yi6t37+znyyFdQx4D+RqasIOO/B6Eq+BrAafQkqgUZ10GV8/wUOCP/+fNmZGktr+eKbhaJsPLt4a/BQVxG881OJ9HRSAs4oKfoZXSsTahxhL7INaxnrTBEo/AOsOUYIHC8YmjjW/EIbZY4phFByxexf4rDBHuOXbuGbIOFvhE0dGqzZ2bpCnrNQ2tYomNai/lfK7JcMbP1PUtz6rQWfuXlkE1RKf7lMKKKXK8HiznxfJQjFiFsHV8LqHe/cr7o+TMxZ3hJqdy7ug4dsvFak5qWE5KWEx/fgmxI8v508P9m+rvcpMnGAh7tQnYKliQEN2/CcPQMNUcbZffJ6cJMaaWDNNkz0s6QTVVZVi1aFkFC/SUMn3c6Vcz+vRwD1kfhBUoI+TCFv2hYQ99ZEu3MJgqbVlMUnHNRgvhieNXq0jZnrf7mzt5fXsDW96DKEU9sot2z/+8Keeo+u2t3fK+gF3jqiYHklOYGdwoUKViZpMuhJ2frCvyaQkrte/k98EzcCucl8kI6Y8TlX3I4D3yzOKFSJYHm9s6pA45NRWcNuX69sbWhKPkMq9+ml1ezq7elG9XoAqR4WQ3gw9UNS+8UIdq6Nir0Y1YCRDDoJzJwpa9o0SeE2I+soI0IWoGnqQDIvzEkdqX8/EDCPl6FZ65zowvhh47F6/TG0+U/R3cq4xh5Wed9y05bx1M5DdOdLnAKWEs8AvCXBbYGK+WCxzHFQn/GdvDwcSfB47GYcsTJ2bCwgzbRG9b3mOJP+dWXtxbHqbeDpkBXl1Co7Yjnd/+fmektJouahdqs4m0s6tIOywRCwxpXIkAk2zElvxmoE3ikOTTnv8AYgT1+w==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get short tokens for several plugins' sandboxed frames at once"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/frame-tokens"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The same as /plugins/\{id\}/frame-token for a list of plugins, so a page load asks once instead of once per plugin. Plugins that are not running with framed views are left out of the answer.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["ids"],"properties":{"ids":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A token and how many seconds it lasts, per plugin id."},"400":{"description":"ids is not a list of plugin ids."},"401":{"description":"Not signed in with a session."}}}
+>
+  
+</StatusCodes>
+
+
+      

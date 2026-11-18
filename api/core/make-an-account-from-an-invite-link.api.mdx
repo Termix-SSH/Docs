@@ -1,0 +1,70 @@
+---
+id: make-an-account-from-an-invite-link
+title: "Make an account from an invite link"
+description: "Public. Works even when sign up is off. The new account gets the invite's roles, then signs in like any other."
+sidebar_label: "Make an account from an invite link"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVW1v20YM/isEv3QDVLkNugHTt3RogXQYFjQOgiEwhrNEWxdLd+qRsuMJ/u8F7+SXxkmBfqq+2McjeQ/fHg5YEZfBdmK9wwKv+3ljyxzufFgx0JocbGpywHbpoO/AMvjFIodpTeBoA6Ysfe8EliQMUhNYt7ZCrxiCb4gzlSVrBuugsSsC47bgpaaQY4ZilozFPd4yBcZZhp0JpiXRU3E/oFVUnZEaM3SmJSxQ/IocZhjoS28DVVhI6ClDLmtqDRYDyrZTRZZg3RJ3u1lSJpb3vtqqxlPb0jshJ3pluq6xpdGETB5YszKcu/bzByoFM+yC7yiIJdbbnikklGcgNDLmjQ/Vcwj1U5DcecfJ18WbN/rzbX0ux3y3pqJcnb57TuvKrU1jK9jDAR9g//po9e7canooH5TGvRKYk3rYW/xxbnG792+aQKbaAj1aFo4Gvz0H7KOxDVUgHlqzotgwYwflqAloSWpfacU9x+xq4QucaCA8SeB4EqgiaidDbITdxJQldarNFNb7vulDgwUOSbTD7AmQf30fYEqhtY+QdDDDtQnWzJuU/lEaQ1iYvhEssBbpuJhMJBrm9GjarqG89K2WcKYIyj5Y2UYIczKBwmWvIdzPdtmApfcrS6cS09m/aHuQnLi40ZZLUE4dHVpHseDY9HpOSpiNfz760BrF/Oluehb9DTFb7yAmEJic6HBqNfQRH+z/sf2hJlNRAMPwPjoF46qoFg1jmU9DOmBLUWGWpjepHOf3YSMvIvp0N4WkD0wCRiJ3vLYuhztlki6Qws3ACohZEaukpIpcSeDXFF6MIqI9TfcPZ/Ly+gpWtAUWE8S6JWys1CDt439n4RxUfzy1K9pmsKltWaeH+PhMDlcCphRWs1EX/MaN1qVxzkcFvTdu6x0BNUxptpTLPh9Z8ENq3m9Za09Ip2R1wmDWLXxMnBW1xHGALq+vdHoocIr+4vf87dv84iwrSjClDwRHuxw+mLKGrumX1kHly74lJwxWWCOD4HuhRChKCa2JdDyC/dvEbXJYQovgWz2PJNZYt3qKYTgy/U/YdanfhB5l0jXGOg0rEtUwMt19rAXHyYlcF9ecsh1mWOwX30h4swxrpcniHodhbphuQ7PbqfhLT0E5aHbktMhIlWX9X2GxMA3Td3Lzy+dxQf4KLwHfz7rbRupsej1hhivaHpb0brbLMLV6BJDu/kzPvJ6qh6Pt2eJVOjxshOt/bpTI5uMCb32lNsFsNEVmk972MZRImlE2YGPcsjfLyDvRp35fATTsGB8=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make an account from an invite link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/invites/redeem/{token}/accept"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Works even when sign up is off. The new account gets the invite's roles, then signs in like any other.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Account made."},"400":{"description":"Invalid username or password."},"404":{"description":"The invite can't be used."},"409":{"description":"Username already exists."},"500":{"description":"Failed to make the account."}}}
+>
+  
+</StatusCodes>
+
+
+      

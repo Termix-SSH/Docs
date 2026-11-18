@@ -1,11 +1,11 @@
 ---
 id: export-user-data
 title: "Export user data"
-description: "Exports the user's data as a SQLite database file."
+description: "Exports the signed in user's data as a SQLite database file, with saved passwords and keys in plain text. Takes no body."
 sidebar_label: "Export user data"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVVFv20YM/isEX/ZylZui24Pe0i0F0hZotrgIhsAYzhJtXSzdqUcqtif4vw+8U2w3aR86P9gy7yP5kTx+GrEmrqLrxQWPJV7t+hCFQRqCgSn+wlBbsWAZLNz++ckJJcPSMsHKtVSgQbFrxvIe/5gOcGEw0teBWN6Feo/lmP66SDWWEgcyWAUv5EWPbN+3rrJKYPbAymJErhrqrD7JvicsMSwfqBI02MfQUxRHrKe9Zd6GWJ8hWaLzazykj/LgPnjO8DevX+vPtyV/YYq5SErFUw08VBUxr4a23Rd4MPj2e443U3J4Kg5WIU5BJq+Ll17X/tG2roYn6gn56/fiv7eupRokTDHTQBLTArW0jqQJNZbYB06tsdJgibOn+cyyGxpkio8UdUYjDrHFEsdsOqB5lvTvMESYU+zcDjIGDT7a6OyyzU2crInuyg6tYImNSM/lbCbJsaCd7fqWiip0OoiFMqiG6GSfKCzJRoqXg9K9XxzMiFUIG0fnFtu7j7Q/Ws5C3OrdyFTOAx0vgHLRmhMMywmEZnp4H2JnlfOHu/mL6m+J2QUPEjbkgckLOJ+WQZOE6P5N9xQasjVF3Yp3KShYXydYckwjPS/pyC1XhQadZssQNOhtYvqwlR8y+nA3h4wHJgErwG7tXzlfwF1DHvpISteAExC7IVZLRTX5iiA8UvxhFYntebt/upOXN9ewoT2w2CjOr2HrpAHpdv+8KOcI/fnWbmhvYNu4qsmJ+JSmgGsBWwmr24SFsPWTd2W9DwmQdMzvgyeglinvkYrOXye5usqX91t5OcqKjm4VUpOcKAqnZbm8udZNoci50je/FRcXxcWLDswbgipEgpNfAVe2aqBvh7XzUIdq6MgLgxPWKiCGQYjTnHTVO5s0cro0V8+04XnC8aS1/1Pd82UQ2smsb63zyiOpyDhJzj0+OaHBSXQWBhuVpfIex1GPvsT2cFDz14Gi6sDipCt56TGPPknEhvZY4u+Z+au5UlB4O+QtevbGUHk4quHN51td7OX05ulCrT7RbtGk7xLRYEjdSSKSbCO21q8Hu057mGLq5z+rRHe3
+api: eJzFVMFO20AQ/ZXRXHrZOkBpD+6JqiBBK5WKIFShqNqsJ/E29q67MyZJLf97tWsDgZQDp55sjWfmvTeeeR0WxCbYRqx3mOPppvFBGKQkYLt0VIB10DKFNwyFFg2aQcPV969WKAXmmgkWtiIFayslsL6jAhrNvPahYNCugBVtOfZpKm0dCG0kg6leEYPzMPfFNkOFopeM+S1+HpviTGEgbrxjYsw7PDo4iI+nhK+ZwkCMEnUqgFtjiHnRVtU2w17h8cG7/cJpSU90WYbKmxUVH5PwSFcvtXVjh+MXoJ0XWPjWFSnv/b8onmlbUQHiR4oJNoFm2PcKa5LSF5hj41lQYaOlxBwn99OdDGWokCncUYhT6rANFebYDaEe1TPQH74NMKVQ2w0MOajwTger59UwzjGa6C50WwnmWIo0nE8mkgoz2ui6qSgzvsa+72eRgWmDlW2iMCcdKJy0ke7trFcdGu9XlnYjurFfaPsQ2WlxZUqqByq7jTqUbUMjl6g5pWE+JqEaX858qHXkfHEz3VN/RczWOxC/IgdMTuL/jEsdQXywf3TMhJJ0QSHu9KfUNG1rTEuF6ZfuSnrgNqhChTaiDSmo0OnE9NdaXmR0cTOFIR+YBLSkbXtrXQY3JTloAkW6CqyApBNpAhkqyBkCf0fhRRWJ7e64Xz3Jk8vzeKrAooNYtxwOWurNzz05D6mvH+2KtgrWpTXlAMSPMBmcC2gjHMvGXPBrN1Yb7eK5aSPJhdzWOwKqmIY7sm7hk2orVZQ5bv/J5XlcfQo8UD/6kB0eZkd7kqIhGB8IHusyONWmhKZql9ZB4U1bkxMGKxxpQfCtEKfBx9uttYv44xacPjv254DxWpyQk/9su8OOxK+TlBjVJHPpRie6xXtAVDh60UxhGd0qv8Wui5+uQ9X3Mfy7pRDtYfZoN4MXPPrc5berKfb9X6PLPe0=
 sidebar_class_name: "post api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -37,15 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Exports the user's data as a SQLite database file.
-
-<Heading
-  id={"request"}
-  as={"h2"}
-  className={"openapi-tabs__heading"}
->
-  <Translate id="theme.openapi.request.title">Request</Translate>
-</Heading>
+Exports the signed in user's data as a SQLite database file, with saved passwords and keys in plain text. Takes no body.
 
 <ParamsDetails>
   
@@ -53,13 +45,12 @@ Exports the user's data as a SQLite database file.
 
 <RequestSchema
   title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string"}}}}}}}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"User data exported successfully."},"400":{"description":"Password required for export."},"401":{"description":"Invalid password."},"500":{"description":"Failed to export user data."}}}
+  responses={{"200":{"description":"User data exported successfully."},"403":{"description":"The user's data is locked; sign in again."},"404":{"description":"User not found."},"500":{"description":"Failed to export user data."}}}
 >
   
 </StatusCodes>

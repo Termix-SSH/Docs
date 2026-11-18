@@ -1,0 +1,68 @@
+---
+id: set-whether-admins-can-open-other-users-hosts-admin-only
+title: "Set whether admins can open other users' hosts (admin only)"
+description: "Turning it off takes effect at once. Turning it on waits out the admin cooling-off time when that is set."
+sidebar_label: "Set whether admins can open other users' hosts (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20YQ/SuDubQFaMpxPw68OUGCOr0YtQKjMIxitRyJa5G7zM7QskrovwczVGTFcg65lAeJXL7ZfW8+HkesiX0OvYQUscL5kGOIKwgCabkEcWtioOWSvIATSNFTCcegCBsXhCENAtIQuLoLEXxKbYirM9sjdASbhiJI4wQCA5OUWKC4FWN1h5+YMuN9gZk+D8TyNtVbrEZ7DJlqrCQPVKBPUSiKvnJ93wbvlPTsgZX5iOwb6pzeybYnrDAtHsgLFtjn1FOWQKxvKbpFq7segIuUWnIRd3YpD+5T5Al+cX6uf9+m6YZENAPsHqkucVfgxfnFKey1RC1TtkS9TJHt8ttrh+0JQzewwIJAswEpw9K1/DXs19OwS6uE856Y4WsuDf77a6d8cEEPkWSijCJPKkvUpHQkTaqxwt6JbzSrThqscDZo+WZW97MmsZwttr1jxgKZ8qOWtrobccgtVjhOSzssXpz+TxoyzCl34QkmDBb46HJQ6VaH/arxXrqhFaywEem5ms3EAkt6cl3fUulTp7W8VwZ+yEG2RmFBLlO+HJT23f2uGNGntA50vOL68BdtDytHW9xoe01Ujjc6NJFyUc0G06YyEBb7mw8pd045f7ydn6i/IeaQIkhaUwSmKBCilUAPSTn8Z60ODbmaMjiGt7YpuFgbzAKttseSDtwmVVhg0NMmCBYYnTF92Mh3GX28ncOE125QC+CwimchlnCrI91nUrqFtvhkFn0mTzVFT5AeKX9XhbE9TvcPZ/Ly+grWtAUWl20aN0EakO7p3xM5B+iPp3ZN2wI2TfDNdBA/H1PClYDzwhq2x0LaxH20dzEmA+h7F7cpEtA0s7sC1bf+fna891PzfuNQOuk7rdoyWX6CKAD3c3J5faVDQpknkRd/lG/elBcn4ufmNpngOa6E98430LfDKkSokx86isJgTr6JkNMgxFaiPrF0zhx23y83JOrn0qhOHXtWqZB6ipBs1SzhJ1A3YPh5+iSk2G5/ecltfDb1//fTM3Wa0JPM+taFqErNosa9r92hicACT53tvkB9VNA4LhzTp9zudrr8eaCsZnP/bF6Ts+DUX+ZDa9pihe8m4WdzpaLwdphG9cWXTT3o4L3Xl/N3f+ok7D+RXao1KLsNFvZbIRaYLLtmVbY2YuvianArm3bbVK8vfIrE1w==
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set whether admins can open other users' hosts (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/admin-host-bypass"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Turning it off takes effect at once. Turning it on waits out the admin cooling-off time when that is set.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Setting saved."},"202":{"description":"Turning it on waits for the cooling-off time."},"400":{"description":"enabled must be true or false."},"403":{"description":"Admin access required."},"500":{"description":"Failed to save the setting."}}}
+>
+  
+</StatusCodes>
+
+
+      

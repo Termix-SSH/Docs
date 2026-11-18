@@ -72,6 +72,18 @@
     "consequence": "It can open a physical serial port on the machine running Termix."
   },
   {
+    "id": "config:secrets",
+    "risk": "high",
+    "title": "Read secrets the server holds",
+    "consequence": "Environment variables and files on the server, except Termix's own keys."
+  },
+  {
+    "id": "network:sockets",
+    "risk": "high",
+    "title": "Open its own network connections",
+    "consequence": "It can listen on ports and connect to any address directly, without Termix checking each connection."
+  },
+  {
     "id": "notify:hub",
     "risk": "high",
     "title": "Receive every alert",
@@ -141,7 +153,7 @@
     "id": "network:probe",
     "risk": "medium",
     "title": "Check if ports answer",
-    "consequence": "Can open a plain connection to any address from the server, to see if it is reachable."
+    "consequence": "Can open a plain connection to any address from the server, to see if it is reachable, and look up host names."
   },
   {
     "id": "hosts:status-provide",

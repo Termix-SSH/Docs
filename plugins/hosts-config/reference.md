@@ -49,8 +49,8 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `config:secrets` |  |  |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
+| `config:secrets` | High | Read secrets the server holds. Environment variables and files on the server, except Termix's own keys. |
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `hosts:lock` | Medium | Manage hosts as read only. Hosts it manages can't be edited, deleted or reshared by anyone else. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |

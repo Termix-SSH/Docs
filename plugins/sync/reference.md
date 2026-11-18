@@ -41,10 +41,10 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `sync:provide` | High | Run sync. It can answer all sync requests, so it sees the data that devices and servers sync. |
 | `ssh:transport` | High | Choose how hosts are reached. It can carry the SSH connection to a host over its own route, so it sees everything sent to and from those hosts, passwords included. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `hosts:lock` | Medium | Manage hosts as read only. Hosts it manages can't be edited, deleted or reshared by anyone else. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |

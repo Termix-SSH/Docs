@@ -57,9 +57,9 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `notify:hub` | High | Receive every alert. Stores and delivers the alerts all plugins send, including their contents. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |

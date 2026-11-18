@@ -1,0 +1,68 @@
+---
+id: make-an-invite-link
+title: "Make an invite link"
+description: "Needs admin.users.manage. The link works even when sign up is off. Only admins can give admin or roles with permissions they don't hold."
+sidebar_label: "Make an invite link"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v3EYM/SsEL70o2rX7BejmFAm6KZoYjQ2jWCyKWYlejVfiKDPU7qqC/nvBkeJVbOfgW3WRxHnkPHLINz0WFHJvG7GOMcOPREUAU9SW0zaQD2lt2OwohZuSoLK8h6Pz+wB0IIZjSQzB7hjaBmwAd3+fwieuujFCgNww7OyBxn9wHryrKMDRSgkN+dqGYB0HkJI6KBz/IFC6qkgxQTG7gNkab5UGbhL09KWlIG9d0WHWx1/rqcDs3lSBEswdC7HommmayuZGk1o8BM2sx5CXVBv9kq4hzNBtHygXTLDxriEvloKushOaoYJ4yzscElTqqyLM1oz3psMErVA9t1sW2pHHYUiwNnu60uxn61vnKjKMcfl0G+gl5wRry7Zua8wuIm76Xi6HBOnUWE9hxb+71r/C+9fL5RAfLWdoHE97Xy6X+vq2GfTILR+sEBguwEoAcXviBELpjgxOT1pKPXjOKdV0fnopzooPprIFWG5amWA/Pod9dAKmldJ5+y8VEffzS+HeG1tRAeJAa6utM7FMx4KTlK7ADBsX4ukaKTHDRWznxYgMmGAgf9DOytY9tr7CDPvRNGDyZMe/XevhRtv1BCMGEzwYb822Gus3WSPXe9NWghmWIk3IFguJjimdTN1UlOauxmEYNsogb72VLlLYkvHkr1olu94MSY+5c3tLc4tp7B/UPVpmIT5rc49U5oEe20K5aM4Rph0YQZhMH++dr41y/nB38yz7zxSHdDx7CMQClmPZr6bTioMGJZmCPJgAb2PQ2DQKi47xPOcpnacoZqVjpLuNEEyQTWT6cJTvMvpwdwMjHgIJGIli9MZyCncqTY0npZuAFRCzp6CWnArinMAdyH83i8h2Xu5XV/LqegV76iCI8WJ5N2qe1Kd/nqXzCH19affUJXAsbV6OG4XzNimsBEwuQd0mLLgjT965YXYRoOuGO8cEVIVpilQ1/zoL7ruxec/6+FUXZ7K4Xm6+kTvxLc0EbvlctVTJLN+7WF4rGh+nMbu6XumMkQ9jjS5/SS8u0stntVONyp0nOPul8M7kJTRVu7MMhcvbmlhC1C+VLe9aoRBPWCWiNlGap3b7UyXF8Ffd0xvv6Z79+ab5X92XY38KnWTRVMbG6yUKWz9p4BojxThpowpuEixVJbM19v3WBLr11TCo+UtLXoVpcxa6UYVw7MWoWXvqMMPfxmq8uVECCq/acayf3MGqV4/ifP3psyrNdrrMa1eojzdH7ShzxAwxQRcrHlUt2nqsDO9as4vCEGPq8x8jiAgF
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Make an invite link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/invites"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs admin.users.manage. The link works even when sign up is off. Only admins can give admin or roles with permissions they don't hold.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"note":{"type":"string"},"roleIds":{"type":"array","items":{"type":"integer"}},"makeAdmin":{"type":"boolean"},"maxUses":{"type":"integer","minimum":1,"maximum":100},"expiresInHours":{"type":"integer","minimum":1,"maximum":720}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The invite and its token, shown only this once."},"400":{"description":"Invalid input."},"403":{"description":"Not authorized."},"500":{"description":"Failed to make the invite."}}}
+>
+  
+</StatusCodes>
+
+
+      

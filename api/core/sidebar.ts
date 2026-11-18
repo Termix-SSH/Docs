@@ -78,6 +78,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/start-a-passkey-login",
+          label: "Start a passkey login",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "core/start-a-redirect-login-2-8-route",
           label: "Start a redirect login (2.8 route)",
           className: "api-method get",
@@ -210,6 +216,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/get-the-host-key-trust-setting",
+          label: "Get the host key trust setting",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/set-the-host-key-trust-setting",
+          label: "Set the host key trust setting",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
           id: "core/get-password-login-status",
           label: "Get password login status",
           className: "api-method get",
@@ -243,6 +261,30 @@ const sidebar: SidebarsConfig = {
           id: "core/delete-user-admin-only",
           label: "Delete user (admin only)",
           className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "core/get-the-admin-wait-setting-admin-only",
+          label: "Get the admin wait setting (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/set-the-admin-wait-admin-only",
+          label: "Set the admin wait (admin only)",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "core/list-waiting-and-past-admin-changes-admin-only",
+          label: "List waiting and past admin changes (admin only)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/cancel-a-waiting-admin-change-admin-only",
+          label: "Cancel a waiting admin change (admin only)",
+          className: "api-method post",
         },
         {
           type: "doc",
@@ -306,6 +348,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/sign-everyone-out-admin-only",
+          label: "Sign everyone out (admin only)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "core/get-sessions",
           label: "Get sessions",
           className: "api-method get",
@@ -338,6 +386,84 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "core/complete-password-reset",
           label: "Complete password reset",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/get-whether-admins-can-open-other-users-hosts",
+          label: "Get whether admins can open other users' hosts",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/set-whether-admins-can-open-other-users-hosts-admin-only",
+          label: "Set whether admins can open other users' hosts (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "core/get-whether-new-external-accounts-need-approval",
+          label: "Get whether new external accounts need approval",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/set-whether-new-external-accounts-need-approval-admin-only",
+          label: "Set whether new external accounts need approval (admin only)",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "core/turn-an-account-off",
+          label: "Turn an account off",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/turn-an-account-back-on-or-approve-a-waiting-one",
+          label: "Turn an account back on, or approve a waiting one",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/change-your-display-name-or-email",
+          label: "Change your display name or email",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "core/change-a-users-display-name-or-email",
+          label: "Change a user's display name or email",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "core/list-invite-links",
+          label: "List invite links",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/make-an-invite-link",
+          label: "Make an invite link",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/revoke-an-invite-link",
+          label: "Revoke an invite link",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "core/check-an-invite-link",
+          label: "Check an invite link",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/make-an-account-from-an-invite-link",
+          label: "Make an account from an invite link",
           className: "api-method post",
         },
         {
@@ -444,6 +570,24 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "core/list-your-own-api-keys",
+          label: "List your own API keys",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/revoke-all-your-own-api-keys",
+          label: "Revoke all your own API keys",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/revoke-one-of-your-own-api-keys",
+          label: "Revoke one of your own API keys",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "core/create-an-api-key-admin-only",
           label: "Create an API key (admin only)",
           className: "api-method post",
@@ -480,14 +624,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "core/regenerate-jwt-secret",
-          label: "Regenerate JWT secret",
+          id: "core/rotate-the-jwt-secret",
+          label: "Rotate the JWT secret",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "core/regenerate-jwt-secret",
-          label: "Regenerate JWT secret",
+          id: "core/rotate-the-jwt-secret-old-path",
+          label: "Rotate the JWT secret (old path)",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/rotate-the-encryption-key",
+          label: "Rotate the encryption key",
           className: "api-method post",
         },
       ],
@@ -994,6 +1144,12 @@ const sidebar: SidebarsConfig = {
           label: "Set the current user's personal login for shared hosts in a folder",
           className: "api-method put",
         },
+        {
+          type: "doc",
+          id: "core/list-every-share",
+          label: "List every share",
+          className: "api-method get",
+        },
       ],
     },
     {
@@ -1050,6 +1206,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "core/serve-the-shared-plugin-frame-runtime",
+          label: "Serve the shared plugin frame runtime",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "core/serve-a-plugins-frontend-bundle-stylesheet-or-locale-file",
           label: "Serve a plugin's frontend bundle, stylesheet or locale file",
           className: "api-method get",
@@ -1074,8 +1236,56 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/get-a-short-token-for-a-plugins-sandboxed-frames",
+          label: "Get a short token for a plugin's sandboxed frames",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/load-a-picture-from-another-site-for-a-plugin-view",
+          label: "Load a picture from another site for a plugin view",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/get-short-tokens-for-several-plugins-sandboxed-frames-at-once",
+          label: "Get short tokens for several plugins' sandboxed frames at once",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/read-a-page-a-plugin-let-its-frames-show",
+          label: "Read a page a plugin let its frames show",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/start-a-plugins-web-authn-step",
+          label: "Start a plugin's WebAuthn step",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "core/finish-a-plugins-web-authn-step",
+          label: "Finish a plugin's WebAuthn step",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "core/list-plugins-for-the-onboarding-plugin-picker",
           label: "List plugins for the onboarding plugin picker",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/memory-used-by-termix-and-each-plugin-process",
+          label: "Memory used by Termix and each plugin process",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/plugins-the-next-termix-release-would-turn-off",
+          label: "Plugins the next Termix release would turn off",
           className: "api-method get",
         },
         {
@@ -1270,6 +1480,18 @@ const sidebar: SidebarsConfig = {
           label: "Dispatch a request to an installed plugin's backend router",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "core/what-the-current-users-framed-plugins-registered-last-time",
+          label: "What the current user's framed plugins registered last time",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/save-what-some-framed-plugins-registered",
+          label: "Save what some framed plugins registered",
+          className: "api-method put",
+        },
       ],
     },
     {
@@ -1328,6 +1550,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "core/answer-an-acme-http-01-challenge",
           label: "Answer an ACME http-01 challenge",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/get-the-security-contact-file",
+          label: "Get the security contact file",
           className: "api-method get",
         },
         {

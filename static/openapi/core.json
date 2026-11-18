@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.11.1",
+    "version": "26.11.2",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -149,6 +149,41 @@
     }
   ],
   "paths": {
+    "/plugin-assets/_runtime/{version}/{path}": {
+      "get": {
+        "summary": "Serve the shared plugin frame runtime",
+        "description": "Core's own frame build (React, the UI kit, fonts), the same for every plugin, so every frame reuses one cached copy. Only the current version is served and it is cacheable for a year.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file."
+          },
+          "404": {
+            "description": "Old version, no frame build, or no such file."
+          }
+        }
+      }
+    },
     "/plugin-assets/{pluginId}/{path}": {
       "get": {
         "summary": "Serve a plugin's frontend bundle, stylesheet or locale file",
@@ -241,6 +276,20 @@
           },
           "404": {
             "description": "No challenge is published for this token."
+          }
+        }
+      }
+    },
+    "/.well-known/security.txt": {
+      "get": {
+        "summary": "Get the security contact file",
+        "description": "Public. RFC 9116 security.txt that says where to report a security problem in Termix.",
+        "tags": [
+          "General"
+        ],
+        "responses": {
+          "200": {
+            "description": "The security.txt file, as text/plain."
           }
         }
       }
@@ -509,71 +558,22 @@
         }
       }
     },
-    "/encryption/regenerate": {
-      "post": {
-        "summary": "Regenerate JWT secret",
-        "description": "Regenerates the system JWT secret. This will invalidate all existing JWT tokens.",
-        "tags": [
-          "Encryption"
-        ],
-        "responses": {
-          "200": {
-            "description": "System JWT secret regenerated."
-          },
-          "500": {
-            "description": "Failed to regenerate JWT secret."
-          }
-        }
-      }
-    },
-    "/encryption/regenerate-jwt": {
-      "post": {
-        "summary": "Regenerate JWT secret",
-        "description": "Regenerates the JWT secret. This will invalidate all existing JWT tokens.",
-        "tags": [
-          "Encryption"
-        ],
-        "responses": {
-          "200": {
-            "description": "New JWT secret generated."
-          },
-          "500": {
-            "description": "Failed to regenerate JWT secret."
-          }
-        }
-      }
-    },
     "/database/export": {
       "post": {
         "summary": "Export user data",
-        "description": "Exports the user's data as a SQLite database file.",
+        "description": "Exports the signed in user's data as a SQLite database file, with saved passwords and keys in plain text. Takes no body.",
         "tags": [
           "Database"
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "password": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "User data exported successfully."
           },
-          "400": {
-            "description": "Password required for export."
+          "403": {
+            "description": "The user's data is locked; sign in again."
           },
-          "401": {
-            "description": "Invalid password."
+          "404": {
+            "description": "User not found."
           },
           "500": {
             "description": "Failed to export user data."
@@ -1196,6 +1196,59 @@
         }
       }
     },
+    "/users/host-key-policy": {
+      "get": {
+        "summary": "Get the host key trust setting",
+        "description": "Whether connections with nobody to confirm a host key (plugins, schedules, the API) may trust and save a host's first key.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Host key trust setting."
+          },
+          "401": {
+            "description": "Not signed in."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set the host key trust setting",
+        "description": "When on, a host's first key is saved without a prompt when nobody can confirm it, and the event is audited. When off, such connections are refused until someone trusts the key from a terminal.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "trustOnFirstUse": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Host key trust setting updated."
+          },
+          "400": {
+            "description": "Invalid value for trustOnFirstUse."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to set the host key trust setting."
+          }
+        }
+      }
+    },
     "/users/password-login-allowed": {
       "get": {
         "summary": "Get password login status",
@@ -1384,6 +1437,111 @@
         }
       }
     },
+    "/users/admin-holds/settings": {
+      "get": {
+        "summary": "Get the admin wait setting (admin only)",
+        "description": "How long dangerous admin changes wait on a server with two or more admins. 0 means off.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Minutes, whether the server forces it, the admin count and whether changes wait right now."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      },
+      "put": {
+        "summary": "Set the admin wait (admin only)",
+        "description": "Turning it on or making it longer applies at once. Turning it off or making it shorter waits out the current time first.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "minutes": {
+                    "type": "integer",
+                    "description": "0 turns it off."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "202": {
+            "description": "The change waits for the other admins."
+          },
+          "400": {
+            "description": "Invalid minutes."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "409": {
+            "description": "Set on the server with an environment variable."
+          }
+        }
+      }
+    },
+    "/users/admin-holds": {
+      "get": {
+        "summary": "List waiting and past admin changes (admin only)",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Newest first."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
+    "/users/admin-holds/{holdId}/cancel": {
+      "post": {
+        "summary": "Cancel a waiting admin change (admin only)",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "holdId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cancelled."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "No such change."
+          },
+          "409": {
+            "description": "Already applied or cancelled."
+          }
+        }
+      }
+    },
     "/users/ws-ticket": {
       "post": {
         "summary": "Get a WebSocket ticket",
@@ -1558,13 +1716,58 @@
         "summary": "Get the private hosts notification channels may contact (admin only)",
         "tags": [
           "Users"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "The result."
+          }
+        }
       },
       "patch": {
         "summary": "Replace that allowlist (admin only)",
         "tags": [
           "Users"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/users/sessions/revoke-everyone": {
+      "post": {
+        "summary": "Sign everyone out (admin only)",
+        "description": "Ends every session on the server except the caller's own. With apiKeys true, every API key is revoked too.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "apiKeys": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sessions ended. Returns how many sessions and keys."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to end sessions."
+          }
+        }
       }
     },
     "/users/sessions": {
@@ -1970,6 +2173,464 @@
         }
       }
     },
+    "/users/admin-host-bypass": {
+      "get": {
+        "summary": "Get whether admins can open other users' hosts",
+        "description": "When on, admins can see, open and change every user's hosts and act on their data from the admin panel. Every such use is audited.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "The current setting."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set whether admins can open other users' hosts (admin only)",
+        "description": "Turning it off takes effect at once. Turning it on waits out the admin cooling-off time when that is set.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting saved."
+          },
+          "202": {
+            "description": "Turning it on waits for the cooling-off time."
+          },
+          "400": {
+            "description": "enabled must be true or false."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to save the setting."
+          }
+        }
+      }
+    },
+    "/users/external-signup-approval": {
+      "get": {
+        "summary": "Get whether new external accounts need approval",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "The current setting."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set whether new external accounts need approval (admin only)",
+        "description": "When on, someone signing in through SSO or LDAP for the first time gets an account that stays off until an admin approves it.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Setting saved."
+          },
+          "400": {
+            "description": "enabled must be true or false."
+          },
+          "403": {
+            "description": "Admin access required."
+          },
+          "500": {
+            "description": "Failed to save the setting."
+          }
+        }
+      }
+    },
+    "/users/admin/{userId}/disable": {
+      "post": {
+        "summary": "Turn an account off",
+        "description": "Signs the user out everywhere, stops their API keys and blocks every login until the account is turned back on. Needs admin.users.manage; only admins can turn off an admin.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account turned off."
+          },
+          "400": {
+            "description": "You can't turn off your own account or the last admin."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to turn off the account."
+          }
+        }
+      }
+    },
+    "/users/admin/{userId}/enable": {
+      "post": {
+        "summary": "Turn an account back on, or approve a waiting one",
+        "description": "Needs admin.users.manage; only admins can turn an admin back on.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Account is on."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "500": {
+            "description": "Failed to turn on the account."
+          }
+        }
+      }
+    },
+    "/users/me/profile": {
+      "patch": {
+        "summary": "Change your display name or email",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "email": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile saved."
+          },
+          "400": {
+            "description": "Invalid display name or email."
+          },
+          "409": {
+            "description": "The email is already in use."
+          },
+          "500": {
+            "description": "Failed to save the profile."
+          }
+        }
+      }
+    },
+    "/users/admin/{userId}/profile": {
+      "patch": {
+        "summary": "Change a user's display name or email",
+        "description": "Needs admin.users.manage; only admins can change an admin.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "email": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Profile saved."
+          },
+          "400": {
+            "description": "Invalid display name or email."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "User not found."
+          },
+          "409": {
+            "description": "The email is already in use."
+          },
+          "500": {
+            "description": "Failed to save the profile."
+          }
+        }
+      }
+    },
+    "/users/invites": {
+      "get": {
+        "summary": "List invite links",
+        "description": "Needs admin.users.view. Tokens are never shown again.",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Invites, newest first."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to list invites."
+          }
+        }
+      },
+      "post": {
+        "summary": "Make an invite link",
+        "description": "Needs admin.users.manage. The link works even when sign up is off. Only admins can give admin or roles with permissions they don't hold.",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "type": "string"
+                  },
+                  "roleIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "makeAdmin": {
+                    "type": "boolean"
+                  },
+                  "maxUses": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100
+                  },
+                  "expiresInHours": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 720
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The invite and its token, shown only this once."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to make the invite."
+          }
+        }
+      }
+    },
+    "/users/invites/{id}": {
+      "delete": {
+        "summary": "Revoke an invite link",
+        "description": "Needs admin.users.manage.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invite revoked."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "404": {
+            "description": "Invite not found."
+          },
+          "500": {
+            "description": "Failed to revoke the invite."
+          }
+        }
+      }
+    },
+    "/users/invites/redeem/{token}": {
+      "get": {
+        "summary": "Check an invite link",
+        "description": "Public. Says only whether the link can still be used.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the invite is usable."
+          }
+        }
+      }
+    },
+    "/users/invites/redeem/{token}/accept": {
+      "post": {
+        "summary": "Make an account from an invite link",
+        "description": "Public. Works even when sign up is off. The new account gets the invite's roles, then signs in like any other.",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account made."
+          },
+          "400": {
+            "description": "Invalid username or password."
+          },
+          "404": {
+            "description": "The invite can't be used."
+          },
+          "409": {
+            "description": "Username already exists."
+          },
+          "500": {
+            "description": "Failed to make the account."
+          }
+        }
+      }
+    },
     "/users/link-external-to-password": {
       "post": {
         "summary": "Merge an external account into a password account",
@@ -2154,6 +2815,68 @@
         }
       }
     },
+    "/users/api-keys/mine": {
+      "get": {
+        "summary": "List your own API keys",
+        "description": "Returns the keys made for the signed in user, with when each was last used. Token hashes are never returned.",
+        "tags": [
+          "API Keys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Your API keys."
+          },
+          "500": {
+            "description": "Failed to fetch API keys."
+          }
+        }
+      }
+    },
+    "/users/api-keys/mine/revoke-all": {
+      "post": {
+        "summary": "Revoke all your own API keys",
+        "tags": [
+          "API Keys"
+        ],
+        "responses": {
+          "200": {
+            "description": "Keys revoked. Returns how many."
+          },
+          "500": {
+            "description": "Failed to revoke API keys."
+          }
+        }
+      }
+    },
+    "/users/api-keys/mine/{keyId}": {
+      "delete": {
+        "summary": "Revoke one of your own API keys",
+        "tags": [
+          "API Keys"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "keyId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API key revoked."
+          },
+          "404": {
+            "description": "You have no key with this id."
+          },
+          "500": {
+            "description": "Failed to revoke the API key."
+          }
+        }
+      }
+    },
     "/users/api-keys": {
       "post": {
         "summary": "Create an API key (admin only)",
@@ -2183,18 +2906,21 @@
                   "expiresAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Optional expiration date. Null means the key never expires."
+                    "nullable": true,
+                    "description": "When the key stops working. Left out means 90 days from now, null means never."
                   },
                   "scopes": {
                     "type": "array",
                     "items": {
                       "type": "string",
                       "enum": [
+                        "read",
                         "operations:read",
-                        "operations:run"
+                        "operations:run",
+                        "full"
                       ]
                     },
-                    "description": "Limits the key to actions only. Leave out for full access."
+                    "description": "What the key may do. read only allows GET and HEAD requests, the operations scopes allow actions, full has no limits. Left out or null means read."
                   }
                 }
               }
@@ -2287,7 +3013,21 @@
             "schema": {
               "type": "string"
             },
-            "description": "Case-insensitive username substring filter."
+            "description": "Case-insensitive username or display name filter."
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "active",
+                "disabled",
+                "pending"
+              ]
+            },
+            "description": "Only accounts in this state. Needs admin.users.view."
           },
           {
             "in": "query",
@@ -2714,7 +3454,7 @@
         ],
         "responses": {
           "200": {
-            "description": "{ factors } with an id for each factor."
+            "description": "{ factors } with the id, label and prompt of each factor."
           }
         }
       }
@@ -3082,7 +3822,12 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "The result."
+          }
+        }
       }
     },
     "/rbac/folder/access/{id}": {
@@ -3505,42 +4250,141 @@
     },
     "/rbac/credential/{id}/share": {
       "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "summary": "Share a credential with users or roles",
         "description": "Recipients get a copy of the secrets re-encrypted under their own key. \"use\" lets them attach it to hosts and connect; \"manage\" also lets them edit and re-share. Owner or a \"manage\" recipient only.",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
       }
     },
     "/rbac/credential/{id}/access": {
       "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "summary": "List who a credential is shared with",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "The result."
+          }
+        }
       }
     },
     "/rbac/credential/{id}/access/{accessId}": {
       "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accessId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "summary": "Revoke a credential share (recipients' copies are removed with it)",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
       }
     },
     "/rbac/host-access/{hostId}/auth/{protocol}": {
       "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "summary": "Set personal authentication for a shared host protocol",
         "description": "Selects one of the authenticated recipient's own credentials, or clears the selection with null. The protocol is \"ssh\" or one a plugin declares.",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
       },
       "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "protocol",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "summary": "Get the current recipient's shared-host protocol authentication override",
         "tags": [
           "RBAC"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "The result."
+          }
+        }
       }
     },
     "/rbac/folder-auth/{protocol}": {
@@ -3628,6 +4472,81 @@
         }
       }
     },
+    "/rbac/access-review": {
+      "get": {
+        "summary": "List every share",
+        "description": "Every host, folder and credential share on the server, with who has it, at what level, who gave it and when it ends. Needs admin.users.view.",
+        "tags": [
+          "RBAC"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "kind",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "host",
+                "folder",
+                "credential"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Shares this user has or owns."
+          },
+          {
+            "in": "query",
+            "name": "roleId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "maximum": 500
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "csv"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Shares, newest first, or a CSV file of all of them."
+          },
+          "403": {
+            "description": "Not authorized."
+          },
+          "500": {
+            "description": "Failed to list shares."
+          }
+        }
+      }
+    },
     "/plugins/public": {
       "get": {
         "summary": "List the plugin frontends anonymous guest pages need",
@@ -3670,6 +4589,244 @@
         }
       }
     },
+    "/plugins/{id}/frame-token": {
+      "post": {
+        "summary": "Get a short token for a plugin's sandboxed frames",
+        "description": "The shell asks for one on behalf of a plugin whose UI runs in sandboxed frames. The token opens only that plugin's own /plugin-api and /plugin-ws routes, ends with the session and lasts a few minutes.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The token and how many seconds it lasts."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          },
+          "404": {
+            "description": "No such running plugin with framed views."
+          }
+        }
+      }
+    },
+    "/plugins/{id}/image": {
+      "get": {
+        "summary": "Load a picture from another site for a plugin view",
+        "description": "Plugin views may only show pictures from the plugin's own assets, so a picture from elsewhere comes through here. Only for a running plugin with network:outbound or network:sockets granted. The answer is the picture itself; anything that is not an image, over 5 MB, on this machine or at a cloud metadata address is refused.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The picture."
+          },
+          "400": {
+            "description": "Not an http or https address."
+          },
+          "403": {
+            "description": "The plugin may not load pictures, or the address is not allowed."
+          },
+          "404": {
+            "description": "No such running plugin."
+          },
+          "413": {
+            "description": "The picture is over 5 MB."
+          },
+          "415": {
+            "description": "The address is not a picture."
+          },
+          "502": {
+            "description": "The picture could not be loaded."
+          }
+        }
+      }
+    },
+    "/plugins/frame-tokens": {
+      "post": {
+        "summary": "Get short tokens for several plugins' sandboxed frames at once",
+        "description": "The same as /plugins/{id}/frame-token for a list of plugins, so a page load asks once instead of once per plugin. Plugins that are not running with framed views are left out of the answer.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "ids"
+                ],
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A token and how many seconds it lasts, per plugin id."
+          },
+          "400": {
+            "description": "ids is not a list of plugin ids."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          }
+        }
+      }
+    },
+    "/plugins/{id}/web-views/{grant}": {
+      "get": {
+        "summary": "Read a page a plugin let its frames show",
+        "description": "The shell reads the address behind a grant the plugin's backend made with ctx.desktop.grantView, to draw that page for one of the plugin's frames. Only the person (and session) the grant was made for gets it, never a frame token or an API key.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "grant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The page address."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          },
+          "404": {
+            "description": "No such grant for this plugin and person."
+          }
+        }
+      }
+    },
+    "/plugins/{id}/passkey-steps/{ceremonyId}/options": {
+      "post": {
+        "summary": "Start a plugin's WebAuthn step",
+        "description": "The shell asks for the browser prompt options of a WebAuthn step (adding a passkey, proving a key) one of the plugin's screens wants. The plugin's backend makes them. Only for a signed-in session.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ceremonyId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A one use ticket, the step type and publicKey options."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          },
+          "404": {
+            "description": "The plugin has no such step."
+          }
+        }
+      }
+    },
+    "/plugins/{id}/passkey-steps/{ceremonyId}/finish": {
+      "post": {
+        "summary": "Finish a plugin's WebAuthn step",
+        "description": "The shell sends the browser's answer with the ticket from the options call. The plugin's backend checks it and its answer goes back to the plugin's screen.\n",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ceremonyId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "What the plugin's check returned."
+          },
+          "400": {
+            "description": "Bad browser answer."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          },
+          "410": {
+            "description": "The ticket expired, was used or belongs to someone else."
+          }
+        }
+      }
+    },
     "/plugins/onboarding": {
       "get": {
         "summary": "List plugins for the onboarding plugin picker",
@@ -3686,6 +4843,46 @@
           },
           "500": {
             "description": "The list could not be read."
+          }
+        }
+      }
+    },
+    "/plugins/processes": {
+      "get": {
+        "summary": "Memory used by Termix and each plugin process",
+        "description": "Every plugin process with its state, why it stays up (null when it stops when idle), what keeps an idle capable one up for now (busy) and its resident memory while it runs, plus Termix's own memory, the total, and the memory limit of the container or machine. low is true when the total is past 80% of the limit.",
+        "tags": [
+          "Plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "The memory report."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "500": {
+            "description": "The report could not be built."
+          }
+        }
+      }
+    },
+    "/plugins/update-check": {
+      "get": {
+        "summary": "Plugins the next Termix release would turn off",
+        "description": "Looks up the newest Termix release on this instance's channel and lists the installed plugins that would not load on it, so an admin can update them first. reason api means the plugin was made for plugin API 1, reason termix means its engine.termix range leaves that version out (needs says which range it asks for). version is null when no newer release is known.",
+        "tags": [
+          "Plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "The newest version and the plugins it would turn off."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          },
+          "500": {
+            "description": "The check could not run."
           }
         }
       }
@@ -5510,7 +6707,10 @@
                 "type": "object",
                 "properties": {
                   "tabs": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
                   }
                 }
               }
@@ -7207,6 +8407,144 @@
         }
       }
     },
+    "/plugins/frame-registrations": {
+      "get": {
+        "summary": "What the current user's framed plugins registered last time",
+        "description": "The shell replays these at boot so a new browser or device does not start every plugin's frame to learn them. Only registrations and live keys, per plugin and asset version, for one client kind.",
+        "tags": [
+          "Plugins"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "web",
+                "desktop"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Entries by plugin id."
+          },
+          "400": {
+            "description": "Unknown client kind."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save what some framed plugins registered",
+        "description": "Saves entries by plugin id for one client kind. Unknown plugins, malformed entries and entries over 60 KB are skipped.",
+        "tags": [
+          "Plugins"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "client",
+                  "entries"
+                ],
+                "properties": {
+                  "client": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "desktop"
+                    ]
+                  },
+                  "entries": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many entries were saved."
+          },
+          "400": {
+            "description": "Unknown client kind or entries is not an object."
+          },
+          "401": {
+            "description": "Not signed in with a session."
+          }
+        }
+      }
+    },
+    "/encryption/regenerate-jwt": {
+      "post": {
+        "summary": "Rotate the JWT secret",
+        "description": "Replaces the JWT secret kept in the data folder's .env file and ends every session, so everyone signs in again. Refused when JWT_SECRET is set through the environment or JWT_SECRET_FILE. Admin only.",
+        "tags": [
+          "Encryption"
+        ],
+        "responses": {
+          "200": {
+            "description": "Secret rotated and sessions ended."
+          },
+          "409": {
+            "description": "The secret is set outside .env and must be rotated there."
+          },
+          "500": {
+            "description": "Failed to rotate the secret."
+          }
+        }
+      }
+    },
+    "/encryption/regenerate": {
+      "post": {
+        "summary": "Rotate the JWT secret (old path)",
+        "description": "Same as /encryption/regenerate-jwt.",
+        "tags": [
+          "Encryption"
+        ],
+        "responses": {
+          "200": {
+            "description": "Secret rotated and sessions ended."
+          },
+          "409": {
+            "description": "The secret is set outside .env and must be rotated there."
+          },
+          "500": {
+            "description": "Failed to rotate the secret."
+          }
+        }
+      }
+    },
+    "/encryption/rotate-key": {
+      "post": {
+        "summary": "Rotate the encryption key",
+        "description": "Replaces the ENCRYPTION_KEY kept in the data folder's .env file, re-wraps every user's data key and re-seals every stored secret with the new key. Sessions stay valid. Refused when ENCRYPTION_KEY is set through the environment or ENCRYPTION_KEY_FILE; use ENCRYPTION_KEY_PREVIOUS there. Admin only.",
+        "tags": [
+          "Encryption"
+        ],
+        "responses": {
+          "200": {
+            "description": "Key rotated, with counts of what moved."
+          },
+          "409": {
+            "description": "The key is set outside .env and must be rotated there."
+          },
+          "500": {
+            "description": "Failed to rotate the key."
+          }
+        }
+      }
+    },
     "/host/db/host/{id}/device-auth/{protocol}": {
       "get": {
         "summary": "Get a shared host's device login",
@@ -7466,7 +8804,7 @@
         },
         "responses": {
           "200": {
-            "description": "Activity logged successfully or rate-limited."
+            "description": "Activity logged, rate-limited, or skipped because no plugin keeps recent activity."
           },
           "400": {
             "description": "Invalid request body."
@@ -7997,7 +9335,7 @@
     "/users/auth/methods": {
       "get": {
         "summary": "List login methods",
-        "description": "Public. The login methods with at least one enabled instance, for the login screen. Carries ids and labels only, plus rememberDevice, false when the login policy turned remember me off.",
+        "description": "Public. The login methods with at least one enabled instance, for the login screen. Carries ids, labels, the fields and prompts the screen draws for each method and second factor, plus rememberDevice, false when the login policy turned remember me off.",
         "tags": [
           "Auth"
         ],
@@ -8222,6 +9560,36 @@
         }
       }
     },
+    "/users/auth/{methodId}/options": {
+      "post": {
+        "summary": "Start a passkey login",
+        "description": "Public. The options for the browser's passkey prompt for a passkey login method. The answer goes to /users/auth/{methodId}/verify with the context these options carry.",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "methodId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "publicKey options and context."
+          },
+          "400": {
+            "description": "Not a passkey method, or passkey sign in is off."
+          },
+          "404": {
+            "description": "Unknown login method."
+          }
+        }
+      }
+    },
     "/users/{method}/authorize": {
       "get": {
         "summary": "Start a redirect login (2.8 route)",
@@ -8310,7 +9678,7 @@
     "/audit-logs": {
       "get": {
         "summary": "List audit logs",
-        "description": "Returns paginated, filterable audit log entries. Admin only.",
+        "description": "Returns paginated, filterable audit log entries. Needs admin.audit.view.",
         "tags": [
           "Audit"
         ],
@@ -8397,7 +9765,7 @@
     "/audit-logs/actions": {
       "get": {
         "summary": "List distinct audit log action types",
-        "description": "Returns all distinct action values in the audit log for filter dropdowns. Admin only.",
+        "description": "Returns all distinct action values in the audit log for filter dropdowns. Needs admin.audit.view.",
         "tags": [
           "Audit"
         ],

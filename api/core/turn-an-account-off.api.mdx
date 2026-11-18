@@ -1,0 +1,69 @@
+---
+id: turn-an-account-off
+title: "Turn an account off"
+description: "Signs the user out everywhere, stops their API keys and blocks every login until the account is turned back on. Needs admin.users.manage; only admins can turn off an admin."
+sidebar_label: "Turn an account off"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcGO2zYQ/ZXBXNoCrJxs0x6Ukws0wKZAuug6WBSGEYylkcVaIhXOaL2qoX8vSGltt84WyLEnW+Sb4XtvOMMjlixFsJ1a7zDHe7tzAloz9MIBfK/AjxyGQ82BDYj6Lm3bAMu7W9jzIECuhG3ji71MWGj8zjrondompaKi8L1TsALaB8clbKnYg3cZfGAuBahsrcviiZK15GjHb8G7Zpg2BApyKRJ8VQG5GY8GlXaC+Ro/xlDcGOwoUMsav/L1EW3U1JHWaNBRy5hjPOW2RIOBP/c2cIm5hp4NSlFzS5gfUYcuIkWDdTscx00ES+edsMT9m1ev4s8/nVvOImeFvqoyHA2++RL2D99HTd/oWdXg+wD+4E5m+ZC8a0j0WW9K98N1ug9egXqtfbB/cTnj3lzjokvgvELlezfhfvwSvXdkGy5B/ZneRRkzHEeDLWvty+iuF0UzmZzjIhVxkQgvjpPX46K0QtuG0aBweHwuTh8azPE4LY1ork0KsOLQ2ieYMGjwkYKNqVId5tXEv6K+UcyxVu0kXyw0BWb8RG3XcFb4FsdUSeGiD1aHRGHLFDgs+8h9vRnNEQvv95YvV6izv/JwWrlIcR9vzETlMtHpAkUuOF+s+D2B0Mx/3vnQUuT8/mF1pf6eRax3oH7PDoRj+7hUhuVcaYpIqJlKDkACP6ekqRsjLAWmGl9KOnGbVKGZWmSCnJvkz4O+yOj9wwomPAgrkILYnfveugweanbQBY50DVgFpT1LXCm4ZFcw+EcOL6pIbC/t/mon55kEohTUuh0crNag7dOnKzkn6Ndbu+fBwKG2RT0dJOdjMrhVoEIlhs3Y2NZzdEEu9h8VGvfJDd4xcCM8NZV1lU+qrTZR5nz7l3e38epzkIn6zU/Z69fZzZWkVc1Q+MBwjsvgFypq6Jo+juTSF33LTgWsSpo2wffKkoyPjdySi+fPt2AVu58uRlJV/fvM2DBO2en/8O2Yrpbyky66hqyLJqSZdJyn2To9FoIGUxAazE+vx/NI2xis4wTM13g8bkn4Y2jGMS5/7jnEKbM5T600c+bIEvOKGuH/MPTb3+cn6jt4ie9zN7shDcemj19ocM/D+a0bN5cD++63+xWO49+x08G3
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn an account off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/admin/{userId}/disable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Signs the user out everywhere, stops their API keys and blocks every login until the account is turned back on. Needs admin.users.manage; only admins can turn off an admin.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Account turned off."},"400":{"description":"You can't turn off your own account or the last admin."},"403":{"description":"Not authorized."},"404":{"description":"User not found."},"500":{"description":"Failed to turn off the account."}}}
+>
+  
+</StatusCodes>
+
+
+      

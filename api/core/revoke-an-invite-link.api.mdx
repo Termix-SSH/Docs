@@ -1,0 +1,69 @@
+---
+id: revoke-an-invite-link
+title: "Revoke an invite link"
+description: "Needs admin.users.manage."
+sidebar_label: "Revoke an invite link"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVE1v3DYQ/SuDObUAq3XctAfdHNQBnBZBkGxgFMaiGIvjFbsSqXBGa28F/feApLLexHWLnCQO33DefL0JLUsT3aAueKzxLbMVINs7X43CUaqePG25QoNKW8H6Bj8mO24MDhSpZ02n+mZClx4YSFs06KlnrNFZNBj50+giW6w1jmxQmpZ7wnpCPQwJJRqd3+I8bxJYhuCFJd2fn52lz9cUr/zeKUPkfdixrXA2+PLs56e4t0GBRm1DdP8ccS+ffc8Hhbsw+oL85d8ivybXsQUNS3DQlsFl9wrn2WDP2gaLNVruWBlNKUeNq1zLVcHKanJ2RoPCcf+leGPssMapmNLl16H/DGOENcfePUDBoME9RUe3XanVYs2k72jsFGtsVQepVyvNjhU/UD90XDWhxzlXW7gZo9NDpnDLFDlejInxzWY2EzYh7ByfWmhwv/PhaDl54kPqaqFy+tCxyYkLLs1P5wJCs/y8DrGnxPnN9fpJ9h9YxAUPGnbsQdgrOJ+rf7E0mBISWibLEUjgVX4UyNsMy465sacpHbmVrNCUES6QxyH++16fZfTmeg0FD8IKpCBu639yvoLrlj0MkRNdA05BaceSLA1b9g1D2HN8NovM9rTc313Ji3dXsOMDiFJU57dw77QF7R/+epLOEfr9pd3xwcB965q2BJLHMBVcKVCjktwWLIR7v3g35NPSUaPpnvwheAbuZFkm5+9Cztppl9Jcpv/i3VUafY5SqJ//Wr14UZ0/SWndMjQhMjz6VXBJTQtDN26dBxuasWevAk4l0YIYRmXJhR+CaE8+xV+m4H1ZefLLxkPn/O7bqGllvLLX/5PS0knlB10NHTmfYmYJmBbJuMHsk2cyiwYarJ1NstsG0QSYplsS/hi7eU7mTyPHtMibR2HIa22dpH+L9R11wv/B+If3i1L/CM9x/LIw/pD1pxvTCQ3u+FDkft6c6uBvl39cri9xnj8D0n0yXg==
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke an invite link"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/invites/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs admin.users.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Invite revoked."},"403":{"description":"Not authorized."},"404":{"description":"Invite not found."},"500":{"description":"Failed to revoke the invite."}}}
+>
+  
+</StatusCodes>
+
+
+      

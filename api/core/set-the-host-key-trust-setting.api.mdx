@@ -1,0 +1,68 @@
+---
+id: set-the-host-key-trust-setting
+title: "Set the host key trust setting"
+description: "When on, a host's first key is saved without a prompt when nobody can confirm it, and the event is audited. When off, such connections are refused until someone trusts the key from a terminal."
+sidebar_label: "Set the host key trust setting"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVUtv20YQ/iuDufRCS4n7OPDmBDHiFGiNWoZRGEYxWo7EtchdZndWMkvovwezZGVVdgLkGh4kcnYe37y+HbDiaILtxHqHJd7V7MC7AghqH+WnCCsbosCGe7ARIm25gp2V2icBgi74thPYqZXzS1/1YMiB8W5lQwtWCiBXgdQMvGUn6oNSZYWrGYyxVqsCYjK1Gjk2iiMCBYbAqxS5guTENhB9y94xSEhRYvaomFbBt0AgHFrrqJlhgULriOU93kYOER8KDPw5cZR3vuqxHPKnDVxhKSFxgcY7YSd6RF3XWEOKYf4YtSADRlNzS/omfcdYol8+shEssAu+4yCWYz5VYH+6Sy3XbeQjg6X3DZPDfX4UT+y8i6PZ+Zs3+vf/Lnz0U8mzU4gsYt0aUleRVg73Bf7ymt2V21JjK9hSkxhWPsAJqsn055emf3gBSlL7YP+dQvz6WohLsg1XIF5R5TbUr4KdoabastS+whI7ElNrzUhqLHGetDlzNT3bcH/W+caaHguMHLbatvJ+wBQaLHEYRXssTpD87VOAhTb+CUYdLHBLwdKyGWs7SXMOK0qNYIm1SBfL+TxPzNOMn6jtGp4Z32p/HhSBScFKnyEsmQKHi6Sg7x/2xYDG+43lYwl19nfuD5IjFzc6OiOUY0eHwVAsmnNW00HJSlhML5c+tKSYP90tXmR/wzFa70D8hh3EvFsu9+Ni6mIeY6iZKg5AEd5lp4d9zIa5z8cpHbCNWWGBVqONKligo4z0cSdfRfTpbgGjfh4REoh27c6smza+C6xwC7ACQhuOKjFcsTMMfsvhq1lktMfl/u5KXlxf5VGNQiGvlFIZSPv0z4t0DqrfX9oN9wXsamvqMVB8DjODKwEyEtXsPxLzOzdZG3LOZwU9J9cr5XGTF3dfoHLSX89s9mEc3lfZR7ltr91b+XxuRRVx2peL6ytdFg5xTPb8t9nbt7PzF0VY1AzGB4Znuxl8IFND16S1dVB5k1p2EsFK1EQg+CQcc6s6H6WlzKLT3Nx8kzNOww/P3PxDXEzjrAo/ybxryDqtUSa5YeLFe8y8iAWeMuPDKFKVYVhS5NvQ7Pcq/pw4KFk9PJPfyEw4zmfmsQ33WOL7sZpnCwWi6k0aV/3k1lMOOzD39cXi/UfdpOn6bH2lRoF2WOTfErFAn1uWqS7LBmzIrROtM1tkp/p8AXFG8ug=
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the host key trust setting"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/host-key-policy"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+When on, a host's first key is saved without a prompt when nobody can confirm it, and the event is audited. When off, such connections are refused until someone trusts the key from a terminal.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"trustOnFirstUse":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Host key trust setting updated."},"400":{"description":"Invalid value for trustOnFirstUse."},"403":{"description":"Not authorized."},"500":{"description":"Failed to set the host key trust setting."}}}
+>
+  
+</StatusCodes>
+
+
+      

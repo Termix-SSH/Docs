@@ -1,0 +1,59 @@
+---
+id: memory-used-by-termix-and-each-plugin-process
+title: "Memory used by Termix and each plugin process"
+description: "Every plugin process with its state, why it stays up (null when it stops when idle), what keeps an idle capable one up for now (busy) and its resident memory while it runs, plus Termix's own memory, the total, and the memory limit of the container or machine. low is true when the total is past 80% of the limit."
+sidebar_label: "Memory used by Termix and each plugin process"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVd9r40YQ/leGgdI7UOVc+oPitxTSkiuFwLmEEsyxXk2srVe76s4ojmr0v5fZVWzfpXk4+tonW6PZ+b5vdubTARtim1wvLgZc4vUjpRF6P2xdgD5FS8ywd9KCEwYWI1TBvh3BiT6NDEMPb8LgPexbCiUce56fGk9vNd8I7Ih6BlOCYE1vNp4gBtIKDzFBiHt4sxl4fAsmNBkvEbuGgkBHXUwj7FvnSTHSELhSmgwrSp17+poh7sOcV4G0BBLF+CrX0se5hHedE4gPOWZjEOMCJYgJOmNbF6gGH/fgGCQNVGQcq2m4Nyzw48VXzzVywRorFLNlXN7jbW4e47rCRNzHwMS4PODlxYX+fNrv1YlZoj4mqXGq8LuLb/891RrvKYE3dsdgms6FutwV150JZkv5+PevIRUIsHHwDYQosCHYDM4r6lRhR9LGBpe4JcEKeyMtLnExIyzmcSDGCpnSIyXVe8AheVzioYQmrD4D/iMOab4lKDlY4aNJTgcgd2aOZsoPZvCCS2xFel4uFpIP1vRkut5TbWOH0zStlYEdkpMxU9iQSZSuBiV8v56qA9oYd47OI6Z3v9J4jJyV+GBb6gqV80IHlLGnmYtqzmm4nJOwmv/8HFNnlPP7u9UL9R+I2cUAEncUgHWYXZkoBYnJ/W00E1oyDSUwDD/lose5zQfztZ5LOnIrqrBCp2glBSsMJjP9cy+vMnp/t4KSD0wCRoDdNnzjQg13OvV9IqVb6b6J2RFrxFJDwRLER0qvqshsz9v9xZ28ur2BHY1qMUlc2BYLku7p4ws5x9Qvb+2ORjUnZ9sCxCeYGm4EjBXWY3OuOsx82pqg62Os6HsTRvUx8kxlkVx4iFm1E68y5+m/ur3R0afEhfrlD/W7d/XlC0l502MiOJ2r4drY9tmYm2iHjoJwdkk1vhQHIc6N7yNLZ4Liz1PwWzGYgamBzfhcVXXQWdF5vT9no6sUhIL8/3X4T1+HsgBCT7LovXFBryo752E22nucjVat92i16wrbyKKvD4eNYfo9+WnS8F8DJXW/9clNi9WdfPyX6xVO0z+q8cBi
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Memory used by Termix and each plugin process"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/processes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every plugin process with its state, why it stays up (null when it stops when idle), what keeps an idle capable one up for now (busy) and its resident memory while it runs, plus Termix's own memory, the total, and the memory limit of the container or machine. low is true when the total is past 80% of the limit.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The memory report."},"403":{"description":"The caller lacks admin.plugins.manage."},"500":{"description":"The report could not be built."}}}
+>
+  
+</StatusCodes>
+
+
+      

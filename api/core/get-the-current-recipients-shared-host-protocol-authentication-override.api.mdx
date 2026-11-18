@@ -5,7 +5,7 @@ description: "Get the current recipient's shared-host protocol authentication ov
 sidebar_label: "Get the current recipient's shared-host protocol authentication override"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVMFu2zAM/RWCl11UG9lhB9/SoS3SXYo1QzEUwaDIbKTFljyJbpIZ/veBtpukKHoosJtNPZLvkdLrkPUmYfGI3y/nX3GlsKRkomvYBY8F3hADWwLTxkieIZJxjSPPnxIkqyOVFzYkhiYGDiZUoFu25NkZLRUgPFOMriRUWBPbUGKBG2JU2Gi2WGAe19rkUuNCG0Mp5Z38LMo+l1J591K5R4WJ4jNFodthGysssBtDcvia+M/QRlhSrN0eRgwqfNbR6XVFCYtuKiZfJT3ptmIs0DI3qchzHhIz2uu6qSgzoca+71fCwLTR8WGgsCYdKc5bEfK46lWHJoSto/OIbtw3OhwjZyXujaV6pHJeqEM+NDRxEc0DDIsJhGr6uA6x1sL59mH5Rv09pSTj57AlD0k25/ywSGkSovs7rseSLimCTnA5FAXtywE2JGbYq1eSjtxGVajQSbcRggq9Hpj+3vG7jG4fljDiIRGDZkhu4y+cz+DBkocmktBV4BhYbylJxFBJ3tBwm95VMbA9H/eHJzm/W8CWDpBYR3Z+AzvHFrje/3oj5wj9+Gi3dFCws87YsVE6tclgwaANJ0mbsBB2fso22vswAORc+0PwBFQlyrDvZRdPYVDtuBKZ0+2f3y3k6lNMI/XPX7LZLJu9kbSUZx4iwSkvgyttLDRVu3EeymDamjwncJyEFsTQMqVh8E1IXGsv/adb8B+t4xXR41qZ9pw3lXZeCAx+0E228ohiK6jwzFhQYTFaCyqUXhJ4aS7OJ4eS2nVrnehHrPpewn9aivLeVyf/GB/3ydFurpbY9/8ALNvY6A==
+api: eJy9VU1v20gM/SsEL90FJnKbwx50Sxdtke6laL0IisAoJiPGmrU0o5JUElfQfy8oKY6zaYEWKHqyhsOP90jO84CdZ9+SEguWlwPGhCV2Xmt0mHxLduKsOeQGHTJ97iNThaVyTw4l1NR6LAfUfWe+ohzTFsfRfTNVnUXPqx9JFJPSlhjHceNQ/dbQ4fuXZ3/jxqKly0lILOD0+XP7qUgCx05jtrLrmoBJ+kYLA/O/2zekoDVB6JkpKTCF2EVK+kxAas9UnRhSuGcOvteaksbgLQPkG2KOFaHDlrTOFZa4JUU30y1xxVc+rCzHiQ+BRFbDTH1cWarVcJ95RIdCfHPf/p4bLHGYTXb5GPjH3DOsidt4B7MPOrzxHP1VM3djsU4NufZ9o9Z11U7K1UqnwILufNs1VITc4jj1Vyj0HHU/Qbgiz8RnvRG53NggQ867SMcW38V/aH+wHKX4YIOcoRwnOszVsOAybzvPTuiWj9eZW2+Y316sn7D/QCLWfs07SiA2uZimQVqRzPHLPJ6afEUMXuDllBR8qia3KbDA0T2idMA2s0I3b+7s8rC7/93qdxG9vVjD7A9CCl5B4jadxFTARU0JOiaD6yAqqN+RmCVQRSnQtE3fZTGhPW73T3fy7N057GgPop41pi3cRq1B27tPT+gcXH++tTvaO7itY6jnQvJQpoBzBR9ULGzxhXyblujgU8qTg937tM+JgBqh+eXGdJ0n1lEbo7ls/9m7c1t9Ypmhn/5VvHhRnD6hZEIQMhM8xBXwyocauqbfxgRVDn1LSQWiisECzr2STI3vsmjrk9VftuAXSscjoIexKt3pqmt8TAZg0oNhkZVLNFlBh0fCgg7Lg6paLTMcFHsz+1roMFx5oX+5GUczf+6J7b1vHvRjev1VFPuusLz2jdATlCEnpWR79cf7RcP/BHTfRn//rtJ+kqmmtxM63NH++H/FFOU31l3aNW7GI/l+82qN4/gVDgdwQw==
 sidebar_class_name: "get api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Get the current recipient's shared-host protocol authentication override
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"protocol","required":true,"schema":{"type":"string"}},{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Get the current recipient's shared-host protocol authentication override
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  responses={{"200":{"description":"The result."}}}
+>
   
 </StatusCodes>
 

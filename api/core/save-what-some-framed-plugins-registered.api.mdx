@@ -1,0 +1,68 @@
+---
+id: save-what-some-framed-plugins-registered
+title: "Save what some framed plugins registered"
+description: "Saves entries by plugin id for one client kind. Unknown plugins, malformed entries and entries over 60 KB are skipped."
+sidebar_label: "Save what some framed plugins registered"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu20gM/RWCZ0VOgqIH3ZKii00LLIKNg6AIjMVYoq2JpJnpDGVFFfzvBWcU21u3h56qi6UxyXl8JB8nrCiUXjvW1mCBD2pHAciw1xRgPYJr+602oCvYWA/WEJStJsPQaFPl8GgaYwczm4UMOtVurO+oOgRR5vhud+Th/SV8vgXlCUKjnaMqxwxZbQMWz3ifAuEqQ09fewp8a6sRiyl+ak8VFux7yrC0hsmw/KWca3WpJIfFS5BEJgxlTZ2SNx4dYYF2/UIlY3YS6BlTMpjhjFDudd468ixfxfRmcYwT2GuzjS59JzEGWmMmPDZsHa72x2Bnl+/jIxCCsyYkk+vLS/n5fyH+tgN0yowH6gYSwtRO6Npn+O5nTm/VOCkRWH8IoQMYy6AMJDhzoKvzQP9YhqC3hirQBgbNNSgIFIK2JkfJoCOubYUFul7oc4prLHAx98Fi41VHF562OrCPhQmYYSC/Iy91nrD3LRY4paN9IvAEwRfbe1iS7/QrJBvMcKe8Vus20TafRuwb1beMBdbMLhSLBUfHnF5V51rKS9sJ9StBUPZe8xghrEl58je9QH9e7bMJS2sbTacnyunPNB5OTkI8SIMlKKeBDiUXLJJzNMNiNsJsfvnL+k4J5k9Py7PsHxLVwLYhA0GKqQ1wTSCXWK+/RU6hJlWRBxXgNgaNwyZm0THW9zSlA7aUFWao5bZkghkaFZG+DPxLRJ+elpDsIRCDSn1yoU0OTzUZcJ4EbgaagVVDQU5KqsiUlMb/V1lEtKd0/zaTN/d30NAIgZVnbbapcbl7/e8snYPp71Pb0JjBUOuyTheF4zU53DGokoO4zbZgBzN7l8rE+StZ/ldmFDmlNlAaKVGuf4+a9zE176kGzVJzlBdx02ZjI1maxRrnobm5v5OJIR9Sxtfv86ur/PqMiWVNUFpPcPTL4aMq6zfpr2zZd2Q4gOYg2YC3PVOI9XI2cKei4M7NIxsEhloaw3YEUQiqt/0ASRFI1PcHINNR0P/gFkoNx/TKC9cqbSTHqFTTLHHPOF+CGf5M5FYZ1jawGE7TWgV69O1+L8dfe/KiO6ujjiWRwdRqUZIaGrHAD4mJi6XAEfO2T1P7w5oTOToI8f2j6Mh63padrcTFq0E2nhqwQMzQuoRS1qmcTdgqs+3VNo59DCnPdw3o0EI=
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save what some framed plugins registered"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/frame-registrations"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves entries by plugin id for one client kind. Unknown plugins, malformed entries and entries over 60 KB are skipped.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["client","entries"],"properties":{"client":{"type":"string","enum":["web","desktop"]},"entries":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"How many entries were saved."},"400":{"description":"Unknown client kind or entries is not an object."},"401":{"description":"Not signed in with a session."}}}
+>
+  
+</StatusCodes>
+
+
+      

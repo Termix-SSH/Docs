@@ -1,0 +1,69 @@
+---
+id: start-a-passkey-login
+title: "Start a passkey login"
+description: "Public. The options for the browser's passkey prompt for a passkey login method. The answer goes to /users/auth/{methodId}/verify with the context these options carry."
+sidebar_label: "Start a passkey login"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu3DYQ/ZXBXNoCrDYxgh50c4EUcAK0Rr2BURiLgCvNrtiVSIUz8loV9O/FUNpdxa4D5NiTqNHjzJvH4dOAJXERXSsueMzxttvWrshgXRGEFGTYhQhSEWxjODLFHxhay3ygHtoYmlYSwJ6Dddg7Dw1JFcopkfV8pAj7QAwSYNUxRV7ZTqrVMOFuynH1SNHtejg6qVK5InihJ9E1X8gUNsY+Q4Ni94z5A153UuHGYGujbUgoanRAp920Vio06G1DmOOpFBqM9KVzkUrMJXZkkIuKGov5gNK3imWJzu9xHDcK5jZ4JtbvV2/e6ONr1dqk2kfqzzStL08NZDgafPdf234PstBtomcgxHOI3d6D8+AYwm43J3r3MtEnf/Dh6L+WHsfRzD0rxcCCZlIkx1eOYGaPBpni40nKLtaY4zCFRjTPiv8Vughrio17ggmDBh9tdHZbT5rN0UR7Z7taMMdKpOV8tZK0MaMn27Q1ZUVocEyqMxVddNInCluykWI66vxhM5oBixAOjpYR27qP1J8jixR3eroTlWWi82ErF5yHQN8nEJp58VuIjVXOH+7XL7q/I2YXPEg4kAcmL3pgOr9aJET3j1UkVGRLimAZfk1J04QoLG1MR7ts6cxt6grNNNAT5DLSfx/lVUYf7tcw4YFJwEoap5+dz+C+Ig9tJKVrwAmIPRBrpKCSfEEQHim+2kViu5T7u5W8vr2BNOBiozi/n2998/T5RTtn6PdLe6DewLFyRTUV4kuZDG4EbCGs22YshKOfdxfW+5AA+t36PngCqpmmW+X8LqSundTa5jz917c3OvoUeaJ+9Uv29m129aKldXK3SHDZl8F7W1TQ1p3e4DIUXUNeGJyw0oIYOiFOwutNbqzX+vMU3Glzzx34eVW9Ml7Iy//L5ae5Usiqra3zqkAypGH2sgdMhdCglkKD+cLnT4a2MVipAeYPOAxby/Qp1uOo4S8dRfWYzcWzkuOUjnVdYr6zNdM3xPzxz/ln8hO8Rvh0l32frLHu9A0NHqhf/pfGzdKxb/+4W+M4/gsw5ai3
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a passkey login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/{methodId}/options"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The options for the browser's passkey prompt for a passkey login method. The answer goes to /users/auth/\{methodId\}/verify with the context these options carry.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"methodId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"publicKey options and context."},"400":{"description":"Not a passkey method, or passkey sign in is off."},"404":{"description":"Unknown login method."}}}
+>
+  
+</StatusCodes>
+
+
+      

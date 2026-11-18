@@ -57,7 +57,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
@@ -65,7 +65,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `network:broadcast` | Medium | Send network broadcasts. It can send packets to devices on the local network, such as a Wake-on-LAN signal. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
-| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |

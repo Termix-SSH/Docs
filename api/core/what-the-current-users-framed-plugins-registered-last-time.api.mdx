@@ -1,0 +1,69 @@
+---
+id: what-the-current-users-framed-plugins-registered-last-time
+title: "What the current user's framed plugins registered last time"
+description: "The shell replays these at boot so a new browser or device does not start every plugin's frame to learn them. Only registrations and live keys, per plugin and asset version, for one client kind."
+sidebar_label: "What the current user's framed plugins registered last time"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVcFu5DYM/RWCl7aA1tkERQ++pUBaZAu0QTeLoAgGhcbmjNWxJS9Jz8Qd+N8LWk4yaTYF9trTeKRH6vGRejpiTVJx6DWkiCXeNgTSUNsCU9/6UUAbEgKvsE5JQRJ4iHSANaeDEENiqGkfKoI6kUA0jHpWoD3xCH07bEP8RmDDviPQBC15jpa1K+C32I7AtA2i7I2BgI81tGFPsKNRHPTES455x4uQwp5YQooONokhRYKqDRQVdiHWBTpUvxUs7/FmDhRcOey9na/EtnHEYLV+HohHdBh9R1hiToIOmT4PganGUnkgh1I11Hksj6hjb0hRDnGLDikOnR10oDU6U3KnqcfVNK0si/QpCokFXrx/bz8vtb6KyoEE1o8yQagLnBx+/yX0p7iL6RBf1jqDz1+Df7U2hG2kGkKEQ9AGPAiJyVbgNDnsSJtUY4lbspp7rw2WeJaJyNncrncvWoMOhXj/KOHALZZ4zEtTLv+EwR9pYLgl7sIDZAw63HsOft1mTZbVmfvGD61iiY1qL+XZmc6BBT34rm+pqFKH06yqUDVw0HGmsCbPxJeDUb9fTe6IVUq7QKcrvg+/0Pi0cpLio7U1UzlN9NRl44JL9+1/BqFbPn5K3Hnj/OHu9lX1H7PUoGlHEcQaFuahBzskcfh71hQa8jUxeIEf56TzkBtsDpz7e1rSE7dcFbo8yBnyPMl/HfRNRh/ubiHjwa6Sz3PyLsQC7hqK0DMZXQdBQf2OxFYqqilWBGlP/GYVM9tTub9aycuba7v22UBC3ObB1e7hz1flPEG/XtodjQ4OTaiafJA8H1PAtYKvVCxswUI6xCW68tH8zVdq+z6O5j3UCuUrFeImzVUHba3MZfovb65t9LNnYYkXPxTn58XFq5LMeqvEBM9xBVz5qnl0hzpVQ0dRBYKK0QJOg5LMwvdJtPPRzl+m4K7xOhdRDcwm0yDEj05cL0llsV9iqqH1oqCho39zs4sV1dzx//JC5MFUetCzvvUhmoSzox0XK7zHRSB0+CUzXDlskqgBj8e1F/rE7TTZcn5WzJ/qIOZ2NZYb3wr9h6jf/r68Od/BW+x2NJ4+UnvfDgZCs7RHX82m9+ztP1/d4jT9A2k/v9k=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"What the current user's framed plugins registered last time"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/frame-registrations"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The shell replays these at boot so a new browser or device does not start every plugin's frame to learn them. Only registrations and live keys, per plugin and asset version, for one client kind.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"client","required":true,"schema":{"type":"string","enum":["web","desktop"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Entries by plugin id."},"400":{"description":"Unknown client kind."},"401":{"description":"Not signed in with a session."}}}
+>
+  
+</StatusCodes>
+
+
+      

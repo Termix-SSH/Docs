@@ -1,0 +1,68 @@
+---
+id: sign-everyone-out-admin-only
+title: "Sign everyone out (admin only)"
+description: "Ends every session on the server except the caller's own. With apiKeys true, every API key is revoked too."
+sidebar_label: "Sign everyone out (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9lU1v20YQhv/KYC5NAZpy3I8Db07hAE4PNWIFRmEIxWo5Ftcid5mdoSWV0H8vZpeWZDs55FJeJI1md975ejhiTWyj68UFjxVe+ZqBnijugInZBQ/BgzQETPGJItDWUi/JYk3bUvyJIWx8CXdOGjC9+5N2DBIHKqZ7Lm+uYU07cAyRnsKaapAQSixQzIqxuscvTJFxUWCkrwOxfAj1Dqsx/XSRaqweTMtUoA1eyIv+Z/q+ddao7Nkjq/YR2TbUGf0mu56wwrB8JCtYYB9DT1EccT6bVJ44LkNoyXjcp0eFcB88Z/eL83P9eFmo21wdBvI11SV8JhmiZ2jCBjrjD+VjML7W/LnEfYG/nv/y9q7LunMejLXEWqOcdHL/7VuhPxrXpiJq7EOcElV4R9KEGivsA6fEjTRY4WzQEs+efWe5EWepQcETFpjbq+0YcYgtVjhm0x6LV/H/DkOEOcXObaepwAKfTHRm2eaKTdak/MEMrWCFjUjP1Wwm6WBJW9P1LZU2dFr1hSqwQ3SySxKWZCLFy0HV3y/2xYg2hLWjU0tu48FycsWtDkKWcnrRod2qRXNObtr+5ITF9OVjiJ1RzZ/u5m+ynxoPEtbkgckLuLwhGiRE928aSmjI1BTBMHxIl6Y5ULd0MHX3NKWDtpwVFug0WnbBAr1JSh838l1Fn+7mkP2BScAIsFv5M6fL2ZCHPpLKLcAJiFkTq8VSTd4SBF3u72WR1J6W+4cr+QwBFhPF+RVsFBfSbf95k87B9cdLu6ZdAZvG2SYH4mOYEq4FjBXWY5Ovgms6bY33ITno/8brVgC1THmtlDCfj3C6ysP7giWKvL127SGk+jhRB5z25PLmWpeEIuckL34v378vL94kP1euhkhwPFfClbEN9O2wch7qYIeOvDA4SeSFGAahTBdd+s4kFk7zcutWHp7XHMIg8M4k2gTf7n5+HX48EvZ/fhPkaRLayqxvjfOaTcLQOCHsHhPCEqkyxFAx/RJjiwIb5V51j+O4NExfYrvfq/nrQFHJsjiSKmME8zAl6KxphxX+kUtwNldN6t4OeS9fvXAUOAfc3vx1q6hYTm+uLtR6JpqNqjQbrBALDKnMCUvJNmJr/Gowq7TZ6U59/gPEOaM6
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Sign everyone out (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/sessions/revoke-everyone"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Ends every session on the server except the caller's own. With apiKeys true, every API key is revoked too.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":false,"content":{"application/json":{"schema":{"type":"object","properties":{"apiKeys":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Sessions ended. Returns how many sessions and keys."},"403":{"description":"Admin access required."},"500":{"description":"Failed to end sessions."}}}
+>
+  
+</StatusCodes>
+
+
+      

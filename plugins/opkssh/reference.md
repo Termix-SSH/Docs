@@ -26,9 +26,9 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
 | `auth:provide` | High | Handle sign in. It can add a login method, a second factor or an SSH sign-in type. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |

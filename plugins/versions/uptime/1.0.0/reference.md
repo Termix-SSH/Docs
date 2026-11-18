@@ -83,7 +83,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
-| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |

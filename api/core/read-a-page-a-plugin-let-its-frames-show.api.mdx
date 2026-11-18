@@ -1,0 +1,70 @@
+---
+id: read-a-page-a-plugin-let-its-frames-show
+title: "Read a page a plugin let its frames show"
+description: "The shell reads the address behind a grant the plugin's backend made with ctx.desktop.grantView, to draw that page for one of the plugin's frames. Only the person (and session) the grant was made for gets it, never a frame token or an API key."
+sidebar_label: "Read a page a plugin let its frames show"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVU1v20YQ/SuDuTQBGMo2gh54c4G0cAq0RuLWKFwhGJEjcStyl9kZWlYF/vdidmlbieMCvvTSk6j52jfzZt8esGGpoxvUBY8VXrUM0nLXQWRqBLRloKaJLAIrbp1vgGATyWtyDd24cf47gRXVW/YN9NQw7Jy2UOtd2bBsNQxlSvjd8a4ADdBE2oG2pDDQhmEdIgTPENZfllxH6llK+NV3++zhKMHDK/INCIu44F8nR8azI8nHW8ENq4DTAjzfcgTK1UDDlj2ECOTh/PICtrwv//RYoNJGsLrBy3S64LLAgSxFOZrjgM7GM5C2WKCnnrFC12CBkT+PLnKDlcaRC5S65Z6wOqDuB4sSjc5vcJqKbxZJ4F9UZ2nBMgQvLOY/Ozmxn6dEpvHO7JU4Ffj25PRp5C9BQdzGcwPOZ+7ofr5z1ttvZYGMdTvP3kaurZOZPTCKMl2lNY49axsa65at1zSBChc5WhYH10yLHa/e3DreyeKQik5YoHC8vSdgjB1WeMgmc34J6I8wRrji2Ls7yDFY4C1FR6suz2m2plbWNHaKFbaqg1SLhabEku+oHzou69DjlCYtXI/R6T5BWDFFjuejob9ZGqF1CFvHxxYa3M+8f7AclfhojGYox4UeCDYsOBNv/3MQFvPHjyH2ZJjfX1896f5j5mtecGGvRqZdDjskRPc3WSS0TI3dB4EfUtHElIWlxET3cUsP2HJXWOQNziGPO/zXTp9F9P76CnI8CCtQXrY3zpdw3bKHIbLBLcApKG1ZzFJzw75mCHZ5n+sioT0e94snOUsAiFJU5zd5+7W/+/SknYfQl492y/sCdq2r23yQPB5TwoUC1SqWNsdC2Pk5uybvQwowP/m96SR3wvlWOb8OqWunnbU5b//55YWtPkfJ0M++L09Py7MnLZlE1CEyPOaV8I7q9v4WN6Eee/ZJScVgQQyjctaSIYj25O38eQs+MNnrkFXnvkbHmrKzmoO0Yfc1ELtFXtnr//n9yYurfKeLoSPnbcRJ8Q6zWt7grJZYYJVengfBNEt+RpYFtkHUog+HFQn/FrtpMvPnkaOJ2PJRFJOkNU7su8FqTZ3wv1Dz6sP8Qr2G5wDfi4XfJ+3tRvuHBW55n59LE8j/8MQ8lGl5/AL99O4Kp+kf4/AWQw==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a page a plugin let its frames show"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/{id}/web-views/{grant}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The shell reads the address behind a grant the plugin's backend made with ctx.desktop.grantView, to draw that page for one of the plugin's frames. Only the person (and session) the grant was made for gets it, never a frame token or an API key.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"grant","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The page address."},"401":{"description":"Not signed in with a session."},"404":{"description":"No such grant for this plugin and person."}}}
+>
+  
+</StatusCodes>
+
+
+      

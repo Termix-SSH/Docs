@@ -29,6 +29,8 @@ Capabilities are not user permissions. A capability says what the plugin's code 
 | `sync:provide` | Run sync | It can answer all sync requests, so it sees the data that devices and servers sync. |
 | `ssh:transport` | Choose how hosts are reached | It can carry the SSH connection to a host over its own route, so it sees everything sent to and from those hosts, passwords included. |
 | `device:serial` | Access serial and USB devices | It can open a physical serial port on the machine running Termix. |
+| `config:secrets` | Read secrets the server holds | Environment variables and files on the server, except Termix's own keys. |
+| `network:sockets` | Open its own network connections | It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `notify:hub` | Receive every alert | Stores and delivers the alerts all plugins send, including their contents. |
 | `operations:invoke` | Run other plugins' actions | Acts for the signed-in user on the actions its manifest lists. Approval rules still apply. |
 | `operations:approve` | Decide what needs approval | Can let actions run with no approval, or block them, for every user. |
@@ -47,7 +49,7 @@ Capabilities are not user permissions. A capability says what the plugin's code 
 | `network:outbound` | Reach the internet | It can send requests to outside services. |
 | `network:serve` | Accept connections | It opens a port on the Termix server. |
 | `network:broadcast` | Send network broadcasts | It can send packets to devices on the local network, such as a Wake-on-LAN signal. |
-| `network:probe` | Check if ports answer | Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Check if ports answer | Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `hosts:status-provide` | Provide host status | Becomes the source of the online and offline dots for every host. |
 | `hosts:activity-provide` | Store recent activity | Becomes the store for the recent activity list of every user. |
 | `hosts:lock` | Manage hosts as read only | Hosts it manages can't be edited, deleted or reshared by anyone else. |

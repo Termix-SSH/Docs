@@ -1,0 +1,69 @@
+---
+id: list-every-share
+title: "List every share"
+description: "Every host, folder and credential share on the server, with who has it, at what level, who gave it and when it ends. Needs admin.users.view."
+sidebar_label: "List every share"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1vG0cM/SsEz5O14zY97M0JnMBpEQS1W6MwhGK8S2knmp3ZDrmSVUH/veCMLLmWZTi3nCRRj19vyMc1tsRNcoO4GLDGiwWlFXSRxcA0+pYS2NBCk6ilIM564M4mghhAOgKmtKBkYOmkg2UXobMMTgxYgWVnBTwtyJv818wuCJzkeMuOgn6n0HIFX4haBtv2LlQjU+Jq4WhZoUGxM8b6Fn9/f/4BJwYHm2xPQkmta3Ra8j8jpRUaDLYnrHHuQosGuemot1ivUVaD2lmSCzM0SGHsNaY2iQZLl2hw3yNONhvzfHQt7/Kl+BvzhNEr5YtBOseg3pmimCAuA1d4LE+Knp7P44LQjBIeLdG73slLngZ7e+96ZeHd6enROHE6ZXox0FHXaUy9fdb14BW+cQxKPi+U9YnBRDzEwMTqdXZ6qh/PMWog0JJYYOqSTmtMYOHD1Z8wdZ4gTsF6rx/SUa8848+nPx3G+hIF7ChdTO5fajPu3XM5P1rnqQWJ4B1LWQJ9vo3BnqSLLdY4y2wNVjqs8STd2ebENg0xv0mkA6185H0pwzsmjzWui2mDT+fmrzgmuKbUu/vtmqHBhU3O3vlCztaaa53a0QvW2IkMXJ+cSHas6N72g6eqiT1uMr1MzZicrHIJd2QTpfNRK76d6Gs2Mc4dPbbYwf1Kq53lUYgrfdxSyuNAu7fWWh5mQH8XEJrtl49lSGr8fHN90P0VMTsVmTinAExBwBXJOd++llUkdGSzRjG8z0GzuigsO+b3fNzSrrbSFZoyvgWyn99vSzla0eebayh4YBIVOnaz8MaFCm5U1YZEWq5ReRM7J1ZLo9LSEMQFpaNd5Gof0/3dTJ5/vYQ5rYDFJnFhVnRZ+vu/D9rZQb+f2jmtVNFd05VEvE9TwaWAbYTVbYtVpXs4IzaEmAH6vw2rGAjIM5VNcmEac9dOvLa5nf7zr5c6+pS4lH72S/X2bXV20NJ1R9DERLD3q+DCNh0Mfpy5AG1sxp6C6IliLQtSHCXvscEhsvQ2aP7tFPymm075IOZ9f5pQtyUIBfkB72aZG6F7ORm8dUE7zIKz3grULapAocH/S9TElLtY3+J6fWeZ/kh+s1FzkXhVjdaxalCL9dR6JoNzWu0P78L6UXPn03YAPUrgy2fySEcl8e4mv5y6gHeH9TXgh1P6GuzuXL4GvDuQe/Bkr+5FeveH5dPFNW42/wEcf0n4
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List every share"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rbac/access-review"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every host, folder and credential share on the server, with who has it, at what level, who gave it and when it ends. Needs admin.users.view.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"kind","schema":{"type":"string","enum":["host","folder","credential"]}},{"in":"query","name":"userId","schema":{"type":"string"},"description":"Shares this user has or owns."},{"in":"query","name":"roleId","schema":{"type":"integer"}},{"in":"query","name":"limit","schema":{"type":"integer","maximum":500}},{"in":"query","name":"offset","schema":{"type":"integer"}},{"in":"query","name":"format","schema":{"type":"string","enum":["json","csv"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Shares, newest first, or a CSV file of all of them."},"403":{"description":"Not authorized."},"500":{"description":"Failed to list shares."}}}
+>
+  
+</StatusCodes>
+
+
+      

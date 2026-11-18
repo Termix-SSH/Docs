@@ -1,0 +1,69 @@
+---
+id: revoke-one-of-your-own-api-keys
+title: "Revoke one of your own API keys"
+description: "Revoke one of your own API keys"
+sidebar_label: "Revoke one of your own API keys"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVFFv3DYM/isEnzZA8aVB1we/pVgKpN1D0V4RDMGhUGzmrJ0tuSJ9iWf4vw+UfJfbrsXQJ8vUR/IjRX4Tit0ylvd4/fEWPtDIuDHY22g7Eop6M6HzWGJvpUGD3naEJe5ovK3RYKRvg4tUYylxIINcNdRZLCeUsVcgS3R+i/O8UTD3wTOx3l9dXuqnJq6i68UFTaIkdjRCpH3YUV3gbPD15etz4J9hgMbuCXxIDk9OGpDGMbjs9dv3wr+zrqUaJCwJQBqCJWeB82z+g/+UUcEThEcYwxAhPPmDB6PBjqQJNZZYU0tCaHKfSlwNTJFXtncXCl11ztNqSm2b0SBT3B/aO8QWS5yySS/PSo2wpti5Z8gYNLi30dmHNrdysaZyH+3QCpbYiPRcrlaSHAt6tl3fUlGFDuf0GEzVEJ2MicID2UjxelDq95vZTFiFsHN0arG9+0Dj0XIS4rM+eqZyGug4A8oFl9nQ/wxCsxzehdhZ5fz+bn1W/WdidsGDhB15YPICzud3G6QJ0f1tFQkN2ZoiWIa3KShYXydYckwjcVrSkVuuCk0e8gx5GfO/nuSHjN7frSHjgUnACrDb+gvnC7hryEMfSekacAJid8RqqagmXxGEPcUfVpHYnrb7pzt52CMWG8X57bIf3fPXs3KO0J9v7Y5GA0+Nq5qciF/SFHArYCthdVuwujuLd2W9Dwmg99aPumLUMuUtdP4xpKqdtFrmMv3XH2919Clypn71pnj1qrg6K2ndEFQhErz4FXBjqwb6dtg6D3Woho68MDjhtNIxDEKcGt8Hls56zb9Mwf/LwL/yH19L6FlWfWud17hpzadFH+4x6QOmd744iInzOntlFteNwSawKHaaHizTl9jOs5q/DRR1bzcvOpC2uHas5xrLR9syndGqghfyOh+/fFp0+1dA8326h/3wY5KbdtA/NKr8R/2fN/OJBP5+88fN+gbn+R9S3SmN
+sidebar_class_name: "delete api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Revoke one of your own API keys"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/users/api-keys/mine/{keyId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Revoke one of your own API keys
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"keyId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"API key revoked."},"404":{"description":"You have no key with this id."},"500":{"description":"Failed to revoke the API key."}}}
+>
+  
+</StatusCodes>
+
+
+      

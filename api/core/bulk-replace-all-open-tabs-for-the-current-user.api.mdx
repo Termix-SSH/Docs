@@ -5,7 +5,7 @@ description: "Bulk replace all open tabs for the current user"
 sidebar_label: "Bulk replace all open tabs for the current user"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVMFu2zgQ/ZXBnBW56WEPuiVFF0j3sMHWRbAIjGJMTSzGFKmSwziq4H8vhhLspEEP0cGWhm84b4Z8b0KhXcLmHv8d2MOatgk3FUb+kTnJdWhHbKbyaSO32EjMXKEJXtiLLtEwOGtIbPCrxxS8xpLpuCd9k3FgbDBsH9kIVjjEMHAUy6msarUzimKkEY/lUQppCD7NyI8fPuhfy8lEO2gxbFDJQh5aEm4hZWM4pYfs3FijbvAafJ3dHiIPjgwDOQdB+1UG8BAiSMdgcozsBXLiiBX2LF1oscEhF+okHTa40ryLwrzCxPGJo45vwhwdNjjNoSP+Xv//kCOsOfb2GWYMVvhE0dLWzT0u0dLmA2Un2GAnMqRmtZKSWPMz9YPj2oRe57RRBiZHK2OhsGWKHK+yEr3fHKsJTQh7yy8jNNh/eDxFXmzxVU9tpvJyo9PxKBftucCwWUBYLS9/h9iTcv5yt37T/VdOyQYPEvbsIemUrS9D1yIh2p/lBkHH1HIESnBdNgXybYGVxBqP1auWzlendIUVWq02Q7BCT4Xp40H+yOjL3RpmPCQWIIFkd/7C+hruOvYwRFa6FVgBoT0njRhu2RuG8MTxj10Uti/H/e5JXt3ewJ5HSEJRrN/BwUoH0j9/f9POCfr+0e55rODQWdPNhdK5TA03AmQkadqChXDwS7Yh70MB6Dr5MXgGdolnAaod/Hc2ks/z5T0L/95n5zZHPbSHUMJWdB0XmVzd3qhGOKa5x49/1ZeX9eWb3teq3RAZznk1fCbTweDyznpog8k9e0lgJSl/iCELp3JCQ0jSU/Gt5bq83ype8Tkds/CzrAZH1mud4g/TYiP3eLaRTYVdSKLBadpS4m/RHY8a/pE5qrI3Z6eYZYzzYRbR73nEBj/Njnyx1tIKd3nWxW/urII/GdvtN1XqdjH5PrSaEumAVfltECsMpaviCiU2oSO/y7Qrwipb6vMLec8uMg==
+api: eJyVVE1v2zgQ/SuDOStym8MedEuKLpDuYYOti2ARGMWYmliMJZIlh3FUwf+9GEqwkwY9RAdbGs7HezOcN6HQLmFzj/8GdrCmbcJNhZF/ZE5y7dsRm6l82sgtNhIzV2i8E3aiRxRCbw2J9W71mLxTWzIdD6RvMgbGBv32kY1ghSH6wFEsp3Kq1c5eFCONWKEVHtLb6OP8KLgUvEtzjssPH/Sv5WSiDQoDG1QakENLwi2kbAyn9JD7fqxRE7x2vs79HiKHngwD9T147YRigwcfQToGk2NkJ5ATR6xwYOl8iw2GXEiRdNjgSuMuCqcKE8cnjtrYCXPsscFpNh3x9/r/+xxhzXGwzzD7YIVPFC1t+5njYi00Hyj3gg12IiE1q5WUwJqfaQg918YP2qiNIjA5WhkLhC1T5HiVFej95lhNaLzfW35poWD/4fFkeZHiq85zhvIy0WlAikU5FzdsFieslpe/fRxIMX+5W79h/5VTst6B+D07SNpl60rTtYiP9me5W9AxtRyBElyXpECuLW4lsMZj9YrS+VIVVnqrtNrsghU6KkgfD/JHRF/u1jD7Q2IBEkh25y6sq+GuYwchssKtwAoI7TmpxXDLzjD4J45/ZFHQvmz3uzt5dXsDex4hCUWxbgcHKx3I8Pz9DZ2T6/tbu+exgkNnTTcXSucyNdwIkJGkYYsv+INbog0554uDnpMbvWPgPvG8gCoU/50l5vN8ec+ScD8dN0cd2YMvRit6isuSXN3e6IZwTDPDy7/qjx/ryzfM17q5PjKc42r4TKaD0OedddB6kwd2ksBKUvQQfRZOZT7BJxmo6NlyWd4vFK/wnIYs/Cyr0JN1Wqeow7SIyD2eRWRTYeeTqHGatpT4W+yPRzX/yBx1rzdnnZiXGOdRlpXf84gNfpqV+mKtpdW9z/NW/Kbauu4nWbv9pnu6XcR/8K2GRDpgVX4bxAp9YVU0odgm7MntMu3KWpWU+vwCe102Lw==
 sidebar_class_name: "put api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -53,7 +53,7 @@ Bulk replace all open tabs for the current user
 
 <RequestSchema
   title={"Body"}
-  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tabs":{"type":"array"}}}}}}}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tabs":{"type":"array","items":{"type":"object"}}}}}}}}
 >
   
 </RequestSchema>

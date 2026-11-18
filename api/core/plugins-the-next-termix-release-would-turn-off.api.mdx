@@ -1,0 +1,59 @@
+---
+id: plugins-the-next-termix-release-would-turn-off
+title: "Plugins the next Termix release would turn off"
+description: "Looks up the newest Termix release on this instance's channel and lists the installed plugins that would not load on it, so an admin can update them first. reason api means the plugin was made for plugin API 1, reason termix means its engine.termix range leaves that version out (needs says which range it asks for). version is null when no newer release is known."
+sidebar_label: "Plugins the next Termix release would turn off"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVUtv40YM/isEL90CWjlJHwfdssC2yLaHAOsiKAKjYEa0NbXEUYdUZNfQfy9Gkh/ZNIe99NSTBIKP7+PjmwOWrC761nwQLPDXELYKXQtWMQj3rAZLjo3fQeSaSRmCgFVewYsaieNvFFxFIlwDSQm1V9MxfHSoay6hrbuNl2Qlgz50dQkSDOpAZUrnLQMNQAJUNl7AkUDXlmSc8jSw9lEth8ikQYBaDw2TTEWm1NCTQkMlwzrEo+32/g6us2OYTSymSG8KLBsvnM/2SLJhqJmeecb5zFF9EAidwTthLhWU9gp95V01+3sD0q2mqt/mpwivIF1dQ1+xgISxj/HUP6+wldBLjhkabRSLR7yfGoSrDCNrG0RZsTjgzdVV+ryc0fI8mmPF1PhzNxK/uc3WRYGwXuc4ZPj91Xf/ns2lMUWoyW11mkE+Z8obEtrwGP7DW2BcxW4L7jTX2EmOw5Bhw1aFEgvcsGGGLVmFBS7m3Itpxu/HcMxQOSY+WDwesIs1FniYTANmX1T9PXTxuJeTD2b4TNHTUz11braOeNfU1YYFVmatFovFNPKcd9S0NecuNDgMwyohcF30th8hPDFFjrddwvy4GrIDuhC2ni8t1PpfeH+yXKT47CpuJiiXiQ5o+5ZnLInz6IbF7ITZ/PNTiA0lzJ8elq/Yf2Ydp25hywLKYuBlnH8qEqL/m5InVEwlRyCFD2PS05qMgeNMLymdsE2sMEOfqk0umKHQiPTP3t5E9OlhCZM/KBuQgfqNvPeSw0M6hjZygpulBTXasiaL45LFMYRnjm+yGNFetvurO5nkYMt7UKNoXjbQe6vAmt0fr+icXL++tVveZ7NEjIX0XCaHOwNypils9oXQyxztSNLxkEuaAiT7IAxcK0+35GUdRtbe6kRz3v7b+7u0+pMOYIE3P+bX1/nNK0rjnYbIcI7L4SO56qiWZXBdw2KTOIZeIIbOWMfGt0GtIUn15y24P0l6EqPdq1fipfx8CSfdkhiL/f/k/OdPznQ1xjtbtDV5SfMd5fYwC/Qjzs3DDF9I9CrDKqglj8PhiZR/i/UwJPNfHcekmquzCk8SeX4Cfv64xGH4Byxb9iw=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Plugins the next Termix release would turn off"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugins/update-check"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Looks up the newest Termix release on this instance's channel and lists the installed plugins that would not load on it, so an admin can update them first. reason api means the plugin was made for plugin API 1, reason termix means its engine.termix range leaves that version out (needs says which range it asks for). version is null when no newer release is known.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The newest version and the plugins it would turn off."},"403":{"description":"The caller lacks admin.plugins.manage."},"500":{"description":"The check could not run."}}}
+>
+  
+</StatusCodes>
+
+
+      

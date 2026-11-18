@@ -64,7 +64,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `network:broadcast` | Medium | Send network broadcasts. It can send packets to devices on the local network, such as a Wake-on-LAN signal. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
-| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |

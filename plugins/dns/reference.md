@@ -41,7 +41,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | --- | --- | --- |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
-| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |

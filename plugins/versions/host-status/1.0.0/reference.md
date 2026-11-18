@@ -27,7 +27,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `hosts:status-provide` | Medium | Provide host status. Becomes the source of the online and offline dots for every host. |
-| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
+| `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable, and look up host names. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |

@@ -1,0 +1,59 @@
+---
+id: rotate-the-encryption-key
+title: "Rotate the encryption key"
+description: "Replaces the ENCRYPTION_KEY kept in the data folder's .env file, re-wraps every user's data key and re-seals every stored secret with the new key. Sessions stay valid. Refused when ENCRYPTION_KEY is set through the environment or ENCRYPTION_KEY_FILE; use ENCRYPTION_KEY_PREVIOUS there. Admin only."
+sidebar_label: "Rotate the encryption key"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVcFu4zYQ/ZXBXHpR5GzQFqh6yhYO4E2xMRxvgyAwAkYaW6wlUuWMrKiC/r0gqY29ye4h955sDN9w3nucGQ1YEOdON6KtwQxX1FQqJwYpCeaf/1jdL9eLm8+P1/N72FMjoE04KpQo2NqqIPcTQ0rmAFtdUQKOzjqnGgY6kOuh5QAI8D31oEzhIUyq+gphsY4KYModCXRaylDBUOczUrglZm0NA4vq4aAqXaSwom3LVEBXknnNUzMwCUjpbLuLl5E5aGdNTUbAulcJj1eLP+e/e6qvD5ar+V+Lmy+3/g5HKVwWtTZgTdWnmKCoHWP2gHOTuz4auEnQETfWMDFmA16cn/ufbz2+ph6cFSVUJFFvblsjDHYLXakEanugIsUxwZ/Pf3ubvy4peDnptK2wLig+gve3blngib7WmMj76375Hp0rpSuPslNCMMw7j+OYYE1S2gIzbCwLJtgoKTHDGb2InsW0sz31mCCTO5DzvgzYugozHGJoxORV4XvbOliTq/UzRAwmeFBOq6cq2jdFA+WtaivBDEuRhrPZTEJiSs+qbipKc1vjOI4bzyBvnZY+UHgi5chdtp70w2ZMBsyt3Ws6jahGX1P/Ejm54jYvqY5UTi8aUPqGJi5ec4BhNoEwmf5cWVcrz/nT3fqN+qmtQeyeDLDvzGm2fBHr9L/KI6EkVZADxfAxXBqe2MNCYnjWU0kv3KIqTFD7ahGCCRoVmP7dyQ8ZfbpbQ8SH/lICrHfmTJsU7vy4NY483QS0gKg9sY/kVJDJCeyB3A9VBLandr/bycvlIvQ+i3KizW7aF/Xz4xs5L9D3W7unPoGu1HkZC/GxTAoLAZUL+7QJC7YzU3aujLEB4M+V6a0hoIopTpM2WxtUa6m8zKn7L5cL3/rkOFK/+DX98CG9eCPJT35uHcExL4W5yktoqnanDRQ2b/2SY9B+n3QGnG2FOBjvJ7hWxtefumB1HPjjPEMc5G8q+7ExQkb+/0S87xMRu1voWWZNpbTx7xDW4jBt0gc8Oo8JnuzSTYKl37nZAw7Dk2L64qpx9OF/WnJ+vW2O6zLusuO2Xt7crnEc/wNm07e8
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Rotate the encryption key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/encryption/rotate-key"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the ENCRYPTION_KEY kept in the data folder's .env file, re-wraps every user's data key and re-seals every stored secret with the new key. Sessions stay valid. Refused when ENCRYPTION_KEY is set through the environment or ENCRYPTION_KEY_FILE; use ENCRYPTION_KEY_PREVIOUS there. Admin only.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Key rotated, with counts of what moved."},"409":{"description":"The key is set outside .env and must be rotated there."},"500":{"description":"Failed to rotate the key."}}}
+>
+  
+</StatusCodes>
+
+
+      

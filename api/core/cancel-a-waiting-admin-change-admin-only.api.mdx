@@ -1,0 +1,69 @@
+---
+id: cancel-a-waiting-admin-change-admin-only
+title: "Cancel a waiting admin change (admin only)"
+description: "Cancel a waiting admin change (admin only)"
+sidebar_label: "Cancel a waiting admin change (admin only)"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVVFv0zAQ/iunewLJtGMgJPJWEEgDCSZWNKGqQjfn1pg6drAv60KU/47shLbQ8bCnxJfPvu87333pUWgTsVjh18gh4lphQ4FqlrQqVj0ahwU2JBUqdFQzFlh5W16UqDDwz9YELrGQ0LLCqCuuCYsepWsSMkowboPDsE7g2HgXOabv52dn6VFy1ME0YnzK8pacZmu5nOGg8OXZi1PIJy9ArVQ+mF973MuHcBBbXYGuyG14wr0+xS1sYCo7oKaxhkvwAfQRi0E9SBEIdmTEuA1QWRs3pYEn48o72z1FhTVL5ctUPh8F1VjFAudtKvU8Y5+lWsZ5P5Z0mI/JUWHkcPfnCtpgscB+DA34L6dvvg2w5FCbexgxqPCOgqEbO1Z7imb1t9RaSZco0sRiPpe8ccb3VDeWZ9rXOOT7iqzbYKTLFG6YAodFmwSs1oPqUXu/NXwcocZ85G4fOTriKvXFSOX4oH2bJC44tU9ajyBU08t7H2pKnD9cL0/UX3GMxjsQv2UHkZ2AcSAVw2LqE0pIqJhKDkAR3uRDgVyZYXlj7pBjSXtuoypU4yCMkMMo/NjJfxl9uF7CiIfIAiQQzcY9M24G1xU7aAInugqMgNCWY4poLtlpBn/H4b8qMtvjcj+6kovLC9hyB1Eo5D7eGalA6vvvJ3L20MeXdsudgl1ldDUmioc0M7gQIC0xbZuw4Hdu2q3JOZ8B6Tu5zjsGtpHHoTTu1mfVRmySOXX/4vIitT6HOFI/fzV7/nx2fiJpWTFoHxgO+2bwjnQFjW03xkHpdVuzkwhGYqIFwbfCMRc+TXNNLuWfuuBRrvAXlf3FCd/LvLFkXEqRJ76fDGOF2TBQ4ZFloMJi78OTa6wVVslpihX2/Q1F/hrsMKTwz5ZDGuT1wRjyWJcmpvcSi1uykU/Iae+EXWqYJ18mr38KqB4m/WdgXJf9x7ZphQq33B1+GsN6ODLGy89XSxyG34ppPG0=
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Cancel a waiting admin change (admin only)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/admin-holds/{holdId}/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Cancel a waiting admin change (admin only)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"holdId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Cancelled."},"403":{"description":"Not authorized."},"404":{"description":"No such change."},"409":{"description":"Already applied or cancelled."}}}
+>
+  
+</StatusCodes>
+
+
+      

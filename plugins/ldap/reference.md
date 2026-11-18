@@ -22,8 +22,8 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
-| `network:sockets` |  |  |
 | `auth:provide` | High | Handle sign in. It can add a login method, a second factor or an SSH sign-in type. |
+| `network:sockets` | High | Open its own network connections. It can listen on ports and connect to any address directly, without Termix checking each connection. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |

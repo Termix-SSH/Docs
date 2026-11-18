@@ -36,6 +36,7 @@ This page is made from `manifest.schema.json` in the plugin SDK. Point your edit
 | `requiresSecret` |  | array |  |
 | `contributes` |  | object |  |
 | `backend` |  | string | Built backend entry, relative to the plugin root. Defaults to dist/backend.js. |
+| `sandbox` |  | object | How the backend process runs (API 2). Requests to the plugin's routes and sockets always start it. |
 | `frontend` |  | string | Built frontend entry, relative to the plugin root. Defaults to dist/frontend.js. |
 | `locales` |  | string | Locales directory, relative to the plugin root. Defaults to locales. |
 | `platforms` |  | array |  |

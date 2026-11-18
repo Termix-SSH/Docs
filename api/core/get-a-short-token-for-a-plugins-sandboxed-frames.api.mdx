@@ -1,0 +1,70 @@
+---
+id: get-a-short-token-for-a-plugins-sandboxed-frames
+title: "Get a short token for a plugin's sandboxed frames"
+description: "The shell asks for one on behalf of a plugin whose UI runs in sandboxed frames. The token opens only that plugin's own /plugin-api and /plugin-ws routes, ends with the session and lasts a few minutes."
+sidebar_label: "Get a short token for a plugin's sandboxed frames"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v4zYQ/SuDubQFGDkJFj3olgJtkS3QBo0XQZEaxVgaW6wlUsuh4riG/vtiSPkDcVNgrz3ZpGaGb948Pu6xZqmC7aP1DkucNwzScNsCyUZg5QN4x+AdLLmhdgV+BQR9O6ytg23jheHTPYTBCVgHQq5e+leuYRWoYylA60W/YQe+ZyfgXbuD2FCcanwj4LcOZnl1Rb0FcvVxvRUIfogsBtjVAlsbG4iKkUWsdym4JYkCBCveQmedhhd/OjQYaS1YPuNDKia4MNiTAosc9MMerfbcU2zQoKOOsURbo8HAnwcbuMYyhoENStVwR1juMe56jZIYrFvjOC40WHrvhEW/315f688lq5kFxdv4LXTkdiBcee3KxtxDgaPBD9c3lwV+9RHErh3XSnNigQ4cTFkf/i0LZKgaHY+zbn0cm6anAdXwYnmr544GO46Nr5UPLxFNpqXEaRQy29t6nKW0q9QLGhQOLwcqh9Biifu8NaJ5g+UPPwSYc+jsK+QYNPhCwdKyzcxNu6mLFQ1txBKbGHspZ7OYEgt+pa5vuah8h2PiXrgago27BGHJFDjcDYr7eTGaPVbebyyf71Bvf+HdceesxKPOOEM5L3QcuWLBSQq6zkFopj8/+dCRYv74NL/o/nGSaxaBsIs6RxWyHuKD/Yc0EhqmmgOQwA+paNJLPKgnTfq8pSO23BWaLOgccpL039v4LqKPT3PI8SAcgbLOrqwr4KlhB31ghWtUpJE2LLpTcc2uYvAvHN7tIqE9p/urmbx7uIcN70AihagCzte/e/3rop1j6NdTu+GdgW1jqyYfJKdjCriPQJW6ixxi1a+m7Iqc8ylAv5PbqVVyK5wvlHUrn7q2sdU2J/XfPdyr9DlIhn77fXFzU9xetKSmUfnAcMor4EeqmsM9rn01dOyiGki20eyViXi9xB05PX9Swc86XpDGhzjpUN2dTkb81r3fItLr5CK7+L97J7IsI7/GWd+SdUpg8rP95ILPOLkgGizTC3FuhAuDjXpm+Yz7/ZKEP4V2HHX788BBvWlx8rrkVLUV/V9juaJW+D+I/vb36Sn6Dt5DevAAt0uW2g66QoMb3uX3bFyc2/vDb49zHMcvlgnDwA==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a short token for a plugin's sandboxed frames"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugins/{id}/frame-token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The shell asks for one on behalf of a plugin whose UI runs in sandboxed frames. The token opens only that plugin's own /plugin-api and /plugin-ws routes, ends with the session and lasts a few minutes.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The token and how many seconds it lasts."},"401":{"description":"Not signed in with a session."},"404":{"description":"No such running plugin with framed views."}}}
+>
+  
+</StatusCodes>
+
+
+      

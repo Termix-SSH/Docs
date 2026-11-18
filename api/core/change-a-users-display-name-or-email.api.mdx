@@ -1,0 +1,70 @@
+---
+id: change-a-users-display-name-or-email
+title: "Change a user's display name or email"
+description: "Needs admin.users.manage; only admins can change an admin."
+sidebar_label: "Change a user's display name or email"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVlFv3DYM/isEX7YBrq/NugHzntKgxdIBQdBeEQzBYWBs5qycLbkSnYtn+L8PlJy7Wy4ZVsxPtvRR/CiSHz1ixaH0phPjLBZ4wVwFoKo1Nu8D+5C3ZGnNv4KzzZA2ApRkoazJrhnIzmjMUGgdsLjGL2qIqww78tSy6FdxPaJRDx1JjRlaahkLVB/nFWbo+WtvPFdYiO85w1DW3BIWI8rQKTKIN3aN07RKYA7yzlWDIp7als4KW9Et6rrGlKTRLe6ChjgeH+1u7rgUzLDzrmMvhoPuViZ0DQ0XkelTHhnavmnopuHkdcqQWzLNf0DGR4MInbMh+Tp5/Tq6/EcyLr27NQ1DoHuucpwyfPsc7NzeU2MqmPmCXi04D5HPbPbjsdmFE6BeaufNX7vj3x7jNJtgncCt6+0j7pdj3LLm5BJMAGo8UzWAsdAHjkY/Pcf9A5mGKxAXgwSpGboUdY56SS1L7apUNqXWTSyfAhexOBex9BZjqqJpMZtihoH9/WPZ9b7BAse0NGH2hMIfrvewZN+aB0gYzPCevNGUxeTMq5H8LfWNYIG1SBeKxUKiYc4P1HYN56VrcYo1GrjsvZEhUrhh8uxPe+V+vZqyEUvnNoYPV6gzv/OwWzk44rMWbKJyeNCu0JQLzi2j3wmE2fzywfmWlPPHq+VR9J85BOMsiNuwhcBWNGeah9O5NmLzQM1UsQcK8C4eCmSrCIuGMcGHIe24pagwS82fIPv2v9vKi4w+Xi0h4SGwAAkEs7avjM3hqmYLnWelm4ERENpw0JWSK7Ylg7tn/2IUke3hdX/zTZ5ensOGBwhCXoxdw9ZIDdI+/HkUzg767Ve74SGDbW3KOjkKezc5nAtQKUHNZiy4rZ2tS7LasVSK7pMdnGXgJsxdpUr4aa+h71PxHmneXsFmaduJsKbz1sWLM6KWODfQ6eW5dg/7kKI/+Tl/8yY/OboVFYvSeYa9XQ7vqayha/q1sVC5sm/ZSgAjQSMD73rhEHPXuSAtRTGfC+lsnkaqNv678LwWPmUx7ifF/xx8qXqEH2TRNWSskoyyM86CdR0nXcAMoxFmWOxG36NqrTKsXRAFj+MNBf7im2nS5a89exWS1V6YoqxUJuh7hcUtNYH/JbzvP80z8gd4ie9jw9oh6l/T6xdmuOFhP6in1ZRhKtjIIG2eJT+vlnrE3vho+Kqo7RT98nR59pu21jzFW1epkaet/g7QNnl3MZiofXFtxIbsuqd1lI94qD5/A740BbA=
+sidebar_class_name: "patch api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a user's display name or email"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/users/admin/{userId}/profile"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs admin.users.manage; only admins can change an admin.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"displayName":{"type":"string","nullable":true},"email":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Profile saved."},"400":{"description":"Invalid display name or email."},"403":{"description":"Not authorized."},"404":{"description":"User not found."},"409":{"description":"The email is already in use."},"500":{"description":"Failed to save the profile."}}}
+>
+  
+</StatusCodes>
+
+
+      

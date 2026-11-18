@@ -1,0 +1,70 @@
+---
+id: serve-the-shared-plugin-frame-runtime
+title: "Serve the shared plugin frame runtime"
+description: "Core's own frame build (React, the UI kit, fonts), the same for every plugin, so every frame reuses one cached copy. Only the current version is served and it is cacheable for a year."
+sidebar_label: "Serve the shared plugin frame runtime"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v3DYQ/SuDuTQBGK1jBD3o5gZp4fQQI97AKNyFQVOzK3YlUuGM1lYX+u/FULJ3HddFcynQk8Thm++Zxz1WxC75TnwMWOL7mOgHhngXYJ1sS3Db+6aCV5/JOjEgNcGXc9h6MbCOQfj1JGOFrmMC2lEaoGv6jQ8GOM6CyVainokhBgJnXU0VuNgNBXwKzZDNuD4lCgI7SuxjAM/AlHZUgQ0VeFFB1rS3zeTPwkA2Fb8HNCh2w1he40X2zrgy2Fl1LJT0Yo9eU+ys1Ggw2JawxNkVGkz0tfeJKiwl9WSQXU2txXKPMnQKZUk+bHAczd9amk//3sxKwdzFwMR6f3pyop+nDVnWBGvfUIGjwXcn754jPjXVQ8EMhHjcNwMxqYh7Vz9YGQ22JHWssMQNCZop8BIXU9feWGYSXtykPohvabGfjY+LvSJHNJibMte0Tw2WuJ9Eevk0ut9in2BJqfX3Uy8TGtzZ5LWFOe1ZmvNa274RLLEW6bhcLCQrFnRv266hwsUWx1w4JtcnL0MO4ZZsonTWaxrXK22Pi3Hr6VhiO/8rDY+SIxOX2qAplGNDj/3SWHDuo54nEJr55+eYWqsxf7xaPsv+kjgPssQtBWCdbR/yqKuTmPyfVpFQk60ogWX4KRvN866wrJh7f5zSY2xTVmimeZwgh4n8405ejOjj1RImPDAJWAH2m/DGhwKuagrQJdJwjW6d2C2xShxVFBxB3FF6MYsc7XG5v7uSZxfnsKUBWGwSHzZw56UGae9vnqXzCP3+0m5pMHBXe1dPjvjgpoBzAeuEVW3GKifO2s6GEDNA720YlNGo4Xm9fFjHnLWXRtOcp//s4lxHf+abEk9/LN6+LU6fpaQb72IiOOgV8MG6eqZVqKLrWwrC4GWi6hR7Ic6F7yJLa4P6n6fgUvdrYunaJqoezMycPG35t1HoCgWhIP/3N2GaPKF7WXSN9UFrlClrP/PeNT7hPTR4c6hJeXgeygxfGawji6rt97eW6UtqxlHFX3tKSkerA71lcqo863+F5do2TP9Q51ef56fjNbwU+cPahyGzaNPrCQ1uaTh6y5Tv/kO3uTDj6vhh+eXDEsfxL33d4Zo=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Serve the shared plugin frame runtime"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-assets/_runtime/{version}/{path}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Core's own frame build (React, the UI kit, fonts), the same for every plugin, so every frame reuses one cached copy. Only the current version is served and it is cacheable for a year.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"version","required":true,"schema":{"type":"string"}},{"in":"path","name":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The file."},"404":{"description":"Old version, no frame build, or no such file."}}}
+>
+  
+</StatusCodes>
+
+
+      

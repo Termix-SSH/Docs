@@ -1,0 +1,69 @@
+---
+id: turn-an-account-back-on-or-approve-a-waiting-one
+title: "Turn an account back on, or approve a waiting one"
+description: "Needs admin.users.manage; only admins can turn an admin back on."
+sidebar_label: "Turn an account back on, or approve a waiting one"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv4zYM/isEnzZAc3rdbQ/eUwbsgN6AW7HmUAxBMLA2G2uxKZ9EN/UC//eDJDfJLuuAA/YUi/oofvxEfTlgzaHytlfrBEv8wFwHoLqzUgyBfSg6EtryT+CkHfNGgIoEdPACJDkED1TtwEmBBpW2Acs1fozpuDHYk6eONa7K9QFtrNOTNmhQqGMsMVa6qdGg50+D9VxjqX5gg6FquCMsD6hjH5FBvZUtTtMmgkPvJHCI+9dXV/Hnn90sq8oNomBD4jYZfHv1/SXsg1OgQRvn7d9cz7i3l7jYEYhTeHSDZNwP/1b2HdmWa1CXRXIC2jBQJlPgNBnsWBtXRyFcUDRZjxIXSfNF0nRxyLJMCxZ6aBkNBvZPLzIOvsUSDzk0ofmCwx9u8LBi39lnyBg0+ETexqOSYnM0sX+koVUssVHtQ7lYaEos+Jm6vuWich1OSfPA1eCtjonCA5Nnvxwi9fVmMgesnNtZPo9Qb3/l8Rg5O+Iu3m2mcn7Q8aojF5xHIK4zCM388c75jiLn9/eri+7vOAQbdXc7FggcZyDfwnK+Z4pIaJhq9kABfk6HAkmdYCkx3fB5S0duuSs0eZgz5DTOf+31VUbv71eQ8RBYgRSC3cp3Vgq4b1ig9xzpGrAKSjsOMVJxzVIxuCf2r3aR2J7L/dVKLm9vYMcjBCWvVrawt9qAds9/XrRzhH69tDseDewbWzW5UDiVKeBGgSoNMW3GgtvLnF2RxNdHlcZ9ktEJA7eB85uy8uhS11bb2OY8/cvbmzj67EOmfv1j8eZNcX3R0qphqJxnOOUV8AtVDfTtsLUCtauGjkUDWA2RFng3KIckfHzHHUmsP0/B6sUgZxOaLdKA80B9790TA8GebJLaCX/JKD4nURb9n3w5D4Pysy76lqxE2slFDrP9rJMRBzSYktFgeXTm2YM2BpvoWOUaD4cHCvzRt9MUw58G9tEWNiebSSZR2xC/aywfqQ38Hz1+8/vs/t/Ca3Rfnp+Myc3aIa7Q4I7H09/ItDk32Nvf7lY4TZ8BIaNfeQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Turn an account back on, or approve a waiting one"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/admin/{userId}/enable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Needs admin.users.manage; only admins can turn an admin back on.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"userId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Account is on."},"403":{"description":"Not authorized."},"404":{"description":"User not found."},"500":{"description":"Failed to turn on the account."}}}
+>
+  
+</StatusCodes>
+
+
+      
