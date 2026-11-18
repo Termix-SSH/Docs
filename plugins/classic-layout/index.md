@@ -16,6 +16,8 @@ Classic Layout is the default Termix layout. It draws the whole app, so it is al
 
 The icon rail on the left opens the host list, credentials, Quick Connect and the panels other plugins add. The sidebar next to it can be resized, and any panel that allows it can also open in a right dock. Tabs sit in the tab bar, and a tab can be split into panes.
 
+In the Simple and Balanced presets the rail holds the core panels and the apps you pin. Every other app is in All apps at the bottom of the rail, and in search. Pin an app from All apps, or right-click it to pin it, unpin it or open its settings. Advanced puts every app on the rail.
+
 The Dashboard, Manage and Settings screens open as tabs. The command palette opens with its shortcut and finds hosts, tabs, settings and actions. On a phone the rail becomes a bottom bar.
 
 ## Dashboard
@@ -30,11 +32,21 @@ With many plugins on, a host row can carry a lot of buttons. When a plugin offer
 - Buttons and a host page button: the same, plus one button for the host page, and tools open inside the host page.
 - Host page only: no buttons on rows, and a click on a host opens its page.
 
-Change it later in Customize sidebar, under Open host tools in, and the Connect bar list.
+Change it later in Settings, Host list, under Open host tools in, and the Connect bar list. Host list settings is also in the menu next to Add host.
+
+New accounts get the connect buttons on each row, with edit, share and copy password behind the arrow at the end of the row. The host menu starts with three ways to open the host, with the rest under More tools.
+
+## Adding a host
+
+The add host form starts short: address, name, protocols, folder, tags and the login. More options at the bottom shows everything else, like proxies, jump hosts and the sections other plugins add. To always start with every option, set Add host form to Full in Settings, Host list. Editing a saved host always shows every option.
 
 ## Branding
 
 Admins can set the app name, tagline and logo in Settings, Admin. They show on the sign in screen and in the browser tab. The logo can be a PNG, JPEG or WebP and is saved as a PNG up to 750 KB. The right to change branding is the Change branding permission, which admins have by default. Branding is saved by this plugin, so it also comes from here if another layout is in use.
+
+## Interface defaults
+
+Admins pick what people see when they first sign in, in Settings, Interface defaults. Set a look (Simple, Balanced or Advanced) and the apps on the rail for everyone, and change them for any role. A person with more than one role gets the first role that has its own defaults. Lock a role to stop its people from changing their look or rail. Without a lock, people start from these defaults and can change them. The right to change them is the Set interface defaults permission, which admins have by default.
 
 ## First run
 

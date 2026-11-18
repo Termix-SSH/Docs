@@ -29,6 +29,7 @@ The Termix server makes the FTP connection, so it must be able to reach the devi
 - Click to open folders, and double-click a file to edit or preview it.
 - Drag files from your computer to upload them. Select and download files or whole folders.
 - Right-click for rename, move, copy, permissions and more.
+- Right-click an archive to extract it. Progress shows at the bottom of the file list until it is done.
 - The editor highlights code. Save writes straight back to the server.
 - Images, PDFs, audio and video open in a preview.
 - In the desktop app, Open externally edits a file in your own editor. Saving there uploads it back.

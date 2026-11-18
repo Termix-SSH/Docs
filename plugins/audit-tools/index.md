@@ -10,7 +10,7 @@ plugin_id: "audit-tools"
 plugin_version: "1.1.0"
 plugin_latest: true
 ---
-Audit Tools sends your audit log to other systems. It does two things: it forwards each audit entry to a collector as it happens, and it exports the log as a file.
+Audit Tools sends your audit log to other systems and checks that it was not changed. It forwards each audit entry to a collector as it happens, exports the log as a file and shows the log's hash chain.
 
 Termix still writes, shows and prunes the audit log itself. This plugin only copies it out.
 
@@ -40,6 +40,18 @@ Admins see Export CSV and Export NDJSON buttons in the audit log section of Sett
 In CSV, a value that starts with `=`, `+`, `-` or `@` gets a leading quote so spreadsheet software does not run it as a formula.
 
 Exporting needs the Export the audit log permission. Only admins have it by default.
+
+## Audit log check
+
+Each audit entry stores a hash of the one before it, so a changed, added or removed entry breaks the chain. Termix checks the chain every hour and alerts every admin when it breaks, with or without this plugin.
+
+Open Audit log check from the command palette to see the last check, how many entries it covered and the newest entry's hash. Check now runs a check right away. Entries written before Termix 26.11.2 have no hash and are counted on their own.
+
+Someone who can change the database could rewrite the whole chain so it still checks out. To catch that, press Download head now and then and keep the file somewhere else, like a password manager or another machine. Later, paste it into Paste a saved head and press Compare. If that entry still has the same hash and the chain after it holds, nothing before it was changed. Once the log's size or age limit removes the saved entry, it can't be compared any more, so download a new head before then.
+
+Forwarded entries and exports carry `id`, `hash` and `prevHash`, so a collector keeps its own copy of the chain without any extra step.
+
+The check needs the Export the audit log permission.
 
 ## Environment variables
 

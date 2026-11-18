@@ -34,7 +34,13 @@ In edit mode, **Export / Import** saves your layouts, health checks and dashboar
 
 The same is available as an API: `GET /plugin-api/host-metrics/export?history=1&from=&to=&hostIds=` and `POST /plugin-api/host-metrics/import` with `{ "data": <file>, "overwrite": false, "history": true }`. Both are logged in the audit log.
 
-The cards: CPU, memory, disk, network, temperature, GPU, uptime, system info, top processes, listening ports, recent logins and firewall status.
+The cards: CPU, memory, swap, disk, network, temperature, GPU, uptime, system info, top processes, listening ports, recent logins and firewall status.
+
+### Swap Usage
+
+On Linux hosts, add it with **Customise > Add card > Swap Usage**. It shows used, free and total swap, read from `/proc/meminfo` without sudo. It is also a host page tile and a homepage history chart metric. It is off by default.
+
+"No swap configured" means the host has no swap. "Swap metrics unavailable" means the host is not Linux or the numbers could not be read. History from before this version shows as gaps.
 
 The terminal toolbar shows small CPU, memory and disk bars for the host you are in.
 

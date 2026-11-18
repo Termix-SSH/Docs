@@ -6,9 +6,24 @@ slug: "/proxmox/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "proxmox"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Other plugins can add their own settings to the Proxmox host settings, drawn in their own frames (needs Termix 26.11.2)
+- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later
+- Form fields use the same background as the rest of Termix
+
+### Fixed
+
+- Auto sync on several nodes of one cluster no longer creates the same guest twice when the nodes sync at the same time
+- Stopping the stats view checks that you can see the host and only stops your own view
+- Discovering guests on a host you can't reach answers not found, and server errors no longer show their details
+
 ## 1.3.0
 
 ### Added

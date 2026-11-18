@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/proxmox/reference"
 custom_edit_url: null
 plugin_id: "proxmox"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
 ## Settings

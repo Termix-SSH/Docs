@@ -2,12 +2,12 @@
 title: "Proxmox"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/proxmox/v/1.0.2"
+slug: "/proxmox/v/1.3.0"
 description: "Import Proxmox VE guests as hosts, keep them in sync and watch node stats."
 hide_title: true
 custom_edit_url: null
 plugin_id: "proxmox"
-plugin_version: "1.0.2"
+plugin_version: "1.3.0"
 plugin_latest: false
 ---
 Proxmox finds the VMs and LXC containers on a Proxmox VE node and imports them as hosts, so you don't add each one by hand. It can keep them in sync as guests come and go, and shows node, guest, storage and cluster stats in their own tab.
@@ -29,7 +29,9 @@ This page is about managing guests on a Proxmox server you already run. To insta
 2. Termix lists every VM and container in the cluster, with its status and IP when it has one.
 3. Select the ones you want and import them.
 
-Imported guests go in a folder named after their node.
+Imported guests go in a folder named after the cluster, or after the node when it is not in a cluster. Set Folder
+for guests on the node to pick another name, and turn on Folder per node to put each guest in a subfolder named after
+the node it runs on.
 
 Termix guesses how each guest connects:
 
@@ -42,6 +44,10 @@ Both are comma separated name patterns, not case sensitive. You can change any g
 
 Turn on Auto sync guests and set a Sync interval (5 minutes or more). Termix rediscovers the node on that schedule and creates or updates hosts to match. It runs as you, while your account is unlocked.
 
+Every node of a cluster sees the whole cluster, so you can turn on sync for more than one node. Termix knows they are
+in the same cluster and keeps one host per guest. When a guest moves to another node, its host is updated, not copied.
+A guest you moved to a folder of your own stays there.
+
 ## Proxmox Stats
 
 Turn on Enable Proxmox Stats on the node and pick Proxmox Stats from its menu. The tab shows:
@@ -52,6 +58,10 @@ Turn on Enable Proxmox Stats on the node and pick Proxmox Stats from its menu. T
 - Cluster health and quorum.
 
 Poll interval sets how often it refreshes, 15 seconds or more. If the node name isn't the same as its hostname, set Node name override.
+
+## Proxmox nodes card
+
+Add the Proxmox nodes card in the dashboard's edit mode. It shows CPU, memory, disk and running guests for every node with Proxmox Stats on, and only collects them while the card is on screen. Click a node to open its stats.
 
 ## Troubleshooting
 

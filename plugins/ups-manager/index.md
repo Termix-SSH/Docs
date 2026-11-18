@@ -29,6 +29,18 @@ Install the NUT client (`nut-client` on Debian and Ubuntu) on the host. Add the 
 
 To send commands, add a NUT user and password from `upsd.users` with the `instcmds` right. Termix passes them to `upscmd` on the host. They are visible in the process list there for a moment while the command runs. Reading never needs a login.
 
+### Power and energy
+
+Overview also shows input, output and battery current, and real input and output power in watts, when the UPS reports them. Missing values stay empty, never zero.
+
+For a DC UPS, edit the device and turn on **Input is DC** or **Output is DC**. Termix then works out watts from voltage and current. These values are marked as calculated, since the sensor may not be accurate. Leave both off for AC.
+
+When the UPS doesn't report its load, Termix estimates it from output watts and `ups.realpower.nominal`, and marks it as estimated. A VA rating is never used as watts. Stored load history only keeps loads the UPS reported.
+
+Termix adds up output energy in Wh from the 30 second background reads. Gaps, restarts and failed reads are left out, never guessed. A new device, a changed target or a changed DC setting starts a new count. History shows power, current and energy for 24 hours, 7 days and 30 days, with how much of the time was covered.
+
+**Advanced NUT variables** lists every value the UPS sends, with a search box.
+
 ## apcupsd
 
 Install apcupsd on the host. Leave the address empty to read the daemon on the host, or use `host` or `host:3551` for another machine. Termix runs `apcaccess status`. apcupsd has no commands, so the Commands view is hidden.
@@ -41,8 +53,10 @@ Termix reads the standard UPS-MIB, and the APC PowerNet values when the card doe
 
 ## What you see
 
+Overview refreshes every second while it is open. Pick a slower **Live refresh** when you watch many devices. This doesn't change the 30 second background reads or the stored history.
+
 - Overview: power state, battery charge, runtime left, load, input, output and battery voltage, temperature, model, serial number and the last self test.
-- History: charge, load, runtime and voltage for 24 hours, 7 days and 30 days. Termix reads every UPS every 30 seconds. The last day is kept as it was read, older days as hourly averages.
+- History: charge, load, runtime and voltage alongside electrical power/current, observed Wh and coverage for 24 hours, 7 days and 30 days.
 - Events: every power event, newest first. The last 300 are kept per UPS.
 - Commands: the instant commands a NUT UPS supports. Beeper and test commands run after one click. Anything that can cut power asks first.
 - Devices: add, edit and remove UPS devices.
@@ -57,7 +71,7 @@ Alerts go to the user who added the UPS, through the Alerts plugin and the chann
 - Overload: the UPS is overloaded
 - Low charge and low runtime: under the limits you set while on battery
 - Self test problem: the last test did not pass
-- Unreachable: the UPS did not answer three times in a row
+- Unreachable: the UPS did not answer three scheduled checks in a row (live-view refreshes do not accelerate this alert)
 
 You can set the charge and runtime limits per UPS, and turn alerts off for one UPS.
 
