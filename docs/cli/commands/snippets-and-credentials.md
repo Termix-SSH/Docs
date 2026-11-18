@@ -122,3 +122,19 @@ termix hosts create --ip 10.0.0.5 --username deploy --credential-id 4
 ```
 
 Better than putting the password on each host, since changing it once updates every host that uses it.
+
+## termix inject
+
+Runs a local command with credentials in its environment. Nothing is written to disk.
+
+```bash
+termix inject 4 7 -- ./deploy.sh
+termix inject --mask 4 -- npm run migrate
+termix inject --names 4 -- python sync.py
+```
+
+Each credential sets `TERMIX_<ID>_USERNAME`, `TERMIX_<ID>_PASSWORD` and `TERMIX_<ID>_KEY`, for the parts it has. `--names` also sets variables named after the credential, like `DEPLOY_USER_PASSWORD`. It stops with an error if one of those names is already set or two credentials give the same name.
+
+`--mask` replaces the secrets with `[REDACTED_BY_TERMIX]` in the command's output. The last few characters of output may show up a moment later, since Termix holds them back to catch a secret split between writes.
+
+The exit code is the command's own. If the command is killed by a signal, it is 128 plus the signal number, like 137 for `SIGKILL`.

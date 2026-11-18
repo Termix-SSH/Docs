@@ -43,3 +43,9 @@ On a narrow screen the rail becomes a bar at the bottom. More holds everything t
 - Press Shift twice to open the [command palette](/guide/command-palette).
 - Ctrl+Shift+F toggles full screen.
 - Change shortcuts in Settings, Keybindings.
+
+## Closing the desktop app
+
+Closing the window keeps Termix running in the tray (the menu bar on macOS), so your connections stay open. The first time, a notice says so. To quit, open the tray icon menu and pick Quit.
+
+To quit when you close the window instead, turn off Close to tray in Settings, Interface. On GNOME, which has no tray, closing the window always quits.

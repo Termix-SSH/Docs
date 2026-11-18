@@ -32,20 +32,60 @@ app.registerSlotContribution("terminal.toolbar", {
 });
 ```
 
-A button runs its action when pressed. A `component` contribution draws whatever you give it, with the slot owner's props. `when` hides it when it doesn't apply.
+A button runs its action when pressed. A `component` contribution draws whatever you give it, with the slot owner's props. A `data` contribution gives plain values that Termix draws (see Data slots below). `when` hides it when it doesn't apply.
 
 Some slots you can fill:
 
-| Slot                                                                                   | Where                                                                       |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `terminal.toolbar`, `terminal.toolbarStatus`, `terminal.sidePanel`, `terminal.overlay` | The SSH terminal.                                                           |
-| `dashboard.counters`, `dashboard.hostMetrics`                                          | Dashboard cards.                                                            |
-| `admin.userTabs`                                                                       | A tab on a user's page in admin settings.                                   |
-| `hosts.importMenu`, `hosts.panel`                                                      | The hosts panel.                                                            |
-| `credentials.badges`                                                                   | Credential rows.                                                            |
-| `shell.overlay`                                                                        | Rendered once at the root of the app, for UI that is always mounted.        |
-| `shell.rightEdge`                                                                      | The right edge of the window. Whatever width it takes pushes the page over. |
-| `tab.menu`                                                                             | A tab's menu.                                                               |
+| Slot                                                         | Where                                                                       |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| `terminal.toolbar`, `terminal.sidePanel`, `terminal.overlay` | The SSH terminal.                                                           |
+| `dashboard.counters`                                         | Dashboard cards.                                                            |
+| `admin.userTabs`                                             | A tab on a user's page in admin settings.                                   |
+| `hosts.importMenu`, `hosts.panel`                            | The hosts panel.                                                            |
+| `credentials.rowActions`                                     | Buttons on key rows, run with `{ id, name }`.                               |
+| `shell.overlay`                                              | Rendered once at the root of the app, for UI that is always mounted.        |
+| `shell.rightEdge`                                            | The right edge of the window. Whatever width it takes pushes the page over. |
+| `tab.menu`                                                   | A tab's menu.                                                               |
+
+## Data slots
+
+Small things drawn once per host, tab or credential are data, not components. A component from a plugin that runs in a frame costs one frame per row, so a dashboard with 20 hosts would load 20 frames. Return plain values instead, and Termix draws them the same way for every plugin. Needs plugin API 2.6.
+
+```ts
+app.registerSlotContribution("dashboard.hostRow", {
+  actionId: "hello.row",
+  titleKey: "row.title",
+  kind: "data",
+  useValue: (context, rowKey) => {
+    const load = useLoad(Number(rowKey));
+    return load
+      ? { shape: "bars", items: [{ label: "Load", value: load / 100 }] }
+      : null;
+  },
+});
+```
+
+`useValue` is a hook. It runs once for each row on screen, with the owner's context and the row key. In a frame it runs in your background frame and only the values cross. Return `null` to draw nothing.
+
+| Shape   | Value                                              |
+| ------- | -------------------------------------------------- |
+| `bars`  | `items: [{ label, value (0 to 1), tone, detail }]` |
+| `stat`  | `items: [{ label, value, unit, tone, tooltip }]`   |
+| `badge` | `label, tone, tooltip, actionId`                   |
+| `dot`   | `tone, label`                                      |
+| `text`  | `text, tone, tooltip, actionId`                    |
+
+Tones are `default`, `good`, `warn`, `bad` and `muted`. An `actionId` must be one of your own actions.
+
+| Data slot                | Row key       | Context                                   |
+| ------------------------ | ------------- | ----------------------------------------- |
+| `dashboard.hostRow`      | Host id       | `hostId`, `host`, `online`                |
+| `dashboard.hostRowBadge` | Host id       | `hostId`, `host`, `online`                |
+| `homepage.hostMetrics`   | Host id       | `hostId`, `online`, `shownMetrics`        |
+| `terminal.toolbarStatus` | Tab id        | `hostId`, `host`, `isConnected`, `active` |
+| `credentials.badges`     | Credential id | `credentialId`                            |
+
+Host badges, status indicators and host editor toolbar items take `useValue(host)` the same way. To own a data slot, declare it with `accepts: ["data"]` and draw it with `DataSlot` from `@termix-ssh/plugin-sdk/ui`. `termix-plugin validate` warns when a component goes into a data slot.
 
 ## Components
 
@@ -70,6 +110,18 @@ app.registerExtension("homepage.widgets", {
   component: HelloWidget,
 });
 ```
+
+## Other plugins' parts in a frame
+
+A plugin that runs in a frame can show other plugins' parts: slots it declared, extension points or component ids under its own plugin id, and any id it lists in manifest `contributes.uses`. Read them as usual (`useSlotContributions`, `ComponentSlot`, `useExtensions`, `PluginComponent`). Each part you get is a placeholder, and Termix draws the other plugin's view in its own frame over that spot. Needs plugin API 2.7.
+
+- The part is clipped to your frame and hides under your open menus and popovers. The UI kit's menus, popovers, sheets and dialogs do this for you. For one you draw yourself, use `useForeignOccluder` or `ForeignOccluder`.
+- `fill` parts take the box you give them, `content` parts take your width and their own height, `inline` parts size to themselves. Use `ForeignSlot` to add a class or style.
+- Wrap an edit mode in `ForeignInteractive interactive={false}` so parts let drags through. `TileGrid` does this while editing.
+- A slot owner can declare `fit: "overlay"` for parts drawn over something, like prompts over a terminal. They are see-through and only take clicks while they show something.
+- Props cross as data, functions by reference. A `host` you pass reaches the other plugin as its own copy of that host. You never get a handle on the other plugin's view.
+
+In tests, pass the parts you expect to `renderWithApp` as `others`.
 
 ## Onboarding steps
 

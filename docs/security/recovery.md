@@ -47,10 +47,10 @@ Another admin can reset it in Settings, Users. If there is no other admin and pa
 3. In Settings, API keys, revoke every key you don't recognize. In Settings, Users, remove admins you didn't add.
 4. Read the [audit log](/guide/audit-log) from the time it started. Run the audit log check from [Audit Tools](/plugins/audit-tools) and compare a head you saved before, so you know the log itself wasn't changed.
 5. Check the Plugins tab for plugins, access or registries you didn't add.
-6. Rotate the JWT secret and, if the server itself may have been reached, the encryption keys. See [rotate keys](/configure/security#rotate-keys).
+6. Rotate the JWT secret and, if the server itself may have been reached, the encryption keys. See [rotate keys](/security/data-and-keys#rotate-keys).
 
 ## Make a takeover harder
 
-- Keep more than one admin, and turn on the [admin wait](/configure/security#admin-wait). A new admin, turning off password login or a plugin with dangerous access then waits, and the other admins can cancel it.
+- Keep more than one admin, and turn on the [admin wait](/security/your-server#admin-wait). A new admin, turning off password login or a plugin with dangerous access then waits, and the other admins can cancel it.
 - Set up an [alert channel](/plugins/alerts) for every admin, so the security alerts reach you outside Termix.
 - Download the audit log head now and then with [Audit Tools](/plugins/audit-tools) and keep it somewhere else.
