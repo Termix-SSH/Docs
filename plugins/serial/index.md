@@ -7,7 +7,7 @@ description: "Open a serial console to a router, switch or other device plugged 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Serial/edit/main/docs/index.md"
 plugin_id: "serial"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Serial opens a console to a device plugged into your computer: a router, a switch, a Raspberry Pi, a UPS. It is a terminal over a serial cable or USB adapter, next to your SSH sessions.
@@ -39,3 +39,7 @@ Refresh ports looks again after you plug something in.
 - Nothing at all: Press Enter once. Many consoles wait for input before they print anything.
 
 Don't need it? Hide the Serial icon by right-clicking it in the sidebar.
+
+## Environment variables
+
+This plugin reads some environment variables on the Termix server. See the [reference](/plugins/serial/reference#environment-variables) for the list.

@@ -225,7 +225,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Ansible",
     "docs": "https://docs.termix.site/plugins/ansible",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Edit the playbooks in a project folder on the control host",
       "Run playbooks with check mode, diff, tags, limit and extra vars",
@@ -252,8 +252,14 @@
     "videoId": "-yTxBCa-zM0",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:29:36.000Z"
       }
@@ -572,7 +578,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Classic-Themes",
     "docs": "https://docs.termix.site/plugins/classic-themes",
-    "latest": "1.0.1",
+    "latest": "1.1.0",
     "features": [
       "Light and dark themes",
       "Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox"
@@ -587,8 +593,14 @@
     "videoId": "lLlFMEv8uxA",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:30:19.000Z"
       },
@@ -609,7 +621,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Cloud-Providers",
     "docs": "https://docs.termix.site/plugins/cloud-providers",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "Works with AWS EC2 and Lightsail, Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud",
       "Pick instances to import, or sync a whole account on a timer",
@@ -637,8 +649,14 @@
     "videoId": "sePFRowdO8c",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:35:22.000Z"
       },
@@ -1147,7 +1165,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Git",
     "docs": "https://docs.termix.site/plugins/git",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Add the git repos on a host, or find them with a scan",
       "Branch, ahead and behind counts, changed files and the last commit for each repo",
@@ -1177,8 +1195,14 @@
     "videoId": "Qcq9u3bJtqA",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:47:28.000Z"
       }
@@ -1386,7 +1410,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Hosts-Config",
     "docs": "https://docs.termix.site/plugins/hosts-config",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "SSH, RDP, VNC, Telnet and any plugin protocol from one YAML or JSON file",
       "Hosts from the file are read only, while pins and order stay with each user",
@@ -1406,12 +1430,14 @@
       "network:serve",
       "ui:surface",
       "notify:send",
-      "operations:provide"
+      "operations:provide",
+      "config:secrets"
     ],
     "env": [
       {
         "name": "TERMIX_HOSTS_CONFIG",
-        "description": "Path to the hosts file (.yaml, .yml or .json). Unset means the plugin loads nothing and locks no hosts."
+        "description": "Path to the hosts file (.yaml, .yml or .json). Unset means the plugin loads nothing and locks no hosts.",
+        "file": true
       }
     ],
     "dependencies": {},
@@ -1420,8 +1446,14 @@
     "videoId": "Nfi5ojFkFKM",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:41.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:09:04.000Z"
       },
@@ -2706,6 +2738,44 @@
     ]
   },
   {
+    "id": "scim",
+    "name": "SCIM Provisioning",
+    "description": "Create, update and remove Termix accounts and roles from your identity provider with SCIM.",
+    "category": "Access & Security",
+    "icon": "UserCog",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-SCIM",
+    "docs": "https://docs.termix.site/plugins/scim",
+    "latest": "1.0.0",
+    "features": [
+      "SCIM 2.0 server for Entra ID, Okta, JumpCloud, OneLogin, Authentik and others",
+      "Create, update, turn off and remove accounts from your identity provider",
+      "Map pushed groups to Termix roles",
+      "New accounts link to their SSO or LDAP sign in by email",
+      "More than one identity provider, each with its own URL and token",
+      "Recent changes log per connection"
+    ],
+    "capabilities": [
+      "db:own",
+      "network:serve",
+      "ui:surface",
+      "users:read",
+      "users:write"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": true,
+    "apiPath": "/api/scim/scim-provisioning-api",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      }
+    ]
+  },
+  {
     "id": "secret-sources",
     "name": "Secret Sources",
     "description": "Pull host passwords and keys from 1Password, Bitwarden, Infisical or HashiCorp Vault when you connect instead of storing them in Termix.",
@@ -2832,7 +2902,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Serial",
     "docs": "https://docs.termix.site/plugins/serial",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Set the baud rate, data bits, stop bits and parity",
       "The desktop app talks to the device directly",
@@ -2843,15 +2913,26 @@
       "device:serial",
       "ui:surface"
     ],
-    "env": [],
+    "env": [
+      {
+        "name": "LIBC",
+        "description": "glibc or musl. Picks the serial port binary on Linux. Found on its own when not set."
+      }
+    ],
     "dependencies": {},
     "hasApi": false,
     "apiPath": null,
     "videoId": "IJ7Wvrz-JNE",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T08:28:39.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:55:25.000Z"
       },

@@ -1,0 +1,63 @@
+---
+title: "Reference"
+sidebar_label: "Reference"
+sidebar_position: 90
+slug: "/ansible/v/1.0.0/reference"
+custom_edit_url: null
+plugin_id: "ansible"
+plugin_version: "1.0.0"
+plugin_latest: false
+---
+## Settings
+
+### Host
+
+Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Ansible | boolean | `false` | Use this host as an Ansible control host. Ansible must be installed on it. |
+| Project folder | string | `"~/ansible"` | The folder on this host with your playbooks, roles and ansible.cfg. |
+| Vault password file | string |  | A file on this host with the Ansible Vault password. Leave empty if you do not use Vault. |
+| Read only | boolean | `false` | Show playbooks and runs but never edit files or start runs on this host. |
+| Alert when a run fails | boolean | `true` | Send an alert when a run on this host ends failed or lost. Checked when run state is read. |
+
+## Permissions
+
+Give these to roles in **Settings**, **Roles**.
+
+| Permission | Who has it at first | What it allows |
+| --- | --- | --- |
+| `ansible.use` | admin, user | See playbooks and runs on control hosts you can reach. Edit files and run Ansible on hosts you can edit. |
+
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `ansible.list-playbooks`<br />List playbooks | A host | Read only |  |
+| `ansible.list-runs`<br />List runs | A host | Read only |  |
+| `ansible.failed`<br />Failed runs | A host | Read only |  |
+| `ansible.run-playbook`<br />Run playbook | A host | Changes | `playbook`, `limit`, `tags`, `check` |
+
+## Capabilities
+
+What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
+
+| Capability | Risk | What it means |
+| --- | --- | --- |
+| `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
+| `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
+| `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
+| `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
+| `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
+| `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+| `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
+
+## Platforms
+
+Linux, Windows, macOS
+

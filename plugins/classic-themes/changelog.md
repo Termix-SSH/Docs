@@ -6,9 +6,16 @@ slug: "/classic-themes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-themes"
-plugin_version: "1.0.1"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- Built for plugin API 2, so it no longer needs Run without isolation turned on
+- Needs Termix 26.11.2 or newer
+
 ## 1.0.1
 
 ### Changed

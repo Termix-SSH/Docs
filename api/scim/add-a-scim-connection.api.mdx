@@ -1,0 +1,68 @@
+---
+id: add-a-scim-connection
+title: "Add a SCIM connection"
+description: "Makes a connection and answers with its bearer token. The token is shown only this once. Needs scim.manage."
+sidebar_label: "Add a SCIM connection"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VcFu4zYQ/ZXBnBU72/akW7LdAtkibbBxERSBUYylicVYIrnkKLYq+N+LIb2WNtk97KU+2DT5yHl8M/M4Ys2xCsaLcRZLvKUdRyConLVc6SSQrYFs3HOIsDfSgJEIG6bAAcTt2C5g1XAegokQG7e34Gw7gDQmgrMVL+AP5jpCrEy36MjSlhdYoNA2YvmI9+9vbnFdYODPPUe5dvWA5Zj+msA1lhJ6LrByVtiKLpH3ralICS6fo1IfMVYNd6QjGTxjiW7zzJVggT44z0EMR1211PEMFSUYu8Vjgc7+yi3LNxYLZNt3SrU2kTYtY4F1xq6PBVLtvHw4mCgKnnZvnGuZrJ5Nbev2V3Vn7LfXa36ivpVPrs0kX5FLHxUoemdjhvx0+U5/vk6gpuJV8jRfOVEa6JfLy7e7rqkGY30vJ8jPbyG3JkZjt+A5dDp0etyxwI6lcTWW6F1MWpM0WOLSt/3W2AvyZqlZX06kIhYYObxw0OSP2IcWSxzz1DEpOw/8t+sDrDTqATIGC3yhYDQPSYjTbKKcVMQSGxEfy+VS0sYFH6jzLS8q16mYa2VQ9cHIkCjkcr7qlfrj+liMWDm3MzyfIW9+5+E8MzviXgsvU5kfdE6ictE7J5imPYGwOA1+c6Ej5fzxYfXm9vectD61V2QrYCxIw6BBXDD/piaAhqnmABThOremZl6+9GVK6/xKZ275VligFuYJgsWpR/B5L99l9PFhBRkPkQVIIJqtvTB2AQ8NW/CBlW4BRkCSrfjAFddsKwb3ou7xnVsktnO5f1jJq7sb2PEAUShoT2bjku7wz5vrnKE/Lu2OhwL2jamaHChOYRZwI0CVRN12woLb29Puiqx1CaDrZAdnGbiNnHtKHe3T5IUfcvFO3jXZ0mRZM2d6ZUfZPOcGlGe+tpyZDxr75JLoRjRqsme4C+7FaOJVzqu7G21CDjGL+G5xubh8I+37wCRcQO9rEk4XD9y5F/7SzlRVrrcqki4pD3gKroNBW97UbMXIAF4jawaSukomFYj6TUd2pspVXQMlwMwCX7Map2fk/37tcg0LH2TpWzLJ95P5jSfXfMTJNVOZmw7Ts3d2znWBjfps+YjjuKHIf4X2eNTpzz0HNbP1ZI7ZuTDXb/K5HQ+alyzAxUoJKbztsxW8elPV4872fvfnvbrT5vQ2d67WPYH2WKTvErUcfaapj7fOjdiS3fa0TWaSztTPf6N+8Gk=
+sidebar_class_name: "post api-method"
+info_path: api/scim/scim-provisioning-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a SCIM connection"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/scim/connections"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Makes a connection and answers with its bearer token. The token is shown only this once. Needs scim.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"onDelete":{"type":"string","enum":["disable","delete"]},"adoptExisting":{"type":"boolean"},"allowAdmin":{"type":"boolean"},"defaultRoles":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The connection and its token."},"400":{"description":"Bad input."},"403":{"description":"Missing permission."}}}
+>
+  
+</StatusCodes>
+
+
+      

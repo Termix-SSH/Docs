@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/cloud-providers/reference"
 custom_edit_url: null
 plugin_id: "cloud-providers"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Permissions

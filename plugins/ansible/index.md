@@ -7,7 +7,7 @@ description: "Run Ansible playbooks and ad-hoc commands from a control host, wit
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Ansible/edit/main/docs/index.md"
 plugin_id: "ansible"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Ansible runs playbooks and ad-hoc commands from a control host that you already have in Termix. Termix connects to the control host over SSH and runs `ansible-playbook` and `ansible` there. Your playbooks stay as plain files on that host.

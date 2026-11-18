@@ -1,0 +1,68 @@
+---
+id: map-a-group-to-a-role
+title: "Map a group to a role"
+description: "Members get the role, and lose it when they leave the group. Send roleName null to clear it. Needs scim.manage."
+sidebar_label: "Map a group to a role"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu4zYQ/ZXBnBU5LfakW3bRAt4iQVAnCIogKGhqIjGWSC45sqMK+vdiSMV2Nt3DnqqDLZGPwzePM48T1hR1MJ6Ns1jhNfVbChEaYuCWILiOClC2hs5FAsNwaMnK1AgdqT0lVBPc4EvYkK3TihvVE9ih64Ad6I5UAMMl3BDVEaI2fdkrqxoqsUBWTcTqETdf1tf4VGCgbwNF/uzqEaspfZpANVYcBipQO8tkWaaU953RSpivXqLQnzDqlnolbzx6wgrd9oU0Y4E+OE+BDcUUdmF5howcjG2wQCGuth3lLef0CK/onY15+a+Xl/L3XruN2lNd4lzgp/+avrc76w42CbSgPn1E3TiIg24XSVF27olbV2OFfkiJKG6xwpXvhsbYC+XNSiRdaWctaQkTV5Op51UKEVdT+l/XMxYYKewpiN4TDqHDCqc8JJPvifzlhgB3FHrzChmDBe5VMCJNEmEZTSk8q6FjrLBl9rFarTgtLOlV9b6jUrse53l+EgZ6CIbHRGFLKlC4GiShx6e5mFA7tzN0PqK8+YPG48hZiI2cdaZyHuh4oMJFck4wrBYQFsvL7y70Sjh/fbj7kP2GYjTOArsdWYhkGUwqe5BNXDD/pLqDllRNAVSEzyloahWBpYXpmM9TOnLLWWGBRnbLECm9VJL4cuAfMvr6cAcZD5EYFEM0jb0wtoQHaU0fSOgW0qusdhRlRFNNVhO4PYUfZpHYnsv900pe3a5hRyNEVoGNbeBguAXuX//+kM4R+vPS7mgs4NAa3eaN4mmbEtYMSnOUZQsW3MEuq7Wy1iWAzCs7OktAXaTcaGIif57s57dcvO/t4s0mZjm6Z5dEMiyo5GBwG9zeyEFJ+le3a2kaCjEn/Ut5WV5+kOJLIMVUwOBrxZSIBurdnt7aT2ntBitJLf4a4Tm4HkZpUVOTZcMjeNlZFEtqCJl0oN5F7lUyx6W6rpUHlQ1G/FmlkN+zmk5O+39cCrnumF555TtlrGSSDGta/O8RT/6XStP0mG6HNw/EAitTY4HZBuVzMUK5ZVoXWYJM01ZFug/dPMvwt4GCWNPTyeqyD2GuxuRaOxrl1LI8F3dCVeDdkBv7u0tJHOvo4Lf3YjXb5W7rXS1LgjpgkX4rxAKdz/yl7GRswk7ZZlBNcoYUUp5/AW9IrV8=
+sidebar_class_name: "put api-method"
+info_path: api/scim/scim-provisioning-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Map a group to a role"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/scim/connections/{id}/groups/{groupId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Members get the role, and lose it when they leave the group. Send roleName null to clear it. Needs scim.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"roleName":{"type":"string","nullable":true}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Saved."},"400":{"description":"Unknown role."},"404":{"description":"No such group."}}}
+>
+  
+</StatusCodes>
+
+
+      

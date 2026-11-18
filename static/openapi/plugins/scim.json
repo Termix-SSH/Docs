@@ -1,0 +1,518 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SCIM Provisioning API",
+    "version": "1.0.0",
+    "description": "Create, update and remove Termix accounts and roles from your identity provider with SCIM."
+  },
+  "servers": [
+    {
+      "url": "{server}",
+      "description": "Your Termix server",
+      "variables": {
+        "server": {
+          "default": "https://termix.example.com"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token sent in the Authorization header as Bearer and the token."
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "jwt",
+        "description": "Session JWT cookie set at sign-in. When present, it takes precedence over the Authorization header."
+      },
+      "apiKeyAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API key starting with tmx_",
+        "description": "API key sent in the Authorization header as Bearer and the key, which starts with tmx_. It acts as the key owner and cannot act as anyone else."
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "cookieAuth": []
+    },
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/plugin-api/scim/v2/{connection}/ServiceProviderConfig": {
+      "get": {
+        "summary": "SCIM service provider config",
+        "description": "What this SCIM server supports. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The config."
+          },
+          "401": {
+            "description": "Bad or missing token."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/ResourceTypes": {
+      "get": {
+        "summary": "SCIM resource types",
+        "description": "The User and Group resource types. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource types."
+          },
+          "401": {
+            "description": "Bad or missing token."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/ResourceTypes/{id}": {
+      "get": {
+        "summary": "One SCIM resource type",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The resource type."
+          },
+          "404": {
+            "description": "No such type."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Schemas": {
+      "get": {
+        "summary": "SCIM schemas",
+        "description": "The User, Enterprise User and Group schemas. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Schemas."
+          },
+          "401": {
+            "description": "Bad or missing token."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Schemas/{id}": {
+      "get": {
+        "summary": "One SCIM schema",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The schema."
+          },
+          "404": {
+            "description": "No such schema."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Users": {
+      "get": {
+        "summary": "List SCIM users",
+        "description": "Users this connection manages, with filter, startIndex and count. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list response."
+          },
+          "400": {
+            "description": "Bad filter."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a SCIM user",
+        "description": "Creates a Termix account, or takes over an existing one when the connection allows it. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "201": {
+            "description": "The new user."
+          },
+          "409": {
+            "description": "The userName, externalId or email is taken."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Users/{id}": {
+      "get": {
+        "summary": "Get a SCIM user",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The user."
+          },
+          "404": {
+            "description": "Not a user of this connection."
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace a SCIM user",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The user."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Change a SCIM user",
+        "description": "Setting active to false turns the Termix account off and ends its sessions. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The user."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a SCIM user",
+        "description": "Turns the account off, or deletes it when the connection is set to. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "204": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Groups": {
+      "get": {
+        "summary": "List SCIM groups",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list response."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a SCIM group",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "201": {
+            "description": "The new group."
+          },
+          "409": {
+            "description": "The displayName is taken."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/v2/{connection}/Groups/{id}": {
+      "get": {
+        "summary": "Get a SCIM group",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The group."
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace a SCIM group",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The group."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Change a SCIM group",
+        "description": "Adds and removes members. Members of a group mapped to a role get or lose that role. Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "204": {
+            "description": "Done."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a SCIM group",
+        "description": "Needs the connection's bearer token.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "204": {
+            "description": "Done."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections": {
+      "get": {
+        "summary": "List SCIM connections",
+        "description": "Every identity provider connection with its SCIM base URL. Tokens are never sent. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Connections."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a SCIM connection",
+        "description": "Makes a connection and answers with its bearer token. The token is shown only this once. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "onDelete": {
+                    "type": "string",
+                    "enum": [
+                      "disable",
+                      "delete"
+                    ]
+                  },
+                  "adoptExisting": {
+                    "type": "boolean"
+                  },
+                  "allowAdmin": {
+                    "type": "boolean"
+                  },
+                  "defaultRoles": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The connection and its token."
+          },
+          "400": {
+            "description": "Bad input."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections/{id}": {
+      "put": {
+        "summary": "Change a SCIM connection",
+        "description": "Changing default roles or the admin switch syncs the roles of every user of the connection. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The connection."
+          },
+          "404": {
+            "description": "No such connection."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove a SCIM connection",
+        "description": "The accounts it made stay in Termix. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          },
+          "404": {
+            "description": "No such connection."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections/{id}/token": {
+      "post": {
+        "summary": "Make a new SCIM token",
+        "description": "The old token stops working at once. The new one is shown only this once. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new token."
+          },
+          "404": {
+            "description": "No such connection."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections/{id}/groups": {
+      "get": {
+        "summary": "List a connection's groups",
+        "description": "Groups the identity provider pushed, with the role each one gives. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Groups."
+          },
+          "404": {
+            "description": "No such connection."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections/{id}/groups/{groupId}": {
+      "put": {
+        "summary": "Map a group to a role",
+        "description": "Members get the role, and lose it when they leave the group. Send roleName null to clear it. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "roleName": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved."
+          },
+          "400": {
+            "description": "Unknown role."
+          },
+          "404": {
+            "description": "No such group."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/connections/{id}/events": {
+      "get": {
+        "summary": "Recent SCIM requests",
+        "description": "The last changes the identity provider made through this connection. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Events, newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/scim/roles": {
+      "get": {
+        "summary": "Roles a group can map to",
+        "description": "Termix roles, without the built in user role. Needs scim.manage.",
+        "tags": [
+          "SCIM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
