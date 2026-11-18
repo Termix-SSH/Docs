@@ -73,9 +73,44 @@ try {
 }
 ```
 
-`withConnection(hostId, { pool, purpose }, fn)` borrows a pooled connection, which is better for frequent short commands. `@termix-ssh/plugin-sdk/host-commands` has helpers to detect the OS and run package manager and sudo commands over a client.
+`withConnection(hostId, { pool, purpose }, fn)` borrows a pooled connection, which is better for frequent short commands. `@termix-ssh/plugin-sdk/host-commands` has helpers to detect the OS and run package manager and sudo commands over a client. Its sudo helper sends the password on stdin. Never put a password or token in a command line, where other users on the host can read it.
 
 Hosts you get from `ctx.hosts` never carry passwords or keys. Only a plugin with `credentials:read` sees them, and most don't need to: pass the host or its id back to `ctx.ssh` and Termix connects with the real secrets.
+
+## The plugin process
+
+Your backend runs in its own Node process (plugin API 2). `ctx` works the same, but every call goes to Termix and back, so:
+
+- List every timer id, event topic and registry key in the manifest's `sandbox` block. Termix refuses one that isn't listed.
+- Await `services.get`, `registry.consume` and the other reads the guide lists. Every method on another plugin's service returns a Promise.
+- Pass plain data to `ctx`: objects, arrays, strings, numbers, Buffers, Dates, Maps and Sets. Class instances don't cross.
+- Use `ctx.db.batch()` for writes that must land together. `db.transaction()` is not available.
+- Node modules like `node:net`, `node:child_process` and native addons need the capability that allows them. `termix-plugin validate` warns about each one.
+- Your process gets the variables you list in the manifest's `env`, nothing else from the server.
+
+```json
+"sandbox": {
+  "schedules": [{ "id": "refresh", "every": 60000 }],
+  "events": ["host.deleted"],
+  "registry": ["hello.variables"]
+}
+```
+
+A plugin with nothing in that block, no services and no listeners starts on its first request and stops after 10 idle minutes. Test with `createMockCtx({ sandbox: true })`, which applies the same rules.
+
+A job shorter than the idle time keeps the process running. If your short jobs often have nothing to do (watches nobody set up), call `ctx.schedule.keepAwake?.(reason, awake)` (plugin API 2.8) with `true` while there is work and `false` when there is none. Once you call it, your short jobs run only while the process runs, and Termix starts it at boot again if it had work when Termix last stopped.
+
+## Moving from API 1
+
+Plugin API 1 ran inside the server. From Termix 26.11.2 nothing runs that way, so a plugin made for API 1 stays off until it has a version made for API 2. The plugins page names each one, and before an update it also names the plugins the new version won't run.
+
+1. Raise `engine.api` to `^2.0.0`, `engine.termix` to `>=26.11.2-0` and the SDK in `package.json` to `^2.0.0` or newer.
+2. List your schedules (with an `id` on each `every`), event topics and registry keys in `sandbox`.
+3. Await the reads listed in [The plugin process](#the-plugin-process), and every call on another plugin's service or registry value.
+4. Replace `db.transaction()` with `ctx.db.batch()`.
+5. Move direct `node:fs`, `net`, `http` and `child_process` use to `ctx`, or declare the capability that allows it. `termix-plugin validate` warns about each import that would be refused.
+6. Run your tests with `createMockCtx({ sandbox: true })` and check the frontend with `checkFrameApp`, see [Frames](./frames.md).
+7. Drop capabilities you no longer use, bump the version and add a CHANGELOG entry.
 
 ## Events
 
@@ -89,7 +124,7 @@ Your own events are `plugin.<id>.<name>`. Listening to other plugins' events nee
 ## Timers
 
 ```ts
-ctx.schedule.every(60_000, () => refresh(), { jitterMs: 5_000 });
+ctx.schedule.every(60_000, () => refresh(), { id: "refresh", jitterMs: 5_000 });
 ```
 
 They stop when the plugin is disabled, and a run that is still going skips the next tick.
@@ -105,6 +140,21 @@ const res = await ctx.fetch("https://api.example.com/v1/thing", {
 ```
 
 `ctx.fetch` refuses private and loopback addresses unless you list the exact host in `allowPrivateHosts`. It doesn't follow redirects.
+
+Fill `allowPrivateHosts` from an admin setting or a device an admin saved, never from the request itself.
+
+### Your own sockets
+
+If you open a socket yourself (`net`, `tls`, `dgram` or `http.request`) to an address a user typed, check it first with `@termix-ssh/plugin-sdk/net-guard` (Termix 26.11.2 or newer). `resolveTarget` looks the name up once, refuses private addresses unless the host is in `allowPrivateHosts`, and returns the address to connect to:
+
+```ts
+import { resolveTarget } from "@termix-ssh/plugin-sdk/net-guard";
+
+const { address } = await resolveTarget(host, { allowPrivateHosts });
+const socket = net.connect({ host: address, port });
+```
+
+Connect to the returned address, not the name, so a second lookup can't send you somewhere else. For TLS pass the name as `servername`.
 
 ## Dependencies
 

@@ -37,3 +37,5 @@ Share a credential with users or roles from its menu.
 | Manage | Also edit it and share it on.                                  |
 
 Each person gets their own encrypted copy. It updates when you change the credential and is removed when you stop sharing.
+
+With Use, the server signs in for them. Quick Connect, copying a password and host export never show the secret, and the desktop app gets the credential without it, so those hosts connect through the server.

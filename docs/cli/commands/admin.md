@@ -58,14 +58,61 @@ Shows who you are signed in as, your server, whether you are an admin, and wheth
 
 ## Admin commands
 
-These need an admin account.
+These need an admin account, or a [role](/guide/roles) with the matching permission, like Helpdesk or Auditor.
 
 ### List users
 
 ```bash
 termix users
 termix users list
+termix users list --status pending
 ```
+
+`--status` takes `active`, `disabled` or `pending` (waiting for approval).
+
+### Turn accounts off and on
+
+```bash
+termix users disable <userId>
+termix users enable <userId>
+```
+
+`disable` signs the user out everywhere and stops their sign ins and API keys. `enable` turns the account back on, or approves one waiting for approval. See [users](/guide/users#disable).
+
+### Invite links
+
+```bash
+termix users invites
+termix users invites create --note "New ops hire" --role 3 --hours 168
+termix users invites revoke <id>
+```
+
+| Option          | What it does                                       |
+| --------------- | -------------------------------------------------- |
+| `--note <text>` | Who the link is for                                |
+| `--role <id>`   | A role the new account gets. Repeat for more roles |
+| `--uses <n>`    | How many accounts the link can make. Default 1     |
+| `--hours <n>`   | Hours until the link ends. Default 72              |
+| `--admin`       | Make the new account an admin. Admins only         |
+
+`create` prints the token once. The link is your server's address with `?invite=<token>`. See [invite links](/guide/users#invites).
+
+### Access review
+
+```bash
+termix access-review
+termix access-review --kind host --user <userId>
+termix access-review --csv > shares.csv
+```
+
+| Option          | What it does                          |
+| --------------- | ------------------------------------- |
+| `--kind <kind>` | Only `host`, `folder` or `credential` |
+| `--user <id>`   | Shares this user has or owns          |
+| `--role <id>`   | Shares given to this role             |
+| `--csv`         | Print the whole list as CSV           |
+
+See [access review](/guide/access-review).
 
 ### Audit logs
 

@@ -7,7 +7,7 @@ description: Run Termix on Kubernetes with plain manifests.
 
 Termix runs as one pod.
 
-Run one replica with SQLite. To run more than one, use [PostgreSQL or MySQL](/configure/database) and set `REDIS_URL` so plugins that keep live state, like Session Sharing, share it across pods.
+Run one replica. Each pod keeps its own sign in rate limits, step up checks and plugin processes, so with more than one pod the limits count per pod and plugin jobs, like alert checks, run on every pod. If you still run more than one, use [PostgreSQL or MySQL](/configure/database), send each user to the same pod, and set `REDIS_URL` so Session Sharing keeps its live state across pods.
 
 ## Manifests
 
@@ -123,7 +123,7 @@ Set `TRUSTED_PROXIES` to your ingress controller's pod range so logs and the aud
 
 ## Secrets
 
-By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/configure/security#keys).
+By default Termix makes its keys on first boot and keeps them in the data volume. To keep them in Kubernetes Secrets instead, mount them as files and point `JWT_SECRET_FILE`, `DATABASE_KEY_FILE`, `ENCRYPTION_KEY_FILE` and `INTERNAL_AUTH_TOKEN_FILE` at them. See [security](/security/data-and-keys#keys).
 
 ## Harden the pod
 

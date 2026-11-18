@@ -53,10 +53,10 @@ The rules are strict:
 
 - Every selector starts with `.<id>`, `:root.<id>` or `html.<id>`.
 - `@media` and `@supports` are fine. `@import` and other at-rules are not.
-- `url()` may point inside your plugin or use `data:`, never to another host.
+- `url()`, `image-set()` and `src()` may only use a relative path inside your plugin or a `data:` image or font. No other hosts, no paths starting with `/` and no climbing out with `..`, even written with CSS escapes.
 - No `expression()`, `javascript:` or script bindings, and no nested rules.
 
-`termix-plugin validate` checks all of this, and the server checks it again before it serves the file.
+`termix-plugin validate` checks all of this, Termix checks it when the plugin loads, and again whenever the file changes before it serves it. So a theme can't load anything from elsewhere or send what is on the page anywhere.
 
 ## A plugin with only themes
 
