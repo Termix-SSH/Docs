@@ -94,6 +94,33 @@ location /termix/ {
 
 Authelia, Authentik and similar tools can sign people in to Termix for you. See [trusted proxy login](/configure/trusted-proxy-login).
 
+## Login proxies
+
+If a login proxy like Authelia, Authentik or Cloudflare Access sits in front of Termix, let these paths through without its login:
+
+- `/plugin-assets/`
+- `/plugin-api/`
+- `/plugin-ws/`
+
+Plugins run in sandboxed frames, and the browser sends no cookies with their requests. A login proxy sends those requests to its login page instead, so plugins never start. You see "Getting plugins ready" on every load, and plugin pages stay empty.
+
+This is safe. `/plugin-assets/` only serves the public plugin code, and Termix still checks its own login on `/plugin-api/` and `/plugin-ws/`.
+
+Authelia, placed before the rule that protects Termix:
+
+```yaml
+access_control:
+  rules:
+    - domain: termix.example.com
+      resources:
+        - "^/plugin-assets/"
+        - "^/plugin-api/"
+        - "^/plugin-ws/"
+      policy: bypass
+```
+
+Cloudflare Access: add a second self-hosted application on the same hostname with the paths `plugin-assets`, `plugin-api` and `plugin-ws`, and give it a Bypass policy.
+
 ## Callback URLs
 
 Sign in plugins like [Single sign-on](/plugins/sso) build callback URLs from the request. If they come out as `http://` behind an HTTPS proxy, make sure the proxy sends `X-Forwarded-Proto`, or set `EXTERNAL_FORCE_HTTPS=true`.
