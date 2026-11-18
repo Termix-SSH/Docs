@@ -1,0 +1,69 @@
+---
+id: progress-of-an-archive-extraction
+title: "Progress of an archive extraction"
+description: "Reports whether an extraction started with /extractArchive/start is running, done or failed, with the number of entries written so far and the total when they are known."
+sidebar_label: "Progress of an archive extraction"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu4zYQ/ZXBXNoCjJ0Ge9ItCzSLbNEi2LgIisAoGGkssZZI7czIjmvo34sRvYmyaQrscU8SOUPyvceZxyNWJCWHXkOKWOAn6hOrwL4hbYjBR6BHZV9aHEQ9K1WwD9rA8hS45LIJO1pOQQgCPMQYYu2gSpEgMWx8aKlyeZk2BHHoHoghbYCiciCBPQdViiAJNt6OraZETepbAxNteADPBNuY9nGBDtXXgsU9XoWW4DcffU2Ma4e9Z9+RElv0iMF49V4bdBh9R1hg6om9Mbqu0CHT5yEwVVgoD+RQyoY6j8UR9dBbuiiHWOM4ri1Z+hSFxOIX5+f2eSnhqqGZZj+IqaaDLHB0+O783esFvyeQoWzmQm8SgzZBYBDiBY6jw460SRUWWJOiy4QKXPbtUId45vuw3ISWzrqsw39cjg6yPM6Yj+hQiHdfdBq4xQKPecqCL1H+mQaGFXEXHiHnoMOd5+Af2qzGaXbit/FDq1hgo9pLsVzqtHBBj77rW1qUqcNx0lOoHDjoYYLwQJ6JLwejdr8e3RHLlLaB5jO+D7/S4WlmtsWt3VuGMt/o6RoNC56u18Y5Cd3p5ypx5w3zx7vVK/a3JGIXo2lrVUpRIUw1CXZI4vDPpCo05CtrG4H306azSt5SnGpgTukJW2aFLldrTnmu17/3+iaij3cryPkgpOAVJNTxLMQF3Fnf9EwG10FQUL8lsZmSKoolQdoRv8liQjuX+5uVvLy5hi0dsm+EWJ8coHv86xWdp9Rvl3ZLBwf7JpRNPkiej1nAtYIvVWzZKRfSPp5Wlz7GNCVY3MeDGRa1QrnlQtykiXXQ1mjOjQYub66tAYglE/h5cbG4eEXrPae9kAOqgk5HdmlHYJ0qWfzbq9WNgxDLdqhMIVH2oW4UNpw6MDy5rUAT+JjMlKd76ZNo56PBOxXJDaeaScRs1UfwufNnrvI1OOuuqBT1e/P9XIRKj7rsWx+i6TG51/Fki/f4bIvocG6M6PAlfqvjyRzRYTF/GNYOmyRqux2PD17oD27H0aY/D8RmWOtnA5zsqwpi/xUWG98K/Y/cP346vTk/wVuEvhhDPEw+2w42QodbOnz1go3r+fPw4ZcVjuO/QU2++w==
+sidebar_class_name: "get api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Progress of an archive extraction"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/file-manager/extractArchive/status/{operationId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reports whether an extraction started with /extractArchive/start is running, done or failed, with the number of entries written so far and the total when they are known.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"operationId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The extraction's status."},"404":{"description":"No such extraction for this user."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "File Manager API",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "description": "Browse, edit and move files over SFTP, including straight from one server to another."
   },
   "servers": [
@@ -487,6 +487,326 @@
         }
       }
     },
+    "/plugin-api/file-manager/local/home": {
+      "get": {
+        "summary": "The desktop user's home folder",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/list": {
+      "post": {
+        "summary": "List a folder on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/mkdir": {
+      "post": {
+        "summary": "Create a folder on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/create-file": {
+      "post": {
+        "summary": "Create an empty file on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/rename": {
+      "post": {
+        "summary": "Rename a file or folder on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/trash": {
+      "post": {
+        "summary": "Move files on this computer to the trash",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/ensure-dir": {
+      "post": {
+        "summary": "Create a folder on this computer if it is missing",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/exists": {
+      "post": {
+        "summary": "Which of the given paths exist on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/walk": {
+      "post": {
+        "summary": "List every file under the given paths on this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/reveal": {
+      "post": {
+        "summary": "Show a file in Explorer or Finder",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/open": {
+      "post": {
+        "summary": "Open a file with its default app",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/upload": {
+      "post": {
+        "summary": "Copy a file from this computer to a host",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/download": {
+      "post": {
+        "summary": "Copy a file from a host to this computer",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/cancel": {
+      "post": {
+        "summary": "Stop a running copy",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/editor/open": {
+      "post": {
+        "summary": "Open a host file in a desktop editor",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/local/editor/close": {
+      "post": {
+        "summary": "Stop watching a file opened in a desktop editor",
+        "description": "Desktop app only. A server answers 404.",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          },
+          "404": {
+            "description": "Not the desktop app."
+          }
+        }
+      }
+    },
     "/plugin-api/file-manager/listFiles": {
       "get": {
         "summary": "List files in a directory",
@@ -607,7 +927,10 @@
                     "type": "string"
                   },
                   "socks5ProxyChain": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
                   }
                 }
               }
@@ -1082,6 +1405,359 @@
         }
       }
     },
+    "/plugin-api/file-manager/ftp/disconnect": {
+      "post": {
+        "summary": "Close an FTP session",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/status": {
+      "get": {
+        "summary": "Whether an FTP session is still connected",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/keepalive": {
+      "post": {
+        "summary": "Keep an FTP session open",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/listFiles": {
+      "get": {
+        "summary": "List a folder over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/resolvePath": {
+      "get": {
+        "summary": "Turn an FTP path into an absolute one",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/identifySymlink": {
+      "get": {
+        "summary": "Links are not followed over FTP, so this always answers 404",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "404": {
+            "description": "Links are not resolved over FTP."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/readFile": {
+      "get": {
+        "summary": "Read a file over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/writeFile": {
+      "post": {
+        "summary": "Save a file over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/createFile": {
+      "post": {
+        "summary": "Create an empty file over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/createFolder": {
+      "post": {
+        "summary": "Create a folder over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/deleteItem": {
+      "delete": {
+        "summary": "Delete a file or folder over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/deleteItems": {
+      "post": {
+        "summary": "Delete several files or folders over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/deleteItems/cancel": {
+      "post": {
+        "summary": "Stop a running FTP delete",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/renameItem": {
+      "put": {
+        "summary": "Rename a file or folder over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/moveItem": {
+      "put": {
+        "summary": "Move a file or folder over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/downloadFile": {
+      "post": {
+        "summary": "Download a file over FTP",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/downloadFileStream": {
+      "post": {
+        "summary": "Download a file over FTP as a stream",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/ftp/uploadFileStream": {
+      "post": {
+        "summary": "Upload a file over FTP from a form upload",
+        "tags": [
+          "File Manager"
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "400": {
+            "description": "Missing or invalid parameters."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/extractArchive/start": {
+      "post": {
+        "summary": "Start extracting an archive",
+        "description": "Starts extracting an archive on the remote host and answers at once with an operation id. Poll /extractArchive/status/{operationId} for progress and the result. The same formats as /extractArchive are supported.",
+        "tags": [
+          "File Manager"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sessionId": {
+                    "type": "string"
+                  },
+                  "archivePath": {
+                    "type": "string"
+                  },
+                  "extractPath": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Extraction started."
+          },
+          "400": {
+            "description": "Missing required parameters, SSH connection not established, or unsupported archive format."
+          },
+          "403": {
+            "description": "Session access denied."
+          }
+        }
+      }
+    },
+    "/plugin-api/file-manager/extractArchive/status/{operationId}": {
+      "get": {
+        "summary": "Progress of an archive extraction",
+        "description": "Reports whether an extraction started with /extractArchive/start is running, done or failed, with the number of entries written so far and the total when they are known.",
+        "tags": [
+          "File Manager"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "operationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The extraction's status."
+          },
+          "404": {
+            "description": "No such extraction for this user."
+          }
+        }
+      }
+    },
     "/plugin-api/file-manager/downloadFile": {
       "post": {
         "summary": "Download a file",
@@ -1436,7 +2112,12 @@
         "description": "Writes a raw request body to the remote file at the supplied byte offset, allowing browser clients to avoid multipart/FormData 2GB limits.",
         "tags": [
           "File Manager"
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          }
+        }
       }
     },
     "/plugin-api/file-manager/recent": {

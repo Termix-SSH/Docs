@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/file-manager/reference"
 custom_edit_url: null
 plugin_id: "file-manager"
-plugin_version: "1.2.0"
+plugin_version: "1.2.2"
 plugin_latest: true
 ---
 ## Settings
@@ -62,6 +62,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
@@ -74,6 +75,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
+| `files:own` | Low | Store its own files. In its own folder on disk, separate from other plugins. |
 
 ## Services
 

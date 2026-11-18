@@ -1,0 +1,68 @@
+---
+id: start-extracting-an-archive
+title: "Start extracting an archive"
+description: "Starts extracting an archive on the remote host and answers at once with an operation id. Poll /extractArchive/status/{operationId} for progress and the result. The same formats as /extractArchive are supported."
+sidebar_label: "Start extracting an archive"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v40YM/SsEzxM7TXvSLSk2aLZY1KhdBEVgFLTEWBNLM9oZKo4r+L8XnFFsx0kOe60OtsTh8OORfByw4lgG24n1DgucCwWJwC8SqBTr1kAOKJS1fWbwDqRmCNx6Yah9FCBXAbm45RCBBLwrGbZWar3mOw6kdsFWE5j5poHpaPg6W5xGIenjdDio3lV7ePQBuuDXgWNMDrLT2DcygUXNEKll1WpJIlA8twoUGGLfdT4IVxM0KLSOWDzgrW0YvpGjNQdcGgz8vecoN77aYTGkTxu4wkJCzwZL74Sd6BF1XWPLFOL0KSpUA8ay5pb0TXYdY4F+9cSloMEuaEJiOSY9jjGldqIaJVi3xr3BEdwZSf3h+ZjbJ+fp0URi513M/q4ur/TvbWG/jBX1DqLWWIHZG/zl8vK97jcbo5b+FQ/oKFDLwiEamM9/g9I7x9mY8wIchVaNjTVXBnyA3h3QP/ROLtfo8+f3PucZJKCy1LJX7GwKcW+wZal9hQV2PiZ0ExQ47Zp+bd0FdXb6aBu+aHNhP+ixoNcih2cO2gcD9qHBAocs2qM5C+Zv3wdYcGjtC2QdNPhMwdKqea1pkqY0HqlvBAusRbpYTKeSLk74hdqu4UnpW63TUiMo+2Bll0JYMQUO173m8rDcmwFL7zeWTyXU2d95d5CcmJhr7+VQTg0d+kNj0ZyTGhajEprx5TZVAwv8er94l/1rKcRv2EFkJ2Dz5KsTH+y/eaprpoqDDuBNMnqY1XQxlfo0pUNsOSs0aNVbVkGDjlKkT1v5NKKv9wvI+hBZlHCiXbsL6yZwX7ODLrCGa8AKCG04qqTkipWW/DOHT7NI0Z7C/cNIXs/uYMO7PF06PYkGpX355106B9Ufh3bDOwPb2pZ1dhSPbiZwJ0BlpsRRF/zWjbdLcjqrVIqek9t5x8BN5DxkSmp/HunwS27eM/p6pZ0z1jqK35DVCYlZ9+gTplbU6BsihuvZnY4Xh5jh+WlyNbl6B9pN8NvIBriyee20XmnFNhxzaee3i5kB68qmrxT/KIHsuhZ4DL4FzTYPLYgHcl7qserKKi0lRh9bMC3Bj3fgeVjDcUn8X3dnHgPhF5l2DVmnmCX+HEYmfsAjE6PBUy4+tsT1Ab/Mx0uDCoLeHoYVRf4rNPu9ir/3HJQil0fKzXyIeSoSe254hwX+mrG/WGiMqt70mWDOlrUy52GLzP6YK+etxqXf+krvBNqiSb8FokGf6pv4NckGbMite1oniko29fkPlNZCGA==
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start extracting an archive"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/extractArchive/start"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Starts extracting an archive on the remote host and answers at once with an operation id. Poll /extractArchive/status/\{operationId\} for progress and the result. The same formats as /extractArchive are supported.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"sessionId":{"type":"string"},"archivePath":{"type":"string"},"extractPath":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"202":{"description":"Extraction started."},"400":{"description":"Missing required parameters, SSH connection not established, or unsupported archive format."},"403":{"description":"Session access denied."}}}
+>
+  
+</StatusCodes>
+
+
+      
