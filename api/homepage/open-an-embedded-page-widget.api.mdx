@@ -1,0 +1,69 @@
+---
+id: open-an-embedded-page-widget
+title: "Open an embedded page widget"
+description: "Gives back a grant for the address saved in the caller's own embed widget. Termix draws the page from the grant; the widget never picks the address itself."
+sidebar_label: "Open an embedded page widget"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVVFv2zYQ/iuHe+kKsHZSdC/aU/awLS3QBouHYAiM4SyeLdYSqfJOdjxD/70gJTlO0wzo255EUt+R3328+3hEy1JG16oLHgv83e1YYEXlFgg2kbzCOkTQioGsjSwCQju24HxeLKmuOb4SCHsP3KzYwt7ZDesMFhwb9wA20l4ytqUNwzqGJs/y5r/k4RABnnccoXXlVp4c6FS4Xs/QoNJGsLjHP0LDaTdcGmwpUsPKMf05oktZtKQVGvTUMBboLBqM/KVzkS0WGjs2KGXFDWFxRD20GeWVNxyx75cJLW3wwpIAby8u0uepUMdRnR57g+++h/gYFOipKAZCBKdQkYAPU4KzYYt339sCpCurSaCwfqJ5jvv54vJ53KJyMulfkn+l+RYGKpZtvokU3htsWKtgk2ZBFM0gXYHztu42zr+h1s2rUe25U25kfnS2n+8c79GgcNxNynexTroMSz2abzj9Hbo4cRowaHBH0dGqHnQeV3M2a+pqxQIr1VaK+Vxz4IwfqGlrnpWhwT7flHDZRaeHTGHFFDledSmF+2VvjliGsHV8vkKt+8CH08rZFrepJAYq5xudKiRxwbFy0nwAoRkHv4XYUOL8/m7xLPtbFnHBg4YtexD2OnVQOiRE9y8lJFRMliOQwK95UyBvMywH5hs/T+nEbcgKzVD/A+SxAz7v9UVG7+8WMOBBWIEUxG38G+dncFexhzZyomtS3SptWdJKyZZ9yRBSx76URWZ7LvcPK3l1cw1bPoAoRXV+A3unFWjz8M+zdE7QH5d2ywcD+8qV1XCQPB4zg2sFKlVS2IhNVjdGl+R9yID0n/wheAauhYfecn4dctZO65TmZFtwdXOdip+jDOQvZ29nl89TSl27yQfZGNrJBQYbDREOqaPGDsyoNHYli4G27mSaQu38Vk42bkmqVaBo8/Wkrm/IJ5ZjrXxq2Z98azKL8exvKab+8spe//8vx1B4yg86b2tyPiWfHes4Wt49PloeGpxML7VUsj00WOSHJDvfMgFEU9TxuCLhv2Ld92n5S8cxmdHy0dyyNVknaWyxWFMt/B9C/vTn+FS9hpeIT03vD9lD6y7N0OCWD8N71y/Prf3m0+0C+/4rsL68CA==
+sidebar_class_name: "post api-method"
+info_path: api/homepage/homepage-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open an embedded page widget"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/homepage/items/{id}/view"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Gives back a grant for the address saved in the caller's own embed widget. Termix draws the page from the grant; the widget never picks the address itself.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"{ grant }"},"400":{"description":"Not an embed widget, or it has no address."},"404":{"description":"No such widget of the caller's."},"501":{"description":"This Termix can't draw embedded pages."}}}
+>
+  
+</StatusCodes>
+
+
+      

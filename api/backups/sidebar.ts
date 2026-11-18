@@ -166,6 +166,12 @@ const sidebar: SidebarsConfig = {
           label: "Check a repository",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "backups/remove-stale-locks",
+          label: "Remove stale locks",
+          className: "api-method post",
+        },
       ],
     },
   ],

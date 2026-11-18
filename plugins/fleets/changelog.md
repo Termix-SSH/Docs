@@ -6,9 +6,21 @@ slug: "/fleets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "fleets"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Changed
+
+- The fleets panel puts search, its buttons and the add button on one row on Termix 26.11.2 and later
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The settings button in the Fleets panel opens the Fleets page in Settings
+
+### Fixed
+
+- Fleet commands keep filling $HOST, $USER and $INPUT values when Snippets runs in its own process
+
 ## 1.2.0
 
 ### Added

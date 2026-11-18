@@ -5,7 +5,7 @@ description: "A held recording is never removed by retention or deleted by hand.
 sidebar_label: "Put a recording on hold or take it off"
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VMFu2zAM/RWCZ9Xpup186w4D2gFDsaYohiIYFIuptdiSJtFJM8P/PlBK06zZDr3s5IB5JN+jyDeiodREG9h6hzVeQkudgUiNj8a6R7AJHG0oQqTeb8jAcgeRmJwkgI9gqCMu8VY7U8EXIpMgUUrWu7NDpUoPxnKFClk/Jqwf8LZA4OszBBcKI6XgXaKE9YgX5+fy+ZPivCVwtIXWdwYSa6YKJ4Uf/obNmH5IDEsCjgMJ45Xu0nPO+9Ocwp9bgswYAsXeZqYVTpPCnrj1BmsMA6PCoLnFGmehGx6tO9PBzk60z0ZrppmQQYWJ4oaiTGDEIXZY41hCE6pXVL75IcJc+j9BwaDCjY5WL7syoX00i1jpoWMRzRxSPZtxTqzoSfeho6rxPU7TtBAGzRAt7zKFJelI8XIQFQ+LSY3YeL+2dBzRwX6m3SFyVOK2aakvVI4Ljci7QHsuojnDsN6DUO1/fPKx18L5+n5+ov55P9ivyUEix2Bdfhhp4qP9pfMStqQNRdAJPuaioJ3JsJyYH/pY0oFbUYUKrXQrEFTodGb6Y8v/ZHR9P4eCh0QMmiHZR3dmXQX3LTkIkYSuAsvAek1JIg0Zcg2Bl2v6l4rM9njcb57k5c0VrGknlxFZLnhruQXun76fyDlA3z7aNe0UbFvbtKVRemlTwRWDbjhJ2h4Lfuv22Y12zmeA/K/dzjsCKhc5yVusfFZtuaOjkR9MAi5vruQKKKai4l11UZ2faCt4yDfgdJdbi4UxgaG0Zh+eLSop2GpuWuHaQ2c3pDJ6TRRAu+ICZBSQa+IuiNeVwwa/gm3rwVgD21ZzfrvgE/faiYT9It0MDPrIUWWsYks+5t2QHfGr1WsBcoZObPZ/mXLZMqYnnoVOWydisj2Ne4t7wBeLyzb2qhYqrK0YXPa5hXwTS9o4LnWiu9hNk4R/DhTFehYvVlZ85sVZb+7mOE2/AbHATYs=
+api: eJy9VU2P2zYQ/SuDObUAV85HT7ptDgU2AYJF4mBRLIyCFscWY4lkyJG9qqD/Xgxpe911t0AuPUkevyHfm4+nCYOOuiemmLB+nNA6rDFoblGh0z1hjdagwkg/BhvJYM1xIIWpaanXWE/IY8gox7SliPO8UmgoNdEGtl6Ou4WWOgORGh+NdVuwCRztKUKk3u/JwHqESExOEsBHMNQRl3irnangM5FJkCgl693N+aRKD8ZyhQpZb0UAfi0Q+HKC4ErIp+BdoiR83715I49/Uly2BI4O0PrOQGLNVOGs8Ld/w2ZMPySGNYFUQxhvdJdOOe+vcwp/bgkyYwgUe5uZVjjPCnvi1hsp/cCoSgNqXIRu2Fp3o4NdXGlfTNbMCyGDChPF/amFQ+ywxqmEZnzZjT/8EGEp9z9BwaDCvY5Wr7tSoWM0i9jooWMRzRxSvVhwTqzoSfeho6rxPc655YmaIVoeM4U16UjxdhAVj6tZTdh4v7N0GdHBfqLxHLk44qvMVqFyedB51IQLHkdQfhcQquPL7z72Wjh/fFheqT/NB/sdOUjkGKzLjZFLfLR/6TyELWlDEXSCD/lQ0M5kWE7Mjb6UdOZWVKEqi1Qgz6v0/cCvMvr4sISCh0QMmiHZrbuxroKHlhyESEJXgWVgvaMkkYYMuYbAyza9piKzvSz3T1fy9v4OdjTKZkSWDT5YboH7pz+v5JyhP1/aHY0KDq1t2nJRer6mgjsG3XCStCMW/MEdsxvtnM8A+V+70TsCKhs5Sy82Pqu23NFFyc8mAbf3d7IFFFNR8bZ6V7290lbwkHfA6S5fLRbGBIbSjn04WVRScNDctMK1h87uSWX0jiiAdsUFyCgg18QxiNeVxQa/gUPrwVgDh1Zz7l3wiXvtRMJxkO4HBn3hqFJWsSUf82zIjPjN5qUAWUMnNvt/mXKZMqYnXoROWydisj1NR4t7xGeLyzb24ixUWOfvT/a5lTwTS9o0rXWib7GbZwn/GCiK9ayerSwbkbFJ3g3W2aD/ox6/fDl+4X6F15ifVtyN2TG7QX6hwh2N5TM5ry6t/P7bEuf5b2BXjzk=
 sidebar_class_name: "put api-method"
 info_path: api/session-recording/session-recording-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 A held recording is never removed by retention or deleted by hand. Needs session-recording.audit.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 

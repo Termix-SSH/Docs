@@ -7,7 +7,7 @@ description: "Write markdown notes for each host, folder or yourself, with comma
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Notes/edit/main/docs/index.md"
 plugin_id: "notes"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Notes lets you write down what you know about your servers, right next to them. Each host can have as many notes as you like, written in markdown: commands, ports, quirks, who to call.

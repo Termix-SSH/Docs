@@ -24,6 +24,24 @@ const sidebar: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "Interface defaults",
+      items: [
+        {
+          type: "doc",
+          id: "classic-layout/get-interface-defaults",
+          label: "Get interface defaults",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "classic-layout/set-interface-defaults",
+          label: "Set interface defaults",
+          className: "api-method put",
+        },
+      ],
+    },
   ],
 };
 

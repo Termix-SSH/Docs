@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/databases/reference"
 custom_edit_url: null
 plugin_id: "databases"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings

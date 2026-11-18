@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Operations Center API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Run, roll out, approve and track every plugin action across your hosts, with a page per host and tables across all of them."
   },
   "servers": [
@@ -410,6 +410,125 @@
         "responses": {
           "405": {
             "description": "No stream."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/approvals/{id}": {
+      "post": {
+        "summary": "Approve or reject a waiting action",
+        "description": "Core decides as the signed in person, with their own rights. What runs is the sealed request, never anything sent here. API keys are refused.",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "approve"
+                ],
+                "properties": {
+                  "approve": {
+                    "type": "boolean"
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The run's outcome."
+          },
+          "403": {
+            "description": "The caller may not decide this."
+          },
+          "409": {
+            "description": "Already decided, expired, or the host changed."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/runs/{id}/cancel": {
+      "post": {
+        "summary": "Cancel a run",
+        "description": "Core cancels as the signed in person, with their own rights. API keys are refused.",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether anything was cancelled."
+          },
+          "404": {
+            "description": "Not found, or not visible to the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/operations-center/runs/{id}/undo": {
+      "post": {
+        "summary": "Undo a run",
+        "description": "Core runs the action's undo as the signed in person, through the same checks as any run. API keys are refused.",
+        "tags": [
+          "Operations Center"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "confirmed": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The new run."
+          },
+          "404": {
+            "description": "Not found, or nothing to undo."
           }
         }
       }

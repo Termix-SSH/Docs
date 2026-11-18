@@ -5,7 +5,7 @@ description: "A read only viewer token for a live remote desktop session"
 sidebar_label: "A read only viewer token for a live remote desktop session"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVMFu2zAM/RWCZzXuup18yw4D2gFbsWYohiAYWJuJtdiSJjFxPMP/Pkh2k6zZDsVONuhHvvdo6fUotAmYL/GBQ9DWwBcurC+12eBKoefgrAkcMO/x5vo6PkoOhddOtDWY46JiELtlA2vrQSoGz40VhlIHV1M3w0Hhu+u3l52frADVtW25nOEwqBef5+CZSrCm7mCvuWV/xkNQ6/2JisNWrIMwWkCFDUtlS8zR2SCo0JFUmGPm6t1GmytyOpvAV/7ZbxZHZr3zVmxh6yHrdTlkIzUqDOz37OOqetz5GnPsx9KAL6V/szsPC/aNPsCIQYV78pqe6nGVUzXtZE27WjDHSsSFPMskNc74QI2reVbYBodhWEUFxc5r6ZKEJybPfr6LvparQfVYWLvVfF4hpz9yd6ycjXgoKm5GKeeDepTO8aQlek4wzCcQqunlg/UNRc13j4sL988HafxbgY2ANulkRBLr9S+KSKiYSvZAAd6noUCmTLDUmM7NuaWjttEVKtSRbYSgQkNJ6Y9W/qno7nEBIx4CC5BA0Btzpc0MHis24DxHuQq0gNCWQ6wUXLIpGOye/T9dJLXn6371Juf3t7DlDoKQF2020GqpQJrD9ws7R+jrV7vlTkFb6aIaicKJZga3AlRIiG0TFmxrpu6CjLEJEL+T6axh4DrweHe1WdvkWkvNZys/pgnM72/jLWAfRhdvZjez6wtvIx7SHTBUJ+q/3/KgoCUpqqi1SXGgEnrL7IAM0K7UwqUCNoXvnHAclIbbNbSVhVKX0FYk6d/FnGjIRAvTQfqv/PnD1PEsCB8kczVpEylTiPRTNC3xFE0pbF6EEyqMjKgwfw6o+K7LuNMxolYKq5h2+RL7/okCf/X1MMTyzx37mBqrUwqNEXHKyfvPDwscht+K4h2a
+api: eJy9VcFu3DYQ/ZXBnFqAXjlJT7q5hwJOgcSItzAKY1GMpdkVsxKpkKOVVUH/XpDU7qpe52AEyEkS9Tjz3nDmccSWHDUs7DzmjyNqgzm2JBUqNNQw5qhLVOj4W6cdl5iL61ihLypuCPMRZWgDyovTZofTpF4N0jortrD1m0JtFArtAjG8Z++1NfCFC+vK8HsTIvnWGs8+bH5/fR0eJfvC6Va0DSTWFYPYPRvYWgdSMThurDCU2rc1DSucFP52/eFy5ycrQHVtey5XQdWL3zfgmEqwph7goLlnt8hDUOvDORX7vdgWfJKAChuWypahKtYLqlSqHLO27nbaXFGrsxl85Y56sxAyG491nLJRl1OWUqNCz+5wPMPO1ZjjmJYmfEn9b9s5WLNr9DMkDCo8kNP0VKdSzquxJlvqasEcK5HW51kmceOKn6lpa14VtsEpnpTnonNahkjhicmxu+mCrsdN6InC2r3m5Qq1+k8eTiuLEPehIxKVZaBTgwQuODdO+E4gVPPLH9Y1FDh/fFhfqD82Ujotz0ZAm9gZIYl1+l8KSKiYSnZAHn6PQYFMGWFxY+ybpaQTt6QKVRqCBDmPwddevsvo48MaEh48C5CA1ztzpc0KHio20DoOdBVoAaE9+7BScMmmYLAHdt9VEdkuy/3mSt7c3cKeB/BCTrTZQa+lAmme/7mQc4K+vbR7HhT0lS6qlMif06zgVoAK8WHbjAXbm3l3QcbYCAj/yQzWMHDtOc2uNlsbVWupeVHyk5vAzd1tmAJ2Pql4t3q/enehLeEhzoChOqZ+fcq9gp6kqALXJtqBiug9cwtkgLpSC5cK2BRuaIVDoBjcbqGvLJS6hL4iiWcXfKIhEyTMjfRD/vM/UadeEH6WrK1Jm5Aymsg4W9Mjnq0pms0Lc0KFISMqzBdGn8ebY7aojcIquF3+iOP4RJ7/cvU0heVvHbvgGpuzC0UPKbUP7yXmW6o9X9AurBE2oTt/+TJfKb8CqtflHKfTDNHs6i58ocI9D+mKC470EzOeyjRtpsWFcPf5fo3T9B84KqBT
 sidebar_class_name: "post api-method"
 info_path: api/session-recording/session-recording-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 A read only viewer token for a live remote desktop session
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}},{"in":"path","name":"protocol","required":true,"schema":{"type":"string"}}]}
+>
   
 </ParamsDetails>
 

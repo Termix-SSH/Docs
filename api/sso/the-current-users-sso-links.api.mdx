@@ -5,7 +5,7 @@ description: "Each enabled provider and whether the signed in user is linked to 
 sidebar_label: "The current user's SSO links"
 hide_title: true
 hide_table_of_contents: true
-api: eJytlMFu2zAMhl+F4GUX1Wl3zK3bui7doQWSoRiKYFBs1tbiUJ5EJ80Mv/tA2UvSdTsU2CkB/Uv8fopkhwXFPLhGnGec4pXNKyC2q5oKaILfuoICWC5gV5FUFEAqguhKpgIcQxspgItQO15TAeLBSYYGxZYRpw84n9/i0mCg2HiOFHHa4dvzc/15nrgDW9d+R4U5pI3Qa9ZAQEp1oKlsBFcYqO2K6sQ2ZM+w7w1uSCpf4BRLEjTYWKlwipOmbkvHZ7Zxkxj9RE9ENBgpbCkoaodtqBVkCPVo/iD86tsACwob9wSDBg1ubXBarGRsjCZvj7atBadYiTRxOplIOpjRk900NWW532Df90slyNvgZJ8QVmQDhctWmR+Wvekw937t6DRiG/eZ9ofIyRXzvKLNgHJ6UYeyb2hkUc9JhtNRhGb889GHjVXmm/vFC/dzitF5BvFrYojEos+vzaBJfHA/rSqhIps6JsK7dGl6H5Wlgxn25pmlA9vgCg06zTZI0CDbRPp9J/8kurlfwKCHSAJWUnueOc7gviKGJpDiGnACYtcUNZJTQZwT+O3Y0n9zkWhPy/3qSl7ezWBNe4higzguYeekAtk8fXth5yB9fWnXtDewq1xeDYniMU0GMwGbS9Rjoxb8jsfTuWX2SaDfLe89E1AdaZglx48+uXZSq82547Iexv/MM1zezXQEKMTBwkV2kZ2/fCdXshpKTJb3cNsQzz7Ae89MuRzm2sC1k0/tCnyAa+/LmlL9Gx9lY1kxxmZYVAR5G4IWSvfPmwjz+S38Huln2XWAWIjlf+62oQeEnmTS1NaxYqbl0Y3r5gGP60bbJHo0OPAtDVY+imq6bmUjfQl132v4R0tBt8DyuFWGkT+utOurBfb9L1OY+RA=
+api: eJytVMFu40YM/RWCl14mcpqjb2mbpkkPCWAXQREYi7HESFOPOOqQsuMK+vdiRlo7aXYPAXqSRD0O3+OQb8CKpIyuUxcYl3hjywaI7dZTBV0Me1dRBMsVHBrShiJoQyCuZqrAMfRCEZyAd7yjCjSA0wINqq0Fl8+4Wj3gxmAk6QILCS4HvLq8TI/3hQew3ocDVeZUVgxEkt4rjKl6JKDE7sSqsQKuMuDtlnzmOLEw+X1OdZIZh17L0BKEl/zprWhGG6jdnhgCl1TgOBpsSZtQ4RJrUjTYWW1wiYvO97XjC9u5hUhYpFxBg0JxTzFJHbCPPgmZQiOa/yj8M/QR1hRb9woTBg3ubXSp2bkxczT35sX2XnGJjWony8VCc2JBr7btPBVlaHEcx01iUPbR6TFT2JKNFK/7xPl5M5oByxB2jt5GbOd+p+Mp8uaIVdlQO1F5e9CAeuxo5pI0ZxguZxCa+eXXEFubON8/rT+oX5GICwwadsQgxJrGJ91FKhKi+8cmJDRk88QJ/JQPzXeZYDmxwNG8k3TiNqlCgy5VmyBokG1m+tdBv8vo/mkNEx6EFKzm8b5wXMBTQwxdpETXgFNQuyNJkZIq4pIg7OeV+JaKzPZtuz/dyevHO9jREURtVMc1HJw2oO3rlw9yTtDPt3ZHRwOHxpXNVEjOZQq4U7ClSkqbsRAOPGeXljlkQPpv+RiYgLzMu+T4JWTVTn2SuXJc+8k+LgLD9eNdWgGKMkn4sbgqLj/ek6s5CcqcLB/hoSO++wV+DsxU6skPDNw6/a3fQohwG0LtKfe/C6Kt5URjHoZ1Q1D2MaZGJf/6QWC1eoCvK/2uelogVmL9P71xmgGlV1103jpONLN5DLPdPOPZbtKYSECDE7+NwSaIJswwbK3QH9GPYwr/3VNMLrA5u8q08mdLu71Z4zj+C7hzD+Q=
 sidebar_class_name: "get api-method"
 info_path: api/sso/single-sign-on-api
 custom_edit_url: null
@@ -50,7 +50,7 @@ Each enabled provider and whether the signed in user is linked to it.
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"{ allowed, providers } where each provider has id, label and linked."}}}
+  responses={{"200":{"description":"{ allowed, providers, result } where each provider has id, label and linked, and result is the outcome of the last link, given once."}}}
 >
   
 </StatusCodes>

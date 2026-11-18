@@ -7,7 +7,7 @@ description: "Browse and manage S3-compatible object storage buckets and files."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Object-Storage/edit/main/docs/index.md"
 plugin_id: "object-storage"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Object Storage lets you browse and manage the buckets you keep at S3-compatible services from one place in Termix. Add a login for each service, then work with files, change bucket settings and watch how much each bucket holds.

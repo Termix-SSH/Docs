@@ -8,7 +8,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
     "docs": "https://docs.termix.site/plugins/acme-ssl",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Certificates from Let's Encrypt or any ACME directory",
       "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
@@ -34,8 +34,14 @@
     "videoId": "30O4gMNtDsU",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:20.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:54:28.000Z"
       },
@@ -56,12 +62,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:27:55.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T02:56:33.000Z"
       }
     ]
   },
@@ -74,7 +74,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-AI",
     "docs": "https://docs.termix.site/plugins/ai",
-    "latest": "1.4.0",
+    "latest": "1.4.2",
     "features": [
       "Ask about your hosts, snippets, fleets, alerts, automations and more",
       "Proposes changes instead of making them, and nothing runs until you approve it",
@@ -104,7 +104,9 @@
       "users:read",
       "events:core",
       "process:spawn",
-      "operations:invoke"
+      "operations:invoke",
+      "network:sockets",
+      "files:own"
     ],
     "env": [],
     "dependencies": {},
@@ -113,8 +115,20 @@
     "videoId": "YgdIrZuDUO4",
     "versions": [
       {
-        "version": "1.4.0",
+        "version": "1.4.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:44:25.000Z"
+      },
+      {
+        "version": "1.4.1",
+        "latest": false,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:49.000Z"
+      },
+      {
+        "version": "1.4.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:56:11.000Z"
       },
@@ -129,18 +143,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:13:43.000Z"
-      },
-      {
-        "version": "1.2.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-21T05:06:23.000Z"
-      },
-      {
-        "version": "1.2.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-20T20:42:58.000Z"
       }
     ]
   },
@@ -153,7 +155,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
     "docs": "https://docs.termix.site/plugins/alerts",
-    "latest": "1.3.0",
+    "latest": "1.3.1",
     "features": [
       "One inbox for alerts from every part of Termix",
       "Popups for new alerts",
@@ -173,7 +175,8 @@
       "settings:read-core",
       "ui:surface",
       "operations:provide",
-      "notify:send"
+      "notify:send",
+      "network:sockets"
     ],
     "env": [],
     "dependencies": {},
@@ -182,8 +185,14 @@
     "videoId": "KW3-SZ7Th_8",
     "versions": [
       {
-        "version": "1.3.0",
+        "version": "1.3.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:42:16.000Z"
+      },
+      {
+        "version": "1.3.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:54:49.000Z"
       },
@@ -204,12 +213,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:51:12.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:28:09.000Z"
       }
     ]
   },
@@ -265,12 +268,14 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
     "docs": "https://docs.termix.site/plugins/audit-tools",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Forward every audit entry to an HTTP collector as it happens",
       "Catch up on entries written while the collector or Termix was down",
       "Export the audit log as CSV or NDJSON with the same filters as the viewer",
-      "Spreadsheet formula guard on CSV export"
+      "Spreadsheet formula guard on CSV export",
+      "Check the audit log's hash chain, download its newest hash to keep elsewhere and compare it later",
+      "Forwarded and exported entries carry their chain hash"
     ],
     "capabilities": [
       "audit:read",
@@ -296,8 +301,14 @@
     "videoId": "RXxwhjN3HcI",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:02:12.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:57:05.000Z"
       },
@@ -318,7 +329,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Automations",
     "docs": "https://docs.termix.site/plugins/automations",
-    "latest": "1.2.1",
+    "latest": "1.3.0",
     "features": [
       "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
       "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
@@ -353,8 +364,14 @@
     "videoId": "M1D-MDODM5E",
     "versions": [
       {
-        "version": "1.2.1",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:23.000Z"
+      },
+      {
+        "version": "1.2.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:58:29.000Z"
       },
@@ -375,12 +392,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-20T19:16:36.000Z"
-      },
-      {
-        "version": "1.0.2",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-18T05:12:26.000Z"
       }
     ]
   },
@@ -393,7 +404,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Backups",
     "docs": "https://docs.termix.site/plugins/backups",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Encrypted, deduplicated backups with restic, installed for you when a host has none",
       "Store backups in S3 compatible storage, a restic REST server, any rclone remote or a folder on the host",
@@ -425,8 +436,14 @@
     "videoId": "oDIKs4fBEKo",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:59.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:15:16.000Z"
       }
@@ -441,7 +458,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Certificates",
     "docs": "https://docs.termix.site/plugins/certificates",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "See every certbot and acme.sh certificate on a host with its days left",
       "Issue certificates with the standalone, web root or DNS challenge",
@@ -472,8 +489,14 @@
     "videoId": "CzDnC9AGPvY",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:53.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:58:56.000Z"
       }
@@ -488,7 +511,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Classic-Layout",
     "docs": "https://docs.termix.site/plugins/classic-layout",
-    "latest": "1.1.2",
+    "latest": "1.1.3",
     "features": [
       "Icon rail, resizable sidebar, tab bar and right dock",
       "Dashboard, Manage and Settings screens",
@@ -509,8 +532,14 @@
     "videoId": "swZyCHgWpHg",
     "versions": [
       {
-        "version": "1.1.2",
+        "version": "1.1.3",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:09:23.000Z"
+      },
+      {
+        "version": "1.1.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:39:56.000Z"
       },
@@ -531,12 +560,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:02:39.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-20T23:56:28.000Z"
       }
     ]
   },
@@ -642,7 +665,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Credential-Tools",
     "docs": "https://docs.termix.site/plugins/credential-tools",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Generate Ed25519, RSA and ECDSA key pairs",
       "Detect a key's type and get the public key from a private key",
@@ -665,8 +688,14 @@
     "videoId": "apuCWgyrsvk",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:44.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:38:49.000Z"
       },
@@ -687,7 +716,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Cron",
     "docs": "https://docs.termix.site/plugins/cron",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "List, add, change and delete cron jobs on a host",
       "A schedule helper with a plain summary and the next run times",
@@ -703,7 +732,6 @@
       "credentials:read",
       "ssh:connect",
       "network:serve",
-      "users:impersonate",
       "ui:surface",
       "operations:provide"
     ],
@@ -714,8 +742,14 @@
     "videoId": "tYra9rt8_YA",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:15.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:12:37.000Z"
       }
@@ -730,7 +764,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Databases",
     "docs": "https://docs.termix.site/plugins/databases",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "Save database logins per host with sealed passwords",
       "Browse databases, tables and views",
@@ -757,8 +791,14 @@
     "videoId": "PBKfr9dDpco",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:44.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:28:13.000Z"
       },
@@ -791,9 +831,9 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-DNS",
     "docs": "https://docs.termix.site/plugins/dns",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
-      "Works with Cloudflare, Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun and Gandi",
+      "Works with Cloudflare, Route 53, DigitalOcean, Hetzner, Namecheap, GoDaddy, Porkbun, Gandi and Spaceship",
       "Add, change and delete records in one place across all your providers",
       "Domain list with expiry dates, auto renew, transfer lock and name servers, plus alerts before a domain expires",
       "Watch any domain by name, even ones you did not register through a connected provider",
@@ -823,8 +863,14 @@
     "videoId": "ujcN58s2Buw",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:40:47.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:20:45.000Z"
       }
@@ -839,7 +885,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Docker",
     "docs": "https://docs.termix.site/plugins/docker",
-    "latest": "1.3.0",
+    "latest": "1.3.1",
     "features": [
       "Start, stop, restart, pause and remove containers",
       "Live CPU, memory, network and disk stats",
@@ -870,8 +916,14 @@
     "videoId": "CCzXPrdbGJc",
     "versions": [
       {
-        "version": "1.3.0",
+        "version": "1.3.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:21.000Z"
+      },
+      {
+        "version": "1.3.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:28:17.000Z"
       },
@@ -892,12 +944,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:09:06.000Z"
-      },
-      {
-        "version": "1.2.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-21T02:41:16.000Z"
       }
     ]
   },
@@ -981,7 +1027,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Firewall",
     "docs": "https://docs.termix.site/plugins/firewall",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "See and change firewall rules on UFW, firewalld, nftables and iptables hosts",
       "Turn the firewall on or off and set the default policies",
@@ -1012,8 +1058,14 @@
     "videoId": "Qq7yX_Uejgg",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:44:42.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:59:37.000Z"
       }
@@ -1028,7 +1080,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
     "docs": "https://docs.termix.site/plugins/fleets",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Group hosts by hand or with tag rules, so new hosts join on their own",
       "Run one command on every host and see each result",
@@ -1055,8 +1107,14 @@
     "videoId": "_TzWHSuelCI",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:23.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T21:32:58.000Z"
       },
@@ -1077,12 +1135,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:29:33.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-10T05:56:29.000Z"
       }
     ]
   },
@@ -1141,7 +1193,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Homepage",
     "docs": "https://docs.termix.site/plugins/homepage",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Drag, resize and arrange widgets on a grid",
       "Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal",
@@ -1151,6 +1203,7 @@
     ],
     "capabilities": [
       "db:own",
+      "desktop:window",
       "hosts:activity-provide",
       "network:serve",
       "network:outbound",
@@ -1163,8 +1216,14 @@
     "videoId": "__NcKvTqC3k",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:51:54.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T22:56:13.000Z"
       },
@@ -1185,12 +1244,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:29:35.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-09T21:41:48.000Z"
       }
     ]
   },
@@ -1203,7 +1256,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
     "docs": "https://docs.termix.site/plugins/host-metrics",
-    "latest": "1.4.0",
+    "latest": "1.4.1",
     "features": [
       "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
       "History charts for each host",
@@ -1239,8 +1292,14 @@
     "videoId": "CHrbuVshsBc",
     "versions": [
       {
-        "version": "1.4.0",
+        "version": "1.4.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:53:31.000Z"
+      },
+      {
+        "version": "1.4.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T22:59:53.000Z"
       },
@@ -1261,12 +1320,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:13:23.000Z"
-      },
-      {
-        "version": "1.1.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-20T19:45:57.000Z"
       }
     ]
   },
@@ -1279,7 +1332,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Host-Status",
     "docs": "https://docs.termix.site/plugins/host-status",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "An online or offline dot for every host",
       "Checks the host's port and never logs in",
@@ -1305,8 +1358,14 @@
     "videoId": "QScHdY85Tcc",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:36.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:01:30.000Z"
       },
@@ -1441,7 +1500,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-IP-KVM",
     "docs": "https://docs.termix.site/plugins/ip-kvm",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Works with PiKVM, GL.iNet Comet, NanoKVM and JetKVM",
       "See the screen of a machine and use its keyboard and mouse in the browser",
@@ -1456,7 +1515,7 @@
       "db:own",
       "events:core",
       "hosts:read",
-      "network:broadcast",
+      "network:sockets",
       "network:outbound",
       "network:serve",
       "notify:send",
@@ -1472,8 +1531,14 @@
     "videoId": "uVm6DaH7xsU",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:17.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:45:32.000Z"
       }
@@ -1488,7 +1553,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Kubernetes",
     "docs": "https://docs.termix.site/plugins/kubernetes",
-    "latest": "1.1.0",
+    "latest": "1.1.1",
     "features": [
       "Browse pods, deployments, statefulsets, daemonsets, jobs and cronjobs",
       "Scale, restart, roll back and change images of workloads",
@@ -1521,8 +1586,14 @@
     "videoId": "v59kAOaXeTo",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.1.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:20.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:24:21.000Z"
       },
@@ -1549,7 +1620,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-LDAP",
     "docs": "https://docs.termix.site/plugins/ldap",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Sign in against LDAP or Active Directory",
       "More than one directory, each with its own login button",
@@ -1561,7 +1632,8 @@
       "secrets:own",
       "network:serve",
       "auth:provide",
-      "ui:surface"
+      "ui:surface",
+      "network:sockets"
     ],
     "env": [],
     "dependencies": {},
@@ -1570,8 +1642,14 @@
     "videoId": "YHOL3xkwOLA",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:50.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:25:36.000Z"
       },
@@ -1604,7 +1682,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Log-Search",
     "docs": "https://docs.termix.site/plugins/log-search",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Search the systemd journal, log files and Docker logs on many hosts at once",
       "Plain text or regular expression search with a time range and level filter",
@@ -1628,8 +1706,14 @@
     "videoId": "uLpB2uLI_FY",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:15.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:43:23.000Z"
       }
@@ -1644,7 +1728,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Login-Security",
     "docs": "https://docs.termix.site/plugins/login-security",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Sign out after a set time without activity, in the browser and on the server",
       "Limit how long a session can last",
@@ -1652,14 +1736,20 @@
       "Require a second factor at every login or on a new device",
       "Works with any installed second factor, like an authenticator app or a security key",
       "People without a second factor are asked to set one up before they can use Termix",
-      "Ask for a second factor before connecting to a host, for every host or only marked ones"
+      "Ask for a second factor before connecting to a host, for every host or only marked ones",
+      "See your own sessions and API keys with when they were last used, and end them",
+      "Admins can sign everyone out at once",
+      "Get an alert when someone signs in to your account from a new device",
+      "Optional admin wait: with two or more admins, dangerous changes wait so the others can cancel them"
     ],
     "capabilities": [
       "auth:policy",
       "hosts:connect-policy",
-      "hosts:read",
       "network:serve",
-      "ui:surface"
+      "ui:surface",
+      "kv:own",
+      "notify:send",
+      "events:core"
     ],
     "env": [],
     "dependencies": {},
@@ -1668,8 +1758,14 @@
     "videoId": "Vjmm9lucls4",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:11:41.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:46:35.000Z"
       },
@@ -1690,7 +1786,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Network-Devices",
     "docs": "https://docs.termix.site/plugins/network-devices",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Works with any SNMP device, MikroTik RouterOS, OPNsense and OpenWrt",
       "Ports with link state, speed, traffic rates, errors and PoE",
@@ -1703,7 +1799,7 @@
       "db:own",
       "secrets:own",
       "network:outbound",
-      "network:probe",
+      "network:sockets",
       "network:serve",
       "ui:surface",
       "notify:send",
@@ -1716,8 +1812,14 @@
     "videoId": "E10bn0s8YfM",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:46.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:58:17.000Z"
       }
@@ -1732,7 +1834,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Network-Topology",
     "docs": "https://docs.termix.site/plugins/network-topology",
-    "latest": "1.1.0",
+    "latest": "1.1.1",
     "features": [
       "Add hosts and draw links between them",
       "Live status for each host",
@@ -1753,8 +1855,14 @@
     "videoId": "vkp2JvYcZBw",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.1.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:20.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:49:32.000Z"
       },
@@ -1787,7 +1895,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Notes",
     "docs": "https://docs.termix.site/plugins/notes",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Many markdown notes per host, per folder or global",
       "Write and preview with a small toolbar",
@@ -1810,8 +1918,14 @@
     "videoId": "pfTDZqNbeBw",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:51.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T00:00:10.000Z"
       }
@@ -1826,7 +1940,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Object-Storage",
     "docs": "https://docs.termix.site/plugins/object-storage",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Works with Amazon S3, MinIO, Cloudflare R2, Backblaze B2, Wasabi, DigitalOcean Spaces, Hetzner and any other S3-compatible service",
       "Browse folders and objects, upload large files in parts, download with resume and preview images and text",
@@ -1852,8 +1966,14 @@
     "videoId": "nS3ZS6s0vK4",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:47:54.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T00:47:09.000Z"
       }
@@ -1868,7 +1988,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Operations-Center",
     "docs": "https://docs.termix.site/plugins/operations-center",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Run any action any plugin offers, with a form, a dry run and the result",
       "Roll an action out across many hosts with a canary, batches and a failure limit",
@@ -1905,8 +2025,14 @@
     "videoId": "0EUwEVouWJE",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:47:09.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:24:03.000Z"
       }
@@ -1921,7 +2047,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-OPKSSH",
     "docs": "https://docs.termix.site/plugins/opkssh",
-    "latest": "1.0.3",
+    "latest": "1.0.4",
     "features": [
       "Adds the OPKSSH auth type to hosts",
       "Sign in with your identity provider in the browser",
@@ -1937,13 +2063,14 @@
       "network:outbound",
       "network:serve",
       "auth:provide",
-      "ui:surface"
+      "ui:surface",
+      "network:sockets"
     ],
     "env": [
       {
         "name": "OPKSSH_VERSION",
         "description": "Use another opkssh release than the one Termix pins. Needs OPKSSH_SHA256 too.",
-        "default": "v0.16.0"
+        "default": "v0.19.2"
       },
       {
         "name": "OPKSSH_SHA256",
@@ -1969,8 +2096,14 @@
     "videoId": "cXelOy3bp9Y",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.0.4",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:44.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T23:54:39.000Z"
       },
@@ -2003,7 +2136,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Out-Of-Band",
     "docs": "https://docs.termix.site/plugins/out-of-band",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Works with Redfish (iDRAC, iLO, Supermicro, OpenBMC), IPMI over LAN and Intel AMT",
       "Power on, shut down, power cycle and reset a machine even when its OS is dead",
@@ -2036,8 +2169,14 @@
     "videoId": "nrSv4fZd1B4",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:49.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T00:54:30.000Z"
       }
@@ -2052,7 +2191,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Package-Manager",
     "docs": "https://docs.termix.site/plugins/package-manager",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "See pending updates with security updates marked, and install one, some or all",
       "Refresh the package index and see when a reboot is needed",
@@ -2068,7 +2207,6 @@
       "credentials:read",
       "ssh:connect",
       "network:serve",
-      "users:impersonate",
       "ui:surface",
       "operations:provide",
       "kv:own",
@@ -2081,8 +2219,14 @@
     "videoId": "yG6mByG0WBg",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:27.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:16:49.000Z"
       }
@@ -2159,7 +2303,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Privileged-Access",
     "docs": "https://docs.termix.site/plugins/privileged-access",
-    "latest": "1.0.0",
+    "latest": "1.0.1",
     "features": [
       "Mark hosts as privileged, so SSH and remote desktop need approved access",
       "Ask for access with a reason, a ticket and how many hours you need",
@@ -2173,7 +2317,6 @@
       "hosts:connect-policy",
       "db:own",
       "db:core-refs",
-      "kv:own",
       "network:serve",
       "ui:surface",
       "notify:send",
@@ -2188,8 +2331,14 @@
     "videoId": "MbGnu0TMoOI",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.0.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:15.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:26:35.000Z"
       }
@@ -2204,7 +2353,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Process-Manager",
     "docs": "https://docs.termix.site/plugins/process-manager",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "A live process list with a tree, sorting and a detail view",
       "Send signals and change the priority of a process",
@@ -2234,8 +2383,14 @@
     "videoId": "9Zw3RqhiJJw",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:39:03.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:45:46.000Z"
       }
@@ -2319,7 +2474,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
     "docs": "https://docs.termix.site/plugins/remote-desktop",
-    "latest": "1.4.1",
+    "latest": "1.4.2",
     "features": [
       "RDP, VNC, Apple Remote Desktop and Telnet from any browser, with nothing else to install",
       "RustDesk devices by ID through your own or the public RustDesk server, or by direct IP",
@@ -2338,7 +2493,9 @@
       "desktop:local",
       "ui:surface",
       "users:impersonate",
-      "operations:provide"
+      "operations:provide",
+      "network:sockets",
+      "files:own"
     ],
     "env": [
       {
@@ -2349,7 +2506,7 @@
       {
         "name": "RDP_DRIVE_PATH",
         "description": "Folder the built-in engine keeps RDP drive files in. Each user gets a folder under it.",
-        "default": "/app/data/rdp-drive"
+        "default": "/app/data/plugin-data/remote-desktop/rdp-drive"
       },
       {
         "name": "GUACD_HOST",
@@ -2377,7 +2534,7 @@
       {
         "name": "GUACD_RECORDING_BACKEND_PATH",
         "description": "Folder Termix keeps remote desktop recordings in. With an external guacd, the same folder as Termix sees it.",
-        "default": "/app/data/session_recordings/guacamole"
+        "default": "/app/data/plugin-data/remote-desktop/session_recordings/guacamole"
       },
       {
         "name": "GUACD_DRIVE_PATH",
@@ -2396,8 +2553,14 @@
     "videoId": "my2iDbtyjq0",
     "versions": [
       {
-        "version": "1.4.1",
+        "version": "1.4.2",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:54:25.000Z"
+      },
+      {
+        "version": "1.4.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-15T19:35:38.000Z"
       },
@@ -2418,12 +2581,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-29T22:22:01.000Z"
-      },
-      {
-        "version": "1.2.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-22T17:48:57.000Z"
       }
     ]
   },
@@ -2436,7 +2593,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy",
     "docs": "https://docs.termix.site/plugins/reverse-proxy",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "TCP, UDP, HTTP and HTTPS routes for each host, with status, search and filters",
       "Free Let's Encrypt certificates that renew on their own, plus self-signed and uploaded certificates",
@@ -2450,6 +2607,7 @@
       "db:own",
       "network:serve",
       "network:outbound",
+      "network:sockets",
       "secrets:own",
       "kv:own",
       "notify:send",
@@ -2464,8 +2622,14 @@
     "videoId": "lVRN1FTH5g4",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:14.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:35:51.000Z"
       },
@@ -2498,7 +2662,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Samba",
     "docs": "https://docs.termix.site/plugins/samba",
-    "latest": "1.0.1",
+    "latest": "1.1.0",
     "features": [
       "Install Samba and start, stop or restart it on a host",
       "Create, edit and delete SMB shares with access options",
@@ -2512,7 +2676,6 @@
       "credentials:use",
       "ssh:connect",
       "network:serve",
-      "users:impersonate",
       "ui:surface",
       "operations:provide"
     ],
@@ -2523,8 +2686,14 @@
     "videoId": "IztJgZPVMck",
     "versions": [
       {
-        "version": "1.0.1",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:19.000Z"
+      },
+      {
+        "version": "1.0.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T19:51:59.000Z"
       },
@@ -2545,7 +2714,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
     "docs": "https://docs.termix.site/plugins/secret-sources",
-    "latest": "1.1.2",
+    "latest": "1.1.3",
     "features": [
       "Works with 1Password Connect, Infisical, Bitwarden Secrets Manager, HashiCorp Vault and Bitwarden or Vaultwarden through bw serve",
       "Use references like op://vault/item/field or vault://secret/app#password in a host's password or key fields",
@@ -2567,8 +2736,14 @@
     "videoId": "HBrwZrZMvbc",
     "versions": [
       {
-        "version": "1.1.2",
+        "version": "1.1.3",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:44.000Z"
+      },
+      {
+        "version": "1.1.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:35:38.000Z"
       },
@@ -2589,12 +2764,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:55:27.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:29:48.000Z"
       }
     ]
   },
@@ -2607,7 +2776,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Security-Center",
     "docs": "https://docs.termix.site/plugins/security-center",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "Inventory of authorized keys, host keys and private keys on every host",
       "Findings for weak or old keys, unprotected private keys, loose permissions and risky sshd settings",
@@ -2641,8 +2810,14 @@
     "videoId": "nU7OAmv72s8",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:13.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:02:12.000Z"
       }
@@ -2703,7 +2878,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Service-Manager",
     "docs": "https://docs.termix.site/plugins/service-manager",
-    "latest": "1.1.2",
+    "latest": "1.1.3",
     "features": [
       "List systemd services, sockets, targets and timers with their state",
       "Start, stop, restart, reload, enable, disable and mask units",
@@ -2737,8 +2912,14 @@
     "videoId": "4gKQ-P0gAac",
     "versions": [
       {
-        "version": "1.1.2",
+        "version": "1.1.3",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:30:19.000Z"
+      },
+      {
+        "version": "1.1.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:41:40.000Z"
       },
@@ -2771,7 +2952,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Session-Recording",
     "docs": "https://docs.termix.site/plugins/session-recording",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Record SSH, RDP and VNC sessions",
       "Play recordings back at any speed",
@@ -2804,8 +2985,14 @@
     "videoId": "R2PFOM8eiQo",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:49.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:56:30.000Z"
       },
@@ -2826,12 +3013,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:53:40.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:29:56.000Z"
       }
     ]
   },
@@ -2844,7 +3025,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
     "docs": "https://docs.termix.site/plugins/session-sharing",
-    "latest": "1.2.0",
+    "latest": "1.2.1",
     "features": [
       "Share terminal, RDP, VNC and Telnet sessions",
       "Share by link with anyone, or with a Termix user",
@@ -2882,8 +3063,14 @@
     "videoId": "fGxbNmGGeRY",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.2.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:17.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:51:32.000Z"
       },
@@ -2904,12 +3091,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:06.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-09T21:42:25.000Z"
       }
     ]
   },
@@ -2922,7 +3103,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Simple-Layout",
     "docs": "https://docs.termix.site/plugins/simple-layout",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Top bar with tabs, search and settings",
       "Home screen with a card for each host",
@@ -2930,7 +3111,6 @@
       "Only the settings most people need"
     ],
     "capabilities": [
-      "settings:read-core",
       "ui:layout",
       "ui:surface"
     ],
@@ -2941,8 +3121,14 @@
     "videoId": "O4b1uk8MFRc",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:30.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:55:51.000Z"
       },
@@ -2969,7 +3155,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-SSO",
     "docs": "https://docs.termix.site/plugins/sso",
-    "latest": "1.1.0",
+    "latest": "1.2.0",
     "features": [
       "Any OpenID Connect provider, plus GitHub and Google",
       "More than one provider, each with its own login button",
@@ -2983,7 +3169,8 @@
       "secrets:own",
       "network:serve",
       "auth:provide",
-      "ui:surface"
+      "ui:surface",
+      "network:outbound"
     ],
     "env": [
       {
@@ -3063,8 +3250,14 @@
     "videoId": "lUZn6xnRBx4",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.2.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:51.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:33:54.000Z"
       },
@@ -3085,12 +3278,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:47:04.000Z"
-      },
-      {
-        "version": "1.0.2",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:29:47.000Z"
       }
     ]
   },
@@ -3103,7 +3290,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
     "docs": "https://docs.termix.site/plugins/snippets",
-    "latest": "1.3.0",
+    "latest": "1.4.0",
     "features": [
       "Save commands and notes in folders",
       "Run them in one or more terminals, or straight on a set of hosts",
@@ -3140,8 +3327,14 @@
     "videoId": "xVvfA79FqEc",
     "versions": [
       {
-        "version": "1.3.0",
+        "version": "1.4.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:12.000Z"
+      },
+      {
+        "version": "1.3.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T01:58:21.000Z"
       },
@@ -3162,12 +3355,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:57:57.000Z"
-      },
-      {
-        "version": "1.0.1",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-11T22:30:05.000Z"
       }
     ]
   },
@@ -3237,7 +3424,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
     "docs": "https://docs.termix.site/plugins/ssh-terminal",
-    "latest": "1.4.0",
+    "latest": "1.4.1",
     "features": [
       "Tabs and split screen",
       "Jump hosts and host key verification",
@@ -3266,7 +3453,9 @@
       "ui:surface",
       "desktop:local",
       "notify:send",
-      "operations:provide"
+      "operations:provide",
+      "network:sockets",
+      "files:own"
     ],
     "env": [
       {
@@ -3305,8 +3494,14 @@
     "videoId": "A8mSVayxS7o",
     "versions": [
       {
-        "version": "1.4.0",
+        "version": "1.4.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:50:28.000Z"
+      },
+      {
+        "version": "1.4.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-08T20:48:46.000Z"
       },
@@ -3327,12 +3522,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T17:49:44.000Z"
-      },
-      {
-        "version": "1.1.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-20T19:50:37.000Z"
       }
     ]
   },
@@ -3345,7 +3534,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
     "docs": "https://docs.termix.site/plugins/step-ca",
-    "latest": "1.0.3",
+    "latest": "1.1.0",
     "features": [
       "Adds the Step CA auth type to hosts",
       "Sign in with your identity provider in the browser",
@@ -3358,27 +3547,24 @@
       "network:outbound",
       "network:serve",
       "auth:provide",
-      "ui:surface"
+      "ui:surface",
+      "kv:own"
     ],
-    "env": [
-      {
-        "name": "REDIS_URL",
-        "description": "Redis that several Termix servers share for sign in state. Not needed with one server."
-      },
-      {
-        "name": "TERMIX_STEP_CA_REDIS_PREFIX",
-        "description": "Prefix for the keys it writes in Redis.",
-        "default": "termix:step-ca"
-      }
-    ],
+    "env": [],
     "dependencies": {},
     "hasApi": true,
     "apiPath": "/api/step-ca/step-ca-api",
     "videoId": "wMNp26dYWtk",
     "versions": [
       {
-        "version": "1.0.3",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:47.000Z"
+      },
+      {
+        "version": "1.0.3",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:00:14.000Z"
       },
@@ -3411,7 +3597,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Storage-Health",
     "docs": "https://docs.termix.site/plugins/storage-health",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "SMART and NVMe health, temperature, wear and bad sectors for every drive",
       "ZFS pools, mdadm arrays, btrfs filesystems and LVM thin pools",
@@ -3441,8 +3627,14 @@
     "videoId": "M9sktdi3dkw",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:57.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:09:15.000Z"
       }
@@ -3457,7 +3649,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Sync",
     "docs": "https://docs.termix.site/plugins/sync",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
       "Link several servers and accounts and switch between them, each with its own copy",
@@ -3480,7 +3672,8 @@
       "secrets:own",
       "ui:surface",
       "operations:provide",
-      "notify:send"
+      "notify:send",
+      "network:sockets"
     ],
     "env": [],
     "dependencies": {},
@@ -3489,8 +3682,14 @@
     "videoId": "3CjG7dgAD9Y",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:47:03.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:03:56.000Z"
       },
@@ -3523,7 +3722,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tailscale",
     "docs": "https://docs.termix.site/plugins/tailscale",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "Add tailnet devices as hosts in a couple of clicks",
       "Connect with Tailscale SSH, with no credentials stored",
@@ -3550,8 +3749,14 @@
     "videoId": "NfibAkXDvJk",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:28:53.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:03:34.000Z"
       },
@@ -3572,12 +3777,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:09.000Z"
-      },
-      {
-        "version": "1.0.0",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-09T21:42:17.000Z"
       }
     ]
   },
@@ -3590,7 +3789,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Termix-Identity",
     "docs": "https://docs.termix.site/plugins/termix-identity",
-    "latest": "1.1.0",
+    "latest": "1.1.1",
     "features": [
       "Publish your public keys under a handle",
       "Add your keys to any server with one command",
@@ -3612,8 +3811,14 @@
     "videoId": "YFuUi19caK0",
     "versions": [
       {
-        "version": "1.1.0",
+        "version": "1.1.1",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:15.000Z"
+      },
+      {
+        "version": "1.1.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:03:21.000Z"
       },
@@ -3646,7 +3851,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor",
     "docs": "https://docs.termix.site/plugins/tmux-monitor",
-    "latest": "1.2.0",
+    "latest": "1.3.0",
     "features": [
       "Every host's tmux sessions in one place",
       "Live pane previews",
@@ -3672,8 +3877,14 @@
     "videoId": "KbxM1W0VaYY",
     "versions": [
       {
-        "version": "1.2.0",
+        "version": "1.3.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:11.000Z"
+      },
+      {
+        "version": "1.2.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T02:07:29.000Z"
       },
@@ -3694,12 +3905,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T05:03:40.000Z"
-      },
-      {
-        "version": "1.0.2",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-12T16:15:15.000Z"
       }
     ]
   },
@@ -3941,7 +4146,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
     "docs": "https://docs.termix.site/plugins/telemetry",
-    "latest": "1.0.2",
+    "latest": "1.1.0",
     "features": [
       "Never sends usernames, hostnames or credentials",
       "Choose what the report includes, or turn it off",
@@ -3978,8 +4183,14 @@
     "videoId": "YAwp4ejbkCI",
     "versions": [
       {
-        "version": "1.0.2",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T07:40:40.000Z"
+      },
+      {
+        "version": "1.0.2",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-18T04:58:05.000Z"
       },
@@ -4049,7 +4260,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Virtual-Machines",
     "docs": "https://docs.termix.site/plugins/virtual-machines",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "See and control every VM on your KVM hosts, or across all of them at once",
       "Make VMs from a cloud image or an ISO, with cloud-init for the login",
@@ -4081,8 +4292,14 @@
     "videoId": "faBbbhJbQ8A",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:29:23.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T03:09:20.000Z"
       }
@@ -4286,7 +4503,7 @@
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Web-Servers",
     "docs": "https://docs.termix.site/plugins/web-servers",
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "features": [
       "See nginx, Apache and Caddy on a host with their version and state",
       "List every site with its domains, ports, HTTPS and certificate expiry",
@@ -4318,8 +4535,14 @@
     "videoId": "ooxMjv8nK7Y",
     "versions": [
       {
-        "version": "1.0.0",
+        "version": "1.1.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-18T06:53:29.000Z"
+      },
+      {
+        "version": "1.0.0",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-09T03:37:49.000Z"
       }

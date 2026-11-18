@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ai/reference"
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.4.0"
+plugin_version: "1.4.2"
 plugin_latest: true
 ---
 ## Settings
@@ -76,6 +76,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
@@ -91,6 +92,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+| `files:own` | Low | Store its own files. In its own folder on disk, separate from other plugins. |
 
 ## Works with other plugins
 

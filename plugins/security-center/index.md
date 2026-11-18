@@ -7,7 +7,7 @@ description: "Audit SSH keys, rotate them and scan hosts for known vulnerabiliti
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Security-Center/edit/main/docs/index.md"
 plugin_id: "security-center"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Security Center audits the SSH keys on your hosts, helps you rotate them, and scans installed packages for known vulnerabilities.

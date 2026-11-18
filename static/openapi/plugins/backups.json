@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Backups API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Back up folders, databases and Docker data on your hosts with restic, then browse, download and restore."
   },
   "servers": [
@@ -712,6 +712,30 @@
         "responses": {
           "200": {
             "description": "Whether it opened or was made."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/unlock": {
+      "post": {
+        "summary": "Remove stale locks",
+        "description": "Runs restic unlock from a host. Only locks left by runs that died are removed.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The stale locks are gone."
           }
         }
       }

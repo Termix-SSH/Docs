@@ -7,7 +7,7 @@ description: "Power, sensors, event logs and consoles for server BMCs over Redfi
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Out-Of-Band/edit/main/docs/index.md"
 plugin_id: "out-of-band"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Out-of-band lets you manage the BMC (baseboard management controller) of a server from Termix. A BMC keeps working when the operating system is down or the machine is off, so you can power it on, read its sensors and logs, and boot it from an ISO.

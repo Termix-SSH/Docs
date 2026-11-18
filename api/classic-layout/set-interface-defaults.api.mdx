@@ -1,0 +1,69 @@
+---
+id: set-interface-defaults
+title: "Set interface defaults"
+description: "Replaces the defaults. Each template has a preset (simple, balanced or advanced), the rail item ids to show and whether it is locked. Roles are keyed by role name."
+sidebar_label: "Set interface defaults"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcFu4zYQ/ZXBnFqAsXe7PemWLbZAtkURJFksijQoRtLEYkyRWnJkRzX878WQWtsbN4c9VgeboN6Qb97MPO2w5dREO4gNHiu84cFRwwmkY2j5kUYnaQEfqOlAuB8cCUNHCQiGyIkFfki2HxwbqMmRb7iFEIHaTV7/aPJBkawDK9yDbRNIgNSFLZBvYduxdBzBCtgELjRrbhdwExwnoMiw5olbqCeIwTF46nnxl0eDQquE1T1eeeH4SM2RLD4YjPxl5CTvQzthtcMmeGEvuqRhcLYhzXb5lDTlHaam4550JdPAWGGon7gRNDjEMHAUy0nf8objFDz/F9KPzlHtGCuJI+8NKt90jtznRxmmIfhUID+9eaN/31birmNItOH2WAbcG/z5NWwd2kk1tH5DzrYz+N05+I8gQKN0Idp/WHF7gz1LF1qscBhz3iQdVrgc3Liy/oIGu2wcpWSbC0dTGGVpv+p+cdDdYOK44ah12eEYHVa4K1t7NC9I/BnGCHcce/sMBYMGNxStiphFmXcz/XwDVtiJDKlaLiUHLviZtPUWTehV2Adl0IzRypQp1EyR4+Woudw/7I02QlhbPt2hwf7G02Hn5Ihb7YpC5fSgQ0GVi+acYVjNIDTz4tcQe1LOHz/fnWV/yynZ4EHCmj0k9gLW50m5nAuTOxQ6ppYjUIL3+dA8MgrLgbnEpykduJWs0KDV2wpEm5Qy06etvMro4+c7KHjQ4SaBZFf+wvoFfO7Yl6H3YnRghdacdKfhln3DEDYcX80isz2V+7uVvLy+Uj+AJBTF+hVsrXQg/fPfZ+kcoN8v7ZonA9vONl25KB2vWcCVADWSNGzGQtj6Oboh70MG6Hvy6hXALnGZMbWbm6MxfSjN+8JYTpxDY6x/DFkpKwrFX8oUwu95CuHy+krHhmMqab9dvF28OxND3WEe368jV6a4ZEYebBN8NmkDybZcUzQgVENNJbM2NOtcvyEk6Sm75txMt6wCn5nwCw4nHvz/+cSU7hR+luXgyHoVINvabjbIezwaJBr81iLz9J2Z5IPBLiTR2N2upsSfotvvdfvLyFF96+Hog8WksLRqtrQ1T9oFRcuLO2WocDeWqX/xbVM7Ozj79Sf1oXr+JPah1ZBIWzT5t0I0GHK5suflvR068quRVtk28pH6/AuZFdsu
+sidebar_class_name: "put api-method"
+info_path: api/classic-layout/classic-layout-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set interface defaults"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/classic-layout/interface-defaults"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the defaults. Each template has a preset (simple, balanced or advanced), the rail item ids to show and whether it is locked. Roles are keyed by role name.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"everyone":{"type":"object","nullable":true},"roles":{"type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved defaults."},"400":{"description":"The body is invalid."},"403":{"description":"Not authorized."}}}
+>
+  
+</StatusCodes>
+
+
+      

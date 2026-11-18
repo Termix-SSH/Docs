@@ -6,9 +6,24 @@ slug: "/snippets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "snippets"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Changed
+
+- The snippets panel puts search, the menu and the add button on one row on Termix 26.11.2 and later
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The Settings item in the Snippets menu opens the Snippets page in Settings. Saved secrets are managed there too
+- Form fields use the same background as the rest of Termix
+
+### Fixed
+
+- Says to open a terminal and trust the host when its key is not trusted yet, instead of a plain error (Termix 26.11.2)
+- The API docs describe the bulk import body
+- A quick run shows both what a snippet printed and its errors
+
 ## 1.3.0
 
 ### Added

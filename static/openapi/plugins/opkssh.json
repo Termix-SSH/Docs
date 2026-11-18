@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "OPKSSH API",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Connect to hosts with short-lived OpenPubkey SSH certificates after signing in with your identity provider."
   },
   "servers": [
@@ -157,7 +157,7 @@
     "/plugin-api/opkssh/callback": {
       "get": {
         "summary": "OAuth callback from the identity provider for an OPKSSH sign-in",
-        "description": "Public. The redirect URI registered with the identity provider. Finds the sign-in by OAuth state or the opkssh_request_id cookie and forwards to its proxied callback listener.",
+        "description": "Public. The redirect URI registered with the identity provider. Finds the sign-in by OAuth state or the tmxp_opkssh_request_id cookie and forwards to its proxied callback listener.",
         "tags": [
           "OPKSSH"
         ],

@@ -6,9 +6,25 @@ slug: "/operations-center/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "operations-center"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- Session tiles on the host page overview, like a remote desktop, wait for you to click Connect instead of connecting when the page opens. The full size view still connects right away
+- The host page overview scrolls with Termix, so tiles from other plugins like the terminal move with the page instead of trailing behind it (needs Termix 26.11.2)
+- Status tiles on the dashboard share one request and ask only for their own signal, and check again every 2 seconds while hosts are still answering
+- Needs attention shows each part as soon as it loads instead of waiting for the slowest one
+- The host page shows one loading screen until its tiles, including ones from other plugins, have loaded, instead of filling in piece by piece (needs Termix 26.11.2)
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Host page tiles from other plugins draw in their own frames over the page, and the tab bar button finds the host of the tab you are on (needs Termix 26.11.2)
+
+### Fixed
+
+- Status tiles say they are loading instead of "No hosts report this" while hosts are still coming in
+
 ## 1.0.0
 
 ### Added

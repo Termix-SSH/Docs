@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/session-recording/reference"
 custom_edit_url: null
 plugin_id: "session-recording"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 ## Settings

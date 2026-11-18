@@ -1,0 +1,42 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+sidebar_position: 99
+slug: "/ldap/v/1.0.3/changelog"
+custom_edit_url: null
+toc_max_heading_level: 2
+plugin_id: "ldap"
+plugin_version: "1.0.3"
+plugin_latest: false
+---
+## 1.0.3
+
+### Fixed
+
+- Password fields with the show button are the same height as the other fields next to them
+
+## 1.0.2
+
+### Added
+
+- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in
+
+### Changed
+
+- The plugin name and description show in your language
+
+## 1.0.1
+
+### Changed
+
+- Translated into every supported language
+
+## 1.0.0
+
+### Added
+
+- First release
+- Sign in against LDAP or Active Directory
+- More than one directory, each with its own login button
+- LDAPS checks the server certificate, with a CA field and a skip check switch
+- Make members of an admin group Termix admins

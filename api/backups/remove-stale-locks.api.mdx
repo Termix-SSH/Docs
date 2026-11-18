@@ -1,0 +1,69 @@
+---
+id: remove-stale-locks
+title: "Remove stale locks"
+description: "Runs restic unlock from a host. Only locks left by runs that died are removed."
+sidebar_label: "Remove stale locks"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu3DYQ/ZXBnFqA0To56uagKOD0EMPewCiMRcGVZlesJFLhjLxWBf17MaTi3cRwgRx6kjh6w3lvOHyasSauohvEBY8l3o2eIRKLq2D0XahaOMTQg4UmsBTw2XcTaJiho4PAfoKoKdJYgdpRDTYSROrDE9UFGhR7ZCwf8aOt2nFg3BkcbLQ9CUX9MKPTuoOVBg162xOW6Go0GOnr6CLVWEocySBXDfUWyxllGhLKCx0p4rLsFM1D8EysgA9XV/r4Xtq2IWCxHa38legxeCpwWQz2JE2olUlgQZMJlbgZuvHo/Ds7uM0+S9hEGgI7CdERb2ZXL5vcKTTIFJ++6RpjhyXOObSg+YHOn2GMsKXYu2fIGDT4ZKOz+y6rWKNJyMGOnWCJjcjA5WYjKbGgZ9sPHRVV6HFJfWCqxuhkShT2ZCPF61GlPO4WM2MVQuvoMmIH9wdNL5GLLe614ZnK5UYv/VcuuJ6LrjMIzfrye4i9Vc6fHrav1N8TswseJLTkgckLOA/SEGiREN0/VpHQkK0pgmX4mDYF6+sES4kFLuY7SS/csio0eboy5Dxff5/kTUafHraQ8cAkYAXYHf075wt4aMjDEEnpGnACYltijVRUk68IwhPFN1Uktpft/ulOXt/eQEuTjnEU549wctKA9M9/vZLzAv351rY0GTg1rmpyIT6XKeBGwFbCmrZiIZz8ml1Z70MC6Hfrp+AJqOP1jjl/CEm1k05lrp4A17c3OvsUOXN/X7wvrl4pUjSMAxxCV1NkA7UVu7dMnGr/FqqWYgpC8DDp9VLPWtlnTzNK2sM+hhOTgTqcfBdsnTZQRIiUTklNoLdeya4jc5cs7dJAfiSol8sLeflfbDQPitCzbIbOOq8sk8PMq1U94tmqdHJWv1VnPNsVGiyTua6OtTOohDR7nrWXX2K3LBr+OlJUE9mdTSlZSu1Y32ssD7Zj+o8e/HK3Gviv8JaAb5fVT8n7ulFXaLClKf8Flt2lNd9+vt/isvwL+9RSQQ==
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove stale locks"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/repositories/{id}/unlock"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs restic unlock from a host. Only locks left by runs that died are removed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stale locks are gone."}}}
+>
+  
+</StatusCodes>
+
+
+      

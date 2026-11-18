@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Single sign-on API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Sign in with any OpenID Connect provider, GitHub or Google."
   },
   "servers": [
@@ -124,7 +124,7 @@
         ],
         "responses": {
           "200": {
-            "description": "{ allowed, providers } where each provider has id, label and linked."
+            "description": "{ allowed, providers, result } where each provider has id, label and linked, and result is the outcome of the last link, given once."
           }
         }
       }
@@ -132,7 +132,7 @@
     "/plugin-api/sso/links/start": {
       "post": {
         "summary": "Start linking an SSO provider",
-        "description": "Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result.",
+        "description": "Gives a one time address for the signed in user to open in a browser tab. It goes on to the provider, and when the provider sends them back its identity is tied to their account. GET /plugin-api/sso/links then reports the result once.",
         "tags": [
           "SSO"
         ],
@@ -160,6 +160,36 @@
           },
           "404": {
             "description": "No such provider."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/links/go/{token}": {
+      "get": {
+        "summary": "Open the provider to link an account",
+        "description": "The address /links/start gave, opened in a browser tab. Only the person who asked can use it, once, within two minutes. Sends the browser on to the provider.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "On to the provider."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "404": {
+            "description": "Unknown, used, expired or someone else's link."
           }
         }
       }

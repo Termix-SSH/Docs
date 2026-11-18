@@ -1,0 +1,70 @@
+---
+id: undo-a-run
+title: "Undo a run"
+description: "Core runs the action's undo as the signed in person, through the same checks as any run. API keys are refused."
+sidebar_label: "Undo a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDubQF1pJT5MRbYrRAUqAJbAVGYQjBiByJa5G7zO5QMivwvxezS0uqBQfIKbyIGs7Hm7c7bw5YcSyD7cR6hwXe+MAQehdBagYq1fxLhN5VHigbo904rsA66DhE7wxIHXy/qfNXahnKmstt1AByg6abwbvPH2DLQwTSArzuI1czNCi0iVg84KeOA2m1CDfshAMuDXYUqGXhoC4HtIqwI6nRoKOWsUBbocHA33obuMJCQs8GY1lzS1gcUIZOvaIE6zY4jsvszFHe+2pQj9I7YSf6Sl3X2DKBmD9GpeNwmcqvHrkUNNgF33EQy3FKs7ahVQxH15X3DZPDMT1aOXbexRzw+/W1/vyf/UXN4HifGMPR4Nvrt5dOf3uBte9dZcAHcF5q6zYgPh3SDLVSy1L7SsnyMWFVzgqcd02/se6KOjv3R76vysT3XE99frDVONdEaDBy2D1T34cGCzxk04jmBaZ/fB9gwaG1T5B90OCOgqVVk/udrKmbNfWNYIG1SBeL+VxS4IyfqO0anpW+Vc6WiqDsg5UhQVgxBQ7vem3lYTkaJd1vLZ9bqLN/8XC0nKW404PMUM4THQ9LseB0ddLhJSc008ufPrSkmD/eLy66v+MYrXcgfssOIjvR6dBp0CI+2H8T01AzVRx0LN6npECuSm4pMJ34eUtHbLkrNHkAsstpBB738iqij/cLyP4QWYAkTe+VdTO4r9lBF1jhGrACQluOaim5Ylcy+B2HV7tIaM/p/mEmJ0WAKBREr/DeSg3SPn29aOfo+uPUbnkwsK9tWedC8VRmBh9EJS4+K5uW8Hs3RZfknE8Ok5B5x8BN5DxjqhC3Jy35I1/eF1qgejTqua19YsiKulyKncqjTgyHmDt+M3szu77g4bZ3BoJvGvC9GKCuC37HuddA5RZ4x2GAPOaTegOVwccIg45o7aNEkykg6GjDKuLJnLOkeX0OIS20VmradNyqJi0lXZzu3pe0F1SvXmI9U9afsFTyTRR+knnXkHWKPknYYdLCBzxpIRq8UEPdKr2LaLBIKyZJ4tKgMqXRh8OKIn8JzTiq+VvPQVVqeVK9pFmVjfpeYbGmJvJ3OPr1dlpiv8FrDTyrgRuSuDa9/kODWx7yJhyXo8E8Cal6/nCTa1wtNPwUeLHtVC2Pi+PzpzvVudW0JVtfaUygvRJD+1zYpz6SpibbARtym542SZZSTn3+A6CH58s=
+sidebar_class_name: "post api-method"
+info_path: api/operations-center/operations-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Undo a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/operations-center/runs/{id}/undo"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Core runs the action's undo as the signed in person, through the same checks as any run. API keys are refused.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"confirmed":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The new run."},"404":{"description":"Not found, or nothing to undo."}}}
+>
+  
+</StatusCodes>
+
+
+      

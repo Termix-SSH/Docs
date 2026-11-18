@@ -7,7 +7,7 @@ description: "Manage nginx, Apache and Caddy on your hosts: sites, config, logs 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Web-Servers/edit/main/docs/index.md"
 plugin_id: "web-servers"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Web Servers manages nginx, Apache and Caddy on a Linux host over SSH. Each host gets its own tab for its sites, config files, logs and the server itself. Every change is tested with the server's own check before it reloads, and a broken change is put back.

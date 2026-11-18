@@ -1,11 +1,11 @@
 ---
 id: start-linking-an-sso-provider
 title: "Start linking an SSO provider"
-description: "Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result."
+description: "Gives a one time address for the signed in user to open in a browser tab. It goes on to the provider, and when the provider sends them back its identity is tied to their account. GET /plugin-api/sso/links then reports the result once."
 sidebar_label: "Start linking an SSO provider"
 hide_title: true
 hide_table_of_contents: true
-api: eJzdVU1v20YQ/SuDOdOSk+bEm5O2rlOgNioHRmEYwWo5Itcidze7Q8ksof9ezC5LyRZyyDU8SOTyzcybr8cRK4o6GM/GWSzx2uwoAjcEPridqSiAqqpAMcLGhfQimtpSBcZCHyks4KEh+9oikq2Skw7WSm8LMBzBVGTZ8AAmAhuqgJ1ATACltestF6BslRwp7wXlPEmgveEmB47ua2vsFr71FAbwKqiOOMXjyRsEin3LCyyQVR2xfMTV6hafCgz0rafIH101YDmmRxOowpJDTwVqZ5ksyyvlfWu0koIsn6NUZcSoG+qU3PHgCUt062fSjAX64DwFNhTl7f8lOEFGDsbWeEiX8Ije2Zjh7y8v5e91C0YIVJlAmr+EFg54KPDD5S/nuCsLquqMBe6D1ElKY2wNbrNZZKMP50Z/OYi9buZeLVBIdcSNq7BE72JKSnGDJS5929fGXihvljG6pUSIy8gqCChS2FGQGo/Yh1aY56MDFm+i/uP6APcUOvMCGYMF7lQwat3mSkynie9G9S1jiQ2zj+VyyclwQS+q8y0ttOukmk/CQPfB8JAorEkFCle9MH98OhQjaue2hk5PlDd/0jCfnLhYSYMzlVNHcxeFi+ScYFhOICymm99d6JRw/vxwf5b9imI0zgK7LVlZDpblkWmVIC6Yf9OwQUMq7VuEj8npvA/JMPX0NKWZW84KCzQSLUOwQKsS0+c9f5fR54d7yPi0Q4rTcl8YO221DyR0ZYGB1ZainGiqyGoCt6Pw3SwS29Ny/3Alr+5uYEsDpHGTuc460L18PUtnhv54abc0FLBvjG5yoHgMs4AbBqU5itmEBbe3k7VW1roEkPfKDs4SUBspr5Qox99HzfktD+9rjZi1QVq3calIhgWFK2PrNmvthbNwdXcjG0Mh5ozfLd4tLs/bamor+acUlB3g1pO9+RU+OWtJ87z0BVwb/qNfgwtw7VzdUmqXLH+nkt5Ns7OSkszCoiysVrezl7fhx6OI/kyfkTy1TC+89K0yViqV5G6cZPIRjzIpgx0dFpikUp6SWD4V2Iiylo84jmsV6UtoDwc5ThxEjI56mMUK88gmadvSgCV+ytW9uBdGAm/7vP1vPlcia7Og392uRJDW02evc5XYBLXHIv2WiAW61MEkfulsxFbZuld10o/kU67/AK8A2ak=
+api: eJzlVU1v20YQ/SuDOdOUm+bEm5OmrlOgNioFRmEIxWo5Itcid5jdoWSW0H8PZqlKstUcci4PEjl8M/vm63HEkqINrhPHHgu8dVuKYIA9gbiWwJRloBhhzQGkJoiu8lSC89BHCiAM3JHXZwOrwLtkNKsc7gQqpgjsFaSuXeCtKylkYHwJu5r8KzNE8mVUUwsrYzfgJIIryYuTAVwEcVQeYrkAxlruveRw+2kBs67pK+evTOdmMfKscX6TQnkI1HGQ9ACBYt8IsLeUY4ZiqojFE87n97jMMNDXnqJ84HLAYkyPLlCJhYSeMrTshbzoK9N1jbNGazZ7jlq4EaOtqTV6J0NHWCCvnskKZtgF7iiIo6hv/033DBklOF/hPl3KI3bs4wR/d32tf6+7NEKg0gWy8iU0sMd9hu+vf77E3XgwZes8SB+0a1oW5yvg9TqfnN5fOv3BEHtbH/uSo5JqSWouscCOY0rKSI0F/mfhZ1FMUFCksKWgNR6xD40yn0x7zN6c+hf3ARYUWvcCEwYz3JrgzKqZKnGwJr5r0zeCBdYiXSxmM0mOOb2Ytmsot9xqNZfKwPbByZAorMgECje9Mn9a7rMRLfPG0bnFdO53Go6WsxBzbfBE5TzQsYvKRXNOMCwOIMwON79yaI1y/vy4uMh+TjG6tCkb8roIohulI6uHcHD/pGGDmoxuionwIQVNm6Sw5Jh6ep7SkduUFWbo9LQJghl6k5g+7+S7jD4/LmDCQyQBI0kBrpzP4VHXqwukdDNwAmI2FNViqSRvCXhL4btZJLbn5f7hSt483MGGBkjjpnO9c1KDtC9/X6RzhP54aTc0ZLCrna2ng+LpmKRyxkpUtwMWeOcP3tZ4zwmg740fVFWpiTStlCrHnyfN+TQN72uNOGqDtm7NqUhOFIVz56tmEuQr9nDzcKcbQyFOGf+Uv8uvL9vqqiTWKQXjB7jvyN/9Ah/Ze7JyptG3Tn7rV8ABbpmrhlK7dPlbk/TuMDtzLclRWIyH+fz+GOXt8eNJRP9nX5ppsIVeZNY1xnktZlLE8aCkT3gKrLMfGTNMwfUp6ekyw1rFt3jCcVyZSF9Cs9+r+WtPQSVueZLMSc9wmuqkfhsasMCPUwOuFspI4U0/CcSbL5oq31HzH+7nqlmrw5ex5VJ9gtlhln4LxAw5NTnpY7KN2Bhf9aZKEpNi6vUNFy3wdA==
 sidebar_class_name: "post api-method"
 info_path: api/sso/single-sign-on-api
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Gives the provider address for the signed in user. When the provider sends them back, its identity is tied to their account, and the app is opened with the sso_link query parameter set to the result.
+Gives a one time address for the signed in user to open in a browser tab. It goes on to the provider, and when the provider sends them back its identity is tied to their account. GET /plugin-api/sso/links then reports the result once.
 
 <Heading
   id={"request"}

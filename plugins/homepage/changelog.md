@@ -6,9 +6,23 @@ slug: "/homepage/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "homepage"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The host status widget draws numbers from other plugins as plain values, with no extra frame per widget (needs Termix 26.11.2)
+- Widgets from other plugins and the terminal widget draw in their own frames over the page, so they can't reach Homepage or each other, and still move and resize while you customize (needs Termix 26.11.2)
+- Pictures and icons from other sites load through Termix, so the page never contacts those sites itself (needs Termix 26.11.2)
+- The embed widget shows its page in a view Termix draws, and asks to open desktop windows for it (needs Termix 26.11.2)
+
+### Fixed
+
+- The API docs list the path parameters and answers of every route
+
 ## 1.2.0
 
 ### Changed

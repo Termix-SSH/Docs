@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/sync/reference"
 custom_edit_url: null
 plugin_id: "sync"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -41,6 +41,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `sync:provide` | High | Run sync. It can answer all sync requests, so it sees the data that devices and servers sync. |
 | `ssh:transport` | High | Choose how hosts are reached. It can carry the SSH connection to a host over its own route, so it sees everything sent to and from those hosts, passwords included. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |

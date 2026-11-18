@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ldap/reference"
 custom_edit_url: null
 plugin_id: "ldap"
-plugin_version: "1.0.3"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Permissions
@@ -22,6 +22,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `auth:provide` | High | Handle sign in. It can add a login method, a second factor or an SSH sign-in type. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/privileged-access/reference"
 custom_edit_url: null
 plugin_id: "privileged-access"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 ## Settings
@@ -78,7 +78,6 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
-| `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 
 ## Services

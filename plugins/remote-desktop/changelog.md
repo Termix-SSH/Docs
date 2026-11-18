@@ -6,9 +6,36 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.4.1"
+plugin_version: "1.4.2"
 plugin_latest: true
 ---
+## 1.4.2
+
+### Added
+
+- Two finger pan for VNC and Apple Remote Desktop on phones, and a Show keyboard button on touch devices
+- RustDesk direct IP: an Allow unencrypted sessions switch for older RustDesk versions that never start a secure session. Off by default
+
+### Changed
+
+- Runs in its own process with only the access it needs (plugin API 2.3, needs Termix 26.11.2)
+- The RDP drive folder and recordings live in the plugin's own data folder (`/app/data/plugin-data/remote-desktop`). Files in the old `/app/data/rdp-drive` stay there; copy them over if you still need them
+- Session Recording takes its own copy of a finished recording
+- Kerberos KDC requests run in a worker thread instead of a separate process, so they work in desktop builds that can't start Node
+- A Moonlight stream shows inside the tab only when it runs through Termix. A stream on another address opens in its own window, since plugin views can't show other sites (needs Termix 26.11.2)
+- Built-in engine frames are about four times smaller, so RDP over a slower link feels quicker
+- Form fields use the same background as the rest of Termix
+- The simple host editor shows each enabled protocol's connection and login. Display, performance and the rest are under Advanced
+
+### Fixed
+
+- Korean Han/Eng and Hanja keys keep working on Windows, where the keyboard driver marks every press after the first as a repeat
+- Keypad digits type in RDP sessions when Num Lock is on
+- The Windows key and its shortcuts reach a focused remote session
+- GNOME Remote Login works with the built-in engine: it follows the login screen into the user's session
+- A remote display at 100% zoom no longer resizes in a loop
+- A DOMAIN\user login with an empty domain field signs in
+
 ## 1.4.1
 
 ### Fixed

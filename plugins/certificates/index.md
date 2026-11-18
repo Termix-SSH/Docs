@@ -7,7 +7,7 @@ description: "See, issue and renew TLS certificates on your hosts with certbot a
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Certificates/edit/main/docs/index.md"
 plugin_id: "certificates"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Certificates manages the TLS certificates on a Linux host over SSH. Each host gets its own tab for its certbot and acme.sh certificates. For the HTTPS certificate of Termix itself, use [ACME SSL](/plugins/acme-ssl).

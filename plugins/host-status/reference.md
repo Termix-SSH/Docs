@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/host-status/reference"
 custom_edit_url: null
 plugin_id: "host-status"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings

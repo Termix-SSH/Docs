@@ -1,0 +1,68 @@
+---
+id: compare-a-saved-head
+title: "Compare a saved head"
+description: "Says whether a head saved earlier still matches the audit log and the chain after it holds."
+sidebar_label: "Compare a saved head"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v40YM/SsEz2M73fakW3a7BZKi2aB2GxSGUdAS45lYmtHOUHFUwf99wZHW9n7ksIfqIpt6JB/J4ZsBK05ldK244LHAJfUJDpbFcgQCy1RBomeugCnWjiMkcXUNDUlpOYFYBuoqJ1CHHZCvsqW05DzQo3AEJ2BDXaU5GhTaJSzWeJ09ViHUCTcGI3/sOMnbUPVYDPmvi1xhIbFjg2Xwwl70E7Vt7UpSsounpIwHTKXlhvSX9C1jgWH7xKWguQi0RlehQUvJasI2hpajOE7q5qoLZ+eFdxzxOKHPX5JE53d4zI8GT23waQzx5upKX1/2cqWdCE1L0aXg5xryl+/h7oJMrZ4wP7+CqetwYAUdDTYsNlRYYBuS1tqSWCxw0dbdzvkZtW6R5zIT7fIiT2RRWi73M82EBhPHZ446jwG7WGOBw2g6ovkq+z+hi7Di2LgXGDFo8Jmio209NmCyZt6P1NWCBVqRNhWLhWTHOb9Q09Y8L0OjTdwog7KLTvpMYcsUOV53WsZ6czQDliHsHV9aqHW/c3+yXIRY6iEYqVwGOg1PuWjNGYbFBEIz/fgtxIaU8+3D6pvql5ySCx4k7NlDYi/gfD7nmiRE918+kHmCujUJ3uagp3XIjnm2lyWduI1VoUGn2UYIGvSUmT4d5FVGtw8rGPGQWIAEktv5mfNzeLDsoY2sdI0uodCek1pKrtiXDOGZ46tVZLaX7f7hTl7f38Cee0hCUZzfwcGJBWle/v2mnBP0x1u7597AwbrSjonSOc0cbgSolKRuExbCwU/eJXkfMkC/k++DZ+A68bhfqi5/nnXp/Xh4P8vF1Wd1OKmCTu8x5D45UeClyMH1/Y1uDMc0VvzT/M386jtjnao6K6oE6HX5ljfv/8i0+aUNUXSglODd8m8IEe5+vV1+uMsjUzVoKOvidH7eZQVioEnHp+3/IvNw1tj/+wYYD5HwiyzampxX0ll9hknC1niWMDR4IWJoMIfN75OQbQxalcBijcOwpcR/xfp4VPPHjqNqy+asVaOQ4Hicsuzsuc9NyuXPVkpP4XU3buZX141Kzkl57z8sVSy207XVhEp9Ih306qEDFogGQ25xFqZsG7Amv+tol3c7x9TnE0eKl84=
+sidebar_class_name: "post api-method"
+info_path: api/audit-tools/audit-tools-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Compare a saved head"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/audit-tools/chain/check-head"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Says whether a head saved earlier still matches the audit log and the chain after it holds.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["id","hash"],"properties":{"id":{"type":"integer"},"hash":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The comparison."},"400":{"description":"Not a head."},"403":{"description":"Not allowed."}}}
+>
+  
+</StatusCodes>
+
+
+      

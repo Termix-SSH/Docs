@@ -6,9 +6,21 @@ slug: "/alerts/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "alerts"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The settings button in Alerts opens the Alerts page in Settings
+
+### Fixed
+
+- Updated nodemailer to a release with security fixes
+- Saved channel tokens, webhook URLs and header values stay on the server. Editing a channel shows them as saved, and leaving them empty keeps them
+
 ## 1.3.0
 
 ### Added

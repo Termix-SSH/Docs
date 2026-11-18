@@ -7,7 +7,7 @@ description: "Ask for approval before anyone connects to a privileged host, with
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Privileged-Access/edit/main/docs/index.md"
 plugin_id: "privileged-access"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Privileged Access keeps your most important hosts closed until someone approves. Mark a host as privileged and every SSH and remote desktop session to it needs approved access: a user asks with a reason and the hours they need, an approver says yes or no, and the access ends on its own.

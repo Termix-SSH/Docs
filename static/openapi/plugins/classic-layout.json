@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Classic Layout API",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "The classic Termix layout with an icon rail, sidebar, tab bar and dock."
   },
   "servers": [
@@ -81,7 +81,7 @@
       },
       "patch": {
         "summary": "Update branding",
-        "description": "Changes the app name, tagline or logo. The logo is a PNG, JPEG or WebP data URL, stored as a PNG up to 750 KB. Send null to remove it. Admin only.\n",
+        "description": "Changes the app name, tagline or logo. The logo is a PNG or JPEG data URL, stored as a PNG up to 750 KB. Send null to remove it. Admin only.\n",
         "tags": [
           "Branding"
         ],
@@ -114,6 +114,56 @@
           },
           "400": {
             "description": "A field is invalid."
+          },
+          "403": {
+            "description": "Not authorized."
+          }
+        }
+      }
+    },
+    "/plugin-api/classic-layout/interface-defaults": {
+      "get": {
+        "summary": "Get interface defaults",
+        "description": "The look, rail apps and lock an admin picked for everyone and for each role. Every signed in user reads it to set up their own view.\n",
+        "tags": [
+          "Interface defaults"
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved defaults."
+          }
+        }
+      },
+      "put": {
+        "summary": "Set interface defaults",
+        "description": "Replaces the defaults. Each template has a preset (simple, balanced or advanced), the rail item ids to show and whether it is locked. Roles are keyed by role name.\n",
+        "tags": [
+          "Interface defaults"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "everyone": {
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "roles": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved defaults."
+          },
+          "400": {
+            "description": "The body is invalid."
           },
           "403": {
             "description": "Not authorized."

@@ -5,7 +5,7 @@ description: "Needs privileged-access.approve and, when the host names approver 
 sidebar_label: "Approve an access request"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFVMGO4zYM/RWCZ42Tbnupb+lhgdkC0wEmxaAYBIViMbE2suSV6Mmkhv+9oORJ0gn2sKeeEtCP5HsU+UY0lJpoe7bBY40PRCZBH+2rdbQnc6ebhlKqdN/H8EqgvVFwbMkDtwRtSAxed5RgBkSIwVFSEDxB2Amqq+AhbIM5vWOSRG2EcPQQ6dtAiStUyHqfsH7Bx3NzWOXmuFEYKfXBJ0pYj/hpuZSf/zJft/TewFzKTgp/Wf58i34IDNq5cCQDHMBQYw0BtzZ9yP31NnflImlzmpNMhdOksCNug8Ea+5AYFfaaW6xx0bthb/2d7u3iZqqLuVVajNZMi5k9KkwUXynKNEYcosMaxxKaUH0g81cYIqwpdvYNCgYVvupo9daVac3RLGOnB8dYY8vcp3qx4JxY0ZvuekdVEzqcpmkjDJohWj5lClvSkeJqEEUvm0mN2IRwsHQd0b39nU7nyFWJp6alrlC5LjQin3qauYjmDMN6BqGa/3wOsdPC+cvz+kb9E6VkgwcOB/KQyDPYsprSJET7jxYktKQNRdAJfstFZY8zLCfmp76WdOZWVKFCK90KBBXKymONX4/8XUZfntdQ8JCIQTMku/d31lfwLOfTRxK6CiwD6wPJ0VFDhnxDkA/peyoy2+tx//AkV4/3cKATJNaRrd/D0XIL3L39fSPnDP3x0R7oJFZhm7Y0Spc2Fdwz6IaTpM1YsYM5u9HehwyQ79qfxEzIJSqnZv0uZNWWnci8MQxYPd7LFVBMRcVP1bJa3mpLB9iFOLuGdrClXYj03rAJ3pNw5AD6yhKz66kiptwxcKsZyJsEwYPllK1NlGjYDc6BHow8c9TW5dcTj+i0FxHzKq3O/vpec/aGj6zl9jyT5//ZrMvGMb3xonfaepGVrWqcre8FL9YnfviRJYqpF/tDhbU1KFtdHHCjUNhKkXHc6kR/RjdNEv42UBRT2lxMrjjQxYAf/3ha4zT9C4HQZj0=
+api: eJzFVU1v4zYQ/SuDOXUBRs62vVQ376FAtkAaNC6CIjAKWhxbXFOklhzFUQX992Io+aMxssCeerJEv5l5jzPzNGCro26IKSYsnwe0HktsNdeo0OuGsERrUGGkr52NZLDk2JHCVNXUaCwH5L7NKM+0o4jjuFZoKFXRtmyDpLsnMgnaaF+sox2ZG11VlFKh2zaGFwLtjYJDTR64JqhDYpDSCWZAhBgcJQXBE4StoJoC7sMmmP6ISXJqI4SDB+FKiQtUyHonuvDhVByWuTiuRVNqg0+URMaPt7fy81/mq5qOBcw57ajw59ufrtH3gUE7Fw5kgAMYqqwh4NqmN7G/XMcuXSRt+jnIFDiOChviOhhpSEiMaupLiYvWdTvrb3RrF1e3uphLpcVgzbiY2aPCRPHl2OUuOixxmI5GfNuwv0IXYUWxsa8wYVDhi45Wb9x0W/NplrHVnWMssWZuU7lYcA4s6FU3raOiCg2OeSoSVV203GcKG9KR4rITRc/rUQ1YhbC3dHmiW/sb9aeTixSPMn4TlctEp2kULjhPqbxPIFTzw68hNlo4f35aXal/pJRs8MBhTx4SeQY7jaYUCdH+owUJNWlDEXSCTzmpzHGG5cDc6ktJJ26TKlTTrk2Q87Z9OfC7jD4/rWDCQyIGzZDszt9YX8CTrE8bSegqsAys9yRLRxUZ8hVBXqT3VGS2l9f93Te5fLiDPfWQWEe2fgcHyzVw8/r3lZwT9Puvdk+9WIWt6qlQOpcp4I5BV5wkbMaKHczRlfY+ZID8r30vZkIu0bRq1m9DVm3Zicwrw4Dlw51sAcU0qfhY3BYfr7WlPWxDnF1DO9jQNkQ6FqyC9yQcOYC+sMTsemoSM+0xcK0ZyJsEwYPllK1NlGjYds6B7oy0OWrrcvfEIxrtRcQ8SsuTvx5zzt7wlrXsnmfy/D+b9TRxTK+8aJ22XmRlqxpm63vGs/WJH75lOX+oxP5QYZm/XEcHXCsUtpJkGDY60Z/RjaMcf+0oiimtzyaXLcrYJM8Gy612ib5xaT/8MX8eP8B7Oo7L7/vspa6TN1S4p376xo7rS8d/+P1xheP4LwJSp+s=
 sidebar_class_name: "post api-method"
 info_path: api/privileged-access/privileged-access-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Needs privileged-access.approve and, when the host names approver roles, one of them. Nobody approves their own request.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/storage-health/reference"
 custom_edit_url: null
 plugin_id: "storage-health"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 ## Settings

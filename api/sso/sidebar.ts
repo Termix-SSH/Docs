@@ -42,6 +42,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "sso/open-the-provider-to-link-an-account",
+          label: "Open the provider to link an account",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "sso/unlink-an-sso-provider",
           label: "Unlink an SSO provider",
           className: "api-method delete",

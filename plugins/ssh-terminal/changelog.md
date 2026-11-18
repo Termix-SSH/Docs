@@ -6,9 +6,55 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.4.0"
+plugin_version: "1.4.1"
 plugin_latest: true
 ---
+## 1.4.1
+
+### Added
+
+- A padding setting for the space around the terminal text, per host or as a default
+- Drop an image on a terminal to upload it to the host and type its path, like pasting one. Several images are typed in order
+
+### Changed
+
+- Keys are always sent to the host right away (TCP_NODELAY), so typing and holding a key no longer arrive in bursts on slow links
+- Terminal settings and keybinding fields are a shade darker than the page, like every other field
+- A tab stays open when the shell ends within a few seconds of connecting, so a refusal from a gateway like Warpgate stays readable
+- Terminal overlays from other plugins can tell when the session is shared, so the participants list only loads then
+- The macros panel puts search, its buttons and the add button on one row on Termix 26.11.2 and later
+- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)
+- When a signed certificate from SSH Certificate Signer, Step CA or OPKSSH stops working, the terminal asks you to sign in again even when that plugin runs in its own process (needs Termix 26.11.2)
+- Warpgate sign-in prompts and Tailscale SSH checks still show when those plugins run in their own process (needs Termix 26.11.2)
+- Live readouts at the end of the toolbar come in as plain values, with no extra frame per tab (needs Termix 26.11.2)
+- Side panels, toolbar buttons and sign-in prompts from other plugins draw in their own frames over the terminal. Prompts only take clicks while they show, and broadcast and Find in all terminals still see your splits (needs Termix 26.11.2)
+- A background image from another site loads through Termix, so the terminal never contacts that site itself (needs Termix 26.11.2)
+- The settings buttons in the History and Macros panels open the SSH Terminal page in Settings
+- Form fields use the same background as the rest of Termix
+- The simple host editor shows the terminal switches, theme, font and size. The rest is under Advanced
+
+### Fixed
+
+- A sign in link sent by the SSH server only opens when it is a web address
+- Macro editor Run button now matches the Save button size
+- Quick Connect with a saved credential logs in on the server, so a credential shared with you for use only works there too (needs Termix 26.11.2)
+- Reconnecting a terminal tab no longer runs the startup snippet, environment exports and auto mosh again, and joining a shared session never runs them
+- Opening a terminal in a folder always treats the folder name as plain text
+- Command history is only saved for hosts you can reach, and a failed save no longer shows database errors
+- Connecting to a shared host you have no login for says so, instead of saying the host is not on the sync server (needs Termix 26.11.2)
+- A terminal that loses its connection while the network is down (for example right after the computer wakes) retries with the usual growing wait instead of many times a second, which filled the connection log with "Connection closed unexpectedly". A first connection that fails stops at the error with its Reconnect button
+- A terminal tab with Auto tmux whose session ended (for example while the computer slept) goes back to the tmux session it was showing, even a renamed one, instead of asking which session to open
+- A sudo-rs password prompt keeps the password out of the command history, like sudo
+- Hosts with SSH turned off, like RDP only hosts, no longer get an SSH login check or warning
+- Pasting an image into a desktop terminal that runs on the linked server uploads it there
+- Opening a tmux session from Tmux Monitor attaches it even with Auto tmux on and several sessions
+- A local terminal tab closes when its shell exits
+- Two windows with the same terminal tab no longer keep taking the session from each other. The other window says so and offers Retry
+
+### Removed
+
+- The per-host TCP_NODELAY toggle, since keys now always go out at once
+
 ## 1.4.0
 
 ### Added

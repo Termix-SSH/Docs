@@ -6,9 +6,28 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.4.0"
+plugin_version: "1.4.2"
 plugin_latest: true
 ---
+## 1.4.2
+
+### Fixed
+
+- The bundled Termix CLI is 1.3.1, which drops an old zod with a known security problem
+
+## 1.4.1
+
+### Changed
+
+- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)
+- The assistant beside a terminal fills the box the terminal gives it, so it shows in the right place when it draws in its own frame (needs Termix 26.11.2)
+- Form fields use the same background as the rest of Termix
+
+### Fixed
+
+- Save as preset button now matches the Save button size
+- Termix CLI tool calls now work in the desktop app, where they run in a worker thread
+
 ## 1.4.0
 
 ### Added

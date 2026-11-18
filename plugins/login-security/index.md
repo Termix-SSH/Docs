@@ -7,7 +7,7 @@ description: "Sign people out when idle, limit session length, turn off remember
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Login-Security/edit/main/docs/index.md"
 plugin_id: "login-security"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Login Security adds login rules for admins: sign people out when idle, limit how long a session lasts, turn off remember me and require a second factor. It also shows everyone their own sessions and API keys, alerts people about sign ins from new devices and holds the admin wait.

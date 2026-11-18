@@ -1,0 +1,69 @@
+---
+id: open-the-provider-to-link-an-account
+title: "Open the provider to link an account"
+description: "The address /links/start gave, opened in a browser tab. Only the person who asked can use it, once, within two minutes. Sends the browser on to the provider."
+sidebar_label: "Open the provider to link an account"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v40YM/SsEL22BWTu73ZNu6VeaLdAsai+CIjCKscRIU0sc7ZCK4zX03wuOHMeBmwJ77EkS583M4yP5tMeKpEyh1xAZC1w2BL6qEonAvA28kbmoTwq1fyAHsSemCgKDh3WKW6EE6tczuOF2B9oQ9JQkMmybCF42VEHpGQYhCOogckkOtkGbwKDbCF3gQUlmsCCuJB/wdGxk0DgdmeJDqCjN0KH6WrC4w8XiBlcOe598R0rJgnsMlkLvtUGH7DvCAjVuiNFhos9DSFRhoWkgh1I21Hks9qi73oCiKXCN47gysPSRhcTWv794Z4+XOt38C7vR4fuLt+fY36OChHoS7gB7fw77xBuOW3amVuWAHnvjCzGBxI4iE1Ar9I2AlWWG4+iwI21ihQXWpOimzAuc9+1QB37j+zAXiYcy1nG+z2KM6FAoPTyJNqQWC9xPIVt8SevPOCRYUurCI0wYdPjgU/DrdhLoEM0J3fuhVSywUe2lmM81b5zRo+/6lmZl7HDMEguVQwq6yxTW5BOly8Ho361Gt8cyxk2g04jvw2+0O0ZOjlhYKScqpwcdK2tc8FBx+55A6A4vv8TUeeP84XZ5lv2CREJuxQ0xCLFa81vd7ZKYwhdvSGjIV5TAC/yQDwXPVYbljbnopykduU1ZoZtad4I8N+/fW32V0YfbJUx4EFLwU4+9CTyD24YY+kRG10FQUL8hsUhJFXFJEB9scF/JIrM9lfurlbz8eA0b2kG2jsB1HnnQ7vGvs3SO0K+XdkM7B9smlM10kTxfM4NrBV+q2LYDFuKWD7tLzxwzwNY9756maxqrwPcxZx20tTQXgeuWJn0jw+XHaxsBSjKl8Hb2bnZxXqdQsyWUOXnewU1PfP0T/BiZqdSjbzi4CvrrsLZBv4qxbinr30fRzrPRODSD7X/hOOZANtvgGXxZxoHPusUGiZVY/w/WPvWY0qPO+9YHNhmyOe0PznaHz85mbSgRHeZM0GFtH8Vk9yuHTRS1Hfv92gt9Su04WvjzQMk8Z/XsYdmBqiD2XmFx71uh/5Dx2z8Of5Lv4DXST7PNu2yV7WBf6HBDu+MfaVyd+vfVz0scx38A81eacg==
+sidebar_class_name: "get api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open the provider to link an account"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/sso/links/go/{token}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The address /links/start gave, opened in a browser tab. Only the person who asked can use it, once, within two minutes. Sends the browser on to the provider.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"token","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"302":{"description":"On to the provider."},"401":{"description":"Not signed in."},"404":{"description":"Unknown, used, expired or someone else's link."}}}
+>
+  
+</StatusCodes>
+
+
+      

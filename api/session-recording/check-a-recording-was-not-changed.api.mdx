@@ -5,7 +5,7 @@ description: "Recomputes the SHA-256 of the plain recording and compares it with
 sidebar_label: "Check a recording was not changed"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNlEFv2zgQhf/KYE5bgJHTAO1BN2+BomkPDZoUQREYi4k0tlhJpMoZWXEF/fcFKcVxE/TQW0+WySfOe9TMN2LJUgTbqfUOc/zChW+7XllAK4brD+uzizdvwW/T364h6yBw4UNp3Q7IlRD1FFjAKgxWqyT0jkFozyUMFbu4xa7kMoM1FBW5HZenpzQcVID60qoPkqFBpZ1gfofXLGK9gy+PYtwYDCydd8KC+YgX5+fx59cUoqS9gBXwtXmsaKB3tfODg3+cX9xVJNUr8AFaKxK9xK2tbfhVhtNksGWtfIk5dl4UDXakFea46pp+Z90ZdXYls8WzY57VaMtptedgtwc0KBz2HGKaEfvQYI7jvDSheWb7m+8D3HBo7QPMGjS4p2DpvpnTLqsp8Jb6RjHHSrWTfLXS9GLGD9R2DWeFb3Gapk10UPTB6iFZuGcKHNZ9zHG3mcyIhfe15dMV6uwnPhxXTo64LipuZyunB42oh44XLzFzkmG+iNAsD+99aCl6/nh78yL947dWX7MDYadgXeqmWMQH+5OiEiqmkgOQwL/p0NSFUZZezHAyv0Q6eptToUEbq80SNOgoOf0+6G8dfby9gVkPwgqkIHbnzqzL4Da2dxc42jWxz5VqlrhScMmuYPB7Dr9NkdyeXvcf3+T66hJqPoAoBY0dPM9g+/DfizhH6Z9fbc0HA0Nli2ouJE9lMrhUoCIOsDxqwQ9uebsg53wSxH1yh4gGboTnAbNu61Nqqw2fXPlx4GF9dRmngIPMKV5nF9n5i2yzHtIMOGpS6cCtV4aSpVbfwTKoYmAgLRKnWmjsnk1S18wdkJsxFGnBrgiHTo+oihAcKg+ljVQjTd8ucqElFyMsjfSu4qIGOuHbQALxDhYOPfceJ9ApO/2L8Dv3oPKDrlLRGDXBa1wQeIdPCEyQewZBNJjbcv5wkYMbg1VEaH6H43hPwl9DM01x+UfPIaJp84S6mUNP8L36fH2D0/Q/gexTaw==
+api: eJzNVcFu4zYQ/ZXBnDYAY+8GaA+6pQWKZntokKRYFIFRTKSxxUoitZyRHdfQvxdDyY43QQrsrSeJ5CPnveHM4wF7StSxchIsHg/oAxbYk9boMFDHWKCv0GHir4NPXGGhaWCHUtbcERYH1H2fUUF5wwnHceWwYimT79VHO+6Oy9j1g7KA1gz3v15fXv3wI8R1HvYt+QCJy5gqHzZAoQLDU2IBr7DzWmdgDAxCW65gV3OwJQ4VVwu4hrKmsOHq/JSWkwrQUHmNSRboUGljGvGeRXwMcHcE48r0SR+DsJikq48f7fOtClHSQcALxMYdIzoYQhPiLsCHEGd2NUl9ATFB50WMiy2tfcsXCxxHhx1rHStLcxRFN2W7wGXfDhsfLqn3S5koXp70LA++GpdbTn69R4fCaXu8sSG1WOBhmhrxdfL/jEOCB06df4YJgw63lDw9tZPaeTYLXtPQKhZYq/ZSLJeaNy74mbq+5UUZOxzzDQuXQ/K6zxSemBKn68F0PK5Gd8Ayxsbz+Qz1/jfen2bOjri3UpqonB90qizjgnPF2XgCoZt/fompI+P8+cvDG/XHu9bYcADhoOBDriYLEpP/hwwJNVPFCUjgp3xorkKD5Y0LHN03kk7cJlXopr6ZIC+d8/dO32X0+csDTHgQViAF8Ztw6cMCvlh594mNrrM6V2pYbKbkikPJELec3lWR2Z6n+7szeX17Aw3vQZSSWgVPPdg9//VGzgn6/alteO9gV/uyngLJS5gF3ChQaQ0sRyzEXZh3lxRCzABbp7A3a+BWeGowH9Yxq/ba8lnKTw0P17c31gWcZFLxaXG1+PRG24SH3AOB2hw6cReVoWJpNPYwN6o42JGW2ac6aP2WXUY3zD1QmGzI3IJDmfa9nqzKTHBXR6i8uRppvjvzhY6CSZgL6eeaywbozN92JGA5mH3oNXfrwKAc9H9kv1MNKj/rMgc1qdm8DrMFPuKLBWaTe2WC6LDIj9HsgyuHtVlo8YiHwxMJ/5HacbTprwMns6bVi9Vlo6q82H+FxZpa4f9I2oe7+cG7gPe4Hy0g7LOjtoON0GHD++nVHFfnbn/7+/0DjuO/k/CVGQ==
 sidebar_class_name: "post api-method"
 info_path: api/session-recording/session-recording-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Recomputes the SHA-256 of the plain recording and compares it with the one saved when it ended. A changed recording alerts auditors.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 

@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Audit Tools API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Send the audit log to your SIEM and export it as CSV or NDJSON."
   },
   "servers": [
@@ -141,6 +141,82 @@
           },
           "500": {
             "description": "Failed to export the audit log."
+          }
+        }
+      }
+    },
+    "/plugin-api/audit-tools/chain": {
+      "get": {
+        "summary": "Last audit log check",
+        "description": "Core's last hourly check of the audit log's hash chain, or null before the first one. Needs the export permission.",
+        "tags": [
+          "Audit Tools"
+        ],
+        "responses": {
+          "200": {
+            "description": "The last check."
+          },
+          "403": {
+            "description": "Not allowed."
+          }
+        }
+      }
+    },
+    "/plugin-api/audit-tools/chain/verify": {
+      "post": {
+        "summary": "Check the audit log now",
+        "description": "Walks the whole hash chain and returns the result with the newest head.",
+        "tags": [
+          "Audit Tools"
+        ],
+        "responses": {
+          "200": {
+            "description": "The check result."
+          },
+          "403": {
+            "description": "Not allowed."
+          }
+        }
+      }
+    },
+    "/plugin-api/audit-tools/chain/check-head": {
+      "post": {
+        "summary": "Compare a saved head",
+        "description": "Says whether a head saved earlier still matches the audit log and the chain after it holds.",
+        "tags": [
+          "Audit Tools"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "hash"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "hash": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The comparison."
+          },
+          "400": {
+            "description": "Not a head."
+          },
+          "403": {
+            "description": "Not allowed."
           }
         }
       }

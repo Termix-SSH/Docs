@@ -6,9 +6,21 @@ slug: "/simple-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "simple-layout"
-plugin_version: "1.0.2"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Host cards show badges and status dots from other plugins, also from plugins that run in their own frame (needs Termix 26.11.2)
+- A plugin's settings button opens that plugin's page in Settings, also when Settings is already open
+
+### Fixed
+
+- The host form lists the settings of plugins that load after it opens
+
 ## 1.0.2
 
 ### Added

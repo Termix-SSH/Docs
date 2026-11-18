@@ -5,7 +5,7 @@ description: "The requester, or someone who may approve it. Ending approved acce
 sidebar_label: "Withdraw a request or end access early"
 hide_title: true
 hide_table_of_contents: true
-api: eJzFlEFv2zgQhf/KYC57YWR3uyfdskALpAW2AeJFsAiMYiKNLdYUqXJGdryC/ntBSrGNGD301JON0SPnPZLzDVizVNF2aoPHElcNQ+TvPYtyNBAiSGg5eIZDE6ClI1DXxbBnsFrAB19bv30t1UBVxSJQuSAsoA1DLxz/EAgdexAWscELBJ+/NUG0QINKW8HyCe+j3VvHW67hNm+Ea4ORpQteWLAc8M/lMv1cW84d61fnBY4G/1q+v9b+ExTIuXDgusBxNNiyNqHGErsgigY70gZLXHSu31p/Q51ddCdbN1O+xdxGFoOtxwX7Gg0Kxz3HlGPAPjoscZhKI5o3Jv4LfYQVx9a+wKRBg3uKlp7dlHOuZvsb6p1iiY1qJ+VioXlhwS/Udo6LKrQ4juM6Oaj6aPWYLTwzRY63fUrztB7NgFUIO8uXFersZz6eKhdbPFQNt5OVy40G1GPHs5eUOcuwnEVo5j8fQ2wpef70uLpK/zC9AtCwy2/CK9jpPaQmIdr/KSmhYao5Agn8nTcF8nWW5YX5ii8jnbxNqdCgTd0mCRr0lJ1+O+hPHX16XMGkB2EFUhC79TfWF/DYsIcucrJrwCoo7VhSpeKafcUQ9hx/miK7vTzuXz7J2/s72PERRClqmrmD1Qa0ffl6Feck/fWj3fHRwKGxVTM1knObAu4UqFJJy2YthIOfV1fkfciC9J38MSGDnfA0ZtZvQk5t1aWYV6MOt/d3aQo4ypTiXbEsltfZZAebEGfikINn3oTIrw2r4D0njxqA4Dy4GTVmCjMzShtSYF9nGlmVlCUnIdj0zgH1dbrmSNbl20t8aMmnEPNTerTa1JEOQK/cSbhkf8IgU3THtxHSIHplr78LttO7U37RRefI+hQuA2uY4feEZ/glIr7FHyYoTwBEg6VN9EsMXBtMTdIGw/BMwv9GN46p/L3nmLC0PmNuYtAZv/dfHlY4jj8AXI5KqQ==
+api: eJzFVU1v40YM/SsEL20BRc62PemWAlsgW6ANGhdBERgLRqKtqUcz2hnKjmrovxeckT8QIwX2tCdJFId8jx9vDthToI6FQ8Tq+YDGYYU9SYsFOuoYKzQNFhj4y2ACN1hJGLjAWLfcEVYHlLFPXk54wwGnaVVgw7EOphfjNdyyZdDzHIVDAT5A9B17x7BvPXQ0AvV98DsGIyV8dI1xm6OpAaprjhFq6yNHkJZhiBy+i+B7dhA5RuNdBO/Sv9ZHKbFAoY0Swodgdsbyhhu4S4FwpWRi713kqPh/vL3VxzXklLE5Ii9xKvDn25+ufX/3AmSt33NT4jQV2LG0vtE6+ihY5HJWuOjtsDHuhnqz6E+wbjK/xZwmLg6mmRbstOiRw+7YmCFYrPCQTRO+rfHffgiw5NCZV8g+WOCOgqEXm3nO1gR/TYMVrLAV6WO1WEg6WPIrdb3lsvYdTqmRkeshGBkThBemwOFuUDbPq6k4YO391vClhXrzG48ny0WIR52YDOUy0GmAFAvOg6Xf2QmL+eVXHzpSzJ+ellfsH/MUgPhtmgknYPI8aBIfzL+kntAyNRyAIvySggK5Jrmlg6nFl5RO2DIrLPJ6ZJfzgvyzl3cRfXpaQvaHyAIkEM3G3RhXwlPLDvrACrcAIyC05aiWmht2NYPfcXiXRUJ7We6vruTdwz1seYQoFER3bm+kBeleP1/RObl+fWm3PBawb03d5kTxnKaEewGqJeqx2Rf83s2na3LOJwf9T25UyWAbOa+ZcWufWBuxSvNq1eHu4V63gEPMLD6Ut+WHa25xC2sfZsUhCy+89oGPCWvvHCtG8UBwXtwkNUUmM2uUtCTArklqZCQql8SEYD1YCzQ02uZAxqbuqT505JTEPEpPRtom0B7oqDsql+xOMsgU7PiWgi6iE3byrcQ2z53wqyx6S8YpuSRYh1n8nvEsfqqIb+VvvmFUALHAKl05qoGrAjWJBjgcXijyX8FOk5q/DBxUllZnmUsi1Zio7w1Wa7KR/6dS3/8532k/wHscjuvvxqSmdtAvLHDLY74Yp9Wl3j/88bjEafoPVgOMVw==
 sidebar_class_name: "post api-method"
 info_path: api/privileged-access/privileged-access-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 The requester, or someone who may approve it. Ending approved access closes the user's open sessions on the host.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 

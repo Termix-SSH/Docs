@@ -6,9 +6,18 @@ slug: "/sync/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sync"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The web account switcher starts with an empty list once after this update. Sign in to your other accounts again to add them back
+- The status dot on hosts mirrored from another site is a plain value the host list draws (needs Termix 26.11.2)
+- The account switcher sits flush against the app rail, has cleaner spacing and always lists the account you are signed in to
+
 ## 1.2.0
 
 ### Added

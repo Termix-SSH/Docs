@@ -1,0 +1,50 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+sidebar_position: 99
+slug: "/tailscale/v/1.2.0/changelog"
+custom_edit_url: null
+toc_max_heading_level: 2
+plugin_id: "tailscale"
+plugin_version: "1.2.0"
+plugin_latest: false
+---
+## 1.2.0
+
+### Added
+
+- Connect and disconnect Tailscale on a host through Termix actions, and whether it is connected as a status tile
+- Headscale servers list their devices too: pick Headscale as the control server in settings
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+## 1.1.0
+
+### Added
+
+- Tailnet dashboard card: how many devices are online and the list, online first
+
+## 1.0.2
+
+### Changed
+
+- The plugin name and description show in your language
+
+## 1.0.1
+
+### Changed
+
+- Translated into every supported language
+
+## 1.0.0
+
+### Added
+
+- First release
+- Add tailnet devices as hosts in a couple of clicks
+- Connect with Tailscale SSH, with no credentials stored
+- Works with Headscale
+- A Tailscale card in Host Metrics

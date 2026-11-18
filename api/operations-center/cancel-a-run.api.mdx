@@ -1,0 +1,69 @@
+---
+id: cancel-a-run
+title: "Cancel a run"
+description: "Core cancels as the signed in person, with their own rights. API keys are refused."
+sidebar_label: "Cancel a run"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcFu3EYM/RWCpwYY7zpFTrqlBgokBZogdmEUxqKgJe5qutKMwqF2rQr694Ijeb3NwgVyyEkShzN8j5z3NGLFqRTfqY8BC7yJwlBSKLlJQAm0Zkh+F7gCH6BjSTE4OHqtbckLxGMA8bta0wref/4Aex4SkDAIb/vE1QodKu0SFg/4qWMhK5TghoOy4MZhR0ItK4uljOgNRUdao8NALWOBvkKHwl97L1xhodKzw1TW3BIWI+rQWVZS8WGH07Sx5NTFkDjZ+s/X1/b4L8/7mrVmAQqD1j7s4Ehp4d0Y6Mnhu+t3l/t+jwrb2IfKQRQIUeHgk39sGDTmZpXUNCwrnCaHLWsdK+MTk6KbaRW47pp+58MVdX4dTy25KnNL1tKHtB59Na1nOOgwsRye+9NLgwWOc2hC9w2+P2MvcMfS+ieYc9DhgcTTYzO3Y4lmZlvqG8UCa9UuFeu15o0rfqK2a3hVxhan3NDEZS9ehwzhkUlY3vdG5mEzuRHLGPeezyPU+d94OEXOjri1wc1Qzg86zdGw4DJf+56T0C0vv0ZpyTB/vL+7YH/LKfkYQOOeAyQOarfWxmJFovh/cq+hZqps+Al+yYcChSqn5Y15+ueUTthmVujmWzqnvNzTv4/6KqKP93cw50NiBdKsqisfVnBfc4BO2OA68ApKe04WKbniUDLEA8urLDLa83Z/dycX2UJSEs1ayPJun/66oHNK/f7W7nlwcKx9Wc+F0kuZFXxQoFJPjmMl4jEsu0sKJjQq1dYpDDEwcJN4VpkP25hZe22M5oXLmC+ZCljSzOLt6u3q+oLblz44kNg0EHt1QF0n8cAzfqFyD3xgGWAWr6ExulRKTAkGk10dk6bFHAk62rEZZg7Pp2QNPm8hK7Q1um0eoXlES8GYLPfpJusfCKQP36I1zQXloD/Ms+c7pPyk664hHwxjNp9x8bEHfPExdHjhZGbafUjosMgOvtjZxqF1xPaP4yMl/kOaabLw157FHGbz4ljZbyqf7L3CYktN4v/pxE9flr/EG3iNwrOSw5CNsentCx3ueZh/NdPm3Lk/f7q9w2n6FxV8eVA=
+sidebar_class_name: "post api-method"
+info_path: api/operations-center/operations-center-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Cancel a run"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/operations-center/runs/{id}/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Core cancels as the signed in person, with their own rights. API keys are refused.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether anything was cancelled."},"404":{"description":"Not found, or not visible to the caller."}}}
+>
+  
+</StatusCodes>
+
+
+      

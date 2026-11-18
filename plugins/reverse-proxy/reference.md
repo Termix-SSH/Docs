@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/reverse-proxy/reference"
 custom_edit_url: null
 plugin_id: "reverse-proxy"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 ## Settings
@@ -62,6 +62,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.4.1"
+plugin_version: "1.4.2"
 plugin_latest: true
 ---
 ## Settings
@@ -53,13 +53,13 @@ Set these on the Termix server, for example under `environment:` in your compose
 | Variable | Default | What it does |
 | --- | --- | --- |
 | `REMOTE_DESKTOP_ENGINE` | `builtin` | builtin runs RDP, VNC and Telnet inside Termix. guacd sends them to an external guacd instead. Overrides the Use external guacd setting. |
-| `RDP_DRIVE_PATH` | `/app/data/rdp-drive` | Folder the built-in engine keeps RDP drive files in. Each user gets a folder under it. |
+| `RDP_DRIVE_PATH` | `/app/data/plugin-data/remote-desktop/rdp-drive` | Folder the built-in engine keeps RDP drive files in. Each user gets a folder under it. |
 | `GUACD_HOST` | `localhost` | Host an external guacd listens on. Only used with Use external guacd. Overrides the guacd URL setting. |
 | `GUACD_PORT` | `4822` | Port an external guacd listens on. |
 | `GUACD_URL` |  | An external guacd as host:port, in place of GUACD_HOST and GUACD_PORT. |
 | `GUACD_TUNNEL_HOST` | `termix` | Address an external guacd uses to reach Termix for hosts behind jump hosts and VNC without a username. In Compose, the Termix container name. In Kubernetes it defaults to the pod IP. |
 | `GUACD_RECORDING_PATH` |  | Folder an external guacd writes recordings to, as guacd sees it. |
-| `GUACD_RECORDING_BACKEND_PATH` | `/app/data/session_recordings/guacamole` | Folder Termix keeps remote desktop recordings in. With an external guacd, the same folder as Termix sees it. |
+| `GUACD_RECORDING_BACKEND_PATH` | `/app/data/plugin-data/remote-desktop/session_recordings/guacamole` | Folder Termix keeps remote desktop recordings in. With an external guacd, the same folder as Termix sees it. |
 | `GUACD_DRIVE_PATH` | `/drive` | Folder an external guacd keeps RDP drive files in. Each user gets a folder under it. |
 | `GUACAMOLE_ENCRYPTION_KEY` |  | Key that encrypts connection tokens, 64 hex characters. Made for you on each start if not set. Set it when you run more than one Termix server. |
 
@@ -88,6 +88,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `desktop:local` | High | Use this computer. Can read and change files, run a shell and open local ports on this computer. Only in the Termix desktop app. |
@@ -97,6 +98,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
 | `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+| `files:own` | Low | Store its own files. In its own folder on disk, separate from other plugins. |
 
 ## Works with other plugins
 

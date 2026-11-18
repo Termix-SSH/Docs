@@ -6,9 +6,62 @@ slug: "/classic-layout/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-layout"
-plugin_version: "1.1.2"
+plugin_version: "1.1.3"
 plugin_latest: true
 ---
+## 1.1.3
+
+### Added
+
+- All apps at the bottom of the rail: in Simple and Balanced the rail keeps the core panels and the apps you pin, and every other app is one click away there. Pin, unpin or open an app's settings from it or with a right click
+- Interface defaults in Settings: admins pick the look and the rail apps people start with, for everyone or per role, and can lock them
+- Add host form setting in Settings, Host list: start the add host form short or with every option
+- Settings lists the apps on your rail first, then the other apps
+- Desktop app: a Close to tray switch in Settings, Interface. Turn it off to quit Termix when you close the window
+- Admin settings, General: a switch to trust new host keys without a prompt, for plugins and schedules that connect with nobody to ask
+- New API keys: pick read only, actions, run actions or full access, and an expiry or never. Left as is, a key is read only and works for 90 days
+- Making someone an admin or turning off password login says when the change waits for the other admins
+- Users can be turned off and back on from the user page, and new SSO accounts can wait for approval. The user list filters by active, turned off and waiting
+- Invite links: make a link with a role, an expiry and a number of uses, even with sign up off
+- Access review page: every host, folder and credential share in one list, with filters and CSV export, also on each user's page
+- Display name and email for each account, set by the user or an admin
+- Admin settings, Accounts and access: turn off admins opening every user's hosts, and approve new SSO accounts
+- People with a helpdesk or auditor role see the users, sessions, access review and audit log pages they are allowed to use
+- Edit host in a tab's right click menu
+- A Theme button at the bottom of the rail switches between themes without opening Settings
+
+### Changed
+
+- Picking a section in the host editor jumps straight to it instead of scrolling down the whole form
+- Form fields in settings, the host editor and the credential editor are a shade darker than the page, like every other field
+- The add host form starts with the address, login, folder and tags. More options shows the rest
+- The host menu starts with three ways to open the host. Other tools are under More tools, and less used actions under More
+- Host and credential panels put search, sort, filter and add on one row. Refresh, import and list settings moved to the menu next to add
+- The tab bar's right dock, full screen and hide buttons are in one View menu
+- A tab's close button is easier to hit: a bigger hover box and a click area that reaches into the tab's edge
+- The dashboard's links and command palette tip moved to a Help menu, and a new dashboard starts with the stats strip, the host list and recent activity
+- The tile picker groups plugin tiles by app
+- Plugin sections in the host editor show their own heading once instead of twice
+- Host list and credential list settings moved to their own pages in Settings. The settings button next to Add host now opens that page
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The branding API takes a PNG or JPEG logo. The settings page turns a WebP into a PNG before sending, so WebP logos still work there
+- Needs Termix 26.11.2 or newer
+- Usage bars and health badges other plugins add to dashboard host rows are drawn from plain values, with no frame per host, so a long host list loads faster (needs Termix 26.11.2)
+- The host editor jumps to a section without scrolling when the system asks for reduced motion
+- Form fields in the host editor, settings and admin pages all use one background, and the Tags box is as tall as the Folder picker beside it
+- The simple host editor shows the common settings plugins pick, like a protocol's login right after you switch it on, plus notes and pin. Everything else stays under Advanced
+
+### Fixed
+
+- Add host opens the form right away instead of waiting for the host list to load
+- Host editor: the section list on the left shows the settings of plugins that load after it opens, and jumps to a section once you switch its protocol on
+- Quick Connect says it is loading while plugins start, instead of saying nothing can connect
+- Switching the dashboard to the homepage shows a loading spinner instead of a blank page
+- Host rows show status dots other plugins add, like the site status of a host mirrored from another Termix
+- The built-in admin and user roles can have their permissions edited
+- Long tab titles are cut short on phones instead of pushing the buttons off the tab
+- No double line between the tab list and split view while plugin buttons in the tab bar load
+
 ## 1.1.2
 
 ### Added

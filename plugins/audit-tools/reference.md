@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/audit-tools/reference"
 custom_edit_url: null
 plugin_id: "audit-tools"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings

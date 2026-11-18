@@ -7,7 +7,7 @@ description: "Manage DNS records and domains across Cloudflare, Route 53, Namech
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-DNS/edit/main/docs/index.md"
 plugin_id: "dns"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 DNS lets you manage the DNS records and domains you keep at different providers from one place in Termix. Add a login for each provider, then edit records, watch expiry dates and check that your zones are healthy.

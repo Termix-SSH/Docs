@@ -7,7 +7,7 @@ description: "See, add and run cron jobs on your hosts, with a schedule preview 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Cron/edit/main/docs/index.md"
 plugin_id: "cron"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Cron shows and edits the cron jobs on a Linux host over SSH. Each host gets its own tab with its jobs, the system cron files and the cron log.

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/alerts/reference"
 custom_edit_url: null
 plugin_id: "alerts"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
 ## Settings
@@ -57,6 +57,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
 | `notify:hub` | High | Receive every alert. Stores and delivers the alerts all plugins send, including their contents. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |

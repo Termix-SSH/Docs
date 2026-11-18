@@ -7,7 +7,7 @@ description: "Watch drive and array health over SSH: SMART, NVMe, ZFS, mdadm, bt
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Storage-Health/edit/main/docs/index.md"
 plugin_id: "storage-health"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Storage Health shows the health of the drives, pools and arrays on your hosts. It reads SMART and NVMe data, ZFS pools, mdadm arrays, btrfs filesystems and LVM thin pools, keeps a history, and alerts you when something starts to fail.

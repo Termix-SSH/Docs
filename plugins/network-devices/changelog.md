@@ -6,9 +6,17 @@ slug: "/network-devices/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "network-devices"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
+## 1.1.0
+
+### Changed
+
+- Device fields are a shade darker than the page, like every other field
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later
+
 ## 1.0.0
 
 ### Added

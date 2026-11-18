@@ -5,7 +5,7 @@ description: "Check that the source is reachable and the token is accepted"
 sidebar_label: "Check that the source is reachable and the token is accepted"
 hide_title: true
 hide_table_of_contents: true
-api: eJylVMFu2zAM/RWCZ9dBd/StLTAs3WEBkq0YimBgZabWYkueSDfxDP/7INlI0hU7FLsJ1CP5Him9AZWeBYtHXLMJrLD2XTAsuM2wZDHBtmq9wwLvKjZ70IoUtGKQhAMrEJhMRU81A7ky3anfs4tXZAy3yiVm2LBWvsQCWy+KGbakFRa4aOvu2borau1CEoOrqbIsBluOC+WEFg4vHCLPAbtQY4HDFBrxb57ffRdgw6GxR5gwmOELBRspChbDXCyeSt5RVysWWKm2UiwWmhJzPlLT1pwb3+A4jtvIwHTBap8oPDEFDjddlPC4HbMBjfd7y5cRau1n7k+RixJrU3EzUbksNKD2Lc9couYEw2IGYTYfPvrQUOR8/7B5o37NIta7eQXCTsG6tJTYxAf7myISKqaSA5DAbSr6enc5jtkrSSdukyrM0MZuEwQzdJSY/jzoPxndP2xgwoOwAimIfXZX1uXwULGDNnCkm4FVUNqzxIjhkp1h8C8c/qkisb0c97snebNawp57EKWg1j3DwWoF2hx/vJFzgr5/tHvuMzhU1lRTIzm3yWGpQEYlps1Y8Ac3ZxtyzidAvCfXe8fAtXCO4xh3sfNJtdWa08gvvzLcrJbxC3CQScJ1fp1/eCNs1dU1VF4UWhI5+FBK6r3nXmAXfAPXq/kig1urBwoluwyWbmfFGqrBB/hEUtk7H1r4Fj8WHOJme9+B8c6xiRMTZSrB70DUhzhrrbiJk5z+bFpm9IiGXNQ0v6z/dJ9XUk/PQ/moi7Ym62LT5CvDbEyPeDam5D+X1oQZFjaWTe60zTCOLeYMwxMJfw31OMbwr45DNIzt2YAmdzi74erLeoPj+Achwu10
+api: eJylVU1v3EYM/SsETy0g78bJTTcnRVCnhyyybo3CWAT0iLuarjSjDCmv1YX+e8GRsl7HzSHISRKHQ77Hj6cjdpSoZeUkWN4d0QcssSOtscBALWOJvsICE3/pfeIKS009Fyiu5pawPKIOnXmJJh92OI6bApV2Fg3X7BIrrGOfHAtuLIx0MQiL3Xz96pU9KhaXfKc+Wu7fYuAFjmPxjf1dzW4PWpOC1gySY4IXSEyupvuGgUKVzzTuOdgROcedsuFvWetYGbcoisVEscRl1/Q7Hy6o80vJaC+myLI8+mpcKmdv4fTwtUJ9arDE42Qa8Vucf8c+wQ2n1j/C5IMFPlDyBjHTnq2Z+Zb6RrHEWrWTcrnUfHHBj9R2DS9cbHHMJRV2ffI6ZAj3TInTVW8U7jZjcUQX497zuYU6/wcPJ8tZiLW1boJyHujUScOCc4fte3LCYn55H1NLhvnD7c0L9msW8THMLRAOCj7kpliSmPy/ZJ5QM1WcgATe5qDPe7fAsXhG6YRtYoXFNKeTy9Ok/nPQ7yL6cHsDkz8IK5CC+F248GEBtzUH6BIb3AK8gtKexSyOKw6OIT5w+i6LjPa83D9cyavVNex5AFFK6sMODl5r0Pbx8ws6J9cfL+2ehwIOtXf1lEie0izgWoGcil2bfSEewnzbUQgxO9g5hSEGBm5kXlQftjGz9tpwLvn52sPV6tpWgJNMFC4Xl4s3L4it+qaBOopCRyKHmCrJufc8CGxTbOFyNR8U8NbrgVLFoYDrsPXiHTUQE/xOUvt3MXXwly0WHKyzQ+zBxRDYWcVEmSqIWxCNplhGt7VKTjubm2ka0VIwTvNk/aT6PKN6Gg/lR112DflgSbOuHGdhusMnYcr6cy5NWGCZRTmr06ZAK5vdOR7vSfjP1Iyjmb/0nEwwNk8ClOWj8mLvFZZbaoRfwHMxKAcbzF8+zbL/K1i6/4P9dTHDkHWu6e0LC9zzMP07xs14Jr+rj+sbHMf/ABUQPYA=
 sidebar_class_name: "post api-method"
 info_path: api/secret-sources/secret-sources-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Check that the source is reachable and the token is accepted
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
   
 </ParamsDetails>
 
@@ -49,7 +59,9 @@ Check that the source is reachable and the token is accepted
   
 </RequestSchema>
 
-<StatusCodes>
+<StatusCodes
+  responses={{"200":{"description":"Done."}}}
+>
   
 </StatusCodes>
 

@@ -7,7 +7,7 @@ description: "See and control running processes, pm2 and supervisor apps on your
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Process-Manager/edit/main/docs/index.md"
 plugin_id: "process-manager"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Process Manager shows and controls what runs on a Linux host over SSH. Each host gets its own tab with its processes, its pm2 and supervisor apps, their logs and watches that alert you.

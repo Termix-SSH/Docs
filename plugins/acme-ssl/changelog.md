@@ -6,9 +6,19 @@ slug: "/acme-ssl/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "acme-ssl"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+
+### Fixed
+
+- Updated node-forge and follow-redirects to releases with security fixes
+
 ## 1.2.0
 
 ### Added

@@ -6,9 +6,21 @@ slug: "/tmux-monitor/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tmux-monitor"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The terminal for a tmux session draws in SSH Terminal's own frame (needs Termix 26.11.2)
+
+### Fixed
+
+- The session list scrolls when it is taller than the panel
+- Auto-Tmux starts on macOS hosts with mouse support on
+
 ## 1.2.0
 
 ### Added

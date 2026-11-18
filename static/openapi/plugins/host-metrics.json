@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Host Metrics API",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts."
   },
   "servers": [
@@ -191,7 +191,7 @@
     "/plugin-api/host-metrics/metrics/{id}": {
       "get": {
         "summary": "Get host metrics",
-        "description": "Returns the latest sample for a host, including CPU, memory, disk, network, processes and system information.",
+        "description": "Returns the latest sample for a host, including CPU, memory, swap (Linux), disk, network, processes and system information.",
         "tags": [
           "Host Metrics"
         ],
@@ -241,6 +241,9 @@
           },
           "404": {
             "description": "Host not found."
+          },
+          "409": {
+            "description": "The host key is not trusted yet or has changed."
           },
           "500": {
             "description": "Failed to start metrics collection."
@@ -435,7 +438,7 @@
     "/plugin-api/host-metrics/metrics/history/{id}": {
       "get": {
         "summary": "Get metrics history",
-        "description": "Returns stored CPU, memory, disk and network samples for a host over a range.",
+        "description": "Returns stored CPU, memory, swap, disk and network samples for a host over a range. swap_percent is null for older samples, unavailable readings and hosts with no swap.",
         "tags": [
           "Host Metrics"
         ],
@@ -540,7 +543,10 @@
                 "type": "object",
                 "properties": {
                   "slots": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
                   },
                   "columns": {
                     "type": "integer"

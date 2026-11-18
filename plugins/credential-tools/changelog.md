@@ -6,9 +6,16 @@ slug: "/credential-tools/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "credential-tools"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Form fields use the same background as the rest of Termix
+
 ## 1.1.0
 
 ### Added

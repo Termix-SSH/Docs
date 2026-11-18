@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/opkssh/reference"
 custom_edit_url: null
 plugin_id: "opkssh"
-plugin_version: "1.0.3"
+plugin_version: "1.0.4"
 plugin_latest: true
 ---
 ## Environment variables
@@ -14,7 +14,7 @@ Set these on the Termix server, for example under `environment:` in your compose
 
 | Variable | Default | What it does |
 | --- | --- | --- |
-| `OPKSSH_VERSION` | `v0.16.0` | Use another opkssh release than the one Termix pins. Needs OPKSSH_SHA256 too. |
+| `OPKSSH_VERSION` | `v0.19.2` | Use another opkssh release than the one Termix pins. Needs OPKSSH_SHA256 too. |
 | `OPKSSH_SHA256` |  | SHA-256 of the opkssh binary for OPKSSH_VERSION. OPKSSH_SHA256_AMD64 and OPKSSH_SHA256_ARM64 set it per CPU. |
 | `OPKSSH_SHA256_AMD64` |  | SHA-256 of the x64 binary for OPKSSH_VERSION. |
 | `OPKSSH_SHA256_ARM64` |  | SHA-256 of the ARM64 binary for OPKSSH_VERSION. |
@@ -26,6 +26,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
 | `auth:provide` | High | Handle sign in. It can add a login method, a second factor or an SSH sign-in type. |
 | `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |

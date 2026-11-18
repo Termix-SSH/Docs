@@ -7,7 +7,7 @@ description: "Send the audit log to your SIEM and export it as CSV or NDJSON."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Audit-Tools/edit/main/docs/index.md"
 plugin_id: "audit-tools"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Audit Tools sends your audit log to other systems and checks that it was not changed. It forwards each audit entry to a collector as it happens, exports the log as a file and shows the log's hash chain.

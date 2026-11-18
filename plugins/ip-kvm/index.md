@@ -7,7 +7,7 @@ description: "See and control machines through PiKVM, NanoKVM and JetKVM devices
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-IP-KVM/edit/main/docs/index.md"
 plugin_id: "ip-kvm"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 IP-KVM lets you see and control the machines behind your IP-KVM devices from Termix. You get the screen, keyboard and mouse in the browser, power control, virtual media and shortcuts, even when the machine's operating system is down.

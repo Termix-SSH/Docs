@@ -5,7 +5,7 @@ description: "Needs session-recording.audit."
 sidebar_label: "Who watched, downloaded or checked a recording"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVGFr2zAQ/SvHfVadrtsnf8tgG+1glC0jjBKGKl1izbbkSZc4mfF/H5LcJGsorJ9szu/evSf53oCagvKmY+MslviFSAcIFIJx9sqTcl4buynkVhsuUCDLTcDyAb9lCHx9guBKoKfQORsoYDngzfV1fPzLP1eKQgCy7A0FAZZ6Cgxr4wMXOAp8d/32siur4oog6YCOfGvS/ALHUWBLXDmNJW6IUWAnucISZ12z3Rh7JTszu3A0G4weZzLJQYGB/I58dDbg1jdY4pBLI4pnYn64rYdFVLCHjEGBO+mNfGyy86mabKzltmEssWLuQjmbcWosaC/brqFCuRbHcVxFBWrrDR+ShEeSnvx8G308rEYxoHKuNnRekZ35TIdj5Yzim6qozVLOiQbkQ0eTlug5wbCcQCiml4/OtzJqvlsuLtw/3Tu7miwEsgzGpquJQ5w3f2REQkVSkwcZ4H0iBWl1gqXGdNXnlo7asisUaOK0DEGBVialv3p+UdHdcgEZD4EYJEMwG3tlbAHLiix0nqJcAYaBZU0hVhRpsorA7ci/6CKpPT/uV5/k/P4WajpAYOnZ2A30hivgdv/zws4R+vqjrekgoK+MqvKgcBpTwC2DVBxi24QF19upW0lrXQLE79IenCWgJlDeL2PXLrk23NDZkR+XH+b3t3ELyIfs4k1xU1xfeMt4SDtgZZNGe2odE2gKNbvuKXqCgF6yqqLWFhqzI5HQNVEH0uYcIC2ArPKHjikSJXK3hr5yoI2GvpI5VDoXuJU2Wph+pGXl8oDIoV1vGyc1aXAeVEWqJg0SjmHx3EhcR8tk+b8SM/8qTHuedY00NipKGTNMSfWAp6RKWfSMCwWWRqPAKa5WAisXODYOw6MM9N034xjLv7fkY4KsTomU4+IUkZ8+LHAc/wKtBBTd
+api: eJyVVcFu3DgM/RWCpy2geNJ2T76lwG6RFiiKNotgEQwKxuKMVduSK9FxvIb/fSHJM5lmkMX2NDbnkXyPlJ5n7MlTx8I+YHk3o7FYYk9So0JLHWOJRqNCzz8G41ljKX5ghaGquSMsZ5SpTygrvGePy7JVqDlU3vRiXCz3iVkHCByCcfbCc+W8NnZf0KCNFKhQaB+749cMgS8HCG5j59A7GzjEZm8uL+PPz/WvqopDALbiDQcFlkcOAjvjgxS4KPz98u15VmYlNUPiAT37zqT+BS6Lwo6ldhpL3LOgyjMpcdO3w97YC+rN5kzRZjZ62VCigwoD+4fDXAffYolzDi34fER/u8HDTWTwCBmDCh/IG7pvs/I1mmTsaGgFS6xF+lBuNpISC36krm+5qFyHS9pD4GrwRqZE4Z7Js78aoo677aJmrJxrDJ9GqDcfeTpGTkp8jQvPVE4LHfcfueB6LuJ7BqFaH/50vqPI+cPtzZn6w97FNWwhsBUwNq0mNnHe/EMRCTWTZg8U4F0qCmR1gqXEtOpTSUduWRWqfLoz5Ol8fx/lRUYfbm8g4yGwAAkEs7cXxhZwW7OF3nOkq8AICDUcYqRizbZicA/sX1SR2J6O+5cnefX5GhqeIAh5MXYPo5EapHv8dibnCP310TY8KRhrU9W5UXhqU8C1AFUSYtqKBTfaNbsia10CxP/JTs4ycBs43y9jdy6pNtLyyciPlx+uPl/HW8A+ZBWvizfF6zNtGQ/pDlhqU2vPnRMGzaER1x+sJygYSao6cu2gNQ+sErph7oFs9gHWCthWfuqFY6FU3O1grB1oo2GsKZtK74J0ZKOE9SDd1i43iDW0G23rSLMG56GquWpYA8HRLJ4LidfRClv5X46Zj4rwo2z6loyNjJLHzKtT3eGTUyUvelYLFZbJ2Ve72iqsXZCYOM/3FPgv3y5LDP8Y2EcH2T45UvITbUJ81ljuqA38H3J++7J+PV7BS9wPN9VOyfjaIb6hwoan/Alatqee/P6PG1yWfwEdGFaL
 sidebar_class_name: "get api-method"
 info_path: api/session-recording/session-recording-api
 custom_edit_url: null
@@ -39,7 +39,17 @@ import Translate from "@docusaurus/Translate";
 
 Needs session-recording.audit.
 
-<ParamsDetails>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
   
 </ParamsDetails>
 

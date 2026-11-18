@@ -6,9 +6,19 @@ slug: "/secret-sources/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "secret-sources"
-plugin_version: "1.1.2"
+plugin_version: "1.1.3"
 plugin_latest: true
 ---
+## 1.1.3
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+
+### Fixed
+
+- The API docs list the path parameters and answers of every route
+
 ## 1.1.2
 
 ### Fixed

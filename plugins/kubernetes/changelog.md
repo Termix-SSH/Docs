@@ -6,9 +6,21 @@ slug: "/kubernetes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "kubernetes"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Changed
+
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later
+
+### Fixed
+
+- Says to open a terminal and trust the host when its key is not trusted yet, instead of a plain error (Termix 26.11.2)
+- Opening a console on a shared host you have no login for says so, instead of saying the host is not on the sync server (needs Termix 26.11.2)
+
 ## 1.1.0
 
 ### Added

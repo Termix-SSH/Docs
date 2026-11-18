@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Homepage API",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A drag and drop widget page for your servers and services, plus service links for the dashboard."
   },
   "servers": [
@@ -234,7 +234,10 @@
                 "type": "object",
                 "properties": {
                   "entries": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
                   },
                   "version": {
                     "type": "number"
@@ -250,6 +253,39 @@
           },
           "500": {
             "description": "Failed to save homepage layout."
+          }
+        }
+      }
+    },
+    "/plugin-api/homepage/items/{id}/view": {
+      "post": {
+        "summary": "Open an embedded page widget",
+        "description": "Gives back a grant for the address saved in the caller's own embed widget. Termix draws the page from the grant; the widget never picks the address itself.",
+        "tags": [
+          "Homepage"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ grant }"
+          },
+          "400": {
+            "description": "Not an embed widget, or it has no address."
+          },
+          "404": {
+            "description": "No such widget of the caller's."
+          },
+          "501": {
+            "description": "This Termix can't draw embedded pages."
           }
         }
       }

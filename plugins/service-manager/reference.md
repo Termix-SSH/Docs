@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/service-manager/reference"
 custom_edit_url: null
 plugin_id: "service-manager"
-plugin_version: "1.1.2"
+plugin_version: "1.1.3"
 plugin_latest: true
 ---
 ## Settings

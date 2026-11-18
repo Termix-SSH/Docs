@@ -7,7 +7,7 @@ description: "See and install updates on your hosts, search, install and remove 
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Package-Manager/edit/main/docs/index.md"
 plugin_id: "package-manager"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Packages manages the software on a Linux host over SSH. Each host gets its own tab for updates, installed packages, search, history and repositories.

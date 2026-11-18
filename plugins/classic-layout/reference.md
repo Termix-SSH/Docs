@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/classic-layout/reference"
 custom_edit_url: null
 plugin_id: "classic-layout"
-plugin_version: "1.1.2"
+plugin_version: "1.1.3"
 plugin_latest: true
 ---
 ## Permissions
@@ -15,6 +15,7 @@ Give these to roles in **Settings**, **Roles**.
 | Permission | Who has it at first | What it allows |
 | --- | --- | --- |
 | `classic-layout.branding` | admin | Set the app name, tagline and logo shown to everyone. |
+| `classic-layout.interface-defaults` | admin | Pick the look and rail apps people start with, for everyone or for each role. |
 
 ## Capabilities
 

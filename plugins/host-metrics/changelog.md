@@ -6,9 +6,36 @@ slug: "/host-metrics/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "host-metrics"
-plugin_version: "1.4.0"
+plugin_version: "1.4.1"
 plugin_latest: true
 ---
+## 1.4.1
+
+### Added
+
+- A Linux swap usage card, off by default, with used, free and total space, history and a host page tile
+- Swap as a homepage history chart metric and in history exports and imports
+
+### Changed
+
+- Dashboard rows refresh their live bars every 10 seconds instead of 5, so a dashboard with many hosts sends half the requests
+- A Host Metrics tab behind another tab keeps its session but no longer redraws on each poll, so it stops slowing down the tab you are using. It catches up when you open it again
+- Health check fields are a shade darker than the page, like every other field
+- New chart points glide in faster and with fewer redraws, so a host page with several metric tiles uses much less CPU, mostly in Firefox
+- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)
+- A metrics collector from another plugin gets the host id and connects on its own
+- TOTP prompts from hosts behind a plugin's keyboard-interactive handler are still found when that plugin runs in its own process (needs Termix 26.11.2)
+- Dashboard row bars, health badges, homepage widget numbers and terminal toolbar readouts are drawn by Termix from plain values instead of a frame each, so many hosts no longer mean many frames (needs Termix 26.11.2)
+- Manager cards and toolbar buttons from other plugins draw in their own frames over the tab, and still move and resize while you edit the layout (needs Termix 26.11.2)
+- Its process stops when it has nothing to watch or run, and Termix starts it again when there is work, which saves memory on Termix 26.11.2 and later
+- Form fields use the same background as the rest of Termix
+
+### Fixed
+
+- ZFS ARC cache counts as cache, not used memory, including on QNAP QuTS hero
+- Says to open a terminal and trust the host when its key is not trusted yet, instead of a plain error (Termix 26.11.2)
+- The API docs list the path parameters and answers of every route
+
 ## 1.4.0
 
 ### Added

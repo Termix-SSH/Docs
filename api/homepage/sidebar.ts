@@ -48,6 +48,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "homepage/open-an-embedded-page-widget",
+          label: "Open an embedded page widget",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "homepage/get-service-links",
           label: "Get service links",
           className: "api-method get",

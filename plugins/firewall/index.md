@@ -7,7 +7,7 @@ description: "Manage UFW, firewalld, nftables and iptables rules on your hosts o
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Firewall/edit/main/docs/index.md"
 plugin_id: "firewall"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Firewall lets you see and change the firewall on your hosts from Termix. It works with UFW, firewalld, nftables and iptables, and talks to the host over SSH, the same way the terminal does.
