@@ -17,7 +17,7 @@ Hosts that are not in the file keep working as normal, unless the file turns on 
 ## Set it up
 
 1. Install Hosts Config from the Plugins tab.
-2. Mount the file into the container and point `TERMIX_HOSTS_CONFIG` at it.
+2. Mount the file into the container and point `TERMIX_HOSTS_CONFIG` at it. Keep it outside Termix's data folder, which plugins can't read.
 3. Restart Termix. The file loads a few seconds after start.
 
 ```yaml
@@ -163,6 +163,8 @@ Never put passwords or keys in the file itself. Every secret field takes one of:
 - `credential: Name` on a host or a protocol login uses a credential the owner saved in Termix. The name must match exactly one of the owner's credentials.
 
 Plain text still works but is logged as a warning on every load. A missing env var or file stops the whole load.
+
+Termix reads these for the plugin, which needs the Read secrets the server holds access for it. Termix's own variables (such as `JWT_SECRET` or `ENCRYPTION_KEY`), its key files and anything in its data folder are refused. Each secret can be up to 64 KiB.
 
 Secrets are read when the file loads and stored encrypted, like any host. Change the env var or file and reload to update them.
 

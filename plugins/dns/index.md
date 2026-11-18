@@ -26,6 +26,7 @@ Open DNS from the rail or the command palette.
 | GoDaddy         | Yes         | Yes                                    | API key and secret                           |
 | Porkbun         | Yes         | Yes                                    | API key and secret key                       |
 | Gandi           | Yes         | Yes                                    | Personal access token                        |
+| Spaceship       | Yes         | Yes                                    | API key and secret                           |
 
 Keys are stored encrypted on the Termix server and are never shown again. When you edit a login, leave a key empty to keep the saved one.
 
@@ -33,6 +34,7 @@ Some providers need a setting on their side first:
 
 - Namecheap only lets API calls come from an allowed IP address. Add the public address of your Termix server in the Namecheap API settings and enter the same address here. Only domains that use Namecheap DNS show up as zones.
 - Porkbun needs API access turned on for each domain.
+- Spaceship API keys need the domains:read, dnsrecords:read and dnsrecords:write scopes. Spaceship takes TTLs from 60 to 3600 seconds.
 - GoDaddy can give 403 errors for accounts with only a few domains. Their API is limited to larger accounts.
 - Route 53 domain lists use the Route 53 Domains service in us-east-1. The key needs `route53:ListHostedZones`, `route53:ListResourceRecordSets`, `route53:ChangeResourceRecordSets`, `route53domains:ListDomains` and `route53domains:GetDomainDetail`.
 

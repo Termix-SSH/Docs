@@ -46,7 +46,7 @@ Login details are stored encrypted on the server and are never shown again. Admi
 
 ## Use it
 
-In a host's or credential's password or key field, type a reference instead of the secret, like:
+In a host's or credential's username, password or key field, type a reference instead of the value, like:
 
 ```
 op://Servers/web-1/password
@@ -56,7 +56,7 @@ vault://secret/servers/web-1#password
 bw://web-1/password
 ```
 
-When you connect, Termix asks the source for the value and uses it. Results are cached for a minute.
+When you connect, Termix asks the source for the value and uses it. Results are cached for a minute. References in the username field need Termix 26.11.2 or later.
 
 For `bw://`, the field is `username`, `password`, `totp`, `notes`, `uri` or the name of a custom field. The item is its ID or its exact name.
 

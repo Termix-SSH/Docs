@@ -42,7 +42,7 @@ The certificate is kept until it expires, so you only sign in again after that. 
 
 ## More than one Termix server
 
-Sign in state is kept in memory. If you run several Termix servers behind a load balancer, point them at the same Redis with `REDIS_URL`.
+Several Termix servers behind one load balancer already share a database, and sign in state goes through it, so a sign in started on one server finishes there even when the identity provider sends you back to another. Nothing else to set up.
 
 ## Environment variables
 
