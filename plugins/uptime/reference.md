@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/uptime/reference"
 custom_edit_url: null
 plugin_id: "uptime"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 ## Settings
@@ -75,6 +75,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
 | `db:core-refs` | High | Read core account tables. Can query users, roles and hosts directly from the database. |
@@ -82,7 +83,6 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `hosts:write` | Medium | Create and change hosts. It can add hosts and edit the ones you already have. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
-| `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
 | `network:probe` | Medium | Check if ports answer. Can open a plain connection to any address from the server, to see if it is reachable. |
 | `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
 | `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |

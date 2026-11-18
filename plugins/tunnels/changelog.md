@@ -6,9 +6,20 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- Other plugins can add their own sections to the Tunnels page, next to SSH and Gateways
+
+### Changed
+
+- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)
+- Form fields use the same background as the rest of Termix
+
 ## 1.3.0
 
 ### Added

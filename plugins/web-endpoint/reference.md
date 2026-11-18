@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/web-endpoint/reference"
 custom_edit_url: null
 plugin_id: "web-endpoint"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 ## Settings
@@ -63,6 +63,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
 | `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |

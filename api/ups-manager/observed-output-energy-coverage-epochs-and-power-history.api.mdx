@@ -1,0 +1,69 @@
+---
+id: observed-output-energy-coverage-epochs-and-power-history
+title: "Observed output energy, coverage, epochs and power history"
+description: "Observed output energy, coverage, epochs and power history"
+sidebar_label: "Observed output energy, coverage, epochs and power history"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9Vdtu20YQ/ZXBPLXAWnLSAgX45gJJ4RRJjVqGURhCsSbH5Fbk7mZnKIkV+O/FcGlZie2HtECfJI3mcs5czh4w2mQ7EkqMxd0BnccCo5UGDXrbERbYBJbLCg0m+ty7RBUWknoyyGVDncXigDJE9XReqKaE42hezOT+ZZbPPaXhKU2yviZ8IZIlOV+jQfJ9h8Udvv1Rq/+kZX84r3A9jmsFwDF4JtbIt+fn+lERl8lFcUHr/XbPlLZUAXlK9QA7Jw3QPraudALOl6GLLQlBGbaUbE1gfQWREjsW8iVBQ7aVZqEcXssdeom9zCXMMZUBiqFsOKcMO0rQOJYwNaAjaUKFBdYkaHJ3C1zGtq+dP7PRLfvIZ531tqa0POTJjUsOfSqJlwdXjctcUNunOOax96nFAg/ZNOLXoP8IfYIVpc7tIfugwa1Nzt63uY+zdWrlg+1b0cURiVwslzIFLmhvtW2LMnQ4TpNgKvvkZJgg3JNNlC56pXS31tmXIWwcnVpsdL/ScLScpLjWXchQThMdV0OxPK6M/s5OaOYv70PqrGL+cLt6xv6amF3wIGFDHpi87gBIQ6BFQnJ/W/XUoVeUwDL8PCWdRqhuU+ACR/MFpSO2zApNXvbs8rTtf+3kVUQfbleQ/YFJwAqwq/2Z8wu4bchDTKRwDTgBsRtitZRUTTuqC/cqiwntabu/uZMXV5ewoQFYbBLn63xF0u3/fEbn6Prtrd3QYGDXuLLJhfipzAIuBWwprGGzL4Sdn6NL632YHPR/64fgCahlylfr/EOYWDtplebN1TV8zIcFF1eXuv967xP+N4vzxZtnrG6tlA0MejoaXNHWlcS57Z9uVgZsLPvIFYQE158+XpkMfb52A7Yl5aNYmdoHEGLhaS4xsHTWK7x5Sf6TqnwB+zhnob0sY2ud15KTQBxmxbnDJ8VBgyeagwaL43sxy47aJuWflWdtpidF0xwO95bpJrXjqOas8yoGlWOVlgqLB9syGdzQcKL8W9v2ihFVAh516OXAr8iVwQt53c/vfp8fou8BzcukH+/TD6c1H8HMPFWX/seqrsJxPZ48Bb+8W+E4/gNh2Kyb
+sidebar_class_name: "get api-method"
+info_path: api/ups-manager/ups-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Observed output energy, coverage, epochs and power history"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/ups-manager/{hostId}/sources/{id}/energy"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Observed output energy, coverage, epochs and power history
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"query","name":"range","schema":{"type":"string","enum":["24h","7d","30d"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Observed energy with explicit incomplete coverage and persistence health."}}}
+>
+  
+</StatusCodes>
+
+
+      

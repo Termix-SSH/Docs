@@ -7,7 +7,7 @@ description: "Connect to hosts with short-lived SSH certificates signed by Hashi
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Vault/edit/main/docs/index.md"
 plugin_id: "vault"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 SSH Certificate Signer lets you connect to hosts with short-lived SSH certificates signed by [HashiCorp Vault](https://www.vaultproject.io/) or [OpenBao](https://openbao.org/). When you connect, you sign in to your Vault or OpenBao server with OIDC, it signs a throwaway key, and Termix uses that key for the connection. No token, password or long-lived key is stored in Termix.

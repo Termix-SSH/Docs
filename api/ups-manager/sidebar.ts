@@ -66,6 +66,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "ups-manager/observed-output-energy-coverage-epochs-and-power-history",
+          label: "Observed output energy, coverage, epochs and power history",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "ups-manager/power-events-for-a-ups-newest-first",
           label: "Power events for a UPS, newest first",
           className: "api-method get",

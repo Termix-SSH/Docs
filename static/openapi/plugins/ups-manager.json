@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "UPS Manager API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Watch your UPS devices over NUT, apcupsd or SNMP, with history, alerts and self tests."
   },
   "servers": [
@@ -271,6 +271,46 @@
         "responses": {
           "200": {
             "description": "Points, oldest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/ups-manager/{hostId}/sources/{id}/energy": {
+      "get": {
+        "summary": "Observed output energy, coverage, epochs and power history",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "24h",
+                "7d",
+                "30d"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Observed energy with explicit incomplete coverage and persistence health."
           }
         }
       }

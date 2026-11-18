@@ -1,0 +1,68 @@
+---
+id: show-a-hosts-web-endpoint-in-a-tab
+title: "Show a host's web endpoint in a tab"
+description: "Picks the page on the server (the host's own address for a direct endpoint; for a tunnelled one a tunnel on the desktop app or this plugin's proxy in a browser) and gives back a grant the app draws it from. The tab never picks the address or the certificate rule."
+sidebar_label: "Show a host's web endpoint in a tab"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv20YQ/iuDubgFaMlO20PZk1OkiFKgMSoFRmEYxZI7Iteidje7Q8mKoP9ezC71spJD7uVBIpfz+Ob1DbeoKdbBeDbOYon3pl5E4JbAq4bA2XQfKawowA9y37rIVxHc2oLSOlCMMHcBFGgTqGYgq70zln8bjrm3lrqONDhLh+e9ZU1xwc6D8h5cAG5NBN/1jbFXEXxwLxswFhRUwa0jhR9BWQ2NWVGEStULUNAEZTnZEhs6qHUEwzAPbjmCWUvAqgJLgt8fgtsjTy4Jagps5qZWTBD6jkZYIKsmYvmID1TBuyEmfCow0OeeIr91eoPlNj2aQBpLDj0VWDvLZFleKe87sWmcHT9HSe8WY93SUskdbzxhia56ppqxODH0iJLjicYC98mcaHHtg/OClKIYGISOpoxlaijg7kzv+D5yMLbBXbrEYfTOxmzszc2N/J03wzYnt4A+dLATuz9/TWxiV6ozGobMYIFDWvcowHmykvjg+qaFGYWleRlhafuuS0ZvL43+5RiiaSxpMHaUff90KfbeRQbrGOaut1rqqepaKqvJGtKD4q+Xinev+/XQ62pJEA0TqDhAhbXrOw0NMRiO0LnGWKidWxhKDn75WgAzaeVBf0UhGmehVvaKIbZuncYrT05ud2nTOEIpzJK4dRpL9C5l0ytuscRxFrxW3ozXVF3vgY9XhtZYYB5S6dkt9qGT+uWjHRavsP3j+rDHlmWwwJUKRlVd7ofhNEU1V33HWGLL7GM5HnOuH72ope9oVLul9NSTIKj7YHiTIFSkAoW7XrA/Pu2KLeaMnZ4ob/6kzeHkxMRU5iRDOTV06GXBIjEnMSwHISyGmz9cWCrB/OFhdhH9lGKqBrsFWYhkWThGai9OXDBf0sxCS0pTkDZ4m4wm7hGxpJgqfxrSAVuOCgs04i2LYIFWJaTPa/4mog8Ps6GvIBKDyiNwbewIHlqy4AMJ3EIIjtWChCKpJk22JnBCcd+KIqE9Tfd3Z/LufgIL2kBkFdjYBtaGW+Dly78X4RxEvz+1C9oUsG5N3WZH8ehmBBMGVXMUtUFW1tCgXSsrPKBqlvfKbmTdUBcpD5UQ8N9H6n6Xm/eUR2/OafNAl1LHuUsZMywqZysB7u4nMjx5wrHE29Gb0e1FSj56kjU2LM81VfBpAsZGo2kYxGIgpG4jLJaKqSxMp++HjZkqKIywVGmTDO00FTI5M3wgtLQ4WVWvwWyPS+r/fX/c93kcmF547DtlrOQ78eh2YOBHPDIwFnjKwdIBwsJPRWonkd1uKxXpU+h2Ozn+3FMQYnw6Em1mQcyzkDhzQRss8fdcneuZIBLxrs+08upzQvjysCvuP06F6arhs2TptOgEJZtBfkuUvZw6ILFqOttip2zTqyYRU7Ip139lF4C9
+sidebar_class_name: "post api-method"
+info_path: api/web-endpoint/web-endpoint-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Show a host's web endpoint in a tab"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/web-endpoint/view"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Picks the page on the server (the host's own address for a direct endpoint; for a tunnelled one a tunnel on the desktop app or this plugin's proxy in a browser) and gives back a grant the app draws it from. The tab never picks the address or the certificate rule.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","endpointId"],"properties":{"hostId":{"type":"integer"},"endpointId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"{ grant, url }"},"400":{"description":"Invalid request","or the endpoint opens through Termix.":null},"401":{"description":"Not signed in."},"403":{"description":"Host not found or access denied."},"409":{"description":"A direct endpoint on the same site as Termix would get its login cookie."},"501":{"description":"This Termix version can't show pages for plugin tabs."}}}
+>
+  
+</StatusCodes>
+
+
+      

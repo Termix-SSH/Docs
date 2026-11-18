@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/wake-on-lan/reference"
 custom_edit_url: null
 plugin_id: "wake-on-lan"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -57,6 +57,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 
 | Capability | Risk | What it means |
 | --- | --- | --- |
+| `network:sockets` |  |  |
 | `process:spawn` | High | Run programs on this machine. Programs run on the Termix server itself, not on your hosts. |
 | `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
 | `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |

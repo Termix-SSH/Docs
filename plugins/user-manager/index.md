@@ -7,7 +7,7 @@ description: "Manage the user accounts, groups, passwords and SSH keys on your h
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-User-Manager/edit/main/docs/index.md"
 plugin_id: "user-manager"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 Users manages the accounts on a Linux host over SSH. Each host gets its own tab with its users, groups and sessions.

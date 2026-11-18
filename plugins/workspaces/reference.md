@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/workspaces/reference"
 custom_edit_url: null
 plugin_id: "workspaces"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings

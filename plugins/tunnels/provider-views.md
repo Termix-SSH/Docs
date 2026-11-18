@@ -4,7 +4,7 @@ sidebar_position: 60
 slug: "/tunnels/provider-views"
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/provider-views.md"
 plugin_id: "tunnels"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 # Provider sections in Tunnels

@@ -34,6 +34,12 @@ const sidebar: SidebarsConfig = {
           label: "Open a tunnel endpoint for a browser",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "web-endpoint/show-a-hosts-web-endpoint-in-a-tab",
+          label: "Show a host's web endpoint in a tab",
+          className: "api-method post",
+        },
       ],
     },
   ],

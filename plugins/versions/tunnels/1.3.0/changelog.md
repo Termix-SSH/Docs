@@ -2,13 +2,67 @@
 title: "Changelog"
 sidebar_label: "Changelog"
 sidebar_position: 99
-slug: "/tunnels/v/1.2.0/changelog"
+slug: "/tunnels/v/1.3.0/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: false
 ---
+## 1.3.0
+
+### Added
+
+- Tunnels host page tile
+- An alert and a Termix event when a tunnel fails for good, and an event when it is back
+- Tunnels are listed as a resource for Termix actions
+- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions
+- Tunnels that are down show as a status tile
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps
+- SSH tunnels and gateways are tabs above the search bar
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Add tunnel and the other add buttons no longer have a filled box around them
+- Desktop SOCKS5 tunnels no longer drop the first data a program sends
+- A client tunnel closes its local connection when the target closes, so the next request no longer hangs
+- Tunnels starts again on MySQL, where an index change stopped it from loading
+- The tunnel settings and edit buttons have names for screen readers
+
+## 1.2.3
+
+### Fixed
+
+- The gateway port scan no longer forwards the tunnel's own WireGuard port. The private end now uses a fixed port instead of a random one
+- Gateway ports only catch traffic sent to the public host itself, so other machines behind it can still reach those ports on the internet
+- A gateway's page scrolls again instead of squeezing its sections to fit the window
+
+## 1.2.2
+
+### Fixed
+
+- A local tunnel to an address that a saved host also uses now listens on this machine like any other local tunnel, instead of quietly listening on the SSH host. Pick the saved host by name to route through it
+
+## 1.2.1
+
+### Added
+
+- Tunnels panel beside an SSH terminal: the host's tunnels with live status, start and stop
+- Tunnels dashboard card: every tunnel you can reach, with start and stop
+
+### Changed
+
+- The tunnel grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
+### Fixed
+
+- Saved tunnels now sync to a linked desktop, including for hosts shared with the account
+
 ## 1.2.0
 
 ### Added

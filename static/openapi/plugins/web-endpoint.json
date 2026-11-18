@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Web Endpoint API",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Open a host's web UI inside Termix, directly or over an SSH tunnel."
   },
   "servers": [
@@ -246,6 +246,58 @@
           },
           "401": {
             "description": "Not signed in."
+          }
+        }
+      }
+    },
+    "/plugin-api/web-endpoint/view": {
+      "post": {
+        "summary": "Show a host's web endpoint in a tab",
+        "description": "Picks the page on the server (the host's own address for a direct endpoint; for a tunnelled one a tunnel on the desktop app or this plugin's proxy in a browser) and gives back a grant the app draws it from. The tab never picks the address or the certificate rule.",
+        "tags": [
+          "Web Endpoint"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "endpointId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "endpointId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "{ grant, url }"
+          },
+          "400": {
+            "description": "Invalid request",
+            "or the endpoint opens through Termix.": null
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "Host not found or access denied."
+          },
+          "409": {
+            "description": "A direct endpoint on the same site as Termix would get its login cookie."
+          },
+          "501": {
+            "description": "This Termix version can't show pages for plugin tabs."
           }
         }
       }

@@ -2,12 +2,12 @@
 title: "Tunnels"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/tunnels/v/1.2.0"
+slug: "/tunnels/v/1.3.0"
 description: "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app."
 hide_title: true
 custom_edit_url: null
 plugin_id: "tunnels"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: false
 ---
 Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconnects on its own. Tunnels can start when Termix starts, so they are always there, and the desktop app can run tunnels on your own computer.
@@ -34,6 +34,8 @@ And two places a tunnel can run:
 5. Save.
 
 Start, stop and watch tunnels from the Tunnels tab. Search them, and switch between a grid, a list and a compact list with the view buttons. Use the pencil on a tunnel to change or delete just that tunnel, and Add tunnel to add one. The host editor only has the on/off switch. Tunnels saved before 1.2.0 were moved over for you.
+
+The same list sits beside an SSH terminal: open the Tunnels panel from the terminal edge or its tab menu to start and stop that host's tunnels. Turn it off for a host with Panel beside the terminal. The Tunnels dashboard card lists every tunnel you can reach; add it in the dashboard's edit mode.
 
 ### Through a second host
 

@@ -7,7 +7,7 @@ description: "Watch your UPS devices over NUT, apcupsd or SNMP, with history, al
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-UPS-Manager/edit/main/docs/index.md"
 plugin_id: "ups-manager"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 UPS Manager shows the state of your UPS devices from Termix. It reads the battery charge, runtime left, load, voltage and temperature, keeps a history, and alerts you when something goes wrong with your power.

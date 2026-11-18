@@ -7,7 +7,7 @@ description: "Install WireGuard on your hosts and manage interfaces, clients and
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-WireGuard/edit/main/docs/index.md"
 plugin_id: "wireguard"
-plugin_version: "1.0.0"
+plugin_version: "1.1.0"
 plugin_latest: true
 ---
 WireGuard installs and manages WireGuard on a Linux host over SSH. Each host gets its own tab where you create a VPN server, add clients and keep an eye on who is connected.

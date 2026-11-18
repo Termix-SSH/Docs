@@ -7,7 +7,7 @@ description: "Watch websites, ports, hosts and services, get alerts when they go
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Uptime/edit/main/docs/index.md"
 plugin_id: "uptime"
-plugin_version: "1.0.0"
+plugin_version: "1.0.1"
 plugin_latest: true
 ---
 Uptime watches websites, ports, hosts and services and tells you when something goes down. It keeps a history of every outage, stays quiet during planned work and can publish a public status page.

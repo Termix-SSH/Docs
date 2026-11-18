@@ -7,7 +7,7 @@ description: "Wake, shut down and track your machines from one power dashboard."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/edit/main/docs/index.md"
 plugin_id: "wake-on-lan"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 Wake-on-LAN is a power dashboard for your machines. The Power tab lists every machine with its status and a power button. You can wake machines, shut them down, put them to sleep, run all of that on a schedule, and find machines with a network scan.
