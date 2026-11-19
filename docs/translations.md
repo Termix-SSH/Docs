@@ -4,7 +4,7 @@ Termix, its plugins and the mobile app are written in English. Every other langu
 
 ## Adding or changing text
 
-Only update the English `en.json` file (`src/ui/locales/en.json` in Termix, `locales/en.json` in a plugin, `src/i18n/locales/en.json` in the mobile app). New strings, and strings whose English changed, are translated into every other language at the next release. The mobile app translates them as soon as `en.json` changes on its dev branch.
+Only update the English `en.json` file (`src/ui/locales/en.json` in Termix, `locales/en.json` in a plugin, `src/i18n/locales/en.json` in the mobile app). New strings, and strings whose English changed, are translated into every other language at the next release. The mobile app also translates them as soon as `en.json` changes on its dev branch, and again before every build.
 
 ## Fixing a translation
 
