@@ -66,3 +66,11 @@ The app uses the Termix PostHog project by default. To send to your own project 
 On EAS Build, add them as environment variables for the build profile.
 
 The Usage Statistics plugin does the same for a Termix server, with its own settings.
+
+## Push notifications in the mobile app
+
+Push notifications are off until you turn them on for a server in the app, under Settings, Notifications. Then your server sends each alert you picked through Expo's push service, and from there through Apple or Google to your phone. Each one carries the alert's title and text, plus the id the app uses to open it. Expo, Apple and Google can see what they carry.
+
+Your server keeps the phone's push token sealed and never shows it. Turning notifications off, signing out or unlinking the server removes it.
+
+The F-Droid build has no Google services. It checks your server for new alerts in the background instead, and nothing goes through Expo, Apple or Google.
