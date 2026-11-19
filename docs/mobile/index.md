@@ -62,6 +62,12 @@ A linked server adds what the phone can't do alone, like session sharing, server
 
 Features that need a server say so and offer to connect the host through it.
 
+To share a server host with other people or roles, open its menu and tap Share with people. Pick the level (connect, view, edit or manage) and when the access ends. The same screen shows who has access, and you can change or remove it there.
+
+## Language
+
+The app follows the phone's language. To pick another one, go to Settings, Appearance, Language. See [translations](../translations.md) to fix a translation or add a language.
+
 ## Background sessions
 
 On Android, open sessions keep running in the background with a notification that lists them. Settings, Notifications, Background sessions has the battery and notification settings Android needs.
