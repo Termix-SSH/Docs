@@ -9,6 +9,8 @@ A layout draws the whole app: the rail, the sidebar, the tab bar and the screens
 
 Layouts need Termix 26.10.3 and `engine.api` `^1.4`.
 
+A layout draws the shell, so it runs in the page, not in a sandboxed frame like other plugin screens. Termix 26.11.2 only let official layouts do that. From Termix 26.11.3 an admin can let community layouts and themes run there too: Plugins, Registries, turn on Community layouts and themes. A layout in the page can see and do anything the signed in user can, so the admin is warned before it turns on. Without it, a community layout can't register and the app shows the repair screen. A layout that also asks for another shell part, like `sync:provide`, always stays in a frame.
+
 ## Declare it
 
 ```json
