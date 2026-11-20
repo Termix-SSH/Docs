@@ -2,11 +2,11 @@
 title: "Changelog"
 sidebar_label: "Changelog"
 sidebar_position: 99
-slug: "/alerts/v/1.4.0-beta.1/changelog"
+slug: "/alerts/v/1.4.0-beta.2/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "alerts"
-plugin_version: "1.4.0-beta.1"
+plugin_version: "1.4.0-beta.2"
 plugin_latest: false
 ---
 ## 1.4.0
