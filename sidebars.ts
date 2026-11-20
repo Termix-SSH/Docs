@@ -76,6 +76,7 @@ const sidebars: SidebarsConfig = {
         "guide/account",
         "guide/api-keys",
         "guide/settings",
+        "guide/diagnostics",
       ],
     },
     {
