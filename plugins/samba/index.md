@@ -25,6 +25,7 @@ It talks to your hosts over SSH, the same way the terminal does. Nothing is inst
 
 - Shares: Create, edit and delete shares. Set the folder, comment, read only, guest access, allowed users, a write list, force user and group, masks, recycle bin and more.
 - Users: Add Samba users with a password, change a password, turn an account off or on and remove it. Make Linux groups and manage who is in them.
+- Browse files: The folder button on a share opens its folder in File Manager over SSH. File Manager can also open the share itself over SMB: add the SMB protocol to a host in Manage.
 - Folder permissions: Set the owner, group and mode of a share's folder, and add or remove user and group ACL entries.
 - Sessions: See who is connected, which shares they use and which files are open. Disconnect a session.
 - Config: Edit the file Termix manages, test the config with testparm and read smb.conf.

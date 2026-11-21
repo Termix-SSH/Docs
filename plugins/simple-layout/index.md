@@ -20,6 +20,10 @@ Hosts and credentials are managed in the Hosts tab. The forms ask for the basics
 
 Settings has Appearance, Account, Plugins and the settings plugins add.
 
+## Zen mode
+
+For even less on screen, turn on Zen mode from your account menu or press Ctrl Alt Z. The top bar then shows only your open tabs as plain text, a search button and a button to leave zen mode. Middle click a tab to close it. Zen mode stays on until you turn it off. On a phone the bottom bar stays as it is.
+
 ## Switch layouts
 
 Open Settings, Appearance and pick a layout. Admins can set the default for everyone. You can switch back at any time.

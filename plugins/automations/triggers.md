@@ -65,6 +65,26 @@ Runs when something happens in Termix:
 
 Set up one automation on `automation_failed` early. Then you hear when any other automation breaks.
 
+## An alert comes in
+
+Runs when the [Alerts](/plugins/alerts) plugin gets an alert for you. Use it to react to what other plugins notice, like restarting a service when its [Uptime](/plugins/uptime) monitor goes down.
+
+| Field          | What it does                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| Alert category | The kind of alert, like `uptime.down`. `uptime.*` matches every Uptime alert and `*` every alert. |
+| At least       | Only alerts at warning or critical and up. Any severity by default.                               |
+| Title contains | Only alerts whose title has this text, ignoring case.                                             |
+| Host           | Only alerts about these hosts. Alerts that are not about a host are skipped when you pick hosts.  |
+| Cooldown       | Minutes to wait before it can run again for the same host and category.                           |
+
+Steps can pick The trigger's host to work on the host the alert is about. Alerts that automations send never start an automation, so one can't set off another in a loop. Needs Alerts 1.4.0.
+
+### Example: restart nginx when its monitor goes down
+
+1. Trigger: An alert comes in, category `uptime.down`, title contains `nginx`, host your web server.
+2. Step: Run command `systemctl restart nginx` on The trigger's host, as root.
+3. Step: Send an alert saying nginx was restarted.
+
 ## Incoming webhook
 
 Runs when something outside Termix calls a URL: CI, a monitor, a script.

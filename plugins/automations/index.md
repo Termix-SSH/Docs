@@ -50,6 +50,7 @@ Automations works on its own for schedules, webhooks, commands and alerts. Other
 | ------------------------------------ | ------------------------------------- |
 | Metric threshold, health check       | [Host Metrics](/plugins/host-metrics) |
 | Container event, control a container | [Docker](/plugins/docker)             |
+| An alert comes in                    | [Alerts](/plugins/alerts) 1.4.0       |
 | Control a tunnel                     | [Tunnels](/plugins/tunnels)           |
 | Wake a host                          | [Wake-on-LAN](/plugins/wake-on-lan)   |
 | A fleet as the target                | [Fleets](/plugins/fleets)             |

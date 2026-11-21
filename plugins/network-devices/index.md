@@ -20,6 +20,11 @@ Network Devices lets you see and manage routers, switches and access points from
 | MikroTik RouterOS | The v7 REST API               | Ports, PoE, DHCP leases, ARP, Wi-Fi clients, neighbors. Turn ports off or on, restart |
 | OPNsense          | The API with a key and secret | Interfaces, ARP, DHCP leases. Restart                                                 |
 | OpenWrt           | ubus over the web interface   | Interfaces, DHCP leases, Wi-Fi clients. Restart                                       |
+| UniFi Network     | The controller's API          | Ports of every adopted switch, PoE, wired and Wi-Fi clients, LLDP. Cycle PoE          |
+| pfSense           | The REST API package (v2)     | Interfaces, ARP, DHCP leases. Restart                                                 |
+| Cisco IOS         | SSH, show commands            | Interfaces, MAC table, ARP, CDP neighbors. Turn ports off or on                       |
+
+All but SNMP can also save the device's configuration, see [Configuration backups](#configuration-backups).
 
 Termix reaches the device from the server, so the server must be able to connect to it. Turning on a feature on the device is up to you: SNMP, the REST API and so on.
 
@@ -39,6 +44,9 @@ Keys are stored encrypted on the server and are never shown again. To replace th
 - RouterOS: a user with the REST API allowed. A read only group is enough to watch. Changing a port or restarting needs a group that can write. Turn on the `www-ssl` service, or `www` and pick http.
 - OPNsense: an API key and secret made under System, Access, Users.
 - OpenWrt: a user that can log in to LuCI, with `rpcd` and, for Wi-Fi clients, `rpcd-mod-iwinfo` installed.
+- UniFi: a local admin of the UniFi Network application (not a UI.com cloud login), or an API key on UniFi OS. Works with a UDM, Cloud Key or UniFi OS Server on port 443, and a self-hosted controller on port 8443. Set Site when it is not default.
+- pfSense: install the REST API package (pfSense-pkg-RESTAPI) and use an API key, or a user and password. Saving the configuration uses pfSense's own XML-RPC, which needs a user and password with the XML-RPC privilege.
+- Cisco IOS and IOS-XE: an SSH login. Add the enable password when the login does not get privilege 15. To check the device's host key, paste its SHA256 fingerprint (`ssh-keygen -lf` prints it). Without one, any key is accepted.
 
 Devices on a private network are fine. If the web page uses a certificate from your own CA, paste the CA (or the device certificate) in the device form, and Termix will trust it for that device only.
 
@@ -60,6 +68,19 @@ PoE on SNMP devices is matched to ports by number, which is how most switches nu
 
 Termix alerts the person who added the device when it stops answering (after two failed reads) and when it comes back. Use the bell on a port to get an alert when that port's link goes up or down. Alerts go through the Alerts plugin like any other.
 
+## Configuration backups
+
+For RouterOS, OPNsense, OpenWrt, UniFi, pfSense and Cisco, Termix can keep the device's configuration:
+
+- RouterOS: `/export`, with passwords hidden as RouterOS does by default.
+- OPNsense: the whole `config.xml`, like System, Configuration, Backups.
+- OpenWrt: every UCI config the login may read, as JSON.
+- UniFi: the site's settings, networks, Wi-Fi, port profiles, port forwards, firewall rules and routes, as JSON.
+- pfSense: the main parts of `config.xml`.
+- Cisco: `show running-config`.
+
+In the device form, set Save the configuration to every day or every week, and how many versions to keep. Open the device and pick Configs to see the saved versions, press Save now, or open one to read it, compare it with another and download it. A new version is only kept when the configuration changed, and you can get an alert when it does. Saved configurations are stored encrypted and need the Manage network devices permission.
+
 ## Changing things
 
 Turning a port off, cycling PoE and restarting a device need the Manage network devices permission, which admins have by default. Each one asks you to confirm. They are also available as actions, so rules, the CLI, the assistant and Operations Center can run them.
@@ -67,4 +88,5 @@ Turning a port off, cycling PoE and restarting a device need the Manage network 
 ## Limits
 
 - Termix only reads and changes ports, PoE and restarts. It does not edit VLANs, DHCP or firewall rules.
-- OPNsense and OpenWrt were written from their API docs and have not been tried on real hardware yet.
+- OPNsense, OpenWrt, UniFi and pfSense were written from their API docs and have not been tried on real hardware yet. Cisco was tested against a simulated IOS shell.
+- Termix does not restore a configuration. Download it and load it on the device yourself.

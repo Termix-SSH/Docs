@@ -84,6 +84,7 @@ Fleets also collect basic facts about each host, like the OS and kernel. See [in
 
 - [Automations](/plugins/automations) can watch a fleet, so new hosts are covered on their own.
 - With [Snippets](/plugins/snippets) on, you can run a saved snippet on a fleet.
+- Run a command and report is an action for [Operations Center](/plugins/operations-center). It runs one command on one host and returns stdout, stderr, the exit code and how long it took, without failing on a non zero exit. AI tools reach it through the Operations Center MCP server as `fleets__exec`, with an optional time limit in seconds. It needs the Run fleet actions permission and edit access to the host, every run is audited, and by default each run from MCP waits for someone to approve it in Approvals.
 
 ## Permissions
 

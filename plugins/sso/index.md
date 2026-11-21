@@ -10,7 +10,7 @@ plugin_id: "sso"
 plugin_version: "1.2.0"
 plugin_latest: true
 ---
-Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, plus GitHub and Google.
+Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, anything that speaks SAML 2.0, like ADFS, Shibboleth, Okta or Entra ID, plus GitHub and Google.
 
 You can add several providers. Each gets its own button on the sign in page.
 
@@ -18,11 +18,13 @@ You can add several providers. Each gets its own button on the sign in page.
 
 1. Install the plugin from the Plugins tab.
 2. Open Settings, Single sign-on and press Add Provider.
-3. Pick a Provider Type: OIDC, GitHub or Google.
+3. Pick a Provider Type: OIDC, SAML, GitHub or Google.
 4. Copy the Redirect URI shown in the form, like `https://termix.example.com/plugin-api/sso/callback`. Register it as the redirect or callback URL in your identity provider when you make the client there.
 5. Fill in the fields below, turn on Enabled and press Save Provider.
 
 GitHub and Google only need a Client ID and Client Secret. Termix knows their URLs.
+
+For SAML, see [SAML fields](#saml-fields).
 
 ## Upgrading from before 2.9
 
@@ -44,6 +46,33 @@ Providers set up before Termix 2.9 keep the old redirect URI, `https://termix.ex
 | Allowed Users                | One email per line. Empty allows everyone the provider accepts.                                         |
 | Admin Group                  | Members of this group are Termix admins. Checked on every sign in.                                      |
 | Custom CA Certificate        | A PEM certificate, if your provider uses a private CA.                                                  |
+
+## SAML fields
+
+A SAML provider shows an ACS URL, like `https://termix.example.com/plugin-api/sso/saml/acs`, instead of a Redirect URI. In your identity provider, make a SAML app (also called a relying party trust or service provider) with:
+
+- ACS or reply URL: the ACS URL from the form, with the HTTP-POST binding.
+- Entity ID, audience or identifier: the Entity ID from the form, `https://termix.example.com/plugin-api/sso/saml/metadata` by default.
+- Signed assertions. Termix refuses an assertion that is not signed.
+
+Once saved, the form also shows a Metadata URL. Identity providers that can read SP metadata, like ADFS, can take the setup from it.
+
+| Field                             | What it is                                                                                                |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| IdP Metadata URL                  | Optional. Press Fill from metadata to fill in the next three fields from it.                              |
+| Sign In URL                       | The identity provider's SAML sign in URL for the HTTP-Redirect binding.                                   |
+| IdP Entity ID                     | Optional. Answers from any other issuer are refused.                                                      |
+| IdP Signing Certificate           | The PEM certificate the identity provider signs with. Paste the old and new one together during a change. |
+| Entity ID                         | Termix's own entity ID. Leave empty for the default.                                                      |
+| NameID Format                     | Optional, like `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`. Empty lets the provider pick.    |
+| Need the whole answer signed      | Off by default: only the assertion has to be signed.                                                      |
+| Request Signing Key, Certificate  | Optional. Only for providers that want signed sign in requests.                                           |
+| User Identifier Attribute         | The attribute that identifies a user. Empty uses the NameID, or the email when the NameID is transient.   |
+| Email, Username, Groups Attribute | Empty tries the usual names, like `email`, `mail`, `uid`, `groups`, `memberOf` and the ADFS claim URIs.   |
+
+Allowed Users, Admin Group and [groups to roles](#groups-to-roles) work the same as for OIDC, with the groups from the Groups attribute.
+
+Sign in has to start from Termix. Logins started from the identity provider's portal are refused. Signing out of Termix does not sign people out of the SAML provider.
 
 ## How sign in works
 
@@ -76,7 +105,11 @@ Turn on Sign in with SSO automatically to send visitors straight to the first pr
 
 ## Sign out
 
-Signing out of Termix doesn't sign you out of the provider. Providers that support back-channel logout can sign people out of Termix: point them at `https://termix.example.com/plugin-api/sso/backchannel-logout`.
+Turn on Sign out of the provider too on an OIDC provider to sign people out of the provider as well when they sign out of Termix. Termix sends the browser to the provider's sign out page with the client ID, and the provider sends it back to Termix after. Add your Termix address, like `https://termix.example.com/`, as an allowed sign out redirect at the provider. The sign out page comes from the provider's discovery document, or set Sign out URL yourself. This needs Termix 26.11.3 and works in the browser, not the desktop app. `OIDC_SIGN_OUT_AT_PROVIDER=true` and `OIDC_END_SESSION_URL` set it for a provider from environment variables.
+
+With it off, signing out of Termix doesn't sign you out of the provider.
+
+Providers that support back-channel logout can sign people out of Termix: point them at `https://termix.example.com/plugin-api/sso/backchannel-logout`.
 
 ## Setting it with environment variables
 
@@ -88,3 +121,5 @@ You can set one OIDC provider with [environment variables](/plugins/sso/referenc
 - "Not allowed": Their email isn't in Allowed Users, or new accounts can't be made.
 - "Login was started in another browser": A sign in from the web page has to finish in the same browser that started it. Start it again from the sign in page.
 - Admin rights don't stick: Check Group Claim and that your provider sends groups in the token.
+- SAML "authentication failed": The server log says why. Most often the certificate, the Entity ID (audience) or the server clock is off, or the assertion is not signed.
+- SAML "No login is waiting for this answer": The sign in was started from the identity provider, or took more than 10 minutes. Start it from the Termix sign in page.

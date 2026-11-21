@@ -25,6 +25,10 @@ Also: font size, line height, letter spacing and minimum contrast.
 
 Cursor style (block, underline or bar), blinking, and how many lines of scrollback to keep.
 
+## Rendering
+
+The terminal draws with WebGL, so it keeps up with heavy output like build logs. If text looks wrong on your machine, turn off GPU rendering in your user settings for SSH Terminal. It also falls back on its own when the browser can't use WebGL, and while a background image is set.
+
 ## Syntax highlighting
 
 Colors IPs, paths, errors, URLs and more in the output. Pick which kinds under Highlight Categories, or turn it off.

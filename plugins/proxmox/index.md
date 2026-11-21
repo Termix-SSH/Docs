@@ -63,6 +63,36 @@ Poll interval sets how often it refreshes, 15 seconds or more. If the node name 
 
 Add the Proxmox nodes card in the dashboard's edit mode. It shows CPU, memory, disk and running guests for every node with Proxmox Stats on, and only collects them while the card is on screen. Click a node to open its stats.
 
+## Consoles
+
+In Proxmox Stats, open Guests. Every running guest has a console button:
+
+- VMs open their screen with noVNC, like the console in the Proxmox web UI. Use Ctrl+Alt+Del and Full screen at the top.
+- VMs also have a serial console button. It needs a serial port on the VM (Hardware, Add, Serial Port) and a guest that uses it, like `console=ttyS0` on Linux.
+- Containers open a root shell inside the container, like `pct enter`.
+
+Consoles work for guests that have no network or SSH, because they go through the Proxmox node. A guest on another node of the cluster is reached with the cluster's own SSH between nodes.
+
+Opening a console needs the Proxmox guests permission and edit access to the node's host. The node's SSH login must be root, have passwordless sudo, or have a saved sudo password. With a saved sudo password a text console can't follow window resizes.
+
+## Create and clone
+
+New guest in the Guests list creates a VM or a container. Pick the node, a name, the ID (the next free one is filled in), CPU, memory, a disk storage and size, and the network bridge. A VM can boot from an ISO on the node's storage. A container needs a template; download one in Proxmox under the storage, CT Templates. Add an SSH public key so you can log in, or set a root password from the console with `passwd`.
+
+The clone button copies a guest. A full clone copies every disk. A linked clone is faster, but Proxmox only allows it from a template. Pick a target node to clone onto another node.
+
+Create and clone are also Operations Center and Automations actions, and wait for the Proxmox task to finish.
+
+## Actions and snapshots
+
+With Proxmox on for the node, Operations Center and Automations can list guests, start, shut down, reboot and stop them, and work with snapshots:
+
+- List guest snapshots, for every guest or one guest ID.
+- Take snapshot. Leave the name empty to get a dated one like `termix-20261119-153000`. The result carries the name, so a later step can roll back to it.
+- Roll back to snapshot and Delete snapshot. Both are destructive, so approval rules apply.
+
+A snapshot action waits for the Proxmox task to finish, so the next step only runs once the snapshot exists.
+
 ## Troubleshooting
 
 - pvesh was not found: The host isn't a Proxmox node, or the SSH user can't run `pvesh`.

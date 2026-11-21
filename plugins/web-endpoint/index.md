@@ -28,7 +28,7 @@ It needs the [Tunnels](/plugins/tunnels) plugin.
 
 Use Through Termix when your browser can't reach the host, for example when you open Termix from outside through a tunnel. The page opens in a new browser tab on its own temporary address, and every request goes through this server. Apps that expect to sit at the root of a site work, and so do WebSockets and logins. Nothing is rewritten, and pages stay apart from Termix and from each other.
 
-It needs the Reverse Proxy plugin with a Web endpoint domain set: one wildcard DNS record, like `*.apps.example.com`, pointing at the proxy. See [Reverse Proxy](/plugins/reverse-proxy). Hosts with SSH are reached over a tunnel. For a device with no SSH, like a firewall or iLO, an admin must turn on Let Termix reach hosts directly. It always opens in a browser tab, since a frame could not keep the app's login. The desktop app uses an SSH tunnel instead.
+It needs the Reverse Proxy plugin with a Web endpoint domain set: one wildcard DNS record, like `*.apps.example.com`, pointing at the proxy. See [Reverse Proxy](/plugins/reverse-proxy). Connect from Termix picks how the server reaches the host. Auto uses a tunnel when the host has SSH and connects directly when it does not. SSH tunnel and Direct force one or the other, like Direct for a firewall that has SSH on but serves its web UI to the server. Direct always needs an admin to turn on Let Termix reach hosts directly. It always opens in a browser tab, since a frame could not keep the app's login. The desktop app uses an SSH tunnel instead.
 
 ## Beside the terminal and on the dashboard
 

@@ -20,6 +20,8 @@ Click a host in the sidebar, or pick Terminal from its menu. Termix connects wit
 
 The first time you connect, Termix shows the host's key fingerprint and asks you to trust it. If the key changes later, it warns you before connecting.
 
+Set the host's username to `$ask` when one key logs in as many users, like one Linux user per site on a hosting panel. Each time you connect, the tab asks who to log in as and offers the last five names you used. The host's key or password stays the same. The [File Manager](/plugins/file-manager) asks too.
+
 Turn Enable Terminal off for a host that should never get a terminal.
 
 A host that [Privileged Access](/plugins/privileged-access) marks as privileged needs approved access. Without it the tab says so and offers Request access, which opens the request form for that host.
@@ -85,9 +87,22 @@ If you changed these before version 1.3.0, your browser's choices move to your a
 
 A macro types into a terminal for you and waits for it to answer, for logins and prompts. See [macros](macros.md).
 
-## Images
+## Images and files
 
-Paste or drop an image into a terminal and Termix uploads it to the host and types its path. This is handy for coding agents like Claude Code running in the terminal. Admins pick where images are stored and for how long in Settings, SSH Terminal.
+Paste or drop an image into a terminal and Termix uploads it to the host and types its path with a space after it, so you can go on typing. Right after a word you typed, the path also gets a space in front. This is handy for coding agents like Claude Code running in the terminal. Admins pick where images are stored and for how long in Settings, SSH Terminal.
+
+Drop any other file, like a PDF, a log or a zip, and Termix uploads it as it is to `/tmp/termix-files/<random id>/<name>` on the host and types its path with a space after it. Several files are typed in the order you dropped them. Files:
+
+- Keep their name, reduced to letters, digits, `.`, `_` and `-`, at most 100 characters.
+- Are readable only by your SSH user, and are removed after the image expiry. The image count and size limits apply to them separately.
+- Go to the host over SFTP only. With image storage set to local, only images can be dropped.
+- Can be up to 50 MB. For larger files, use [rz](#rz-and-sz).
+
+Folders cannot be dropped. Drop the files in them, or a zip of the folder.
+
+## Inline images
+
+Programs that print pictures with sixel or the iTerm image format show them right in the terminal, like `chafa`, `img2sixel`, `timg` or image previews in yazi and ranger. Turn it off with Inline images in your user settings for SSH Terminal.
 
 ## rz and sz
 
@@ -98,6 +113,16 @@ With `lrzsz` installed on the host, you can move files right in the terminal:
 
 The bar shows progress and has a button to cancel. Transfers are not kept in session recordings or in the output a
 reattached tab replays. Turn it off with rz and sz file transfers in your SSH Terminal settings.
+
+## X11 forwarding
+
+Graphical programs you start in the terminal, like `xclock` or a settings tool, can open their windows on your computer.
+
+1. Run an X server on your computer: VcXsrv on Windows (start it with Disable access control), XQuartz on macOS (allow connections from network clients and run `xhost +localhost`), or Xwayland on Linux.
+2. In Settings, SSH Terminal, set X server for X11 forwarding, like `localhost:0`. The Termix server opens this connection, so it is mostly for the desktop app, where the server is your own computer.
+3. Turn on X11 forwarding for the host, and make sure its sshd has `X11Forwarding yes` and `xauth` installed.
+
+Open a new terminal and run a program. `echo $DISPLAY` shows something like `localhost:10.0` when it works. Tailscale SSH does not support X11 forwarding, so connect to such a host on another port or address that reaches OpenSSH.
 
 ## Local terminal
 

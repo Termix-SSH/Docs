@@ -33,7 +33,13 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
 - Logs: Read a container's logs, follow them live, and download them.
 - Console: Open a shell inside a running container.
 - Updates: See which containers have a newer image and update them.
+- Images: See every image with its tag, size and whether a container uses it. Pull new images, look at their details, and remove them.
+- Volumes: See every volume and whether a container uses it. Create, inspect and remove them.
+- Networks: See every network. Create bridge, overlay, macvlan or ipvlan networks with an optional subnet, inspect and remove them.
+- Remove unused: Clean up images, volumes or networks that no container uses in one go. It says how much space it freed.
 - Stacks: Manage compose projects when stack management is on.
+
+Switch between Containers, Images, Volumes and Networks with the buttons at the top of the Docker tab. Pulling, creating and removing need edit access to the host, and show up in Operations Center run history.
 
 ## Updates
 

@@ -38,7 +38,21 @@ Termix makes a strong repository password unless you type one. Press Show passwo
 A job belongs to one host and writes to one repository. It can back up any mix of these:
 
 - Folders and files: full paths, one per line, and restic patterns to skip.
-- Databases: MySQL, MariaDB, PostgreSQL and SQLite. Pick a saved login from the [Databases](/plugins/databases) plugin or type one in. Leave the list of databases empty to dump all of them. Dumps land in the snapshot under `/var/lib/termix-backups/staging/<job>/databases`.
+- Databases: MySQL, MariaDB, PostgreSQL, SQLite, MongoDB, Redis and SQL Server. Pick a saved login from the [Databases](/plugins/databases) plugin or type one in. Leave the list of databases empty to dump all of them. Dumps land in the snapshot under `/var/lib/termix-backups/staging/<job>/databases`.
+
+| Engine     | Needs on the host                           | What is saved                                                                     |
+| ---------- | ------------------------------------------- | --------------------------------------------------------------------------------- |
+| MySQL      | `mysqldump` or `mariadb-dump`               | One `.sql` file                                                                   |
+| PostgreSQL | `pg_dump`                                   | A `.dump` per database, or one `.sql` of all                                      |
+| SQLite     | `sqlite3`                                   | A `.sqlite` copy of each file                                                     |
+| MongoDB    | `mongodump` (MongoDB Database Tools)        | A gzipped `.archive.gz` per database, or one of all                               |
+| Redis      | `redis-cli`                                 | One `.rdb` snapshot of the whole instance                                         |
+| SQL Server | `sqlcmd` (in `PATH` or `/opt/mssql-tools*`) | A `.bak` per database, made with `COPY_ONLY` so it leaves your backup chain alone |
+
+Passwords never show up on a command line: MongoDB reads it from a private temp file, Redis from `REDISCLI_AUTH` and SQL Server from `SQLCMDPASSWORD`. MongoDB logins use the `admin` database to sign in.
+
+SQL Server writes its backups itself, so set SQL Server backup folder to a folder it can write that the host sees at the same path. The default is `/var/opt/mssql/backup`. When SQL Server runs in Docker, mount a host folder into the container at the same path, like `/srv/mssql-backup:/srv/mssql-backup`, and make it writable for the container's `mssql` user.
+
 - Docker: volumes and compose stacks. A stack backs up its folder and its named volumes. Turn on Stop stacks during the backup to stop them first. Only the services that were running are started again.
 
 ### Schedule and keep
@@ -46,6 +60,29 @@ A job belongs to one host and writes to one repository. It can back up any mix o
 Pick By hand, Daily, Weekly or a custom cron, and a time zone. Termix starts scheduled jobs, so a job can't run while Termix is down. A time missed that way runs once when Termix is back. If a job is still running at its next time, that time is skipped.
 
 Keep says which snapshots to hold on to, such as 7 daily and 4 weekly. After each backup, older snapshots of that job are removed and their space is freed. All zeros keeps everything.
+
+### Mirrors
+
+Turn on other repositories under Mirrors to keep the same backup in more than one place. After each backup, the host copies the job's snapshots from the main repository to each mirror with `restic copy`, so every place holds the very same snapshots, and removes old ones there with the same keep rules. A mirror that doesn't exist yet is set up on the first copy. If a copy fails, the backup is still saved and the run ends with warnings, and the next run copies what was missed.
+
+Some pairs can't mirror each other, because restic opens both at once: two S3 repositories need the same access key and region, two rclone repositories need different remote names, and a folder mirror must be on the job's host.
+
+### Run restic on another host
+
+By default restic runs on the job's own host. Pick another host under Run restic on when a host is too small to run restic, should not have it installed, or can't reach the repository.
+
+Termix then reads the job's files over SSH and passes them to the picked host, which keeps a copy of them and backs that copy up with restic. The two hosts never connect to each other, and only the picked host needs restic, the repository and any rclone setup. The job's host only needs tar and a root login or passwordless sudo. Database dumps, Docker stacks and the commands before and after still run on the job's host.
+
+- With GNU tar on both hosts, only files that changed since the last backup are sent. Otherwise every file is sent each time.
+- The picked host needs room for a full copy of the job's files, in `/var/lib/termix-backups/pull`.
+- Snapshots keep the job host's paths and name, so browsing, downloads and restores look the same as for any other job.
+- A restore to a host without restic goes through Termix the same way, from the host that runs restic.
+- The copy runs inside Termix, so a backup that is still copying fails if Termix restarts. Retries start it again.
+- You need edit access to both hosts.
+
+### Retries
+
+Set Retries after a failed backup to try a failed backup again, up to 10 times, with Minutes between retries in between. The job list shows when the next try starts. The failure alert is only sent once the last try fails. A stopped backup is not retried.
 
 ### Commands
 
@@ -69,13 +106,17 @@ Open Snapshots on a host, or the snapshot button on a job, then open a snapshot 
 - Download a file, or a folder as a zip file, from the button on its row. The whole download is held in the browser before it saves, so use a restore for very large folders.
 - Tick items and press Restore, or press Restore all.
 
-A restore can go to a folder, where files keep their full path inside it, or back to where they were. It can also go to another host you can edit, as long as that host has restic and can reach the repository. A folder repository can only be restored on its own host.
+A restore can go to a folder, where files keep their full path inside it, or back to where they were. It can also go to another host you can edit, as long as that host has restic and can reach the repository. For a job that runs restic on another host, a restore to any host but that one goes through Termix, so the target needs only tar. A folder repository can only be restored on its own host.
 
-Database dumps are restored as files. Load them yourself with `mysql`, `pg_restore` or `psql`, or use the `.sqlite` copy.
+To reach snapshots that no job made, such as an existing restic repository you added by its address and password, press Browse all snapshots on the repository in the Repositories list. Pick a host to read it from: restic runs there, so it needs restic and must reach the repository. A folder repository is always read on its own host. Snapshots made outside Termix are marked Not from Termix, and any snapshot can be browsed, downloaded or restored to any host you can edit.
+
+Database dumps are restored as files. Load them yourself with `mysql`, `pg_restore` or `psql`, `mongorestore --archive --gzip`, `RESTORE DATABASE` in `sqlcmd`, or use the `.sqlite` copy. For Redis, stop it, put the `.rdb` file in its data folder as `dump.rdb` and start it again.
 
 ## Alerts
 
 With [Alerts](/plugins/alerts) on, a job's owner hears about a failed backup, a backup with warnings, and when a failed job works again. Set Days without a backup to also get an alert when a job has had no good backup for that long.
+
+Each job picks what it alerts on: failures, warnings, and every good backup. Under Send to, pick which of your alert channels get the job's alerts, such as one email address or a webhook. With none picked they go to all your channels. Channels like email, webhooks (which can reach Gotify or Apprise), ntfy, Telegram and Discord are set up in Alerts.
 
 With [Storage Health](/plugins/storage-health) on the host, a backup to a folder on that host also warns you when its drives, pools or arrays have problems. The backup still runs, because a failing drive is a reason to back up, but keep a copy somewhere else too.
 

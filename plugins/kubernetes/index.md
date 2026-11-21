@@ -40,6 +40,8 @@ Optional settings:
 - Network and config: Services, Ingresses, ConfigMaps, Secrets and volume claims.
 - Cluster: Nodes, Namespaces, persistent volumes and Events. Cordon, uncordon and drain nodes.
 - Helm: Releases with their history, values and manifest. Roll back to a revision or uninstall.
+- Custom resources: Any CRD in the cluster, like cert-manager Certificates or Traefik IngressRoutes.
+- Port forwards: Forward a pod, service or deployment port to the host.
 
 ## Secrets
 
@@ -52,6 +54,16 @@ CPU and memory come from `kubectl top`, so the cluster needs [metrics-server](ht
 ## Helm
 
 The Helm section shows up when `helm` is installed on the host. On MicroK8s it uses `microk8s helm`. On k3s it reads `/etc/rancher/k3s/k3s.yaml` unless you set a kubeconfig path.
+
+## Custom resources
+
+Open the Custom section and pick a type. Its objects show with their status, taken from the Ready condition or the status phase when they have one. Click one to see and edit its YAML, or delete it.
+
+## Port forwards
+
+Use the port forward button on a pod, service or deployment, or New port forward in the Port forwards section. Termix runs `kubectl port-forward` in the background on the host, so it keeps running after you close Termix, until you stop it or the pod goes away.
+
+By default it only listens on the host itself (127.0.0.1). To reach it from your computer, use a tunnel to that port, or pick Every network interface to listen on the host's address. Anyone who can reach the host can then reach the port, so keep a firewall in front of it. Starting and stopping forwards needs edit access to the host.
 
 ## Kubernetes panel beside a terminal
 

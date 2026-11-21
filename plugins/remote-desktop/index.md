@@ -45,6 +45,8 @@ Accounts in the Active Directory Protected Users group can't use NTLM. For those
 
 The toolbar sits along the top of the session, or the bottom if you pick that. It has the drive's files, zoom, Ctrl+Alt+Del, lock screen, the system key, sticky Ctrl, Alt, Shift and system keys, function keys, Esc, Tab, Home, End, Page Up, Page Down and the arrows, plus Share when Session Sharing is on.
 
+View only stops sending your mouse and keyboard, so you can watch a screen without changing anything. The Termix server drops the input, not just the page, and the button turns it back on when you want to act. Turn on Start Quick Connect sessions view only in Settings, Remote Desktop to have Quick Connect sessions open that way. A plugin that opens a Quick Connect session can ask for view only too, but nothing can turn it off for you. This needs the built-in engine, not guacd. The host's own Read only setting is stricter and can't be turned off from the toolbar.
+
 Sign out (RDP) signs out of Windows after you confirm: it opens the Run box with the Windows key and R and runs
 `logoff`. The session has to be open and showing the desktop, so it does not work at the lock screen.
 

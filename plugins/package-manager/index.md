@@ -18,7 +18,7 @@ Packages manages the software on a Linux host over SSH. Each host gets its own t
 2. Open the host in Manage and turn on the Packages setting.
 3. Open the host menu and choose Packages.
 
-It works with apt, dnf, yum, zypper, pacman and apk. Without root or sudo you can still see everything, but nothing can be changed.
+It works with apt, dnf, yum, zypper, pacman and apk, and with Flatpak, Snap and Homebrew next to them. Without root or sudo you can still see everything, but nothing can be changed.
 
 ## What you can do
 
@@ -30,6 +30,16 @@ It works with apt, dnf, yum, zypper, pacman and apk. Without root or sudo you ca
 - Repositories: see where the host installs from. Change these on the host.
 
 A notice shows when the host needs a reboot to finish an update.
+
+## Flatpak, Snap and Homebrew
+
+When a host has Flatpak, Snap or Homebrew, a Package manager picker shows above the views. Pick one to see its updates, installed apps, search, history and remotes or taps, and to install, update, remove or hold. A host with only these and no system package manager opens on the first one.
+
+- Flatpak: system wide apps and runtimes. Hold uses `flatpak mask`.
+- Snap: Hold uses `snap refresh --hold`. Snaps that need classic confinement can't be installed here.
+- Homebrew: always runs as the user that owns the Homebrew folder, never as root. Hold uses `brew pin`. Search shows formula names only.
+
+Pending updates from all of them count toward the dashboard card and the update alerts.
 
 ## Long actions
 
@@ -48,5 +58,5 @@ With [Host Metrics](/plugins/host-metrics) installed, Packages fills its Package
 - Arch only supports full upgrades, so single updates are turned off there.
 - Security updates are marked on apt, dnf and yum only.
 - Holds work on apt, dnf, yum and zypper. dnf and yum need the versionlock plugin.
-- History is not available on apk.
+- History is not available on apk or Homebrew, and Snap has no repository list.
 - Reboot detection works on Debian, Ubuntu and zypper hosts, and on RHEL hosts with `needs-restarting`.

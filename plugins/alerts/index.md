@@ -10,7 +10,7 @@ plugin_id: "alerts"
 plugin_version: "1.3.1"
 plugin_latest: true
 ---
-Alerts is the one inbox for everything in Termix that wants your attention: an automation that failed, a certificate that didn't renew, a new Termix release. It can also send alerts on to Discord, ntfy, email or any webhook.
+Alerts is the one inbox for everything in Termix that wants your attention: an automation that failed, a certificate that didn't renew, a new Termix release. It can also send alerts on to your phone, Discord, Slack, Teams, Telegram, ntfy, Gotify, Pushover, Matrix, email or any webhook.
 
 Other plugins send alerts. Alerts is where they land.
 
@@ -30,16 +30,28 @@ Add the Alerts card in the dashboard's edit mode to keep your inbox on the dashb
 
 A channel is somewhere outside Termix an alert can go. Add them under Channels:
 
-| Type    | You need                                                                            |
-| ------- | ----------------------------------------------------------------------------------- |
-| Webhook | A URL. Termix sends a JSON body for each alert. You can set the method and headers. |
-| ntfy    | A server URL and topic, plus a token if the topic is protected.                     |
-| Discord | A webhook URL, from the Discord channel's settings under Integrations.              |
-| Email   | One or more addresses. An admin has to set up SMTP first.                           |
+| Type     | You need                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------ |
+| Webhook  | A URL. Termix sends a JSON body for each alert. You can set the method and headers.                    |
+| ntfy     | A server URL and topic, plus a token if the topic is protected.                                        |
+| Discord  | A webhook URL, from the Discord channel's settings under Integrations.                                 |
+| Telegram | A bot token from BotFather and the chat ID to post in.                                                 |
+| Slack    | An incoming webhook URL from the Incoming Webhooks app.                                                |
+| Teams    | A workflow URL. In the channel, add the workflow Post to a channel when a webhook request is received. |
+| Gotify   | The server URL and an app token.                                                                       |
+| Pushover | An application token and your user or group key.                                                       |
+| Matrix   | The homeserver URL, a room ID like `!abc:matrix.org`, and the access token of an account in the room.  |
+| Email    | One or more addresses. An admin has to set up SMTP first.                                              |
 
 Send a test checks a channel works.
 
-Termix blocks sending to private network addresses by default. To send to something on your own network, like a self-hosted ntfy, an admin adds the host to Allowed private notification hosts in Settings, General, and you turn on Allow a private network address on the channel.
+## Phone notifications
+
+In the Termix app, open Settings, Notifications and turn them on for a server. The phone shows up here as a Mobile app channel, with a rule named after the phone that sends warnings and worse to it. Change the lowest severity in the app, or edit the rule here to pick which alerts go to the phone. Turning it off in the app, or deleting the channel here, stops the notifications.
+
+Notifications go through Expo's push service and Apple or Google, and carry the alert's title and text. The F-Droid build has no Google services, so it checks for new alerts in the background instead, about every 15 minutes.
+
+Termix blocks sending to private network addresses by default. To send to something on your own network, like a self-hosted ntfy, Gotify or Matrix server, an admin adds the host to Allowed private notification hosts in Settings, General, and you turn on Allow a private network address on the channel.
 
 ## Delivery rules
 
