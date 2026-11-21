@@ -6,9 +6,16 @@ slug: "/package-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "package-manager"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Flatpak, Snap and Homebrew: pick them next to the system package manager to see updates, installed apps, search, history and remotes, and to install, update, remove and hold. Homebrew runs as the user that owns it
+- Their pending updates count toward the dashboard card and the update alerts
+
 ## 1.1.0
 
 ### Changed

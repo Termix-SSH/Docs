@@ -6,9 +6,38 @@ slug: "/ssh-terminal/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ssh-terminal"
-plugin_version: "1.4.1"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
+## 1.5.0
+
+### Added
+
+- A host saved with the username `$ask` asks who to log in as each time you connect, and offers the last names you used for it
+- The terminal draws with WebGL, so heavy output stays smooth. It falls back to the old renderer when WebGL can't start, and GPU rendering can be turned off in your settings
+- Pictures printed with sixel or the iTerm image format show in the terminal, so chafa, img2sixel and yazi or ranger previews work. Inline images can be turned off in your settings
+- X11 forwarding: windows of graphical programs started in the terminal, like xclock, show on an X server the admin picks, such as VcXsrv or XQuartz next to the desktop app. Turn it on per host
+- Drop any file on a terminal, not just an image, to upload it to the host and type its path. Other files keep their name, go to /tmp/termix-files over SFTP with the image expiry and limits, and can be up to 50 MB
+- A host whose login comes from a vault you still have to unlock, like your own Vaultwarden in Secret Sources, shows Verify to open the unlock page instead of a failed login (needs Termix 26.11.3)
+
+### Changed
+
+- An uploaded image's path is typed with a space after it, like a file's, so the next word you type or the next path you drop or paste is a separate argument. A path dropped or pasted right after a typed word gets a space in front
+
+### Fixed
+
+- Check login works on Windows hosts whose SSH shell is PowerShell or cmd, instead of showing Exit 1
+- The local terminal shows again in the desktop app (needs Termix 26.11.3)
+- People who open a shared session link see the terminal again (needs Termix 26.11.3)
+- Share from the tab or its right-click menu opens the share panel beside the terminal (needs Termix 26.11.3)
+- Snippets, macros and other plugins can type into terminals again, thanks to ZacharyZcR
+- Filling the saved password or sudo password at a prompt works again
+- The SSH login check no longer runs on hosts with SSH turned off, even when the Terminal setting is still on
+- Keys bound to the shell or another plugin, like Next tab, work while a terminal has focus
+- Split screen and tab number shortcuts work while a terminal has focus
+- In the desktop app, terminals to hosts set to connect from the server go through the server again, instead of failing when the address only resolves there
+- Cmd+K clears the terminal on a Mac instead of opening the quick panel
+
 ## 1.4.1
 
 ### Added

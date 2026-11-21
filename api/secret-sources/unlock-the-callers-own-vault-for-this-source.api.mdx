@@ -1,0 +1,70 @@
+---
+id: unlock-the-callers-own-vault-for-this-source
+title: "Unlock the caller's own vault for this source"
+description: "method is password (email, password, optional twoFactorProvider and twoFactorCode), apikey (clientId, clientSecret, password) or sso (redirect, the address the SSO window ended on, and password). password is always the master password. The vault stays unlocked for the caller only, until the source's session length runs out."
+sidebar_label: "Unlock the caller's own vault for this source"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFvGzcM/isEX5oAip0WfZnf0gDd0gKrMbsLhswYlBPt06yTriIvztW4/z5IutheswwosMc9WUeRIvmR/Og9GuIq2lZs8DjDhqQOBixDq5l3IRo4o0Zbpw4CBSFraweyC+91JSHOY3iwhiJob47S62DoXIFu7ZZ6OKucJS83RkE5LaiKJMeHzyFEYA5wFsnYSJUokJpAGxOJOZ8Xi0+ws96EHZA3ZCB4lZ0eHpkcI7cM2u10X0wbzULxcDuBZU3woDsnwJKUOu9CtSUD6xCzRaWdowjBu15B58W6LObQxYpeMTAx2+DBkd9IDbHzDKGTye8eFYreMM7usGQJi2zEuFLY6qgbEorpfo824d5qqVGh1w3hDK1BhZG+dDaSwZnEjhRyVVOjcbZH6dukxRKt3+AwrJIyt8Ezcbp/c3mZfv5e2c9jdhMcFL79J42F3XiwHtbaOjKTYx3BWZYCouzCBQu14MLGemjHujPsavKgoQqGEu6eyBx8vX3u6+cA3FX1iGXRe/PDc71lCNBo349BgRahphWe4DCosVsTfIEFVUFxhtPWdRvrL3Rrp5zhvyh+eLq3ZpiOdUOFTPHhqQ5ddDjDfRENqL6J5LfQRVhSbOwjFB1U+KCj1feuwD5Kcw7r1Fc4w1qk5dl0KtlwQo+6aR1NqtDgkAvHVHXRSp9DuCcdKV51KYu71aD2WIWwtXQq0a39SP1BcvLEIjVICeX0oUO/pFhw7KP0XZRQjYf3ITY6xfzhdvks+8XY6hK25IHJS+qU1BHJSYj2q06aUJPONMDwLj9aCCE1TjLMdT5N6RBbyQpVmYaicpyHP3fyYkQfbpdQ9IFJQAuw3fgL6ydwm3qyjZTCVWAFRG+Jk6QiQ74iCA8UX8wiR3sK93cjeTW/gUR9LDqK9RvYWalBmsc/nqVzUP1+aLfUK9jVNo1TcsRHNxO4EdCVcDIbdSHs/Ghdae9DVkj32vfBE5BjKuNl/TrkrK04ypCfUhlczW/SCFDkksLryZvJ5bPE5p1zUAeWA/Ny9r2lnmEdQwOv54fN8s7KTkdDXsGNX1u2lXYKftJc2+sQW/g1jZWCj0TJRsHV7ULB1dcuUtodP4awcQTXLnSmEFIfOqiC91QlUFlIGwhrYAmJOhMiTQK7jHWud2KSRvuU9th8hThPFsIrThCOq6PsCssjk32bfppgL+Tl/936X+7WMoZCjzJtnbY+VS7z937cAXd43AGZ50+3ACqc5RX7tAhWClOHJrP9/l4zfY5uGJL4S0cxcfPqyPWZqY3ldDY4W2vH9C9VP/tl3OPn8FLkTxzo+7xSXJe+UOGW+vJnYFidLrv5p8USh+EvDbZojA==
+sidebar_class_name: "post api-method"
+info_path: api/secret-sources/secret-sources-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlock the caller's own vault for this source"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/secret-sources/{id}/session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+method is password (email, password, optional twoFactorProvider and twoFactorCode), apikey (clientId, clientSecret, password) or sso (redirect, the address the SSO window ended on, and password). password is always the master password. The vault stays unlocked for the caller only, until the source's session length runs out.
+
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Unlocked."},"400":{"description":"Sign in failed. twoFactor lists the two-step login providers when a code is needed."},"404":{"description":"No such source."},"429":{"description":"Too many failed attempts."}}}
+>
+  
+</StatusCodes>
+
+
+      

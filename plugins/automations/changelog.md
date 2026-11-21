@@ -6,9 +6,15 @@ slug: "/automations/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "automations"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- An alert comes in: a trigger that runs when the Alerts plugin gets an alert, picked by category, severity, title and host, so an automation can restart a service when its Uptime monitor goes down (needs Alerts 1.4.0)
+
 ## 1.3.0
 
 ### Changed

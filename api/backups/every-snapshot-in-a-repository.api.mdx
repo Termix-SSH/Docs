@@ -1,0 +1,69 @@
+---
+id: every-snapshot-in-a-repository
+title: "Every snapshot in a repository"
+description: "Lists all snapshots in one of your repositories, also ones Termix did not make, read from a host you can edit. A folder repository is always read from its own host."
+sidebar_label: "Every snapshot in a repository"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVcGO20YM/RWCpxaYyNscddugabFpD0HjYlEsjIKWaGtqaUYZUvaqhv69oCTbSrZbIMeeLFOcx/dI6s0ZS5Yi+VZ9DJjjr15UgOoaJFArVVQBHyAGhriDPnYJErdRvMbkWRxQLdFeC6w5Nf4ZSl9CiAoNHdhBYiphl2IDBFUUNQgoKACXXjO4h12sS16A9uCt/ol6WRz2KhBPYYTI0KHSXjB/wndUHLpWcOOwpUQNKyd7cUZvalrSCh0Gahhz9CU6TPy584lLzDV17FCKihvC/Izat2NWUN5zwmFwM8rnjlN/gzEODwb1H0c3VkjaGITFEt7e3dnPl71eV3zrcmYFsWGtYok57lnRTfxzXLV1t/fhDbV+tZ0Ur5ZTWJ19OayuUEaN0/HSiS7VmON5Cg3ovmLxh810nt2Ugw6PlDxt64n8HB3576ir1Zqg2kq+Wul4MONnatqasyI2OIzyhYsuee1HClumxOm+MzVPG2tsEePB8zJCrf+F+2tkAfHJ+jxRWQJd225cLuOw/1MSuvnhp5gaMs4fHtcv1H9iER8DaDxwAOGgtu5aMViRmPzfZJlQMdmaksC7ERQolGPaeDDDwX0h6cptUoVu2qQp5bZKf530VUYfHtcw5YOwAimI34c3PmTwWHGANrHRdeAVlA4sFim45FAwxCOnV1WMbJft/uZO3n98gAP3IEpJfdjDyWsF2jz/+ULONfXbW3vg3sGp8kU1FZJbmQweFKgwq5JLrhnEfLqgYBZEhdp7Cr35F9fC01fmwy6Oqr3WJnN2Ebj/+GC7z0km7j9kb7O7F4osG7p2di5xUJLSloRlrP1jLA6cxiDEMFmmWcbMPrGoL5yRDrBN8STsoIynUEcqRwDLiInHKbVRtKFgZOeVeX/k1F9twzpKC/P8mqx9aEE56P/I2qdVVH7WVVuTD9aH0cPOsx8+4c0PbTfnO8As90YfHeaj4d9sceNG7zaA89kG9nuqh8HCk8ObU5VezPdKzHdUCzs8cL/0/CPVndFDM6iLS/77yVcH8d1v8x30Pbym9+IeoV/WvLDxJQ6b5W3x8/s1DsM/pX61Zw==
+sidebar_class_name: "get api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Every snapshot in a repository"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/backups/repositories/{id}/snapshots"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lists all snapshots in one of your repositories, also ones Termix did not make, read from a host you can edit. A folder repository is always read from its own host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"query","name":"hostId","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The snapshots."}}}
+>
+  
+</StatusCodes>
+
+
+      

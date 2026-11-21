@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/docker/reference"
 custom_edit_url: null
 plugin_id: "docker"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 ## Settings
@@ -64,6 +64,15 @@ Run these from Operations Center, Automations, the CLI (`termix ops`), the phone
 | `docker.pause-container`<br />Pause container | One item on a host | Changes |  |
 | `docker.unpause-container`<br />Resume container | One item on a host | Changes |  |
 | `docker.remove-container`<br />Remove container | One item on a host | Destructive | `force` |
+| `docker.pull-image`<br />Pull image | A host | Changes | `image` |
+| `docker.remove-image`<br />Remove image | A host | Destructive | `image`, `force` |
+| `docker.prune-images`<br />Remove unused images | A host | Destructive | `all` |
+| `docker.create-volume`<br />Create volume | A host | Changes | `name` |
+| `docker.remove-volume`<br />Remove volume | A host | Destructive | `name` |
+| `docker.prune-volumes`<br />Remove unused volumes | A host | Destructive |  |
+| `docker.create-network`<br />Create network | A host | Changes | `name`, `driver`, `subnet` |
+| `docker.remove-network`<br />Remove network | A host | Destructive | `name` |
+| `docker.prune-networks`<br />Remove unused networks | A host | Destructive |  |
 
 ## Capabilities
 

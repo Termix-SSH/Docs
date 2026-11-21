@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/remote-desktop/reference"
 custom_edit_url: null
 plugin_id: "remote-desktop"
-plugin_version: "1.4.2"
+plugin_version: "1.4.3"
 plugin_latest: true
 ---
 ## Settings
@@ -27,6 +27,14 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | Moonlight Web username | string |  | An admin login on Moonlight Web. Termix uses it to list, add and pair PCs. |
 | Moonlight Web password | secret |  | The password for that login. |
 | Ignore Moonlight Web certificate | boolean | `false` | Turn on for a self-signed certificate on Moonlight Web. |
+
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Start Quick Connect sessions view only | boolean | `false` | Quick Connect RDP, VNC and ARD sessions open without sending your mouse and keyboard. Turn input on from the toolbar when you want to act. |
 
 ### Host
 

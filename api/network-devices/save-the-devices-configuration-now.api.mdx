@@ -1,0 +1,69 @@
+---
+id: save-the-devices-configuration-now
+title: "Save the device's configuration now"
+description: "Reads it from the device. Nothing new is stored when it did not change."
+sidebar_label: "Save the device's configuration now"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu4zYQ/ZXBvLQFGDkN2he9pVgUyBZNg3WKoAiMgpHGFmuJ1HJGdlxD/14MKV82lwUW6JOo0XB4zuHM0R5r4iq6XlzwWOInsjWDE1jG0IE0BDVtXEUF3AZpnF+Bpy04BpYQqYZtQ17Ta1eDDwJVY/2KCjQodsVYPuItyTbENXxIdRgXBnsbbUdCURP26PTg3kqDBr3tCEt0NRqM9HlwkWosJQ5kkKuGOovlHmXXpywvtKKI47jQbO6DZ2JNuLq81MeX3B4akoaiws0wawPW14mlpy2xANsN1VAFv3SrIdq0cTT401vl7hvHkzqggKCyXiXQGuCEX5f5+fLqrTIHjaEKQ5tlfCKIZGscR4MdSRNqlSiwoMlKlTjr22Hl/IXt3cxnjS9yHZ4dnntXj7MMg9EgU9wcRB9iiyXuc2hE8wLVX2GIcE+xc8+Qc9DgxkZnn9os8RRNfJZ2aAVLbER6LmczSRsLerZd31JRhQ7HdElM1RCd7BKEJ7KR4vWgdB4Xo9ljFcLa0XnE9u432h0jZyXm2g0ZynmhY3MoFpyaRt9zEppp8WuInVXMHx/uX7GfE7MLHiSsyQOTF3A+9YkeEqL7N90pNGRrimAZfklFj+2UNhZ65+eUjtgyKzS59XPKqfn/2cq7iD4+3EPOByYBK8Bu5S+cL+BBR7GPpHCNNrnYNbFGKqrJVwRhQ/FdFgntudzfrOT13Q2saQcsNopaxdZJA9I9//2KzjH126Vd087AtnFVkw/i0zEF3AjYSli3TbkQtn7aPc2nrUS/W78LnoBapiLNmfPLkFg7aZXmC+OC67sbnQGKnDn8WFwVl29cFKXDOuvtiiCGQX3OAG+dVA1x+miripihD84L52uZ3/5+l77lHXoapyvRqe+sV2RTf8zVYE7W/N0LpwEfti9h6Wh5IS//r8Xn/hB6llnfWpdMLhnLfnKpRzy5lDb4lz6VUB5WZfL8g1ktDDZqd+Uj7vdPlunP2I6jhj8PFNU/Fic/Sm5SO9Z1jeXStkxfEeD7T9OP5Qd4j8RhTv0u2V476BsaXNMu/53Gxbkz3/0xv8dx/A+9RIbb
+sidebar_class_name: "post api-method"
+info_path: api/network-devices/network-devices-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the device's configuration now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/network-devices/devices/{id}/configs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads it from the device. Nothing new is stored when it did not change.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether it changed, and the newest saved configuration"},"400":{"description":"This device type cannot save its configuration"},"502":{"description":"The device could not be read"}}}
+>
+  
+</StatusCodes>
+
+
+      

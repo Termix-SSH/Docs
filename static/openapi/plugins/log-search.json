@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Log Search API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Search logs from the journal, log files and Docker containers across many hosts at once."
   },
   "servers": [
@@ -63,6 +63,150 @@
     }
   ],
   "paths": {
+    "/plugin-api/log-search/saved": {
+      "get": {
+        "summary": "The signed in user's saved searches",
+        "description": "Each saved search with its alert settings and the result of its last check.",
+        "responses": {
+          "200": {
+            "description": "The saved searches."
+          }
+        }
+      },
+      "post": {
+        "summary": "Save a search",
+        "description": "Saves a search with a name, its time range and an optional alert that checks it every few minutes.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "search": {
+                    "type": "object"
+                  },
+                  "alert": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "everyMinutes": {
+                        "type": "integer"
+                      },
+                      "minMatches": {
+                        "type": "integer"
+                      },
+                      "channelIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The saved search."
+          },
+          "400": {
+            "description": "The search is not valid."
+          }
+        }
+      }
+    },
+    "/plugin-api/log-search/saved/{id}": {
+      "put": {
+        "summary": "Change a saved search",
+        "description": "Replaces the search, its name and its alert. An open alert starts over.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved search."
+          },
+          "400": {
+            "description": "The search is not valid."
+          },
+          "404": {
+            "description": "Not one of your saved searches."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a saved search",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "404": {
+            "description": "Not one of your saved searches."
+          }
+        }
+      }
+    },
+    "/plugin-api/log-search/saved/{id}/run": {
+      "post": {
+        "summary": "Run a saved search now",
+        "description": "Runs it over its time range and returns the lines, like a search.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching lines and a status for every host."
+          },
+          "404": {
+            "description": "Not one of your saved searches."
+          }
+        }
+      }
+    },
+    "/plugin-api/log-search/channels": {
+      "get": {
+        "summary": "The signed in user's alert channels",
+        "description": "Names and ids of the channels a saved search alert can go to. Empty when the Alerts plugin is off.",
+        "responses": {
+          "200": {
+            "description": "The channels."
+          }
+        }
+      }
+    },
     "/plugin-api/log-search/hosts": {
       "get": {
         "summary": "Hosts the signed in user can search",

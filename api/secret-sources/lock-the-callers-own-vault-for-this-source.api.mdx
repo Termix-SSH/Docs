@@ -1,0 +1,69 @@
+---
+id: lock-the-callers-own-vault-for-this-source
+title: "Lock the caller's own vault for this source"
+description: "Lock the caller's own vault for this source"
+sidebar_label: "Lock the caller's own vault for this source"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVU1v20YQ/SuDubQF1pIT5MSbk7qtk6AwKqVGYQjFmhyJWy13mZ2hZUbgfy9mSUtq5Rx8IjkfO2/ezjzuUeyGsbjHBZWJBBaxSyUxrgy2NtmGhJL69+gCFthaqdFgsA1hga5Cg4m+di5RhYWkjgxyWVNjsdij9K1GsSQXNjgMKw3mNgYmVv/by0t9VMRlcq24qBU+x3JL1QwHg+9e8i9rx8AZJTiGEAW64HMStJSgY0pT9rvz7N8jcFfW0wEzHAbzQn2QmqC03lP6gSHuAjzazgusYwI51keDDUkdKyywIk+ilsxQgfPWdxsXLmzr5pypvRiTeL531TBnYtaCBpnS4zPHXfJY4H40Dfh/bH/FLsGSUuOeYIxBg482OfvgR0ona+57rZixwFqk5WI+l5w4oyfbtJ5mZWxwyJfCVHbJSZ8hPJBNlK467eJ+NZg9ljFuHZ1abOs+UX+wnByx0MsfoZwedJgFxYLTjOj3GIRmevklpsYq5o93y7PuFyNlIHFLAZiCgAv5qrRITO6b1UioyVaUwDK8z4eCDVUOy4l5Nk5bOmAbu0IzTvoYcpz1f3byXUQf75YwxgOTgBVgtwkXLszgrqYAbSKFa8AJiN0Sq6WkikJJEB8pfbeLjPaU7lczeXV7A1vqgcUmcWEDOyc1SPP091k7h9DXU7ul3sCudrpaWoiPZWZwI2BLYU2bYnWnpuzSBt1hW4r6behjICDP03K6sI65ayeeMuWnMgVXtze6ApR4bOHN7O3s8qyx2857qCMLtJZ5F1PFufaWeoZ1ig28uZ0cBt472dlUUTBwE9aOXWm9gd8s1+5DTC38qWtl4BOR5hi4ulsYuPrWJYKY4NcYN57gg49dBTu9/D52UMYQqFRSWchWENfAElUWlZFGyR7XOt93G1kaG7TtafheJ0r/af4wMEJPMm+9dUFrZKXZT2p1j0e1yop0qldosMhC/yxZK4PKpabt9w+W6Uvyw6Dmrx0lVZHVUZWyplSO9b3CYm090xnCMgahoNP64x/T3+QnQPMy8udtDX0WP9/pFxrcUj/+kobVcCLMP19/vl5e4zD8C8jkY4o=
+sidebar_class_name: "delete api-method"
+info_path: api/secret-sources/secret-sources-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Lock the caller's own vault for this source"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/secret-sources/{id}/session"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Lock the caller's own vault for this source
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Locked."},"400":{"description":"This source is not unlocked per user."},"404":{"description":"No such source."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -6,9 +6,16 @@ slug: "/classic-themes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "classic-themes"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- High Contrast Dark and High Contrast Light themes with strong text, borders and focus outlines
+- Color Blind Dark and Color Blind Light themes that show good as blue and bad as orange instead of green and red
+
 ## 1.1.0
 
 ### Changed

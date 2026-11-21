@@ -1,0 +1,69 @@
+---
+id: guests-of-a-proxmox-host
+title: "Guests of a Proxmox host"
+description: "The VMs and containers of the cluster the host belongs to, for host tree layouts. Needs connect access to the host. Results are kept for 15 seconds."
+sidebar_label: "Guests of a Proxmox host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO2zYQ/ZXBnBqAkZ00uei2BZLAKRosEjeLYmEUXGlssZZIhTNaWxX078GIWtuIkwK59SRq9Dh8b4bzNGBJXETXigsec1xXBJ//YLC+hCJ4sc5TZAhbkIqgqDsWitO6CizwQHXwOwYJBrYhpqBEIqhtHzrhDD4Qlay5PBUCtiiIFX/KkcFH4q4WBhsJ9tTKlOnFa2Aqgi85Q4Nid4z5Pd7GcGzCETcGWxttQ0JRPwzolH1rpUKD3jaEOWr2VYkGI33pXKQSc4kdGeSiosZiPqD0rSKdF9pRxHHcKJrb4JlYAS+XS31cF2nXEQtnOBp8tfz1GvMhfE+rwl8vX17DZ2FQhK4uwQctLUSyRUVlhuNosCGpQok57kjQJKk5Ltq62zn/3LZu0aYci0RtMST940L7gQaZ4uNTtbpYY45DCo1ovmHzV+girCk27ggJgwYfbXT2oU51maOTjq3tatF6i7ScLxYybczoaJu2pqwIDY5TZZmKLjrpJwoPZCPFm05l3G9GM2ARwt7RZcS27nfqT5GLFJ+0hYnKZaJTR5ULzp3W9wRCMy/ehthY5fz+bn2l/hMxu+BBwp48MHkB56ce6iEhun+tIqEiW1IEy/DblHQaGoVNG6deX0o6cUuq0KQ7myDnW/vPQX7I6P3dGhIemASsALudf+58BncVeWgjKV0DTkDsnlgjBZXkC4LwOE/u91RMbC/L/dOVvLldwZ56YLFRnN/BwUkF0hz/vpJzgv58affUGzhUrqjSQXw+JoOV+osaCT9hIRz8vLuwXsfKqgmpv/XBE1DNlMbL+W2YVDup6WIgb25XevcpcuL+InuVLa8UrZo2RIGnTZ/fzP6gR+kYsoE9Uau0GlXMvS8mVgcrRQU+lKR6ZkNpA0tjvdKZL8W7lC1swZ4O0bzfEtEh8kJe/sdWnq6V0FEWbW2dV8WTHw2zqd3j2dTU6WbPN5hqigbzk7VP3rYxk9frzmF4sEx/xnocNfylo6h2sznb12Q+pWNdl5hvbc30H1X85eP883gGPyL/NNa+n1yy7vQNDe6pP/+Fxs2lh797s8Zx/AqcwZcV
+sidebar_class_name: "get api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Guests of a Proxmox host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/proxmox/guests/{hostId}/tree"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The VMs and containers of the cluster the host belongs to, for host tree layouts. Needs connect access to the host. Results are kept for 15 seconds.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The guests."},"403":{"description":"No access to the host."},"502":{"description":"Proxmox could not be reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

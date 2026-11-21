@@ -1,0 +1,69 @@
+---
+id: start-an-sso-sign-in-to-the-callers-own-vault
+title: "Start an SSO sign in to the caller's own vault"
+description: "Returns the address to open. The sign in ends on a localhost address, which the caller pastes back to the unlock route with their master password."
+sidebar_label: "Start an SSO sign in to the caller's own vault"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFuGzcQ/ZXBXNoCtOQEOe3NCdDWCdAIkVqjMISC5o60rLjkhjNrWRH234vhrmw1jgvk1pNW5BvyvUfO4xFrYpd9Jz5FrPATSZ8jgzQEtq4zMYMkSB3FGawaAvbbCD4CxZohRbAQkrOhSSynAgP7xrumrOFsCJShsyzEcGfdTpfTmT6G5HaQUy8Eey8F7zO0Ci0VvE+5nqFBsVvG6haX5DIJLFOfHTGuDXY225aEss4f0auEzkqDBqNtCSv0NRrM9Ln3mWqsJPdkkF1DrcXqiHLoFMWSfdziMKwVzF2KTKzzry8v9effJq2+YQ4OBt98G+wZuFAGzxCTTNKpho4y9Ex5qn7zvPq3BNy7ZlpghsNgsCVpUq1KEwuaUXCF8y70Wx8vbOfnXJy6GKt4fvT1MGdi9inOmRMaZMr3J9v6HLDC4zg0oPmKw5+pz7Ci3PoHGDFo8N5mb+/C6NI0WthvbB8EK2xEOq7mcymFM3qwbRdo5lKLQ/GZyfXZy6FQuCObKV/1quR2PZgjupR2ns5HbOc/0OFx5GyJpZ7nSOV8ocfjVS44Hbv+H0Fopo+fU26tcn5/s3qmfjnaBpJ2FIEpil5/vcG6Scr+i1UkNGRrymAZ3pZFwca6wEphOeFzSY/cRlVoxss7Qp6u7997eZHR+5sVjHhgErBSmvPCxxncNBShy6R0DXgBsTtiHXFUU3QE6Z7yiyoK23O7v9vJq8U17OgALDaLj9upw9uHv57JeYR+v7U7OpzCpmzET9vM4FrAOmEtm7CQ9nGqdjZqJ1onOm/jIUUCCjy1mI+bVFR7CVQsP08euFpcawtQ5lHCq9nr2eUzYYs+BCjBeAozLnvv6MCwyamFV4tpwsBbL3uba4oGruPGs3c2GPjVcuPfpdzBH9pWBj4QaY2Bq5ulgasvfSZIGX5JaRsI3oXU17DXwz+kHlyKkZyaykK2hrQBlqRJp460avbY1uW8NU1aG1X2dPmW6inYCMvlx8fgn+J7DPYfWD2F+9LzX+nXFo5CUf63z8p4pYUeZN4F66O6ULLwOGXqLT5lasnM81RFg1V5XaZg1S9O+iopay0+Hu8s0+85DIMOf+4pa9qtn9KzZF/tWb9rrDY2MP2HjT9+mh6yn+Al/qdUiYcS0qHXf2hwR4fxNRzW50/I4uNyhcPwDz/yyVM=
+sidebar_class_name: "post api-method"
+info_path: api/secret-sources/secret-sources-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start an SSO sign in to the caller's own vault"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/secret-sources/{id}/session/sso"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the address to open. The sign in ends on a localhost address, which the caller pastes back to the unlock route with their master password.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The address to open."},"400":{"description":"This source is not unlocked per user."},"404":{"description":"No such source."}}}
+>
+  
+</StatusCodes>
+
+
+      

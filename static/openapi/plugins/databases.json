@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Databases API",
-    "version": "1.3.0",
-    "description": "Browse and edit MySQL, MariaDB, PostgreSQL and SQLite databases on your hosts from one tab."
+    "version": "1.4.0",
+    "description": "Browse and edit MySQL, MariaDB, PostgreSQL, SQL Server, SQLite, Redis and MongoDB databases on your hosts from one tab."
   },
   "servers": [
     {
@@ -640,6 +640,522 @@
         "responses": {
           "200": {
             "description": "The result rows and timing."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/redis/keys": {
+      "get": {
+        "summary": "Scan Redis keys",
+        "description": "One page of keys matching a pattern, with each key's type and time to live. Pass the returned cursor to get the next page; \"0\" means the scan is done.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pattern",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A page of keys."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/redis/key": {
+      "get": {
+        "summary": "Read a Redis key",
+        "description": "The key's type, time to live and value. Big hashes, lists, sets, sorted sets and streams show their first 500 members.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The value."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/redis/write": {
+      "post": {
+        "summary": "Change a Redis key",
+        "description": "Sets, deletes, renames or expires a key, or adds and removes members. Needs edit access to the host, a connection that is not read only, and is written to the audit log.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "op",
+                  "key"
+                ],
+                "properties": {
+                  "db": {
+                    "type": "string"
+                  },
+                  "op": {
+                    "type": "string",
+                    "enum": [
+                      "set",
+                      "delete",
+                      "rename",
+                      "expire",
+                      "hset",
+                      "hdel",
+                      "rpush",
+                      "lset",
+                      "lrem",
+                      "sadd",
+                      "srem",
+                      "zadd",
+                      "zrem"
+                    ]
+                  },
+                  "key": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What Redis answered."
+          },
+          "403": {
+            "description": "No edit access, or the connection is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/redis/console": {
+      "post": {
+        "summary": "Run a Redis command",
+        "description": "Runs one command line with redis-cli. Without edit access, or on a read only connection, only commands that read are allowed.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "line"
+                ],
+                "properties": {
+                  "db": {
+                    "type": "string"
+                  },
+                  "line": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What redis-cli printed."
+          },
+          "403": {
+            "description": "A command that changes data on a read only run."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/mongo/collections": {
+      "get": {
+        "summary": "List MongoDB collections",
+        "description": "The collections and views in a database, with an estimated document count.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The collections."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/mongo/find": {
+      "post": {
+        "summary": "Find MongoDB documents",
+        "description": "Documents matching an Extended JSON filter, sorted and paged, with the total count when it can be had quickly.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "db",
+                  "collection"
+                ],
+                "properties": {
+                  "db": {
+                    "type": "string"
+                  },
+                  "collection": {
+                    "type": "string"
+                  },
+                  "filter": {
+                    "type": "string"
+                  },
+                  "sort": {
+                    "type": "string"
+                  },
+                  "skip": {
+                    "type": "integer"
+                  },
+                  "limit": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A page of documents."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/mongo/indexes": {
+      "get": {
+        "summary": "List a collection's indexes",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "db",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "collection",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The indexes."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/mongo/{action}": {
+      "post": {
+        "summary": "Insert, replace or delete a MongoDB document",
+        "description": "Insert takes a document, replace takes the _id and the new document, delete takes the _id. All as Extended JSON text. Needs edit access to the host, a connection that is not read only, and is written to the audit log.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "insert",
+                "replace",
+                "delete"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "db",
+                  "collection"
+                ],
+                "properties": {
+                  "db": {
+                    "type": "string"
+                  },
+                  "collection": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "doc": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The result."
+          },
+          "403": {
+            "description": "No edit access, or the connection is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/databases/{hostId}/connections/{connId}/mongo/console": {
+      "post": {
+        "summary": "Run mongosh code",
+        "description": "Runs the code with mongosh on the host, with db set to the chosen database, and returns what it printed. Needs edit access to the host and a connection that is not read only, and is written to the audit log.",
+        "tags": [
+          "Databases"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "code"
+                ],
+                "properties": {
+                  "db": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What mongosh printed."
+          },
+          "403": {
+            "description": "No edit access, or the connection is read only."
           }
         }
       }

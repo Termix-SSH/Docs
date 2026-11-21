@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/secret-sources/reference"
 custom_edit_url: null
 plugin_id: "secret-sources"
-plugin_version: "1.1.3"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Settings
@@ -30,6 +30,7 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
 | `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
+| `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
 
 ## API

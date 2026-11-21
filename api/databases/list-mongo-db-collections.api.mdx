@@ -1,0 +1,69 @@
+---
+id: list-mongo-db-collections
+title: "List MongoDB collections"
+description: "The collections and views in a database, with an estimated document count."
+sidebar_label: "List MongoDB collections"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v4zYQ/SuDObUA10qLnnRLkLbINgGyaxdBERgFLU0s1hKpJUd2VEH/vRhSlp2mWXSLRU+Wh8OZ9+bjccCSQuFNy8ZZzHFVERSurqkQQwBtS9gbOgQwFjSUmvVGB1JwMFyBtkCBTaOZSihd0TVkGQrXWV6gQtbbgPkjXk+3Aq4Vttrrhpi8HA1oJGuruUKFVjeEOVYu8E2JCj196oynEnP2HSkMRUWNxnxA7lvxNJZpSx7HUf1jpMJZ+18jferI96dQ5ebfhAnsjd3iOK7FObTOCut8wO8vLuTns8VeSHZsiCtXYo5bYlSJUI5ZW3dbY9/p1mTHJoRsSKUaMyE6RcmGxHrMGme3LjtLgAoD+f2x9J2vMcchmUZUf0P3m+s8rMg35hmSDyrca2/0pk6kJmvk9aS7mqV5zG3Is4zjxQU966ataVG4BsdYlkBF5w33EcKGtCd/2QnHx7XUvnBuZ+jcolvzC/Wz5SzEUsqfoJwHmrshWHDqkvxPTqimj5+cb7Rgfv+wesV+SSEYZ4HdjiwEmWtjgSsCSeK8+VOLJ1SkS/KgA1zFoHFjxC1eXOCoXlCasSVWqNKwJZfTtP1x4DcRvX9YQfKHQAyaIZitfWfsAh4qstB6ErgKDAPrHQWxFFSSLQjcnvybLCLa83J/cSUv729gRz0E1p6N3SaZ4Ob591d0ZtcvL+2OegWHyhRVShROaRZww6ALDnJt8gV3sNPtQlvrooOca9s7S0B1oLR7xj65yNpwLTRn4YLL+xuZfvIhof9u8cPi4hWnK+8OgWImKg3DXb/8cKvgTpbm+krBvQu89RSNyw+3sIwLFL8Nk4KPVJqkuXeyu9dXs+AGcBZ62UhZ+QBP3jUg4FlvYttaF7jRVtBPM3RrAs9xXqrAC9Syc5bJ8leX/zQ7TM+ctbU2VnBG0RkmWXvEk6wJrPmdUJjPr8CZtol91vQob/H8RG2t4ushkYdBQv3q63EUc5Jz0ZzSBFGwEvMnXQf6TDW++Tjp/bfwFp0d9cfHYa/rThxQJOqok18/41E/bH+e84hkqpro5v+YderJuD5/v37+cYXj+BcYJuFE
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List MongoDB collections"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/mongo/collections"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The collections and views in a database, with an estimated document count.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The collections."}}}
+>
+  
+</StatusCodes>
+
+
+      

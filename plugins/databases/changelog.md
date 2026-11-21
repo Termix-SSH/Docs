@@ -6,9 +6,25 @@ slug: "/databases/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "databases"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- SQL Server logins, through sqlcmd on the host. Tables, views, routines, rows and the SQL console work like the other SQL databases
+- Redis and Valkey logins, through redis-cli on the host. Browse and filter keys, see and edit strings, hashes, lists, sets and sorted sets, read streams, set expiry, rename and delete keys, and run commands in a console
+- MongoDB logins, through mongosh on the host. Browse collections, find documents with a filter and sort, insert, edit and delete documents, see indexes, and run mongosh code in a shell
+- The table list can be made wider by dragging its edge
+- Copy a table name from its row, or by right clicking it
+- The table list shows in the SQL tab too, and clicking a table adds its name to the SQL
+- Row counts from MySQL and Postgres are marked as estimates, and the exact count shows once a table is opened
+- Edit in SQL opens a procedure or function in the SQL tab, ready to change and run
+- Saved scripts can be opened, changed and saved again, or saved as a new script
+- Clear the recent queries
+- Several SELECT statements in one run show one result each
+
 ## 1.3.0
 
 ### Changed

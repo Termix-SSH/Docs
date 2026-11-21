@@ -5,10 +5,18 @@ sidebar_position: 90
 slug: "/tunnels/reference"
 custom_edit_url: null
 plugin_id: "tunnels"
-plugin_version: "1.4.0"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
 ## Settings
+
+### Admin
+
+Set by an admin in **Settings**, under the plugin's name. It applies to everyone.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| X server for X11 programs | string |  | Where windows of programs started from X11 apps show up, like localhost:0. The Termix server connects to it, so this is mostly for the desktop app with VcXsrv, XQuartz or Xwayland on this computer. Leave empty to turn X11 apps off. |
 
 ### User
 

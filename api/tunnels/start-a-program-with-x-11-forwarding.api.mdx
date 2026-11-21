@@ -1,0 +1,68 @@
+---
+id: start-a-program-with-x-11-forwarding
+title: "Start a program with X11 forwarding"
+description: "Runs a command on the host over SSH with X11 forwarding, so its windows open on the X server set in Settings, Tunnels."
+sidebar_label: "Start a program with X11 forwarding"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVcFu40YM/RWCZ8WOg/ZQ3bJF280WaIO1i2wRBAUtMdLE0szsDBXZNfzvC84otpvsHvZUXSxTj+Qjh3yzx5pjFYwX4yyW+HGwEQgq1/dka3AWpGVoXRRwzxxguXwPo5EWPi0W8OjCSKE2tikgOjASYTS2dmME59m+eH+CyEGdIwsYC0sWMbaJBawGa7mLMyxQqIlY3uNkwocCA38eOMo7V++w3Ke/JnCNpYSBC6ycFbain8j7zlSkNcyfohayx1i13JO+yc4zlujWT1wJFmeB7lEru6lRo6WKNa8PznMQw1G9J8QpjrHCDQc8nJxOH6MEYxs8pEdTRe9szJGuLi/1578NXwoF4Xqm4X74GuAd1VP/w8uxTOCf3oL/cKdum6gNz9irq7fY1cvBBn4cYqJwKLBnaV2NJXoXtVmepMUS574bGmMvyJu55COabxeLOXkfscCcUg9wj0PosMR9Nh2weJX2bzcEWHHozXZiigU+UzC07nKfJmsi/EhDJ1hiK+JjOZ9Lcpzxlnrf8axyvfb6QRlUQzCySxTWTIHD9aDU7x8OxR4r5zaGzy3kze+8O1rOQix1cjKV80DHM1YuWnOCYTmBsJhefnWhJ+X84W71pvolx2h0L9yGLUS2aSN0SzSJC+bfNMXQMtUcgCK8S0FBt1FhyXGWh+9U0pFbrgoLNJotQ7BAS4np0yjfZPThbgUZn/aUBKJp7IWxM7hr2YIPrHQLMAJCG45qqbhmW3HWhm9Vkdiet/u7O3l9ewMb3kHUZTG2yRIk/fafN+Ucod/f2g3vChhbU7U5UTylmcGNAFUS1W3Cghvt5F2RtS4B9DvZnbMM3EXOO6WS9PEkZr/k4T0Xl8szLTlqiB7io0vtMqL4F3GE69sbXRoOMRe9mP04u3x7ssv34F2QM50GaUkXvnLWspbjbJJtN9oC7kzg3wYKNTQkPNIuZrgf1p2JLfhgnkk4ba2pOBa59s5oqydRgMfg+tShmuNGnAfyPg2A6klPSZqnaUzSBwQ+uCZQ/7V75XVN+5Pq/49XVR5e4a3MfUfGanlJ9faTXN7jSS7VYbrTCtwuFqi74NMFp1wVvN+vKfJfoTsc1Px54KA69nDSxSxamEc3SdyGd1jiz7kbFyulpPBuyCrw6j5UeTsq++2fSxWm9XSv9q5Wn0Cj3o00YolYoEsdTyKYbHvsyDYDNUlHUkx9vgAmvNr/
+sidebar_class_name: "post api-method"
+info_path: api/tunnels/tunnels-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a program with X11 forwarding"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/tunnels/x11/apps"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs a command on the host over SSH with X11 forwarding, so its windows open on the X server set in Settings, Tunnels.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId","command"],"properties":{"hostId":{"type":"integer"},"command":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Started."},"400":{"description":"Bad host or command."},"409":{"description":"No X server is set."},"422":{"description":"The host refused."}}}
+>
+  
+</StatusCodes>
+
+
+      

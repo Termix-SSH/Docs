@@ -1,0 +1,68 @@
+---
+id: restore-hosts-from-a-backup
+title: "Restore hosts from a backup"
+description: "Opens one of your backups and imports its hosts. Leave the passphrase empty to use the saved one."
+sidebar_label: "Restore hosts from a backup"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9ld9z2zYMx/8VHJ4ZO9ve9Jb2ujXdj+Zi77peLreDJdhiLJEsCcXRdP7fdyAd203Wh75ML5ZBAPwCBD+asOFURxvEeocVfgzsEnjH4Ncw+iHCiurtEBKQa8D2wUdJYCVB65OkGfzG9MggLUOglEIbKTFwH2QE8TCkspbokRtNO0ODQpuE1R1e52w58bsnfcV7g5G/DJzkjW9GrKb810ZusJI4sMHaO2EnukQhdLYmFT5/SKp+wlS33JO+yRgYK/SrB64FzVmiO9zyqFuF6ANHsZw0QI2nuCTRug3uDZ7K+s9l/8hxF62cr66875gc7vOje6fgXSr7/Hh5qT9ft/2930FPbixdhR1HBmoabgwMoSHRl7S1IWgXI6zJdtzMUJP3LK1vsMLgkxYaSFqscB66YWPdBQU7L8d2wbnJ83Kg88hJfGQ0mDg+ctQjmXCIHVY4FdMezQudn3Uilhx7+wTFBw0+UrS06kp5B2uucE1DJ1hhKxJSNZ9LDpzxE/Wh41nte23RvSqoh2hlzBJWTJHj1aBl3N3vzYS191vL5xYK9lcej5azFAudgCLlPNHxbFSL1pzd9KyyE5rDy88+9qSaP3xavqp+wSlZ70D8lh0kdgLW5fnWTXy0/+RphJap4QiU4E1Omkdc3XLgTMfmvKSjtlIVGrS6W3FBg46y0oedfFPRh09LKP6QWIAEkt24C+tm8KllByGyyjVgBYS2nNRSc8OuZtAR/mYVWe15u7+7k1c317DlEZJQFOs2sLPSgvRPf78q5+j6/a3d8mhg19q6LRul0zYzuBagWpKGHXzB79whuibnfHbQdXKj0o+7xOV+KVpuT1B6V4b3SIxnFHwNipP1jA9KsL0e7trnNlrRPK8xCFc313qtOKbSlh9mP80uXzXrEFeIsY6+P1xMA4vFe6i9W9uNKbYhGfjdr+gvvYEGbobl8rOBhV4Zfnu7VKT0t9x74T9+yUIKKrRZvWI8tRRZvZQdMIQ8FMqbnjJ2DxN6W5ByLokO34+X6qcTyf+fb06ZWeEnmYeOrNMKMuymAzHv8ERMvYLnzNShfi7jmZv3BlWOBk7TihL/Gbv9Xs1fBo6KsvsTGgu3sExvplwZnrelCRdLlafu3VBA8OLTpoQ7gv7m40LZtDp8InvfaEyknaqjHVaoc5cbnTmYbRN25DYDbTJKck59/gVF5srh
+sidebar_class_name: "post api-method"
+info_path: api/import-export/import-and-export-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore hosts from a backup"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/import-export/backup/restore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens one of your backups and imports its hosts. Leave the passphrase empty to use the saved one.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["key"],"properties":{"key":{"type":"string"},"passphrase":{"type":"string"},"overwrite":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"How many hosts were added, updated, skipped or failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

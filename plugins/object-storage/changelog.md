@@ -6,9 +6,15 @@ slug: "/object-storage/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "object-storage"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Other plugins can keep small files in your buckets, like Import and Export's host backups. They use your own access: reading needs view and writing needs edit
+
 ## 1.1.0
 
 ### Added

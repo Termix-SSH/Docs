@@ -1,0 +1,69 @@
+---
+id: run-a-saved-search-now
+title: "Run a saved search now"
+description: "Runs it over its time range and returns the lines, like a search."
+sidebar_label: "Run a saved search now"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVdtu40YM/RWCTy0wsdPFPuktRVEg21uQpAiKwCgmEm3NWuJoh5QdVdC/FxxpY3fTFFigT5boM5xzeDkasSIpU+g0RMYCb3sWCArxQAmCCmhoCZLnHYHnChJpn1hAa4ImMImDJuwJPAj5VNYrdNj55FtSSoLF44jB8nZea3TIviUsMFToMNGnPiSqsNDUk0Mpa2o9FiPq0GUUK+0o4TRtDC1dZCExwLvLS/v5J/VfvJZ14N3MK7P1IOq1F9jGBHSgNEAdRVc4OXx/+f51jl+jQmSCuIUh9gnEH6hapJGscJoctqR1rExTFM1ytcYC113T7wJf+C6sm7i7mA+tc4b1GKppnXpGh0Lp8Lk0fWqwwHEOTei+YPOHUbin1IZnmDHo8OBT8E/NXIglmnVsfd8oFlirdlKs15oPrujZt11DqzK2OOVSCpV9CjpkCk/kE6Wr3jQ8biY3YhnjPtB5xHfhJxpeImcp7qxnM5XzRC8tNC64tNbeZxC65eHHmFpvnD883L9Sf0ciITJo3BODECsEzoNnl8QU/vKGhJp8RQm8wPc5ae68wfLB3OtzSS/cZlXo5gGdIacR/XjUNxl9eLiHGQ9CCl5Bwo4vAq/goSaGLpHRdbZI6vckFimpIi5p3qy3VGS25+X+6kpe3VzDngYb/KS2DcegNWj7/OcrOS/Qry/tngYHxzqU9XyRnK5ZwbWCL1Xs2IKFeOTldOmZYwbY/54HWzdqhOblCryNWXXQxmT+HHdwlzcJrm6ubfwpyUz/u9W71eW/9CiDm7gT2KbYZgofY5/YN87CsA3NYg8/xHJPCcrI6gNTEvBliiLQep6dQqy5kUvKjbGFbz0bv2VKbns2kzlzCeB4/JKU7RQrsf5PBruMhNKzrrvGBzZy2UvGxY0e8eRG6PDkRzZCxhYdFrML94wbhybWjo3jkxf6PTXTZOFPPSXzic3Jd7JrVEHsucJi6xuh/9D7ze1i89/CW8w/7yMP2d6a3t7Q4Z6G+Vsxbc5t9+a3u3ucpr8BgOpRtQ==
+sidebar_class_name: "post api-method"
+info_path: api/log-search/log-search-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a saved search now"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/log-search/saved/{id}/run"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs it over its time range and returns the lines, like a search.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Matching lines and a status for every host."},"404":{"description":"Not one of your saved searches."}}}
+>
+  
+</StatusCodes>
+
+
+      

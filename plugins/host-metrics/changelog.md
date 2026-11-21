@@ -6,9 +6,20 @@ slug: "/host-metrics/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "host-metrics"
-plugin_version: "1.4.1"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
+## 1.5.0
+
+### Added
+
+- A Main mount setting per host that picks which mount the disk card and dashboards show first
+
+### Fixed
+
+- The first sample after Termix starts no longer fails with "probeTargets needs an acting user"
+- Shared hosts with your own folder credentials show metrics instead of saying 'none' authentication is not supported
+
 ## 1.4.1
 
 ### Added

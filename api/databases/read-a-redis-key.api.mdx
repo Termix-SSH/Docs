@@ -1,0 +1,69 @@
+---
+id: read-a-redis-key
+title: "Read a Redis key"
+description: "The key's type, time to live and value. Big hashes, lists, sets, sorted sets and streams show their first 500 members."
+sidebar_label: "Read a Redis key"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVV1vK0UM/SuWXwBpblIQvOxbowLq5VbqbYIqVEVosutmh+zO7B07TUO0/x15ZvNR0iIuIPGS7Ho99jnHY3uHFXEZXScueCxwVhOsaPsFg2w7MiCuJZAAjXsisL6CJ9usaQQTt4Tack1soHEsbIAp/YYoVKWX5M8SybYMXIcNSE0uwqOLLPDdxQW01C4o8ggNil0yFg94ZcUuLBPj3GBno21JKOqnHTpF2Fmp0aC3LWGBdWC5rtBgpE9rF6nCQuKaDHJZU2ux2KESwQKdF1pSxL43r0Yqg/f/NNKnNcXtMVS1wFeOsUTnl2+fWtH272Q/hJmrM3fBq1jFDr+5uNC/83rmkmlibEnqUGGBSxI0WYECx12zXjr/znZuXO31H++ytv1YlaFSA/J4l2Xqx5Eqx+OMmSk+7Wu0jg0WuMumHs2f8PwS1hFmFFv3DNkHDT7Z6OyiyTQGa2LyaNeNaJVFOi7GY0kHR/Rs266hURla7JMQTOU6OtkmCAuykeLlWrk9zFXuMoSVo1OL7dxPtD1YTkJMVfAM5TTQQX/Fsi+vvmcnNMPDDyG2VjG/v5+dsZ8SswseJKzIA5MXcF67AjRJiO53q55Qk60ogmWYpKCpk9QtHRxhb15QOmDLrNDk+5Vdjhfst428iej9/Qyyv7YuWAF2S//O+RHc1+Shi6RwDTgBsStitZRUkS8JwhPFN1kktKdyf7aSl7fXOpOAxUZxfgkbJzVI+/zrGZ2D6+dLu6KtgU3tyjon4mOaEVwL2FInGu99IWz8cLq03ofkoN+t3wZPQA0PPef8Y0isnTRK8zDh4PL2Wm8/Rc7ovx59O7o44zSJYcN5+FLlBG62048fDNxo01xNDNwGlmWkZJx+/ADT1EDp2QkZuNNOTcdvgl+GqwkcehyCh612pLY6w2MMLSh4sYtUti6wtNYr+uEO3ZGtwA4xc/e/QKu95oW8/K+7JN8voWcZd411XrmkwbQbRt4DHkeeUjgsHYPFYaWczD21nyyIyqlF6c9NWkEacbfTED/Hpu/VnKe7zqPKsU63CotH2zDlg8OWSBJggahD6czxTWm/vBvWxFfwFt+cJJfomGV+nLavY/s3KfdTyL/IuYcy6PqfE/3rrEPV+vnp9vvx+xn2/R/Y/RCQ
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a Redis key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/redis/key"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The key's type, time to live and value. Big hashes, lists, sets, sorted sets and streams show their first 500 members.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","schema":{"type":"string"}},{"in":"query","name":"key","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The value."}}}
+>
+  
+</StatusCodes>
+
+
+      

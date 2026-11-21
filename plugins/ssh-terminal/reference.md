@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ssh-terminal/reference"
 custom_edit_url: null
 plugin_id: "ssh-terminal"
-plugin_version: "1.4.1"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
 ## Settings
@@ -25,6 +25,7 @@ Set by an admin in **Settings**, under the plugin's name. It applies to everyone
 | TTL (ms) | number |  | How long an uploaded image is kept, in milliseconds. Empty uses TERMIX_IMAGE_TTL_MS or one hour. |
 | Max image count | number |  | Most images kept at once. Empty uses TERMIX_MAX_IMAGE_COUNT or 100. |
 | Max storage bytes | number |  | Most bytes of images kept at once. Empty uses TERMIX_MAX_IMAGE_STORAGE_BYTES or 5 GiB. |
+| X server for X11 forwarding | string |  | Where windows from hosts with X11 forwarding show up, like localhost:0. It must be reachable from the Termix server, so this is mostly for the desktop app with VcXsrv, XQuartz or Xwayland on this computer. Leave empty to turn X11 forwarding off. |
 
 ### User
 
@@ -37,6 +38,8 @@ Each person sets these for themselves in **Settings**.
 | Right click in the terminal | select | `"copyPaste"` | Hold Shift to get the terminal menu instead, or copy and paste if the menu is your choice here |
 | Ctrl+V pastes | boolean | `true` | Turn off to send Ctrl+V to the shell. Ctrl+Shift+V still pastes |
 | Copy selected text automatically | boolean | `false` | Copies text as soon as you select it in the terminal |
+| GPU rendering | boolean | `true` | Draw the terminal with WebGL, which keeps up with heavy output. Turn off if text looks wrong. |
+| Inline images | boolean | `true` | Show pictures that programs print with sixel or the iTerm image format, like chafa or yazi previews. |
 | Always show macro buttons | boolean | `false` | Keep the run and delete buttons under each macro visible. Turn off to show them only on hover. |
 | Always show history buttons | boolean | `false` | Keep the copy and delete buttons under each command visible. Turn off to show them only on hover. |
 
@@ -48,6 +51,7 @@ Set per host in the host editor, on the plugin's tab. Host defaults can set them
 | --- | --- | --- | --- |
 | Enable Terminal | boolean | `true` | Offer an SSH terminal for this host. |
 | Command History | boolean | `true` | Record commands run in this terminal for history and autocomplete |
+| X11 forwarding | boolean | `false` | Show windows of graphical programs you start in the terminal, like xclock or a settings tool. Needs an X server set in Settings, SSH Terminal, and X11Forwarding yes on the host. |
 | Connect from (mobile app) | select | `"auto"` | Where the mobile app opens SSH for this host: the phone, this server, or the phone when it can reach the host. |
 
 ## Environment variables

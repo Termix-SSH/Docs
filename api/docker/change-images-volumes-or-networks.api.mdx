@@ -1,0 +1,70 @@
+---
+id: change-images-volumes-or-networks
+title: "Change images, volumes or networks"
+description: "Pulls, removes or prunes images, and creates, removes or prunes volumes and networks. Runs as an operation, so it needs edit access to the host and lands in run history."
+sidebar_label: "Change images, volumes or networks"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVl9v4zYM/yqEnjZATbquT367u2243rCtaHoohiIYGJuJ1ciST5SbZoG/+0DJidMlHXYvA5aXWBT/i/yRO1URl8G00XinCnXbWcsaAjX+mRh8gDZ0jhhMgytiDegqKANhpLNsz952DXFicxQ3Pqx5AnedY0Chgm8poBjTwB5MBEdUMVBlImBZEjNED7EmqD3HpMeiqxiMg9A5qA1HH7YTpVXEFaviUf3gyzUFNdeqxYANRQpC3ykjEbUYa6WVw4ZUoZiYjXc3ldIq0JfOBKpUEUNHWnFZU4Oq2Km4bRNzDMatVN/rs7qwTEn794q0Itc14nLbWXuRUprEJYuHY8pkPrHSKif7Iid25D6cM/uQ95F/SP4oMBKyxP511Lzv5zkG4vjeV1txvPQukovyiW1rTZnebPrEUiW70wj94onKmJTLC0dDLLc5ptOM7nN45qIK5pnC2SvuFo7i2aulD+WxvoX3ltDJFVp77iL9JG5uvePs7tXlpfy9bon7miA/NQR0E1F5fY5vNvsIQ3mB8xGWvnPVwP79KfuvPgJa6zdUgXcQa8Op5AeJ61OJz27t/MYNzmS+q6vzDofORdMQBFp2LBZC6qkhjiUaS+Jbr1VDsfaVFLfn9IBS44WatrZbGXeBrZlWqcGmgdh3oSSe7g5t1E93WWevtGIKz/ve64JVhdplkly+9vF33wW4p9CYF8g8SqtnDAYXNr/FQE3RLbGzURWqjrHlYjqNSXBCL9i0lialb+Q95+JB2QUTt8mFBWGg8K6TeB7n0sSl92tDxxRszc+0PVCOVMykxLMrx4oOhSS+qKHXU2ElJqWHj598aFB8/vRwfxL9bCiT6NfkgMlFgTd5IDHig/kztRvUhBUFQc73SWmCQ2FLgqkCjkM6+JajUjqjVmYZcetpE9/06NPDPWR+YIqAEdis3IVxE3ioyUEbSNzVgtwR18RCKakiVxL4ZwpvRpG8PU73V2fy3e0NrGkLHDFE41awMbGG2Lz8cRLOgfXrU7umrYZNbco6G+LRzARuZEjFNMsGXvAbN0iX6KTvsYx51m29IyDLlBtNsPNuRNkfc/EeoeQ4JvbDan/eY+JI2UPhSBkQME+ghHny2UsNLH3KtolibhiX8O72RlqOAueUfTe5nlyeJPIXdLgiGGQkyltfNehABgQaR4EFvbbSzoJenItgNvuoc96sX7GWTMa8FKBIsreU6kEwp8E0UoaYP9ToVnRYN/b7hA+HdeLvPh4Nq//X+pKrP9JLnLYWTRpWCTZ3Awg/qhGEJeq856SZlYFYaVUcbzTFsJLMtRLzomG3WyDT52D7XshfOgqCjvMRbRNWVoblu1LFEi3TP6T4m7th2/kW3gpij0Jum0DddnJSWq1p+2oFEwD+Dw0PyennvVa5/VPo+fJDtnNxLypG4ZPlR0bEYWTe/jYTcF8MS1PjK5EJuJFHwk027lMsaZAk2k5ZdKsut3zWKb+/AN/s/j4=
+sidebar_class_name: "post api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change images, volumes or networks"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/docker/resources/{sessionId}/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Pulls, removes or prunes images, and creates, removes or prunes volumes and networks. Runs as an operation, so it needs edit access to the host and lands in run history.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["pull-image","remove-image","prune-images","create-volume","remove-volume","prune-volumes","create-network","remove-network","prune-networks"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"image":{"type":"string"},"name":{"type":"string"},"driver":{"type":"string"},"subnet":{"type":"string"},"force":{"type":"boolean"},"all":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The action ran."},"400":{"description":"SSH session not found."},"403":{"description":"Not allowed on this host."},"404":{"description":"Unknown action."},"422":{"description":"The runtime refused or the action failed."}}}
+>
+  
+</StatusCodes>
+
+
+      

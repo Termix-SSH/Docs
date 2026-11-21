@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Import and Export API",
-    "version": "1.2.0",
-    "description": "Import hosts from a JSON file or an SSH config file and export them to share or back up."
+    "version": "1.3.0",
+    "description": "Import hosts from Termix, SSH config, Termius, MobaXterm, PuTTY, SecureCRT or mRemoteNG and export them to share or back up."
   },
   "servers": [
     {
@@ -63,6 +63,169 @@
     }
   ],
   "paths": {
+    "/plugin-api/import-export/backup": {
+      "get": {
+        "summary": "Your hosts backup to object storage",
+        "description": "The backup setup of the signed in user without the passphrase, whether Object Storage is there, and the logins it can use.",
+        "tags": [
+          "Import and Export"
+        ],
+        "responses": {
+          "200": {
+            "description": "The setup."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save the hosts backup setup",
+        "description": "Where backups go, how often and how many to keep. A new passphrase replaces the saved one; leave it empty to keep it.",
+        "tags": [
+          "Import and Export"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accountId": {
+                    "type": "integer"
+                  },
+                  "bucket": {
+                    "type": "string"
+                  },
+                  "prefix": {
+                    "type": "string"
+                  },
+                  "schedule": {
+                    "type": "string",
+                    "enum": [
+                      "off",
+                      "daily",
+                      "weekly"
+                    ]
+                  },
+                  "hour": {
+                    "type": "integer"
+                  },
+                  "keep": {
+                    "type": "integer"
+                  },
+                  "passphrase": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved setup."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Stop backing up to object storage",
+        "description": "Removes the setup. Backups already in the bucket stay.",
+        "tags": [
+          "Import and Export"
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/backup/buckets": {
+      "get": {
+        "summary": "Buckets of an object storage login",
+        "tags": [
+          "Import and Export"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The bucket names."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/backup/run": {
+      "post": {
+        "summary": "Back up your hosts now",
+        "tags": [
+          "Import and Export"
+        ],
+        "responses": {
+          "200": {
+            "description": "The new backup file and how many hosts it holds."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/backup/files": {
+      "get": {
+        "summary": "Your backups in the bucket",
+        "tags": [
+          "Import and Export"
+        ],
+        "responses": {
+          "200": {
+            "description": "The backup files, newest first."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/backup/restore": {
+      "post": {
+        "summary": "Restore hosts from a backup",
+        "description": "Opens one of your backups and imports its hosts. Leave the passphrase empty to use the saved one.",
+        "tags": [
+          "Import and Export"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "key"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "passphrase": {
+                    "type": "string"
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "How many hosts were added, updated, skipped or failed."
+          }
+        }
+      }
+    },
     "/plugin-api/import-export/bulk-import": {
       "post": {
         "summary": "Import hosts from Termix JSON rows",
@@ -150,6 +313,80 @@
           },
           "400": {
             "description": "Invalid request body."
+          },
+          "403": {
+            "description": "Not allowed to import hosts."
+          }
+        }
+      }
+    },
+    "/plugin-api/import-export/app-import": {
+      "post": {
+        "summary": "Import hosts from another app",
+        "description": "Reads hosts from Termius or another CSV, MobaXterm, PuTTY, SecureCRT or mRemoteNG files. With preview set it only returns what it found. Otherwise the hosts are imported in batches of 100 with the same rules as bulk-import. The user needs the host create and edit permissions.",
+        "tags": [
+          "Import and Export"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "files"
+                ],
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "format": {
+                    "type": "string",
+                    "enum": [
+                      "auto",
+                      "termius",
+                      "mobaxterm",
+                      "putty",
+                      "securecrt",
+                      "mremoteng"
+                    ]
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "The mRemoteNG master password, when the file has one."
+                  },
+                  "defaultUsername": {
+                    "type": "string",
+                    "description": "Used for SSH hosts the file has no username for."
+                  },
+                  "overwrite": {
+                    "type": "boolean"
+                  },
+                  "preview": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "What was found, or the import result. needsPassword is set when the file needs a master password."
+          },
+          "400": {
+            "description": "The files could not be read."
           },
           "403": {
             "description": "Not allowed to import hosts."

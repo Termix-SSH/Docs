@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Backups API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Back up folders, databases and Docker data on your hosts with restic, then browse, download and restore."
   },
   "servers": [
@@ -179,6 +179,20 @@
         "responses": {
           "200": {
             "description": "The logins."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/alert-channels": {
+      "get": {
+        "summary": "Your alert channels",
+        "description": "Lists the signed in user's alert channels without their settings, for picking where a job's alerts go. Empty when no alerts plugin is on.",
+        "tags": [
+          "Backups"
+        ],
+        "responses": {
+          "200": {
+            "description": "The channels."
           }
         }
       }
@@ -736,6 +750,198 @@
         "responses": {
           "200": {
             "description": "The stale locks are gone."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/snapshots": {
+      "get": {
+        "summary": "Every snapshot in a repository",
+        "description": "Lists all snapshots in one of your repositories, also ones Termix did not make, read from a host you can edit. A folder repository is always read from its own host.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The snapshots."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/snapshots/{snapshotId}/files": {
+      "get": {
+        "summary": "Files in a repository snapshot",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The folder's entries."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/snapshots/{snapshotId}/download": {
+      "get": {
+        "summary": "Download from a repository snapshot",
+        "description": "Streams one file, or a folder as a zip file, out of a snapshot in one of your repositories.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "hostId",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "folder",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file or zip file."
+          }
+        }
+      }
+    },
+    "/plugin-api/backups/repositories/{id}/snapshots/{snapshotId}/restore": {
+      "post": {
+        "summary": "Restore from a repository snapshot",
+        "description": "Restores a snapshot of one of your repositories, also one Termix did not make, onto any host you can edit. The host needs restic and must reach the repository.",
+        "tags": [
+          "Backups"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshotId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "overwrite": {
+                    "type": "string"
+                  },
+                  "includes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The restore run."
           }
         }
       }

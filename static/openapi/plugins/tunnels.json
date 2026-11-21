@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Tunnels API",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app."
   },
   "servers": [
@@ -63,6 +63,89 @@
     }
   ],
   "paths": {
+    "/plugin-api/tunnels/x11/apps": {
+      "get": {
+        "summary": "List X11 programs",
+        "description": "Programs the caller started with X11 forwarding, and whether an X server is set.",
+        "tags": [
+          "Tunnels"
+        ],
+        "responses": {
+          "200": {
+            "description": "The programs."
+          }
+        }
+      },
+      "post": {
+        "summary": "Start a program with X11 forwarding",
+        "description": "Runs a command on the host over SSH with X11 forwarding, so its windows open on the X server set in Settings, Tunnels.",
+        "tags": [
+          "Tunnels"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hostId",
+                  "command"
+                ],
+                "properties": {
+                  "hostId": {
+                    "type": "integer"
+                  },
+                  "command": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Started."
+          },
+          "400": {
+            "description": "Bad host or command."
+          },
+          "409": {
+            "description": "No X server is set."
+          },
+          "422": {
+            "description": "The host refused."
+          }
+        }
+      }
+    },
+    "/plugin-api/tunnels/x11/apps/{id}": {
+      "delete": {
+        "summary": "Stop an X11 program",
+        "tags": [
+          "Tunnels"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stopped."
+          },
+          "404": {
+            "description": "Not one of the caller's programs."
+          }
+        }
+      }
+    },
     "/plugin-api/tunnels/saved": {
       "get": {
         "summary": "List saved tunnels",

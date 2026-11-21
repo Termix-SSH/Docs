@@ -1,0 +1,135 @@
+---
+title: "Changelog"
+sidebar_label: "Changelog"
+sidebar_position: 99
+slug: "/tunnels/v/1.4.0/changelog"
+custom_edit_url: null
+toc_max_heading_level: 2
+plugin_id: "tunnels"
+plugin_version: "1.4.0"
+plugin_latest: false
+---
+## 1.4.0
+
+### Added
+
+- Other plugins can add their own sections to the Tunnels page, next to SSH and Gateways
+
+### Changed
+
+- Runs in its own process with only the access it needs (plugin API 2, needs Termix 26.11.2)
+- Form fields use the same background as the rest of Termix
+
+## 1.3.0
+
+### Added
+
+- Tunnels host page tile
+- An alert and a Termix event when a tunnel fails for good, and an event when it is back
+- Tunnels are listed as a resource for Termix actions
+- Connect and disconnect tunnels from Automations, the CLI, the phone app and the command palette through Termix actions
+- Tunnels that are down show as a status tile
+
+### Changed
+
+- Needs Termix 26.11.1 or newer
+- Tunnel and gateway pages use the Termix tile look, with cards edge to edge and lines between them instead of gaps
+- SSH tunnels and gateways are tabs above the search bar
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- Add tunnel and the other add buttons no longer have a filled box around them
+- Desktop SOCKS5 tunnels no longer drop the first data a program sends
+- A client tunnel closes its local connection when the target closes, so the next request no longer hangs
+- Tunnels starts again on MySQL, where an index change stopped it from loading
+- The tunnel settings and edit buttons have names for screen readers
+
+## 1.2.3
+
+### Fixed
+
+- The gateway port scan no longer forwards the tunnel's own WireGuard port. The private end now uses a fixed port instead of a random one
+- Gateway ports only catch traffic sent to the public host itself, so other machines behind it can still reach those ports on the internet
+- A gateway's page scrolls again instead of squeezing its sections to fit the window
+
+## 1.2.2
+
+### Fixed
+
+- A local tunnel to an address that a saved host also uses now listens on this machine like any other local tunnel, instead of quietly listening on the SSH host. Pick the saved host by name to route through it
+
+## 1.2.1
+
+### Added
+
+- Tunnels panel beside an SSH terminal: the host's tunnels with live status, start and stop
+- Tunnels dashboard card: every tunnel you can reach, with start and stop
+
+### Changed
+
+- The tunnel grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
+### Fixed
+
+- Saved tunnels now sync to a linked desktop, including for hosts shared with the account
+
+## 1.2.0
+
+### Added
+
+- Gateways: link a private host to a public host over WireGuard and forward public ports to services on the private side, for game servers and other things behind a home network
+- Termix sets up WireGuard and the forwarding rules on both hosts over SSH, keeps them in their own interface and rule table, and puts them back if they go missing
+- Gateway health shows the last handshake, missing rules, and whether each target answers
+- Optional port scan on the private host and extra hosts, with a switch for each port it finds. On a Proxmox host it also scans running VMs and containers
+- A list of public ports to open in your cloud firewall
+
+### Changed
+
+- Server tunnels are now set up in the Tunnels tab instead of the host editor, which keeps the on/off switch for each host (off unless the host defaults turn it on). Tunnels you already saved move over on their own
+- The Tunnels tab has an Add tunnel button and an Edit button on each tunnel
+
+## 1.1.0
+
+### Changed
+
+- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build
+- Needs Termix 26.10.3 or newer
+
+### Fixed
+
+- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging
+
+## 1.0.3
+
+### Changed
+
+- The plugin name and description show in your language
+
+### Fixed
+
+- When the endpoint host could not reach a client tunnel's target, the error did not say which address it tried. It now names it, like 127.0.0.1:8443, which is what an empty remote address means
+- Starting or stopping a server tunnel from the Tunnels tab said "Client tunnel started" or "Client tunnel stopped"
+
+## 1.0.2
+
+### Fixed
+
+- Client tunnels stopped with "Endpoint SSH connection closed" when a reverse proxy dropped their idle connection. The relay now pings to keep it open
+
+## 1.0.1
+
+### Changed
+
+- Translated into every supported language
+
+## 1.0.0
+
+### Added
+
+- First release
+- Local, remote and dynamic SOCKS5 forwarding
+- Reconnects on its own when a tunnel drops
+- Start tunnels on boot
+- Route a tunnel through a second host
+- Client tunnels on your own computer from the desktop app, with presets you can save to the server

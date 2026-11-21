@@ -5,7 +5,7 @@ description: "Search available packages"
 sidebar_label: "Search available packages"
 hide_title: true
 hide_table_of_contents: true
-api: eJytVE1v20gM/SsET1tgYjt71C0Ftou0l6BJESwCo2AkRppamlGGlBOtof++oCR/JGkXLdCTZc4j+fj1dqhUCmZ3eEX5hkoWXDtsKVHDysledugDZtiSVugwUMOYYRVFLwt0mPix84kLzDR17FDyihvCbIfat4b0QbnkhMPg5kiPHaf+GOrxZ6KIJh9KHIa1gaWNQVjs/c/Vyn4Kljz5Vn20DF9a0Ah0HzuF89UKGtK8YlkYiVfQa6aUV0Bb8jXd1wztvg8OG9YqFphhyYpu6kCGy7buSh/OqPXLGXzWUKCS03I39WVYyhgWHQqn7b6PXaoxw91kGvA1lX9il+CGU+OfYcKgwy0lb7zGYmfrWO8DdbXaJFRbyZZLHR0X/ExNW/Mijw0OY7uE8y557UcK90yJ00VnldytbSR5jBvPpxZq/SfuD5aTENc2lonKaaDDlIwLztOz/xMI3fzxIaaGjPPH25s31V+ziI8BNG44gHBQ8AG0YrAkMfl/yZBQMRWcgATej0GBQjHCRscFDu5FSQduU1Xoph2cIMcl/PakP2T08fYGJjwIK5CC+DKc+bCA24oDtImNrgOvoLRhMUvOBYecIW45/bCKke1pu3+5kxdXl7DhHkQpqQ8lPHmtQJvnr2/KOUB/vbUb7h08VT6vpkRyTLOASwXKVcxtxkJ8CrN3TiHEEWDvFPoYGLgWnm7Rh4c4Vu21tjL3IgQXV5e2/JxkIn++OF+svjMhHrP4IEp1DV1bkLJADNDbMdk1ioPpGN0BZi6Jm7g9XrubjTQVPJuh8qIx9eOc2ijaUDC689L8n3a8IHoYq/KzLtuafLCIox7sZl25w6OujGLzQlnQYXbQ3Flc1m6UYXPd7e5J+Euqh8HMk8LavRdejFmB2QPVwm945TEoB9ukPz7PGvwO0H2f74b7Wa+3VHf2jqYOe4n6/Qn3pxv605x7InM/hvVwItV//3WDw/AfpUZaNw==
+api: eJytVU1v40YM/SsETy0wsb171C0Fum22l6DJIigCo6AlxppampnMUHZUQ/+94Ei2402ySICe4lCP5OPHPO5RaJ2wuMdrKje05oRLg4EitSwc9csercMCA0mNBh21jAXWPslVhQYjP3Y2coWFxI4NprLmlrDYo/RBkdYJrzniMJgp0mPHsT+FasmRAl7xTRKtW6NBdl2rJFOfhFs0+NCQBNqok6OABleRd7gcDFacymiDWK+5vow4AzeOAvgIv/uWFQvWJWGqwD+A1AxjZAhjF2AiNcO3WD++p/aJ/zAsFZyCd4mTfv+8WOifc67fAogHWvlO4NNiAS1JWXOaaeu+g94wxbIG2pJtaNXwgXdCgy1L7SsscM2CZpxbgfPQdGvrLijY+QS+mIqc78dpDvOUw2pTOW4P0+9igwXuR9OA31P5y3cRbjm29glGDBrcUrTKKxc7WXO9D9Q1ovsjElIxn0t2nPETtaHhWelbHHK7EpddtNJnCiumyPGy00rulzqS0vuN5ecWCvYP7o+WZyFudCwjleeBjlNSLoft0/9HkO5U/vHFx5aU89e72xfV33BK1jsQv2EHiZ2AdXmhNImP9l9SJNRMFUegBL/koECuyrDsqGt2VtKR21gVmnEHR8hpCf/ZyZuMvt7dwoiHxAIkkOzaXVg3g7uaHYTISteAFRDacFJLyRW7ksFvOb5ZRWb7vN0f7uTl9RVsuIckFMW6Neys1CDt098vyjlCP97aDfcGdrUt6zFROqWZwZUAlZLUbcKC37nJuyTnfAbod3K9dwzcJB7fonUPPldtpdEyD9IJl9dXuvwc00j+0+zzbPHKhDhnUQWipoEuVCScwDvo9THpa0wGxsdojjB1idz67em1m8lIY8EH8aptEh/7PKfgk7TklO60ND/SjjOix7EKP8k8NGSdRsx6sJ905R5PupLF5kxZ0GBxvBSTuCxNPh7qut+vKPG32AyDmkeF1fde2aTMKiweqEn8glfpnbCT/0PfzetFbrg/O01bajpF5Xvwfno//TmdiJ/hx5kez3IsTwr6wX68I+FBWVz/POeByDSuQU/p8ZL89ustDsN/0oTPDQ==
 sidebar_class_name: "get api-method"
 info_path: api/package-manager/packages-api
 custom_edit_url: null
@@ -48,7 +48,7 @@ Search available packages
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"q","required":true,"schema":{"type":"string"}}]}
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"manager","schema":{"type":"string","enum":["system","flatpak","snap","brew"]},"description":"Flatpak, Snap or Homebrew instead of the system package manager."},{"in":"query","name":"q","required":true,"schema":{"type":"string"}}]}
 >
   
 </ParamsDetails>

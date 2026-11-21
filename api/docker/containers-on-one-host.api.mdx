@@ -1,0 +1,69 @@
+---
+id: containers-on-one-host
+title: "Containers on one host"
+description: "Name, state and status of every container on a host the caller can reach with Docker turned on, for host tree layouts. Results are kept for 15 seconds."
+sidebar_label: "Containers on one host"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1vGzcQ/SuDObUAIzmBc9HN/XaKFkaswCgMoxjtjrSsdskNZ1b2Vtj/Xgwp2UocB8itJ1GzjzNvHjmPe6xZquR79THgAv+kjh2IkjJQqPNqEIhr4B2nEaoYlHzgBDEAQRNFQRuGitqWE1QUIDFVDdx7beCnWG05gQ4pcA0xOFjHdNiUmKGlMQ4qM3jPMrQqQIlhy71m3Ou3IFzFUMsMHSptBBe3WHLincOeEnWsnCy+R2/8Pw6cRnQYqGNcoJW6rNFh4o+DT1zjQtPADqVquCNc7FHH3pA+KG844TTdGVr6GITFAG/OzuznU52W1vNRC5nh5PD8S7hCALxA50V82Byg519OmaXxAiFmWRO7vMyS0qplWI2ncpuYJEeZ43qds789e/OV7FUc2jpnXXFJzPUMp8lhx9rEGhe4YUWTVxtc4Lxvh40Pr6j38zoXmtvZoUPhtDuKP6QWF7gvoQndZ9X/ikOCJafOP0DBoMMdJW9NZZUP0cx7TUOrJp5qL4v5XPPGGT9Q17c8q2KHUz4n4WpIXsdMYcWUOF0Mxvr2bnJ7rGLcej6NUO9/5/ExcpLi2i5EoXKa6PF+GBc83Bv7X0DoDotfYurIOL+7WT7r/ppFfAygccsBhIOCD/kcrUhM/l8yJDRMNScggR9y0jyBBssb89metvTIrXSFroxAgTzNwD/3+iKjdzdLKHgQViAF8ZvwyocZ3DQcoE9sdB14BaUti0UqrjlUDHFns/1CF5ntqdzfrOTF1SVseTQLSurDpliKdg9/P2vnEfrt0m55dHDf+KopheSpzAwuFagyW5IjFuJ9OOyuKNgUUaX2ncIYAwO3wmWafFjH3LXX1to8DOnF1aVdfU5SqL+enc/OnjX0BwXa8HGwrdpVrDsKJ55jBjzaWNlUSzmM6+vfXOHfxo0UH5e8nWynxJbzufRRtKNg9A6X5MdP8lonlvZzXjZSQTno//ulKPdM+UHnfUs+WMvZoPYHU7vFJ1OzHsuT4jAb253Lrm2o/X5Fwh9SO00WLo+LeU3txZyrxsWaWuGvyPTd+8PL8z28RG3L4+lTtaN2MBCaPR09shjYk0X/+vMSp+k/1FisWA==
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Containers on one host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/tree"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Name, state and status of every container on a host the caller can reach with Docker turned on, for host tree layouts. Results are kept for 15 seconds.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The containers."},"400":{"description":"hostId is missing."},"404":{"description":"The host is not there, not reachable by the caller or has Docker off."},"502":{"description":"The host could not be reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

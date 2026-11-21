@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Packages API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "See and install updates on your hosts, search, install and remove packages, and read the package history."
   },
   "servers": [
@@ -125,6 +125,20 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "manager",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "system",
+                "flatpak",
+                "snap",
+                "brew"
+              ]
+            },
+            "description": "Flatpak, Snap or Homebrew instead of the system package manager."
           }
         ],
         "responses": {
@@ -148,6 +162,20 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "manager",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "system",
+                "flatpak",
+                "snap",
+                "brew"
+              ]
+            },
+            "description": "Flatpak, Snap or Homebrew instead of the system package manager."
           }
         ],
         "responses": {
@@ -171,6 +199,20 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "manager",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "system",
+                "flatpak",
+                "snap",
+                "brew"
+              ]
+            },
+            "description": "Flatpak, Snap or Homebrew instead of the system package manager."
           },
           {
             "in": "query",
@@ -203,6 +245,20 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "manager",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "system",
+                "flatpak",
+                "snap",
+                "brew"
+              ]
+            },
+            "description": "Flatpak, Snap or Homebrew instead of the system package manager."
           }
         ],
         "responses": {
@@ -226,6 +282,20 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "in": "query",
+            "name": "manager",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "system",
+                "flatpak",
+                "snap",
+                "brew"
+              ]
+            },
+            "description": "Flatpak, Snap or Homebrew instead of the system package manager."
           }
         ],
         "responses": {
@@ -272,6 +342,15 @@
                       "remove",
                       "hold",
                       "unhold"
+                    ]
+                  },
+                  "manager": {
+                    "type": "string",
+                    "enum": [
+                      "system",
+                      "flatpak",
+                      "snap",
+                      "brew"
                     ]
                   },
                   "packages": {

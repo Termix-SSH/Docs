@@ -1,0 +1,70 @@
+---
+id: run-a-redis-command
+title: "Run a Redis command"
+description: "Runs one command line with redis-cli. Without edit access, or on a read only connection, only commands that read are allowed."
+sidebar_label: "Run a Redis command"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVktv4zYQ/isDnlqAsdN2T77FTQtku0GzdhZGERjFWJpIjCVSS47iqIL+ezGk/Ni4KZBLq5M0nPk4z2/Uq5xC5k3Dxlk1U4vWBnCWIHN1jTaHyliCneESPOUmXGSVmcDKcOlaBsoNA2YZhaDBeXAWEDxhDs5WHWTOWsoEWe8FETQAl8hJET0BVpXbUT5RWjEWQc0e1DUybjBQUGutGvRYE5OXo14ZcbRBLpVWFmtSM1W6wDe50srT19Z4ytWMfUtahaykGtWsV9w1omksU0FeDYP+RyTx+b1I66RNgecu70TltXHmLJNlOcKmqUyGkpXpU5Ck9+fYbvNEGX/jxYOSUsR0eNeQZ0NBLPLNiV1gb2yhBp2Uzw/iI7ChcTYkhB8vLyPQN42wShUaSw6Nl3DziUB/uPzpXP/q0DGxtlmJtqAAOTK+bgvf2onkX9XEpculBC5IsLESMzVtqrYw9gIbM833fTDtU42H6bGrwrRP5Rqm0VM5Cq4ipVUg/7zvl9ZXaqb6JBqUfuX5H671cE++Ni+QdJRWz+gNbqqUoFEaY37EtmLpOOYmzKZTjoYTesG6qWiSuVqSvBYPstYb7qILG0JP/qqV+B7W0nqZc1tDpxJszG/UHSQnEEtpj+TKKdChuOKLGjtUvpOS0uPLr87XKD5/XN2fRb+kEIyzwG5LFgJZBmOBSwK5xHnzV2xVKAlz8oAB5hEUUqkpGca+OA3p4FuKSuk0a0nlOG1PO37To4+re0j6EIgBGYIp7IWxE1iVZKHxJO5qMAyMWwoiySgnmxG4Z/JvRhG9PU33uzN5dXcDW+ogMHo2tkgMyfXLn2fhHFTfn9otdRp2pcnKdFE4XjOBG2FeDmI26oLb2dE6Q2tdVJBztJ1QOlWB0uAJ7yyOjPVLat49m+zJYk8iJ6xi7KOL6TIs+keahqu7Gxkb8iGF/cPkw+TyLBlz73aBootxd9x2y8+fNNzKtF3PNdy5wIWnKFx+/gTLOHnx3TBpWMiYR/NbZwt3PYcDQQjLdDLKwhMBHr2r4yJj3MR6C8fUGOl2bL5FK7yUIEfyeu1wf2Tu/381phZleuFpU6GxElXktn5kzgd1ZE6J5LBDtZodNuQJfYr8ZN/lJqTzyKFrHbeqoPa9wHzx1TCI+GtLXmhtfaTJSHK5CfKeq9kjVoH+JZXfLca19j28FdiePmwX2bhq5UtptaXuuO+FNv/DW8dcDetBqzS0Me50+HO65+JeII7GZ+teiP2w+O5+Xwolb8bfhtrlYuNxJwXBXbrcNala8l8hsl5VaIsWi8igEVOevwHFp1+n
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run a Redis command"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/redis/console"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs one command line with redis-cli. Without edit access, or on a read only connection, only commands that read are allowed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["line"],"properties":{"db":{"type":"string"},"line":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What redis-cli printed."},"403":{"description":"A command that changes data on a read only run."}}}
+>
+  
+</StatusCodes>
+
+
+      

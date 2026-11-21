@@ -1,0 +1,68 @@
+---
+id: save-the-hosts-backup-setup
+title: "Save the hosts backup setup"
+description: "Where backups go, how often and how many to keep. A new passphrase replaces the saved one; leave it empty to keep it."
+sidebar_label: "Save the hosts backup setup"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFlU2PGzcMhv8KwbPWdtvb9LQJ0nZTtFisHWyDhVHIM7RH6xlJkai1pwP/94CSY3s/csipc7BnJFJ6SZGPRmwo1sF4Ns5ihfctBYKVrrfJR9g4Ba3bgVszWdC2yV+9tgOwgy2Rn8A1WNqB1zH6NuhIEMh3uqYI3BJE/UQNOEu/Qkf6icAwUO/5tAAYnqBC1puI1QPe9N4Fzlt92MsrLhUG+pIo8jvXDFiN+dMEarDikEhh7SyTZZnS3nem1hLM9DFKRCPGuqVeyxsPnrBCt3qkmlGhD85TYEMx+9a1S5ZvmgtTY5k2FPCgcJXqLfHFXORg7EamfKC12b85JZs3qaPXkwrJpl5idus1Kmy06QZUuCPadgMuDwpbl8LbYiRzb8+cD+INPfmRfEbvbCxh/zybyd/zMlicji4SJz9BceuJW9dghT7l7GluscKp79LG2CvtzdTk07uifHLTUkWoMFJ4oiDnO2IKHVY4lqGDxP1s488uBVhQ6M0eig0qfNLB6FVX9B5Hs+S1Th1jhS2zj9V0ytlxQnvd+44mtesl5qUoqFMwPGQJK9KBwnUS+Q/Lgxqxdm5r6HJEe/MnDaeRiyXmUk5FyuVCp1yLFiwH38t3MUJ1fPnNhV6L5o/3i1fRzylG4yyw25KFSJbB2NxHsokL5r9c2tCSbiiAjvAuL5r7Rcyy40Tq4DKkk7YSFSo0slsxQYVWZ6WPO/6uoo/3Cyj2UhGgGaLZ2CtjJ3DfkgUfSOQq6W/WW4oyUlNDtiZwTxS+G0VWe5nuH87k9e0NbGmAyDqwsRvYGW6B+/2/r8I5mf54arc0KNi1pm7LRvG8zQRuGHTNUdyOtuB29uhda2tdNpB5bQdnCaiLVNpKOHV3JtyHUrwviDQ7A+gMkG/cOY+ccXOkSkHI7BsxZs8BcQEqY9cu595wdn8FYri+vZFepBBLLn+a/DKZvcrw0a91kSOsg+uP3axgPv8DamfXZqPKWIoK/nIr/Y+0rYLbtFh8VjCXPqP3dwtwAfo76h3T379nIYUrkuFero/Y6kBiJaCBTCmF3kXudQb/sazncu3IqRRNhUqFay/Vj+e75P+7CUvxM+156jttrESVqTkekfuAZ+RKL19CV7qjYHcphx9ZzMdxpSN9Ct3hIMNfEgUh4fJM1oI9LMWfIbmlASt8X9JxtRBRYt6lwpEX16wA8nQ93H4Ssq2Ot3XvGnEJeocq/1aICl3OeKZoHhux03aT9CaDKC8pz1dxK/vT
+sidebar_class_name: "put api-method"
+info_path: api/import-export/import-and-export-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save the hosts backup setup"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugin-api/import-export/backup"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Where backups go, how often and how many to keep. A new passphrase replaces the saved one; leave it empty to keep it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"accountId":{"type":"integer"},"bucket":{"type":"string"},"prefix":{"type":"string"},"schedule":{"type":"string","enum":["off","daily","weekly"]},"hour":{"type":"integer"},"keep":{"type":"integer"},"passphrase":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved setup."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: open-an-ftp-web-dav-or-smb-session-for-a-host
+title: "Open an FTP, WebDAV or SMB session for a host"
+description: "Open an FTP, WebDAV or SMB session for a host"
+sidebar_label: "Open an FTP, WebDAV or SMB session for a host"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVcFu40YM/RWCpxaY2Nm2J92SFgGyRbBB7TYoAqOgJdqaWprRzlB2XEH/vuBIttX17iEnaShy+PhIPnUotI2YveKDrRieyNGWA64MNhSoZuGgXzu0DjNsSEo06KhmPQUvPvcVGgz8ubWBC8wktGww5iXXhFmHcmzUN0qwbosG2bW1pttIgwYPvC5ojwZjvcZV36/0qth4Fzlq9E+3t/ooOObBNmK9ovjVO8e5cDHD3uAv33J5sjFatwUfwLo9VbaASz1j2IfrsLtWSnZic1IDnKqaYd+br1w/NeyAHDwsnw288Pq3u7802+LpHiLHqOEbH4Cg9FHQYM1S+kJZG86JygznTdVurbuhxs43tuKbeujAvDux28/zoV5licP+1JA2VJhhN5h6/Brf374NsORQ2zcYfNDgnoKldTVwO1oTCRtqK8EMS5EmZvO5pMAZv1HdVDzLfY196k7kvA1WjgnCmilwUNIwe131psPc+53lqYUa+zsfz5bJFQudkQHK9KLzyCgWHEdJz4MTmvHlwYeaFPPHl+VV9YuxBeJ37CCyE7AOpGTQJD7Y/4YOl0wFB6AI9+lSIFcktxSYBmVa0hnbUBWaYS0Gl8ti/HuQ7yL6+LKEwR8iC5BAtFt3Y90MXkp20ARWuAasgNCOo1pyLtjlDH7P4btVJLRTut/N5N3zI+z4CFEoiK7PwUoJUr/9c1XO2fX91O74aOBQ2rwcEsVLmhk8ClAuUcNGX/AHN0bn5JxPDvqd3NE7Bq4iDwtq3canqq1UWuZU0eDu+VEXgEMcCvgw+3l2e1XWffCHyAa4sJJS1n7PoIsZB/IXad+nS69ei6d7A9blVVsobVEC2W0psAm+BgU57BqIB3JeyrFZKgU1OcU8Ts57VeV/6M/9Fn6TeVORdZolCUU3Cs4rXgQHDU4lBw1mE0k/qc7KYEqWvWLXrSnyn6HqezV/bjmoEKwuwpJkobBR3wvMNlRFvkKZeyfsdOB++GNU2B8BzbfRnxbOHZN+Va2e0OCOj9NfUL/qJxr7/GmxxL7/AlQsWkI=
+sidebar_class_name: "post api-method"
+info_path: api/file-manager/file-manager-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Open an FTP, WebDAV or SMB session for a host"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/file-manager/{protocol}/connect"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Open an FTP, WebDAV or SMB session for a host
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"protocol","required":true,"schema":{"type":"string","enum":["ftp","webdav","smb"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Connected."},"400":{"description":"Missing or invalid parameters."},"401":{"description":"Authentication required."}}}
+>
+  
+</StatusCodes>
+
+
+      

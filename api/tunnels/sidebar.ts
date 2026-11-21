@@ -12,6 +12,24 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "tunnels/list-x-11-programs",
+          label: "List X11 programs",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "tunnels/start-a-program-with-x-11-forwarding",
+          label: "Start a program with X11 forwarding",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "tunnels/stop-an-x-11-program",
+          label: "Stop an X11 program",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "tunnels/list-saved-tunnels",
           label: "List saved tunnels",
           className: "api-method get",

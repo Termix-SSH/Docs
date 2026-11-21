@@ -1,0 +1,69 @@
+---
+id: list-volumes
+title: "List volumes"
+description: "Volumes on the session's host, marked in use unless no container uses them."
+sidebar_label: "List volumes"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVd9vI0UM/lcsvwDSXFLQ8bJvRXBcD5AqUqhQFaHprpsdsuvZG3vbhmj/d+SZbZKjLdJJPGXHY4+/zz++7LEhqVMYNETGCn+P3diTQGTQlkBIJET+QqCNog56n7bUQGAYhWDkjkSAI9SR1QemZHax0H6BDtVvBKsb/D7WW0q4djj45HtSSmbfY7Ccg9cWHbLvCSucU1406DDRxzEkarDSNJJDqVvqPVZ71N2QnTUF3uA0rc1ZhshCYvffnJ3Zz0vkIMUHWeDk8O1LTqvV+yfawFHhLo7cQEz5UEdmqpWaHP/tS/HvfOioAY3QBVG4LwVd4DQ57Enb2GCFG1J0hXiFy6EbN4Hf+CEsm1yp5Ry13B+qMaFDoXT/VLkxdVjhvpjs8lMUf8QxwRWlPjxC8UGH9z4Ff9uVCs3WjP/Oj51iha3qINVyqTlwQY++Hzpa1LHHKddYqB5T0F2GcEs+UTofjcTNenJ7rGPcBjq1+CH8RLuD5eSJlfWyQDl96NBaw4Jzy+1cnNDNH+9i6r1h/nB99Yz9au6fxi0xCLHayNpAW5KYwt/ePKEl31ACL/BdfhQ8N9ktB+Yen1I6YCus0JX5LS7HCf7rQV9F9OH6Coo/CCl4BQkbfhN4AdctMQyJDK6DoKB+S2KWmhrimiDeU3qVRUZ7Wu7PruT55QVsaQeiPmngDTwEbUH7xz+f0Tm4fn5pt7Rz8NCGui2J5JhmARcKvlaxsNkX4gPP0bVn20Ffq9173kUmoE6oLFfgu5hZB+2MZhEdOL+8sNGnJAX614u3i7NnhH7x7DcEc4xlu4xN7/mobFkTd7ZWJoVSmrFavXcFfxc34oyRoecGvEVK7Cj3ZYiivWeDNw/Jzyfi8G80tkisxPr/C3KZCKVHXQ6dD2zgspTsZzW6waMaGa6i3A6PUKujQq8dGgyL2u9vvdBvqZsmM38cKZlKrI+qkzWjCWLfDVZ3vhP6D+Jf/jqL/1fwGvCnbeRdFrdutBM63NLukz+SaX2qvT/+cIXT9A8HMGnE
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List volumes"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/volumes/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Volumes on the session's host, marked in use unless no container uses them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Volume rows."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Failed to list volumes."}}}
+>
+  
+</StatusCodes>
+
+
+      

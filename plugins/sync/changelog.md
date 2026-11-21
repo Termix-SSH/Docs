@@ -6,9 +6,15 @@ slug: "/sync/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "sync"
-plugin_version: "1.3.0"
+plugin_version: "1.3.1"
 plugin_latest: true
 ---
+## 1.3.1
+
+### Fixed
+
+- Rows a server no longer has, like after it was restored or reset, now leave a linked desktop too. Sync now checks the whole list, and the desktop does it on its own every few hours
+
 ## 1.3.0
 
 ### Changed

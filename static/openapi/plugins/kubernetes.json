@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Kubernetes API",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Manage Kubernetes clusters from your hosts over SSH, with logs, metrics, YAML and a shell."
   },
   "servers": [
@@ -1508,6 +1508,321 @@
           },
           "403": {
             "description": "The host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/crds/{sessionId}": {
+      "get": {
+        "summary": "List custom resource definitions",
+        "description": "Every CRD in the cluster, with its kind, group and scope.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "context",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of CRDs."
+          },
+          "400": {
+            "description": "SSH session not found or not connected."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/custom/{sessionId}": {
+      "get": {
+        "summary": "List custom resources",
+        "description": "Objects of one custom resource type, in a namespace or all of them.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crd",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespaced",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The objects."
+          },
+          "400": {
+            "description": "Bad type or namespace, or no session."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a custom resource",
+        "description": "Needs edit access to the host and a host that is not read only.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crd",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted."
+          },
+          "403": {
+            "description": "No edit access, or the host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/custom/{sessionId}/yaml": {
+      "get": {
+        "summary": "Get a custom resource as YAML",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crd",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "namespace",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The YAML."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/forwards/{sessionId}": {
+      "get": {
+        "summary": "List port forwards",
+        "description": "Port forwards Termix started on this host, and whether each still runs.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The forwards."
+          }
+        }
+      },
+      "post": {
+        "summary": "Start a port forward",
+        "description": "Runs kubectl port-forward in the background on the host. It keeps running after you close Termix, until you stop it or the pod goes away.",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "name",
+                  "namespace",
+                  "localPort",
+                  "remotePort"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "pods",
+                      "services",
+                      "deployments"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "localPort": {
+                    "type": "integer"
+                  },
+                  "remotePort": {
+                    "type": "integer"
+                  },
+                  "address": {
+                    "type": "string",
+                    "enum": [
+                      "127.0.0.1",
+                      "0.0.0.0"
+                    ]
+                  },
+                  "context": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Started."
+          },
+          "400": {
+            "description": "Bad input, or kubectl stopped right away."
+          },
+          "403": {
+            "description": "No edit access, or the host is read only."
+          }
+        }
+      }
+    },
+    "/plugin-api/kubernetes/forwards/{sessionId}/{id}": {
+      "delete": {
+        "summary": "Stop a port forward",
+        "tags": [
+          "Kubernetes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stopped."
+          },
+          "400": {
+            "description": "Bad id."
           }
         }
       }

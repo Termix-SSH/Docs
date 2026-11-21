@@ -6,9 +6,24 @@ slug: "/backups/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "backups"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- MongoDB, Redis and SQL Server backups, next to MySQL, PostgreSQL and SQLite. Pick a saved login from the Databases plugin or type one in
+- Browse all snapshots of a repository, also ones Termix did not make, and restore or download from them on any host you can edit
+- Mirrors: a job can copy each backup to up to 5 more repositories right after it is saved, with the same keep rules
+- Per job alert choices: alert on warnings, alert on every good backup, and which of your alert channels get the job's alerts
+- Retries: a failed backup can be tried again up to 10 times with a wait between tries, and the failure alert waits for the last try
+- Run restic on another host: Termix copies the job's files to it over SSH, so the job's host needs no restic and no access to the repository. Restores onto hosts without restic go the same way
+
+### Fixed
+
+- The plugin no longer lists the homepage widget twice in its features
+
 ## 1.1.0
 
 ### Added

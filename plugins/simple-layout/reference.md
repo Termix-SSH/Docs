@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/simple-layout/reference"
 custom_edit_url: null
 plugin_id: "simple-layout"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Capabilities

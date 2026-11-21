@@ -1,0 +1,68 @@
+---
+id: saml-assertion-consumer-service
+title: "SAML assertion consumer service"
+description: "Public. The ACS URL to register with a SAML identity provider (HTTP-POST binding). Keeps the answer for a moment and sends the browser on to the callback, where the login is checked and finished. Only answers to a login Termix started are taken."
+sidebar_label: "SAML assertion consumer service"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVVFv20YM/isEnzZAljNkT3pLM6xN2y1B7SIYgmA4nxjp6hNPvaPiaIb/e8GT5njNiqHP84Mt8z6SH8njpz3WlGx0vbjAWOHNsPHOlrBuCS4uV/Dxw3uQAJEal4Qi7Jy0YGB18dt7cDWxOBmhj+HR1RThhzfr9c3i5nq1ho3j2nHzYwnviPoE0hIYTjuK8BAiGOhCRyxguIZEXE+ITQy7RBECa1a1WOP9xthtAbuWImWbD41jcAlsS3ZLdQ7y4NilluoSrtmPc66kYczssKbYuSdIYqKok0YzW+ISCxTTJKzucLW6xvsCI30eKMmrUI9Y7dEGFmLRR9P33lmj7Vo+LXa73eIhxG4xRE9sQ021gpJtqTP6JGNPWGHYfCIrWGAfQ09RHCU91TZ+oNQHTnSCThIdN3go8AN5M67EyL8d549ynQLkiOdn5/rzz6Fev+hmqcF/Pjt7if09PLd3Z5w4bvLApHVpbmqJmrYjaUONFfYh5cqMtFjhsvdD43hherdMKSyT6fzS2IQFJoqPFLXNexyixwr3k+mAxVcs/ghDPM4rY7DARxOd2fip0Nma+T+YwQtW2Ir0qVouJTuW9GS63lNpQ6fNulcGdohOxkxhQyZSvBiU9t39odAxh62jU4vp3Tsaj5aTECsd8UTlNNBxSMpFa84wrGYQFvPDryF2Rjm/vV2/qH5FKbm8Alti3Q4Bx3l+miRE91e+f9CS0a0zCV7loHkPFJYd84xPSzpym6rCAp1mmyBYIJvM9NNOvsno7e0aJjwkEjACyTW8cFzCbUsMfSSlW4CTvFtJLZZqYksQHil+s4rM9rTd393Ji5sr2NI47bde26xV0j39+aKcI/T7W7ulUaXI2XZKlJ7TlHAlYKwkdZuxEHY8e1vDHDJAzw2PgQnIJ5r2yfFDyFU78VrmynHjaepvYLi4udIVoJimEn4qz8uzl3NyDWtBk0zzCNc98dUvcBmYyQqEOEn334pdwGsnb4aNHrwOofGU56Ar3RlWOvOlyF4mJdWuwGADp6GjmJfTWfqayIlk/n9fKdP1FXqSZe+NY+1s1r39LJZ3+CyWesNT0G/TeSxQJfO+wFbFtbrD/X5jEn2M/nBQ8+eBoqrY/bMqTpKF08XNArelESu8nAaxWCsdhfth0oD/eo+p2h1FXgegKze/ELtQa5ATdHH6R6kcDl8AaizljA==
+sidebar_class_name: "post api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"SAML assertion consumer service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sso/saml/acs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. The ACS URL to register with a SAML identity provider (HTTP-POST binding). Keeps the answer for a moment and sends the browser on to the callback, where the login is checked and finished. Only answers to a login Termix started are taken.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/x-www-form-urlencoded":{"schema":{"type":"object","properties":{"SAMLResponse":{"type":"string"},"RelayState":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"303":{"description":"On to the callback."},"400":{"description":"No login is waiting for this answer."}}}
+>
+  
+</StatusCodes>
+
+
+      

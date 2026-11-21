@@ -6,9 +6,15 @@ slug: "/firewall/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "firewall"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Windows Firewall on Windows hosts with OpenSSH: see the profiles and the rules people made, add, change and delete rules, set the default for incoming and outgoing traffic, and turn it on or off, with the same SSH lockout check and undo timer
+
 ## 1.1.0
 
 ### Changed

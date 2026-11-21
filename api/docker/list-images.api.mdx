@@ -1,0 +1,69 @@
+---
+id: list-images
+title: "List images"
+description: "Images on the session's host, marked in use when a container was made from them."
+sidebar_label: "List images"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU1v20YQ/SuDubQBNpRTpBfeXLRplLaAUTkwAkMoxuRI3IrcZXaHllWC/z2YXVpSartADj2JOzuz8958PI1Yc6yC7cV6hyUuO9pyBO9AGobIMVrvvovQ+CgGOgo7rsE6GCLDvmEHBJV3QtZxgD1F6Khm2ATf6QNdgQaFthHLW/zZVzsOuDbYU6COhYPaR7SauCdp0KCjjrHEOfGyRoOBPw82cI2lhIENxqrhjrAcUQ59cpZg3Ranaa3OsfcuctT7Hy4u9OcZhhD8PhY4GXz7nM9q9f6ROzgvsPGDq8GHdKi8c1wJ1yn+x+fi35FtuQbx0NooYFNRC5wmgx1L42ssccuCJtMucdG3w9a619TbRZ3qtMhBi/FYigkNRg73j2UbQosljtmkl19j+OSHANccOvsA2QcN3lOwdNfm8szWhH5DQytYYiPSx3KxkBRY8AN1fctF5TucUoEjV0OwckgQ7pgCh8tBOdyuJzNi5f3O8rmFevsbH46WsydW2sgM5fyhY18VC8791nN2QjN/vPOhI8X84eb6CfvV3D3xO3YQ2YlOrc60JvHB/kPqCQ1TzQEowk/pUSBXJ7cUmDp8TumILbNCk4c3u5zG9++9vIjow801ZH+ILEAC0W7da+sKuNGF6gMrXANWQGjHUS0V1+wqBn/P4UUWCe15ub+5kpdXS9jxAaJQEOu2sLfSgHQPfz2hc3T99tLu+GBg39iqyYniKU0BSwGqJGrY7At+7+boipxuIFWi9+QO3jFwGznvlnUbn1hbaZVmVhy4vFrq6HOIGfqb4m1x8YTQH+RUGOYYzXbl647cSd+SLB50rVQNY27GavXeZPyt30ajjBS9q7MyRt9y6kvvo3TkFN48JL+fpOHfYHSPnLCT/0mR81QIP8iib8k6BZjkZJwF6RZPgqTgsnQbPMItTwq9NqhYNGgc7yjyx9BOk5o/DxxUKNYn4UmyUduo3zWWG2oj/wf57/+cxf8VvIT7cSHdIelbO+gJDe748NUfybQ+V99ff7nGafoCslFpFQ==
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/images/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Images on the session's host, marked in use when a container was made from them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Image rows."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Failed to list images."}}}
+>
+  
+</StatusCodes>
+
+
+      

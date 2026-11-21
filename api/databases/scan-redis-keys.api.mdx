@@ -1,0 +1,69 @@
+---
+id: scan-redis-keys
+title: "Scan Redis keys"
+description: "One page of keys matching a pattern, with each key's type and time to live. Pass the returned cursor to get the next page; '0' means the scan is done."
+sidebar_label: "Scan Redis keys"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVdtu3EYM/RWCL20BRXKLPqlPNpwWTmPUybowCmcRzEpcabrSjDJD7SWC/r3gjPbi2ls0AQr0yWuK5JzDy+GAJfnC6Y61NZjjb4agUxWBXcKKdh5axUWtTQUKOsVMziSw0VwDqaIWl2888K4jUKYE1i0BW2j0mlK4U94D1wSOuHeGSih6560Tj4o4fDK05fDgT/ABLz4gtKRMjPKFMqA9lNZQigmyqjzmj3itWC2UJ4/zBDvlVEtMTj4NqIVDp7jGBI1qCXOsreebEhN09KnXjkrM2fWUoC9qahXmAwp+zFEbpoocjmPyYqbCGvO1mT715HbHVOUCXwjz7LSpzkdNDfia0Fj5f4ycCzHfWSOlzQf84eJC/jydj8sn05HKg9gS17bEHCtiTGLRcsy6pq+0eaU6nZX7lmVDbMeYSTGpkKw+G2Jlx8xRqX0mmQUpufW+r71rMMchmkZM/obqD9s7uCfX6i1EH0xwrZxWiyaSmayBz1L1DctkMHc+zzIOgSltVds1lBa2xTGUw1PRO827AGFBypG77IXc41zqXFi70nRqUZ3+lXYHy0mKmZQ9QjlNdOiCYNl3R/6PTphMP362rlWC+c3D/TP2M/JeWwNsV2TAk2HQJqyQPGKd/qzEE2pSJTlQHq5C0riyNcXAFMfkCaUDtsgKkzhY0eU4WX9u+CyiNw/3EP3BE4Ni8Loyr7RJ4aEmA50jgZuAZmC1Ii+WgkoyBYFdkzvLIqA9LfcXV/Ly7kZmGDwrxyJwQdW43X58Rufg+uWlXdEugU2tizo+5I/PpHDDoAr2Ejb5gt2YKbpQxtjgIN+V2VlDQI2nuHTaLG1grbkRmgdVhMu7G5l+cj6i/z79Mb14xunK2Y2Pqk2lZrjdzd69TeBWlub6KoE767lyFIyzd29hFhYo/NZMCbyXVQ3ht9ZU9voKDksO1sBONlJ23cPS2RYEPKtFaFtnPbfKCPpphmYi9THjtPxPwMqqGSbD//MDFQeQactZ1yhthGxQrmESxUc8iqKQPFyyBPPDnTpRRrGfXJ1SiyVUaJ6EwyYph0Fy/O6acRRzFH5RrFJ70b8S86VqPIXI/e1Zq6YXsCiydcbxeG7+jffhwhyd50cRfhnQ2S5/+346sd/BucLuxcnsTt/co5mq+SLe/+7VqVfj/PQq/vL6HsfxL0i9NW8=
+sidebar_class_name: "get api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Scan Redis keys"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/redis/keys"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+One page of keys matching a pattern, with each key's type and time to live. Pass the returned cursor to get the next page; "0" means the scan is done.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"db","schema":{"type":"string"}},{"in":"query","name":"pattern","schema":{"type":"string"}},{"in":"query","name":"cursor","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A page of keys."}}}
+>
+  
+</StatusCodes>
+
+
+      

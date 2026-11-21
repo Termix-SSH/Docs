@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/file-manager/reference"
 custom_edit_url: null
 plugin_id: "file-manager"
-plugin_version: "1.2.2"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -18,6 +18,7 @@ Each person sets these for themselves in **Settings**.
 | --- | --- | --- | --- |
 | Simultaneous File Transfers | number | `4` | How many files the side by side local/remote manager uploads or downloads at the same time. Lower this if your server limits SFTP channels. |
 | Confirm before moving files to trash | boolean | `true` | Ask before moving remote files to trash. Permanent deletion still requires confirmation. |
+| Open these file types outside Termix | string |  | Desktop app only. File endings, like psd, jpg, pdf, that open in your external editor, or the system app when none is chosen, when you open them. Separate them with commas, or use * for every file. |
 | Open the files panel with new terminals | boolean | `false` | Show the files panel beside every SSH terminal when it opens. You can still open and close it from the button on the right edge. |
 | Files panel side | select | `"right"` | Where the files panel sits next to a terminal. |
 | Files panel size | number | `380` | Width in pixels, or height when it is at the bottom. You can also drag its edge. |

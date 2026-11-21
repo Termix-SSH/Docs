@@ -1,0 +1,68 @@
+---
+id: save-a-search
+title: "Save a search"
+description: "Saves a search with a name, its time range and an optional alert that checks it every few minutes."
+sidebar_label: "Save a search"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VU1v20gM/SsEz4rtFnvSLd0PIO0WG2yyCBaBsaBHjDSxNKPOUHa0gv/7gjOurSQNFr3UF9ucR/KRw3mcsOJogu3Feocl3tCOIxBEpmAa2FtpgMBRxwVYiSC2YwjkagZyFZADn1ypBWo5CEhDAqZhs41gBXjHYYQH3kNn3SAcF1hg4C8DR/ngqxHLKf21gSssJQxcoPFO2IkeUd+31pBmWD5GZThhNA13pL9k7BlL9JtHNoIF9sH3HMRy1FMlPUNFCdbVeCgw1/Y6wKHAVMP/h2ZHm1YJn4Ab71smpzFSyZ9ztTOEdcI1B0V01n0mMc1b56Yh57i9qubnFAKNWKAV7r7p9/Wj/Y29dzGHf796p1/Pr/m2YYi04+p40QtN+9Nq9QYyD4ON4LzAjlpbLVATdSyNr7DE3sfUJZIGS1z27VBbd0G9Xba+vsj+y5QQtf9hxyFieT/hEFosccqmAxYvsv/thwC3HDr7BBmDBe4oWO1/Ku9oTbwfaGgFS2xE+lgul5IcF/xEXd/ywvhOu7RWBmYIVsZEYcMUOFwOSv1+fSgmNN5vLc8t1NtPPJ4ssxA3Oo2ZyjzQ6XqUi9acYDooCYTF8cdvPnSknD/e3b6q/oZjtN6B+C07iOwErANpGDSJD/bf9DKgYao4AEX4kIKmp6mw5Jjudl7SeaRSVTpTmi1DsDg+HHzcy5uMPt7dQsZDZAESiLZ2F9Yt4K5hB31gpauaAUJbjmoxXLEzDH7H4c0qEtt5u7+7k5fXV7DlEaJQEOvqLGLSPf3zqpwT9Ptbu+WxgH1jTZMTxXOaBVwJkJGobkcs+L07ehty+ozIiJ6TG71j4DZyflMqc3+eBfLXPLxnQfsqZDMdmwvXSZqylj4Xo9Vz7Vk9l5r71VoJWPfgU9utaF783ddwkxXg8vpK3x+HmPv3bvF+sfrGkCRw6+sID8F3qQePfgiO2kLN8GBb3TKugl+82XIAlXyyjkMEMsHHCB25ERoftYsC3hlOk6FC05GbtUM31mlhveQynZfJj1ltx1kVfpJl35JNGyGJ3HRUx3s8qyMWeNZHvdGkkOsCtXCFTtOGIv8V2sNBzV8GDipa67MIZoXCPKdJz7Y8Yok/57ovbpWQwtshP/kXC1W17CTj13/cqAptjou585X6BNrr0qY9logF5q4kxUu2CVty9UB1Eo0UUz//AXzy5R0=
+sidebar_class_name: "post api-method"
+info_path: api/log-search/log-search-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Save a search"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/log-search/saved"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Saves a search with a name, its time range and an optional alert that checks it every few minutes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"search":{"type":"object"},"alert":{"type":"object","properties":{"enabled":{"type":"boolean"},"everyMinutes":{"type":"integer"},"minMatches":{"type":"integer"},"channelIds":{"type":"array","items":{"type":"integer"}}}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"201":{"description":"The saved search."},"400":{"description":"The search is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

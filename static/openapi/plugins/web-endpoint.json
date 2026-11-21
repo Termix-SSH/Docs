@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Web Endpoint API",
-    "version": "1.2.1",
+    "version": "1.3.0",
     "description": "Open a host's web UI inside Termix, directly or over an SSH tunnel."
   },
   "servers": [
@@ -156,7 +156,7 @@
     "/plugin-api/web-endpoint/open-termix": {
       "post": {
         "summary": "Open an endpoint through Termix",
-        "description": "Gives a one time address on the Reverse Proxy web endpoint domain that serves this endpoint through the server. Hosts with SSH go through a tunnel. Others need the admin setting that lets Termix reach hosts directly.",
+        "description": "Gives a one time address on the Reverse Proxy web endpoint domain that serves this endpoint through the server. The endpoint's termixRoute picks an SSH tunnel or a direct connection; on auto, hosts with SSH go through a tunnel. Direct needs the admin setting that lets Termix reach hosts directly.",
         "tags": [
           "Web Endpoint"
         ],

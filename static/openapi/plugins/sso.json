@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Single sign-on API",
-    "version": "1.2.0",
-    "description": "Sign in with any OpenID Connect provider, GitHub or Google."
+    "version": "1.3.0",
+    "description": "Sign in with any OpenID Connect or SAML provider, GitHub or Google."
   },
   "servers": [
     {
@@ -111,6 +111,67 @@
         "responses": {
           "302": {
             "description": "Back to the app."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/saml/acs": {
+      "post": {
+        "summary": "SAML assertion consumer service",
+        "description": "Public. The ACS URL to register with a SAML identity provider (HTTP-POST binding). Keeps the answer for a moment and sends the browser on to the callback, where the login is checked and finished. Only answers to a login Termix started are taken.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SAMLResponse": {
+                    "type": "string"
+                  },
+                  "RelayState": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "303": {
+            "description": "On to the callback."
+          },
+          "400": {
+            "description": "No login is waiting for this answer."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/saml/metadata": {
+      "get": {
+        "summary": "SAML service provider metadata",
+        "description": "Public. The metadata XML of one SAML provider, to give to the identity provider.",
+        "tags": [
+          "SSO"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "provider",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadata XML."
+          },
+          "404": {
+            "description": "No enabled SAML provider with that id."
           }
         }
       }
@@ -270,7 +331,7 @@
     "/plugin-api/sso/providers": {
       "get": {
         "summary": "List SSO providers",
-        "description": "Every OIDC, GitHub and Google provider with its redirect URI. Secrets are never sent, only whether one is set. Needs sso.manage.",
+        "description": "Every OIDC, GitHub, Google and SAML provider with its redirect URI or ACS URL. Secrets are never sent, only whether one is set. Needs sso.manage.",
         "tags": [
           "SSO"
         ],
@@ -285,7 +346,7 @@
       },
       "post": {
         "summary": "Add an SSO provider",
-        "description": "Adds an OIDC, GitHub or Google provider. GitHub and Google fill in their own endpoints. Needs sso.manage.",
+        "description": "Adds an OIDC, GitHub, Google or SAML provider. GitHub and Google fill in their own endpoints. Needs sso.manage.",
         "tags": [
           "SSO"
         ],
@@ -304,7 +365,8 @@
                     "enum": [
                       "oidc",
                       "github",
-                      "google"
+                      "google",
+                      "saml"
                     ]
                   },
                   "enabled": {
@@ -324,6 +386,44 @@
           },
           "400": {
             "description": "Missing or invalid fields."
+          },
+          "403": {
+            "description": "Missing permission."
+          }
+        }
+      }
+    },
+    "/plugin-api/sso/providers/saml-metadata": {
+      "post": {
+        "summary": "Read a SAML identity provider's metadata",
+        "description": "Fetches the metadata from a URL, or reads pasted XML, and returns the sign in URL, entity id and signing certificates for the provider form. Saves nothing. Needs sso.manage.",
+        "tags": [
+          "SSO"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "xml": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The fields read from the metadata."
+          },
+          "400": {
+            "description": "The metadata could not be read."
           },
           "403": {
             "description": "Missing permission."

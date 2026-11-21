@@ -5,7 +5,7 @@ description: "Package repositories"
 sidebar_label: "Package repositories"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVMFu3EYM/RWCpxYY7zo96uYCTeH0YjRbGIWxKGiJlqYrzShDymtV0L8XHCm76zg+5CSJeuS8Rw7fhEq1YPGAd1QeqGbBvcOeEnWsnOzPhD5ggT1pgw4DdYwFNlH0tkKHib8MPnGFhaaBHUrZcEdYTKhjb0gflGtOOM97Q0sfg7AY4Jfra3tULGXyvfpox+wahjKGJ18PiStI3EfxGpNnAQoVHBvWhhMwlQ14gRg2OM/umyqrmFfp6LBjbWKFBdas6BZJBW77dqh9uKLeb/sl8aqjQDWn7bQInbe5EjoUTs9f+zKkFgucltCM35L4Ow4Jdpw6/wILBh0+U/L02C4dWKO5CU80tGqdVe2l2G41J274hbq+5U0ZO5xzD4XLIXkdM4VHpsTpZjAhD/vZTVjGePB8GaHe/8HjKXJR4rMNa6FyWeg0O+OC60ztewGhW18+xtSRcf50v3uj/jOL+BhA44EDCAcFH0AbBjskJv8fGRIapooTkMCvuWiessFy4gZn90rSiduiCt1yOxfI+X7+e9R3GX2638GCB2EFUhBfhysfNnDfcIA+sdF14BWUDiwWKbniUDLEZ07vqshsL9v9w528ubuFA48gSkl9qOHotQHtXv55I+cE/fHWHnh0cGx82SwHyfmYDdwqUKliaSsW4jGs2SWFEDPA/lMYY2DgVnjZQh+eYlbtteXzHgrc3N3a5eckC/kPmw+b6+9MiPMpPohS28LQV6RsSw6jLZMtozgQplQ27gSzlMRdfGZY91fcGqRF8BqGxovGNOY59VG0o2B010vzjmu84niaqPKLbvuWfLBi2Qqm1VEe8Owo2WZeeQo6LC7s02xl77KhWuY0PZLwX6mdZwt/GTjZpu/PzpH3vvJi7xUWT9QKvyFZxqAc7Eb99Ofq0D8Duu+T/7pRYcwG1Q72hQ4PPJ6tft7PFwb6+287nOf/AQtaKd4=
+api: eJytVU1v20gM/SsET1tgYqc96pYC2226l6DxIigCY8FItDVraWY6Q9nRGvrvC2rkryY5BNiTbfqRfPx6s0ehdcLiEe+o3NCaEy4NBorUsnDUf/ZoHRYYSGo06KhlLLD2SW4rNBj5Z2cjV1hI7NhgKmtuCYs9Sh8UaZ3wmiMOg5ki/ew49qdQLTlSwCu+SaJ1azTIrmuVZOqTcIsGVw1JoI06OQpo8CnyDpeDwYpTGW0Q6zXXl4wzcO8ogI/w1besWLAuCVMFfgVSM+TIEHIXYCI1w2GpNabgXeKk1D5dX+vHZZpFzVB6t7LrLnIFkYNPVny0nIBcBbuapeYITGUNNoF3M23IL1GmEVy4o8GWpfYVFrhmQZMHUeA8NN3auisKdj6xvppYz/d5PMN8jKRN4rg9TLOLDRa4z6YBfyXxw3cRFhxb+wwZgwa3FC09NbkDk3Vswoq6RnQfREIq5nMZHWf8TG1oeFb6FodBe5i47KKVfqTwxBQ53nRayONSF6P0fmP53ELB/sn90XIW4l7XJFM5D3TcGuVy2Cb9nUG6I+OXLz62pJy/PSxeVH/PKVnvQPyGHSR2AtaNC6JJfLT/kiKhZqo4AiX4PAYdp6yw0XGGg7ko6cgtV4UmX0KGnE7hn528yejbwwIyHhILkECya3dl3QweanYQIitdA1ZAaMNJLSVX7EoGv+X4ZhUj2/N2v7uTN3e3sOEeklAU69aws1KDtM9/vyjnCH1/azfcG9jVtqxzonRKM4NbASolqduEBb9zk3dJzvkRoP+T671j4CZxvkLrVn6s2krDpztMcHN3q8vPMWXyH2efZtevTIjHLKoo1DTQhYqE9cih12PSY0wGElMsa3OEqUvk1m/5oDrJTEbKBR/EqLZJfOzHOQWfpCWndKeleUM1LjgeJyr8LPPQkHUabJSC/aQoj3hSlFFmLjQFDRZnoq+ysjTjM6Ce+/0TJf4rNsOg5qzweumVTaobFRYrahK/oFV6J+zk/1Bq83qNG+4vHpktNZ2iRmU/6No7uf72fXr1PsBbaQ/37vrznAc6UycHfbCO8v7H7wschv8A0BGeiA==
 sidebar_class_name: "get api-method"
 info_path: api/package-manager/packages-api
 custom_edit_url: null
@@ -48,7 +48,7 @@ Package repositories
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"manager","schema":{"type":"string","enum":["system","flatpak","snap","brew"]},"description":"Flatpak, Snap or Homebrew instead of the system package manager."}]}
 >
   
 </ParamsDetails>

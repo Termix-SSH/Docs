@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Snippets API",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Save the commands you run often and run them in a terminal or on many hosts in one click."
   },
   "servers": [
@@ -484,7 +484,7 @@
         },
         "responses": {
           "200": {
-            "description": "Snippet ran. A nonzero exit is not an error here: success is false and output/error carry what the command printed.\n"
+            "description": "Snippet ran. A nonzero exit is not an error here: success is false, exitCode holds the code (null if the host sent none) and output/error carry what the command printed.\n"
           },
           "400": {
             "description": "Snippet ID and host ID are required, or the snippet is a note."

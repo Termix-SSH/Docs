@@ -1,0 +1,68 @@
+---
+id: read-a-saml-identity-providers-metadata
+title: "Read a SAML identity provider's metadata"
+description: "Fetches the metadata from a URL, or reads pasted XML, and returns the sign in URL, entity id and signing certificates for the provider form. Saves nothing. Needs sso.manage."
+sidebar_label: "Read a SAML identity provider's metadata"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVlU1z4zYMhv8KBpdeFDnt9qRbdtvdZps0mdg7aSeT6cASLDGWSC0J+aMe//cOSMV2Ns1hj9XBlkCAfAGQD3dYcSi96cU4iwV+ZCkbDiANQ8dCFQnBwrsOCL7cXWXgPHimKkBPQbiCP6+vMiBbgWcZvE2RwdQWjE0RbMXIFkwV3XTI2BpK9mIWpiThAAvnY1zv3cpU7NXQ5TClFQewThpj6xz+YK4ChODyjizVnGOGQnXA4gGn0xt8zNDz14GDvHfVFotd/DSeKyzED5xh6aywFR2ivm91dePs5Clo7jsMZcMd6Ztse8YC3fyJS8EMe+96FcxBRwffnjgF8cbWuM9w0/2XPT4qLfTOhjTDT+fn+vey9rOGYWG4rUIscSr7aSNyXeTnt0IP7Srd0FZaNphznGmMe/c67tqEoN3o2Xf66myOKrZjaVyFBfYuxPxJGixw0rdDbewZ9WYSgps89ytMAnXt2bMCzDCwX7HX1ozlwl0y7TH7RsNfbvAwUwEbSD6Y4Yq8oXmbqjVao/oFDa1ggY1IH4rJRGJgzhvq+pbz0nVa8UdVUA7eyDZKmDN59heDZvHwuM92WDq3NHxqod78ztuD5WSKqe6LJOV0okOnVYvmHN2wGJ0wG18+Ot+Rav58P3uV/ZRj2UHcki0EtqIHR7uuizhv/ol7FBomPRgU4H2cNB4mdYuBscOnKR20pawwQ6OrJRfM0FJU+rSWNxV9vp9B8ofAAiTx7J4Zm8N9wxZ6zyo3AyMgtOSglpIrtiWDW7F/M4uo9rTc313Ji9tLWPIWgpAX3cBrIw1It/n7VToH1+8v7ZK3GawbUzZpoXBcJodLASolaNjoC25tx+iSrJ4/KkXHyW6dZeA2cDpeCpy7I6p+TZv3gJZndIxEOSGMsQsXy2VE/XFqbN0m3p45Cxe3l3p22IeU+4/5u/z8dYNHOsdkyG7hpmd7+Qt8cNZyKYr46cX11YHGGXwy8tsw14FPztUtxwYqGjqK4Bx3051Si1KwqUbuP8/yQ4ATPrxQtDuC+f93AaWNK7yRSd+SsVqa8YJI1HzAIzV1bweXLpRETrW8YOdjho1Ct3jA3W5Ogb/4dr9X89eBveLs8YjHxC5MOziSbslbLPBDqufZTNWpezskGHxz6SnlDqy/vZkqn+bj5dm5SmM8rTGLvwVihi72LLIw2nbYkq0HqiNO4pz6/AtnqePF
+sidebar_class_name: "post api-method"
+info_path: api/sso/single-sign-on-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read a SAML identity provider's metadata"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/sso/providers/saml-metadata"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Fetches the metadata from a URL, or reads pasted XML, and returns the sign in URL, entity id and signing certificates for the provider form. Saves nothing. Needs sso.manage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string"},"xml":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The fields read from the metadata."},"400":{"description":"The metadata could not be read."},"403":{"description":"Missing permission."}}}
+>
+  
+</StatusCodes>
+
+
+      

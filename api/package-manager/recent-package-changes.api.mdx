@@ -5,7 +5,7 @@ description: "From the package manager's own log or history."
 sidebar_label: "Recent package changes"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVF1v3TYM/SsEX7YBim+6R79lwDqkBYqgzRAMwcXA2IytXVtyRTo3nuH/PtD2/UjbFOieLFOH0jkUeUYsWYrkO/UxYI5vU2xBa4aOih1VDC0Fqjj9JBD3AZpYQUxQe9GYhgwdKlWC+T3eLHjBrcOOErWsnGxnRG8Hd6Q1OgzUMuZYR9HrEh0m/tz7xCXmmnp2KEXNLWE+og6dIX1QrjjhNG0NLV0MwmKAXy8v7fOS/wfesyg8+iSa4TQ5bFnrWGKOFSu6hUeOm67pKx8uqPObVerFKnUzLuymzSoTHQqnp4OcPjWY47iEJnRfMPgr9gluObX+GRYMOnyi5OmhWYiv0Zn7I/WNWkFUO8k3G50TM36mtms4K2KL0yxduOiT12Gm8MCUOF31JuV+O7kRixh3ns8j1Pn3PBwjZ0d8shovVM4POpbcuOD6FPa/gNCti7cxtWSc393dfqX+E4v4GEDjjgMIBwUf5oayS2Ly/5IhoWYqOQEJ/DYfChTKGTYnZji5F5KO3BZV6JamWiCntvpnr68yend3CwsehBVIQXwVLnzI4K7mAF1io+vAKyjtWCxScMmhYIhPnF5VMbM9L/cPV/Lq5hp2PIAoJfWhgr3XGrR9/vsrOUfoj5d2x4ODfe2LerlITtdkcK1AhYqlrVgb+DW7oBDiDLB9CkMMDNwILyPmw2OcVXttTObBC+Dq5tqan5Ms5N9kb7LLb7wQz7f4IEpNA31XkrJADDDYMNk4igNhSkXtjjBLSdzGp6NZiVuDVL7wsKNdTQ67KNpSMLpr03zkwmp5ABc1BfOxL1jaiAXloP/LJJd2UH7WTdeQD8Zk9pFxNaR7PBnS7FIvLAkd5kfLPLjS1s02arnj+EDCf6Zmmiz8uedkRrE9Gc9sG6UXW5eYP1Ij/B2FP39cffkXeI3+YSDDMPtb09sfOtzxcDL4aXvuwH/8fovT9B+IFTtM
+api: eJylVcFu40YM/RWCl7bAxE73qFsKdNtsgSLYpAiKwFgwEi1NLc1oh5Qd1dC/F5Rkx85uFsj2ZJl6JN8jZ572WLDkybfqY8AM36fYgFYMLeUbKhkaClRy+kEg7gLUsYSYoPKiMfULdKhUCmYPeDPhBVcOW0rUsHKyN3v0VrglrdBhoIYxwyqKXhfoMPHnzicuMNPUsUPJK24Isz1q3xrSB+WSEw6Dmyt97jj1z6VmgviVXNHkQ4kOOXSNkZRelBt0uK5JW9pYUqAWHT4m3uFqcC/HMeEc3AZqTfnvsWHDgg+iTAXE9TiuqfLLqS1wWJlGaWMQFqP27vLSfs7b/Mk7FoW1T6ILk4oNaxULzLBkRTdNL8NlW3elDxfU+uXc6mJutdxPMx2W83JMG6ftYQldqjHD/RQa8KXQv2OX4I5T459gwqDDLSVPj/VEfI6O3NfU1WprVG0lWy51TFzwEzVtzYs8NjgMJl0475LXfqTwyJQ4XXUm5WFl+8xj3Hg+jVDr/+D+GDkpcWvbnaicFjou27gcDoH9n0C22vHhfUwNGecP93dfqL9lER8DaNxwAOGg4MO4V2sSk/+XDAkVU8EJSOCXsShQKEbYmLjAwZ1JOnKbVKGbDvAEeT7B/+z0VUYf7u9gwoOwAimIL8OFDwu4rzhAm9joOvAKShsWi+RccMgZ4pbTqypGtqfjfvMkr26uYcM9iFJSH0rYea1Am6dPX8g5Qt8+2g33DnaVz6upkTy3WcC1AuUqljZjzabm7JxCiCPA3lPoY2DgWni6Yj6s46jaa20yDw4GVzfXdvg5yUT+58W7xeVXNsRjFzMCqmvo2oKUBWKA3i6TXUdxIEwpr9wRZimJm7g9Wqy4OUjFmfMeTXZw2EbRhoLRnQ/NR85tlgdwXlEw933B0q5YUA76XdY+HQflJ122NflgTEYf2c+G9IDPhjS61JklocPsaPQHV1q50fwtd79/JOG/Uj0MFp583Yyi8GK2U2C2plr4W5r+rz+/onLD/dmnZUt1Z6jRzw+2+EauP36cv3U/wWttD3YR+tOeBzrzLIfV6ffht1/vcBj+A3Y+r/Y=
 sidebar_class_name: "get api-method"
 info_path: api/package-manager/packages-api
 custom_edit_url: null
@@ -48,7 +48,7 @@ From the package manager's own log or history.
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"manager","schema":{"type":"string","enum":["system","flatpak","snap","brew"]},"description":"Flatpak, Snap or Homebrew instead of the system package manager."}]}
 >
   
 </ParamsDetails>

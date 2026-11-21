@@ -1,0 +1,70 @@
+---
+id: find-mongo-db-documents
+title: "Find MongoDB documents"
+description: "Documents matching an Extended JSON filter, sorted and paged, with the total count when it can be had quickly."
+sidebar_label: "Find MongoDB documents"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVk1v4zYQ/SsDnlqAsdKiJ9+SZhdIuulm4xRBERgFLY4lxhKpkKM4qqD/XgxpW07sLJDLVidqODOcj8c37IXGkHvTkHFWTMWFy9saLQWoFeWlsQUoC59eCK1GDVezr3/C0lSEXkJwnlCDshoaVaCWsDZUApUI5EhVkLvWEqxLtGAIcmVhgVAqDU+tyVdVNxFSkCqCmD6IC0VqoQIGMZeiUV7VSOh5qxeGI2sUlUIKq2oUU1G6QJdaSOHxqTUetZiSb1GKkJdYKzHtBXUNaxpLWKAXwyCPesqdtR/1NE/aGOjc6Y5V3hrnzhJa4i3VNJXJFRc4ewxc5f7Qt1s8Yk6vongQeiHYU1VhHtvDlfGuQU8GAxvrxZ6LQN7YQgyvTI5tp/4d3eKWHt9YmeZYKaSoTG3oaJX444RC42xIAf96ehrjfoW5swgfcEvQW/RNuF2iRiqd5o65wLWJjZuKrKnawtgT1ZhMb2GT9QkSQ8YNTdmHrE/dHbLa2cJlS2O50wH98xZbra/EVPRJNAj5Jra/XevhDn1tXiDpCCmelTdqUaWUNtKY1VK1FTE6iZowzTKKhhN8UXVT4SR3NZdlzhHkrTfUxRAWqDz6s5aTe5gzTHPnVgb3Jaoxf2C3k+y5mDGUUij7jnb94FjEBs38n5SE3Cw+O18rjvnq/u4g+xmGYJwFciu0ENASGBsvOB/ivPk3whpKVBo9qADn0WnkhMQDK7SThMkxpV1sKSsh071MKuPNfFzTuxFd3d9B0oeABIogmMKeGDuBe+abxiOHK5l4SK0wsCRHjTZHcM/o380iRrtf7g9X8uzmElbYQSDliRk00WL98s9BOjvVj5d2hZ2EdWnyMh0UxmMmcEmgcgpsttEFt7Yb61xZ66IC7yvbOYuAVcB065ijbkd2+5TAu6WbLSe8ZplRuiWXUZI4Ze8/UsnpjjlOB+7/0sVKG+KjxmkAZzeXfOPQh3TQL5PfJqcHdTz3bh0wZofaEFx3s29fJFzzRb04l3DjAhUeo3D27QvM4qWNa0Mo4Ra1CdH8moni4hx2xALOQscswPwSYOldDVwwUosIFeamWkWm3eD2s9n3s6W0tzH344z4H6ZuQjThC2VNpYzlTCIV9huWfRAjy3Lou/EsxXQ3fPeoluW7URrZNoLBap5abMAu+559/OWrYWDxU4ueKXA+UmokRG0Cr7WYLlUV8DuF++l2My5/hvey2lKN7SJzVy3/CSlW2I3vCKbYH3jqplDDfJAiXfCYd9r8PZ1zcscuRuODZwQPgd2EvPk6Y/pebJ4jtdNs49WanxRqnQ53TWoVv1dY1otK2aJVRWTb6JO//wAvh3at
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Find MongoDB documents"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/mongo/find"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Documents matching an Extended JSON filter, sorted and paged, with the total count when it can be had quickly.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["db","collection"],"properties":{"db":{"type":"string"},"collection":{"type":"string"},"filter":{"type":"string"},"sort":{"type":"string"},"skip":{"type":"integer"},"limit":{"type":"integer"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A page of documents."}}}
+>
+  
+</StatusCodes>
+
+
+      

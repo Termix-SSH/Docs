@@ -7,7 +7,7 @@ description: "SSH port forwarding that reconnects on its own, WireGuard gateways
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Tunnels/edit/main/docs/index.md"
 plugin_id: "tunnels"
-plugin_version: "1.4.0"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
 Tunnels sets up SSH port forwarding that stays up. If a tunnel drops, it reconnects on its own. Tunnels can start when Termix starts, so they are always there, and the desktop app can run tunnels on your own computer.
@@ -80,6 +80,18 @@ Turn on Scan for ports to look for services listening on the private host, and o
 Each gateway has its own WireGuard interface (`wgtx` and the gateway number), its own nftables table (`termix_gw_` and the number) and its own systemd unit. Nothing else on the host is touched, so an existing WireGuard setup keeps working. On a host with Docker, the interface is also allowed in the `DOCKER-USER` chain. Removing a gateway takes all of it off both hosts.
 
 Termix checks every gateway about every 30 seconds. If the tunnel or the rules are gone, for example after a reboot, it applies them again.
+
+## X11 apps
+
+X11 apps runs a graphical program on a host over SSH with X11 forwarding, and shows its windows on your computer.
+
+1. Run an X server on your computer: VcXsrv on Windows (start it with Disable access control), XQuartz on macOS (allow connections from network clients and run `xhost +localhost`), or Xwayland on Linux.
+2. In Settings, Tunnels, an admin sets X server for X11 programs, like `localhost:0`. The Termix server connects to it, so this is mostly for the desktop app.
+3. Open Tunnels, X11 apps, pick a host, type a program and press Start.
+
+The host needs `X11Forwarding yes` in its sshd config and `xauth` installed. The program stays listed while it runs. Stop ends it, and closing its last window ends it too. Tailscale SSH does not support X11 forwarding.
+
+SSH Terminal can also forward X11 for programs you start in a terminal. Turn on X11 forwarding for the host there.
 
 ## What the host needs
 

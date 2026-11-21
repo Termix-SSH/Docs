@@ -1,0 +1,68 @@
+---
+id: upload-a-file-into-a-terminal-session
+title: "Upload a file into a terminal session"
+description: "Stores a file that is not an image on the terminal's host over SFTP, as /tmp/termix-files/<random `id>/<name>` (a .termix-files folder in the home on Windows), under the image storage expiry and limits. The name keeps only A-Z a-z 0-9 . _ - and is cut to 100 characters with the extension kept. The bytes are stored as they are. Returns the path to hand to the program. Refused when image storage is set to local."
+sidebar_label: "Upload a file into a terminal session"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVtuO2zYQ/ZUBX9IC8iVpgyJCEGBTIMimKLqoHSzaxSIZS2OLsUQqnNHaiuF/L4aUL83uIshbH7ov1g7ncoacc8idKYmLYFux3pnczMQHYkBY2ppAKhSwDM4LoAPb4IrAO5CKQCg01mH9hKHyLODvKMDszfwqA2SYSNNOost2pKl48jKgK30DH235avLSYUOvPsIPCONzL1j6uqQANtWofBPrXVtX+g3/mEHndFnXEhgWH/SXtq0NPaArobaNFR7DvCLQMrAmahm8q3u4GP0NOPoC09ELGMMHGMUIy1B0AuLh6XQKRYUBC6HAsLFSxWK0FXJsvYM1tZJyL3rRnQoJBJXatlTUq2kMf5J0wUULtKhpPFRaTHyyBb8K2KjjsmMqYVOR+6opy8AUcdW+wHpsMiO4YpPfmPmw++Y2M4E+d8Ty2pe9yXfxXxuoNLmEjjJTeCfkRJearhbbYpDJ0odmVKKgmrmoqIlf0rdkcuMXn6gQk5k2+JaCWGJd1SM682IJ1q1MZjQZisnNwjoMvdlnxjoWdAVdlvcD9pkpaktO3re1x3JuG2LBpn3AM/5ph9x6xwnFs+lUf/49t3ogwzEoyiccN32stX5+yP93y2zdKo25D8DEeryZfn/jEGLKFw9DOJDiQJrCO0eFUBnDnk+f3Q+7DlYUyTAXgRovlCi1RFsfQ3/6RsUKtSTMZm8PVXVcxadtiblTs6lJqU4tJsZAgU4xLwiKior1sfIvj2/3MRo2yBAIiyqG7TPTkFS+NLlpPcdRQqlMbiZt3a2sG2FrJ8zV6IB/ouBGXZwIkxmmcEdBR31nulCb3OySaW+yr7D85bsAkQ9bSD4mM3cYLC7qNDGDNXaxxK7WUa1EWs4ng0aNaYtNW9O48I1O3a0iKLpgpY8QFoSBwkWnLdzc7rOdKbxfWzq3YGt/o/5oOUsxU34lKOeJjtOuWLTn6KY0ik4mGz7eHOj17np+r/tZGlwQvyYHTE4O4qlFfLBfMA5CRajKiQyvY9IofFHHNTCe9HlLR2ypK6OMNvngYjKjwmpy82kjjyJ6dz2H5B8JhAJsV25k3RiuVevaQAo3AysguCZWS0EluYLSbfJYFxHt+XZ/905eXF3CmnpgwRDZl5S+2X64187R9fu3dk19BpvKFlUqxKcyY7gUwEJ4uDViCb9xQ/RARSxE19H13hFQzZS4Zd3Sx66tqCIbJf3hRoCLq0slAAVODTwdPx9P75/S7O1JOwb1O+DDBWfAbW0FuAhELoPKKt37DBosgucIEpMinole2p2SeC2+BWzbeFIqAA06BTyMTRL+wyvDOvGA99B8DXl3usn+f6b8158piY5CW5m0NVqncxB1fDdcBDfmdBEoY8+uAn1RnF0Gt5nRk9OQ3W6BTO9Dvd+r+XNHQfX59qT3SYxNomSU7jX1Jje/ptEZzRWYutedAnzoQaTKfby8rv6YqeYuhrdV40sNU+fom50+tfB+/w8N4ex3
+sidebar_class_name: "post api-method"
+info_path: api/ssh-terminal/ssh-terminal-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a file into a terminal session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/ssh-terminal/file-upload"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stores a file that is not an image on the terminal's host over SFTP, as /tmp/termix-files/&lt;random `id>/<name>` (a .termix-files folder in the home on Windows), under the image storage expiry and limits. The name keeps only A-Z a-z 0-9 . _ - and is cut to 100 characters with the extension kept. The bytes are stored as they are. Returns the path to hand to the program. Refused when image storage is set to local.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"file":{"type":"string","format":"binary"},"instanceId":{"type":"string"},"clientUploadTimestamp":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The stored file's path."},"400":{"description":"Missing file or session, or image storage is set to local."},"409":{"description":"The terminal is not connected."},"502":{"description":"Writing to the remote host failed."},"503":{"description":"The terminal has no SSH connection to store the file on, or the storage limits cannot be checked."},"507":{"description":"The storage limit was reached."}}}
+>
+  
+</StatusCodes>
+
+
+      

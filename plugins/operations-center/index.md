@@ -7,7 +7,7 @@ description: "Run, roll out, approve and track every plugin action across your h
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Operations-Center/edit/main/docs/index.md"
 plugin_id: "operations-center"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
 Operations Center is where you run and watch the actions other plugins offer. Plugins such as Docker, Services, Wake-on-LAN, Kubernetes and Host Metrics declare what they can do, and every one of those actions shows up here with no setup.

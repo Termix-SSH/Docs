@@ -1,0 +1,69 @@
+---
+id: list-networks
+title: "List networks"
+description: "Networks on the session's host."
+sidebar_label: "List networks"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVdtu3DYQ/ZXBvLQBGK1bpC96c9GmcXqB0XVgBMaiGEvjFbMSqZAjr1VB/14MKe9uartonlYczuWcGc7ZCWuOVbC9WO+wxD9Y9j7sIngH0jBEjtF6902Exkcp0KDQNmJ5gz/5ascBNwZ7CtSxcFD7hFbz9CQNGnTUMZa4ZLmo0WDgz4MNXGMpYWCDsWq4IywnlLFPzhKs2+I8b9Q59t5Fjnr//dmZ/jwLGILfxwJng2+e81qv3z1SAecF7vzgavAhHSrvHFfCdYr/4bn4t2RbrkE8tDYKuKVLBc6zwY6l8TWWuGVBk6mXuOrbYWvda+rtqk69Wj2GraZDQ2Y0GDncPzZvCC2WOGWTXn6J46MfAlxx6OwDZB80eE/B0m2bm7RYE4M7GlrBEhuRPparlaTAgh+o61suKt/hnNocuRqClTFBuGUKHM4HZXGzmc2Elfc7y6cW6u2vPB4sJynWOs4M5TTRYbqKBZep6zk7oVk+3vrQkWJ+f331hP16maD4HTuI7ARsfqZaxAf7N6knNEw1B6AIP6akQK5ObikwTfmU0gFbZoUmP+HscnzEn/byIqL311eQ/SGyAAlEu3WvrSvgumEHfWCFa8AKCO04qqXiml3F4O85vMgioT1t91d38vzyAnY8QhQKYt0W9lYakO7hryd0Dq5f39odjwb2ja2aXCgeyxRwIUCVRA1bfMHv3RJdkdMtpEr0ntzoHQO3kfN2WXfnE2srrdLMugPnlxf69DnEDP274k1x9oTQ7+Roy7DEaLVLX3fkdOeFrOOQlG7UtVKBi3kY6/U7k/G3fhuNMlL0rgbSyOhbTnPpfZSOnMJbHslvp/Lwbzi6SU7Yyf8T2jxm4QdZ9S1ZpxWTPkyLxtzgUWO0VlZkgyf1y6P0bgxqag2bpluK/CG086zmzwMH3f3NUUuSEtQ26neN5R21kf+Dzbd/Lqr+Cl5C/rhjbkyS1Q56QoM7Hr/4h5g3p5L6y89XOM//AN3OTAo=
+sidebar_class_name: "get api-method"
+info_path: api/docker/docker-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List networks"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/docker/networks/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Networks on the session's host.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Network rows."},"400":{"description":"SSH session not found or not connected."},"500":{"description":"Failed to list networks."}}}
+>
+  
+</StatusCodes>
+
+
+      

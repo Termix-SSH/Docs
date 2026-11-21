@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/ai/reference"
 custom_edit_url: null
 plugin_id: "ai"
-plugin_version: "1.4.2"
+plugin_version: "1.4.4"
 plugin_latest: true
 ---
 ## Settings

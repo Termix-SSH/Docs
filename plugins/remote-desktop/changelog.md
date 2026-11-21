@@ -6,9 +6,25 @@ slug: "/remote-desktop/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "remote-desktop"
-plugin_version: "1.4.2"
+plugin_version: "1.4.3"
 plugin_latest: true
 ---
+## 1.4.3
+
+### Added
+
+- View only: a toolbar button stops sending your mouse and keyboard to the session, and the server drops that input, so you can watch first and act when you choose. Built-in engine only
+- A setting to start every Quick Connect session view only, and Quick Connect logins from other plugins can ask for view only. A link or plugin can only turn it on, never off
+- A Quick Connect session can use a saved credential by its id, opened on the server so the password never reaches the browser (needs Termix 26.11.3)
+- Other plugins can dock a panel beside the remote desktop, so Session Sharing opens its share panel there instead of a window over the whole screen
+
+### Fixed
+
+- RDP connects to older Windows Servers that only speak TLS 1.0 or 1.1 again, instead of failing with "TLS failed: read ECONNRESET"
+- Ctrl+V inside a session no longer swaps the session's clipboard for your PC's text when that text did not change, so copying files from folder to folder in the session works again
+- Ctrl+V reaches the session when your PC's clipboard is empty
+- A right-click Copy in the session now reaches your PC's clipboard on plain HTTP too
+
 ## 1.4.2
 
 ### Added

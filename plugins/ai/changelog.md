@@ -6,9 +6,22 @@ slug: "/ai/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "ai"
-plugin_version: "1.4.2"
+plugin_version: "1.4.4"
 plugin_latest: true
 ---
+## 1.4.4
+
+### Fixed
+
+- The assistant's Termix CLI is 1.3.2, so running commands works on Windows hosts
+
+## 1.4.3
+
+### Fixed
+
+- With the assistant on, the tabs and other plugins no longer disappear on Termix 26.11.2. The docked assistant now sits over the page instead of pushing it over
+- The AI tab no longer closes right after it opens, such as from the mobile app, before the AI settings have loaded
+
 ## 1.4.2
 
 ### Fixed

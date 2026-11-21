@@ -1,0 +1,70 @@
+---
+id: start-a-port-forward
+title: "Start a port forward"
+description: "Runs kubectl port-forward in the background on the host. It keeps running after you close Termix, until you stop it or the pod goes away."
+sidebar_label: "Start a port forward"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv4zYM/isEnzZATdJuwIC8tcOG9W63FdcOxaEIBsVmbDW25JPopj4j/32g5MTupT3g3paXyBRJfaTIj+oxp5B507BxFpf4sbUBtu2aMq6gcZ7PNs7vtM/BWOCSYK2zbeFda3NwSVK6wDO4ZtgSNQF8a62xBegNk4fOtZBVLhDcka/Ns4LWsqmiPLBrwDA4H/00LofCUQC9090MFbIuAi4f8H27Jm+JKeBKYaO9ronJy16PRlA3mktUaHVNuMRAIRhnr3NU6OlzazzluGTfksKQlVRrXPbIXROV2Rtb4H6/SsoU+MrlnWh8bZs5y2RZtnTTVCbTkrT5Y5DM9aeu3fqRMn4B4gG3xuYHqOkvNDqTdeUyXd04nyxqxxQ/JGTvGvJsKIj36OEkAIVk21pOaFweUGEg/2QykmVOTeW6miwHXO0PeTpJwRTOa7sjwHHXWKaCvGxPML+6r/PcUwjfgn5+8ctsMVvMzlHhIq4WEXDM/DO/dm3yk7ND42xICbpYLOTvZWHfsvZM+UyQ/PyawpWWGm9aVlKQhxaQGm0oB2+KkofKjB5+OvXwlwPKDYPOMgpBHepa+gNMAE9aeqYSD3uFNXHpcileF+TKYw0vcd5UbWHsmW7MfHss/PnQhWHeH6t7P1zyoRNaX+ES+yTax2ufovvkWj80ISQdVPikvdHrKuVtkMa4NrqtGJdYMjdhOZ9zNJzRs66bimaZqyX3K0GQtd5wFyGsSXvyl61E8rDaqx4z57aGphLdmPfUHSUTF7fSQAnK1NHxzgULDi0s30kJ1bD43flaC+Z393cn0d+mrAG7LVkIZPlAaHKI8+ZLbGYoSefkQQe4ik5B2zyqRcN499OQjthSVKgSHyWVkZEed/wmonf3d5D0IRCDZgimsGfGzuC+JAuNJ4GrhClZbymIJKOcbEbgnsi/GUVEO033d2fy8uYattRBkOYRUt8ZLoHr539Pwjmqfn9qt9Qp2JUmK9NBYTwmzhWdcRCzQRfczg7WmbbWRQXZ17ZzloCqQKnFhJk/jpz+WyrekUMPVHmYGwc6mtDgKJyw3+Il2S0m3PaCwo60NSFRYzcu3oRhgTIZbnB5cy0tST6klJ7PLmaLk0R/0FYXBBO7rGqDzEPYeFfLZPWRc0KqjtvbP1RKaOWKoKAm9iYLCj5dfvgzZlFDKKmqYrkIGdU6zrMhK5E4QcfHAAw09DWofpyN/68XRCp3uYR5U2ljJcTIk/3Atw848i0qHBkXFR44FxUuxzfFSqHgFdO+X+tA//hqvxfx55a88OBq5NXIirkJss5xudFVoG/k7oePw0vhR3gL/YFvbBfpu2rlS5BT9+Lps5e5mVougkj7v6ajzu7Ey2h/8pwRWj4OqJu/b4VQ18OzqHa52Hi9k4eK3qXzXQwnkneU9VhpW7S6iPwXfcrvPwCmmJM=
+sidebar_class_name: "post api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a port forward"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/kubernetes/forwards/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs kubectl port-forward in the background on the host. It keeps running after you close Termix, until you stop it or the pod goes away.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["kind","name","namespace","localPort","remotePort"],"properties":{"kind":{"type":"string","enum":["pods","services","deployments"]},"name":{"type":"string"},"namespace":{"type":"string"},"localPort":{"type":"integer"},"remotePort":{"type":"integer"},"address":{"type":"string","enum":["127.0.0.1","0.0.0.0"]},"context":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Started."},"400":{"description":"Bad input, or kubectl stopped right away."},"403":{"description":"No edit access, or the host is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

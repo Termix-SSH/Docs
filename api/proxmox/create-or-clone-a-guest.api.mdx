@@ -1,0 +1,69 @@
+---
+id: create-or-clone-a-guest
+title: "Create or clone a guest"
+description: "Creates a VM or container, or clones a guest (vmid in the body). Runs as an operation, so it needs the guests permission and edit access, and lands in run history. Waits for the Proxmox task to end."
+sidebar_label: "Create or clone a guest"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVU1v5DYM/SsET7uAMpMGOfmWtlsgWxQNNtkNimBQKDZnrI4teUV6ZtyB/3tByfOxzaboXnroybJEUY+P5OMeK+Iyuk5c8FjgD5GsEIOFT79AiFAGL9Z5iib9NcGnw1VPLPBm07oKnAepCZ5DNbydwYfeM1gG6yF0FK36NcABnIAnqjgZp/sMHcXWMbvgwfoKqHICtiyJ2aSNxvqK9YHYe6gdS4jDDB6tE4ZliMnVXQy7NuxALK9BApCvZmhQ7IqxeMLpGBcGOxttS0JRD/boNN7OSo0GvW0JC6wDy22FBiN97l2kCguJPRnksqbWYrFHGTq1dF5oRRHH0XzVky0Tof/CE0t0foUGyfetIi5TCi42LZrDuhRdK/m4GMeFeuUueCZWR1eXl/r5MpE/Bk8zHA1eX16/PP3o1z5sPWSY2e7q6qXdgdxIy56pAicGtk5q0AxEspwujwZbkjpUSkNgBZvYKHDeNf3K+QvbuXmXfc1z7uf7TPY432cQIxpkiptDevrYYIH7vKWHXyL7LfQRHrR+dpBt0ODGRmefm0zLtJtiWtq+EU2wSMfFfC7p4ox2tu0ampWhxTERy1T20cmQIDyTjRRveg3laaGZLkNYOzrfsZ37mYbjzpmLe810hnLu6Jh4xYJTQeh/NkIzLX4KsbWK+f3jw4vo7yl3jYQ1eWDycmhDfSRE92dqPKjJVhS1H79PTlNXqVm6mPJ+HtIRW44KTS7tbHIq7j+28iqi948PkO2BScAKsFv5C+dn8FiThy6SwjWqB2LXxLpTUkW+JAgbiq9GkdCe0/3NTN7c3cKaBmCxUZxf5VKWdvf7i3COpt9O7ZoGA9valXV+iE/PzOBWBU6SQk62ELZ+ul1a70MyyAo6BE9ADVPuMeeXIUXtpKGz5ry5u9Xap8gZ+3ez69nli4hu2y5EOcrlp3cHEbYM2opsYE3UKaxWI+bBlwnV1kpZgw8VaTzCKQ/a5q31Cmcqijw5jlPiMCT+jkN7yAt5+V8Nm1yHQjuZd411XilKAraflPAJT0qo8jhNJYMZHBosjsOnmIbHwqSBpJf3+2fL9DE246jbn3uKKlGLk+Qlwaoc67rCYmkbpn+g/s2HaS69hdfwH6TAD0lZm17/0OCahtOoVAn8D1+dmBkX5yPn7tf7BxzHvwAl6Qeg
+sidebar_class_name: "post api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or clone a guest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/proxmox/guests/{hostId}/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a VM or container, or clones a guest (vmid in the body). Runs as an operation, so it needs the guests permission and edit access, and lands in run history. Waits for the Proxmox task to end.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["create-vm","create-ct","clone"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Done."},"404":{"description":"Unknown action."},"422":{"description":"Proxmox refused it, with its reason."}}}
+>
+  
+</StatusCodes>
+
+
+      

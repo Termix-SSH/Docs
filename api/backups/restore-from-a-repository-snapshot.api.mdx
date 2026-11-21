@@ -1,0 +1,70 @@
+---
+id: restore-from-a-repository-snapshot
+title: "Restore from a repository snapshot"
+description: "Restores a snapshot of one of your repositories, also one Termix did not make, onto any host you can edit. The host needs restic and must reach the repository."
+sidebar_label: "Restore from a repository snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVktv40YM/isETy0wsdM9+pbtA8j20CBJERSBUdASbU0szWhnqDiq4P9ecEa2nDgpupcC1cUyh+Tw8fGjBiw5FsG2Yr3DBd5yFB84AkF01MbKC/g1eMf60/suQODWRys+WI4GqI4+Hd9zaOwLlLYE5wUa2rIB78QDuR4qH0XNoSAHXFqZwX3FWeyYywiBo9gCyJXQdFEgMBUVSMXThf0MDQptIi4e8TMV266NuDTYUqCGhYMeDGg1kZakQoOOGsYF2hINBv7a2cAlLiR0bDAWFTeEiwGlb5OWE95wwP3evOvlUJHrf+UtSrBug/v9MitzlM++7FXjrW3hnbATPaK2rW1B2o75U9SeDOeu/eqJC3kVxCNqLa/LVI/gWw5iOarNKH8nTZPzOw/ZoH/msAtW+N1T64q6K7P78ZBCoB4NWuEmvleF9GjEsfUuZttPl5f68xqC96nlCYYQOjfTdmDDUvlSO+KjJp4Dx3lbdxvrLqi181UGxPwUn/PBlvv5oW9xPkwt3M/HS9Bg5PB8QE8XalzgkEV7NG+i+0NHYMR61kGDzxQsreqc1ChNea2pqwUXWIm0cTGfSzKc8Qs1bc2zwjdamaVGUHTBSp9CWDEFDledpvi4VDAW3m8tn0qotb9yf5ScuLhTtORQTh0dO6Kx4IhX/Z+V0Iwvv/jQkMb85eH+LPs7jtF6B+K37CCyE7AuDale4oP9KyEXKqaSA1CEz8lpGmtVS4YzxdBpShOKUlYKI70tq0zz97STDyP68nAPWR8iC5BAtBt3Yd0MHip20AbWcA1YAaEtR5UUXLIrGBTtH2aRoj0t9zdX8urmGrbcQxQKYt0GdlYqkOblz7N0jqrfXtot9wZ2lS2qfFGcrpnBtQAVEtVs1AW/c6N1QU4pmwrRc3K98jnXkfPsKQ3dTgT2cwbvKbVcHgdyHPdXBDIJJ954PAiXiU7WPpXVivo9UDtc3VzrcHGIuTg/zD7NLs9KptrQtbD2dckhGihJaEVRl5gr4SdfbDkkIXiXV5jGPZYnrx2jVXGwCn4X2UDpd672VCYHI00kGCj7NJRIecTkuDBhHXwDdLKrjvvzbcDDRPf/h3WboS78IvO2Juu0DIkjh7HnjziRsGJ/3MtK9VPkaHCRlvCRi1XyZqFmOl6ahCt1PAzax99Dvd+r+GvHQRlyOTFu4svSRn0vcbGmOvI/1Pu723Fhfg8f5XZgItcnYq87/YcGt9znDwll3//wxpMa7XVY8vynvLPCj/mui3t1Mzk4+5DQHXFcoze/3Sm7r8YPksaXahNop42gXQ7Ap3zSJkmyAWtym442iYyTT33+BobFkg4=
+sidebar_class_name: "post api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Restore from a repository snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/backups/repositories/{id}/snapshots/{snapshotId}/restore"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Restores a snapshot of one of your repositories, also one Termix did not make, onto any host you can edit. The host needs restic and must reach the repository.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"snapshotId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["hostId"],"properties":{"hostId":{"type":"integer"},"path":{"type":"string"},"overwrite":{"type":"string"},"includes":{"type":"array","items":{"type":"string"}}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The restore run."}}}
+>
+  
+</StatusCodes>
+
+
+      

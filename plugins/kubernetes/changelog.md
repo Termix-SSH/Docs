@@ -6,9 +6,16 @@ slug: "/kubernetes/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "kubernetes"
-plugin_version: "1.1.1"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Custom resources: pick any CRD in the cluster to list its objects with their status, view and edit their YAML, and delete them
+- Port forwards: forward a pod, service or deployment port to the host from its row, see which forwards run, copy their address and stop them. Forwards keep running in the background on the host
+
 ## 1.1.1
 
 ### Changed

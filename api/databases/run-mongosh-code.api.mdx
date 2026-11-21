@@ -1,0 +1,70 @@
+---
+id: run-mongosh-code
+title: "Run mongosh code"
+description: "Runs the code with mongosh on the host, with db set to the chosen database, and returns what it printed. Needs edit access to the host and a connection that is not read only, and is written to the audit log."
+sidebar_label: "Run mongosh code"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVk1v4zYQ/SsDnlqAsdN2T74lTQtku9lm4xRBERgLWppIjCVSyxnF0Qr+78WQsuSNNwVy6aE+yZyZx/l8w17lSFmwDVvv1ELdtI6AS4TM5whbyyXU3hWeSvAuCkpPrJMkXwMhA/tkUXpCB7lhszaEGozLISC3wRFsS8NgGZpgHWM+g4+IOQHmlsFkGRLtYQQ/mhrIvHOYiWfA0Z7AeYaAJgfvqi5dYQm2wTKj20OYVmArX8yUVmwKUot7dTH4RWqlVWOCqZExiKhXVkJvDJdKK2dqVAslblzmSquAX1obMFcLDi1qRVmJtVGLXnHXiKYEVGBQu53+LpJE8VakVdJG4nOfd6Ly0jjzjtGxiEzTVDYzkqf5I0kZ+2Nsv37EjL/x4l5JkWM6gm8wsEUSi3x9YEccrCvUTiflY0H8CSw13lFC+Pn0NAJ901p3UsJ9M+37QIDfnf5yrP3RHzaHBh+GthxbwtLUCTPJvqqRS59LATxJqLEOCzVvqraw7sQ0dr7vTpr3qcK7+QRJ8z4VazePfoqIfIVKK8LwtO+WNlRqofp0tFP6hed/+zbALYbaPkPSUVo9mWDNukrpGU5jzA+mrVj6jbmhxXzO0XCGz6ZuKpxlvpYUr8SDrA2Wu+jCGk3AcNZKfPcrabzM+43FwxPT2D+wG08OIJbSHMmVQ6CxtOKLGvpT/iclpYeP332ojfj8/u72KPolEsWB9Rt0QOgYbCIOucQH+zU2KpRocgxgCM4jaBxlUYuGs9RwU0ijbykqpdOkJZVp1h63/KpH7+9uIelH1jIMZAt3Yt0M7kp00AQUd7XQFJsNkpxkmKPLEPwThlejiN4epvvNmTy7voQNdkBsAltXJH7l+vnzUTij6ttTu8FOw7a0WZkuoumaGVzKrDGJ2aALfusG68w4YV6TsciN67xDwIowDZ6wzs3EV7+l5t1zyZ4q9hRywCnWPfiYLsuiP5E0nF1fythgoBT2T7N3s9OjZJwHvyWMLka2uOqWnz5ouJJpuzjXcO2Ji4DxcPnpAyzj5MVvy6jhBnNL0fxKBv7ifFxfJPuuk1EWniB4CL4GiZrNOtZbOKY2kWyH5rtp3chvMdIX3vYTaf8f92zqeMZnnjeVsU6SFKmyH4j4Xk1ELLkZF7JWi3HdHrCxnI/LM2YnySMlr3Rc0YLa9wLzV6h2Ozn+0mIQllxNrBs5M7ck37laPJiK8F+K88PNsCN/hNcC27OR6yK5V638U1ptsJseD8LC/+GtQ652q51WiQNi3En4a7rn5FYgJuOjt4PsiXGPXv+5FIZfD2+QOo1vMFt5R5htutw3qVrySJGzXlXGFa0pIiFHTPn9A0oUmDQ=
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Run mongosh code"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/mongo/console"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Runs the code with mongosh on the host, with db set to the chosen database, and returns what it printed. Needs edit access to the host and a connection that is not read only, and is written to the audit log.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["code"],"properties":{"db":{"type":"string"},"code":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What mongosh printed."},"403":{"description":"No edit access, or the connection is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

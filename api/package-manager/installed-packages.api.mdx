@@ -5,7 +5,7 @@ description: "Installed packages"
 sidebar_label: "Installed packages"
 hide_title: true
 hide_table_of_contents: true
-api: eJyVVF1v1EoM/SuWn0Ca7hYe89YrAVqQUAVF1VW1Qm7iboZNZsLY2W2I8t+Rk+xHaXngKYlzxnOOP06PShvB7A6vKd/ShgXXDhtKVLNysj89+oAZNqQlOgxUM2ZYRtFVgQ4T/2x94gIzTS07lLzkmjDrUbvGkD4obzjhMKwNLU0MwmKAt5eX9ihY8uQb9dGu+Uw1O9hxEh+DA/G/2IG0dU2pAwoF7EvWkhN4BS9QclUscBjcH2lWQZSqigtoDroc1qxlLDDDDSu6SVGGy6ZqNz5cUOOXM/iipkAbTst+0jks/SEfOhROu0Np2lRhhv0UGvBPGv/HNsENp9o/woRBhztKnu6rqQhzdKzDA7WVWnFVG8mWSx0PLviR6qbiRR5rHMYyCudt8tqNFO6ZEqer1sTcrQfXYx7j1vN5hBr/ibtj5CzFV+vXROU80bF9xgXnttr3BEI3v7yPqSbj/PH25pn6ryzWRdC45QDCQcEH0JLBLonJ/yJDQslUcAIS+G9MOvbZYOPBBQ7uiaQjt0kVumlAJ8hpRH/s9a+MPt7ewIQHYQVSEL8JFz4s4LbkAE1io+tsypS2LBbJueCQM8Qdp7+qGNmel/ufK3l1vYItdyBKSX3YwN5rCVo/fn8m5wj999JuuXOwL31eThfJ6ZoFrBQoV7FjMxbiPsyncwohjgD7T6GLgYEr4WkPfXiIo2qvlck8+ApcXa9s+KfNxgzfLN4sLl/oEI+3zAsHbVOQskAM0Nky2UKKA2FKeemOMDuSuI47Pi68m4M0CZ7DUHrRmLqxT00UrSkY3XloXvSNJwyP/VR+1GVTkQ+WajSCfvaUOzx5ymg0T1wFHWZH/zwZy9qNrmqn+/6ehL+lahgs/LPlZLu+PnnHuPmFF3svMHugSvgZ0TwG5WAz9erLbNOvAd3LAg47FbrRoqrWvtDhlruT3w/r4cxGP7y7wWH4DfrTKrM=
+api: eJytVU1v40YM/SsETy0wsdM96pYFultvgSJoUgRFYCwYibamlma0Q8qO1tB/X1CSvzbJIUBPtulH8vHrzR6V1oLZI95SvqE1Cy4dNpSoZuVk/+zRB8ywIS3RYaCaMcMyii4KdJj4W+sTF5hpatmh5CXXhNketWsM6YPymhP2vZsifWs5dadQNQUywCu+osmHNTrk0NZGUjpRrtHhqiJtaGNOgRp0+JR4h8veYcGSJ9+oj5br04hzcBeogZjgj1izYcEHUaYC4gq0ZBgjQzN2ASZSM+yXVqM0MQiLUftwfW0fl2n+opodbDmJj8GB+O/sQNq6ptQBhQJ2JWvJCbyCFyi5KmbWkZ/CLIIoVRUXBx6CDmvWMhaY4ZoV3TiHDOdN1a59uKLGzyfw1UR6vh+n08/9IZ71idP2MNA2VZjhfjT1+DONf2Ob4J5T7Z9hxKDDLSVPT9XYhMk69GFFbaW2EqqNZPO5Do4zfqa6qXiWxxr73toonLfJazdQeGJKnG5aK+ZxabuRx7jxfG6hxv/J3dFyFuLONmWkch7ouDjG5bBQ9nsE2ZoMXz7FVJNx/vJw/6L6OxabImjccADhoODDsCOWJCb/nQwJJVPBCUjg4xB0mLPBBscZ9u6ipCO3sSp04zGMkNM1/LfTNxl9ebiHEQ/CCqQgfh2ufJjBQ8kBmsRG19mWKW1YzJJzwSFniFtOb1YxsD1v97s7eXO7gA13IEpJfVjDzmsJWj9/fVHOEfr+1m64c7ArfV6OieSUZgYLBcpVzG3CQtyFyTunEOIAsP8pdDEwcCU83qEPqzhU7bWyMg9qCDe3C1v+8bIxw99mH2bXr0yIhyzTwUHbFKQsEAN0dkx2kOJAmFJeuiPMXBLXccvHg3eTkcaCD3pUetGYumFOTRStKRjdaWle1Y0Lhsd5Kj/rvKnIBws1CMF+0pRHPGnKIDQXqoIOs6Pqn4Rl6Ya3wLz3+ycS/idVfW/mUebt1gsvphwFZiuqhF9Qy2NQDvp/yLV7vc4NdxcvzZaq1lCDvB+U7Z1cf/l7evp+hbfSHi4+dOc5D3Smbvb2ah1F/vPv99j3PwB4qJ9d
 sidebar_class_name: "get api-method"
 info_path: api/package-manager/packages-api
 custom_edit_url: null
@@ -48,7 +48,7 @@ Installed packages
 </Heading>
 
 <ParamsDetails
-  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}}]}
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"manager","schema":{"type":"string","enum":["system","flatpak","snap","brew"]},"description":"Flatpak, Snap or Homebrew instead of the system package manager."}]}
 >
   
 </ParamsDetails>

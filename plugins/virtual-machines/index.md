@@ -7,7 +7,7 @@ description: "Create and manage KVM virtual machines on your Linux hosts over SS
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Virtual-Machines/edit/main/docs/index.md"
 plugin_id: "virtual-machines"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Virtual Machines lets you make and run KVM virtual machines on your Linux hosts from Termix. It talks to libvirt over SSH, the same way the terminal connects, so there is nothing to install on the host except libvirt itself.

@@ -1,0 +1,70 @@
+---
+id: insert-replace-or-delete-a-mongo-db-document
+title: "Insert, replace or delete a MongoDB document"
+description: "Insert takes a document, replace takes the _id and the new document, delete takes the _id. All as Extended JSON text. Needs edit access to the host, a connection that is not read only, and is written to the audit log."
+sidebar_label: "Insert, replace or delete a MongoDB document"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVktv4zYQ/isDnlqAkdJ2T74lzRZIuslm1ymCIjAWtDixGEuklhzFUQX992JI2XLipOgCxR7qkzyc9+Ob6YXGUHjTkHFWzMS5DegJSK0xgALtirZGSxI8NpUqcHyhEuGL0aCsjt8WN3u8GiukF6wZnFQVqADvnwitRg0X849XQPhEGVwh6gCoDYEqCgwByEXB0gWSoKBw1mLBPgKVisAEsI7Ao9LgbNXJ6IkJsPGGCO1WXrWss3KrTEhBahXE7E6cKVJLFTCIhRSN8qpGQs9PvTCchEZRKaSwqkYxE+zDuRZSePzaGo9azMi3KEUoSqyVmPWCuoY5jSVcoRfDIF/VxFH8N5pUzMW/0RTIG7sSUqBta47exApH0VhRIUWql1gMwyJpxECnTnes5qWBwllCS/ykmqYyhWJP8ofA7dMf2nfLByzomad3Qi8Fa6qqVNNYB+8a9GQwsLBeHoYwPBN57dnoV8naFa/Q44/dCo2zIZn9+fg4Wn82EjclgsfQVpSxtnfHvxzyXLn97pXgfGy/vbY1YerWjOsqaqTSaS6tC5ygWOGZyJuqXRl7pBqT622n5n3qwiGfVIa8Tw015LWzK5f3qSsGIUVA/7ht6dZXYib6RBpiufdd/9O1Hm7Q1+YJEo+Q4lF5o5ZVyspIjUHfq7YiHgqiJszynKJghk+qbirMCldzZhfsQdF6Q110YYnKoz9pOcC7Bfd04dza4D5FNeZ37HaUPRVz7qnkyr6iXUXZFzG2Pv9PTEKOH785Xyv2+eL25iD6OYYQUcWt0UJAS2BsrB0bcd78FfsbSlQaPePXaVS6Q74omKXmnELa+ZaiEjINcWKZxvhhQ296dHF7A4kfAhIogmBW9sjYDG5LtNB4DBFtzRauG48FarQFgntE/2YU0dv9dH9zJk+uz2GNHQRSnoxdwcZQCVQ/fTkIZ8f67aldYydhU5qiTIbCZCaDcx42Ciw28oLb2FG6UJbXgyqI35XtnEXAKmCaPAarzxPMvU/Nu8WdCTL34WaiMspM/yK47GOQvXcxo4ZY5bRs4OT6nCcLfUgKf8reZccH+Tr1bhMwRhER5bKbf/og4ZIH8uxUwrULtPIYifNPH2AehzN+G0IJn1GbEMUvGRTOTmEHIuAsdDztjCUB7r2rgRNDahlbgnGoVhFax/5M18C0/J3f7nY1qR/X/stI+mlV/L+vijQ6bDJvKmUspzJibj9C+p2YIJ2ztDs/pJjtjos9XGf67lSI0M4UtVuVLMNa+57V/OGrYWDy1xY9w+1igu8IvtoE/tZidq+qgP9Qph8+jzv6R3grsC2s2S5uiarlf0KKNXbTqcRw/h2tjrn6zlbHegyLQYoEYTHb6fHXZOfohlVMwgcXE6+53R1w/XHOC2o5Xl610yzj1YavJ7VJxl2TeoRPM6b1olJ21apV3CdRJ//+Boe/EHY=
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Insert, replace or delete a MongoDB document"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/mongo/{action}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Insert takes a document, replace takes the _id and the new document, delete takes the _id. All as Extended JSON text. Needs edit access to the host, a connection that is not read only, and is written to the audit log.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"action","required":true,"schema":{"type":"string","enum":["insert","replace","delete"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["db","collection"],"properties":{"db":{"type":"string"},"collection":{"type":"string"},"id":{"type":"string"},"doc":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The result."},"403":{"description":"No edit access, or the connection is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

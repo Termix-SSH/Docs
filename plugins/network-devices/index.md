@@ -7,7 +7,7 @@ description: "See and manage routers, switches and access points over SNMP and r
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Network-Devices/edit/main/docs/index.md"
 plugin_id: "network-devices"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Network Devices lets you see and manage routers, switches and access points from Termix. It reads them on a timer, shows their ports and clients, and tells you when one goes down.

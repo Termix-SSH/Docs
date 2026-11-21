@@ -7,7 +7,7 @@ description: "Back up folders, databases and Docker data on your hosts with rest
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Backups/edit/main/docs/index.md"
 plugin_id: "backups"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 Backups keeps encrypted copies of folders, databases and Docker data from your hosts. It runs [restic](https://restic.net) on each host, and Termix starts the jobs, watches them and keeps the history.

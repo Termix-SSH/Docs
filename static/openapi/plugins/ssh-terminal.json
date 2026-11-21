@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "SSH Terminal API",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "description": "SSH terminal sessions with tabs, split screen, history, macros and a local terminal in the desktop app."
   },
   "servers": [
@@ -120,6 +120,57 @@
           },
           "507": {
             "description": "The image storage limit was reached."
+          }
+        }
+      }
+    },
+    "/plugin-api/ssh-terminal/file-upload": {
+      "post": {
+        "summary": "Upload a file into a terminal session",
+        "description": "Stores a file that is not an image on the terminal's host over SFTP, as /tmp/termix-files/<random `id>/<name>` (a .termix-files folder in the home on Windows), under the image storage expiry and limits. The name keeps only A-Z a-z 0-9 . _ - and is cut to 100 characters with the extension kept. The bytes are stored as they are. Returns the path to hand to the program. Refused when image storage is set to local.",
+        "tags": [
+          "Terminal"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "instanceId": {
+                    "type": "string"
+                  },
+                  "clientUploadTimestamp": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The stored file's path."
+          },
+          "400": {
+            "description": "Missing file or session, or image storage is set to local."
+          },
+          "409": {
+            "description": "The terminal is not connected."
+          },
+          "502": {
+            "description": "Writing to the remote host failed."
+          },
+          "503": {
+            "description": "The terminal has no SSH connection to store the file on, or the storage limits cannot be checked."
+          },
+          "507": {
+            "description": "The storage limit was reached."
           }
         }
       }

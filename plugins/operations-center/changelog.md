@@ -6,9 +6,15 @@ slug: "/operations-center/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "operations-center"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
+## 1.1.1
+
+### Removed
+
+- The Actions entry in the host menu, which popped in late and only opened the host page
+
 ## 1.1.0
 
 ### Changed

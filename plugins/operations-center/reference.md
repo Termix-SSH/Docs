@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/operations-center/reference"
 custom_edit_url: null
 plugin_id: "operations-center"
-plugin_version: "1.1.0"
+plugin_version: "1.1.1"
 plugin_latest: true
 ---
 ## Settings

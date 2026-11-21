@@ -1,0 +1,105 @@
+---
+title: "Reference"
+sidebar_label: "Reference"
+sidebar_position: 90
+slug: "/automations/v/1.3.0/reference"
+custom_edit_url: null
+plugin_id: "automations"
+plugin_version: "1.3.0"
+plugin_latest: false
+---
+## Settings
+
+### User
+
+Each person sets these for themselves in **Settings**.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Always show buttons | boolean | `false` | Keep the test, run and delete buttons under each automation visible. Turn off to show them only on hover. |
+| Open the automations panel with a terminal | boolean | `false` | Show the automations panel when a terminal opens on a host that has it. |
+| Automations panel side | select | `"right"` | Where the panel sits next to the terminal. |
+| Automations panel size | number | `320` | Width, or height at the bottom, in pixels. |
+| Automations panel edge button | boolean | `true` | Show a small button on the terminal edge to open the panel. |
+
+### Host
+
+Set per host in the host editor, on the plugin's tab. Host defaults can set them for many hosts at once.
+
+| Setting | Type | Default | What it does |
+| --- | --- | --- | --- |
+| Enable maintenance | boolean | `false` | Show maintenance mode for this host. |
+| Panel beside the terminal | boolean | `true` | Offer a automations panel next to this host's SSH terminal. |
+
+## Permissions
+
+Give these to roles in **Settings**, **Roles**.
+
+| Permission | Who has it at first | What it allows |
+| --- | --- | --- |
+| `automations.view` | user | See the automations and their history. |
+| `automations.create` | user | Add new automations. |
+| `automations.edit` | user | Change existing automations. |
+| `automations.delete` | user | Remove automations. |
+| `automations.run` | user | Trigger an automation by hand. |
+
+## Actions
+
+Run these from Operations Center, Automations, the CLI (`termix ops`), the phone app or the API. See [actions](/develop/operations).
+
+| Action | Runs on | Risk | Inputs |
+| --- | --- | --- | --- |
+| `automations.list`<br />List automations | The server | Read only |  |
+| `automations.run`<br />Run an automation | The server | Changes | `automation` |
+| `automations.failed-runs`<br />Failed automation runs | The server | Read only |  |
+
+## Capabilities
+
+What the plugin's code is allowed to do. Termix shows this list before you install it. See [capabilities](/develop/reference/capabilities) for all of them.
+
+| Capability | Risk | What it means |
+| --- | --- | --- |
+| `credentials:read` | Critical | See your passwords and keys. It can read the stored secret for any host you can reach. |
+| `ssh:connect` | High | Run commands on your servers. Any command, on hosts you connect it to, with your access. |
+| `users:impersonate` | High | Act as other users. Runs background work with another user's access, such as scheduled jobs. Every use is written to the audit log. |
+| `operations:invoke` | High | Run other plugins' actions. Acts for the signed-in user on the actions its manifest lists. Approval rules still apply. |
+| `credentials:use` | Medium | Connect to your servers. It cannot see your passwords or keys. |
+| `events:core` | Medium | Watch everything happening. Including activity from other users, not just yours. |
+| `notify:send` | Medium | Send alerts. To you or other users, and through the channels they set up. |
+| `network:outbound` | Medium | Reach the internet. It can send requests to outside services. |
+| `network:serve` | Medium | Accept connections. It opens a port on the Termix server. |
+| `operations:provide` | Medium | Offer actions. Its actions can be run from Automations, the CLI, the phone app and other places, by people allowed to use them. |
+| `hosts:read` | Low | See your host list. Names and addresses for hosts you can already see. |
+| `db:own` | Low | Store its own data. Kept in its own tables, separate from other plugins. |
+| `settings:read-core` | Low | Read Termix settings. Server settings, not your hosts or credentials. |
+| `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+
+## Works with other plugins
+
+Needs: [snippets](/plugins/snippets) ^1.0.0.
+
+Works better with: [fleets](/plugins/fleets) ^1.0.0, [tunnels](/plugins/tunnels) ^1.0.0, [docker](/plugins/docker) ^1.0.0, [host-metrics](/plugins/host-metrics) ^1.0.0, [wake-on-lan](/plugins/wake-on-lan) ^1.0.0.
+
+## Services
+
+Services are how plugins call each other. Plugin authors can use these.
+
+| Provides | Version | Permission |
+| --- | --- | --- |
+| `automations.access` | 1.0.0 | `automations.view` |
+
+| Uses | Version | Optional |
+| --- | --- | --- |
+| `snippets.access` | ^1.0.0 | no |
+| `fleets.access` | ^1.0.0 | yes |
+| `tunnels.access` | ^1.0.0 | yes |
+| `docker.containers` | ^1.0.0 | yes |
+| `docker.events` | ^1.0.0 | yes |
+| `host-metrics.viewers` | ^1.0.0 | yes |
+| `wake-on-lan.send` | ^1.0.0 | yes |
+| `ai.tasks` | ^1.0.0 | yes |
+
+## Platforms
+
+Linux, Windows, macOS
+

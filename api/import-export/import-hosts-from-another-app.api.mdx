@@ -1,0 +1,68 @@
+---
+id: import-hosts-from-another-app
+title: "Import hosts from another app"
+description: "Reads hosts from Termius or another CSV, MobaXterm, PuTTY, SecureCRT or mRemoteNG files. With preview set it only returns what it found. Otherwise the hosts are imported in batches of 100 with the same rules as bulk-import. The user needs the host create and edit permissions."
+sidebar_label: "Import hosts from another app"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1z2zYQ/Ss7e6Ypp+lJtySTtk6nicdS6mY8ms6KXImISIABlqZUjf57ZgFKom3lkHt9sQjsN96+3T2WHApvWjHO4hTvmMoAlQsSYOVdA3P2jekCOA9knVTs4d3s7wz+ckv6R9g3Gdx28/mXDGZcdJ7f3c1Vtrnjxgl//B1WpuaQw72RClrPj4Z7CCxgBJytd+BZOm8D9BXFw5XrbJnDJ3XVm8AgFQ8BkWcwTeu8cAnGwpKkqDiAW8Gr62vo1YVKB2oYfFdzAAqw7OrNVVLLYV4xdIE9WOYynGxD4ZmEgWwJXBqBVtMOwTgbcsxQaB1w+oA30UwUe7/Vn7jI0PO3joO8deUOp/v4aTyXOBXfcYaFs8JW9IratjYFaa0nX4MWfI+hqLgh/SW7lnGKbvmVC8FsZOgBYxXVWetdy14MB1VJx2dd8p52mKERbsIlm0/VLTU8kgrijV3j4UnMz+4Oh0OGK+cbunCbIduu0XipE6d1S+jBDBu3pK1+ahCdiEYZImIKr4E1PgLGrnFxyLClEHrny0sungJWH/QMtoaCsIejegZ9xTa+slYKKgrgLOeaYskr6mr5HNhfLsNzT58Dl7ByHmazPwZAPjFsXUSWGlOx6MQ9su+9kbH5pXM1k9XroR8uXR5SpT2H1tmQnuuX62v99zSse+2bnkJqnEybT8NKgAfPoaslT3C/HcoCJsQWfFqc1BH0vIYxj18veZ4PmgEK19UlWCewZPBMR6XXL5U+OgGqa9dzCeKOYcZy5qgZNyyVK3GKrQsRsSQVTnHS1t3a2CtqzSQpXXHswAm17dDeEVL+kb326h47X+MU9+no8OI9v7jOJ3rbQpLBDB/JG1oOTTWcxhwiWHCKlUgbppNJRPY25y01bc154Rp9s8UAaiO7GMKSybN/02kKD4tDtsfCuY3h8Qm15k/enU5GJmZKDSmUsaETWDQWzTmKKXiiEGbDj9+GLsUP9/MX2c84shuI27CFwFaUURUM6sR581+kKaiYSvbKo2+j0ch9KhYV80QW55TOTBSzUipSb0kEs4Fx8GsvP4zow/0cknwEKQkEs7ZXxuZwr4BtPWu4mQ4LoQ0HPSm4ZFswaMP9MIsY7bjcP13JN7c3sOEdBCEvxq6HmdNs/32Rzkn050u74Z0ylymq5Cic3eRwI0CFxMk2yILr7aBdkNUupEL0nuzOWQauA6fe0plzd55W7xN4R4Pk4TgTziR4GgWnEbA4D4Ajz5/5esyezwj2fDWixTQjT0SonwcFzcrF5zGi8b2cu/Dm9kbblX1I5X6Vv86vXzzCzYheRvvMNoskXji7MuvsuOP8xFIT94QUiFTcKJOFStcT52FJxQa6NoJNOawhe561FyI6rlXUts/j34+q//9mdnkzSw0svJVJW5OJczUy/34YHQ94Hh3KR+PhgcoHp/GxyFBdqsp+v6TAn319OOjxt469MvriPCESfWNq4tg5G97hFN+lF7uaa2AqXneJD5+tftpGp1l3+2mmFL0cVsjGlarjqdc1kHqconZNREUcB/FsjzXZdUfryKjRpv59B6jIIQE=
+sidebar_class_name: "post api-method"
+info_path: api/import-export/import-and-export-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import hosts from another app"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/import-export/app-import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Reads hosts from Termius or another CSV, MobaXterm, PuTTY, SecureCRT or mRemoteNG files. With preview set it only returns what it found. Otherwise the hosts are imported in batches of 100 with the same rules as bulk-import. The user needs the host create and edit permissions.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["files"],"properties":{"files":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"content":{"type":"string"}}}},"format":{"type":"string","enum":["auto","termius","mobaxterm","putty","securecrt","mremoteng"]},"password":{"type":"string","description":"The mRemoteNG master password, when the file has one."},"defaultUsername":{"type":"string","description":"Used for SSH hosts the file has no username for."},"overwrite":{"type":"boolean"},"preview":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What was found, or the import result. needsPassword is set when the file needs a master password."},"400":{"description":"The files could not be read."},"403":{"description":"Not allowed to import hosts."}}}
+>
+  
+</StatusCodes>
+
+
+      

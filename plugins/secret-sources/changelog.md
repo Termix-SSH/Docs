@@ -6,9 +6,20 @@ slug: "/secret-sources/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "secret-sources"
-plugin_version: "1.1.3"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
+## 1.2.0
+
+### Added
+
+- Bitwarden or Vaultwarden where each user signs in: everyone unlocks their own vault with SSO, email or a personal API key plus their master password, and `bw://` references read only what their own account can see. No `bw serve` needed
+- Connecting to a host whose vault is locked shows Verify to open the unlock page (needs Termix 26.11.3 and SSH Terminal 1.5.0)
+- KeePass: read entries from a .kdbx file served over HTTP(S), like a WebDAV share, with the master password and key file
+- AWS Secrets Manager, Azure Key Vault and Google Cloud Secret Manager sources, with whole secrets or one key of a JSON secret on AWS
+- Pick from a vault works for KeePass, AWS, Azure and Google Cloud sources too
+- Pick from a vault: browse a Bitwarden or Vaultwarden (bw serve) source by name or folder and fill the username and password with its references in one click (needs Classic Layout 1.2.0)
+
 ## 1.1.3
 
 ### Changed

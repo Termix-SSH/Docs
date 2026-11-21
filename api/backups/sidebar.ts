@@ -42,6 +42,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "backups/your-alert-channels",
+          label: "Your alert channels",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "backups/jobs-on-a-host",
           label: "Jobs on a host",
           className: "api-method get",
@@ -170,6 +176,30 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "backups/remove-stale-locks",
           label: "Remove stale locks",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "backups/every-snapshot-in-a-repository",
+          label: "Every snapshot in a repository",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "backups/files-in-a-repository-snapshot",
+          label: "Files in a repository snapshot",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "backups/download-from-a-repository-snapshot",
+          label: "Download from a repository snapshot",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "backups/restore-from-a-repository-snapshot",
+          label: "Restore from a repository snapshot",
           className: "api-method post",
         },
       ],

@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/proxmox/reference"
 custom_edit_url: null
 plugin_id: "proxmox"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 ## Settings
@@ -37,6 +37,13 @@ Run these from Operations Center, Automations, the CLI (`termix ops`), the phone
 | `proxmox.shutdown-guest`<br />Shut down guest | One item on a host | Destructive |  |
 | `proxmox.reboot-guest`<br />Reboot guest | One item on a host | Destructive |  |
 | `proxmox.stop-guest`<br />Force stop guest | One item on a host | Destructive |  |
+| `proxmox.list-snapshots`<br />List guest snapshots | A host | Read only | `vmid` |
+| `proxmox.create-snapshot`<br />Take snapshot | One item on a host | Changes | `name`, `description`, `vmstate` |
+| `proxmox.rollback-snapshot`<br />Roll back to snapshot | One item on a host | Destructive |  |
+| `proxmox.delete-snapshot`<br />Delete snapshot | One item on a host | Destructive |  |
+| `proxmox.create-vm`<br />Create VM | A host | Changes | `name`, `node`, `vmid`, `cores`, `memoryMiB`, `diskGiB`, `storage`, `bridge`, `start`, `iso` |
+| `proxmox.create-ct`<br />Create container | A host | Changes | `hostname`, `template`, `node`, `vmid`, `cores`, `memoryMiB`, `diskGiB`, `storage`, `bridge`, `start`, `unprivileged`, `sshKey` |
+| `proxmox.clone-guest`<br />Clone guest | One item on a host | Changes | `name`, `newid`, `full`, `target`, `storage` |
 
 ## Capabilities
 

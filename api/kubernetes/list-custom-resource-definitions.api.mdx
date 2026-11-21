@@ -1,0 +1,69 @@
+---
+id: list-custom-resource-definitions
+title: "List custom resource definitions"
+description: "Every CRD in the cluster, with its kind, group and scope."
+sidebar_label: "List custom resource definitions"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVdtu20gM/RWCT7vAVE6LPunNu9tLegGKOougCIzFZERLU0sz6pByojX07wUl+ZJNU6DYJ9sccnjOIed4jwWxS74VHwPm+GpHqYc/P/8FPoBUBK7uWCgZuPNSgReGrQ+FgTLFrgUbCmAXW8rQoNiSMb/B990tpUBCjGuDrU22IaGkZ3v02qW1UqHBYBvCHJmYfQyXBRpM9K3ziQrMJXVkkF1FjcV8j9K3Y7IkH0ocBjPf9a2j1J8uczEI3Qv+rHStfbiNgYn1/MXFhX48VGIJtWeBuFE1OMPB4Msf5a1Wb2FmACEKbGIXCohp/OFiCOSEikwRY0NSxQJzLEkRjjLkuGjrrvThmW39YnvUbuFSwYv9UZxBKVHaHYTsUo057qeQHj6E9SV2Ca4oNf4ephw0uLPJ29t6Yj1HR0Ib29WCOVYiLeeLhYyFGd3bpq0pc7HBYdSNyXXJSz9CuCWbKC07ZXGz1om4GLeeziO29e+pP0bOrljpfCYo5xcdx6VYDmPU31MSmvnL65gaq5jfXV89Yr+aByJxSwGYghz2WZvE5P+1mgkV2YISWIY/xkvHhda0sXAc+jmlI7aJFZppBaeU0w5+vZMnEb27voIpH5gErAD7MjzzIYPrigK0iRSuAS8gdkusEUcFBUcQd5SeZDGiPZf7l5VcfrqELfXAYpP4UE5vXpr7fx7ROab+urRb6g3cVd5VUyM+tcngUsA6YS2bcyHehbna2aCPyjrRcxv6GAioZppelw+bOLL2UivNkw/B8tOlrj8lnuA/z15kF49IfbTBlgRndbP7MWxSbKDXN1VFFp4msVq9nX2xjiUbaEiSd2zgy/LjhxGxBa6orsfRtJGlsUERznvyQQ3GdSyxgUQcu+QICtr44BUR/xfgfnK3IP/XqKe1UJ9ctLX1QeGNfrKfPekGT56EBk+uhAbVl9BgfrLttUFVRcv2+1vL9Heqh0HDkzmrVxSe1XkKzDe2ZjK4pf6BXe9s3SkqVI84GNWPS58U5bfP89/H7/AUzcMDDv15zwOcE6dhfe7Xb15d4TB8B+zneOA=
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List custom resource definitions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/crds/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Every CRD in the cluster, with its kind, group and scope.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"context","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"A list of CRDs."},"400":{"description":"SSH session not found or not connected."}}}
+>
+  
+</StatusCodes>
+
+
+      

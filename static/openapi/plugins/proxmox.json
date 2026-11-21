@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Proxmox API",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "description": "Import Proxmox VE guests as hosts, keep them in sync and watch node stats."
   },
   "servers": [
@@ -410,6 +410,113 @@
           },
           "400": {
             "description": "No hosts given."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/guests/{hostId}/tree": {
+      "get": {
+        "summary": "Guests of a Proxmox host",
+        "description": "The VMs and containers of the cluster the host belongs to, for host tree layouts. Needs connect access to the host. Results are kept for 15 seconds.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The guests."
+          },
+          "403": {
+            "description": "No access to the host."
+          },
+          "502": {
+            "description": "Proxmox could not be reached."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/guests/{hostId}/options": {
+      "get": {
+        "summary": "Choices for a new guest",
+        "description": "Online nodes, the next free ID, and the chosen node's storages, ISO images, container templates and bridges.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "node",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The choices."
+          },
+          "403": {
+            "description": "No edit access to the host."
+          }
+        }
+      }
+    },
+    "/plugin-api/proxmox/guests/{hostId}/{action}": {
+      "post": {
+        "summary": "Create or clone a guest",
+        "description": "Creates a VM or container, or clones a guest (vmid in the body). Runs as an operation, so it needs the guests permission and edit access, and lands in run history. Waits for the Proxmox task to end.",
+        "tags": [
+          "Proxmox"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "hostId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "create-vm",
+                "create-ct",
+                "clone"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Done."
+          },
+          "404": {
+            "description": "Unknown action."
+          },
+          "422": {
+            "description": "Proxmox refused it, with its reason."
           }
         }
       }

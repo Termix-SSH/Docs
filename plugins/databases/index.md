@@ -3,11 +3,11 @@ title: "Databases"
 sidebar_label: "Overview"
 sidebar_position: 0
 slug: "/databases"
-description: "Browse and edit MySQL, MariaDB, PostgreSQL and SQLite databases on your hosts from one tab."
+description: "Browse and edit MySQL, MariaDB, PostgreSQL, SQL Server, SQLite, Redis and MongoDB databases on your hosts from one tab."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Databases/edit/main/docs/index.md"
 plugin_id: "databases"
-plugin_version: "1.3.0"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 Databases lets you look at and edit MySQL, MariaDB, PostgreSQL, SQL Server, SQLite, Redis and MongoDB databases that run on your hosts, from one tab in Termix. Save a login, pick a table, then page through the rows, change them or run your own SQL.

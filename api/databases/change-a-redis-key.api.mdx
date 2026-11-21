@@ -1,0 +1,70 @@
+---
+id: change-a-redis-key
+title: "Change a Redis key"
+description: "Sets, deletes, renames or expires a key, or adds and removes members. Needs edit access to the host, a connection that is not read only, and is written to the audit log."
+sidebar_label: "Change a Redis key"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVk1v4zYQ/SsDnlqAsdN2T77FmxbIdrPNximCIjAKWpxIjCVSyxnFcQT/92JIxVbqpkAuBaqTNJxvvnmjXlmkIrqWXfBqphbIpMFijYykIaI3DRKECPjUuogEBta41SIx1hIYbyFiEx6RoMFmhZEm8AXREqB1DKYokAg4AFcIVSDWYKAI3mMhMYErw+AIfGCIaCwEX2918usINtExo3+xN534rEM5UVqxKUnN7tS5YbMyhKSWWrUmmgYZoxz1yklRreFKaSWlqJmSHC6s0irit85FtGrGsUOtqKiwMWrWK962ouk8Y4lR7Xb6Hz1JFe/1tMzaSDwPdisqfzcugmf0LEembWtXGOnT9IHkgvpj32H1gAW/yuJOhVZptcZtakkMLUZ2SGJlVyNb4uh8qXZaDI7EWqHvGnFHKAEyLFKk1AGtMiiUVlXWqCzWct52JH2qs7SO2CityFhpFuWv5/z1LF/LXU72OLH0SEBqg6dcwY+np6mQV8C9FRhdo3UCSdpgRDuRuj6c/nSs/CWMwZnALOgaodLRAYwTAYBqkKtgBQOBpKgEhZmatnVXOn9iWje1L0Cc9hlku+nBJU37jJfdNEqaU4G2tI4wPr7AtYu1mqk+i3ap5eO8/whdhBuMjXuCrKO0ejTRmVWdezNIU8X3pqtZAM/c0mw65WQ4wSfTtDVOitBIf5eSQdFFx9uUwgpNxHjWSXV3S0F+EcLa4VhiWvcrbveSkYuFoDOnMna0v1fJRQ0DIt9ZSenh5ZcQGyM5f7q9Oap+gUSJMcIaPRB6BufTxUmQEN1zmhSo0FiMYAjmyWniElFLhgkV45L2ueWqlM6jnlUOw/6w4Tcz+nR7A1kfCBkMA7nSnzg/gdsKPbQRJV0NjoHNGkkkBVr0BUJ4xPhmFSnbcbvf3cmzqwthbCA2kZ0vYeO4Am6e/jwqZ6/6/tamnbCpXFHlQHQIM4ELmTQmMRt0IWz8YF0YL9RvCpZz47fBI2BNmMdOaO/6QJg/Z/C+ENmBqYS/BppKTDKiNufvQ2qcY7E87As4u7qQAcJIuQE/TD5MTo/aMo9hQ5iSTaxxuV18/azhUubufK7hKhCXEZNw8fUzLNIMpnfHqPesZOEy+DKcz2FPFBA8bGWohS8I7mNoQOpns0o3L1zTmMT7Aww/VsaXCGbwuk6AfZVvf9gg/691nnHN+MTTtjbOSwMSIfYD2d6pA9lK1fu9r9Vsv9VHjCvy0Y62TiSZdpc6/QeIz74XJ7/HercT8bcOozDh8sCsiRetI3m3anZvasJ/afp318Mi/h7eKuuFcfw2EXjdydceukMtwrT/YdShUztZxnnOU9358GOOc3IjLg7GRz8osgv2m/Lqt4Ww+Gr40WmCFZtoNnIdZpODhzbflfwJiaxXtfFlZ8pEusmnPH8BaZKmWw==
+sidebar_class_name: "post api-method"
+info_path: api/databases/databases-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Change a Redis key"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/databases/{hostId}/connections/{connId}/redis/write"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets, deletes, renames or expires a key, or adds and removes members. Needs edit access to the host, a connection that is not read only, and is written to the audit log.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"path","name":"connId","required":true,"schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["op","key"],"properties":{"db":{"type":"string"},"op":{"type":"string","enum":["set","delete","rename","expire","hset","hdel","rpush","lset","lrem","sadd","srem","zadd","zrem"]},"key":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"What Redis answered."},"403":{"description":"No edit access, or the connection is read only."}}}
+>
+  
+</StatusCodes>
+
+
+      

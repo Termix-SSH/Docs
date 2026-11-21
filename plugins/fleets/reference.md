@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/fleets/reference"
 custom_edit_url: null
 plugin_id: "fleets"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 ## Settings
@@ -45,6 +45,7 @@ Run these from Operations Center, Automations, the CLI (`termix ops`), the phone
 | --- | --- | --- | --- |
 | `fleets.list-fleets`<br />List fleets | The server | Read only |  |
 | `fleets.run-command`<br />Run a command | A host | Changes | `command` |
+| `fleets.exec`<br />Run a command and report | A host | Destructive | `command`, `timeoutSeconds` |
 
 ## Capabilities
 

@@ -18,6 +18,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "ssh-terminal/upload-a-file-into-a-terminal-session",
+          label: "Upload a file into a terminal session",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "ssh-terminal/test-image-storage-visibility-admin-only",
           label: "Test image storage visibility (admin only)",
           className: "api-method post",

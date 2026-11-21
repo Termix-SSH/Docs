@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Network Devices API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "See and manage routers, switches and access points over SNMP and router APIs."
   },
   "servers": [
@@ -422,6 +422,127 @@
           },
           "400": {
             "description": "The range is not valid or too large"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/configs": {
+      "get": {
+        "summary": "Saved configurations of a device",
+        "description": "Newest first, without their content.",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The saved configurations"
+          },
+          "404": {
+            "description": "Device not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Save the device's configuration now",
+        "description": "Reads it from the device. Nothing new is stored when it did not change.",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether it changed, and the newest saved configuration"
+          },
+          "400": {
+            "description": "This device type cannot save its configuration"
+          },
+          "502": {
+            "description": "The device could not be read"
+          }
+        }
+      }
+    },
+    "/plugin-api/network-devices/devices/{id}/configs/{configId}": {
+      "get": {
+        "summary": "One saved configuration with its content",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The configuration"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete one saved configuration",
+        "tags": [
+          "Network Devices"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "configId",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "Not found"
           }
         }
       }

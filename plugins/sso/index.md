@@ -3,11 +3,11 @@ title: "Single sign-on"
 sidebar_label: "Overview"
 sidebar_position: 0
 slug: "/sso"
-description: "Sign in with any OpenID Connect provider, GitHub or Google."
+description: "Sign in with any OpenID Connect or SAML provider, GitHub or Google."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-SSO/edit/main/docs/index.md"
 plugin_id: "sso"
-plugin_version: "1.2.0"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
 Single sign-on lets people sign in to Termix through an identity provider: anything that speaks OpenID Connect, like Keycloak, Authentik, Authelia, Entra ID, Okta or Pocket ID, anything that speaks SAML 2.0, like ADFS, Shibboleth, Okta or Entra ID, plus GitHub and Google.

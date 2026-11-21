@@ -1,0 +1,69 @@
+---
+id: choices-for-a-new-guest
+title: "Choices for a new guest"
+description: "Online nodes, the next free ID, and the chosen node's storages, ISO images, container templates and bridges."
+sidebar_label: "Choices for a new guest"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVU1v20YQ/SuDubQFNpLb5sSbk6aFUqAxardGYQjFmhyRW5G7zM7QEiPwvxezS300jg859SRqOB/vvd15PGBFXEbXiwseC/zgW+cJfKiIDUhD4GkvsIlEsPrJgPVVipZNYPIp7xsGlhBtrRWr2w/guvxcBi/WeYog1PWtFeJU/xhdVRMv0KDYmrF4wJsY9l3Y49pgb6PtSCjqiwM6RdVbadCgtx1hgU1gWVVoMNLHwUWqsJA4kEEuG+osFgeUsddM54VqijhNZu70caA4nlspfvxCIUt0vsZpWusU7oNnYn3/w9WV/vxXtLssiCuV1GTw9dWPz5N+C0CVE7BlScwgIemoXBaKDzuSJlRYYE2CJlMucNm3Q+38K9u7ZZ9FWtYDsfDykHWYliGNYOVB8eko3BBbLPCQQxOaz+D8FYYIdxQ7t4ecgwafbHT2sc1U52gisrFDKyq9SM/FcimpcEF72/UtLcrQ4ZTEYiqH6GRMEB7JRorXgzJ5WOsZlCFsHV1GbO9+pfEUuWhxq4eSoVw2Op2RYjmenf7PSWjmh59D7Kxifn9/94z9LTG74EHCljwweQHn04HokBDdJ6uZ0JCtKIJleJOanu5/KkyHfUnphC2zQpMvXU4537p/dvIiovf3d5DzgUnACrCr/SvnF3DfkIc+ksI14ATEbok1UlJFviQIT7psL7BIaC/l/molr29WsKURWGwU52vYOWlAuv3fz+icUr9e2i2NBnaNK5s8iM9jFrDSBRLWsjkXws7P1aX1PqQEfW/9GDwBtUx5w5zfhMTaSas0Z9OB65uV3n2KnLF/v3i9uHrGaNX1IQoci/58B3kPdZRuIhvYEvUKq1PGPPoyodpZKZvklMpHskX0gaWzXuHMl+JtNhDYhAgWPO1y/89x6A55IS//g1nn2yK0l2XfWueVSLKZw2xXD3i2K/Ww2dUNZqnQYHEy76NrrU0ydC0+HB4t0x+xnSYNZ69WI6kcqy1VWGxsy2RwS+PZvZ9sOygwVPc4WtiX616U8tvf52/Jd/AS0+Nq+/Fy5hHLzGtaX1r5L+/ucJr+BQJ6i4A=
+sidebar_class_name: "get api-method"
+info_path: api/proxmox/proxmox-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Choices for a new guest"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/proxmox/guests/{hostId}/options"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Online nodes, the next free ID, and the chosen node's storages, ISO images, container templates and bridges.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"hostId","required":true,"schema":{"type":"integer"}},{"in":"query","name":"node","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The choices."},"403":{"description":"No edit access to the host."}}}
+>
+  
+</StatusCodes>
+
+
+      

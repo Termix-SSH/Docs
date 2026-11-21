@@ -5,7 +5,7 @@ sidebar_position: 90
 slug: "/object-storage/reference"
 custom_edit_url: null
 plugin_id: "object-storage"
-plugin_version: "1.1.0"
+plugin_version: "1.2.0"
 plugin_latest: true
 ---
 ## Permissions
@@ -46,6 +46,14 @@ What the plugin's code is allowed to do. Termix shows this list before you insta
 | `kv:own` | Low | Remember small settings. Kept separate from other plugins. |
 | `secrets:own` | Low | Store its own secrets. Encrypted by Termix. The plugin never holds the key. |
 | `ui:surface` | Low | Add its own screens. Tabs, panels and settings you can hide later. |
+
+## Services
+
+Services are how plugins call each other. Plugin authors can use these.
+
+| Provides | Version | Permission |
+| --- | --- | --- |
+| `object-storage.files` | 1.0.0 | `object-storage.view` |
 
 ## API
 

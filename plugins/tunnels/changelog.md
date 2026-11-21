@@ -6,9 +6,19 @@ slug: "/tunnels/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "tunnels"
-plugin_version: "1.4.0"
+plugin_version: "1.5.0"
 plugin_latest: true
 ---
+## 1.5.0
+
+### Added
+
+- X11 apps: start a graphical program on a host, like xclock or virt-manager, and its windows open on an X server the admin sets, such as VcXsrv or XQuartz next to the desktop app
+
+### Fixed
+
+- Local and dynamic tunnels keep forwarding new connections instead of stopping about 30 seconds after they start
+
 ## 1.4.0
 
 ### Added

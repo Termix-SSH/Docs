@@ -6,9 +6,15 @@ slug: "/homepage/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "homepage"
-plugin_version: "1.2.1"
+plugin_version: "1.2.2"
 plugin_latest: true
 ---
+## 1.2.2
+
+### Fixed
+
+- The Weather widget loads again on Termix 26.11.2 and later, thanks to ZacharyZcR
+
 ## 1.2.1
 
 ### Changed

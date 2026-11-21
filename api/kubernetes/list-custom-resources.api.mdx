@@ -1,0 +1,69 @@
+---
+id: list-custom-resources
+title: "List custom resources"
+description: "Objects of one custom resource type, in a namespace or all of them."
+sidebar_label: "List custom resources"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVV1v3DYQ/CuLfWoB5s4N+qQ3B2hT5wMNahdGYByKPWnvxJxEKtyVbfWg/16seF+O4wBG/eQzNcud2SGHW6xYyuQ79TFggX8uv3CpAnEFMTCUvWhsIbHEPpUMOnTswAcgCNSydFQyxATUNFaiNbczdKi0Fixu8H2/5BRYWXDhsKNELSsn+7ZFb/060hod2mZYoLCIj+GiQoeJv/Y+cYWFpp4dSllzS1hs0UgYWJMPaxxHt9vra89pOG5WphfZ5qAT/09x9b3qZYwNU8BxXBhR6WIQFgO8PjuzPw+9uaoZYvZnhqPDX78HekPV5JK5cujupv8i7OY7M8LYstaxwgLXrOiyEwXOu6Zf+/CKOj/fHOyb54Mw3x4cGk0Qp9u9m31qsMBtXrKPD2l9jn2CK06tv4eMQYe3lDwtmyx5tzoJWlHfKBZYq3ZSzOc6Fc74ntqu4VkZWxynoQmXffI6TBSWTInTeW86bhZmSRnjxvPpCnX+PQ+HlZMtLs2dTOV0o4NZxmVv4mTeBEK3+/F7TC0Z53fXV4/UX+apgcYNBxAOandIawZrEpP/lwwJNVPFCUjgzbQpUKgm2FQ4mX4q6cAtq0KXz2CGHA/hlzt9ktG76yvIeBBWIAXx6/DKhxlc1xygS2x0HXgFpQ2LrZRccbCLf8vpSRUT29NxP3uS558uYMMDiFJSH9Zw57UGbe//eSTnAH3+aDc8OLirfVnnRnJsM4MLBbI4JNljId6FXXVJIcQJYN8pDJaY3Ajn++XDKk6qvTYm8xiGcP7pwo4/J8n0f5m9np09EvWRAq0ZTurKphfLT1il2MJgd6qOYnFtTlxe/uEy+SauxUHLmnwpDj6ff/wwMSaQmptmsqaLoi0FY7g7Jx+86LeJL9+ysksVlIO+3GORT4Xyvc67hnwwdlOcbHehdIPHUEKHx1hCh7kpOiyOj8fCoY3FCrfbJQn/nZpxtOUczxYWlReLngqLFTXCP1D501+7J+RneIrthofDg3NLTW8ItLh51CUjT9+UZ+EfNlgcI/TlNe2jJQynPfeMjsMeF6dvydvfrnAc/wOPcN1a
+sidebar_class_name: "get api-method"
+info_path: api/kubernetes/kubernetes-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List custom resources"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/kubernetes/custom/{sessionId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Objects of one custom resource type, in a namespace or all of them.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"sessionId","required":true,"schema":{"type":"string"}},{"in":"query","name":"crd","required":true,"schema":{"type":"string"}},{"in":"query","name":"namespace","schema":{"type":"string"}},{"in":"query","name":"namespaced","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The objects."},"400":{"description":"Bad type or namespace, or no session."}}}
+>
+  
+</StatusCodes>
+
+
+      

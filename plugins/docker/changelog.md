@@ -6,9 +6,17 @@ slug: "/docker/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "docker"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
+## 1.4.0
+
+### Added
+
+- Images, Volumes and Networks views next to Containers. List, inspect and remove each, pull images, create volumes and networks, and remove everything unused in one go
+- Pull, remove and clean up actions for Operations Center, Automations and the assistant
+- Containers show under their host in layouts with a host tree, like Host Layout, and open in the Docker tab
+
 ## 1.3.1
 
 ### Changed

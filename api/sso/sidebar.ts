@@ -30,6 +30,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "sso/saml-assertion-consumer-service",
+          label: "SAML assertion consumer service",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "sso/saml-service-provider-metadata",
+          label: "SAML service provider metadata",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "sso/the-current-users-sso-links",
           label: "The current user's SSO links",
           className: "api-method get",
@@ -74,6 +86,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "sso/add-an-sso-provider",
           label: "Add an SSO provider",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "sso/read-a-saml-identity-providers-metadata",
+          label: "Read a SAML identity provider's metadata",
           className: "api-method post",
         },
         {

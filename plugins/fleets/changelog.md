@@ -6,9 +6,15 @@ slug: "/fleets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "fleets"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Run a command and report: runs one command on a host and gives back its output and exit code, even when it fails. Offered to AI tools through the Operations Center MCP server, where each run waits for approval by default
+
 ## 1.2.1
 
 ### Changed

@@ -6,9 +6,25 @@ slug: "/file-manager/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "file-manager"
-plugin_version: "1.2.2"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- A lock button in the toolbar that blocks moving, renaming, deleting, uploading, creating and saving files until you unlock it, so browsing can't change anything by mistake
+- Desktop app: Open externally works for pictures and other non text files too, and saves come back as they are
+- Desktop app: a setting to open chosen file types, or every file, outside Termix when you open them
+- The delete prompt has a Delete permanently checkbox that skips the Trash, and Shift+Delete opens it already ticked. Its text now says where the files go. Needs Termix 26.11.3
+- WebDAV hosts, like Nextcloud, ownCloud or a NAS: browse, upload, download, edit, rename and delete files over HTTP or HTTPS
+- SMB shares, like a Samba server, a NAS or a Windows share: browse and change files over SMB 2 with an NTLMv2 login
+- A protocol picker in the toolbar when a host has more than one way in, so a host with SSH can also open its SMB share or WebDAV
+
+### Fixed
+
+- A folder the host could not list shows the error instead of "This folder is empty"
+
 ## 1.2.2
 
 ### Changed

@@ -1,0 +1,69 @@
+---
+id: download-from-a-repository-snapshot
+title: "Download from a repository snapshot"
+description: "Streams one file, or a folder as a zip file, out of a snapshot in one of your repositories."
+sidebar_label: "Download from a repository snapshot"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VU2P20YM/SsETy0wsbY56rZB0mLTS9DdYlEsjIKWaGtqaUaZodarGPrvBUeSrf0KEqQ92aDekI98M49HLDkWwbZivcMcryUwNRG8Y9jamg34AARbX5ccgCIQfLHt/KkT8FsgiI7aWHkB69JJv4XedwECtz5a8cFyXKFBoV3E/A7fUbHv2ohrgy0Falg46IcjWiXRklRo0FHDmKMt0WDgz50NXGIuoWODsai4IcyPKH2bUE54xwGHwbyYZaZ49U3ZogTrdotknzsO/Tlb5eOY6Rt4PDk60fphCqMkL1HYeF8zORyGtdaJrXeRowLeXlzoz2PJb6pRalV61naldbFhqXyJOe5Y0IzMc8zauttZ94Zam21GIbOl0NnRlkM2zztmx/Poh6z0B1d7SqPjcD/L3oUaczyOoQHNE4p/6WW64dDYBxgxaPCegqVNPXY2RVNzW+pqUZFE2phnmaSDK36gpq15VfgGhzSbyEUXrPSJwoYpcLjstMe7tU698H5veRmh1v7O/SmySHGtIoxUlolOmiiXWaukUQKhmf786kNDyvnj7c2z7q85RusdiN+zg8guvTOpGLSID/YLKRIqpumRvktJgVyZYOngCgfzqKUTt7ErNOM1GyHne/bPQV5l9PH2BkY8RBYggWh37o11K7it2EEbWOkasAJCe44aKbhkVzD4ew6vdpHYLsf93ZO8/HQFe+4hCgWxbgcHKxVI8/D3s3ZO0O8f7Z57A4fKFtVYKJ7LrOBKgAqJemzCgj+46XRBzvkESLbqejVOruP09qzb+tS1lVrbnCwTLj9d6d3nEEfuv6zeri6edaRo6NrJt6OBkoQ2FDmm2u99seeQguDd6NVqaRP7wFFsYZS0g03wh8gG5pebEijCB04qtT5KQ07JTlfm/QzdBt8AnddAf9oUTxnra3PCTv7/HTReI+EHydqarNMekv8cJ4e7w7PD6b2alpV66TkVGszTZjoZnUYebZmT161NWhia+XhUFf4M9TBoePR0tZ/SRjWzEvMt1ZEN7rlfLpp7qjvljepDz8CvzvKnP6Y98zO81vtYaFpLXy8zQk+b5wxen+345W5+hOBsU65f1pzZ2PK/H8nXKy5EHtbLNfnbhxschn8BbYQz4g==
+sidebar_class_name: "get api-method"
+info_path: api/backups/backups-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download from a repository snapshot"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/plugin-api/backups/repositories/{id}/snapshots/{snapshotId}/download"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams one file, or a folder as a zip file, out of a snapshot in one of your repositories.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"id","required":true,"schema":{"type":"integer"}},{"in":"path","name":"snapshotId","required":true,"schema":{"type":"string"}},{"in":"query","name":"hostId","schema":{"type":"integer"}},{"in":"query","name":"path","required":true,"schema":{"type":"string"}},{"in":"query","name":"folder","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The file or zip file."}}}
+>
+  
+</StatusCodes>
+
+
+      

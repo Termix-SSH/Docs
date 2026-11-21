@@ -6,9 +6,15 @@ slug: "/web-endpoint/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "web-endpoint"
-plugin_version: "1.2.1"
+plugin_version: "1.3.0"
 plugin_latest: true
 ---
+## 1.3.0
+
+### Added
+
+- Through Termix endpoints can pick how the server connects: Auto, SSH tunnel or Direct. Direct still needs the admin setting that lets Termix reach hosts directly
+
 ## 1.2.1
 
 ### Changed

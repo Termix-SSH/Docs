@@ -6,9 +6,15 @@ slug: "/snippets/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "snippets"
-plugin_version: "1.4.0"
+plugin_version: "1.4.1"
 plugin_latest: true
 ---
+## 1.4.1
+
+### Added
+
+- Running a snippet through the API also returns the command's exit code
+
 ## 1.4.0
 
 ### Changed
