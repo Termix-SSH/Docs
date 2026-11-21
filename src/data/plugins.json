@@ -149,17 +149,18 @@
   {
     "id": "alerts",
     "name": "Alerts",
-    "description": "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email.",
+    "description": "One inbox for every alert in Termix, with delivery to the mobile app, webhooks, ntfy, Discord and email.",
     "category": "Monitoring",
     "icon": "Bell",
     "author": "Termix",
     "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
     "docs": "https://docs.termix.site/plugins/alerts",
-    "latest": "1.3.1",
+    "latest": "1.4.0",
     "features": [
       "One inbox for alerts from every part of Termix",
       "Popups for new alerts",
-      "Send alerts to Discord, ntfy, email or a webhook",
+      "Send alerts to Discord, Slack, Teams, Telegram, ntfy, Gotify, Pushover, Matrix, email or a webhook",
+      "Push notifications on your phone through the Termix app",
       "Rules that pick which alerts go where",
       "Optional news from the Termix team, like security notices and releases",
       "An alerts inbox card for the dashboard"
@@ -185,8 +186,14 @@
     "videoId": "KW3-SZ7Th_8",
     "versions": [
       {
-        "version": "1.3.1",
+        "version": "1.4.0",
         "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-21T09:04:33.000Z"
+      },
+      {
+        "version": "1.3.1",
+        "latest": false,
         "prerelease": false,
         "publishedAt": "2026-11-18T06:42:16.000Z"
       },
@@ -207,12 +214,6 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-22T18:01:57.000Z"
-      },
-      {
-        "version": "1.0.2",
-        "latest": false,
-        "prerelease": false,
-        "publishedAt": "2026-10-18T04:51:12.000Z"
       }
     ]
   },
@@ -1296,6 +1297,40 @@
     ]
   },
   {
+    "id": "host-layout",
+    "name": "Host Layout",
+    "description": "A host first Termix layout with a tree of hosts and every tool as a tab on the selected host.",
+    "category": "Productivity",
+    "icon": "ListTree",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Host-Layout",
+    "docs": "https://docs.termix.site/plugins/host-layout",
+    "latest": "1.0.0",
+    "features": [
+      "Tree of folders, hosts, sub hosts, containers and VMs",
+      "Every tool for a host is a tab on that host",
+      "Sessions keep running when you switch hosts",
+      "Full host editor, Manage and Settings screens",
+      "Command palette, plugin panels and a phone view"
+    ],
+    "capabilities": [
+      "ui:layout",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": false,
+    "apiPath": null,
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-21T10:17:52.000Z"
+      }
+    ]
+  },
+  {
     "id": "host-metrics",
     "name": "Host Metrics",
     "description": "Live CPU, memory, disk, network and GPU stats, plus tools to manage your hosts.",
@@ -2226,6 +2261,41 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-10T02:56:53.000Z"
+      }
+    ]
+  },
+  {
+    "id": "original-layout",
+    "name": "Original Layout",
+    "description": "The Termix layout from before 2.3.0, with a floating sidebar of host folders and a floating tab bar.",
+    "category": "Productivity",
+    "icon": "PanelsLeftBottom",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Original-Layout",
+    "docs": "https://docs.termix.site/plugins/original-layout",
+    "latest": "1.0.0",
+    "features": [
+      "Floating sidebar with a card for each host folder",
+      "Floating tab bar with rounded tabs over a framed tab area",
+      "Tools sidebar on the right for snippets, history and other panels",
+      "The old dark and light colors as two themes",
+      "Dashboard, Host Manager and Settings from Classic Layout"
+    ],
+    "capabilities": [
+      "ui:layout",
+      "ui:surface",
+      "ui:theme"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": false,
+    "apiPath": null,
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-21T10:18:45.000Z"
       }
     ]
   },
@@ -3966,6 +4036,42 @@
         "latest": false,
         "prerelease": false,
         "publishedAt": "2026-10-11T22:30:09.000Z"
+      }
+    ]
+  },
+  {
+    "id": "terminal-layout",
+    "name": "Terminal Layout",
+    "description": "A terminal first Termix layout with a command palette for everything and tiled panes like tmux.",
+    "category": "Productivity",
+    "icon": "SquareTerminal",
+    "author": "Termix",
+    "repository": "https://github.com/Termix-SSH/Plugin-Terminal-Layout",
+    "docs": "https://docs.termix.site/plugins/terminal-layout",
+    "latest": "1.0.0",
+    "features": [
+      "Sessions fill the screen with almost no chrome",
+      "Tiled panes like tmux or Zellij",
+      "Ctrl+Space prefix keys to split, move, zoom and close panes",
+      "Command palette for hosts, tabs, actions and settings",
+      "Ctrl+Enter in the palette opens a host in a new pane",
+      "One line status bar with numbered tabs",
+      "Manage, Settings and the host editor from Classic Layout"
+    ],
+    "capabilities": [
+      "ui:layout",
+      "ui:surface"
+    ],
+    "env": [],
+    "dependencies": {},
+    "hasApi": false,
+    "apiPath": null,
+    "versions": [
+      {
+        "version": "1.0.0",
+        "latest": true,
+        "prerelease": false,
+        "publishedAt": "2026-11-21T10:17:06.000Z"
       }
     ]
   },

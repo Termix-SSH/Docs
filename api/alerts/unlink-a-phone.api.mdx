@@ -1,0 +1,69 @@
+---
+id: unlink-a-phone
+title: "Unlink a phone"
+description: "Removes its mobile channel and its rule. Answers 200 when the phone was already gone."
+sidebar_label: "Unlink a phone"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VcGO2zYQ/ZXBnFqAkZ0gJ91cZAtsGqBB4mBRLIxgLI0t1hSpkCPbqqB/L0gqtpPNFsihJ0nDN+R7w5mnEWsOldedaGexxA/cuiMH0BKgdVttGKqGrGUDZOsU9r3hAlY2nNgHeLVcwqlhC9IwdI2zDCcKQMYz1QPsneUCFQrtA5aPuDLsJeBGYUeeWhb2MT6ijqd3JA0qtNQylqhtEDLmvkaFnr/02nONpfieFYaq4ZawHFGGLoKDeG33OE2bCA6ds4FDXH+1XMbHj2TWCpxPdK0TMNoeuC5wUvj6RznrhmGmBLoGnbOOZHRMmhS2LI2rscSaDQujynpKXHSm32v7gjq9oFSARc1HXXFYjBeREyoM7I9fC9J7gyWOORQXv2Xzl+s9rNm3+gwZgwqP5DVtTRY+R5OOHfVGsMRGpAvlYiEpseAztZ3honItTql0gaveaxkShS2TZ7/qo4jHzaRGrJw7aL6NUKf/4OESudniY7yiTOV2o8uNRS4432T8ziBU88vvzrcUOb99WD9R/5FD0M6CuANbCGwFdG7BeIjz+h+KSGiYavZAAX5Lm6YmjrCUmO76VtKFW1aFKrdlhlwb8++TPMvo7cMaMh4CC5BA0Hv7QtsCHuKYdJ4jXQVaQOjAIUYqrtlWDO7I/lkVie1tuX+6kqv393DgAYKQF233cNLSgLTnz0/kXKA/X9oDDwpOja6afFC4HlPAvQBVEmLajAV3snN2RTaOFFUS18kO0U3YBM7zpe3OJdVaTJSZvQRW7+9j67MPmfrL4nWxfCLoTxund+vOsHMe+Mh+gDSLUV2eI5WJ1mx0WhaXOM42SF2n4MTbxrlDUGBlNyh4o0PlfJ3Yc0vapEvqXJCWbOQ6d8wnG90FKDvk9+TiXFlhK/+nAedWET7LojOkbSSaPGacbeoRrzaFCrNRJarJqlBheXXkjcLGBYlZ47ilwJ+8maYY/tKzj/axudpRMpNah/heY7kjE/g/SvDLh9nsf4XniH8dUzsk1zN9/EKFBx6++XFMm1tffnP37m59h9P0LyI3Zs4=
+sidebar_class_name: "delete api-method"
+info_path: api/alerts/alerts-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Unlink a phone"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/plugin-api/alerts/devices/{installId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes its mobile channel and its rule. Answers 200 when the phone was already gone.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"path","name":"installId","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Removed, or was not linked."},"400":{"description":"The install id is not valid."}}}
+>
+  
+</StatusCodes>
+
+
+      

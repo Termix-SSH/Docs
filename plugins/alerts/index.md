@@ -3,11 +3,11 @@ title: "Alerts"
 sidebar_label: "Overview"
 sidebar_position: 0
 slug: "/alerts"
-description: "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
+description: "One inbox for every alert in Termix, with delivery to the mobile app, webhooks, ntfy, Discord and email."
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Alerts/edit/main/docs/index.md"
 plugin_id: "alerts"
-plugin_version: "1.3.1"
+plugin_version: "1.4.0"
 plugin_latest: true
 ---
 Alerts is the one inbox for everything in Termix that wants your attention: an automation that failed, a certificate that didn't renew, a new Termix release. It can also send alerts on to your phone, Discord, Slack, Teams, Telegram, ntfy, Gotify, Pushover, Matrix, email or any webhook.

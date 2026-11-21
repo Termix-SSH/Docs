@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Alerts API",
-    "version": "1.3.1",
-    "description": "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
+    "version": "1.4.0",
+    "description": "One inbox for every alert in Termix, with delivery to the mobile app, webhooks, ntfy, Discord and email."
   },
   "servers": [
     {
@@ -303,6 +303,11 @@
                       "ntfy",
                       "discord",
                       "telegram",
+                      "slack",
+                      "teams",
+                      "gotify",
+                      "pushover",
+                      "matrix",
                       "email"
                     ]
                   },
@@ -383,6 +388,11 @@
                       "ntfy",
                       "discord",
                       "telegram",
+                      "slack",
+                      "teams",
+                      "gotify",
+                      "pushover",
+                      "matrix",
                       "email"
                     ]
                   },
@@ -579,6 +589,118 @@
           },
           "404": {
             "description": "No such rule for the caller."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/devices": {
+      "get": {
+        "summary": "List the caller's phones linked for push notifications",
+        "description": "Push tokens are never returned.",
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "The phones."
+          }
+        }
+      }
+    },
+    "/plugin-api/alerts/devices/{installId}": {
+      "put": {
+        "summary": "Link or update a phone for push notifications",
+        "description": "Used by the Termix app. Makes a mobile channel and a rule that sends alerts at or above minSeverity to it.",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "installId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "token",
+                  "platform"
+                ],
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "description": "The Expo push token."
+                  },
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "ios",
+                      "android"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "accountKey": {
+                    "type": "string",
+                    "description": "The app's id for this server, sent back in each push."
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "minSeverity": {
+                    "type": "string",
+                    "enum": [
+                      "info",
+                      "success",
+                      "warning",
+                      "critical"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The phone."
+          },
+          "400": {
+            "description": "The request is not valid."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink a phone",
+        "description": "Removes its mobile channel and its rule. Answers 200 when the phone was already gone.",
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "installId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Removed, or was not linked."
+          },
+          "400": {
+            "description": "The install id is not valid."
           }
         }
       }

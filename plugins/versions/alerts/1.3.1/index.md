@@ -2,12 +2,12 @@
 title: "Alerts"
 sidebar_label: "Overview"
 sidebar_position: 0
-slug: "/alerts/v/1.0.2"
+slug: "/alerts/v/1.3.1"
 description: "One inbox for every alert in Termix, with delivery to webhooks, ntfy, Discord and email."
 hide_title: true
 custom_edit_url: null
 plugin_id: "alerts"
-plugin_version: "1.0.2"
+plugin_version: "1.3.1"
 plugin_latest: false
 ---
 Alerts is the one inbox for everything in Termix that wants your attention: an automation that failed, a certificate that didn't renew, a new Termix release. It can also send alerts on to Discord, ntfy, email or any webhook.
@@ -21,6 +21,10 @@ Open Alerts from the sidebar. Each alert has a severity (info, success, warning 
 New alerts also pop up while you use Termix. Pick which ones under Alert popups in Settings, Alerts: all, warnings and critical (the default), critical only, or none. They always land in the inbox either way.
 
 Add the Alert Feed widget to your homepage to see the latest ones there.
+
+## On the dashboard
+
+Add the Alerts card in the dashboard's edit mode to keep your inbox on the dashboard. It shows the same list as the Alerts panel.
 
 ## Channels
 
