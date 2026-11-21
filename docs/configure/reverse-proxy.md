@@ -102,7 +102,7 @@ If a login proxy like Authelia, Authentik or Cloudflare Access sits in front of 
 - `/plugin-api/`
 - `/plugin-ws/`
 
-Plugins run in sandboxed frames, and the browser sends no cookies with their requests. A login proxy sends those requests to its login page instead, so plugins never start. You see "Getting plugins ready" on every load, and plugin pages stay empty.
+Plugins run in sandboxed frames, and the browser sends no cookies with their requests. A login proxy sends those requests to its login page instead, so plugins never start. You see "Getting plugins ready" on every load, and plugin pages stay empty. A [diagnostics report](/guide/diagnostics) shows this at the top, under Detected problems.
 
 This is safe. `/plugin-assets/` only serves the public plugin code, and Termix still checks its own login on `/plugin-api/` and `/plugin-ws/`.
 
