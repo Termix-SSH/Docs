@@ -1,0 +1,59 @@
+---
+id: this-servers-api-spec
+title: "This server's API spec"
+description: "The OpenAPI spec of core and every plugin that is on, at the versions this server runs, with servers set to this server's address. Only when the SERVE_OPENAPI environment variable is 'true'. Needs a signed in user or an API key."
+sidebar_label: "This server's API spec"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVE2P00AM/SuWL1yGdPkQh9wWqaAFiV2xhRVaKjSbuM3QZCaMnXZLlP+OPMl2CxUHzpwSOc/284v9eiyJi+haccFjjouK4LIlf351AdxSAWEFRYgE1pdAW4p7aOtu7TxIZQUcQ/AGrIBUBFuK7IJnkMoxMMUtRYidZwM7J9UU0S8CEo5RTxhsWUZizuDS13vYVeRTzev5x8/zb5dX8w9KifzWxeAb8gJbG529q0lJfEWJHX3FDD4QlQwW2K09leA8dEwRQgTrQUtsaJ+hQbFrxvwW35KnaGtcGozEbfBMjHmPz8/O9HGqTkNxTeVBpDIUndLJcDD48uzladI1xa3z6zRNktQxSBeVXVitMhwGgw1JFUrMcU2CBlsrFeY4mwSdhZa8bV32nYNHg5OOmN/22MUac+zH0IDmj+ZfQhdhQbFx95PUaPBBuTToFE20V7arBXOsRFrOZzNJiRnd26atKStCg8MwLJVB0UUn+0ThjmykeN4p59vlYHosQtg4Oo7Y1r2n/SFyVOK6qKgZqRwX6lH2LU1cdOYEw3wCoZle3oTYWOX87mZxMv01seoHEjbkgXVr3LhW2iRE99MqEiqyJUWwDK9T0bTtCkuJ6dcej3TgNk6FBp12GyFo0NvE9PtO/sro3c0CRny6BitpYZ86n8GNrn4bSekacAJiN8QaKagkXxAEvau/TZHYHsv9z0pOVwIsNopubjpeae6/nYxzgP67tBvaG9hVrqjGRvzYJoMLAVsIa9qEhbDzU3ZhvQ8JoN+t3wdPQDXTeEvOr0Ka2kmtY07bf351oas/XhTm+PxV9uxZ9uJkJL3x5HiPeRnMbVE9GN/DxTM4YaUFMXRCnIRvA0tjvfaftmDxm8s9+OqfbfVmvJCX/8qDx70UupdZW1vnVcFkaP1kgbeHH2bwNxNcGqwCiyL6/s4yfYr1MGj4R0dRfWn56HOjCT2a7Nv5AofhF0KPakA=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"This server's API spec"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/version/openapi.json"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The OpenAPI spec of core and every plugin that is on, at the versions this server runs, with servers set to this server's address. Only when the SERVE_OPENAPI environment variable is "true". Needs a signed in user or an API key.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The merged OpenAPI document."},"404":{"description":"Serving the spec is turned off."}}}
+>
+  
+</StatusCodes>
+
+
+      

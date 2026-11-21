@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Termix API",
-    "version": "26.11.2",
+    "version": "26.11.3",
     "description": "The core Termix API. Each plugin documents its own routes."
   },
   "servers": [
@@ -124,6 +124,10 @@
       "description": "Database export, import and health"
     },
     {
+      "name": "Diagnostics",
+      "description": "Diagnostics reports and server logs"
+    },
+    {
       "name": "General",
       "description": "Server info and settings"
     },
@@ -226,6 +230,138 @@
         }
       }
     },
+    "/diagnostics/request": {
+      "get": {
+        "summary": "How this request reached the server",
+        "description": "Header and cookie names (never values), forwarding hops and signs of a proxy or login gate in front of Termix. Works signed out, so a broken login can still be looked at.",
+        "tags": [
+          "Diagnostics"
+        ],
+        "responses": {
+          "200": {
+            "description": "What the server saw."
+          },
+          "429": {
+            "description": "Too many requests."
+          }
+        }
+      }
+    },
+    "/diagnostics/server": {
+      "get": {
+        "summary": "Server part of a diagnostics report",
+        "description": "Server, database and plugin state, plugin report sections and server log lines, all masked. Admins only. Each call is audited.",
+        "tags": [
+          "Diagnostics"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "logs",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "0",
+                "1"
+              ]
+            },
+            "description": "Include server log lines. On unless 0."
+          },
+          {
+            "in": "query",
+            "name": "sections",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "0",
+                "1"
+              ]
+            },
+            "description": "Ask running plugins for their report sections. On unless 0."
+          },
+          {
+            "in": "query",
+            "name": "levels",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma separated log levels to keep."
+          },
+          {
+            "in": "query",
+            "name": "pluginId",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Only this plugin's log lines and section."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The server part of the report."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "Not an admin."
+          },
+          "500": {
+            "description": "Failed to build the report."
+          }
+        }
+      }
+    },
+    "/diagnostics/logs": {
+      "get": {
+        "summary": "Server log lines",
+        "description": "Recent server log lines, masked, for the live log view. Pass the last seq seen as after to get only newer lines. Admins only.",
+        "tags": [
+          "Diagnostics"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "levels",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pluginId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Boot lines, recent lines and the newest seq."
+          },
+          "401": {
+            "description": "Not signed in."
+          },
+          "403": {
+            "description": "Not an admin."
+          }
+        }
+      }
+    },
     "/health": {
       "get": {
         "summary": "Health check",
@@ -290,6 +426,23 @@
         "responses": {
           "200": {
             "description": "The security.txt file, as text/plain."
+          }
+        }
+      }
+    },
+    "/version/openapi.json": {
+      "get": {
+        "summary": "This server's API spec",
+        "description": "The OpenAPI spec of core and every plugin that is on, at the versions this server runs, with servers set to this server's address. Only when the SERVE_OPENAPI environment variable is \"true\". Needs a signed in user or an API key.",
+        "tags": [
+          "General"
+        ],
+        "responses": {
+          "200": {
+            "description": "The merged OpenAPI document."
+          },
+          "404": {
+            "description": "Serving the spec is turned off."
           }
         }
       }
@@ -856,7 +1009,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Logged out successfully."
+            "description": "Logged out successfully. redirectUrl is set when the login method wants the browser sent on, such as to the identity provider's sign out page."
           },
           "500": {
             "description": "Logout failed."
@@ -6041,6 +6194,58 @@
         }
       }
     },
+    "/plugins/community-looks": {
+      "get": {
+        "summary": "Read whether community layouts and themes may run in the page",
+        "tags": [
+          "Plugins"
+        ],
+        "responses": {
+          "200": {
+            "description": "Whether the admin allowed it."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          }
+        }
+      },
+      "put": {
+        "summary": "Let community layouts and themes run in the page",
+        "description": "A layout draws the whole app, so in the page it can read and do anything the signed in user can. Only for plugins you trust. Takes effect when the page reloads.",
+        "tags": [
+          "Plugins"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The saved value."
+          },
+          "400": {
+            "description": "enabled is not a boolean."
+          },
+          "403": {
+            "description": "The caller lacks admin.plugins.manage."
+          }
+        }
+      }
+    },
     "/plugins/upload": {
       "post": {
         "summary": "Upload a .tmxplug to install from a file",
@@ -9342,6 +9547,41 @@
         "responses": {
           "200": {
             "description": "Login methods."
+          }
+        }
+      }
+    },
+    "/users/auth/app-handoff/redeem": {
+      "post": {
+        "summary": "Finish a browser sign in for the mobile app",
+        "description": "Public. Trades the one-time code a browser login gave the mobile app for the session. The verifier must hash (SHA-256, base64url) to the challenge the app sent with the login. Each code works once and only for two minutes.",
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "verifier": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The session token."
+          },
+          "400": {
+            "description": "The code is wrong, used or expired."
           }
         }
       }

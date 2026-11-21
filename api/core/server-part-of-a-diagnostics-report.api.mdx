@@ -1,0 +1,69 @@
+---
+id: server-part-of-a-diagnostics-report
+title: "Server part of a diagnostics report"
+description: "Server, database and plugin state, plugin report sections and server log lines, all masked. Admins only. Each call is audited."
+sidebar_label: "Server part of a diagnostics report"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVsFu20YQ/ZXBXHphKTlpe+BNbZJCKdAEsAqjMIRiTY7ErZa77M7QNivw34MhaUm2bEFOLjmJ2p2Zfe/xcWa3WBDn0dZig8cMLyneUkygMGJuDBMYX0DtmrX1wGKEkod/keoQBZhyTeU+kPtscGENznriBIxzUBneUJHCrKisZwjetSm8N3kJuW5bBtMUVqhIMUExa8bsGt9Zs/aBxeaMywRrE01FQlE3t2gV638NxRYT9KYizNCFNWOCnJdUGcy2KG2t6yzR+jUmSL6ptPQUE7zAZZc84T73uWsKOmKRwicPjXfEDNMUu+T58x+U+CYMM95AbLy3fj0KzbAKEaQkG59qfiYwR7fkTsE6QvFbqCoDTKq6UDFI0VcBCbAhql8+bUA9L15z3ifvWpDS8sj5B96rPxqrZ5xit0wwEtfBM7FWfjOd6s/jeoty9xZrEwXCSgUc5VPo+NP04jjtzyDAdu2pAOvHsLfPhxkPRu3cR/38HIYPxjoqVK+bxrriMYAuwYqkDAVmuCZBNbiUmOGk2Pt+MlBQIfuHwfpNdJjhdljq8KmUf4cmwoJiZe9hl39rojU3blBsXO0Br0zjBDMsRWrOJhPpE1O6N1XtKM1DhV2nmjPlTbTS9hBuyESKs0YRXy/VCHkIG0uHK6a2f1C7WzkocamuGKAcFtqZRLE8mEf/D0GYjA8fQqyMYv54tThif0nMNniQsCEPTF7A+l56PSRE+7/RSCjJFBTBMPzaF+1NpmF9Yv9SDyntsA2sMBmcP4Tsrf/vnbyI6OPVAoZ4YBIwg9N+tD6Fq5I81JEUbgJWQMyGWFdyKsjnBEGd/BKLHu2h3K9WcvZ5DhtqtcFH0c5zZ6UEqe7/OaKzC329tBtqE7grbV4OB/H+mBTmAiYX1rQxFsKdH7Nz433oA3Tf+DZ4AnJMw5dk/Sr0rK04pTm6f/Z5rtanyAP0N7+kFxfp2yNK2izyEAn2eeN4GiddEfKmIi8MVlhhQQyNEPfC14GlMl7PH11w+bjxGDj4pMcO8BSDfkBeyMt3MYEH8wjdy6R2xnql2Xed7dilrvGA0q496ZguA4vub7cK/a/ouk6XhxGhraOwrI2owGxlHNMJHc6cxi/g3VC7vxLcGtdoSD+zzkfwLbP4JKyDm8JXQjtnQJ9W5uFO8JUAzp/YJ2EcXBb2QJb7gTVMk/2s/P39ArvuC2pKruo=
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Server part of a diagnostics report"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/diagnostics/server"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Server, database and plugin state, plugin report sections and server log lines, all masked. Admins only. Each call is audited.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"logs","schema":{"type":"string","enum":["0","1"]},"description":"Include server log lines. On unless 0."},{"in":"query","name":"sections","schema":{"type":"string","enum":["0","1"]},"description":"Ask running plugins for their report sections. On unless 0."},{"in":"query","name":"levels","schema":{"type":"string"},"description":"Comma separated log levels to keep."},{"in":"query","name":"pluginId","schema":{"type":"string"},"description":"Only this plugin's log lines and section."}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The server part of the report."},"401":{"description":"Not signed in."},"403":{"description":"Not an admin."},"500":{"description":"Failed to build the report."}}}
+>
+  
+</StatusCodes>
+
+
+      

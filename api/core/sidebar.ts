@@ -36,6 +36,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/finish-a-browser-sign-in-for-the-mobile-app",
+          label: "Finish a browser sign in for the mobile app",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "core/start-a-second-factor",
           label: "Start a second factor",
           className: "api-method post",
@@ -1464,6 +1470,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "core/read-whether-community-layouts-and-themes-may-run-in-the-page",
+          label: "Read whether community layouts and themes may run in the page",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/let-community-layouts-and-themes-run-in-the-page",
+          label: "Let community layouts and themes run in the page",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "core/upload-a-tmxplug-to-install-from-a-file",
           label: "Upload a .tmxplug to install from a file",
           className: "api-method post",
@@ -1538,6 +1556,30 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Diagnostics",
+      items: [
+        {
+          type: "doc",
+          id: "core/how-this-request-reached-the-server",
+          label: "How this request reached the server",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/server-part-of-a-diagnostics-report",
+          label: "Server part of a diagnostics report",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/server-log-lines",
+          label: "Server log lines",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "General",
       items: [
         {
@@ -1556,6 +1598,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "core/get-the-security-contact-file",
           label: "Get the security contact file",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "core/this-servers-api-spec",
+          label: "This server's API spec",
           className: "api-method get",
         },
         {

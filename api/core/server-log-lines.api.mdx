@@ -1,0 +1,69 @@
+---
+id: server-log-lines
+title: "Server log lines"
+description: "Recent server log lines, masked, for the live log view. Pass the last seq seen as after to get only newer lines. Admins only."
+sidebar_label: "Server log lines"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P2zYQ/SuDOavyblL0oNsGTYNNgWLRdbEoFkbAlcYSa4pUOCN7VcP/vRhSsd39KJKcerI1nI8384aPe2yI62gHscFjhb9TTV6AKW4pggstOOuJC+gNb6gpYB0iSEfg7JbS+dbSroQbw5zthjX8MzCRB8Ng1kIRJEBLAsG7CTztNLfmLeGq6a3ndFBigWJaxuoef7am9YHF1oyrAgcTTU9CUQ/3aBXq55HihAV60xNWmOpggVx31Bus9ijToAfWC7UU8XAoXo50tCXHL4WyROvb1yMHN7bWXzffE+tsb+W/8a4KjMRD8EysDm8uLvTn34y9C0G+kBQze+kLjG8SIzruzEmJhwJ/vLh8nuS3IMC29dSA9bPb25fdjAejnJXaGvYkXWiwwpa0mcFIhxUumhN9CxfaNNy0Upm/MTqscJ9NByyelPkzjBGWFHv7OG8iFrg10ZoHlycxWxPAtRmdYIWdyMDVYiEpsKRH0w+Oyjr0eEizZKrHaGVKEB7IRIpXo+K9XylJdQgbS+cWM9hfaTpazlLcKmkZynmiI4eK5Qu3+p2dsJj//BJibxTzx7vls+5vidkGDxI25IGVUOsTk1okRPu3UU/oyDQU9Yq9S0mPhKfAROJ5S0dsuSss8lZml9Na/rWTVxF9vFtC9gcmAZN35gfrS7jryMMQSeEWYAXEbIjVUlNDviYIKiivdZHQno/7myd5dXMNG5qAxUSxvoWdlQ6kf/z0rJ2j67ePdkNTAbvO1l0uxKcyJVwLmFpYw2ZfCDs/R9fG+5Ackij6KXgCckz5Hlm/DqlrK07bnLf/6uZaV58iZ+hvfiovL8u3z1padgR1iASnuBLem7qDLFHQhHrsyQuDFVZYEMMoxGnwQ2Dpjdf68xbcPtH/pwX1tnghL/+HJyMvitCjLAZnrNeWksLsZz26xzM9wgKTIq0K7AKLnu73D4bpj+gOBzVnoVaRaCyr5DRYrY1jKnBD09lTszVu1NKoYvGK7/Fx+Rrns/fkq3LPT8jJd3XSySxiJ4H+8H6Jh8M/eqO3rg==
+sidebar_class_name: "get api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Server log lines"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/diagnostics/logs"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Recent server log lines, masked, for the live log view. Pass the last seq seen as after to get only newer lines. Admins only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"in":"query","name":"after","schema":{"type":"integer"}},{"in":"query","name":"levels","schema":{"type":"string"}},{"in":"query","name":"pluginId","schema":{"type":"string"}},{"in":"query","name":"limit","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Boot lines, recent lines and the newest seq."},"401":{"description":"Not signed in."},"403":{"description":"Not an admin."}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,68 @@
+---
+id: finish-a-browser-sign-in-for-the-mobile-app
+title: "Finish a browser sign in for the mobile app"
+description: "Public. Trades the one-time code a browser login gave the mobile app for the session. The verifier must hash (SHA-256, base64url) to the challenge the app sent with the login. Each code works once and only for two minutes."
+sidebar_label: "Finish a browser sign in for the mobile app"
+hide_title: true
+hide_table_of_contents: true
+api: eJzlVcFu4zYQ/ZXBnFqAlnfTbQ66ZYtdNNtDg8ZFUARGQUtjibFEasmRZdfwvy+GVCw1aQ57ri6ShjPDN2+GjycsKRTedGycxRzv+k1jigxWXpcUgGsCZ2nBpiUoXEmgYePdEMhD4ypjodJ7im6t25iGQHcdbJ2PpkAhGGczWNUEe/Jma8hD2weGWocafrj/9WZx9fO1go0OdP2h982PwC7GFrVuGrJVSi5ZA1mGwXAdLXH3DD7pok7ABud3AZwtCLQtwdnmmIAMDlpje6aQoULWVcD8EW96rnGt0NPXngJ/dOUR81P8NZ5KzNn3pLBwlsmyLOmua0yhhajlUxC2ThiKmlotX3zsCHN0mycqGBV23nXk2VCQVUE48wrsja3wrPCZlf9YjI8ADJ2zIeW5evdOXv/u2WqiGtjtyGaS+cNbrpEtE2DwzlYK+kAlOA906KTwDGXTlrh2JebYuRCr0Vxjjss+kA9L3XO91F23qLUt3Xa79FQStagwkN+TF4JP2PsGczwl0xnVCyh/ud7DinxrDpB8UOFee6M3TSp2tMYitrpvGHOsmbuQL5ccAzM66LZrKCtcK4StBUHRe8PHCGFD2pOPrc4f12cljXA7Q3OL7sxvdLxYZinupbkJyjzRpVGCRWqObpiPTqjGj8/Ot1owf3lYvar+ft6vNNrGxsGWTZw3/8RBg5p0SR50gI8xaZxtcZsaPS/pgi1VhQqN7JZcUKHVEenTwG8i+vKwguQPgRg0QzCVXchhe6jJQudJ4CowDKx3FMRSUEly8tye/JtVRLRzur+byZu7W9jREQJrz8ZWoxy0h79flXNx/X5qd3RUMNSmqNNGYdomg1sGXXCQsNEX3GDH6EJb66KDrGt7dJaAmkDpVIlq/DHpzac0vJM+PB/9uSzMtMLYrYukGZYoHA/Pzd1tigip8qvr7P377KdXjKSz7wmmuFE/u6YXKS9d0bdkOYDhIFWBd0k2zyoKQauj6I1D9NlYE+rZhSBzIlQ/y/90I7zEcpp09X9w46QZZzrwsmu0sUJnFMfTqKuPGHUVFYqyymvSVpQbIKrrWmEtapw/4ukk8P/0zfks5q89eRG89SSgSd0wzXjUwh0dMcdfEu+LlYAS96ZPcvHibhMdvFwCd7/fi4JtxjuyTcPq9SDg9IA5okIXexvVMtpO2Ghb9bqKghNzyvMN9pbsSQ==
+sidebar_class_name: "post api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Finish a browser sign in for the mobile app"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/users/auth/app-handoff/redeem"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Public. Trades the one-time code a browser login gave the mobile app for the session. The verifier must hash (SHA-256, base64url) to the challenge the app sent with the login. Each code works once and only for two minutes.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"code":{"type":"string"},"verifier":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The session token."},"400":{"description":"The code is wrong, used or expired."}}}
+>
+  
+</StatusCodes>
+
+
+      

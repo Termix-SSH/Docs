@@ -1,0 +1,68 @@
+---
+id: let-community-layouts-and-themes-run-in-the-page
+title: "Let community layouts and themes run in the page"
+description: "A layout draws the whole app, so in the page it can read and do anything the signed in user can. Only for plugins you trust. Takes effect when the page reloads."
+sidebar_label: "Let community layouts and themes run in the page"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVU1v20YQ/SuDOdNUPooeeHOKFHBaoEajwCgMIRgtR+Jay11mdyiZJfTfi1nSkmwnhxzLi6jhm483s/N2xJqTibYTGzxWeA2OhtAL1JEOCaRhODTBMVDXFZACWJ+NHW0ZrIAhD5GpBvI11AHID9JYv82gZLeea3XpE0fFlvCXdwNsQoTO9VvrEwyhB4l9khKWtOMEvNmwETg0fJEqsgtUpxILFNomrO7xdgqAqwIjf+s5yYdQD1iN+a+NXGMlsecCTfDCXvQTdZ2zhpTt4iEp5RGTabglfZOhY6wwrB/YCBYXge6RPa0d15qui6HjKJaTOj19OPuvQ3BMHo/50TCpCz5N8Hdv3ujP87YvtVu05xr25Hou8VjgL98DzsnAJvBBgGDONXu8/35oQ85xBEdml4Dq1vpybn/ZkqetJjwW2LI0ocYKu17ZdyQNVriYoQsT2rb3VoYrF8IuYYGJ456jTmPEPjqscJxMRyxelPFP6CMsObb2ESYMFrinaJVPbsxszQQ21DvBChuRLlWLhWTHkh+p7RyXJrTa3JVWYPpoZcglrJkix+tey75fHYsRTQg7y5cW6uwfPJwsFyE+6zGYSrkMdJqq1qKcM0ynnEFYzC+/h9iS1vzpbvmK/WdOyQYPEnbsIbGXp0XSJCHaf/ORhIap5giU4EMOmtdKYdkxD/mS0qm2iRUWaDXbBMECPeVKHw7yw4o+3S1hwkNiAZK8tVfWl3CnG9hF1nILXXbJ+9lFNlyzNwxhz/GHLHK1l+3+6U5e397AjgdIQlFUVA5WGpD28esrOifoz7d2x0MBh8aaZkqUzmlKuBEgI0ndZiyEg5+9Dfm8hEb0O/kheAZ2aV4n1Ze/z8r0cTq8zyRD9emoU9uE3B8rCsB5T65vb3RJOKaJ5Ltfy7dvy/evyOcVD5Hh7FfCRzLNLLJQB9O37CWBlaQEIIZeOOURdSFJS1kJ5/PyJwucln2+ENJTv1pOEHt/eRG8LGg8K+7/4kKZTqXwoyw6R9ZrV7KcjbMG3uMcHHX/nqvgqsAmJFHQOK4p8Zfojkc1f+s5qjCtzkI3qRBOZzFr1o4HrPC3qV9XSy1F4a6f1vrFbaV6dVLp2y8qNOv50mtDrS6RDnpx0QErxAJDHkkWtWwb0ZHf9jq0CqeQ+vwH6Y3KrQ==
+sidebar_class_name: "put api-method"
+info_path: api/core/termix-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Let community layouts and themes run in the page"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/plugins/community-looks"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+A layout draws the whole app, so in the page it can read and do anything the signed in user can. Only for plugins you trust. Takes effect when the page reloads.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["enabled"],"properties":{"enabled":{"type":"boolean"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"The saved value."},"400":{"description":"enabled is not a boolean."},"403":{"description":"The caller lacks admin.plugins.manage."}}}
+>
+  
+</StatusCodes>
+
+
+      

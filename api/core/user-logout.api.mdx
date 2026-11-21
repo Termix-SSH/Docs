@@ -5,7 +5,7 @@ description: "Logs out the user and clears the JWT cookie."
 sidebar_label: "User logout"
 hide_title: true
 hide_table_of_contents: true
-api: eJydVMFu2zAM/RWCZ81pC2wH3zpgA9oNWIGmKIYgGFSZibXIkifSTTLD/z5IdpNsQQ/dyQb1qPceRbLHithE24oNHkv8GtYMoROQmqBjiqB9BcaRjpxjt49zMCFsLBWoUPSasVzgA1NkXCqMxG3wTIxlj1cXF+lzxrCmKnNwZwwxrzrn9gUOCt+/kpDAK20dVQUOg8KGpA4VltgGFlTYaqmxxFkSzDOXE1AhU3xOuspFj110WGI/hgZU/5B8D12EOcXG7mDEoMJnHa1+cqOZKZrlrXTnBEusRVouZzPJiQXtdNM6KkxocBiGZVJgumhlnyU8kY4Ur7ukdbEcVI9jIU8jurVfaH+InFxxb2pqRimnF/Uo+5YmLclzhmE5gVBNP59DbHTSfPs4P3N/T8w2eJCwIQ9MXsD6/NyJJET7Wyck1KSr1BIMH/OluTkSLCfmJzy1dNA2ukKFNrGNEFTodVb6cyuvKjq2GzAJaAG2a//O+gIea/LQRkpyFVgB0RviFDFUkTcE4Zniqy6y2tNyv7mS13c3sKE9sOgo1q9ha6UGaXY/zuwcoG8v7Yb2Cra1NfVIxEeaAm4EtBFOaRMWwta/TK32PmRAOtd+HzwBOaZxiKxfhezaiks2p+6/vrtJrU+RR+lXH4rLy+LqzNK8JjAhEhzzCvikTQ2t69bWQxVM15AXBiucZEEMnRDnwqfBbbRP/FMXpBUCh9H9iysNihfy8h8LanxSoZ3MWqetT+R5F/TT1lhg3hqocCJfKqzTWikX2PdPmukhumFI4V8dxTTKy+NqGOf2uJDuvt3PcRj+AGjP198=
+api: eJydVE2P0zAQ/SujuXAxKbsIDrktEki7ILHSdrVCVYXcZNqYJnbwTNqGKP8d2Q5todrDcko0fvZ78/UGLIkLb1oxzmKOX9yGwXUCUhF0TB60LaGoSXuOsbunORTObQ1lqFD0hjFf4COTZ1wq9MSts0yM+YDXb96EzwXDhsrIwV1REPO6q+s+A0+l8VTIo6/BMDAJ7CuykbV2G2OhIalcCXttJYlZebcPGpmsgLMqvFiBZhAXz01JVoz00Hq3MyX5VwxsNjayt3pDGY4K3z0jM4DW2tRUZjiOChM95tg6FlTYaqkwx1koE8/qeAEVMvldqEa+GLDzNeY4pNCI6h+Sb67zMCffmAMkDCrcaW/0qk4lnKJR3lp3tWCOlUjL+Wwm8WJGB920NWWFa3Acx2VQUHTeSB8lrEh78jdd0LpYjmrA1L7ziG7NZ+qPkbMnHoqKmiTl/KEBpW9p0hJyjjDMJxCq6eeT840Omu+e5hfZPxCzcRbEbcmmHprU7kDivPmlAxIq0mUYRIYP8dE4kgEWL8YWnqd01JayQoUmsCUIKrQ6Kv2xl2cVnYY8jqGWODWvjc3gKYxk6ynIVWAERG+JQ6SgkmxB4Hbkn80iqj0v94sreXN/C1vqgUV7MXYDeyMVSHP4fpHOEfry0m6pV7CvTFElIj7RZHAroAvhuGgJC25v/3iFttZFQDjXtneWgGqmtETGrl3M2kgd0pym/+b+Now+eU7Sr99nV1fZ24uU5hVB4TzB6V4GH3VRQVt3wSNKV3QNBYMwwkEWeNcJcSx8WNxG28A/TUEwLjiu7l9cYVGskJX/sMXUUqGDzNpaGxvIoxcMk2ssMLoGKpzIlwqrYCv5AodhpZkefT2OIfyzIx9WeXmyhrS3J0O6//owx3H8DejkAuw=
 sidebar_class_name: "post api-method"
 info_path: api/core/termix-api
 custom_edit_url: null
@@ -50,7 +50,7 @@ Logs out the user and clears the JWT cookie.
 </RequestSchema>
 
 <StatusCodes
-  responses={{"200":{"description":"Logged out successfully."},"500":{"description":"Logout failed."}}}
+  responses={{"200":{"description":"Logged out successfully. redirectUrl is set when the login method wants the browser sent on, such as to the identity provider's sign out page."},"500":{"description":"Logout failed."}}}
 >
   
 </StatusCodes>
