@@ -7,7 +7,7 @@ description: "Search logs from the journal, log files and Docker containers acro
 hide_title: true
 custom_edit_url: "https://github.com/Termix-SSH/Plugin-Log-Search/edit/main/docs/index.md"
 plugin_id: "log-search"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
 Log Search looks through the logs of many hosts at once. It reads the logs over SSH when you search or follow, so no log lines are copied or stored in Termix.

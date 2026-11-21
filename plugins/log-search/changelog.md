@@ -6,9 +6,15 @@ slug: "/log-search/changelog"
 custom_edit_url: null
 toc_max_heading_level: 2
 plugin_id: "log-search"
-plugin_version: "1.2.0"
+plugin_version: "1.2.1"
 plugin_latest: true
 ---
+## 1.2.1
+
+### Fixed
+
+- Search and Enter did nothing in Chrome, so no log lines showed up
+
 ## 1.2.0
 
 ### Added
