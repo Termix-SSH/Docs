@@ -1,0 +1,68 @@
+---
+id: stop-a-running-search
+title: "Stop a running search"
+description: "Stops a search the caller started with this runId. Hosts already being read finish, the rest are skipped."
+sidebar_label: "Stop a running search"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEn92k29781tvusN4GXHHpUAxFMDAyE6uxJZ0oN/WM/PeBkpfk2t3DvcwvlmmS+j6K/DRhw2KiDcl6hzWukg8CBMIUTQupZTDUdRxBEsXEDRxsUrsViIO7bRbwq5ckQF1kakbYsHU70DVsrbPSVjlJZElAkUH2NgRuFlhh5C8DS3rnmxHrKX/ayA3WKQ5cofEusUv6i0LorCHFuHwSBTqhmJZ70lUaA2ONfvPEJs15S6JHzBhxXWGIPnBMliXvlc3nWEnRuh0e86MZJHgnxffH62t9fV2nh5ZTyxFIq+CU8lyxAwlI8oWj5uo5tb7BGoMXRRcotVjjMnTDzrorCnbZ+d1VCV/OL0POcIcVCsdnjoL144RD7LDGqZiOWL2C9KcfItxz7O0LFB+s8JmipU1XmMzWTGZLQ5ewxjalIPVymXLggl+oDx0vjO+1GmtFYIZo05ghbJgix5tBKTyuj9WExvu95UsLBfsbjyfLRYqVHlmBcpnodAqKRTlnN6xnJ6zmxQcfe1LMHx/u37BfsYj1DpLfswNhl8C63Hq6iY/279w+0DI1em4C73JSINdktxy4wGP1FaUTtsIKK7S6W3HBCh1lpE+H9E1EHx/uofiDcAJKIHbnrqxbwEPLDkJkhVuBTZBoz6IWww07w+CfOX6TRUZ7We7vruTN3S3seSzDrV1cprt/+esNnZPr95d2z2MFh9aatmwk520WcJuAjAqI/OsL/uDmaEPO+eyg/8mN3jFwJ1xmS7Xg81lF3pfmvRjw02DruW19rpBN6oK/+x2sysze3N3qqHCUQvWHxU+L6/84z+zc+Z3ANvo+w33yQ3TUVWqGre1YMu5fvNlzBJUwso6jAJnoRaAnN0JbFDOBd4bzIao29JR1be4oFeI36vIa03QWyf9VuecuS/ySlqEj65RDlqdp1rdHPOsbVnhWuKxp82JWuXWFWhENmqYNCf8Ru+NRzV8Gjio867OQFZXB0mtZk/Y8Yo0/l0Jc3Ss0de+GMravbg7Vo5Mk331aqZJs5huo943GRDroLUIHrBEr9LnY5dpQ24Qdud1Auzz4Oac+/wA51Yos
+sidebar_class_name: "post api-method"
+info_path: api/log-search/log-search-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop a running search"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/plugin-api/log-search/search/cancel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stops a search the caller started with this runId. Hosts already being read finish, the rest are skipped.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["runId"],"properties":{"runId":{"type":"string"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  responses={{"200":{"description":"Whether a running search was stopped."}}}
+>
+  
+</StatusCodes>
+
+
+      

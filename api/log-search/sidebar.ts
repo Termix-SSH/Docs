@@ -58,6 +58,12 @@ const sidebar: SidebarsConfig = {
           label: "Search logs on many hosts",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "log-search/stop-a-running-search",
+          label: "Stop a running search",
+          className: "api-method post",
+        },
       ],
     },
   ],
